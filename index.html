@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>짬짬이 이야기 — 자투리 시간 이야기 말하기 활동</title>
+  <meta name="description" content="수업 전후 3~7분 자투리 시간에 전자칠판으로 바로 시작하는 초등 이야기 말하기 활동. 짧은 이야기 20편, 단계별 진행과 타이머, 설치·로그인 없음.">
+  <meta name="theme-color" content="#7A5FD0">
+  <meta property="og:title" content="짬짬이 이야기">
+  <meta property="og:description" content="짧은 이야기 하나로, 교사의 준비는 줄이고 학생의 생각과 말은 늘린다.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" id="brand-home">
+      <span class="brand-icon">📖</span>
+      <span class="brand-name">짬짬이 이야기</span>
+    </a>
+    <div class="topbar-actions">
+      <button id="btn-home" class="icon-btn" type="button" aria-label="처음으로">🏠</button>
+    </div>
+  </header>
+
+  <main id="app">
+    <!-- 1. 홈: 이야기 유형 선택 -->
+    <section id="screen-home" class="screen">
+      <p class="tagline">짧은 이야기 하나로, 생각하고 말하는 3~7분</p>
+      <div class="type-grid" id="type-grid" aria-label="이야기 유형 선택"></div>
+
+      <section class="fav-section" id="fav-section" hidden>
+        <h2>⭐ 즐겨찾기</h2>
+        <div class="story-chip-row" id="fav-row"></div>
+      </section>
+
+      <section class="fav-section" id="recent-section" hidden>
+        <h2>🕒 최근 사용</h2>
+        <div class="story-chip-row" id="recent-row"></div>
+      </section>
+
+      <footer class="site-footer">
+        <p>정답보다 근거와 상상을 칭찬해 주세요.</p>
+        <p class="sister-links">
+          <a href="https://shway81-droid.github.io/jjamjjami-gyosil/" target="_blank" rel="noopener">🎮 짬짬이 교실</a>
+          <a href="https://shway81-droid.github.io/jjam-stretch/" target="_blank" rel="noopener">🤸 짬짬이 스트레칭</a>
+          의 자매 프로젝트
+        </p>
+      </footer>
+    </section>
+
+    <!-- 2. 조건 선택 -->
+    <section id="screen-setup" class="screen" hidden>
+      <h1 class="setup-title" id="setup-title"></h1>
+
+      <div class="setup-group">
+        <h2>학년</h2>
+        <div class="option-row" id="opt-grade" role="radiogroup" aria-label="학년 선택"></div>
+      </div>
+
+      <div class="setup-group">
+        <h2>활동 시간</h2>
+        <div class="option-row" id="opt-duration" role="radiogroup" aria-label="활동 시간 선택"></div>
+      </div>
+
+      <div class="setup-group">
+        <h2>활동 방식</h2>
+        <div class="option-row" id="opt-mode" role="radiogroup" aria-label="활동 방식 선택"></div>
+      </div>
+
+      <div class="setup-actions">
+        <button class="btn btn-ghost" id="btn-setup-back" type="button">← 유형 다시 고르기</button>
+        <button class="btn btn-primary btn-big" id="btn-start" type="button">▶ 이야기 시작</button>
+      </div>
+    </section>
+
+    <!-- 3. 진행 (이야기~발표~확장) -->
+    <section id="screen-play" class="screen play" hidden>
+      <div class="play-top">
+        <div class="stage-dots" id="stage-dots" aria-label="진행 단계"></div>
+        <div class="play-top-right">
+          <button class="icon-btn" id="btn-fav" type="button" aria-label="즐겨찾기">☆</button>
+          <button class="btn btn-ghost btn-sm" id="btn-swap" type="button">🔄 다른 이야기</button>
+        </div>
+      </div>
+
+      <div class="stage-header">
+        <span class="stage-badge" id="stage-badge"></span>
+        <h1 class="stage-title" id="stage-title"></h1>
+      </div>
+
+      <div class="stage-body" id="stage-body"></div>
+
+      <div class="play-bottom">
+        <div class="timer" id="timer-wrap">
+          <div class="timer-bar"><div class="timer-fill" id="timer-fill"></div></div>
+          <div class="timer-row">
+            <span class="timer-digits" id="timer-digits">0:00</span>
+            <div class="timer-btns">
+              <button class="btn btn-ghost btn-sm" id="btn-pause" type="button">⏸ 일시정지</button>
+              <button class="btn btn-ghost btn-sm" id="btn-plus30" type="button">+30초</button>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary btn-big" id="btn-next" type="button">다음 단계 →</button>
+      </div>
+    </section>
+
+    <!-- 4. 마무리 -->
+    <section id="screen-done" class="screen done" hidden>
+      <div class="done-emoji">🎉</div>
+      <h1 id="done-praise"></h1>
+      <p class="done-sub" id="done-sub"></p>
+      <div class="done-actions">
+        <button class="btn btn-primary btn-big" id="btn-again" type="button">🔄 같은 조건, 다른 이야기</button>
+        <button class="btn btn-ghost btn-big" id="btn-done-home" type="button">🏠 처음으로</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
