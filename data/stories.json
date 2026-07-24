@@ -1,13 +1,24 @@
 {
-  "version": 2,
+  "version": 3,
   "stories": [
     {
       "id": "next-001",
       "title": "교실에 남겨진 상자",
       "type": "next-story",
-      "grades": ["lower", "middle"],
-      "durationOptions": [3, 5, 7],
-      "activityModes": ["individual", "pair", "whole"],
+      "grades": [
+        "lower",
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
       "story": [
         "아침에 교실 문을 열자 선생님 책상 위에 커다란 상자가 놓여 있었어요.",
         "상자에는 \"점심시간에 열어 보세요\"라고 적혀 있었어요.",
@@ -28,16 +39,31 @@
         "새로 키울 학급 물고기나 곤충이 들어 있을 것 같아요.",
         "보드게임처럼 조각이 많은 놀잇감이 들어 있을 것 같아요."
       ],
-      "keywords": ["학교", "상자", "상상"],
+      "keywords": [
+        "학교",
+        "상자",
+        "상상"
+      ],
       "sensitivity": "low"
     },
     {
       "id": "next-002",
       "title": "운동장의 발자국",
       "type": "next-story",
-      "grades": ["lower", "middle"],
-      "durationOptions": [3, 5, 7],
-      "activityModes": ["individual", "pair", "whole"],
+      "grades": [
+        "lower",
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
       "story": [
         "밤새 눈이 내린 아침, 운동장에 커다란 발자국이 한 줄로 찍혀 있었어요.",
         "발자국은 학교 뒤뜰 화단 앞에서 뚝 끊겨 있었어요.",
@@ -58,16 +84,31 @@
         "눈사람이 밤에 살아나서 걸어다닌 것 같아요.",
         "경비 아저씨가 화단에 선물을 두고 간 것 같아요."
       ],
-      "keywords": ["겨울", "눈", "미스터리"],
+      "keywords": [
+        "겨울",
+        "눈",
+        "미스터리"
+      ],
       "sensitivity": "low"
     },
     {
       "id": "next-003",
       "title": "도서관의 쪽지",
       "type": "next-story",
-      "grades": ["middle", "upper"],
-      "durationOptions": [3, 5, 7],
-      "activityModes": ["individual", "pair", "whole"],
+      "grades": [
+        "middle",
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
       "story": [
         "도서관에서 빌린 책 사이에서 낡은 쪽지가 툭 떨어졌어요.",
         "쪽지에는 \"이 책을 읽는 다음 사람에게. 47쪽을 꼭 확인하세요.\"라고 적혀 있었어요.",
@@ -90,16 +131,31 @@
         "종이를 긁어서 쓴, 비스듬히 보면 나타나는 글씨일 것 같아요.",
         "오래전 이 학교에 다닌 학생이 남긴 응원 편지일 것 같아요."
       ],
-      "keywords": ["도서관", "비밀", "탐정"],
+      "keywords": [
+        "도서관",
+        "비밀",
+        "탐정"
+      ],
       "sensitivity": "low"
     },
     {
       "id": "next-004",
       "title": "물음표 시간표",
       "type": "next-story",
-      "grades": ["middle", "upper"],
-      "durationOptions": [3, 5, 7],
-      "activityModes": ["individual", "pair", "whole"],
+      "grades": [
+        "middle",
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
       "story": [
         "월요일 아침, 칠판에 \"오늘은 특별한 시간표로 수업합니다\"라고 적혀 있었어요.",
         "1교시 칸에는 과목 이름 대신 커다란 물음표만 그려져 있었어요.",
@@ -122,16 +178,31 @@
         "그림자 인형극을 보는 수업일 것 같아요.",
         "눈을 감고 소리로 떠나는 상상 여행 수업일 것 같아요."
       ],
-      "keywords": ["학교", "깜짝수업", "상상"],
+      "keywords": [
+        "학교",
+        "깜짝수업",
+        "상상"
+      ],
       "sensitivity": "low"
     },
     {
       "id": "next-005",
       "title": "구독자 한 명의 댓글",
       "type": "next-story",
-      "grades": ["middle", "upper"],
-      "durationOptions": [3, 5, 7],
-      "activityModes": ["individual", "pair", "whole"],
+      "grades": [
+        "middle",
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
       "story": [
         "지호는 아무에게도 말하지 않고 종이접기 영상을 올리는 유튜브 채널을 만들었어요.",
         "구독자는 석 달째 딱 한 명뿐이었어요.",
@@ -154,16 +225,31 @@
         "같은 반 친구가 몰래 보다가 용기 내어 댓글을 단 것 같아요.",
         "\"우리 동아리에서 종이접기를 가르쳐 주세요\" 같은 부탁일 것 같아요."
       ],
-      "keywords": ["유튜브", "꾸준함", "상상"],
+      "keywords": [
+        "유튜브",
+        "꾸준함",
+        "상상"
+      ],
       "sensitivity": "low"
     },
     {
       "id": "why-001",
       "title": "우산을 두고 간 아이",
       "type": "why",
-      "grades": ["lower", "middle"],
-      "durationOptions": [3, 5, 7],
-      "activityModes": ["individual", "pair", "whole"],
+      "grades": [
+        "lower",
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
       "story": [
         "비가 오는 날, 지우는 우산을 챙겨 학교에 왔어요.",
         "그런데 집에 갈 때 지우는 자기 우산을 친구 신발장에 살짝 걸어 두었어요.",
@@ -184,16 +270,31 @@
         "지난번에 우산을 빌려준 친구에게 고마움을 갚은 것 같아요.",
         "비를 맞으며 뛰는 걸 좋아해서 친구에게 양보한 것 같아요."
       ],
-      "keywords": ["비", "우정", "배려"],
+      "keywords": [
+        "비",
+        "우정",
+        "배려"
+      ],
       "sensitivity": "low"
     },
     {
       "id": "why-002",
       "title": "일부러 느려진 달리기",
       "type": "why",
-      "grades": ["lower", "middle"],
-      "durationOptions": [3, 5, 7],
-      "activityModes": ["individual", "pair", "whole"],
+      "grades": [
+        "lower",
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
       "story": [
         "체육 시간 달리기에서 늘 일 등을 하던 하늘이가 오늘은 결승선 앞에서 갑자기 천천히 달렸어요.",
         "하늘이는 뒤따라오던 친구와 나란히 손을 잡고 결승선을 통과했어요.",
@@ -214,16 +315,31 @@
         "같이 들어오기로 미리 약속했던 것 같아요.",
         "이기는 것보다 함께 달리는 게 더 즐거웠던 것 같아요."
       ],
-      "keywords": ["체육", "우정", "양보"],
+      "keywords": [
+        "체육",
+        "우정",
+        "양보"
+      ],
       "sensitivity": "low"
     },
     {
       "id": "why-003",
       "title": "사라진 새 연필",
       "type": "why",
-      "grades": ["middle", "upper"],
-      "durationOptions": [3, 5, 7],
-      "activityModes": ["individual", "pair", "whole"],
+      "grades": [
+        "middle",
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
       "story": [
         "서준이는 어제 새 연필 다섯 자루를 샀다고 신나게 자랑했어요.",
         "그런데 오늘 서준이의 필통에는 짧은 몽당연필 한 자루만 들어 있었어요.",
@@ -245,16 +361,31 @@
         "동생 입학 선물로 준 것 같아요.",
         "아끼는 연필이라 집에 소중히 모셔 둔 것 같아요."
       ],
-      "keywords": ["학용품", "비밀", "추리"],
+      "keywords": [
+        "학용품",
+        "비밀",
+        "추리"
+      ],
       "sensitivity": "low"
     },
     {
       "id": "why-004",
       "title": "지각한 반장",
       "type": "why",
-      "grades": ["middle", "upper"],
-      "durationOptions": [3, 5, 7],
-      "activityModes": ["individual", "pair", "whole"],
+      "grades": [
+        "middle",
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
       "story": [
         "한 번도 지각한 적 없는 반장 유나가 오늘은 20분이나 늦게 교실에 들어왔어요.",
         "유나의 운동화는 흙투성이였고, 손에는 구멍이 뚫린 작은 종이 상자가 들려 있었어요.",
@@ -277,16 +408,31 @@
         "길 잃은 병아리를 발견해서 데려온 것 같아요.",
         "화단에 떨어진 둥지를 옮겨 주다가 늦은 것 같아요."
       ],
-      "keywords": ["동물", "추리", "선행"],
+      "keywords": [
+        "동물",
+        "추리",
+        "선행"
+      ],
       "sensitivity": "low"
     },
     {
       "id": "why-005",
       "title": "간식을 반만 먹는 아이",
       "type": "why",
-      "grades": ["lower", "middle"],
-      "durationOptions": [3, 5, 7],
-      "activityModes": ["individual", "pair", "whole"],
+      "grades": [
+        "lower",
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
       "story": [
         "쉬는 시간마다 간식을 맛있게 다 먹던 도현이가 요즘은 꼭 반만 먹어요.",
         "남은 반은 휴지에 곱게 싸서 주머니에 넣어요.",
@@ -307,16 +453,31 @@
         "다친 새를 몰래 돌보고 있는 것 같아요.",
         "화단에서 개미들을 관찰하는 게 요즘 도현이의 비밀 취미인 것 같아요."
       ],
-      "keywords": ["동물", "비밀", "추리"],
+      "keywords": [
+        "동물",
+        "비밀",
+        "추리"
+      ],
       "sensitivity": "low"
     },
     {
       "id": "mind-001",
       "title": "전학 온 첫날",
       "type": "mind",
-      "grades": ["lower", "middle"],
-      "durationOptions": [3, 5, 7],
-      "activityModes": ["individual", "pair", "whole"],
+      "grades": [
+        "lower",
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
       "story": [
         "오늘 우리 반에 새 친구가 전학을 왔어요.",
         "새 친구는 쉬는 시간 내내 고개를 숙이고 책상만 바라보고 있었어요.",
@@ -337,16 +498,31 @@
         "친구들 이름을 빨리 외워서 먼저 인사하고 싶은 것 같아요.",
         "긴장되지만 설레는 마음도 함께 있을 것 같아요."
       ],
-      "keywords": ["전학", "감정", "우정"],
+      "keywords": [
+        "전학",
+        "감정",
+        "우정"
+      ],
       "sensitivity": "low"
     },
     {
       "id": "mind-002",
       "title": "동생의 낙서",
       "type": "mind",
-      "grades": ["lower", "middle"],
-      "durationOptions": [3, 5, 7],
-      "activityModes": ["individual", "pair", "whole"],
+      "grades": [
+        "lower",
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
       "story": [
         "수아가 아끼는 공책에 동생이 삐뚤빼뚤 그림을 잔뜩 그려 놓았어요.",
         "수아는 화가 나서 공책을 들고 방으로 쿵쿵 들어갔어요.",
@@ -367,16 +543,31 @@
         "고마우면서도 공책은 아까운, 두 가지 마음일 것 같아요.",
         "동생이 자기를 걱정해 준 게 뭉클했을 것 같아요."
       ],
-      "keywords": ["가족", "감정", "화해"],
+      "keywords": [
+        "가족",
+        "감정",
+        "화해"
+      ],
       "sensitivity": "low"
     },
     {
       "id": "mind-003",
       "title": "발표 차례",
       "type": "mind",
-      "grades": ["middle", "upper"],
-      "durationOptions": [3, 5, 7],
-      "activityModes": ["individual", "pair", "whole"],
+      "grades": [
+        "middle",
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
       "story": [
         "도윤이는 발표 순서가 다가올수록 지우개만 만지작거렸어요.",
         "어젯밤 늦게까지 연습했는데도 손바닥에 땀이 났어요.",
@@ -399,16 +590,31 @@
         "긴장, 설렘, 그리고 짝꿍에 대한 고마움이 섞여 있을 것 같아요.",
         "심호흡을 한 걸 보면 스스로 용기를 내는 중인 것 같아요."
       ],
-      "keywords": ["발표", "긴장", "용기"],
+      "keywords": [
+        "발표",
+        "긴장",
+        "용기"
+      ],
       "sensitivity": "low"
     },
     {
       "id": "mind-004",
       "title": "상장을 넣은 가방",
       "type": "mind",
-      "grades": ["middle", "upper"],
-      "durationOptions": [3, 5, 7],
-      "activityModes": ["individual", "pair", "whole"],
+      "grades": [
+        "middle",
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
       "story": [
         "그림 대회 시상식 날, 은서는 상장을 받고 활짝 웃었어요.",
         "그런데 교실로 돌아오는 길에 함께 대회에 나갔던 단짝 지민이가 보이지 않았어요.",
@@ -431,16 +637,31 @@
         "지민이는 아쉽지만 친구를 축하해 주고 싶은 마음도 있을 것 같아요.",
         "은서가 상장을 넣은 건 친구의 마음을 지켜 주고 싶어서인 것 같아요."
       ],
-      "keywords": ["우정", "배려", "감정"],
+      "keywords": [
+        "우정",
+        "배려",
+        "감정"
+      ],
       "sensitivity": "low"
     },
     {
       "id": "mind-005",
       "title": "처음으로 진 날",
       "type": "mind",
-      "grades": ["middle", "upper"],
-      "durationOptions": [3, 5, 7],
-      "activityModes": ["individual", "pair", "whole"],
+      "grades": [
+        "middle",
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
       "story": [
         "민재와 준서는 학교가 끝나면 같은 게임을 하는 단짝이에요.",
         "게임은 언제나 민재가 이겼는데, 오늘 처음으로 준서가 이겼어요.",
@@ -463,16 +684,31 @@
         "준서는 기쁘지만 친구가 속상할까 봐 눈치가 보일 것 같아요.",
         "두 사람 다 먼저 말을 꺼낼 용기를 찾고 있는 것 같아요."
       ],
-      "keywords": ["게임", "우정", "감정"],
+      "keywords": [
+        "게임",
+        "우정",
+        "감정"
+      ],
       "sensitivity": "low"
     },
     {
       "id": "choice-001",
       "title": "하나뿐인 자리",
       "type": "choice",
-      "grades": ["lower", "middle"],
-      "durationOptions": [3, 5, 7],
-      "activityModes": ["individual", "pair", "whole"],
+      "grades": [
+        "lower",
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
       "story": [
         "버스에 빈자리가 딱 하나 남았어요.",
         "그때 무거운 가방을 든 친구와 다리를 다쳐 목발을 짚은 친구가 동시에 버스에 탔어요.",
@@ -493,16 +729,31 @@
         "두 친구에게 직접 물어보고 정할 것 같아요.",
         "주변 어른들께 도움을 요청할 것 같아요."
       ],
-      "keywords": ["배려", "선택", "생활"],
+      "keywords": [
+        "배려",
+        "선택",
+        "생활"
+      ],
       "sensitivity": "low"
     },
     {
       "id": "choice-002",
       "title": "복도에서 주운 천 원",
       "type": "choice",
-      "grades": ["lower", "middle"],
-      "durationOptions": [3, 5, 7],
-      "activityModes": ["individual", "pair", "whole"],
+      "grades": [
+        "lower",
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
       "story": [
         "쉬는 시간, 아무도 없는 복도에서 천 원짜리 지폐 한 장을 주웠어요.",
         "마침 오늘은 학교 앞에서 맛있는 간식을 파는 날이에요.",
@@ -523,16 +774,31 @@
         "교무실 분실물 보관함에 맡길 것 같아요.",
         "방송으로 주인을 찾아 달라고 부탁할 것 같아요."
       ],
-      "keywords": ["정직", "선택", "생활"],
+      "keywords": [
+        "정직",
+        "선택",
+        "생활"
+      ],
       "sensitivity": "low"
     },
     {
       "id": "choice-003",
       "title": "비 오는 날의 약속",
       "type": "choice",
-      "grades": ["middle", "upper"],
-      "durationOptions": [3, 5, 7],
-      "activityModes": ["individual", "pair", "whole"],
+      "grades": [
+        "middle",
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
       "story": [
         "토요일에 친구와 놀이터에서 만나기로 약속했어요.",
         "그런데 아침부터 비가 쏟아지기 시작했어요.",
@@ -555,16 +821,31 @@
         "부모님 휴대폰을 빌려 친구 부모님께 연락해 볼 것 같아요.",
         "친구 집이 가까우면 직접 찾아가 볼 것 같아요."
       ],
-      "keywords": ["약속", "우정", "판단"],
+      "keywords": [
+        "약속",
+        "우정",
+        "판단"
+      ],
       "sensitivity": "low"
     },
     {
       "id": "choice-004",
       "title": "잘못 계산된 일 등",
       "type": "choice",
-      "grades": ["middle", "upper"],
-      "durationOptions": [3, 5, 7],
-      "activityModes": ["individual", "pair", "whole"],
+      "grades": [
+        "middle",
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
       "story": [
         "모둠 발표 대회에서 우리 모둠이 일 등을 했어요.",
         "그런데 점수표를 다시 보니 계산이 잘못되어 있었어요.",
@@ -587,16 +868,31 @@
         "모둠 친구들과 먼저 의논하고 함께 말씀드릴 것 같아요.",
         "솔직히 망설여질 것 같아요. 그래서 더 용기가 필요한 일인 것 같아요."
       ],
-      "keywords": ["정직", "용기", "선택"],
+      "keywords": [
+        "정직",
+        "용기",
+        "선택"
+      ],
       "sensitivity": "low"
     },
     {
       "id": "choice-005",
       "title": "믿기 힘든 소식",
       "type": "choice",
-      "grades": ["middle", "upper"],
-      "durationOptions": [3, 5, 7],
-      "activityModes": ["individual", "pair", "whole"],
+      "grades": [
+        "middle",
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
       "story": [
         "우리 반 단체 채팅방에 \"다음 주부터 급식 후식이 사라진대!\"라는 메시지가 올라왔어요.",
         "아이들은 깜짝 놀라 메시지를 여기저기 퍼 나르기 시작했어요.",
@@ -619,16 +915,31 @@
         "진짜인지 알 때까지는 보내지 않을 것 같아요.",
         "이미 퍼진 소식이니, 확인한 뒤에 바로잡는 글을 올릴 것 같아요."
       ],
-      "keywords": ["디지털", "소문", "판단"],
+      "keywords": [
+        "디지털",
+        "소문",
+        "판단"
+      ],
       "sensitivity": "low"
     },
     {
       "id": "cont-001",
       "title": "말하는 지우개",
       "type": "continue",
-      "grades": ["lower", "middle"],
-      "durationOptions": [3, 5, 7],
-      "activityModes": ["individual", "pair", "whole"],
+      "grades": [
+        "lower",
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
       "story": [
         "필통을 열자 지우개가 갑자기 말을 걸었어요.",
         "\"나를 쓰면 글씨만 지워지는 게 아니야.\"",
@@ -649,16 +960,31 @@
         "지우개가 문지른 자리에 새 그림이 나타났어요.",
         "나는 깜짝 놀라 지우개에게 물었어요. \"그럼 숙제도 지워 줘?\""
       ],
-      "keywords": ["판타지", "학용품", "이어쓰기"],
+      "keywords": [
+        "판타지",
+        "학용품",
+        "이어쓰기"
+      ],
       "sensitivity": "low"
     },
     {
       "id": "cont-002",
       "title": "구름 버스",
       "type": "continue",
-      "grades": ["lower", "middle"],
-      "durationOptions": [3, 5, 7],
-      "activityModes": ["individual", "pair", "whole"],
+      "grades": [
+        "lower",
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
       "story": [
         "하늘에서 구름 모양 버스가 두둥실 내려와 운동장에 멈췄어요.",
         "버스 문이 스르르 열리자 안에서 안내 방송이 들렸어요.",
@@ -679,16 +1005,31 @@
         "\"목적지는 타는 사람의 꿈속입니다.\" 방송이 이어졌어요.",
         "그때 우리 반 전체가 우르르 버스로 달려갔어요."
       ],
-      "keywords": ["판타지", "여행", "이어쓰기"],
+      "keywords": [
+        "판타지",
+        "여행",
+        "이어쓰기"
+      ],
       "sensitivity": "low"
     },
     {
       "id": "cont-003",
       "title": "거꾸로 섬",
       "type": "continue",
-      "grades": ["middle", "upper"],
-      "durationOptions": [3, 5, 7],
-      "activityModes": ["individual", "pair", "whole"],
+      "grades": [
+        "middle",
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
       "story": [
         "배를 타고 가다 폭풍을 만나 이상한 섬에 도착했어요.",
         "그 섬에서는 모든 것이 우리와 반대로 움직였어요.",
@@ -711,16 +1052,31 @@
         "섬의 급식실에서는 후식을 가장 먼저 먹고 있었어요.",
         "주민은 내 손을 잡고 뒷걸음질로 마을을 안내했어요."
       ],
-      "keywords": ["모험", "판타지", "이어쓰기"],
+      "keywords": [
+        "모험",
+        "판타지",
+        "이어쓰기"
+      ],
       "sensitivity": "low"
     },
     {
       "id": "cont-004",
       "title": "백 년 만에 열린 문",
       "type": "continue",
-      "grades": ["middle", "upper"],
-      "durationOptions": [3, 5, 7],
-      "activityModes": ["individual", "pair", "whole"],
+      "grades": [
+        "middle",
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
       "story": [
         "학교 창고에는 백 년 동안 잠겨 있던 낡은 문이 하나 있어요.",
         "오늘 청소를 하다가 열쇠 구멍에 꼭 맞아 보이는 녹슨 열쇠를 주웠어요.",
@@ -743,16 +1099,31 @@
         "백 년 전 학생이 쓰다 만 일기장이 책상 위에 놓여 있었어요.",
         "빛 가운데에서 누군가 \"기다리고 있었어\"라고 말했어요."
       ],
-      "keywords": ["학교", "신비", "이어쓰기"],
+      "keywords": [
+        "학교",
+        "신비",
+        "이어쓰기"
+      ],
       "sensitivity": "low"
     },
     {
       "id": "cont-005",
       "title": "로봇 전학생",
       "type": "continue",
-      "grades": ["lower", "middle"],
-      "durationOptions": [3, 5, 7],
-      "activityModes": ["individual", "pair", "whole"],
+      "grades": [
+        "lower",
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
       "story": [
         "월요일 아침, 우리 반에 로봇 전학생이 왔어요.",
         "로봇은 인사 대신 가슴에 달린 화면에 글자를 띄웠어요.",
@@ -773,7 +1144,3383 @@
         "로봇은 쉬는 시간마다 아이들의 웃음소리를 가만히 듣고 있었어요.",
         "나는 로봇에게 술래잡기를 가르쳐 주기로 했어요."
       ],
-      "keywords": ["로봇", "우정", "이어쓰기"],
+      "keywords": [
+        "로봇",
+        "우정",
+        "이어쓰기"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "next-006",
+      "title": "첫눈이 왔어요",
+      "type": "next-story",
+      "grades": [
+        "lower"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "쉬는 시간에 지호가 창밖을 보다가 눈이 동그래졌어요.",
+        "하얀 눈송이가 하나둘 조용히 내리기 시작했어요.",
+        "지호는 벌떡 일어나 친구들에게 무언가 외치려고 입을 크게 벌렸어요."
+      ],
+      "mainQuestion": "지호가 친구들에게 소리치면 어떤 일이 일어날까요?",
+      "followUpQuestions": [
+        "여러분은 첫눈을 보면 어떤 마음이 드나요?",
+        "기쁜 소식은 혼자 아는 것과 다 같이 나누는 것 중 무엇이 더 좋을까요?"
+      ],
+      "teacherGuide": [
+        "'벌떡 일어나 입을 크게 벌렸다'는 단서를 짚으며 다음 행동을 상상하게 해주세요.",
+        "정답은 없으니 어떤 상상이든 웃으며 받아주세요."
+      ],
+      "hint": "지호가 벌떡 일어나 입을 크게 벌린 모습을 떠올려 보세요.",
+      "sampleIdeas": [
+        "\"눈 온다!\" 하고 외쳐서 다 같이 창가로 달려갈 것 같아요.",
+        "너무 기뻐서 말이 안 나와 손짓으로 창밖을 가리킬 것 같아요.",
+        "선생님께 밖에 나가도 되냐고 크게 물어볼 것 같아요."
+      ],
+      "keywords": [
+        "첫눈",
+        "쉬는시간",
+        "창밖"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "next-007",
+      "title": "급식실 종소리",
+      "type": "next-story",
+      "grades": [
+        "lower"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "점심시간, 급식실에서 밥을 먹던 하린이가 '딩동' 하는 종소리에 고개를 번쩍 들었어요.",
+        "둘러보니 다른 친구들도 모두 밥을 먹다 말고 앞을 보고 있었어요.",
+        "조리사 선생님이 활짝 웃으며 마이크를 잡았어요."
+      ],
+      "mainQuestion": "조리사 선생님이 마이크로 말하면 무슨 일이 일어날까요?",
+      "followUpQuestions": [
+        "여러분이 좋아하는 급식 메뉴는 무엇인가요?",
+        "깜짝 선물은 미리 알고 받는 것과 모르고 받는 것 중 무엇이 더 좋을까요?"
+      ],
+      "teacherGuide": [
+        "'종소리'와 '선생님이 웃는 표정' 단서를 짚어 분위기를 상상하게 해주세요.",
+        "엉뚱한 상상도 틀린 게 아니라고 안심시켜 주세요."
+      ],
+      "hint": "조리사 선생님이 활짝 웃으며 마이크를 잡은 것을 떠올려 보세요.",
+      "sampleIdeas": [
+        "오늘은 특별히 아이스크림이 나온다고 말할 것 같아요.",
+        "생일인 친구를 축하해 주려는 것 같아요.",
+        "밥을 골고루 먹은 반을 칭찬하려는 것 같아요."
+      ],
+      "keywords": [
+        "급식실",
+        "종소리",
+        "점심시간"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "next-008",
+      "title": "책상 속 편지",
+      "type": "next-story",
+      "grades": [
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "수업이 끝나고 민아가 책상 서랍을 열자 낯선 편지 한 장이 들어 있었어요.",
+        "겉봉투에는 '민아에게, 내일 열어봐'라고 삐뚤빼뚤 적혀 있었어요.",
+        "민아는 누가 넣었는지 몰라 가슴이 두근거렸어요.",
+        "지금 열까, 내일까지 참을까 하며 손이 자꾸 봉투로 갔어요."
+      ],
+      "mainQuestion": "민아가 편지를 지금 바로 열어보면 어떤 일이 일어날까요?",
+      "followUpQuestions": [
+        "여러분이라면 지금 열어볼 건가요, 내일까지 기다릴 건가요?",
+        "약속을 지키는 것과 궁금함을 참지 못하는 것 중 무엇이 더 마음에 남을까요?"
+      ],
+      "teacherGuide": [
+        "'삐뚤빼뚤한 글씨'와 '내일 열어봐'라는 단서로 보낸 사람을 추측하게 해주세요.",
+        "결말을 정해주지 말고 여러 갈래의 상상을 나누게 해주세요."
+      ],
+      "hint": "봉투에 적힌 '내일 열어봐'라는 부탁을 떠올려 보세요.",
+      "sampleIdeas": [
+        "친한 친구가 준비한 깜짝 편지라서 반가울 것 같아요.",
+        "지금 열면 내일 있을 놀라운 계획이 미리 들켜 버릴 것 같아요.",
+        "글씨가 삐뚤빼뚤한 걸 보니 동생이 몰래 넣었을 것 같아요."
+      ],
+      "keywords": [
+        "편지",
+        "책상서랍",
+        "비밀"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "next-009",
+      "title": "밤하늘 신호",
+      "type": "next-story",
+      "grades": [
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "천문 동아리 준서는 밤마다 학교 옥상에서 망원경으로 별을 봤어요.",
+        "그날따라 한 별이 유난히 깜빡깜빡 규칙적으로 빛났어요.",
+        "준서는 노트에 깜빡이는 간격을 하나씩 적어 보았어요.",
+        "길게 두 번, 짧게 세 번, 다시 길게 두 번.",
+        "이상하게도 그 순서가 매일 밤 똑같이 반복됐어요.",
+        "준서는 떨리는 손으로 그 신호를 종이에 그대로 옮겨 적기 시작했어요."
+      ],
+      "mainQuestion": "준서가 그 깜빡임의 뜻을 풀어내면 무슨 일이 일어날까요?",
+      "followUpQuestions": [
+        "여러분이 준서라면 이 신호를 먼저 누구에게 이야기하고 싶나요?",
+        "신기한 발견을 혼자 간직하는 것과 널리 알리는 것 중 무엇이 더 좋을까요?"
+      ],
+      "teacherGuide": [
+        "'매일 똑같이 반복되는 규칙'이라는 단서로 우연과 신호를 구분해 추론하게 해주세요.",
+        "과학적 상상과 엉뚱한 상상 모두 정답처럼 존중해 주세요."
+      ],
+      "hint": "준서가 적은 '길게 두 번, 짧게 세 번'이 매일 반복된 점을 떠올려 보세요.",
+      "sampleIdeas": [
+        "사실은 멀리 있는 건물의 불빛이 우연히 반복된 것일 수 있어요.",
+        "누군가 별을 보는 사람에게 보내는 약속 신호일 것 같아요.",
+        "규칙을 풀면 숫자나 글자로 바뀌는 암호일 것 같아요."
+      ],
+      "keywords": [
+        "우주",
+        "별",
+        "신호"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "next-010",
+      "title": "안 열리는 상자",
+      "type": "next-story",
+      "grades": [
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "청소 시간에 서윤이가 사물함 맨 아래에서 작은 나무 상자를 발견했어요.",
+        "뚜껑에는 숫자 자물쇠가 달려 있고, 흔들면 안에서 달그락 소리가 났어요.",
+        "상자 옆면에는 작게 '3, 7, ?'라고만 적혀 있었어요.",
+        "서윤이는 마지막 숫자를 알아내려고 자물쇠를 이리저리 돌려 보았어요."
+      ],
+      "mainQuestion": "서윤이가 자물쇠를 풀어 상자를 열면 무엇이 나올까요?",
+      "followUpQuestions": [
+        "여러분이라면 '?' 자리에 어떤 숫자를 넣어 볼 건가요?",
+        "주인 없는 물건을 열어 보는 것과 그대로 두는 것 중 무엇이 더 옳을까요?"
+      ],
+      "teacherGuide": [
+        "'달그락 소리'와 '3, 7, ?' 단서로 안의 물건과 숫자 규칙을 함께 추측하게 해주세요.",
+        "여러 답이 나오도록 서로 다른 숫자와 이유를 말하게 해주세요."
+      ],
+      "hint": "상자에 적힌 '3, 7, ?'와 흔들 때 나는 달그락 소리를 떠올려 보세요.",
+      "sampleIdeas": [
+        "3, 7 다음은 11처럼 규칙이 있는 숫자일 것 같아요.",
+        "달그락 소리가 나는 걸 보니 작은 열쇠나 구슬이 들었을 것 같아요.",
+        "예전에 이 자리를 쓰던 언니가 남긴 추억 상자일 것 같아요."
+      ],
+      "keywords": [
+        "상자",
+        "자물쇠",
+        "수수께끼"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "next-011",
+      "title": "전학 온 아이",
+      "type": "next-story",
+      "grades": [
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "3월 둘째 주, 우리 반에 조용한 아이가 전학을 왔어요.",
+        "그 아이는 쉬는 시간마다 창가에 앉아 낡은 수첩에 무언가를 열심히 적었어요.",
+        "하루는 잃어버린 내 필통이 다음 날 아침 깨끗이 닦여 책상 위에 놓여 있었어요.",
+        "며칠 뒤에는 늘 지각하던 친구의 자리에 응원하는 작은 쪽지가 붙어 있었어요.",
+        "그런데 아무도 그 아이가 언제 그런 일을 하는지 보지 못했어요.",
+        "그날 나는 그 아이의 수첩이 살짝 열려 있는 걸 보고 말았어요."
+      ],
+      "mainQuestion": "내가 그 아이의 수첩을 들여다보면 무슨 일이 일어날까요?",
+      "followUpQuestions": [
+        "여러분이라면 그 아이에게 먼저 말을 걸어 볼 건가요?",
+        "몰래 남을 돕는 것과 말하고 돕는 것 중 무엇이 더 좋을까요?"
+      ],
+      "teacherGuide": [
+        "'낡은 수첩'과 '돌아온 필통, 응원 쪽지' 단서를 이어 아이의 마음을 추측하게 해주세요.",
+        "남의 물건을 몰래 보는 것에 대한 생각도 자연스럽게 나누게 해주세요."
+      ],
+      "hint": "그 아이가 쉬는 시간마다 적던 낡은 수첩을 떠올려 보세요.",
+      "sampleIdeas": [
+        "수첩에 친구들을 도울 계획이 적혀 있을 것 같아요.",
+        "새 학교에서 친해지고 싶은 마음을 몰래 연습한 것일 수 있어요.",
+        "내가 수첩을 보면 그 아이가 부끄러워 도망칠 것 같아요."
+      ],
+      "keywords": [
+        "전학생",
+        "수첩",
+        "친절"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "next-012",
+      "title": "사라진 실내화",
+      "type": "next-story",
+      "grades": [
+        "lower"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "체육 시간이 끝나고 하윤이가 신발장을 열었더니 실내화가 한 짝만 있었어요.",
+        "나머지 한 짝은 아무리 찾아도 보이지 않았어요.",
+        "그때 교실 뒤쪽에서 작은 발소리가 타박타박 들렸어요."
+      ],
+      "mainQuestion": "하윤이가 발소리 나는 쪽으로 가 보면 무슨 일이 일어날까요?",
+      "followUpQuestions": [
+        "여러분은 물건을 잃어버렸을 때 어떻게 찾나요?",
+        "잃어버린 물건을 혼자 끝까지 찾는 것과 친구에게 도움을 청하는 것 중 무엇이 더 좋을까요?"
+      ],
+      "teacherGuide": [
+        "'한 짝만 남은 실내화'와 '작은 발소리' 단서를 짚어 다음 장면을 그리게 해주세요.",
+        "정답을 정하지 말고 여러 상상을 반갑게 들어주세요."
+      ],
+      "hint": "교실 뒤쪽에서 난 작은 발소리를 떠올려 보세요.",
+      "sampleIdeas": [
+        "친구가 실수로 바꿔 신고 가서 돌려주려는 것 같아요.",
+        "강아지 같은 작은 동물이 실내화를 물고 간 것 같아요.",
+        "다른 친구도 실내화를 찾고 있어서 함께 찾게 될 것 같아요."
+      ],
+      "keywords": [
+        "실내화",
+        "신발장",
+        "발소리"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "next-013",
+      "title": "과학실의 불빛",
+      "type": "next-story",
+      "grades": [
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "방과 후, 도현이가 준비물을 두고 와서 어두운 과학실에 다시 갔어요.",
+        "불이 꺼진 과학실 안쪽에서 초록색 빛이 반짝반짝 새어 나왔어요.",
+        "문틈으로 들여다보니 책상 위 유리병 하나가 혼자 빛나고 있었어요.",
+        "도현이는 살금살금 그 유리병 쪽으로 다가갔어요."
+      ],
+      "mainQuestion": "도현이가 빛나는 유리병을 들여다보면 어떤 일이 일어날까요?",
+      "followUpQuestions": [
+        "여러분이 도현이라면 다가갈 건가요, 선생님을 부를 건가요?",
+        "궁금한 것을 바로 확인하는 것과 어른께 먼저 알리는 것 중 무엇이 나을까요?"
+      ],
+      "teacherGuide": [
+        "'혼자 빛나는 유리병'이라는 단서로 과학적 이유를 함께 상상하게 해주세요.",
+        "무섭기보다 신기한 장면으로 느끼도록 밝게 안내해 주세요."
+      ],
+      "hint": "혼자 반짝이던 초록색 유리병을 떠올려 보세요.",
+      "sampleIdeas": [
+        "빛을 모았다가 어두울 때 스스로 빛나는 물질일 것 같아요.",
+        "선생님이 실험하려고 준비해 둔 형광 물감일 것 같아요.",
+        "가까이 가면 빛이 스르르 꺼져서 더 궁금해질 것 같아요."
+      ],
+      "keywords": [
+        "과학실",
+        "형광빛",
+        "유리병"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "next-014",
+      "title": "옥상 문 너머",
+      "type": "next-story",
+      "grades": [
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "우리 학교 옥상 문은 늘 자물쇠로 잠겨 있었어요.",
+        "그런데 비 오는 어느 날, 나는 그 문이 손가락 하나 들어갈 만큼 열려 있는 걸 봤어요.",
+        "문틈으로는 화분 몇 개와 작은 의자, 그리고 마시다 만 따뜻한 코코아가 보였어요.",
+        "김이 아직 모락모락 나는 걸 보니 방금까지 누가 있었던 것 같았어요.",
+        "계단에는 젖은 발자국이 옥상 쪽으로 나 있었어요.",
+        "나는 심장이 두근거려서 그 문을 조금 더 밀어 보았어요."
+      ],
+      "mainQuestion": "내가 옥상 문을 밀고 들어가면 누구를 만나게 될까요?",
+      "followUpQuestions": [
+        "여러분이라면 문을 밀고 들어갈 건가요, 조용히 돌아설 건가요?",
+        "잠긴 곳이 열려 있을 때 들어가는 것은 괜찮은 일일까요?"
+      ],
+      "teacherGuide": [
+        "'김 나는 코코아'와 '젖은 발자국' 단서로 방금 있었던 사람을 추리하게 해주세요.",
+        "여러 결말을 상상하도록 한 가지 답으로 좁히지 말아 주세요."
+      ],
+      "hint": "김이 모락모락 나던 코코아와 옥상으로 난 젖은 발자국을 떠올려 보세요.",
+      "sampleIdeas": [
+        "몰래 화분을 가꾸던 선생님을 만나게 될 것 같아요.",
+        "비를 피해 잠깐 쉬러 온 다른 학년 형이나 누나일 것 같아요.",
+        "아무도 없고 코코아만 남아 있어서 더 궁금해질 것 같아요."
+      ],
+      "keywords": [
+        "옥상",
+        "코코아",
+        "발자국"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "next-015",
+      "title": "고소한 냄새",
+      "type": "next-story",
+      "grades": [
+        "lower"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "1교시가 끝나자 복도에 고소하고 달콤한 냄새가 솔솔 퍼졌어요.",
+        "아이들이 코를 킁킁대며 냄새를 따라갔어요.",
+        "냄새는 옆 반 교실 문 앞에서 가장 진하게 났어요."
+      ],
+      "mainQuestion": "아이들이 옆 반 문을 열면 무슨 일이 일어날까요?",
+      "followUpQuestions": [
+        "여러분은 어떤 냄새를 맡으면 기분이 좋아지나요?",
+        "궁금한 냄새를 바로 따라가 보는 것과 자리에서 참는 것 중 무엇이 더 좋을까요?"
+      ],
+      "teacherGuide": [
+        "'가장 진한 냄새가 나는 옆 반 문' 단서를 짚어 안의 장면을 상상하게 해주세요.",
+        "어떤 상상이든 즐겁게 받아주세요."
+      ],
+      "hint": "옆 반 문 앞에서 가장 진했던 고소한 냄새를 떠올려 보세요.",
+      "sampleIdeas": [
+        "옆 반이 요리 수업으로 빵이나 쿠키를 굽고 있을 것 같아요.",
+        "선생님이 간식을 준비해서 나눠 주려는 것 같아요.",
+        "실은 창밖 빵집 냄새가 들어온 것이라 살짝 아쉬울 것 같아요."
+      ],
+      "keywords": [
+        "냄새",
+        "복도",
+        "옆반"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "next-016",
+      "title": "오래된 지도",
+      "type": "next-story",
+      "grades": [
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "도서관 낡은 책 사이에서 예린이는 색이 바랜 지도 한 장을 발견했어요.",
+        "지도에는 우리 학교 운동장이 그려져 있었는데, 지금은 없는 커다란 나무가 한가운데 있었어요.",
+        "나무 밑에는 빨간색으로 작은 X 표시가 되어 있었어요.",
+        "지도 귀퉁이에는 '스무 걸음, 그리고 아래로'라고 적혀 있었어요.",
+        "예린이는 오늘 운동장에서 그 나무가 있던 자리를 걸음으로 세어 보기로 했어요."
+      ],
+      "mainQuestion": "예린이가 X 표시가 있던 자리를 찾아 살펴보면 무엇이 나올까요?",
+      "followUpQuestions": [
+        "여러분이라면 이 지도의 비밀을 누구와 함께 풀고 싶나요?",
+        "오래된 물건을 찾으면 발견한 사람이 가져도 될까요, 알려야 할까요?"
+      ],
+      "teacherGuide": [
+        "'사라진 나무'와 '스무 걸음, 아래로' 단서로 위치를 함께 추리하게 해주세요.",
+        "결과를 하나로 정하지 말고 여러 상상을 펼치게 해주세요."
+      ],
+      "hint": "지도에 적힌 '스무 걸음, 그리고 아래로'라는 말을 떠올려 보세요.",
+      "sampleIdeas": [
+        "예전 선배들이 묻어 둔 타임캡슐이 나올 것 같아요.",
+        "지금은 아무것도 없고 나무 그루터기 흔적만 남아 있을 것 같아요.",
+        "지도를 그린 사람이 남긴 또 다른 쪽지가 나올 것 같아요."
+      ],
+      "keywords": [
+        "지도",
+        "운동장",
+        "보물"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "next-017",
+      "title": "짝꿍의 도화지",
+      "type": "next-story",
+      "grades": [
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "미술 시간에 짝꿍 라온이가 자꾸 팔로 도화지를 가렸어요.",
+        "내가 볼라치면 힐끔 나를 쳐다보고는 더 바짝 가렸어요.",
+        "그런데 라온이가 아까부터 쓰는 색연필은 살구색 하나뿐이었어요.",
+        "드디어 종이 치자 라온이가 그 도화지를 내 쪽으로 뒤집으려 했어요."
+      ],
+      "mainQuestion": "라온이가 도화지를 뒤집으면 무엇이 그려져 있을까요?",
+      "followUpQuestions": [
+        "여러분이라면 짝의 그림이 궁금할 때 어떻게 하나요?",
+        "친구를 그린 그림은 몰래 그려 깜짝 선물하는 것과 미리 말하고 그리는 것 중 무엇이 더 좋을까요?"
+      ],
+      "teacherGuide": [
+        "'살구색 색연필'과 '자꾸 나를 힐끔 보는 모습' 단서로 무엇을 그리는지 추측하게 해주세요.",
+        "여러 가지 상상을 정답처럼 존중하며 들어주세요."
+      ],
+      "hint": "라온이가 살구색 색연필만 쓰며 자꾸 나를 힐끔 본 것을 떠올려 보세요.",
+      "sampleIdeas": [
+        "나를 그려서 깜짝 선물로 주려던 것 같아요.",
+        "그림을 아직 다 못 그려서 부끄러웠던 것 같아요.",
+        "사실은 좋아하는 만화 주인공을 그리다 들킬까 봐 가린 것 같아요."
+      ],
+      "keywords": [
+        "미술시간",
+        "그림",
+        "짝꿍"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "next-018",
+      "title": "똑같은 꿈",
+      "type": "next-story",
+      "grades": [
+        "lower"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "소미는 사흘 밤이나 똑같은 꿈을 꿨어요.",
+        "꿈속에서 작은 노란 새가 소미를 어딘가로 자꾸 부르며 날아갔어요.",
+        "오늘 아침, 창밖에서 그 노란 새가 진짜로 소미를 보며 울고 있었어요."
+      ],
+      "mainQuestion": "소미가 노란 새를 따라가면 무슨 일이 일어날까요?",
+      "followUpQuestions": [
+        "여러분은 신기한 꿈을 꾼 적이 있나요?",
+        "궁금한 일을 따라가 보는 것은 언제나 좋은 걸까요?"
+      ],
+      "teacherGuide": [
+        "'똑같은 꿈'과 '진짜 나타난 새' 단서를 이어 다음 장면을 상상하게 해주세요.",
+        "정답 없이 자유롭게 이야기하도록 격려해 주세요."
+      ],
+      "hint": "꿈에 나온 노란 새가 창밖에 진짜로 나타난 것을 떠올려 보세요.",
+      "sampleIdeas": [
+        "새가 예쁜 꽃밭이나 둥지로 안내해 줄 것 같아요.",
+        "길 잃은 아기 새가 있어서 도와 달라고 부르는 것 같아요.",
+        "따라가다 보면 소미가 잃어버린 물건을 찾게 될 것 같아요."
+      ],
+      "keywords": [
+        "꿈",
+        "노란새",
+        "아침"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "next-019",
+      "title": "한밤의 노크",
+      "type": "next-story",
+      "grades": [
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "수련회 첫날 밤, 우리 방 친구들은 불을 끄고 조용히 누웠어요.",
+        "그때 방문에서 '똑, 똑, 똑' 하는 작은 소리가 세 번 났어요.",
+        "문을 열어 보니 아무도 없고, 대신 문 앞에 작은 초콜릿과 쪽지가 놓여 있었어요.",
+        "쪽지에는 '내일 아침 강당 무대 뒤로'라고만 적혀 있었어요.",
+        "우리는 서로 얼굴을 마주 보며 누가 놓고 갔을지 속닥였어요.",
+        "다음 날 아침, 나는 두근거리는 마음으로 몰래 강당 무대 뒤로 향했어요."
+      ],
+      "mainQuestion": "내가 강당 무대 뒤로 가 보면 무슨 일이 일어날까요?",
+      "followUpQuestions": [
+        "여러분이라면 혼자 갈 건가요, 친구들과 함께 갈 건가요?",
+        "이름을 밝히지 않고 하는 깜짝 이벤트는 좋은 걸까요, 부담스러운 걸까요?"
+      ],
+      "teacherGuide": [
+        "'세 번의 노크'와 '초콜릿·쪽지' 단서로 보낸 사람을 추측하게 해주세요.",
+        "여러 결말이 나오도록 한 가지 답으로 몰지 말아 주세요."
+      ],
+      "hint": "문 앞에 놓인 쪽지의 '강당 무대 뒤로'라는 말을 떠올려 보세요.",
+      "sampleIdeas": [
+        "친구들이 준비한 깜짝 생일 파티가 기다리고 있을 것 같아요.",
+        "선생님이 낸 보물찾기 같은 게임의 다음 힌트가 있을 것 같아요.",
+        "장난친 친구가 숨어서 지켜보고 있을 것 같아요."
+      ],
+      "keywords": [
+        "수련회",
+        "노크",
+        "쪽지"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "next-020",
+      "title": "두 개의 무지개",
+      "type": "next-story",
+      "grades": [
+        "lower",
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "소나기가 그친 뒤, 운동장 위로 무지개가 두 개나 떴어요.",
+        "아이들이 환호하며 창가로 우르르 몰려갔어요.",
+        "그런데 무지개 한쪽 끝이 학교 뒷산 나무 위에 콕 내려앉은 것처럼 보였어요."
+      ],
+      "mainQuestion": "아이들이 무지개 끝을 찾아 뒷산에 가 보면 무엇이 있을까요?",
+      "followUpQuestions": [
+        "여러분은 무지개를 보면 어떤 생각이 드나요?",
+        "손에 잡힐 듯 보이는 것을 끝까지 쫓아가 보는 것은 좋은 일일까요?"
+      ],
+      "teacherGuide": [
+        "'뒷산 나무 위에 내려앉은 무지개 끝' 단서를 짚어 상상을 이끌어 주세요.",
+        "정답을 정하지 말고 다양한 상상을 반갑게 들어주세요."
+      ],
+      "hint": "뒷산 나무 위에 콕 내려앉은 무지개 끝을 떠올려 보세요.",
+      "sampleIdeas": [
+        "가까이 가면 무지개가 저만치 물러나서 잡을 수 없을 것 같아요.",
+        "비에 젖은 나뭇잎이 햇빛에 반짝여 더 예쁘게 빛날 것 같아요.",
+        "무지개 끝자리에 작은 웅덩이가 생겨 하늘이 비칠 것 같아요."
+      ],
+      "keywords": [
+        "무지개",
+        "소나기",
+        "뒷산"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "why-006",
+      "title": "강아지의 신발",
+      "type": "why",
+      "grades": [
+        "lower"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "우리 집 강아지 콩이가 아침마다 제 신발 한 짝만 콕 물고 현관 앞에 앉아 있어요.",
+        "다른 물건은 놔두고 꼭 신발만 물고, 문을 빤히 쳐다보며 꼬리를 흔들어요."
+      ],
+      "mainQuestion": "콩이는 왜 신발을 물고 현관 앞에 앉아 있을까요?",
+      "followUpQuestions": [
+        "말 못하는 강아지의 마음은 어떻게 알 수 있을까요?",
+        "여러분도 말 없이 마음을 전한 적이 있나요?"
+      ],
+      "teacherGuide": [
+        "콩이가 '신발만' 물고 '문을 보며' 꼬리를 흔든다는 단서를 함께 짚어 주세요.",
+        "정답을 정하지 말고 아이들의 여러 상상을 그대로 칭찬해 주세요."
+      ],
+      "hint": "다른 건 놔두고 하필 신발만 물고 문을 쳐다봐요.",
+      "sampleIdeas": [
+        "산책을 가고 싶은 것 같아요.",
+        "밖에 나가자는 뜻인 것 같아요.",
+        "저랑 같이 놀고 싶은 것 같아요."
+      ],
+      "keywords": [
+        "강아지",
+        "신발",
+        "산책"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "why-007",
+      "title": "동생의 사탕",
+      "type": "why",
+      "grades": [
+        "lower"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "다섯 살 동생이 제일 좋아하는 딸기 사탕을 먹지 않고 주머니에 꼭 넣어 두었어요.",
+        "평소엔 사탕만 보면 바로 먹었는데, 오늘은 자꾸 저를 보며 만지작거리기만 해요."
+      ],
+      "mainQuestion": "동생은 왜 사탕을 먹지 않고 주머니에 넣어 두었을까요?",
+      "followUpQuestions": [
+        "아껴 두는 것과 바로 나누는 것 중 무엇이 더 좋을까요?",
+        "여러분은 좋아하는 것을 남겨 둔 적이 있나요?"
+      ],
+      "teacherGuide": [
+        "'평소와 달리' 먹지 않고 '나를 보며' 만지작거린다는 변화를 짚어 주세요.",
+        "옳고 그름이 아니라 마음을 상상하는 활동임을 안내해 주세요."
+      ],
+      "hint": "평소와 달리 사탕을 안 먹고, 저를 보며 만지작거려요.",
+      "sampleIdeas": [
+        "저에게 주고 싶은 것 같아요.",
+        "나중에 먹으려고 아끼는 것 같아요.",
+        "엄마랑 나눠 먹고 싶은 것 같아요."
+      ],
+      "keywords": [
+        "동생",
+        "사탕",
+        "주머니"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "why-008",
+      "title": "두 개의 우산",
+      "type": "why",
+      "grades": [
+        "lower"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "비 오는 날, 짝꿍 지호가 우산을 두 개나 들고 학교에 왔어요.",
+        "자기 우산은 파란색인데, 노란 우산도 하나 더 가방에 챙겨 와서 자꾸 창밖을 살펴봐요."
+      ],
+      "mainQuestion": "지호는 왜 우산을 두 개나 가져왔을까요?",
+      "followUpQuestions": [
+        "도움을 미리 준비하는 것과 그때 도와주는 것 중 무엇이 더 좋을까요?",
+        "여러분은 누군가를 위해 미리 무언가를 챙긴 적이 있나요?"
+      ],
+      "teacherGuide": [
+        "자기 우산 말고 '하나 더' 챙겨 와 '창밖을 살핀다'는 단서를 짚어 주세요.",
+        "여러 답이 모두 가능하다고 편하게 말할 분위기를 만들어 주세요."
+      ],
+      "hint": "자기 우산 말고 노란 우산을 하나 더 챙겨 와 창밖을 봐요.",
+      "sampleIdeas": [
+        "우산 없는 친구에게 주려는 것 같아요.",
+        "우산을 잃어버릴까 봐 하나 더 챙긴 것 같아요.",
+        "동생에게 주려고 가져온 것 같아요."
+      ],
+      "keywords": [
+        "우산",
+        "짝꿍",
+        "비"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "why-009",
+      "title": "빈 화분 당번",
+      "type": "why",
+      "grades": [
+        "lower",
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "우리 반 준우는 교실 뒤 빈 화분에 매일 아침 물을 줘요.",
+        "그 화분에는 아직 싹도 흙 위로 올라오지 않았는데, 준우는 하루도 빠짐없이 물을 주고 흙을 가만히 들여다봐요.",
+        "오늘은 물을 주다 말고 갑자기 저를 부르며 화분을 가리켰어요."
+      ],
+      "mainQuestion": "준우는 왜 싹도 없는 빈 화분에 매일 물을 줄까요?",
+      "followUpQuestions": [
+        "당장 보이지 않아도 계속하는 일은 왜 대단할까요?",
+        "여러분은 아직 결과가 안 보여도 꾸준히 해 본 일이 있나요?"
+      ],
+      "teacherGuide": [
+        "'싹도 없는데' 매일 물을 주고 '흙을 들여다본다'는 단서를 짚어 주세요.",
+        "마지막에 준우가 무엇을 가리켰을지 자유롭게 상상하게 해 주세요."
+      ],
+      "hint": "싹도 없는 화분을 매일 살피다가 갑자기 저를 불렀어요.",
+      "sampleIdeas": [
+        "드디어 싹이 올라온 걸 발견한 것 같아요.",
+        "씨앗이 곧 자랄 거라 믿는 것 같아요.",
+        "함께 키우자고 부르는 것 같아요."
+      ],
+      "keywords": [
+        "화분",
+        "물주기",
+        "새싹"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "why-010",
+      "title": "할머니의 봉지",
+      "type": "why",
+      "grades": [
+        "lower",
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "할머니는 산책을 나갈 때마다 빈 비닐봉지를 꼭 챙겨 나가세요.",
+        "그런데 돌아올 때 보면 그 봉지 안에 무언가가 가득 차 있어요.",
+        "오늘은 봉지를 들고 오시더니 저를 보며 씨익 웃으셨어요."
+      ],
+      "mainQuestion": "할머니는 왜 빈 봉지를 챙겨 나가실까요?",
+      "followUpQuestions": [
+        "아무도 시키지 않은 일을 스스로 하는 것은 왜 멋질까요?",
+        "여러분도 시키지 않았는데 한 착한 일이 있나요?"
+      ],
+      "teacherGuide": [
+        "'나갈 땐 빈 봉지, 올 땐 가득 찬 봉지'라는 변화를 짚어 주세요.",
+        "봉지 속에 무엇이 들었을지 다양한 상상을 이끌어 주세요."
+      ],
+      "hint": "나갈 땐 텅 빈 봉지가 돌아올 땐 가득 찼고, 저를 보며 웃으세요.",
+      "sampleIdeas": [
+        "길에 떨어진 쓰레기를 줍는 것 같아요.",
+        "예쁜 나뭇잎을 모으는 것 같아요.",
+        "텃밭 채소를 담아 오는 것 같아요."
+      ],
+      "keywords": [
+        "할머니",
+        "봉지",
+        "산책"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "why-011",
+      "title": "열린 창문",
+      "type": "why",
+      "grades": [
+        "lower",
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "우리 선생님은 쉬는 시간마다 교실 창문을 살짝 열어 두세요.",
+        "날이 추운데도 매번 잊지 않고 잠깐씩 창문을 열고, 그때마다 크게 숨을 들이쉬세요."
+      ],
+      "mainQuestion": "선생님은 왜 추운 날에도 창문을 여실까요?",
+      "followUpQuestions": [
+        "지금은 조금 불편해도 나중에 좋은 일에는 어떤 게 있을까요?",
+        "여러분은 지금 참으면 나중에 좋아지는 일을 알고 있나요?"
+      ],
+      "teacherGuide": [
+        "'추운데도' 매번 열고 '크게 숨을 들이쉰다'는 단서를 짚어 주세요.",
+        "불편함 뒤에 숨은 좋은 뜻을 함께 상상해 보게 해 주세요."
+      ],
+      "hint": "춥다면 안 열어도 될 텐데, 매번 열고 크게 숨을 쉬어요.",
+      "sampleIdeas": [
+        "교실 공기를 바꾸려는 것 같아요.",
+        "우리 건강을 위한 것 같아요.",
+        "답답한 냄새를 내보내려는 것 같아요."
+      ],
+      "keywords": [
+        "선생님",
+        "창문",
+        "공기"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "why-012",
+      "title": "몰래 싼 반찬",
+      "type": "why",
+      "grades": [
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "급식을 먹는데 친구 서준이가 매일 반찬을 조금씩 남겨 몰래 통에 담아요.",
+        "오늘은 남은 소시지를 휴지에 싸서 가방에 슬쩍 넣는 걸 봤어요.",
+        "어제도, 그제도 서준이는 똑같이 그랬어요."
+      ],
+      "mainQuestion": "서준이는 왜 반찬을 몰래 싸서 가져갈까요?",
+      "followUpQuestions": [
+        "몰래 돕는 것과 말하고 돕는 것 중 무엇이 더 좋을까요?",
+        "여러분은 남몰래 해 본 일이 있나요?"
+      ],
+      "teacherGuide": [
+        "'매일 반복'되고 '몰래' 한다는 두 단서를 짚어 주세요.",
+        "나쁜 행동으로 단정하지 않도록 여러 이유를 열어 주세요."
+      ],
+      "hint": "하루가 아니라 매일, 그것도 몰래 반복하고 있어요.",
+      "sampleIdeas": [
+        "배고픈 길고양이에게 주려는 것 같아요.",
+        "집에 있는 동생에게 주려는 것 같아요.",
+        "키우는 반려동물에게 주려는 것 같아요."
+      ],
+      "keywords": [
+        "반찬",
+        "급식",
+        "비밀"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "why-013",
+      "title": "조용한 짝꿍",
+      "type": "why",
+      "grades": [
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "늘 시끌벅적하던 짝꿍 민서가 오늘은 하루 종일 조용했어요.",
+        "쉬는 시간에도 공책에 무언가를 열심히 적기만 하고, 제가 말을 걸면 손으로 공책을 슬쩍 가렸어요.",
+        "점심시간이 되자 민서는 그 공책을 들고 선생님께 달려갔어요."
+      ],
+      "mainQuestion": "민서는 왜 하루 종일 공책을 가리며 무언가를 적었을까요?",
+      "followUpQuestions": [
+        "깜짝 선물과 미리 알려 주는 선물 중 무엇이 더 좋을까요?",
+        "여러분은 비밀로 준비해 본 일이 있나요?"
+      ],
+      "teacherGuide": [
+        "'공책을 가림'과 '선생님께 달려감'이라는 단서를 이어 짚어 주세요.",
+        "정해진 답 없이 이유를 상상하는 활동임을 안내해 주세요."
+      ],
+      "hint": "가리던 공책을 결국 선생님께 들고 달려갔어요.",
+      "sampleIdeas": [
+        "선생님께 드릴 편지를 쓰는 것 같아요.",
+        "친구 생일 축하 글을 준비한 것 같아요.",
+        "발표할 이야기를 연습한 것 같아요."
+      ],
+      "keywords": [
+        "짝꿍",
+        "공책",
+        "비밀"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "why-014",
+      "title": "혼자 남는 청소",
+      "type": "why",
+      "grades": [
+        "middle",
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "청소 시간이 끝나면 다들 우르르 집에 가는데, 도윤이는 늘 교실에 혼자 남아요.",
+        "다른 날은 청소를 대충 하던 도윤이가, 유독 창가 쪽 한 자리만 깨끗이 닦고 또 닦아요.",
+        "그 자리는 며칠째 학교에 나오지 못한 예린이의 빈 책상이었어요.",
+        "오늘은 도윤이가 그 책상 위에 무언가를 살짝 올려 두고 나갔어요."
+      ],
+      "mainQuestion": "도윤이는 왜 예린이의 빈 자리만 매일 닦을까요?",
+      "followUpQuestions": [
+        "곁에 없는 친구를 챙기는 것은 왜 특별할까요?",
+        "여러분은 자리에 없는 친구를 생각해 본 적이 있나요?"
+      ],
+      "teacherGuide": [
+        "'그 자리만' 닦고 '빈 책상에 무언가를 올렸다'는 단서를 이어 주세요.",
+        "정답 대신 도윤이의 마음을 다양하게 상상하게 해 주세요."
+      ],
+      "hint": "하필 나오지 못한 친구의 빈 자리만 닦고, 뭔가를 올려 뒀어요.",
+      "sampleIdeas": [
+        "돌아올 친구를 위해 자리를 지켜 주는 것 같아요.",
+        "빨리 오라는 편지를 남긴 것 같아요.",
+        "친구가 그리워서 그러는 것 같아요."
+      ],
+      "keywords": [
+        "빈자리",
+        "청소",
+        "친구"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "why-015",
+      "title": "일부러 진 판",
+      "type": "why",
+      "grades": [
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "학급 오목 대회 결승에서 반에서 제일 잘 두는 태윤이가 상대인 지우에게 어이없이 지고 말았어요.",
+        "태윤이는 이길 수 있는 자리를 뻔히 보고도 엉뚱한 곳에 돌을 놓았어요.",
+        "지우는 얼마 전 전학을 와서 아직 친구가 없고, 오늘 처음으로 환하게 웃었어요.",
+        "그런데 진 태윤이의 표정은 왠지 기분 좋아 보였어요."
+      ],
+      "mainQuestion": "태윤이는 왜 이길 수 있는데도 일부러 진 것처럼 두었을까요?",
+      "followUpQuestions": [
+        "일부러 져 주는 것은 진짜 배려일까요, 아니면 상대를 무시하는 걸까요?",
+        "여러분은 누군가에게 일부러 져 준 적이 있나요?"
+      ],
+      "teacherGuide": [
+        "'이길 자리를 두고 엉뚱한 곳', '진 뒤에도 좋은 표정'이라는 단서를 이어 주세요.",
+        "배려인지 무시인지 맞서는 두 입장을 모두 존중해 주세요."
+      ],
+      "hint": "졌는데도 태윤이 표정이 좋았고, 지우는 처음 웃었어요.",
+      "sampleIdeas": [
+        "전학 온 지우를 응원하려 일부러 져 준 것 같아요.",
+        "지우가 친구를 사귀길 바란 것 같아요.",
+        "이기는 것보다 지우의 기분이 더 소중했던 것 같아요."
+      ],
+      "keywords": [
+        "오목",
+        "승부",
+        "배려"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "why-016",
+      "title": "매일 5분 지각",
+      "type": "why",
+      "grades": [
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "반장 하람이는 아침마다 딱 5분씩 지각을 해요.",
+        "누구보다 성실한 아이라 이상했는데, 매일 같은 골목에서 잠깐 멈췄다 오는 거였어요.",
+        "어느 날 뒤따라가 보니 하람이는 담장 밑 상자 속 새끼 고양이들에게 무언가를 놓아 주고 있었어요.",
+        "하람이는 그 고양이들을 아무에게도 말하지 않았어요."
+      ],
+      "mainQuestion": "하람이는 왜 매일 지각하면서까지 그 골목에 들를까요?",
+      "followUpQuestions": [
+        "규칙을 어겨서라도 지키고 싶은 약속이 있을 수 있을까요?",
+        "여러분은 지각보다 더 중요하게 느껴진 일을 겪은 적이 있나요?"
+      ],
+      "teacherGuide": [
+        "'딱 5분', '아무에게도 말하지 않음'이라는 단서를 연결해 짚어 주세요.",
+        "규칙과 마음 사이에서 판단이 갈릴 수 있음을 인정해 주세요."
+      ],
+      "hint": "딱 5분 멈춰 새끼 고양이를 챙기면서 아무에게도 말하지 않아요.",
+      "sampleIdeas": [
+        "배고픈 새끼 고양이에게 밥을 주는 것 같아요.",
+        "혼자 두면 위험할까 봐 살피는 것 같아요.",
+        "돌봐 주기로 스스로 정한 약속을 지키는 것 같아요."
+      ],
+      "keywords": [
+        "반장",
+        "지각",
+        "고양이"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "why-017",
+      "title": "빈 도시락 칸",
+      "type": "why",
+      "grades": [
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "새 학기부터 지훈이는 도시락을 싸 오는데, 늘 한 칸을 비워 둔 채 뚜껑을 덮어요.",
+        "다른 칸은 반찬으로 꽉 찼는데 딱 한 칸만 비어 있어서 이상했어요.",
+        "점심시간이 되면 지훈이는 그 빈 칸에 급식에서 받은 반찬을 조금씩 옮겨 담아요.",
+        "그러고는 도시락을 그대로 가방에 넣고, 집에 갈 때까지 한 번도 열지 않았어요."
+      ],
+      "mainQuestion": "지훈이는 왜 도시락 한 칸을 일부러 비워 두고 반찬을 옮겨 담을까요?",
+      "followUpQuestions": [
+        "아무도 몰라주는 마음도 계속 이어 갈 가치가 있을까요?",
+        "여러분은 누군가를 위해 조용히 무언가를 남겨 둔 적이 있나요?"
+      ],
+      "teacherGuide": [
+        "'일부러 비운 한 칸', '집까지 열지 않음'이라는 단서를 이어 주세요.",
+        "정답 대신 지훈이가 그 반찬을 누구에게 줄지 상상하게 해 주세요."
+      ],
+      "hint": "일부러 한 칸을 비워 반찬을 담고, 집까지 열지 않아요.",
+      "sampleIdeas": [
+        "집에서 기다리는 누군가에게 주려는 것 같아요.",
+        "저녁을 못 챙기는 가족을 위한 것 같아요.",
+        "돌보는 동물에게 가져다주려는 것 같아요."
+      ],
+      "keywords": [
+        "도시락",
+        "반찬",
+        "비밀"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "why-018",
+      "title": "거꾸로 줄넘기",
+      "type": "why",
+      "grades": [
+        "middle",
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "체육 시간마다 서연이는 다들 앞으로 넘는 줄넘기를 혼자 거꾸로만 넘어요.",
+        "거꾸로 넘기가 훨씬 어려운데도, 서연이는 자꾸 넘어지면서도 굳이 그 방법만 고집해요.",
+        "쉬는 시간에 보니 서연이는 손바닥에 작은 순서표를 적어 두고 몰래 확인하고 있었어요."
+      ],
+      "mainQuestion": "서연이는 왜 더 어려운 거꾸로 줄넘기만 고집할까요?",
+      "followUpQuestions": [
+        "쉬운 길과 어려운 길 중 무엇을 고를지 어떻게 정할 수 있을까요?",
+        "여러분은 일부러 어려운 방법에 도전해 본 적이 있나요?"
+      ],
+      "teacherGuide": [
+        "'더 어려운데도 고집함'과 '손바닥의 순서표'라는 단서를 이어 주세요.",
+        "서연이가 무엇을 준비하는지까지 상상이 뻗어 가도록 도와주세요."
+      ],
+      "hint": "더 어려운 방법을 고집하며 손바닥 순서표를 몰래 확인해요.",
+      "sampleIdeas": [
+        "대회나 시험을 준비하는 것 같아요.",
+        "친구에게 멋진 모습을 보여 주고 싶은 것 같아요.",
+        "스스로와의 약속을 지키려는 것 같아요."
+      ],
+      "keywords": [
+        "줄넘기",
+        "연습",
+        "도전"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "why-019",
+      "title": "거꾸로 필통",
+      "type": "why",
+      "grades": [
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "짝꿍 유나가 며칠째 필통을 책상 위에 거꾸로 엎어 놓아요.",
+        "연필을 꺼낼 때마다 불편할 텐데도 꼭 그렇게 두더라고요.",
+        "오늘 자세히 보니 뚜껑에 작은 그림이 그려져 있고, 그 그림이 앞을 향하도록 엎어 둔 거였어요."
+      ],
+      "mainQuestion": "유나는 왜 불편하게 필통을 거꾸로 엎어 놓을까요?",
+      "followUpQuestions": [
+        "편함과 소중함 중 무엇을 고를지 어떻게 정할 수 있을까요?",
+        "여러분은 불편해도 지키고 싶은 물건이 있나요?"
+      ],
+      "teacherGuide": [
+        "'불편함'과 '뚜껑의 작은 그림'을 이어서 짚어 주세요.",
+        "그림이 왜 소중한지까지 상상이 뻗어 가도록 도와주세요."
+      ],
+      "hint": "뚜껑의 작은 그림이 딱 앞을 향하도록 엎어 뒀어요.",
+      "sampleIdeas": [
+        "친구가 그려 준 그림을 계속 보고 싶은 것 같아요.",
+        "소중한 그림을 자랑하고 싶은 것 같아요.",
+        "그림이 지워질까 봐 아끼는 것 같아요."
+      ],
+      "keywords": [
+        "필통",
+        "그림",
+        "짝꿍"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "why-020",
+      "title": "고양이 선물",
+      "type": "why",
+      "grades": [
+        "lower"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "우리 고양이 나비가 아침마다 제 베개 옆에 장난감을 하나씩 물어다 놓아요.",
+        "오늘은 제일 아끼는 방울 공을 가져다 두고, 제 옆에 앉아 저를 빤히 올려다봐요."
+      ],
+      "mainQuestion": "나비는 왜 제 베개 옆에 장난감을 물어다 놓을까요?",
+      "followUpQuestions": [
+        "말없이 마음을 전하려면 어떻게 할 수 있을까요?",
+        "여러분은 아끼는 것을 누군가에게 나눠 준 적이 있나요?"
+      ],
+      "teacherGuide": [
+        "'제일 아끼는 방울 공'을 가져와 '나를 올려다본다'는 단서를 짚어 주세요.",
+        "동물의 마음을 상상하는 활동이니 여러 답을 반겨 주세요."
+      ],
+      "hint": "하필 제일 아끼는 방울 공을 두고 저를 빤히 올려다봐요.",
+      "sampleIdeas": [
+        "저에게 선물하는 것 같아요.",
+        "같이 놀자는 뜻인 것 같아요.",
+        "아끼는 걸 나눠 주고 싶은 것 같아요."
+      ],
+      "keywords": [
+        "고양이",
+        "장난감",
+        "선물"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "mind-006",
+      "title": "새 짝꿍",
+      "type": "mind",
+      "grades": [
+        "lower"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "전학 온 지호가 교실 문 앞에 서 있어요.",
+        "친구들이 모두 지호를 쳐다봐요.",
+        "지호는 가방끈을 두 손으로 꼭 잡았어요."
+      ],
+      "mainQuestion": "지호는 지금 어떤 마음일까요?",
+      "followUpQuestions": [
+        "새로운 곳에 처음 갔을 때 어떤 마음이 들었나요?",
+        "낯선 친구에게 먼저 말을 거는 것과 기다리는 것 중 무엇이 더 좋을까요?"
+      ],
+      "teacherGuide": [
+        "가방끈을 두 손으로 꼭 잡은 손을 단서로 짚어 주세요.",
+        "한 가지 정답을 정하지 말고 여러 마음을 인정해 주세요."
+      ],
+      "hint": "가방끈을 두 손으로 꼭 잡은 모습을 보세요.",
+      "sampleIdeas": [
+        "많은 친구가 쳐다봐서 조금 떨리는 것 같아요.",
+        "빨리 친구를 사귀고 싶어 설레는 것 같아요.",
+        "혼자여서 조금 외로운 것 같아요."
+      ],
+      "keywords": [
+        "전학",
+        "첫날",
+        "긴장"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "mind-007",
+      "title": "내 그림",
+      "type": "mind",
+      "grades": [
+        "lower"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "선생님이 수아의 그림을 칠판에 붙였어요.",
+        "\"정말 잘 그렸구나!\" 하고 말했어요.",
+        "수아는 볼이 발그레해지며 입을 오므렸어요."
+      ],
+      "mainQuestion": "수아는 지금 어떤 마음일까요?",
+      "followUpQuestions": [
+        "칭찬을 받았을 때 어떤 마음이 들었나요?",
+        "칭찬은 여러 사람 앞에서 하는 것과 조용히 하는 것 중 무엇이 더 좋을까요?"
+      ],
+      "teacherGuide": [
+        "볼이 발그레해지고 입을 오므린 표정을 짚어 주세요.",
+        "정답이 없음을 안내하고 자유롭게 말하게 해 주세요."
+      ],
+      "hint": "볼이 발그레해지고 입을 오므린 표정을 보세요.",
+      "sampleIdeas": [
+        "칭찬을 받아서 뿌듯한 것 같아요.",
+        "부끄러워서 볼이 빨개진 것 같아요.",
+        "기뻐서 웃음을 참는 것 같아요."
+      ],
+      "keywords": [
+        "칭찬",
+        "그림",
+        "뿌듯"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "mind-008",
+      "title": "쏟은 우유",
+      "type": "mind",
+      "grades": [
+        "lower"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "급식 시간에 민준이가 우유를 바닥에 쏟았어요.",
+        "우유가 주르륵 흘러 신발까지 갔어요.",
+        "민준이는 고개를 푹 숙였어요."
+      ],
+      "mainQuestion": "민준이는 지금 어떤 마음일까요?",
+      "followUpQuestions": [
+        "실수했을 때 어떤 마음이 들었나요?",
+        "실수한 친구에게는 웃어 주는 것과 얼른 도와주는 것 중 무엇이 더 좋을까요?"
+      ],
+      "teacherGuide": [
+        "고개를 푹 숙인 모습을 단서로 짚어 주세요.",
+        "정답을 정하지 말고 여러 감정을 받아 주세요."
+      ],
+      "hint": "고개를 푹 숙인 모습을 보세요.",
+      "sampleIdeas": [
+        "친구들이 볼까 봐 부끄러운 것 같아요.",
+        "실수해서 속상한 것 같아요.",
+        "혼날까 봐 걱정되는 것 같아요."
+      ],
+      "keywords": [
+        "실수",
+        "우유",
+        "속상"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "mind-009",
+      "title": "동생 신발",
+      "type": "mind",
+      "grades": [
+        "lower"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "유나가 동생의 신발끈을 대신 묶어 주었어요.",
+        "동생이 \"고마워 누나!\" 하고 웃었어요.",
+        "유나는 어깨를 쭉 펴고 방긋 웃었어요."
+      ],
+      "mainQuestion": "유나는 지금 어떤 마음일까요?",
+      "followUpQuestions": [
+        "누군가를 도와주고 어떤 마음이 들었나요?",
+        "도움은 부탁받고 하는 것과 먼저 나서서 하는 것 중 무엇이 더 좋을까요?"
+      ],
+      "teacherGuide": [
+        "어깨를 쭉 펴고 방긋 웃는 모습을 짚어 주세요.",
+        "정답이 없음을 알리고 다양한 답을 칭찬해 주세요."
+      ],
+      "hint": "어깨를 쭉 펴고 방긋 웃는 모습을 보세요.",
+      "sampleIdeas": [
+        "동생을 도와줘서 뿌듯한 것 같아요.",
+        "고맙다는 말을 들어서 기쁜 것 같아요.",
+        "누나 노릇을 해서 자랑스러운 것 같아요."
+      ],
+      "keywords": [
+        "동생",
+        "도움",
+        "뿌듯"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "mind-010",
+      "title": "내일 생일",
+      "type": "mind",
+      "grades": [
+        "lower"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "내일은 하람이의 생일이에요.",
+        "엄마가 방문을 닫으며 \"들어오지 마\" 하고 웃었어요.",
+        "하람이는 이불 속에서 눈을 반짝였어요."
+      ],
+      "mainQuestion": "하람이는 지금 어떤 마음일까요?",
+      "followUpQuestions": [
+        "기다리던 날 전날 밤 어떤 마음이 들었나요?",
+        "생일 선물은 미리 아는 것과 깜짝 받는 것 중 무엇이 더 좋을까요?"
+      ],
+      "teacherGuide": [
+        "이불 속에서 눈을 반짝이는 모습을 단서로 짚어 주세요.",
+        "정답 없이 여러 마음을 자유롭게 말하게 해 주세요."
+      ],
+      "hint": "이불 속에서 눈을 반짝이는 모습을 보세요.",
+      "sampleIdeas": [
+        "내일이 기다려져 설레는 것 같아요.",
+        "선물이 궁금해서 두근거리는 것 같아요.",
+        "좋아서 잠이 안 오는 것 같아요."
+      ],
+      "keywords": [
+        "생일",
+        "기다림",
+        "설렘"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "mind-011",
+      "title": "엎드린 짝꿍",
+      "type": "mind",
+      "grades": [
+        "lower",
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "쉬는 시간인데 짝꿍 하은이가 책상에 엎드려 고개를 들지 않아요.",
+        "친구들이 놀자고 불러도 대답이 없어요.",
+        "하은이의 두 손이 소매를 꼭 움켜쥐고 있었어요."
+      ],
+      "mainQuestion": "하은이는 지금 어떤 마음일까요?",
+      "followUpQuestions": [
+        "기분이 안 좋아 보이는 친구를 본 적이 있나요? 어떤 마음이 들었나요?",
+        "속상해 보이는 친구에게는 먼저 말을 거는 것과 조용히 기다려 주는 것 중 무엇이 더 좋을까요?"
+      ],
+      "teacherGuide": [
+        "부르는 소리에도 대답 없이 소매를 꼭 움켜쥔 모습을 단서로 짚어 주세요.",
+        "정답을 정하지 말고 여러 마음을 인정해 주세요."
+      ],
+      "hint": "부르는 소리에도 대답 없이 소매를 꼭 움켜쥔 모습을 보세요.",
+      "sampleIdeas": [
+        "무슨 일이 있어 속상한 것 같아요.",
+        "혼자 있고 싶은 마음인 것 같아요.",
+        "몸이 안 좋아 힘든 것 같아요."
+      ],
+      "keywords": [
+        "짝꿍",
+        "걱정",
+        "속상"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "mind-012",
+      "title": "빌린 지우개",
+      "type": "mind",
+      "grades": [
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "소민이는 은채에게 빌린 캐릭터 지우개를 잃어버렸어요.",
+        "은채가 아끼던 지우개라는 걸 알고 있었어요.",
+        "쉬는 시간, 은채가 \"내 지우개 돌려줘\" 하고 손을 내밀었어요.",
+        "소민이는 주머니 속 빈 손을 꼼지락거리며 눈을 피했어요."
+      ],
+      "mainQuestion": "소민이는 지금 어떤 마음일까요?",
+      "followUpQuestions": [
+        "친구 물건을 잃어버린 적이 있나요? 어떤 마음이었나요?",
+        "잘못은 바로 말하는 것과 시간을 두고 말하는 것 중 무엇이 더 좋을까요?"
+      ],
+      "teacherGuide": [
+        "빈 손을 꼼지락거리며 눈을 피하는 행동을 짚어 주세요.",
+        "정답이 없음을 안내하고 솔직한 감정을 존중해 주세요."
+      ],
+      "hint": "빈 손을 꼼지락거리며 눈을 피하는 모습을 보세요.",
+      "sampleIdeas": [
+        "잃어버렸다고 말하기 미안한 것 같아요.",
+        "은채가 화낼까 봐 걱정되는 것 같아요.",
+        "어떻게 말할지 몰라 난처한 것 같아요."
+      ],
+      "keywords": [
+        "미안함",
+        "지우개",
+        "난처"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "mind-013",
+      "title": "리코더 소리",
+      "type": "mind",
+      "grades": [
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "음악 시간에 단짝 예준이가 리코더 연주를 실수 하나 없이 해냈어요.",
+        "선생님과 친구들이 예준이에게 큰 박수를 보냈어요.",
+        "지우도 손뼉을 쳤지만 어쩐지 입꼬리가 잘 올라가지 않았어요.",
+        "지우는 자기 리코더를 가방 속에 슬며시 밀어 넣었어요."
+      ],
+      "mainQuestion": "지우는 지금 어떤 마음일까요?",
+      "followUpQuestions": [
+        "친구가 나보다 잘했을 때 어떤 마음이 들었나요?",
+        "부러운 마음은 솔직히 말하는 것과 마음속에만 두는 것 중 무엇이 더 좋을까요?"
+      ],
+      "teacherGuide": [
+        "입꼬리가 잘 올라가지 않은 표정과 리코더를 밀어 넣은 행동을 짚어 주세요.",
+        "부러움도 자연스러운 마음임을 정답 없이 알려 주세요."
+      ],
+      "hint": "입꼬리가 잘 올라가지 않은 표정과 리코더를 밀어 넣은 행동을 보세요.",
+      "sampleIdeas": [
+        "친구가 부러워서 조금 속상한 것 같아요.",
+        "축하하면서도 아쉬운 마음이 섞인 것 같아요.",
+        "자기 실력이 부끄러워진 것 같아요."
+      ],
+      "keywords": [
+        "부러움",
+        "리코더",
+        "질투"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "mind-014",
+      "title": "못 본 인사",
+      "type": "mind",
+      "grades": [
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "복도에서 마주친 서준이가 도아를 못 본 듯 그냥 지나쳐 갔어요.",
+        "도아는 손을 들어 인사하려던 참이었어요.",
+        "어제까지도 둘은 신나게 함께 놀았는데 말이에요.",
+        "도아는 들었던 손을 슬그머니 내리며 입술을 깨물었어요."
+      ],
+      "mainQuestion": "도아는 지금 어떤 마음일까요?",
+      "followUpQuestions": [
+        "친구에게 서운했던 적이 있나요? 어떤 마음이었나요?",
+        "서운한 마음은 바로 물어보는 것과 하루쯤 지켜보는 것 중 무엇이 더 좋을까요?"
+      ],
+      "teacherGuide": [
+        "들었던 손을 내리고 입술을 깨문 모습을 단서로 짚어 주세요.",
+        "친구가 못 봤을 수도 있음을 함께 떠올리며 이유를 단정 짓지 말아 주세요."
+      ],
+      "hint": "들었던 손을 내리며 입술을 깨문 모습을 보세요.",
+      "sampleIdeas": [
+        "인사를 못 받아 서운한 것 같아요.",
+        "무슨 일이 있나 궁금한 것 같아요.",
+        "나한테 화났나 걱정되는 것 같아요."
+      ],
+      "keywords": [
+        "오해",
+        "서운함",
+        "인사"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "mind-015",
+      "title": "떨리는 발표",
+      "type": "mind",
+      "grades": [
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "오늘 하준이는 반 친구들 앞에서 처음으로 발표를 해요.",
+        "이름이 불리자 심장이 쿵쿵 뛰었어요.",
+        "앞으로 걸어 나가는데 손에 든 종이가 파르르 떨렸어요.",
+        "하준이는 크게 숨을 한 번 들이쉬었어요."
+      ],
+      "mainQuestion": "하준이는 지금 어떤 마음일까요?",
+      "followUpQuestions": [
+        "처음 무언가에 도전했을 때 어떤 마음이 들었나요?",
+        "떨릴 때는 티 내는 것과 감추는 것 중 무엇이 더 좋을까요?"
+      ],
+      "teacherGuide": [
+        "떨리는 종이와 크게 들이쉰 숨을 단서로 짚어 주세요.",
+        "긴장도 용기의 일부임을 정답 없이 이야기해 주세요."
+      ],
+      "hint": "떨리는 종이와 크게 들이쉰 숨을 보세요.",
+      "sampleIdeas": [
+        "처음이라 많이 떨리는 것 같아요.",
+        "잘하고 싶어 긴장되는 것 같아요.",
+        "떨리지만 용기를 내는 것 같아요."
+      ],
+      "keywords": [
+        "발표",
+        "도전",
+        "긴장"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "mind-016",
+      "title": "내민 젤리",
+      "type": "mind",
+      "grades": [
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "시우와 태오는 어제 사소한 일로 크게 다퉜어요.",
+        "오늘 아침, 둘은 서로 눈도 마주치지 않았어요.",
+        "쉬는 시간에 태오가 시우의 책상 위에 좋아하는 젤리 하나를 슬쩍 올려 두고 지나갔어요.",
+        "시우는 젤리를 만지작거리며 태오의 뒷모습을 오래 바라보았어요.",
+        "입을 열까 말까 하다가 다시 다물었어요."
+      ],
+      "mainQuestion": "시우는 지금 어떤 마음일까요?",
+      "followUpQuestions": [
+        "다툰 친구와 화해하고 싶었던 적이 있나요? 어떤 마음이었나요?",
+        "화해는 먼저 사과하는 것과 상대가 다가오길 기다리는 것 중 무엇이 더 좋을까요?"
+      ],
+      "teacherGuide": [
+        "젤리를 만지작거리며 뒷모습을 오래 바라보는 장면을 짚어 주세요.",
+        "화해하고 싶은 마음과 남은 서운함이 섞일 수 있음을 정답 없이 나눠 주세요."
+      ],
+      "hint": "젤리를 만지작거리며 태오의 뒷모습을 오래 바라보는 모습을 보세요.",
+      "sampleIdeas": [
+        "화해하고 싶지만 먼저 말 꺼내기 쑥스러운 것 같아요.",
+        "젤리를 보고 마음이 조금 풀린 것 같아요.",
+        "미안하면서도 아직 서운함이 남은 것 같아요."
+      ],
+      "keywords": [
+        "다툼",
+        "화해",
+        "용기"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "mind-017",
+      "title": "결승 상대",
+      "type": "mind",
+      "grades": [
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "달리기 대회 결승에서 라온이의 상대는 가장 친한 친구 예린이였어요.",
+        "예린이는 라온이가 요즘 얼마나 열심히 연습했는지 잘 알고 있었어요.",
+        "출발선에 나란히 선 예린이가 라온이를 보며 살짝 웃어 주었어요.",
+        "그런데 예린이의 웃음 끝이 어쩐지 조금 흔들렸어요.",
+        "예린이는 신발끈을 두 번이나 고쳐 묶었어요."
+      ],
+      "mainQuestion": "예린이는 지금 어떤 마음일까요?",
+      "followUpQuestions": [
+        "친한 친구와 겨뤄야 했던 적이 있나요? 어떤 마음이었나요?",
+        "친구와의 시합에서는 최선을 다해 이기려는 것과 봐주는 것 중 무엇이 더 좋을까요?"
+      ],
+      "teacherGuide": [
+        "흔들리는 웃음과 신발끈을 두 번 고쳐 묶은 행동을 짚어 주세요.",
+        "이기고 싶은 마음과 친구를 아끼는 마음이 섞일 수 있음을 함께 이야기해 주세요."
+      ],
+      "hint": "흔들리는 웃음과 신발끈을 두 번 고쳐 묶은 행동을 보세요.",
+      "sampleIdeas": [
+        "이기고 싶으면서도 친구라 미안한 마음이 섞인 것 같아요.",
+        "친구를 응원하면서도 지고 싶지 않은 것 같아요.",
+        "긴장되어 자꾸 딴짓을 하게 되는 것 같아요."
+      ],
+      "keywords": [
+        "라이벌",
+        "시합",
+        "이중감정"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "mind-018",
+      "title": "괜한 짜증",
+      "type": "mind",
+      "grades": [
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "준서는 동생이 자기 물건을 자꾸 만진다며 큰 소리로 짜증을 냈어요.",
+        "사실 오늘은 준서가 정말 나가고 싶던 대회에서 떨어진 날이었어요.",
+        "동생은 아무것도 모른 채 눈이 동그래졌어요.",
+        "준서는 방문을 쾅 닫고 들어가 이불을 뒤집어썼어요.",
+        "이불 속에서 준서의 어깨가 들썩였어요."
+      ],
+      "mainQuestion": "준서는 정말 동생 때문에 화가 난 걸까요? 지금 어떤 마음일까요?",
+      "followUpQuestions": [
+        "속상한 일을 엉뚱한 사람에게 화풀이한 적이 있나요?",
+        "속상할 때는 혼자 있는 것과 누군가에게 말하는 것 중 무엇이 더 좋을까요?"
+      ],
+      "teacherGuide": [
+        "대회에서 떨어진 날이라는 점과 이불 속에서 들썩이는 어깨를 짚어 주세요.",
+        "겉으로 드러난 짜증과 속마음이 다를 수 있음을 정답 없이 나눠 주세요."
+      ],
+      "hint": "대회에서 떨어진 날이라는 것과 이불 속에서 들썩이는 어깨를 보세요.",
+      "sampleIdeas": [
+        "대회에서 떨어져 속상한 마음을 동생에게 푼 것 같아요.",
+        "실망을 들키기 싫어 화난 척한 것 같아요.",
+        "슬픈데 울음을 참으려고 짜증을 낸 것 같아요."
+      ],
+      "keywords": [
+        "화풀이",
+        "실망",
+        "숨은마음"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "mind-019",
+      "title": "괜찮아",
+      "type": "mind",
+      "grades": [
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "친구들이 주말에 놀이공원에 다녀온 사진을 돌려 보고 있었어요.",
+        "연우는 그 약속을 오늘 처음 듣는 이야기였어요.",
+        "한 친구가 \"너도 알고 있었지?\" 하고 묻자 연우는 \"응, 나는 그날 바빴어\"라며 웃었어요.",
+        "하지만 연우는 웃으면서도 사진에서 눈을 떼지 못했어요.",
+        "가방 속 휴대폰만 만지작거렸어요."
+      ],
+      "mainQuestion": "\"괜찮아\"라고 말한 연우는 정말 괜찮은 걸까요? 지금 어떤 마음일까요?",
+      "followUpQuestions": [
+        "괜찮은 척했지만 사실 속상했던 적이 있나요?",
+        "서운할 때 괜찮은 척하는 것과 솔직히 말하는 것 중 무엇이 더 좋을까요?"
+      ],
+      "teacherGuide": [
+        "웃으면서도 사진에서 눈을 떼지 못하는 모습을 짚어 주세요.",
+        "말과 속마음이 다를 수 있음을 정답 없이 함께 생각해 주세요."
+      ],
+      "hint": "웃으면서도 사진에서 눈을 떼지 못하는 모습을 보세요.",
+      "sampleIdeas": [
+        "빼놓고 논 게 서운하지만 티 내기 싫은 것 같아요.",
+        "괜찮은 척하지만 속으로는 속상한 것 같아요.",
+        "자기만 몰랐다는 게 외로운 것 같아요."
+      ],
+      "keywords": [
+        "서운함",
+        "괜찮은척",
+        "소외"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "mind-020",
+      "title": "마지막 인사",
+      "type": "mind",
+      "grades": [
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "오늘은 이든이가 이 학교에서 보내는 마지막 날이에요.",
+        "친구들이 편지와 작은 선물을 잔뜩 모아 이든이에게 건넸어요.",
+        "이든이는 웃으며 \"고마워, 자주 연락할게\"라고 인사했어요.",
+        "교실 문을 나서기 직전, 이든이는 걸음을 멈추고 뒤를 돌아보았어요.",
+        "익숙한 칠판과 자기 자리를 눈에 오래 담았어요."
+      ],
+      "mainQuestion": "뒤돌아본 이든이는 지금 어떤 마음일까요?",
+      "followUpQuestions": [
+        "정든 곳을 떠나 본 적이 있나요? 어떤 마음이었나요?",
+        "떠날 때는 밝게 웃으며 인사하는 것과 솔직히 아쉬움을 보이는 것 중 무엇이 더 좋을까요?"
+      ],
+      "teacherGuide": [
+        "문 앞에서 걸음을 멈추고 자리를 오래 바라보는 장면을 짚어 주세요.",
+        "기쁨과 아쉬움이 섞일 수 있음을 정답 없이 함께 나눠 주세요."
+      ],
+      "hint": "문 앞에서 걸음을 멈추고 자기 자리를 오래 바라보는 모습을 보세요.",
+      "sampleIdeas": [
+        "친구들과 헤어지기 아쉬워 그리운 마음이 드는 것 같아요.",
+        "좋은 추억이 많아 고마운 마음이 섞인 것 같아요.",
+        "새 학교가 기대되면서도 서운한 것 같아요."
+      ],
+      "keywords": [
+        "전학",
+        "작별",
+        "그리움"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "choice-006",
+      "title": "마지막 사탕",
+      "type": "choice",
+      "grades": [
+        "lower"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "쉬는 시간에 사탕이 딱 하나 남았어요.",
+        "내가 먹고 싶은데, 옆에 있는 친구도 사탕을 빤히 바라보고 있어요.",
+        "나라면 이 마지막 사탕을 어떻게 할까요?"
+      ],
+      "mainQuestion": "나라면 마지막 사탕을 어떻게 할까요? 그 이유는?",
+      "followUpQuestions": [
+        "둘이 함께 나눠 먹을 방법도 있을까요?",
+        "내가 먼저 먹고 싶은 마음은 나쁜 걸까요?"
+      ],
+      "teacherGuide": [
+        "친구가 사탕을 '빤히 바라보는' 표정을 함께 짚어 주세요.",
+        "어떤 선택이든 존중하고, 정답이 없음을 안내해 주세요."
+      ],
+      "hint": "친구가 사탕을 '빤히 바라보는' 표정이 단서예요.",
+      "sampleIdeas": [
+        "반으로 나눠 먹을 것 같아요.",
+        "친구에게 양보할 것 같아요.",
+        "가위바위보로 정할 것 같아요."
+      ],
+      "keywords": [
+        "사탕",
+        "나눔",
+        "양보"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "choice-007",
+      "title": "하나뿐인 그네",
+      "type": "choice",
+      "grades": [
+        "lower"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "놀이터에 그네가 딱 하나 남았어요.",
+        "내가 타려고 뛰어갔는데, 동생도 울먹이며 그네로 걸어와요.",
+        "나라면 이 그네를 어떻게 할까요?"
+      ],
+      "mainQuestion": "나라면 그네를 어떻게 할까요? 그 이유는?",
+      "followUpQuestions": [
+        "번갈아 타는 방법은 어떨까요?",
+        "내가 먼저 왔으니 내가 타는 게 맞을까요?"
+      ],
+      "teacherGuide": [
+        "동생이 '울먹이며' 걸어오는 모습을 함께 짚어 주세요.",
+        "먼저 온 사람과 양보 사이에 정답이 없음을 안내해 주세요."
+      ],
+      "hint": "동생이 '울먹이며' 걸어오는 모습이 단서예요.",
+      "sampleIdeas": [
+        "동생에게 먼저 타게 할 것 같아요.",
+        "번갈아 타자고 할 것 같아요.",
+        "내가 조금 타고 바꿔 줄 것 같아요."
+      ],
+      "keywords": [
+        "그네",
+        "양보",
+        "순서"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "choice-008",
+      "title": "혼자인 친구",
+      "type": "choice",
+      "grades": [
+        "lower",
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "새로 온 친구가 쉬는 시간마다 혼자 창밖만 바라봐요.",
+        "같이 놀자고 다가가고 싶은데, 저쪽에서 내 친구들이 빨리 오라고 나를 불러요.",
+        "나라면 어떻게 할까요?"
+      ],
+      "mainQuestion": "나라면 혼자 있는 친구를 보고 어떻게 할까요? 그 이유는?",
+      "followUpQuestions": [
+        "혼자인 친구에게 어떻게 말을 걸어 볼 수 있을까요?",
+        "새 친구를 먼저 챙기는 것과 원래 친구들과 노는 것 중 무엇이 더 좋을까요?"
+      ],
+      "teacherGuide": [
+        "친구가 '혼자 창밖만 바라보는' 모습과 내 친구들이 '부르는' 상황을 함께 짚어 주세요.",
+        "새 친구 챙기기와 원래 친구와 놀기 사이에 정답이 없음을 안내해 주세요."
+      ],
+      "hint": "친구가 '혼자 창밖만 바라보는' 모습이 단서예요.",
+      "sampleIdeas": [
+        "다가가서 같이 놀자고 할 것 같아요.",
+        "내 친구들에게 같이 놀자고 데려갈 것 같아요.",
+        "먼저 이름을 물어보며 인사할 것 같아요."
+      ],
+      "keywords": [
+        "새친구",
+        "배려",
+        "용기"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "choice-009",
+      "title": "속상한 친구",
+      "type": "choice",
+      "grades": [
+        "lower",
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "달리기에서 진 친구가 구석에서 어깨를 축 늘어뜨리고 있어요.",
+        "다가가 말을 걸고 싶은데, 뭐라고 해야 좋을지 잘 모르겠어요.",
+        "나라면 어떻게 할까요?"
+      ],
+      "mainQuestion": "나라면 속상해하는 친구에게 어떻게 할까요? 그 이유는?",
+      "followUpQuestions": [
+        "친구에게 어떤 말을 건네면 좋을까요?",
+        "속상한 친구에게는 위로의 말이 좋을까요, 그냥 곁에 있어 주는 게 좋을까요?"
+      ],
+      "teacherGuide": [
+        "친구가 '어깨를 축 늘어뜨린' 모습과 '구석에' 있는 점을 함께 짚어 주세요.",
+        "위로하는 방법에 정답이 하나가 아님을 안내해 주세요."
+      ],
+      "hint": "친구가 '어깨를 축 늘어뜨린' 모습이 단서예요.",
+      "sampleIdeas": [
+        "괜찮냐고 조용히 물어볼 것 같아요.",
+        "옆에 가만히 앉아 있어 줄 것 같아요.",
+        "다음엔 잘할 거라고 말해 줄 것 같아요."
+      ],
+      "keywords": [
+        "위로",
+        "공감",
+        "친구"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "choice-010",
+      "title": "친구의 그림",
+      "type": "choice",
+      "grades": [
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "친구가 밤새 그린 그림을 보여주며 눈을 반짝여요.",
+        "'어때, 잘 그렸지?' 하고 묻는데, 솔직히 내 눈엔 조금 아쉬워 보여요.",
+        "사실대로 말하면 친구가 속상할 것 같고, 좋다고만 하면 거짓말이에요.",
+        "나라면 어떻게 할까요?"
+      ],
+      "mainQuestion": "나라면 친구의 그림에 어떻게 말할까요? 그 이유는?",
+      "followUpQuestions": [
+        "친구가 속상하지 않게 솔직히 말할 방법이 있을까요?",
+        "친구 기분을 지키는 것과 사실대로 말하는 것 중 무엇이 더 좋을까요?"
+      ],
+      "teacherGuide": [
+        "친구가 '밤새 그렸다'는 점과 '눈을 반짝이며' 묻는 모습을 짚어 주세요.",
+        "솔직함과 배려 사이에 정답이 없음을 안내해 주세요."
+      ],
+      "hint": "친구가 '밤새 그리고' '눈을 반짝이며' 묻는 모습이 단서예요.",
+      "sampleIdeas": [
+        "좋은 점을 먼저 말해 줄 것 같아요.",
+        "솔직하게 아쉬운 점을 말해 줄 것 같아요.",
+        "어떻게 그렸는지 물어보며 이야기할 것 같아요."
+      ],
+      "keywords": [
+        "솔직함",
+        "배려",
+        "그림"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "choice-011",
+      "title": "미끄럼틀",
+      "type": "choice",
+      "grades": [
+        "lower"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "놀이터에서 가장 높은 미끄럼틀 앞에 섰어요.",
+        "타 보고 싶어서 가슴이 두근거리는데, 위에서 아래를 내려다보니 조금 무서워요.",
+        "나라면 어떻게 할까요?"
+      ],
+      "mainQuestion": "나라면 높은 미끄럼틀을 어떻게 할까요? 그 이유는?",
+      "followUpQuestions": [
+        "무서운 마음이 들 때 어떻게 하면 좋을까요?",
+        "무서워도 도전하는 것과 다음에 천천히 도전하는 것 중 무엇이 좋을까요?"
+      ],
+      "teacherGuide": [
+        "'가슴이 두근거리는' 마음과 '조금 무섭다'는 마음이 함께 있는 점을 짚어 주세요.",
+        "도전과 기다림 사이에 정답이 없음을 안내해 주세요."
+      ],
+      "hint": "'가슴이 두근거리면서도 조금 무섭다'는 마음이 단서예요.",
+      "sampleIdeas": [
+        "용기를 내서 타 볼 것 같아요.",
+        "친구가 타는 걸 보고 나서 탈 것 같아요.",
+        "오늘은 낮은 것부터 타 볼 것 같아요."
+      ],
+      "keywords": [
+        "용기",
+        "도전",
+        "놀이터"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "choice-012",
+      "title": "우산 하나",
+      "type": "choice",
+      "grades": [
+        "lower",
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "갑자기 비가 쏟아졌는데 내 가방엔 우산이 딱 하나예요.",
+        "우산이 없는 친구가 나를 쳐다보는데, 같이 쓰면 둘 다 조금씩 젖어요.",
+        "나라면 어떻게 할까요?"
+      ],
+      "mainQuestion": "나라면 하나뿐인 우산을 어떻게 할까요? 그 이유는?",
+      "followUpQuestions": [
+        "함께 쓰면서 덜 젖을 방법이 있을까요?",
+        "내 것을 나눠서 나도 조금 젖는 게 좋을까요?"
+      ],
+      "teacherGuide": [
+        "친구가 '나를 쳐다보는' 모습과 '둘 다 젖는다'는 점을 짚어 주세요.",
+        "나눔과 손해 사이에 정답이 없음을 안내해 주세요."
+      ],
+      "hint": "친구가 '나를 쳐다보는' 모습이 단서예요.",
+      "sampleIdeas": [
+        "같이 쓰고 갈 것 같아요.",
+        "친구에게 우산을 빌려줄 것 같아요.",
+        "가까운 곳까지 데려다줄 것 같아요."
+      ],
+      "keywords": [
+        "우산",
+        "나눔",
+        "비"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "choice-013",
+      "title": "복도의 규칙",
+      "type": "choice",
+      "grades": [
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "우리 반 규칙은 복도에서 절대 뛰지 않기예요.",
+        "그런데 저 끝에서 친구가 넘어져 울고 있고, 도와줄 사람은 나뿐이에요.",
+        "빨리 가려면 뛰어야 하는데, 규칙을 어기면 벌점을 받아요.",
+        "나라면 어떻게 할까요?"
+      ],
+      "mainQuestion": "나라면 규칙과 친구 사이에서 어떻게 할까요? 그 이유는?",
+      "followUpQuestions": [
+        "규칙을 어겨야 했다면 선생님께 어떻게 설명할까요?",
+        "누군가를 돕기 위해서라면 규칙을 어겨도 될까요?"
+      ],
+      "teacherGuide": [
+        "친구가 '울고 있는' 모습과 '벌점' 규칙이 부딪히는 점을 짚어 주세요.",
+        "규칙의 예외에 대한 정답이 하나가 아님을 안내해 주세요."
+      ],
+      "hint": "친구가 '울고 있는' 모습과 '벌점' 규칙이 부딪히는 점이 단서예요.",
+      "sampleIdeas": [
+        "조심히 빠르게 걸어가서 도울 것 같아요.",
+        "규칙보다 친구가 먼저라 뛰어갈 것 같아요.",
+        "큰 소리로 가까운 어른을 부를 것 같아요."
+      ],
+      "keywords": [
+        "규칙",
+        "예외",
+        "도움"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "choice-014",
+      "title": "친구의 비밀",
+      "type": "choice",
+      "grades": [
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "친구가 아무한테도 말하지 말라며 비밀을 하나 알려줬어요.",
+        "그런데 그 일 때문에 친구가 요즘 자꾸 한숨을 쉬고 힘들어 보여요.",
+        "어른께 말하면 도와줄 수 있을 것 같은데, 그러면 약속을 어기는 거예요.",
+        "나라면 어떻게 할까요?"
+      ],
+      "mainQuestion": "나라면 친구의 비밀을 어떻게 할까요? 그 이유는?",
+      "followUpQuestions": [
+        "친구에게 먼저 어떻게 말을 꺼내 볼 수 있을까요?",
+        "친구를 돕기 위해서라면 비밀을 말해도 될까요?"
+      ],
+      "teacherGuide": [
+        "친구가 '자꾸 한숨을 쉬는' 모습과 '비밀로 하자'는 약속을 짚어 주세요.",
+        "비밀 지키기와 돕기 사이에 정답이 없음을 안내해 주세요."
+      ],
+      "hint": "친구가 '자꾸 한숨을 쉬며 힘들어하는' 모습이 단서예요.",
+      "sampleIdeas": [
+        "먼저 친구를 직접 도와줄 것 같아요.",
+        "어른께 함께 말하자고 친구를 설득할 것 같아요.",
+        "약속대로 비밀을 꼭 지킬 것 같아요."
+      ],
+      "keywords": [
+        "비밀",
+        "약속",
+        "걱정"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "choice-015",
+      "title": "단톡방 사진",
+      "type": "choice",
+      "grades": [
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "우리 반 단톡방에 친구의 웃긴 사진을 올리면 다들 재밌어할 것 같아요.",
+        "그런데 그 사진 속 친구는 자기 사진이 있는지도 몰라요.",
+        "물어보고 올리면 김이 샐 것 같고, 그냥 올리면 친구가 싫어할 수도 있어요.",
+        "나라면 어떻게 할까요?"
+      ],
+      "mainQuestion": "나라면 이 사진을 어떻게 할까요? 그 이유는?",
+      "followUpQuestions": [
+        "사진을 올리기 전에 무엇을 확인해야 할까요?",
+        "재미있으면 허락 없이 올려도 될까요?"
+      ],
+      "teacherGuide": [
+        "사진 속 친구가 '자기 사진인지도 모른다'는 점을 짚어 주세요.",
+        "디지털 예절에 대한 정답이 하나가 아님을 안내해 주세요."
+      ],
+      "hint": "사진 속 친구가 '자기 사진인지도 모른다'는 점이 단서예요.",
+      "sampleIdeas": [
+        "먼저 친구에게 물어볼 것 같아요.",
+        "그냥 올리지 않을 것 같아요.",
+        "친구와 둘이서만 볼 것 같아요."
+      ],
+      "keywords": [
+        "단톡방",
+        "사진",
+        "예절"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "choice-016",
+      "title": "모둠 대표",
+      "type": "choice",
+      "grades": [
+        "middle",
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "모둠 대표를 뽑는데 내 단짝이 하고 싶다며 손을 들었어요.",
+        "그런데 대표를 더 잘할 것 같은 다른 친구도 손을 들었어요.",
+        "내 한 표로 결과가 갈릴 수 있어요.",
+        "단짝을 뽑으면 친구는 기뻐하겠지만, 모둠엔 다른 친구가 나을 수도 있어요.",
+        "나라면 누구를 뽑을까요?"
+      ],
+      "mainQuestion": "나라면 누구를 뽑을까요? 그 이유는?",
+      "followUpQuestions": [
+        "투표할 때 무엇을 가장 중요하게 봐야 할까요?",
+        "친한 사이라고 표를 주는 것은 공정할까요?"
+      ],
+      "teacherGuide": [
+        "단짝이 '하고 싶어 손든' 것과 다른 친구가 '더 잘할 것 같다'는 점을 짚어 주세요.",
+        "공정함에 대한 정답이 하나가 아님을 안내해 주세요."
+      ],
+      "hint": "단짝이 '하고 싶어 손든' 마음과 다른 친구가 '더 잘할 것 같다'는 점이 단서예요.",
+      "sampleIdeas": [
+        "모둠에 더 도움 되는 친구를 뽑을 것 같아요.",
+        "단짝을 응원하며 뽑을 것 같아요.",
+        "두 친구에게 각자 생각을 먼저 물어볼 것 같아요."
+      ],
+      "keywords": [
+        "투표",
+        "공정",
+        "우정"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "choice-017",
+      "title": "시험지의 눈길",
+      "type": "choice",
+      "grades": [
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "쪽지 시험을 보는데, 옆자리 단짝이 자꾸 내 답안지를 힐끔거려요.",
+        "눈이 마주치자 단짝은 조용히 답을 조금만 보여 달라는 손짓을 보내요.",
+        "안 보여 주면 서운해할 것 같고, 보여 주면 부정행위가 돼요.",
+        "단짝은 어제도 나를 도와준 고마운 친구예요.",
+        "시간은 점점 줄어드는데, 나라면 어떻게 할까요?"
+      ],
+      "mainQuestion": "나라면 단짝의 부탁에 어떻게 할까요? 그 이유는?",
+      "followUpQuestions": [
+        "친구에게 어떻게 거절하면 사이가 상하지 않을까요?",
+        "친한 친구를 위해서라면 규칙을 어겨도 될까요?"
+      ],
+      "teacherGuide": [
+        "단짝의 '힐끔거리는 눈'과 '손짓 신호'를 짚어 주세요.",
+        "우정과 원칙 사이에 정답이 하나가 아님을 안내해 주세요."
+      ],
+      "hint": "단짝의 '힐끔거리는 눈'과 '보여 달라는 손짓'이 단서예요.",
+      "sampleIdeas": [
+        "정중하게 거절할 것 같아요.",
+        "시험 끝나고 같이 공부하자고 할 것 같아요.",
+        "차마 거절하지 못하고 고민할 것 같아요."
+      ],
+      "keywords": [
+        "시험",
+        "우정",
+        "원칙"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "choice-018",
+      "title": "천 원의 비밀",
+      "type": "choice",
+      "grades": [
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "혼자 심부름을 갔다가 가게 아저씨가 거스름돈을 천 원 더 주셨어요.",
+        "세어 보니 확실히 더 받았는데, 아저씨는 벌써 다음 손님을 맞고 있어요.",
+        "돌려주려면 줄을 다시 서야 하고, 그냥 가면 아무도 모를 거예요.",
+        "이 천 원이면 사고 싶던 걸 살 수 있어요.",
+        "하지만 아저씨는 나중에 계산이 안 맞아 곤란해질 수도 있어요.",
+        "나라면 어떻게 할까요?"
+      ],
+      "mainQuestion": "나라면 더 받은 거스름돈을 어떻게 할까요? 그 이유는?",
+      "followUpQuestions": [
+        "돌려줄 때 아저씨께 어떻게 말할까요?",
+        "아무도 모르는 이득도 잘못일까요?"
+      ],
+      "teacherGuide": [
+        "'천 원 더' 받은 점과 아저씨가 '나중에 곤란해질 수 있다'는 점을 짚어 주세요.",
+        "정직과 곤란함 사이에 정답이 하나가 아님을 안내해 주세요."
+      ],
+      "hint": "'천 원을 더 받은' 것과 아저씨가 '나중에 곤란해질 수 있다'는 점이 단서예요.",
+      "sampleIdeas": [
+        "다시 줄을 서서 돌려줄 것 같아요.",
+        "잠깐 갖고 싶지만 결국 돌려줄 것 같아요.",
+        "아저씨께 조용히 알려 드릴 것 같아요."
+      ],
+      "keywords": [
+        "거스름돈",
+        "정직",
+        "심부름"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "choice-019",
+      "title": "약속과 기회",
+      "type": "choice",
+      "grades": [
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "가장 친한 친구와 토요일에 함께 자전거를 타기로 오래전부터 약속했어요.",
+        "그런데 같은 날, 내가 정말 가고 싶던 대회 참가 기회가 딱 하루만 열린다고 연락이 왔어요.",
+        "대회는 다시 오지 않을 기회지만, 친구는 이 약속을 몇 주째 손꼽아 기다려 왔어요.",
+        "친구에게 사정을 말하면 이해해 줄 수도, 크게 실망할 수도 있어요.",
+        "나라면 어떻게 할까요?"
+      ],
+      "mainQuestion": "나라면 약속과 기회 중 무엇을 택할까요? 그 이유는?",
+      "followUpQuestions": [
+        "친구에게 사정을 어떻게 이야기하면 좋을까요?",
+        "먼저 한 약속과 소중한 기회 중 무엇을 택해야 할까요?"
+      ],
+      "teacherGuide": [
+        "친구가 약속을 '몇 주째 손꼽아 기다린' 점과 대회가 '다시 없을 기회'라는 점을 짚어 주세요.",
+        "약속과 기회 사이에 정답이 하나가 아님을 안내해 주세요."
+      ],
+      "hint": "친구가 약속을 '몇 주째 손꼽아 기다린' 것과 대회가 '다시 없을 기회'라는 점이 단서예요.",
+      "sampleIdeas": [
+        "약속을 지켜 친구와 자전거를 탈 것 같아요.",
+        "친구에게 양해를 구하고 대회에 갈 것 같아요.",
+        "친구와 함께 갈 방법을 찾아볼 것 같아요."
+      ],
+      "keywords": [
+        "약속",
+        "기회",
+        "선택"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "choice-020",
+      "title": "급식 줄에서",
+      "type": "choice",
+      "grades": [
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "급식 줄에서 내 바로 앞에 친한 친구가 헐레벌떡 끼어들려고 해요.",
+        "오후 발표 준비를 해야 해서 빨리 먹어야 한다며, 딱 한 번만 봐 달라고 속삭여요.",
+        "규칙은 새치기 금지지만, 뒤에 선 친구들은 아직 눈치채지 못했어요.",
+        "봐주면 친구는 고마워하겠지만, 뒤에 선 친구들에겐 미안한 일이에요.",
+        "나라면 어떻게 할까요?"
+      ],
+      "mainQuestion": "나라면 친구의 부탁에 어떻게 할까요? 그 이유는?",
+      "followUpQuestions": [
+        "친구의 사정을 다른 방법으로 도울 수 있을까요?",
+        "이유가 있으면 규칙을 예외로 봐줘도 될까요?"
+      ],
+      "teacherGuide": [
+        "친구가 '속삭이며' 부탁한 점과 뒤 친구들이 '눈치채지 못한' 상황을 짚어 주세요.",
+        "규칙의 예외에 대한 정답이 하나가 아님을 안내해 주세요."
+      ],
+      "hint": "친구가 '속삭이며' 부탁한 점과 뒤 친구들이 '눈치채지 못한' 상황이 단서예요.",
+      "sampleIdeas": [
+        "규칙대로 뒤에 서라고 할 것 같아요.",
+        "사정이 있으니 한 번 봐줄 것 같아요.",
+        "선생님께 여쭤보자고 할 것 같아요."
+      ],
+      "keywords": [
+        "급식",
+        "새치기",
+        "규칙"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "cont-006",
+      "title": "튀어나온 그림",
+      "type": "continue",
+      "grades": [
+        "lower"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "지우가 필통에서 새 연필을 꺼냈어요.",
+        "연필로 사과를 그렸더니, 그림 속 사과가 톡 튀어나와 책상 위로 데굴데굴 굴렀어요.",
+        "지우는 두근두근, 이번엔 무엇을 그릴지 곰곰이 생각했어요."
+      ],
+      "mainQuestion": "다음 문장을 이어서 말해 볼까요?",
+      "followUpQuestions": [
+        "지우가 다음에 무엇을 그리면 좋을까요?",
+        "무엇이든 진짜로 나타날 수 있다면, 남을 위해 그리는 게 좋을까요, 나를 위해 그리는 게 좋을까요?"
+      ],
+      "teacherGuide": [
+        "연필로 사과가 튀어나온 단서를 짚어 주며 상상을 이어 가게 해 주세요.",
+        "정답은 없어요. 서로 다른 그림 아이디어를 모두 칭찬해 주세요."
+      ],
+      "hint": "연필로 그린 것이 진짜로 튀어나왔어요.",
+      "sampleIdeas": [
+        "큰 강아지를 그려서 같이 놀 것 같아요.",
+        "날개를 그려서 하늘을 날 것 같아요.",
+        "맛있는 아이스크림을 그려서 친구랑 나눠 먹을 것 같아요."
+      ],
+      "keywords": [
+        "마법 연필",
+        "그림",
+        "상상"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "cont-007",
+      "title": "고양이가 된 날",
+      "type": "continue",
+      "grades": [
+        "lower"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "아침에 눈을 뜬 하준이는 몸이 폭신폭신 고양이로 변해 있었어요.",
+        "\"야옹?\" 소리가 나오자 창밖 참새들이 하준이를 빤히 바라봤어요.",
+        "하준이는 살금살금 창가로 다가갔어요."
+      ],
+      "mainQuestion": "다음 문장을 이어서 말해 볼까요?",
+      "followUpQuestions": [
+        "고양이가 된 하준이는 무엇을 하고 싶을까요?",
+        "동물로 하루만 변할 수 있다면 어떤 동물이 좋을까요?"
+      ],
+      "teacherGuide": [
+        "몸이 고양이로 변했다는 설정과 참새 단서를 짚어 주세요.",
+        "답에 정답은 없으니 다양한 상상을 반겨 주세요."
+      ],
+      "hint": "하준이 몸이 폭신폭신 고양이로 변했어요.",
+      "sampleIdeas": [
+        "참새랑 인사하며 놀 것 같아요.",
+        "높은 지붕 위로 폴짝 올라갈 것 같아요.",
+        "엄마한테 야옹 소리로 아침 인사를 할 것 같아요."
+      ],
+      "keywords": [
+        "변신",
+        "고양이",
+        "아침"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "cont-008",
+      "title": "말하는 강아지",
+      "type": "continue",
+      "grades": [
+        "lower"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "산책을 나온 강아지 콩이가 갑자기 사람 말로 \"오늘은 저기로 가요!\"라고 말했어요.",
+        "깜짝 놀란 서연이는 콩이가 가리키는 골목을 바라봤어요."
+      ],
+      "mainQuestion": "다음 문장을 이어서 말해 볼까요?",
+      "followUpQuestions": [
+        "콩이는 왜 그 골목으로 가고 싶을까요?",
+        "말할 수 있는 동물 친구가 생긴다면 가장 먼저 무엇을 물어보고 싶나요?"
+      ],
+      "teacherGuide": [
+        "강아지가 사람 말을 하고 골목을 가리킨 단서를 짚어 주세요.",
+        "여러 상상이 모두 좋다고 알려 주세요."
+      ],
+      "hint": "콩이가 특별한 골목을 콕 가리켰어요.",
+      "sampleIdeas": [
+        "골목에 맛있는 간식 가게가 있을 것 같아요.",
+        "콩이 친구가 그곳에서 기다릴 것 같아요.",
+        "반짝이는 신기한 것을 발견할 것 같아요."
+      ],
+      "keywords": [
+        "말하는 동물",
+        "강아지",
+        "산책"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "cont-009",
+      "title": "작아진 나",
+      "type": "continue",
+      "grades": [
+        "lower"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "도윤이가 이상한 사탕을 먹자 몸이 개미만큼 작아졌어요.",
+        "눈앞에는 커다란 풀숲처럼 보이는 초록 잔디가 펼쳐졌어요.",
+        "도윤이는 작은 발로 조심조심 걸음을 뗐어요."
+      ],
+      "mainQuestion": "다음 문장을 이어서 말해 볼까요?",
+      "followUpQuestions": [
+        "작아진 도윤이는 무엇을 먼저 만날까요?",
+        "아주 작아진다면 신날까요, 무서울까요?"
+      ],
+      "teacherGuide": [
+        "작아져서 잔디가 풀숲처럼 보인다는 단서를 짚어 주세요.",
+        "서로 다른 상상을 모두 칭찬해 주세요."
+      ],
+      "hint": "도윤이가 개미만큼 작아졌어요.",
+      "sampleIdeas": [
+        "개미를 만나 친구가 될 것 같아요.",
+        "이슬 방울을 물처럼 마실 것 같아요.",
+        "나뭇잎을 배처럼 타고 갈 것 같아요."
+      ],
+      "keywords": [
+        "작아지기",
+        "사탕",
+        "잔디"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "cont-010",
+      "title": "로봇 선생님",
+      "type": "continue",
+      "grades": [
+        "lower",
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "미래 학교 교실에 반짝이는 로봇 선생님이 들어왔어요.",
+        "\"오늘 수업은 하늘을 나는 법이에요!\" 로봇 선생님이 말하자 아이들 책상이 둥실 떠올랐어요.",
+        "민서는 떠오른 책상을 꼭 붙잡고 창밖을 내다봤어요."
+      ],
+      "mainQuestion": "다음 문장을 이어서 말해 볼까요?",
+      "followUpQuestions": [
+        "하늘을 나는 수업에서 무엇을 배우게 될까요?",
+        "로봇 선생님과 사람 선생님 중 누가 가르치면 더 좋을까요?"
+      ],
+      "teacherGuide": [
+        "책상이 둥실 떠올랐다는 단서를 짚어 주세요.",
+        "정답이 없는 상상 수업임을 알려 주세요."
+      ],
+      "hint": "수업이 시작되자 책상이 떠올랐어요.",
+      "sampleIdeas": [
+        "구름 위에서 그림을 그릴 것 같아요.",
+        "새들과 나란히 날며 인사할 것 같아요.",
+        "학교 지붕 위를 한 바퀴 돌 것 같아요."
+      ],
+      "keywords": [
+        "미래 학교",
+        "로봇 선생님",
+        "날기"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "cont-011",
+      "title": "거꾸로 나라",
+      "type": "continue",
+      "grades": [
+        "lower",
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "윤아가 문을 열자 모든 것이 거꾸로인 나라가 나타났어요.",
+        "이 나라에서는 사람들이 천장을 바닥처럼 걸어 다니고, 비가 하늘로 올라갔어요.",
+        "윤아는 첫걸음을 어디로 디뎌야 할지 망설였어요."
+      ],
+      "mainQuestion": "다음 문장을 이어서 말해 볼까요?",
+      "followUpQuestions": [
+        "거꾸로 나라에서 윤아는 어떻게 걸어야 할까요?",
+        "모든 것이 거꾸로면 재미있을까요, 불편할까요?"
+      ],
+      "teacherGuide": [
+        "천장을 걷고 비가 하늘로 오른다는 단서를 짚어 주세요.",
+        "다양한 상상을 반겨 주세요."
+      ],
+      "hint": "이 나라에서는 위아래가 뒤바뀌었어요.",
+      "sampleIdeas": [
+        "천장으로 폴짝 올라가 걸어 볼 것 같아요.",
+        "하늘로 오르는 비를 손으로 잡아 볼 것 같아요.",
+        "거꾸로 인사하는 사람에게 인사할 것 같아요."
+      ],
+      "keywords": [
+        "거꾸로 세계",
+        "문",
+        "뒤바뀜"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "cont-012",
+      "title": "우주 소풍",
+      "type": "continue",
+      "grades": [
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "소풍날 아침, 반 전체가 탄 우주 버스가 붕 떠올라 별들 사이를 달렸어요.",
+        "선생님이 \"저기 반짝이는 행성에서 도시락을 먹자!\"라고 했을 때, 창밖으로 무지개색 행성이 다가왔어요.",
+        "준호는 안전벨트를 매고 그 행성을 바라봤어요."
+      ],
+      "mainQuestion": "다음 문장을 이어서 말해 볼까요?",
+      "followUpQuestions": [
+        "무지개색 행성에는 무엇이 살고 있을까요?",
+        "한 번도 못 가 본 곳에 갈 때, 설렘과 걱정 중 무엇이 더 클까요?"
+      ],
+      "teacherGuide": [
+        "무지개색 행성이 다가온다는 단서를 짚어 주세요.",
+        "서로 다른 상상에 정답이 없음을 알려 주세요."
+      ],
+      "hint": "우주 버스가 무지개색 행성으로 다가가요.",
+      "sampleIdeas": [
+        "행성에 말랑한 젤리 땅이 있을 것 같아요.",
+        "친절한 외계 친구가 마중 나올 것 같아요.",
+        "별사탕이 나무처럼 자라고 있을 것 같아요."
+      ],
+      "keywords": [
+        "우주여행",
+        "소풍",
+        "행성"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "cont-013",
+      "title": "눈 위 발자국",
+      "type": "continue",
+      "grades": [
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "밤새 눈이 내린 아침, 시우는 아무도 밟지 않은 새하얀 운동장을 가로질러 갔어요.",
+        "그런데 눈 위에 작은 발자국 한 줄이 낡은 창고 쪽으로 나 있었어요.",
+        "발자국을 따라가 보니, 자국은 창고 문 앞에서 뚝 끊겨 사라져 있었어요.",
+        "살짝 열린 문틈 안에서 부스럭부스럭 소리가 들려왔어요."
+      ],
+      "mainQuestion": "다음 문장을 이어서 말해 볼까요?",
+      "followUpQuestions": [
+        "발자국을 남기고 창고로 들어간 것은 누구일까요?",
+        "낯선 발자국을 따라가는 게 좋을까요, 어른에게 먼저 알리는 게 좋을까요?"
+      ],
+      "teacherGuide": [
+        "발자국이 창고 앞에서 사라지고 안에서 소리가 난 단서를 짚어 주세요.",
+        "정답이 없는 열린 상상임을 안내해 주세요."
+      ],
+      "hint": "발자국이 창고 앞에서 끊기고 안에서 소리가 나요.",
+      "sampleIdeas": [
+        "길 잃은 작은 고양이가 숨어 있을 것 같아요.",
+        "누군가 눈싸움 준비를 하고 있을 것 같아요.",
+        "바람에 물건이 굴러다니는 소리일 것 같아요."
+      ],
+      "keywords": [
+        "눈",
+        "발자국",
+        "창고"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "cont-014",
+      "title": "말하는 우산",
+      "type": "continue",
+      "grades": [
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "비 오는 날, 채원이의 노란 우산이 갑자기 \"오늘은 특별한 곳에 데려다줄게!\"라고 속삭였어요.",
+        "우산이 스르륵 펴지더니 채원이의 발이 땅에서 살짝 떠올랐어요.",
+        "바람을 타고 우산은 구름 쪽으로 두둥실 올라가기 시작했어요.",
+        "채원이는 아래로 점점 작아지는 동네를 내려다봤어요."
+      ],
+      "mainQuestion": "다음 문장을 이어서 말해 볼까요?",
+      "followUpQuestions": [
+        "우산은 채원이를 어떤 특별한 곳에 데려갈까요?",
+        "우산이 데려간다는 곳을 믿고 따라가도 될까요?"
+      ],
+      "teacherGuide": [
+        "우산이 말을 하고 몸이 떠올랐다는 단서를 짚어 주세요.",
+        "여러 상상을 모두 반겨 주세요."
+      ],
+      "hint": "노란 우산이 채원이를 하늘로 데려가요.",
+      "sampleIdeas": [
+        "구름으로 만든 놀이터에 데려갈 것 같아요.",
+        "비를 만드는 하늘 마을에 데려갈 것 같아요.",
+        "무지개가 시작되는 곳에 데려갈 것 같아요."
+      ],
+      "keywords": [
+        "말하는 사물",
+        "우산",
+        "비"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "cont-015",
+      "title": "꿈의 문",
+      "type": "continue",
+      "grades": [
+        "middle"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "잠든 서준이의 방문 옆에 반짝이는 은색 문이 새로 생겼어요.",
+        "문을 열자 발밑에 폭신한 구름 계단이 아래로 끝없이 이어져 있었어요.",
+        "계단 끝에서 누군가 서준이의 이름을 부르는 소리가 들려왔어요.",
+        "서준이는 첫 계단에 발을 올리며 귀를 기울였어요."
+      ],
+      "mainQuestion": "다음 문장을 이어서 말해 볼까요?",
+      "followUpQuestions": [
+        "계단 끝에서 서준이를 부르는 것은 누구일까요?",
+        "이름을 부르는 소리를 따라가는 게 좋을까요, 멈추는 게 좋을까요?"
+      ],
+      "teacherGuide": [
+        "은색 문과 이름을 부르는 소리 단서를 짚어 주세요.",
+        "정답이 없는 상상임을 알려 주세요."
+      ],
+      "hint": "계단 끝에서 누군가 이름을 불러요.",
+      "sampleIdeas": [
+        "꿈나라 친구가 놀자고 부르는 것 같아요.",
+        "길 잃은 아기 별이 도와 달라는 것 같아요.",
+        "오래전 헤어진 반려동물이 기다리는 것 같아요."
+      ],
+      "keywords": [
+        "꿈속",
+        "문",
+        "구름 계단"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "cont-016",
+      "title": "책 속 세계",
+      "type": "continue",
+      "grades": [
+        "middle",
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "도서관에서 하율이가 오래된 동화책을 펼치자, 글자들이 스르르 위로 떠올랐어요.",
+        "떠오른 글자들이 작은 성과 숲으로 변하더니, 책장 위에 손바닥만 한 미니 세계가 생겨났어요.",
+        "그 작은 세계 속 성문 앞에서 콩알만 한 기사가 하율이를 향해 손을 흔들었어요.",
+        "기사가 무언가를 외쳤지만 소리가 너무 작아 잘 들리지 않았어요.",
+        "하율이는 귀를 책 가까이 가져다 댔어요."
+      ],
+      "mainQuestion": "다음 문장을 이어서 말해 볼까요?",
+      "followUpQuestions": [
+        "작은 기사는 하율이에게 무슨 말을 하려는 걸까요?",
+        "아주 작은 세계의 부탁을 큰 내가 들어줘야 할 의무가 있을까요?"
+      ],
+      "teacherGuide": [
+        "글자가 미니 세계로 변하고 기사가 외친 단서를 짚어 주세요.",
+        "서로 다른 상상에 정답이 없음을 안내해 주세요."
+      ],
+      "hint": "콩알만 한 기사가 작은 소리로 외쳐요.",
+      "sampleIdeas": [
+        "성이 위험하니 도와 달라고 하는 것 같아요.",
+        "같이 모험을 떠나자고 부르는 것 같아요.",
+        "책을 덮지 말아 달라고 부탁하는 것 같아요."
+      ],
+      "keywords": [
+        "미니 세계",
+        "동화책",
+        "기사"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "cont-017",
+      "title": "소원 지우개",
+      "type": "continue",
+      "grades": [
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "단우는 무엇이든 지우면 사라지게 하는 하얀 지우개를 주웠어요.",
+        "시험지에 튼 실수를 지우자 정말 감쪽같이 사라졌고, 단우는 잠시 망설이다 숙제 걱정도 슬쩍 지워 봤어요.",
+        "그런데 다음 날, 걱정과 함께 어제 친구와 나눈 즐거운 약속까지 기억에서 사라져 있었어요.",
+        "친구가 \"어제 약속 잊지 않았지?\"라고 물었을 때 단우는 아무것도 떠오르지 않았어요.",
+        "단우는 지우개를 손에 꼭 쥔 채 무슨 대답을 해야 할지 망설였어요."
+      ],
+      "mainQuestion": "다음 문장을 이어서 말해 볼까요?",
+      "followUpQuestions": [
+        "단우는 사라진 약속을 어떻게 되찾을 수 있을까요?",
+        "힘든 기억을 지울 수 있다면, 지우는 게 좋을까요, 간직하는 게 좋을까요?"
+      ],
+      "teacherGuide": [
+        "지우개가 걱정과 함께 좋은 기억까지 지웠다는 단서를 짚어 주세요.",
+        "정답이 없는 열린 이야기임을 안내해 주세요."
+      ],
+      "hint": "걱정을 지우자 소중한 약속도 함께 사라졌어요.",
+      "sampleIdeas": [
+        "솔직하게 기억이 안 난다고 말할 것 같아요.",
+        "지우개로 되돌릴 방법을 찾아볼 것 같아요.",
+        "친구에게 다시 약속을 물어보며 사과할 것 같아요."
+      ],
+      "keywords": [
+        "마법 물건",
+        "지우개",
+        "기억"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "cont-018",
+      "title": "커진 교실",
+      "type": "continue",
+      "grades": [
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "청소 시간에 서하가 이상한 스위치를 누르자 몸이 순식간에 거인처럼 커졌어요.",
+        "교실 천장이 머리에 닿을 듯 낮아지고, 책상과 의자가 장난감처럼 작아 보였어요.",
+        "창밖에서는 놀란 친구들이 운동장에서 서하를 올려다보며 웅성거렸어요.",
+        "서하는 친구들이 다치지 않게 몸을 잔뜩 웅크렸어요.",
+        "그런데 다시 작아지게 해 줄 스위치가 어디에도 보이지 않았어요."
+      ],
+      "mainQuestion": "다음 문장을 이어서 말해 볼까요?",
+      "followUpQuestions": [
+        "거인이 된 서하는 어떻게 다시 작아질 수 있을까요?",
+        "힘이 아주 세지면 좋기만 할까요, 조심할 것도 많아질까요?"
+      ],
+      "teacherGuide": [
+        "몸이 커지고 스위치가 사라진 단서를 짚어 주세요.",
+        "서로 다른 해결 상상을 모두 반겨 주세요."
+      ],
+      "hint": "몸이 커졌는데 되돌릴 스위치가 안 보여요.",
+      "sampleIdeas": [
+        "친구들에게 도움을 청하는 신호를 보낼 것 같아요.",
+        "반대로 누를 스위치를 조심조심 찾을 것 같아요.",
+        "커진 힘으로 무거운 것을 옮겨 도울 것 같아요."
+      ],
+      "keywords": [
+        "커지기",
+        "교실",
+        "스위치"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "cont-019",
+      "title": "멈춘 시간",
+      "type": "continue",
+      "grades": [
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "복도에서 예린이가 손목시계 버튼을 누르자 세상 모든 것이 딱 멈췄어요.",
+        "날아가던 종이비행기도, 웃던 친구의 표정도 그 순간 그대로 얼어붙었어요.",
+        "예린이는 멈춘 세상 속을 혼자 천천히 걸어 다녔어요.",
+        "그런데 저 멀리, 예린이처럼 움직이는 또 다른 아이가 이쪽을 바라보고 있었어요.",
+        "예린이는 그 아이를 향해 한 걸음 다가갔어요."
+      ],
+      "mainQuestion": "다음 문장을 이어서 말해 볼까요?",
+      "followUpQuestions": [
+        "움직이는 그 아이는 누구이고, 예린이에게 무슨 말을 할까요?",
+        "시간을 멈출 수 있다면 그 힘을 남에게 알려야 할까요, 혼자 간직해야 할까요?"
+      ],
+      "teacherGuide": [
+        "세상이 멈췄는데 움직이는 또 다른 아이 단서를 짚어 주세요.",
+        "정답 없는 열린 상상임을 안내해 주세요."
+      ],
+      "hint": "모두 멈췄는데 움직이는 아이가 한 명 더 있어요.",
+      "sampleIdeas": [
+        "같은 시계를 가진 친구일 것 같아요.",
+        "시간을 멈춘 이유를 물어볼 것 같아요.",
+        "함께 멈춘 세상을 구경하자고 할 것 같아요."
+      ],
+      "keywords": [
+        "시간여행",
+        "멈춤",
+        "시계"
+      ],
+      "sensitivity": "low"
+    },
+    {
+      "id": "cont-020",
+      "title": "바뀐 그림자",
+      "type": "continue",
+      "grades": [
+        "upper"
+      ],
+      "durationOptions": [
+        3,
+        5,
+        7
+      ],
+      "activityModes": [
+        "individual",
+        "pair",
+        "whole"
+      ],
+      "story": [
+        "해 질 무렵, 시우는 자기 그림자가 자기와 다르게 움직인다는 걸 알아챘어요.",
+        "시우가 가만히 서 있는데도 그림자는 손을 흔들고, 옆 골목을 자꾸 가리켰어요.",
+        "조심스레 따라가 보니 그림자가 벽에 커다란 문 모양을 그려 보였어요.",
+        "시우가 손을 대자 벽이 문처럼 스르르 열리며 어두운 통로가 나타났어요.",
+        "시우는 그림자와 함께 그 통로 앞에 나란히 섰어요."
+      ],
+      "mainQuestion": "다음 문장을 이어서 말해 볼까요?",
+      "followUpQuestions": [
+        "그림자는 시우를 어디로 데려가려는 걸까요?",
+        "나와 다르게 움직이는 그림자를 믿고 따라가도 될까요?"
+      ],
+      "teacherGuide": [
+        "그림자가 스스로 움직이고 문을 그린 단서를 짚어 주세요.",
+        "서로 다른 상상에 정답이 없음을 안내해 주세요."
+      ],
+      "hint": "그림자가 스스로 움직여 벽에 문을 그렸어요.",
+      "sampleIdeas": [
+        "그림자 나라로 가는 통로일 것 같아요.",
+        "그림자가 잃어버린 무언가를 찾으러 가는 것 같아요.",
+        "용기를 내야 하는 모험이 시작될 것 같아요."
+      ],
+      "keywords": [
+        "변신",
+        "그림자",
+        "통로"
+      ],
       "sensitivity": "low"
     }
   ]
