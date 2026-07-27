@@ -22,6 +22,21 @@
 | 선별 기준 | — | "문제 제시 → 보기 중 정답 선택" 형식 |
 | 런처·디자인·엔진 | — | **동일** (그대로 계승) |
 
+### 공통 파일은 짬짬이 게임이 상류(upstream)
+
+`shared/style.css` 같은 일부 파일은 두 저장소에서 **글자 하나까지 같아야 합니다.** 한쪽만
+고치면 두 사이트의 디자인이 조용히 갈라집니다(실제로 그동안 같은 수정을 양쪽에 두 번씩
+해 왔습니다). 그래서 **jjam을 상류로 정하고**, 이 저장소는 거기서 받아 맞춥니다.
+
+```bash
+npm run sync:shared              # 상류 내용으로 공통 파일 맞추기
+node scripts/sync-shared.mjs --check   # 어긋난 게 있는지만 확인
+```
+
+공통 파일을 고칠 때는 **jjam에서 먼저 고쳐 머지한 뒤** 이 저장소에서 `npm run sync:shared`
+하고 커밋합니다. 대상 파일 목록은 `scripts/sync-shared.mjs`의 `SHARED` 배열에 있고,
+매일 한 번 워크플로가 이탈을 확인합니다. (관계없는 PR을 막지 않도록 PR 게이트에는 넣지 않았습니다.)
+
 ## 게임 101종 (카테고리 분포)
 
 🔤국어·낱말 25 · 📐수학·도형 16 · 🔬과학·자연 19 · 🇰🇷우리나라 10 · 🌍세계·사회 14 · 🏠생활·상식 17
@@ -39,10 +54,25 @@ games/<폴더>/        # 게임별 game.json + index.html + style.css + game.js
 games/registry.json # 게임 목록
 games/meta.json     # 전 게임 메타 통합본 (런처가 1요청으로 받음, gen-metadata 생성)
 sw.js               # 오프라인 서비스 워커
+assets/fonts/       # 자가 호스팅 웹폰트 (Pretendard 서브셋, OFL 1.1)
 scripts/verify-game.js  # 게임 1개 정적 검증 (node scripts/verify-game.js <폴더>)
 scripts/verify-all.js   # 전 게임 일괄 검증 + registry 정합성 (npm test)
 scripts/gen-metadata.js # game.json → 파생 메타 생성 (npm run gen)
+scripts/browser-verify.js    # 실제 브라우저로 자동 플레이 (npm run verify:browser)
+scripts/check-font-coverage.mjs # 서브셋 폰트에 없는 글자가 생겼는지 확인
+scripts/sync-shared.mjs      # 상류(jjam)와 공통 파일 동기화 (npm run sync:shared)
 ```
+
+### 검증 두 겹
+
+| | 무엇을 보나 | 언제 도나 |
+|---|---|---|
+| `npm test` | 파일 구조·메타 동기화·폰트 글자 커버리지 등 **정적 검사** | 모든 PR·푸시 |
+| `npm run verify:browser` | 크로미움으로 띄워 **인트로 → PLAY → 라운드 → 결과화면**까지 자동 플레이 + 콘솔 에러 0 | PR은 바뀐 게임만, main·매주는 전 게임 |
+
+정적 검사는 "게임이 실제로 돌아가는가"를 못 봅니다. 브라우저 검증이 그 자리를 메웁니다.
+조작 방식이 달라 자동 플레이가 안 되는 게임은 **실패가 아니라 △로 구분해 보고**합니다
+(그 게임도 로딩·PLAY·게임화면 진입·콘솔 에러 0 까지는 확인됩니다).
 
 ### 메타데이터 단일 소스
 

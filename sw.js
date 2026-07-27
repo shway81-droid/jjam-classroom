@@ -13,7 +13,7 @@
 // 커밋 SHA로 치환해 주는 빌드 단계가 없다. 따라서 캐시 무효화를 배포 파이프라인에
 // 의존하지 않고 서비스 워커 자체(Stale-While-Revalidate)로 해결한다.
 // (참고: 원본 저장소 jjam은 gh-pages 브랜치 발행 단계에서 이 값을 SHA로 치환한다.)
-const CACHE_NAME = 'jjamquiz-v2';
+const CACHE_NAME = 'jjamquiz-v3';
 
 // 느린 회선에서 network-first가 첫 화면을 오래 막지 않도록 캐시로 폴백하는 대기 시간
 const NETWORK_TIMEOUT_MS = 3000;
@@ -32,7 +32,8 @@ self.addEventListener('install', function(event) {
         './favicon.svg',
         './og-image.svg',
         './og-image.png',
-        './manifest.json'
+        './manifest.json',
+        './assets/fonts/PretendardVariable.subset.woff2'
       ]);
     })
   );
@@ -78,9 +79,9 @@ function isDirectoryFile(url) {
   return false;
 }
 
-// 캐시에 담아 둘 파일: 게임별 자산과 공통 엔진·스타일
+// 캐시에 담아 둘 파일: 게임별 자산과 공통 엔진·스타일, 자가 호스팅 웹폰트
 function isCacheable(url) {
-  return url.includes('/games/') || url.includes('/shared/');
+  return url.includes('/games/') || url.includes('/shared/') || url.includes('/assets/');
 }
 
 // Fetch: 디렉토리 파일은 network-first, 나머지는 stale-while-revalidate
