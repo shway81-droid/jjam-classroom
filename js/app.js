@@ -8,7 +8,7 @@
     'why':        { emoji: '🕵️', name: '왜 그랬을까', desc: '행동의 이유를 추리해요', color: '#4FA8E8' },
     'mind':       { emoji: '💗', name: '마음 읽기', desc: '인물의 감정을 읽어요', color: '#FF7A6B' },
     'choice':     { emoji: '⚖️', name: '선택 이야기', desc: '나의 선택과 이유를 말해요', color: '#12A57C' },
-    'continue':   { emoji: '✏️', name: '한 문장 이어쓰기', desc: '이야기를 이어서 만들어요', color: '#FFB93C' }
+    'solve':      { emoji: '💡', name: '어떻게 할까', desc: '해결할 방법을 찾아 말해요', color: '#FFB93C' }
   };
 
   var GRADES = {
