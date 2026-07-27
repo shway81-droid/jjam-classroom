@@ -392,33 +392,6 @@ main {
   margin: var(--stack-gap) 0;
 }
 
-.stage-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--sun);
-  border: var(--bd) solid var(--sun-ink);
-  color: var(--sun-ink);
-  font-weight: 800;
-  border-radius: var(--radius-pill);
-  padding: 0.25rem 1rem 0.25rem 0.3rem;
-  font-size: 1rem;
-  letter-spacing: 0.03em;
-}
-
-.stage-num {
-  width: 1.6rem;
-  height: 1.6rem;
-  border-radius: var(--radius-pill);
-  background: var(--sun-ink);
-  color: var(--sun);
-  font-size: 0.9rem;
-  font-weight: 800;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .stage-title {
   font-size: 2.2rem;
   font-weight: 800;

@@ -25,11 +25,11 @@
   };
 
   var STAGE_INFO = {
-    STORY:   { label: '이야기', title: '이야기 읽기' },
-    THINK:   { label: '생각', title: '혼자 생각하기' },
-    TALK:    { label: '대화', title: '이야기 나누기' },
-    PRESENT: { label: '발표', title: '발표하기' },
-    EXTEND:  { label: '한 걸음 더', title: '생각 넓히기' }
+    STORY:   { title: '이야기 읽기' },
+    THINK:   { title: '혼자 생각하기' },
+    TALK:    { title: '이야기 나누기' },
+    PRESENT: { title: '발표하기' },
+    EXTEND:  { title: '생각 넓히기' }
   };
 
   var PRAISES = [
@@ -256,8 +256,6 @@
       dots.appendChild(d);
     });
 
-    $('stage-badge').innerHTML =
-      '<span class="stage-num">' + (S.stageIdx + 1) + '</span>' + esc(info.label);
     $('stage-title').textContent = info.title;
     updateFavBtn();
 
