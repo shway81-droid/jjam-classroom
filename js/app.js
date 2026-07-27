@@ -270,11 +270,7 @@
         return '<div class="story-title-line">' + t.emoji + ' ' + esc(st.title) + '</div>' +
           '<div class="story-text">' + st.story.map(function (line) {
             return '<p>' + esc(line) + '</p>';
-          }).join('') + '</div>' +
-          '<div class="guide-box"><b>진행 도움말</b>' +
-          '<span>· 화면을 읽기보다 아이들 눈을 보며 들려주듯 말해 주세요.</span>' +
-          st.teacherGuide.map(function (g) { return '<span>· ' + esc(g) + '</span>'; }).join('') +
-          '</div>';
+          }).join('') + '</div>';
 
       case 'THINK':
         return '<p class="main-question">' + esc(st.mainQuestion) + '</p>' +

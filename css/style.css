@@ -422,18 +422,6 @@ main {
   font-weight: 600;
 }
 
-.guide-box {
-  background: var(--surface-low);
-  border: var(--bd) solid var(--surface-variant);
-  border-radius: var(--radius-sm);
-  padding: 1.2rem 1.4rem;
-  color: var(--ink-soft);
-  font-size: 1rem;
-  display: grid;
-  gap: 0.35rem;
-}
-.guide-box b { color: var(--accent); }
-
 /* 힌트·예시 생각 */
 .reveal-row { display: flex; gap: var(--stack-gap); justify-content: center; flex-wrap: wrap; }
 
@@ -563,12 +551,14 @@ main {
 .timer.paused .timer-digits { opacity: 0.5; }
 .timer-btns { display: flex; gap: 0.5rem; }
 
+/* 타이머 카드와 같은 높이로 늘어남 */
 .step-nav {
   display: flex;
   gap: 0.75rem;
-  align-items: center;
-  align-self: center;
+  align-items: stretch;
+  align-self: stretch;
 }
+.step-nav .btn { height: auto; }
 
 #btn-prev { white-space: nowrap; }
 #btn-prev:disabled {
@@ -649,6 +639,7 @@ main {
   .type-grid { gap: 1rem; }
   .stage-body { padding: 1.4rem 1.2rem; }
   .play-bottom { flex-direction: column; }
+  .timer { flex: 0 0 auto; }          /* 세로 배치에서 basis가 높이로 잡히지 않게 */
   .step-nav { width: 100%; }
   #btn-prev { flex: 0 0 auto; }
   #btn-next { flex: 1 1 auto; }
