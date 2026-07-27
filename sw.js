@@ -1,5 +1,11 @@
 /* 짬짬이 이야기 — 오프라인 캐시 (FR-11) */
-var CACHE = 'jjam-story-v2';
+var CACHE = 'jjam-story-v3';
+var ICONS = [
+  'book-1', 'home-1', 'star-medal', 'circle-clock', 'magic-wand-1', 'search-visual',
+  'user-feedback-heart', 'justice-scale-2', 'lightbulb', 'shuffle', 'button-play-circle',
+  'button-pause-circle', 'dices-entertainment-gaming-dices', 'tree-1', 'check-thick', 'balloon'
+].map(function (n) { return './icons/' + n + '.svg'; });
+
 var ASSETS = [
   './',
   './index.html',
@@ -8,7 +14,7 @@ var ASSETS = [
   './data/stories.json',
   './favicon.svg',
   './manifest.json'
-];
+].concat(ICONS);
 
 self.addEventListener('install', function (e) {
   e.waitUntil(

@@ -4,11 +4,11 @@
 
   // ── 상수 ─────────────────────────────────────────────
   var TYPES = {
-    'next-story': { emoji: '🔮', name: '다음 이야기', desc: '다음 장면을 상상해요', color: '#6145B5' },
-    'why':        { emoji: '🕵️', name: '왜 그랬을까', desc: '행동의 이유를 추리해요', color: '#4FA8E8' },
-    'mind':       { emoji: '💗', name: '마음 읽기', desc: '인물의 감정을 읽어요', color: '#C14C40' },
-    'choice':     { emoji: '⚖️', name: '선택 이야기', desc: '나의 선택과 이유를 말해요', color: '#12A57C' },
-    'solve':      { emoji: '💡', name: '어떻게 할까', desc: '해결할 방법을 찾아 말해요', color: '#FDB333' }
+    'next-story': { icon: 'magic-wand-1',        name: '다음 이야기', desc: '다음 장면을 상상해요', color: '#6145B5' },
+    'why':        { icon: 'search-visual',       name: '왜 그랬을까', desc: '행동의 이유를 추리해요', color: '#4FA8E8' },
+    'mind':       { icon: 'user-feedback-heart', name: '마음 읽기', desc: '인물의 감정을 읽어요', color: '#C14C40' },
+    'choice':     { icon: 'justice-scale-2',     name: '선택 이야기', desc: '나의 선택과 이유를 말해요', color: '#12A57C' },
+    'solve':      { icon: 'lightbulb',           name: '어떻게 할까', desc: '해결할 방법을 찾아 말해요', color: '#FDB333' }
   };
 
   var GRADES = {
@@ -25,11 +25,11 @@
   };
 
   var STAGE_INFO = {
-    STORY:   { badge: '1️⃣ 이야기', title: '이야기 읽기' },
-    THINK:   { badge: '2️⃣ 생각', title: '혼자 생각하기' },
-    TALK:    { badge: '3️⃣ 대화', title: '이야기 나누기' },
-    PRESENT: { badge: '🎤 발표', title: '발표하기' },
-    EXTEND:  { badge: '➕ 한 걸음 더', title: '생각 넓히기' }
+    STORY:   { label: '이야기', title: '이야기 읽기' },
+    THINK:   { label: '생각', title: '혼자 생각하기' },
+    TALK:    { label: '대화', title: '이야기 나누기' },
+    PRESENT: { label: '발표', title: '발표하기' },
+    EXTEND:  { label: '한 걸음 더', title: '생각 넓히기' }
   };
 
   var PRAISES = [
@@ -88,6 +88,19 @@
   }
   function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 
+  // 아이콘: Streamline Plump Color (CC BY 4.0) — icons/ 폴더의 SVG를 그대로 사용
+  function ic(name, cls) {
+    return '<img class="ic' + (cls ? ' ' + cls : '') + '" src="icons/' + name +
+      '.svg" alt="" aria-hidden="true">';
+  }
+  function typeIcon(typeKey, cls) { return ic(TYPES[typeKey].icon, cls); }
+
+  function setPauseBtn(paused) {
+    $('btn-pause').innerHTML = paused
+      ? ic('button-play-circle') + '계속'
+      : ic('button-pause-circle') + '일시정지';
+  }
+
   function show(screenId) {
     ['screen-home', 'screen-setup', 'screen-play', 'screen-done'].forEach(function (id) {
       $(id).hidden = (id !== screenId);
@@ -133,7 +146,7 @@
       btn.type = 'button';
       btn.style.setProperty('--type-color', t.color);
       btn.innerHTML =
-        '<span class="type-emoji">' + t.emoji + '</span>' +
+        '<span class="type-emoji">' + ic(t.icon) + '</span>' +
         '<span class="type-name">' + esc(t.name) + '</span>' +
         '<span class="type-desc">' + esc(t.desc) + ' · ' + count + '편</span>';
       btn.addEventListener('click', function () { openSetup(key); });
@@ -153,7 +166,7 @@
       var chip = document.createElement('button');
       chip.className = 'story-chip';
       chip.type = 'button';
-      chip.textContent = TYPES[st.type].emoji + ' ' + st.title;
+      chip.innerHTML = typeIcon(st.type) + esc(st.title);
       chip.addEventListener('click', function () {
         S.type = st.type;
         startPlay(st);
@@ -166,7 +179,7 @@
   function openSetup(typeKey) {
     S.type = typeKey;
     var t = TYPES[typeKey];
-    $('setup-title').textContent = t.emoji + ' ' + t.name;
+    $('setup-title').innerHTML = ic(t.icon) + esc(t.name);
     renderOptions('opt-grade', GRADES, S.grade, function (k) { S.grade = k; }, function (k, v) {
       return v.name + '<span class="opt-sub">' + v.sub + '</span>';
     });
@@ -243,7 +256,8 @@
       dots.appendChild(d);
     });
 
-    $('stage-badge').textContent = info.badge;
+    $('stage-badge').innerHTML =
+      '<span class="stage-num">' + (S.stageIdx + 1) + '</span>' + esc(info.label);
     $('stage-title').textContent = info.title;
     updateFavBtn();
 
@@ -254,7 +268,7 @@
     // 다음 버튼 라벨
     var isLast = S.stageIdx === S.stages.length - 1;
     var nextBtn = $('btn-next');
-    nextBtn.textContent = isLast ? '✅ 활동 마치기' : '다음 단계 →';
+    nextBtn.innerHTML = isLast ? ic('check-thick') + '활동 마치기' : '다음 단계 →';
     nextBtn.classList.remove('pulse');
 
     // 이전 버튼: 첫 단계에서는 비활성
@@ -264,39 +278,42 @@
   }
 
   function renderStageBody(name, st) {
-    var t = TYPES[st.type];
     switch (name) {
       case 'STORY':
-        return '<div class="story-title-line">' + t.emoji + ' ' + esc(st.title) + '</div>' +
+        return '<div class="story-title-line">' + typeIcon(st.type) + esc(st.title) + '</div>' +
           '<div class="story-text">' + st.story.map(function (line) {
             return '<p>' + esc(line) + '</p>';
           }).join('') + '</div>';
 
       case 'THINK':
         return '<p class="main-question">' + esc(st.mainQuestion) + '</p>' +
-          '<p class="stage-note">🤫 조용히 나만의 생각을 만들어 보세요. 이유도 함께!</p>' +
-          '<div class="reveal-row"><button class="btn btn-ghost" id="btn-hint" type="button">💡 힌트 보기</button></div>' +
+          '<p class="stage-note">조용히 나만의 생각을 만들어 보세요. 이유도 함께!</p>' +
+          '<div class="reveal-row"><button class="btn btn-ghost" id="btn-hint" type="button">' +
+            ic('lightbulb') + '힌트 보기</button></div>' +
           '<div id="hint-slot">' + (S.revealed.hint ? hintHtml(st) : '') + '</div>';
 
       case 'TALK':
         return '<p class="main-question">' + esc(st.mainQuestion) + '</p>' +
-          '<p class="stage-note">🗣 짝이나 모둠과 서로의 생각을 나눠 보세요. "왜냐하면"을 붙여 말해요!</p>' +
-          '<div class="reveal-row"><button class="btn btn-ghost" id="btn-hint" type="button">💡 힌트 보기</button></div>' +
+          '<p class="stage-note">짝이나 모둠과 서로의 생각을 나눠 보세요. "왜냐하면"을 붙여 말해요!</p>' +
+          '<div class="reveal-row"><button class="btn btn-ghost" id="btn-hint" type="button">' +
+            ic('lightbulb') + '힌트 보기</button></div>' +
           '<div id="hint-slot">' + (S.revealed.hint ? hintHtml(st) : '') + '</div>';
 
       case 'PRESENT':
         return '<p class="main-question">' + esc(st.mainQuestion) + '</p>' +
           '<div class="picker">' +
-            '<div class="picker-display" id="picker-display">🎲</div>' +
+            '<div class="picker-display" id="picker-display">' + ic('dices-entertainment-gaming-dices') + '</div>' +
             '<div class="picker-controls">' +
               '<label for="class-size">우리 반 인원</label>' +
               '<input type="number" id="class-size" min="1" max="99" value="' + store.classSize + '">' +
-              '<button class="btn btn-primary" id="btn-pick" type="button">🎲 발표자 뽑기</button>' +
+              '<button class="btn btn-primary" id="btn-pick" type="button">' +
+                ic('dices-entertainment-gaming-dices') + '발표자 뽑기</button>' +
               '<button class="btn btn-ghost btn-sm" id="btn-pick-reset" type="button">다시</button>' +
             '</div>' +
             '<div class="picker-history" id="picker-history"></div>' +
           '</div>' +
-          '<div class="reveal-row"><button class="btn btn-ghost" id="btn-ideas" type="button">🌱 예시 생각 보기</button></div>' +
+          '<div class="reveal-row"><button class="btn btn-ghost" id="btn-ideas" type="button">' +
+            ic('tree-1') + '예시 생각 보기</button></div>' +
           '<div id="ideas-slot">' + (S.revealed.ideas ? ideasHtml(st) : '') + '</div>';
 
       case 'EXTEND':
@@ -304,18 +321,20 @@
           '<div class="follow-list">' + st.followUpQuestions.map(function (q) {
             return '<div class="follow-item">' + esc(q) + '</div>';
           }).join('') + '</div>' +
-          '<div class="reveal-row"><button class="btn btn-ghost" id="btn-ideas" type="button">🌱 예시 생각 보기</button></div>' +
+          '<div class="reveal-row"><button class="btn btn-ghost" id="btn-ideas" type="button">' +
+            ic('tree-1') + '예시 생각 보기</button></div>' +
           '<div id="ideas-slot">' + (S.revealed.ideas ? ideasHtml(st) : '') + '</div>';
     }
     return '';
   }
 
   function hintHtml(st) {
-    return '<div class="reveal-box">💡 ' + esc(st.hint) + '</div>';
+    return '<div class="reveal-box">' + ic('lightbulb') + esc(st.hint) + '</div>';
   }
 
   function ideasHtml(st) {
-    return '<div class="reveal-box ideas"><b>🌱 이런 생각도 가능해요 (정답이 아니에요!)</b><ul>' +
+    return '<div class="reveal-box ideas"><b>' + ic('tree-1') +
+      '이런 생각도 가능해요 (정답이 아니에요!)</b><ul>' +
       st.sampleIdeas.map(function (i) { return '<li>' + esc(i) + '</li>'; }).join('') +
       '</ul></div>';
   }
@@ -364,7 +383,7 @@
       var pool = [];
       for (var i = 1; i <= n; i++) if (S.picked.indexOf(i) === -1) pool.push(i);
       if (!pool.length) {
-        display.textContent = '🎉';
+        display.innerHTML = ic('check-thick');
         history.textContent = '모든 번호를 뽑았어요! [다시]를 눌러 주세요.';
         return;
       }
@@ -384,7 +403,7 @@
 
     $('btn-pick-reset').addEventListener('click', function () {
       S.picked = [];
-      display.textContent = '🎲';
+      display.innerHTML = ic('dices-entertainment-gaming-dices');
       renderHistory();
     });
   }
@@ -396,7 +415,7 @@
     S.timer.remain = secs;
     S.timer.running = true;
     updateTimerUI();
-    $('btn-pause').textContent = '⏸ 일시정지';
+    setPauseBtn(false);
     S.timer.handle = setInterval(tick, 1000);
   }
 
@@ -420,11 +439,11 @@
     if (S.timer.remain <= 0) return;
     if (S.timer.handle) {
       stopTimer();
-      $('btn-pause').textContent = '▶ 계속';
+      setPauseBtn(true);
     } else {
       S.timer.running = true;
       S.timer.handle = setInterval(tick, 1000);
-      $('btn-pause').textContent = '⏸ 일시정지';
+      setPauseBtn(false);
     }
     updateTimerUI();
   }
@@ -435,7 +454,7 @@
     if (!S.timer.handle) {
       S.timer.running = true;
       S.timer.handle = setInterval(tick, 1000);
-      $('btn-pause').textContent = '⏸ 일시정지';
+      setPauseBtn(false);
     }
     $('btn-next').classList.remove('pulse');
     updateTimerUI();
@@ -489,7 +508,7 @@
   function updateFavBtn() {
     var btn = $('btn-fav');
     var on = store.favorites.indexOf(S.story.id) !== -1;
-    btn.textContent = on ? '⭐' : '☆';
+    btn.innerHTML = ic('star-medal');
     btn.classList.toggle('fav-on', on);
     btn.setAttribute('aria-label', on ? '즐겨찾기 해제' : '즐겨찾기 추가');
   }

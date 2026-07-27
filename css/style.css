@@ -78,6 +78,27 @@ body {
 
 button { font-family: inherit; cursor: pointer; }
 
+/* ── 아이콘 (Streamline Plump Color, CC BY 4.0) ──
+   다색 아이콘이라 currentColor로 물들지 않음 → 크기만 제어 */
+.ic {
+  width: 1.5em;
+  height: 1.5em;
+  flex: 0 0 auto;
+  vertical-align: -0.35em;
+  user-select: none;
+}
+.brand-icon .ic { width: 1.7rem; height: 1.7rem; }
+.icon-btn .ic { width: 1.7rem; height: 1.7rem; }
+.type-emoji .ic { width: 2.7rem; height: 2.7rem; }
+.done-emoji .ic { width: 4rem; height: 4rem; }
+.picker-display .ic { width: 4.5rem; height: 4.5rem; }
+.fav-section h2 .ic { width: 1.5rem; height: 1.5rem; }
+.reveal-box .ic { width: 1.6rem; height: 1.6rem; vertical-align: -0.3em; }
+
+/* 즐겨찾기 꺼짐 상태 — 같은 아이콘을 흐리게 */
+#btn-fav .ic { opacity: 0.4; filter: grayscale(1); transition: opacity 0.15s, filter 0.15s; }
+#btn-fav.fav-on .ic { opacity: 1; filter: none; }
+
 /* ── 상단바 ── */
 .topbar {
   display: flex;
@@ -235,6 +256,9 @@ main {
   font-size: 1.2rem;
   font-weight: 800;
   margin-bottom: var(--stack-gap);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .story-chip-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
@@ -267,6 +291,7 @@ main {
 .site-footer a { color: var(--accent); font-weight: 700; text-decoration: none; }
 .site-footer a:hover { text-decoration: underline; }
 .sister-links a { margin: 0 0.3rem; }
+.site-footer .credit { font-size: 0.85rem; opacity: 0.75; }
 
 /* ── 조건 선택 ── */
 .setup-title {
@@ -368,15 +393,30 @@ main {
 }
 
 .stage-badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   background: var(--sun);
   border: var(--bd) solid var(--sun-ink);
   color: var(--sun-ink);
   font-weight: 800;
   border-radius: var(--radius-pill);
-  padding: 0.3rem 1.1rem;
+  padding: 0.25rem 1rem 0.25rem 0.3rem;
   font-size: 1rem;
   letter-spacing: 0.03em;
+}
+
+.stage-num {
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: var(--radius-pill);
+  background: var(--sun-ink);
+  color: var(--sun);
+  font-size: 0.9rem;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .stage-title {
@@ -413,6 +453,9 @@ main {
   font-weight: 800;
   font-size: 1.3rem;
   letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .main-question {

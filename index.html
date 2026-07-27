@@ -18,11 +18,11 @@
 <body>
   <header class="topbar">
     <a class="brand" href="#" id="brand-home">
-      <span class="brand-icon">📖</span>
+      <span class="brand-icon"><img class="ic" src="icons/book-1.svg" alt="" aria-hidden="true"></span>
       <span class="brand-name">짬짬이 이야기</span>
     </a>
     <div class="topbar-actions">
-      <button id="btn-home" class="icon-btn" type="button" aria-label="처음으로">🏠</button>
+      <button id="btn-home" class="icon-btn" type="button" aria-label="처음으로"><img class="ic" src="icons/home-1.svg" alt="" aria-hidden="true"></button>
     </div>
   </header>
 
@@ -33,21 +33,26 @@
       <div class="type-grid" id="type-grid" aria-label="이야기 유형 선택"></div>
 
       <section class="fav-section" id="fav-section" hidden>
-        <h2>⭐ 즐겨찾기</h2>
+        <h2><img class="ic" src="icons/star-medal.svg" alt="" aria-hidden="true">즐겨찾기</h2>
         <div class="story-chip-row" id="fav-row"></div>
       </section>
 
       <section class="fav-section" id="recent-section" hidden>
-        <h2>🕒 최근 사용</h2>
+        <h2><img class="ic" src="icons/circle-clock.svg" alt="" aria-hidden="true">최근 사용</h2>
         <div class="story-chip-row" id="recent-row"></div>
       </section>
 
       <footer class="site-footer">
         <p>정답보다 근거와 상상을 칭찬해 주세요.</p>
         <p class="sister-links">
-          <a href="https://shway81-droid.github.io/jjamjjami-gyosil/" target="_blank" rel="noopener">🎮 짬짬이 교실</a>
-          <a href="https://shway81-droid.github.io/jjam-stretch/" target="_blank" rel="noopener">🤸 짬짬이 스트레칭</a>
+          <a href="https://shway81-droid.github.io/jjamjjami-gyosil/" target="_blank" rel="noopener">짬짬이 교실</a>
+          <a href="https://shway81-droid.github.io/jjam-stretch/" target="_blank" rel="noopener">짬짬이 스트레칭</a>
           의 자매 프로젝트
+        </p>
+        <p class="credit">
+          아이콘
+          <a href="https://github.com/webalys-hq/streamline-vectors" target="_blank" rel="noopener">Streamline Plump Color</a>
+          · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>
         </p>
       </footer>
     </section>
@@ -68,7 +73,7 @@
 
       <div class="setup-actions">
         <button class="btn btn-ghost" id="btn-setup-back" type="button">← 유형 다시 고르기</button>
-        <button class="btn btn-primary btn-big" id="btn-start" type="button">▶ 이야기 시작</button>
+        <button class="btn btn-primary btn-big" id="btn-start" type="button"><img class="ic" src="icons/button-play-circle.svg" alt="" aria-hidden="true">이야기 시작</button>
       </div>
     </section>
 
@@ -77,8 +82,8 @@
       <div class="play-top">
         <div class="stage-dots" id="stage-dots" aria-label="진행 단계"></div>
         <div class="play-top-right">
-          <button class="icon-btn" id="btn-fav" type="button" aria-label="즐겨찾기">☆</button>
-          <button class="btn btn-ghost btn-sm" id="btn-swap" type="button">🔄 다른 이야기</button>
+          <button class="icon-btn" id="btn-fav" type="button" aria-label="즐겨찾기"><img class="ic" src="icons/star-medal.svg" alt="" aria-hidden="true"></button>
+          <button class="btn btn-ghost btn-sm" id="btn-swap" type="button"><img class="ic" src="icons/shuffle.svg" alt="" aria-hidden="true">다른 이야기</button>
         </div>
       </div>
 
@@ -95,7 +100,7 @@
           <div class="timer-row">
             <span class="timer-digits" id="timer-digits">0:00</span>
             <div class="timer-btns">
-              <button class="btn btn-ghost btn-sm" id="btn-pause" type="button">⏸ 일시정지</button>
+              <button class="btn btn-ghost btn-sm" id="btn-pause" type="button"><img class="ic" src="icons/button-pause-circle.svg" alt="" aria-hidden="true">일시정지</button>
               <button class="btn btn-ghost btn-sm" id="btn-plus30" type="button">+30초</button>
             </div>
           </div>
@@ -109,12 +114,12 @@
 
     <!-- 4. 마무리 -->
     <section id="screen-done" class="screen done" hidden>
-      <div class="done-emoji">🎉</div>
+      <div class="done-emoji"><img class="ic" src="icons/balloon.svg" alt="" aria-hidden="true"></div>
       <h1 id="done-praise"></h1>
       <p class="done-sub" id="done-sub"></p>
       <div class="done-actions">
-        <button class="btn btn-primary btn-big" id="btn-again" type="button">🔄 같은 조건, 다른 이야기</button>
-        <button class="btn btn-ghost btn-big" id="btn-done-home" type="button">🏠 처음으로</button>
+        <button class="btn btn-primary btn-big" id="btn-again" type="button"><img class="ic" src="icons/shuffle.svg" alt="" aria-hidden="true">같은 조건, 다른 이야기</button>
+        <button class="btn btn-ghost btn-big" id="btn-done-home" type="button"><img class="ic" src="icons/home-1.svg" alt="" aria-hidden="true">처음으로</button>
       </div>
     </section>
   </main>

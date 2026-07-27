@@ -54,6 +54,15 @@
 - Service Worker (network-first) — 오프라인 + 콘텐츠 갱신 반영
 - GitHub Pages 배포
 
+## 아이콘
+
+`icons/` 폴더의 SVG는 [Streamline Plump Color](https://github.com/webalys-hq/streamline-vectors)를
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 조건으로 사용합니다(출처 표기 필수, 화면 하단에 표기).
+`icons/button-pause-circle.svg`는 세트에 일시정지 아이콘이 없어 같은 스타일로 직접 만든 파일입니다.
+
+아이콘을 교체할 때는 `js/app.js`의 `TYPES`(유형 5종)와 `ic()` 호출부,
+`index.html`의 `img.ic`, `sw.js`의 `ICONS` 목록을 함께 수정해 주세요.
+
 ## 로컬 실행
 
 ```bash
