@@ -3,7 +3,7 @@ var CACHE = 'jjam-story-v3';
 var ICONS = [
   'book-1', 'home-1', 'star-medal', 'circle-clock', 'magic-wand-1', 'search-visual',
   'user-feedback-heart', 'justice-scale-2', 'lightbulb', 'shuffle', 'button-play-circle',
-  'button-pause-circle', 'dices-entertainment-gaming-dices', 'tree-1', 'check-thick', 'balloon'
+  'button-pause-circle', 'tree-1', 'check-thick', 'balloon'
 ].map(function (n) { return './icons/' + n + '.svg'; });
 
 var ASSETS = [

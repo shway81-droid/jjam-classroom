@@ -300,12 +300,11 @@
       case 'PRESENT':
         return '<p class="main-question">' + esc(st.mainQuestion) + '</p>' +
           '<div class="picker">' +
-            '<div class="picker-display" id="picker-display">' + ic('dices-entertainment-gaming-dices') + '</div>' +
+            '<div class="picker-display" id="picker-display"></div>' +
             '<div class="picker-controls">' +
               '<label for="class-size">우리 반 인원</label>' +
               '<input type="number" id="class-size" min="1" max="99" value="' + store.classSize + '">' +
-              '<button class="btn btn-primary" id="btn-pick" type="button">' +
-                ic('dices-entertainment-gaming-dices') + '발표자 뽑기</button>' +
+              '<button class="btn btn-primary" id="btn-pick" type="button">발표자 뽑기</button>' +
               '<button class="btn btn-ghost btn-sm" id="btn-pick-reset" type="button">다시</button>' +
             '</div>' +
             '<div class="picker-history" id="picker-history"></div>' +
@@ -366,6 +365,12 @@
     var display = $('picker-display');
     var history = $('picker-history');
 
+    var rolling = null; // 두구두구 연출 핸들 — 중복 실행 방지
+
+    function stopRolling() {
+      if (rolling) { clearInterval(rolling); rolling = null; }
+    }
+
     function renderHistory() {
       history.textContent = S.picked.length ? '뽑힌 번호: ' + S.picked.join(', ') : '';
     }
@@ -373,6 +378,7 @@
     if (S.picked.length) display.textContent = String(S.picked[S.picked.length - 1]);
 
     $('btn-pick').addEventListener('click', function () {
+      stopRolling();
       var n = Math.max(1, Math.min(99, Number(input.value) || 1));
       input.value = n;
       store.classSize = n;
@@ -381,17 +387,17 @@
       var pool = [];
       for (var i = 1; i <= n; i++) if (S.picked.indexOf(i) === -1) pool.push(i);
       if (!pool.length) {
-        display.innerHTML = ic('check-thick');
+        display.textContent = '';
         history.textContent = '모든 번호를 뽑았어요! [다시]를 눌러 주세요.';
         return;
       }
       var result = pick(pool);
       // 두구두구 연출
       var ticks = 12, count = 0;
-      var anim = setInterval(function () {
+      rolling = setInterval(function () {
         display.textContent = String(1 + Math.floor(Math.random() * n));
         if (++count >= ticks) {
-          clearInterval(anim);
+          stopRolling();
           display.textContent = String(result);
           S.picked.push(result);
           renderHistory();
@@ -400,8 +406,9 @@
     });
 
     $('btn-pick-reset').addEventListener('click', function () {
+      stopRolling();
       S.picked = [];
-      display.innerHTML = ic('dices-entertainment-gaming-dices');
+      display.textContent = '';
       renderHistory();
     });
   }
