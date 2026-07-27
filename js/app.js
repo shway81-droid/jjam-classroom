@@ -17,14 +17,7 @@
     upper:  { name: '5~6학년', sub: '고학년' }
   };
 
-  var MODES = {
-    individual: { emoji: '🙋', name: '혼자 생각' },
-    pair:       { emoji: '👥', name: '짝 활동' },
-    whole:      { emoji: '🏫', name: '다 함께' }
-  };
-
-  // 시간 모드별 단계 구성(초). TALK가 없는 구성은 건너뜀.
-  // individual 모드는 TALK 시간을 THINK에 합산.
+  // 시간 모드별 단계 구성(초). 3분은 대화 단계 없이 압축 진행.
   var PLANS = {
     3: [ ['STORY', 40], ['THINK', 30], ['PRESENT', 90] ],
     5: [ ['STORY', 40], ['THINK', 30], ['TALK', 60], ['PRESENT', 120], ['EXTEND', 50] ],
@@ -58,7 +51,6 @@
     type: null,          // 선택한 유형
     grade: store.grade || 'middle',
     duration: store.duration || 5,
-    mode: store.mode || 'whole',
     story: null,         // 현재 이야기 객체
     stages: [],          // [ [name, seconds], ... ]
     stageIdx: 0,
@@ -84,7 +76,6 @@
   function saveStore() {
     store.grade = S.grade;
     store.duration = S.duration;
-    store.mode = S.mode;
     try { localStorage.setItem(LS_KEY, JSON.stringify(store)); } catch (e) { /* 무시 */ }
   }
 
@@ -111,7 +102,6 @@
       if (st.type !== S.type) return false;
       if (st.grades.indexOf(S.grade) === -1) return false;
       if (st.durationOptions.indexOf(S.duration) === -1) return false;
-      if (st.activityModes.indexOf(S.mode) === -1) return false;
       if (excludeRecent && store.recent.indexOf(st.id) !== -1) return false;
       return true;
     });
@@ -184,9 +174,6 @@
     renderOptions('opt-duration', durations, String(S.duration), function (k) { S.duration = Number(k); }, function (k) {
       return k + '분';
     });
-    renderOptions('opt-mode', MODES, S.mode, function (k) { S.mode = k; }, function (k, v) {
-      return v.emoji + ' ' + v.name;
-    });
     show('screen-setup');
   }
 
@@ -213,17 +200,7 @@
 
   // ── 진행: 단계 구성 ──────────────────────────────────
   function buildStages() {
-    var plan = PLANS[S.duration].map(function (p) { return p.slice(); });
-    if (S.mode === 'individual') {
-      // 혼자 생각 모드: TALK 시간을 THINK에 합산하고 TALK 제거
-      var talkIdx = -1, talkSec = 0;
-      plan.forEach(function (p, i) { if (p[0] === 'TALK') { talkIdx = i; talkSec = p[1]; } });
-      if (talkIdx !== -1) {
-        plan.splice(talkIdx, 1);
-        plan.forEach(function (p) { if (p[0] === 'THINK') p[1] += talkSec; });
-      }
-    }
-    return plan;
+    return PLANS[S.duration].map(function (p) { return p.slice(); });
   }
 
   function startPlay(story) {
@@ -303,9 +280,8 @@
           '<div id="hint-slot"></div>';
 
       case 'TALK':
-        var who = S.mode === 'pair' ? '짝과' : '모둠·전체 친구들과';
         return '<p class="main-question">' + esc(st.mainQuestion) + '</p>' +
-          '<p class="stage-note">🗣 ' + who + ' 서로의 생각을 나눠 보세요. "왜냐하면"을 붙여 말해요!</p>' +
+          '<p class="stage-note">🗣 짝이나 모둠과 서로의 생각을 나눠 보세요. "왜냐하면"을 붙여 말해요!</p>' +
           '<div class="reveal-row"><button class="btn btn-ghost" id="btn-hint" type="button">💡 힌트 보기</button></div>' +
           '<div id="hint-slot">' + (S.revealed.hint ? hintHtml(st) : '') + '</div>';
 
@@ -491,7 +467,7 @@
     stopTimer();
     $('done-praise').textContent = pick(PRAISES);
     $('done-sub').textContent = '「' + S.story.title + '」 · ' +
-      GRADES[S.grade].name + ' · ' + S.duration + '분 · ' + MODES[S.mode].name;
+      GRADES[S.grade].name + ' · ' + S.duration + '분';
     show('screen-done');
   }
 
