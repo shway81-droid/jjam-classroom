@@ -1,18 +1,19 @@
 // sw.js - Service worker for offline support
 //
 // 전략 A: Network-First for 디렉토리 파일
-// - 메인 런처(스코프 루트 — 루트 배포 '/' 또는 GitHub Pages '/jjamjjami-gyosil/' — 및 /index.html)
-//   + games/registry.json + manifest.json → 항상 네트워크 우선
+// - 메인 런처(스코프 루트 — 루트 배포 '/' 또는 GitHub Pages '/jjam-quiz/' — 및 /index.html)
+//   + games/registry.json + games/meta.json + manifest.json → 항상 네트워크 우선
 //   (NETWORK_TIMEOUT_MS 내 응답 없거나 실패 시 캐시 폴백)
 //   → 새 게임 추가 시 사용자에게 즉시 표시됨
-// - 그 외 게임 파일들 (game.js, style.css 등) → 캐시 우선 (빠른 로딩 + 오프라인 지원)
-//   → 이미 배포된 games/*·shared/* 파일을 수정해도, 배포 시 CACHE_NAME이 커밋 SHA로
-//     자동 치환되므로 기존 방문자에게 다음 접속 시 반영됨 (수동 버전 범프 불필요).
-
-// 배포 시 .github/workflows/pages.yml이 이 값을 커밋 SHA로 자동 치환한다.
-// (게임/공통 파일 수정이 기존 방문자에게 확실히 반영되도록 — 수동 +1 불필요)
-// 로컬 개발에서는 아래 기본값이 그대로 쓰인다.
-const CACHE_NAME = 'jjamquiz-v1';
+// - 그 외 게임·공통 파일들 (game.js, shared/style.css 등) → Stale-While-Revalidate
+//   → 캐시로 즉시 응답해 로딩 속도·오프라인 동작을 유지하되, 백그라운드로 네트워크를
+//     다시 받아 캐시를 갱신한다. 기존 방문자에게도 다음 접속 때 최신 파일이 반영된다.
+//
+// 이 저장소는 main 브랜치를 그대로 GitHub Pages로 서빙하므로, 배포 시 CACHE_NAME을
+// 커밋 SHA로 치환해 주는 빌드 단계가 없다. 따라서 캐시 무효화를 배포 파이프라인에
+// 의존하지 않고 서비스 워커 자체(Stale-While-Revalidate)로 해결한다.
+// (참고: 원본 저장소 jjam은 gh-pages 브랜치 발행 단계에서 이 값을 SHA로 치환한다.)
+const CACHE_NAME = 'jjamquiz-v2';
 
 // 느린 회선에서 network-first가 첫 화면을 오래 막지 않도록 캐시로 폴백하는 대기 시간
 const NETWORK_TIMEOUT_MS = 3000;
@@ -56,7 +57,7 @@ self.addEventListener('activate', function(event) {
 // - games/registry.json (게임 폴더 목록)
 // - manifest.json (앱 메타데이터)
 // 게임 폴더 안의 index.html은 제외 (그건 게임 자체이므로 캐시 우선)
-// SW 스코프 루트 경로 — 루트 배포면 '/', GitHub Pages 프로젝트 페이지면 '/jjamjjami-gyosil/'
+// SW 스코프 루트 경로 — 루트 배포면 '/', GitHub Pages 프로젝트 페이지면 '/jjam-quiz/'
 var SCOPE_PATH = new URL('./', self.location).pathname;
 
 function isDirectoryFile(url) {
@@ -77,7 +78,12 @@ function isDirectoryFile(url) {
   return false;
 }
 
-// Fetch: 디렉토리 파일은 network-first, 나머지는 cache-first
+// 캐시에 담아 둘 파일: 게임별 자산과 공통 엔진·스타일
+function isCacheable(url) {
+  return url.includes('/games/') || url.includes('/shared/');
+}
+
+// Fetch: 디렉토리 파일은 network-first, 나머지는 stale-while-revalidate
 self.addEventListener('fetch', function(event) {
   if (event.request.method !== 'GET') return;
   if (!event.request.url.startsWith(self.location.origin)) return;
@@ -117,20 +123,26 @@ self.addEventListener('fetch', function(event) {
     return;
   }
 
-  // Cache-First: 게임 파일들 (빠른 로딩 + 오프라인 지원)
+  // Stale-While-Revalidate: 게임·공통 파일들
+  // 캐시가 있으면 즉시 응답(빠른 로딩 + 오프라인 지원)하고, 네트워크 요청은 백그라운드에서
+  // 끝까지 진행시켜 캐시를 갱신한다 → 파일을 수정하면 다음 접속 때 반영된다.
+  var revalidate = fetch(event.request, { cache: 'no-cache' }).then(function(response) {
+    if (response.ok && isCacheable(event.request.url)) {
+      var responseClone = response.clone();
+      caches.open(CACHE_NAME).then(function(cache) {
+        cache.put(event.request, responseClone);
+      });
+    }
+    return response;
+  });
+
+  // 캐시로 즉시 응답하더라도 갱신 요청은 끝까지 진행시킨다(다음 접속용).
+  event.waitUntil(revalidate.then(null, function() {}));
+
   event.respondWith(
     caches.match(event.request).then(function(cached) {
       if (cached) return cached;
-
-      return fetch(event.request, { cache: 'no-cache' }).then(function(response) {
-        if (response.ok && (event.request.url.includes('/games/') || event.request.url.includes('/shared/'))) {
-          var responseClone = response.clone();
-          caches.open(CACHE_NAME).then(function(cache) {
-            cache.put(event.request, responseClone);
-          });
-        }
-        return response;
-      }).catch(function() {
+      return revalidate.catch(function() {
         return new Response('Offline', { status: 503 });
       });
     })
