@@ -257,6 +257,9 @@
     nextBtn.textContent = isLast ? '✅ 활동 마치기' : '다음 단계 →';
     nextBtn.classList.remove('pulse');
 
+    // 이전 버튼: 첫 단계에서는 비활성
+    $('btn-prev').disabled = (S.stageIdx === 0);
+
     startTimer(stageSecs());
   }
 
@@ -277,7 +280,7 @@
         return '<p class="main-question">' + esc(st.mainQuestion) + '</p>' +
           '<p class="stage-note">🤫 조용히 나만의 생각을 만들어 보세요. 이유도 함께!</p>' +
           '<div class="reveal-row"><button class="btn btn-ghost" id="btn-hint" type="button">💡 힌트 보기</button></div>' +
-          '<div id="hint-slot"></div>';
+          '<div id="hint-slot">' + (S.revealed.hint ? hintHtml(st) : '') + '</div>';
 
       case 'TALK':
         return '<p class="main-question">' + esc(st.mainQuestion) + '</p>' +
@@ -463,6 +466,12 @@
     renderStage();
   }
 
+  function prevStage() {
+    if (S.stageIdx <= 0) return;
+    S.stageIdx -= 1;
+    renderStage();
+  }
+
   function finish() {
     stopTimer();
     $('done-praise').textContent = pick(PRAISES);
@@ -511,6 +520,7 @@
     $('btn-setup-back').addEventListener('click', goHome);
     $('btn-start').addEventListener('click', startFromSetup);
     $('btn-next').addEventListener('click', nextStage);
+    $('btn-prev').addEventListener('click', prevStage);
     $('btn-pause').addEventListener('click', togglePause);
     $('btn-plus30').addEventListener('click', plus30);
     $('btn-swap').addEventListener('click', swapStory);
@@ -527,6 +537,7 @@
       if ($('screen-play').hidden) return;
       if (e.code === 'Space') { e.preventDefault(); togglePause(); }
       if (e.code === 'ArrowRight' || e.code === 'Enter') { e.preventDefault(); nextStage(); }
+      if (e.code === 'ArrowLeft') { e.preventDefault(); prevStage(); }
     });
   }
 
