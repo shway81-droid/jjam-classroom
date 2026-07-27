@@ -37,6 +37,7 @@ const RAW = `https://raw.githubusercontent.com/${UPSTREAM}/${BRANCH}`;
 //  verify-game.js·gen-metadata.js·sw.js·README 등은 퀴즈 전용 내용이 들어 있다.)
 const SHARED = [
   'shared/style.css',
+  'shared/jjam-switcher.js',
   'scripts/verify-all.js',
   'scripts/browser-verify.js',
   'scripts/render-bgm-preview.js',
