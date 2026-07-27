@@ -1,5 +1,5 @@
 /* 짬짬이 이야기 — 오프라인 캐시 (FR-11) */
-var CACHE = 'jjam-story-v1';
+var CACHE = 'jjam-story-v2';
 var ASSETS = [
   './',
   './index.html',

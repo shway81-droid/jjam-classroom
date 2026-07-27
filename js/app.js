@@ -4,11 +4,11 @@
 
   // ── 상수 ─────────────────────────────────────────────
   var TYPES = {
-    'next-story': { emoji: '🔮', name: '다음 이야기', desc: '다음 장면을 상상해요', color: '#7A5FD0' },
+    'next-story': { emoji: '🔮', name: '다음 이야기', desc: '다음 장면을 상상해요', color: '#6145B5' },
     'why':        { emoji: '🕵️', name: '왜 그랬을까', desc: '행동의 이유를 추리해요', color: '#4FA8E8' },
-    'mind':       { emoji: '💗', name: '마음 읽기', desc: '인물의 감정을 읽어요', color: '#FF7A6B' },
+    'mind':       { emoji: '💗', name: '마음 읽기', desc: '인물의 감정을 읽어요', color: '#C14C40' },
     'choice':     { emoji: '⚖️', name: '선택 이야기', desc: '나의 선택과 이유를 말해요', color: '#12A57C' },
-    'solve':      { emoji: '💡', name: '어떻게 할까', desc: '해결할 방법을 찾아 말해요', color: '#FFB93C' }
+    'solve':      { emoji: '💡', name: '어떻게 할까', desc: '해결할 방법을 찾아 말해요', color: '#FDB333' }
   };
 
   var GRADES = {
