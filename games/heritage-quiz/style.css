@@ -24,6 +24,12 @@
   font-weight: 800;
   color: var(--text);
 }
+/* 제목 앞 광화문 선화 — 이모지에 우리 전통 건축이 없어 직접 그렸다(🏯는 일본 천수각). */
+.title-icon {
+  width: 1.15em;
+  height: 1.15em;
+  vertical-align: -0.2em;
+}
 
 /* ── Intro screen ─────────────────────────────────────────── */
 .screen-intro {
