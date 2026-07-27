@@ -41,6 +41,7 @@ const SHARED = [
   'scripts/browser-verify.js',
   'scripts/render-bgm-preview.js',
   'scripts/check-font-coverage.mjs',
+  'scripts/gen-icons.mjs',
   'assets/fonts/PretendardVariable.subset.woff2',
   'assets/fonts/coverage.txt',
   'assets/fonts/LICENSE.txt',

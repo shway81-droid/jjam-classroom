@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "gen": "node scripts/gen-metadata.js",
+    "gen:icons": "node scripts/gen-icons.mjs",
     "verify": "node scripts/verify-all.js",
     "verify:browser": "node scripts/browser-verify.js",
     "sync:shared": "node scripts/sync-shared.mjs",
