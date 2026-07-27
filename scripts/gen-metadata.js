@@ -120,7 +120,7 @@ for (const t of targets) {
   const countTargets = [
     { file: 'index.html', name: '게임 수 표기', subs: [
       [/미니게임 \d+개/g, `미니게임 ${total}개`],
-      [/미니게임 <b>\d+개<\/b>/g, `미니게임 <b>${total}개</b>`],  // CTA 스트립 (볼드 마크업 포함)
+      [/퀴즈 <b>\d+개<\/b>/g, `퀴즈 <b>${total}개</b>`],  // CTA 스트립 (볼드 마크업 포함)
     ]},
     { file: 'manifest.json', name: '게임 수 표기', subs: [
       [/미니게임 \d+개/g, `미니게임 ${total}개`],
