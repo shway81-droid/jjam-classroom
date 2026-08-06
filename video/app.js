@@ -1,0 +1,706 @@
+/* ===================================================================
+   짬짬이 영상 — 런처 로직
+   - data/videos.json 로드 → 필터(시간·학년·주제) / 룰렛 / 오늘의 추천 / 저장함
+   - 저장함은 localStorage 사용(서버 없음, 정적 사이트)
+   =================================================================== */
+
+'use strict';
+
+// ── 상수 ──────────────────────────────────────────────────
+const TIME_BUCKETS = [3, 4, 5, 6, 7, 8, 9, 10];   // 분 단위 필터 (선택 분과 정확히 일치)
+const GRADES = ['저학년', '중학년', '고학년'];
+const STORAGE_KEY = 'jjamvideo:saved';
+
+// 계기교육 달력(월-일 → 주제). 오늘 또는 가장 가까운 다가오는 계기를 자동 선택.
+const CALENDAR = [
+  { md: '03-01', name: '삼일절',            topic: '역사' },
+  { md: '04-05', name: '식목일',            topic: '환경생태' },
+  { md: '04-20', name: '장애인의 날',       topic: '장애인식개선' },
+  { md: '04-21', name: '과학의 날',         topic: '과학·탐구' },
+  { md: '04-22', name: '지구의 날',         topic: '환경생태' },
+  { md: '05-05', name: '어린이날',          topic: '인권' },
+  { md: '05-08', name: '어버이날',          topic: '가족' },
+  { md: '05-15', name: '스승의 날',         topic: '인성' },
+  { md: '05-20', name: '세계인의 날',       topic: '다문화' },
+  { md: '05-31', name: '바다의 날',         topic: '환경생태' },
+  { md: '06-06', name: '현충일',            topic: '생명존중' },
+  { md: '06-25', name: '6·25 전쟁일',       topic: '통일' },
+  { md: '07-17', name: '제헌절',            topic: '민주시민' },
+  { md: '08-15', name: '광복절',            topic: '역사' },
+  { md: '10-02', name: '노인의 날',         topic: '인권' },
+  { md: '10-03', name: '개천절',            topic: '역사' },
+  { md: '10-09', name: '한글날',            topic: '예술·문화' },
+  { md: '10-25', name: '독도의 날',         topic: '독도' },
+  // jaturi 계기 확장 (음력 명절은 lunar 표시 → LUNAR_MD에서 연도별 날짜를 찾음)
+  { lunar: true,  name: '설날',             topic: '가족' },
+  { md: '04-19', name: '4·19 혁명 기념일',   topic: '민주시민' },
+  { lunar: true,  name: '부처님오신날',      topic: '인성' },
+  { md: '07-08', name: '정보보호의 날',      topic: '미디어리터러시' },
+  { lunar: true,  name: '추석',             topic: '가족' },
+  { md: '10-01', name: '국군의 날',          topic: '역사' },
+  { md: '11-09', name: '소방의 날',          topic: '안전' },
+  { md: '11-11', name: '농업인의 날',        topic: '경제' },
+  { md: '12-25', name: '성탄절',            topic: '힐링·재미' },
+  // 국가 공인 기념일 추가 (「각종 기념일 등에 관한 규정」 별표1 기준)
+  { md: '04-07', name: '보건의 날',              topic: '건강·보건' },
+  { md: '04-11', name: '임시정부 수립 기념일',    topic: '역사' },
+  { md: '04-28', name: '충무공 이순신 탄신일',    topic: '역사' },
+  { md: '05-15', name: '세종대왕 나신 날',        topic: '예술·문화' },
+  { md: '05-18', name: '5·18 민주화운동 기념일',  topic: '민주시민' },
+  { md: '05-27', name: '우주항공의 날',          topic: '과학·탐구' },
+  { md: '06-05', name: '환경의 날',              topic: '환경생태' },
+  { md: '09-07', name: '푸른 하늘의 날',          topic: '환경생태' },
+  { md: '10-15', name: '스포츠의 날',            topic: '스포츠' },
+  { md: '10-24', name: '국제연합일',            topic: '세계시민' },
+  { md: '11-03', name: '학생독립운동 기념일',     topic: '역사' },
+  { md: '11-17', name: '순국선열의 날',          topic: '역사' },
+];
+
+// 음력 명절의 연도별 양력 날짜 (한국천문연구원 음양력 데이터 기준).
+// 표의 마지막 연도가 다가오면 여기에 연도만 추가하면 된다.
+// 표에 없는 연도는 달력·계기 후보에서 자동으로 빠진다(잘못된 날짜로 표시되는 일 없음).
+const LUNAR_MD = {
+  '설날': {          // 음력 1월 1일
+    2025: '01-29', 2026: '02-17', 2027: '02-07', 2028: '01-27',
+    2029: '02-13', 2030: '02-03', 2031: '01-23', 2032: '02-11',
+    2033: '01-31', 2034: '02-19', 2035: '02-08', 2036: '01-28',
+  },
+  '부처님오신날': {   // 음력 4월 8일
+    2025: '05-05', 2026: '05-24', 2027: '05-13', 2028: '05-02',
+    2029: '05-20', 2030: '05-09', 2031: '05-28', 2032: '05-16',
+    2033: '05-06', 2034: '05-25', 2035: '05-15', 2036: '05-03',
+  },
+  '추석': {          // 음력 8월 15일
+    2025: '10-06', 2026: '09-25', 2027: '09-15', 2028: '10-03',
+    2029: '09-22', 2030: '09-12', 2031: '10-01', 2032: '09-19',
+    2033: '09-08', 2034: '09-27', 2035: '09-16', 2036: '10-04',
+  },
+};
+
+// 계기의 해당 연도 'MM-DD' — 양력은 md 그대로, 음력은 LUNAR_MD에서 조회(없으면 null)
+function calMd(o, year) {
+  return o.lunar ? (LUNAR_MD[o.name] || {})[year] || null : o.md;
+}
+
+// 주제 표시 순서(데이터에 없는 주제는 자동으로 뒤에 붙음)
+const TOPIC_ORDER = [
+  '인성', '진로', '건강·보건', '생명존중', '세계시민',
+  '가족', '역사', '다문화', '학교폭력예방', '힐링·재미', '경제', '인권',
+  '독도', '민주시민', '예술·문화', '스포츠', 'AI교육', '미디어리터러시',
+  '장애인식개선', '안전', '과학·탐구', '학급자치', '통일', '환경생태',
+];
+
+// ── 상태 ──────────────────────────────────────────────────
+let VIDEOS = [];
+let TOPICS = [];
+const state = {
+  time: 'all',
+  grade: 'all',
+  topic: 'all',
+  q: '',               // 검색어(원문 — 화면 표시용)
+  savedOnly: false,
+  occasionOn: false,   // 계기교육 칩 활성 여부
+};
+let normQ = '';        // 정규화된 검색어(비교용) — 입력 시 갱신
+let OCCASION = null;        // 오늘 또는 가장 가까운 다가오는 계기 { name, topic, md, diff, m, d }
+let activeOcc = null;        // 현재 필터 중인 계기(오늘 계기 또는 달력에서 고른 계기)
+let occasionHasTags = false; // 현재 계기 전용 영상(occasions 태그)이 있는지
+let saved = loadSaved();
+
+// ── DOM ───────────────────────────────────────────────────
+const $ = (id) => document.getElementById(id);
+
+// 프리미엄 광고 제거: 켜면 임베드를 youtube.com(유튜브 로그인 적용)으로,
+// 끄면 youtube-nocookie.com(쿠키·로그인 미적용, 기본)으로 재생한다.
+const PREMIUM_KEY = 'jjam-premium-adfree';
+let premiumOn = localStorage.getItem(PREMIUM_KEY) === '1';
+const embedHost = () => (premiumOn ? 'www.youtube.com' : 'www.youtube-nocookie.com');
+const grid        = $('grid');
+const emptyMsg    = $('emptyMsg');
+const gridTitle   = $('gridTitle');
+const resultCount = $('resultCount');
+const todayCard   = $('todayCard');
+const savedCount  = $('savedCount');
+
+// ── 저장함(localStorage) ──────────────────────────────────
+function loadSaved() {
+  try { return new Set(JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')); }
+  catch { return new Set(); }
+}
+function persistSaved() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify([...saved]));
+  savedCount.textContent = saved.size;
+}
+function toggleSaved(id) {
+  if (saved.has(id)) saved.delete(id); else saved.add(id);
+  persistSaved();
+}
+
+// ── 유틸 ──────────────────────────────────────────────────
+function thumbUrl(v) {
+  if (!v.youtubeId || v.youtubeId === 'SAMPLE') return null;
+  return `https://i.ytimg.com/vi/${v.youtubeId}/hqdefault.jpg`;
+}
+function gradeLabel(v) {
+  if (!v.grade || v.grade.length === 3) return '전학년';
+  return v.grade.join('·');
+}
+function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+// 검색 비교용 정규화 — 소문자화 + 공백 제거('지식 채널'로 '지식채널e'도 찾도록)
+function norm(s) { return String(s).toLowerCase().replace(/\s+/g, ''); }
+// 소프트 3D 아이콘(index.html 스프라이트) 마크업
+function s3d(name, size = 16) {
+  return `<svg class="s3d s3d-${size}" aria-hidden="true"><use href="#i-${name}"/></svg>`;
+}
+// 그리드 제목: 아이콘(고정 마크업) + 텍스트(escape) — 검색어 등 사용자 입력 안전 처리
+function setGridTitle(iconName, text) {
+  gridTitle.innerHTML = (iconName ? s3d(iconName, 24) : '') + `<span>${escapeHtml(text)}</span>`;
+}
+
+// ── 필터 칩 렌더링 ────────────────────────────────────────
+function makeChip(label, active, onClick) {
+  const b = document.createElement('button');
+  b.type = 'button';
+  b.className = 'chip' + (active ? ' active' : '');
+  b.textContent = label;
+  b.addEventListener('click', onClick);
+  return b;
+}
+
+function renderChips() {
+  // 시간
+  const timeWrap = $('timeChips');
+  timeWrap.innerHTML = '';
+  timeWrap.appendChild(makeChip('전체', state.time === 'all', () => setFilter('time', 'all')));
+  TIME_BUCKETS.forEach(m =>
+    timeWrap.appendChild(makeChip(`${m}분`, state.time === m, () => setFilter('time', m))));
+
+  // 학년
+  const gradeWrap = $('gradeChips');
+  gradeWrap.innerHTML = '';
+  gradeWrap.appendChild(makeChip('전체', state.grade === 'all', () => setFilter('grade', 'all')));
+  GRADES.forEach(g =>
+    gradeWrap.appendChild(makeChip(g, state.grade === g, () => setFilter('grade', g))));
+
+  // 주제
+  const topicWrap = $('topicChips');
+  topicWrap.innerHTML = '';
+  topicWrap.appendChild(makeChip('전체', state.topic === 'all', () => setFilter('topic', 'all')));
+  TOPICS.forEach(t =>
+    topicWrap.appendChild(makeChip(t, state.topic === t, () => setFilter('topic', t))));
+}
+
+function setFilter(key, val) {
+  state[key] = val;
+  state.savedOnly = false;
+  state.occasionOn = false; activeOcc = null;   // 일반 필터를 만지면 계기교육 모드 해제
+  renderChips();
+  renderGrid();
+}
+
+// ── 계기교육: 오늘 또는 가장 가까운 다가오는 계기 찾기 ──────
+function findOccasion() {
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  let best = null, bestDiff = Infinity;
+  for (const o of CALENDAR) {
+    // 올해·내년 후보를 모두 보고 연말 wrap 처리 (음력은 연도마다 날짜가 다름)
+    for (const yy of [now.getFullYear(), now.getFullYear() + 1]) {
+      const md = calMd(o, yy);
+      if (!md) continue;
+      const [mm, dd] = md.split('-').map(Number);
+      const d = new Date(yy, mm - 1, dd);
+      const diff = Math.round((d - today) / 86400000);
+      if (diff >= 0 && diff < bestDiff) {
+        bestDiff = diff;
+        best = { ...o, md, m: mm, d: dd, diff };
+      }
+    }
+  }
+  return best;
+}
+
+function renderOccasionChip() {
+  const chip = $('occasionChip');
+  if (!OCCASION) { chip.hidden = true; return; }
+  const tag = OCCASION.diff === 0 ? '오늘의 계기' : `D-${OCCASION.diff}`;
+  chip.innerHTML = `${s3d('calendar')} ${tag} · ${escapeHtml(OCCASION.name)}`;
+  // 칩은 '오늘의 계기'가 활성일 때만 강조(달력에서 다른 계기를 고르면 해제된 것처럼)
+  const isToday = state.occasionOn && activeOcc && activeOcc.name === OCCASION.name;
+  chip.classList.toggle('active', isToday);
+}
+
+// CALENDAR 항목 → {name,topic,md,m,d,diff} 정규화 (다가오는 가장 가까운 회차 기준)
+function occFromCal(o) {
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  let best = null;
+  for (const yy of [now.getFullYear(), now.getFullYear() + 1]) {
+    const md = calMd(o, yy);
+    if (!md) continue;
+    const [mm, dd] = md.split('-').map(Number);
+    const diff = Math.round((new Date(yy, mm - 1, dd) - today) / 86400000);
+    if (diff >= 0 && (!best || diff < best.diff)) best = { ...o, md, m: mm, d: dd, diff };
+  }
+  if (best) return best;
+  // 음력 표 범위 밖(수년 뒤) 폴백 — 올해 날짜라도 있으면 그걸로 표시
+  const md = calMd(o, now.getFullYear()) || '01-01';
+  const [mm, dd] = md.split('-').map(Number);
+  return { ...o, md, m: mm, d: dd, diff: Infinity };
+}
+
+// 계기별 영상 수 { n, mode } — 전용(tag) 우선, 없으면 주제(topic) 폴백
+function occCount(o) {
+  const tag = VIDEOS.filter(v => (v.occasions || []).includes(o.name)).length;
+  if (tag > 0) return { n: tag, mode: 'tag' };
+  return { n: VIDEOS.filter(v => v.topic === o.topic).length, mode: 'topic' };
+}
+
+// 특정 계기를 활성화(오늘 계기 또는 달력 선택)
+function activateOccasion(occ) {
+  activeOcc = occ;
+  state.occasionOn = true;
+  occasionHasTags = VIDEOS.some(v => (v.occasions || []).includes(occ.name));
+  state.savedOnly = false;
+  state.topic = 'all';
+  state.time = 'all';
+  state.grade = 'all';
+  renderChips();
+  renderOccasionChip();
+  renderGrid();
+  document.querySelector('.grid-head').scrollIntoView({ behavior: 'smooth' });
+}
+
+function deactivateOccasion() {
+  state.occasionOn = false;
+  activeOcc = null;
+  renderChips();
+  renderOccasionChip();
+  renderGrid();
+}
+
+function toggleOccasion() {
+  if (!OCCASION) return;
+  const todayActive = state.occasionOn && activeOcc && activeOcc.name === OCCASION.name;
+  if (todayActive) deactivateOccasion();
+  else activateOccasion(OCCASION);
+}
+
+// ── 필터 적용 ─────────────────────────────────────────────
+function matches(v) {
+  if (state.savedOnly && !saved.has(v.id)) return false;
+  // 계기교육 모드: 계기 전용 영상(occasions 태그) 우선, 없으면 주제로 폴백
+  if (state.occasionOn && activeOcc) {
+    if (occasionHasTags) {
+      if (!(v.occasions || []).includes(activeOcc.name)) return false;
+    } else if (v.topic !== activeOcc.topic) return false;
+  }
+  // 시간: 선택한 분과 정확히 일치하는 길이만
+  if (state.time !== 'all' && v.minutes !== state.time) return false;
+  if (state.grade !== 'all' && !(v.grade || []).includes(state.grade)) return false;
+  if (state.topic !== 'all' && v.topic !== state.topic) return false;
+  // 검색어: 제목·소개·주제에서 찾음 (다른 필터·저장함·계기교육 위에 겹쳐 적용)
+  if (normQ && !norm(`${v.title} ${v.description || ''} ${v.topic}`).includes(normQ)) return false;
+  return true;
+}
+
+// ── 영상 카드 ─────────────────────────────────────────────
+function makeCard(v) {
+  const card = document.createElement('article');
+  card.className = 'card';
+
+  const url = thumbUrl(v);
+  let thumb;
+  if (url) {
+    thumb = document.createElement('img');
+    thumb.className = 'card-thumb';
+    thumb.loading = 'lazy';
+    thumb.alt = v.title;
+    thumb.src = url;
+  } else {
+    thumb = document.createElement('div');
+    thumb.className = 'card-thumb placeholder';
+    thumb.textContent = '▶';
+  }
+
+  const body = document.createElement('div');
+  body.className = 'card-body';
+  const star = saved.has(v.id) ? `<span class="card-star">${s3d('star', 12)} 저장됨</span>` : '';
+  body.innerHTML = `
+    ${star}
+    <div class="card-title">${escapeHtml(v.title)}</div>
+    <div class="card-pills">
+      <span class="pill">${escapeHtml(v.topic)}</span>
+      <span class="pill pill-time">${v.minutes}분</span>
+      <span class="pill pill-grade">${gradeLabel(v)}</span>
+    </div>`;
+
+  card.appendChild(thumb);
+  card.appendChild(body);
+  card.addEventListener('click', () => openModal(v));
+  return card;
+}
+
+function renderGrid() {
+  const list = VIDEOS.filter(matches);
+  if (state.occasionOn && activeOcc) {
+    const when = activeOcc.diff === 0 ? '오늘' : `${activeOcc.m}/${activeOcc.d}`;
+    setGridTitle('calendar', occasionHasTags
+      ? `${activeOcc.name} (${when}) 계기교육`
+      : `${activeOcc.name} (${when}) 계기교육 · ${activeOcc.topic} 주제`);
+  } else if (state.savedOnly) {
+    setGridTitle('star', '저장함');
+  } else if (state.q) {
+    setGridTitle('search', `'${state.q}' 검색 결과`);
+  } else {
+    setGridTitle(null, '영상 둘러보기');
+  }
+  resultCount.textContent = `${list.length}개`;
+  grid.innerHTML = '';
+  if (list.length === 0) {
+    emptyMsg.hidden = false;
+    if (state.q) {
+      emptyMsg.textContent = `'${state.q}'에 맞는 영상이 없어요. 다른 검색어를 써보거나 검색어를 지워보세요.`;
+    } else if (state.occasionOn && activeOcc) {
+      emptyMsg.textContent = `${activeOcc.name} 계기교육 영상이 아직 없어요.`;
+    } else if (state.savedOnly) {
+      emptyMsg.textContent = '아직 저장한 영상이 없어요. 마음에 드는 영상을 ⭐ 저장해 보세요.';
+    } else {
+      emptyMsg.textContent = '조건에 맞는 영상이 없어요. 필터를 바꿔보세요.';
+    }
+    return;
+  }
+  emptyMsg.hidden = true;
+  list.forEach(v => grid.appendChild(makeCard(v)));
+}
+
+// ── 오늘의 추천 ───────────────────────────────────────────
+function renderToday(v) {
+  const url = thumbUrl(v);
+  const thumb = url
+    ? `<img class="tc-thumb" src="${url}" alt="" loading="lazy">`
+    : `<div class="tc-thumb card-thumb placeholder">▶</div>`;
+  todayCard.innerHTML = `
+    <div class="tc-inner">
+      ${thumb}
+      <div class="tc-text">
+        <span class="tc-tag">${s3d('spark')} 오늘의 추천 · ${v.minutes}분</span>
+        <div class="tc-title">${escapeHtml(v.title)}</div>
+        <div class="tc-desc">${escapeHtml(v.description || '')}</div>
+      </div>
+    </div>`;
+  todayCard.onclick = () => openModal(v);
+}
+function reshuffleToday() {
+  if (VIDEOS.length) renderToday(pick(VIDEOS));
+}
+
+// ── 룰렛(현재 필터 안에서 랜덤) ───────────────────────────
+function roulette() {
+  const pool = VIDEOS.filter(matches);
+  const list = pool.length ? pool : VIDEOS;
+  if (!list.length) return;
+  let ticks = 0;
+  const timer = setInterval(() => {
+    renderToday(pick(list));
+    if (++ticks >= 12) {
+      clearInterval(timer);
+      const chosen = pick(list);
+      renderToday(chosen);
+      openModal(chosen);
+    }
+  }, 90);
+}
+
+// ── 모달용 상세 데이터 (지연 로딩) ────────────────────────
+// 활용 아이디어는 모달을 열 때만 쓰므로 첫 화면 요청에서 빼 두었다.
+// 첫 화면을 그린 직후 배경에서 받아오고, 그전에 모달을 열면 도착하는 대로 채운다.
+let DETAIL = null;
+let detailPromise = null;
+function loadDetail() {
+  if (!detailPromise) {
+    detailPromise = fetch('data/videos.detail.json', { cache: 'no-cache' })
+      .then((r) => r.json())
+      .then((d) => { DETAIL = d; })
+      .catch(() => { DETAIL = {}; });   // 실패해도 모달 자체는 열리게 둔다
+  }
+  return detailPromise;
+}
+
+function renderIdeas(v) {
+  const ul = $('mIdeas');
+  ul.innerHTML = '';
+  const fill = () => {
+    if (modalVideo !== v) return;      // 그 사이 다른 영상을 열었으면 무시
+    ul.innerHTML = '';
+    ((DETAIL && DETAIL[v.id] && DETAIL[v.id].ideas) || []).forEach((t, i) => {
+      const li = document.createElement('li');
+      li.dataset.n = i + 1;
+      li.textContent = t;
+      ul.appendChild(li);
+    });
+  };
+  if (DETAIL) fill(); else loadDetail().then(fill);
+}
+
+// ── 모달 ──────────────────────────────────────────────────
+let modalVideo = null;
+function openModal(v) {
+  modalVideo = v;
+  const player = $('mPlayer');
+  if (v.youtubeId && v.youtubeId !== 'SAMPLE') {
+    player.innerHTML =
+      `<iframe src="https://${embedHost()}/embed/${v.youtubeId}?rel=0&autoplay=1"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen title="${escapeHtml(v.title)}"></iframe>`;
+    $('mYtBtn').href = `https://www.youtube.com/watch?v=${v.youtubeId}`;
+  } else {
+    player.innerHTML = `<div class="ph">예시 영상입니다.<br>data/videos.json의 youtubeId를<br>실제 유튜브 영상 ID로 교체하세요.</div>`;
+    $('mYtBtn').removeAttribute('href');
+  }
+  $('mTopic').textContent = v.topic;
+  $('mTime').textContent  = `${v.minutes}분`;
+  $('mGrade').textContent = gradeLabel(v);
+  $('mTitle').textContent = v.title;
+  $('mDesc').textContent  = v.description || '';
+
+  renderIdeas(v);
+
+  updateSaveBtn();
+  $('modal').hidden = false;
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  $('modal').hidden = true;
+  $('mPlayer').innerHTML = '';   // iframe 제거 → 재생 정지
+  document.body.style.overflow = '';
+  modalVideo = null;
+}
+function updateSaveBtn() {
+  const b = $('mSaveBtn');
+  const on = modalVideo && saved.has(modalVideo.id);
+  b.innerHTML = `${s3d('star', 18)} ${on ? '저장됨' : '저장'}`;
+  b.classList.toggle('ghost', !on);
+}
+function updatePremiumBtn() {
+  const b = $('premiumBtn');
+  if (!b) return;
+  b.innerHTML = `${s3d('noads', 18)} ${premiumOn ? '광고 제거 켜짐(프리미엄)' : '광고 제거(프리미엄)'}`;
+  b.classList.toggle('on', premiumOn);
+  b.setAttribute('aria-pressed', premiumOn ? 'true' : 'false');
+}
+
+// ── 공유 ──────────────────────────────────────────────────
+async function shareVideo() {
+  if (!modalVideo) return;
+  const text = `[짬짬이 영상] ${modalVideo.title}`;
+  const url = modalVideo.youtubeId && modalVideo.youtubeId !== 'SAMPLE'
+    ? `https://youtu.be/${modalVideo.youtubeId}` : location.href;
+  try {
+    if (navigator.share) await navigator.share({ title: text, url });
+    else { await navigator.clipboard.writeText(`${text}\n${url}`); alert('링크를 복사했어요!'); }
+  } catch { /* 사용자가 취소 */ }
+}
+
+// ── HTML 이스케이프 ───────────────────────────────────────
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+// ── 이벤트 바인딩 ─────────────────────────────────────────
+function bindEvents() {
+  $('rouletteBtn').addEventListener('click', roulette);
+  $('reshuffleBtn').addEventListener('click', reshuffleToday);
+  $('occasionChip').addEventListener('click', toggleOccasion);
+
+  // ── 검색 ──
+  const searchInput = $('searchInput');
+  const searchClear = $('searchClear');
+  function applySearch(raw) {
+    state.q = raw.trim();
+    normQ = norm(state.q);
+    searchClear.hidden = !state.q;
+    renderGrid();
+  }
+  searchInput.addEventListener('input', () => applySearch(searchInput.value));
+  searchClear.addEventListener('click', () => {
+    searchInput.value = '';
+    applySearch('');
+    searchInput.focus();
+  });
+
+  $('savedBtn').addEventListener('click', () => {
+    state.savedOnly = !state.savedOnly;
+    state.occasionOn = false; activeOcc = null;
+    if (state.savedOnly) { state.time = 'all'; state.grade = 'all'; state.topic = 'all'; renderChips(); renderOccasionChip(); }
+    renderGrid();
+    document.querySelector('.grid-head').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  // ── 계기교육 달력 ──
+  $('calBtn').addEventListener('click', openCal);
+  document.querySelectorAll('[data-cal-close]').forEach(el => el.addEventListener('click', closeCal));
+  $('calDate').addEventListener('change', e => {
+    if (!e.target.value) return;
+    const [, mm, dd] = e.target.value.split('-').map(Number);
+    closeCal();
+    activateOccasion(findOccasionForDate(mm, dd));
+  });
+
+  $('fsBtn').addEventListener('click', () => {
+    if (document.fullscreenElement) document.exitFullscreen();
+    else document.documentElement.requestFullscreen?.();
+  });
+
+  // 프리미엄 광고 제거 토글
+  updatePremiumBtn();
+  $('premiumBtn').addEventListener('click', () => {
+    premiumOn = !premiumOn;
+    localStorage.setItem(PREMIUM_KEY, premiumOn ? '1' : '0');
+    updatePremiumBtn();
+    if (premiumOn && !localStorage.getItem('jjam-premium-tip')) {
+      localStorage.setItem('jjam-premium-tip', '1');
+      alert('유튜브 프리미엄 회원이면 이제 영상 재생 시 광고가 제거됩니다.\n\n'
+        + '· 브라우저에 유튜브(youtube.com) 로그인이 되어 있어야 해요.\n'
+        + '· 광고가 계속 보이면 브라우저의 "타사 쿠키 차단"을 풀거나,\n'
+        + '  영상 아래 "▶ 유튜브에서 보기"로 열면 확실히 광고 없이 볼 수 있어요.');
+    }
+    // 재생 중이면 새 설정으로 다시 로드
+    if (modalVideo && !$('modal').hidden) openModal(modalVideo);
+  });
+
+  $('mSaveBtn').addEventListener('click', () => {
+    if (!modalVideo) return;
+    toggleSaved(modalVideo.id);
+    updateSaveBtn();
+    renderGrid();
+  });
+  $('mShareBtn').addEventListener('click', shareVideo);
+
+  document.querySelectorAll('[data-close]').forEach(el =>
+    el.addEventListener('click', closeModal));
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Escape') return;
+    // 검색창에 검색어가 있으면 Esc는 검색어만 지움
+    if (document.activeElement === searchInput && searchInput.value) {
+      searchInput.value = '';
+      applySearch('');
+      return;
+    }
+    closeModal(); closeCal();
+  });
+}
+
+// ── 계기교육 달력 모달 ────────────────────────────────────
+// 날짜(월/일)에서 그 날 또는 가장 가까운 다가오는 계기를 찾음
+function findOccasionForDate(mm, dd) {
+  const doy = (m, d) => Math.round((new Date(2025, m - 1, d) - new Date(2025, 0, 0)) / 86400000);
+  const target = doy(mm, dd);
+  const year = new Date().getFullYear();
+  let best = null, bestDelta = Infinity;
+  for (const o of CALENDAR) {
+    const md = calMd(o, year) || calMd(o, year + 1);   // 음력: 올해 날짜 우선, 없으면 내년
+    if (!md) continue;
+    const [om, od] = md.split('-').map(Number);
+    const delta = (doy(om, od) - target + 366) % 366;   // 그 날 이후 가장 가까운 계기(연말 wrap)
+    if (delta < bestDelta) { bestDelta = delta; best = o; }
+  }
+  return occFromCal(best);
+}
+
+function buildCalList() {
+  const list = $('calList');
+  list.innerHTML = '';
+  const byMonth = {};
+  CALENDAR.forEach(o => {
+    // 음력 명절은 다가오는 회차의 날짜로 표시(올해 회차가 지났으면 내년 날짜)
+    let md = o.md;
+    if (o.lunar) {
+      const occ = occFromCal(o);
+      if (occ.diff === Infinity) return;   // 음력 표 범위 밖 — LUNAR_MD에 연도를 추가하면 다시 나타남
+      md = occ.md;
+    }
+    const m = Number(md.split('-')[0]);
+    (byMonth[m] = byMonth[m] || []).push({ ...o, md });
+  });
+  Object.keys(byMonth).map(Number).sort((a, b) => a - b).forEach(m => {
+    const h = document.createElement('div');
+    h.className = 'cal-month';
+    h.textContent = `${m}월`;
+    list.appendChild(h);
+    const days = document.createElement('div');
+    days.className = 'cal-days';
+    byMonth[m].sort((a, b) => a.md.localeCompare(b.md)).forEach(o => {
+      const { n, mode } = occCount(o);
+      const dd = Number(o.md.split('-')[1]);
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'cal-item';
+      b.innerHTML =
+        `<span class="cal-date">${m}/${dd}</span>` +
+        `<span class="cal-name">${escapeHtml(o.name)}</span>` +
+        `<span class="cal-cnt">${n}개${mode === 'topic' ? ' <em>주제</em>' : ''}</span>`;
+      b.addEventListener('click', () => { closeCal(); activateOccasion(occFromCal(o)); });
+      days.appendChild(b);
+    });
+    list.appendChild(days);
+  });
+}
+
+function openCal() {
+  buildCalList();
+  $('calModal').hidden = false;
+  document.body.style.overflow = 'hidden';
+}
+function closeCal() {
+  const m = $('calModal');
+  if (m) { m.hidden = true; if ($('modal').hidden) document.body.style.overflow = ''; }
+}
+
+// ── 주제 목록 만들기 ──────────────────────────────────────
+// jaturi.me처럼 정의된 전체 카테고리를 항상 노출한다(브라우즈용).
+// 데이터에만 있는 신규 주제는 뒤에 자동으로 덧붙인다.
+function buildTopics() {
+  const present = new Set(VIDEOS.map(v => v.topic));
+  const extra = [...present].filter(t => !TOPIC_ORDER.includes(t)).sort();
+  TOPICS = [...TOPIC_ORDER, ...extra];
+}
+
+// ── 초기화 ────────────────────────────────────────────────
+async function init() {
+  bindEvents();
+  persistSaved();
+  try {
+    // 목록·필터·검색에 필요한 필드만 담긴 경량 인덱스 (scripts/gen-data.mjs 생성)
+    const res = await fetch('data/videos.index.json', { cache: 'no-cache' });
+    VIDEOS = await res.json();
+    const ctaCount = document.getElementById('ctaCount');
+    if (ctaCount) ctaCount.textContent = VIDEOS.length;
+  } catch (e) {
+    grid.innerHTML = '';
+    emptyMsg.hidden = false;
+    emptyMsg.textContent = '영상 목록을 불러오지 못했어요. 로컬 서버(python -m http.server)로 열어주세요.';
+    return;
+  }
+  buildTopics();
+  OCCASION = findOccasion();
+  renderChips();
+  renderOccasionChip();
+  renderGrid();
+  reshuffleToday();
+
+  // 첫 화면을 그린 뒤, 모달에서만 쓰는 상세 데이터를 배경에서 미리 받아 둔다.
+  loadDetail();
+}
+
+init();
+
+// ── 오프라인 지원 (PWA) ───────────────────────────────────
+// 한 번 열어 두면 인터넷 없이도 목록·검색·저장함이 동작한다.
+// (유튜브 재생 자체는 인터넷이 필요하다 — 교차 출처라 캐시하지 않는다.)
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(() => { /* 등록 실패는 무시 — 사이트는 그대로 동작 */ });
+  });
+}
