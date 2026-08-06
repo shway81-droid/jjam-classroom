@@ -736,7 +736,10 @@ main {
   html { font-size: 16px; }
   :root { --card-padding: 24px; --gutter: 20px; --stack-gap: 16px; --margin-edge: 24px; }
   .topbar { padding: 0.8rem 1.2rem; }   /* main 과 같은 가로 여백 */
-  main { padding: 1.2rem; }
+  /* `--gutter` 로 적는다. `.cta-strip` 이 `--gutter` 만큼 음수 마진으로 양옆을
+     삐져나가 화면 끝까지 채우는데, 여기에 1.2rem(19.2px)을 적으면 --gutter(20px)
+     와 0.8px 어긋나 375px 폰에서 그만큼 가로로 넘쳤다. 두 값은 같아야 한다. */
+  main { padding: var(--gutter); }
   .cta-strip { padding: 0.8rem 1.2rem; }
   .type-grid { gap: 1rem; }
   .stage-body { padding: 1.4rem 1.2rem; }

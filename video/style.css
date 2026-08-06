@@ -610,5 +610,10 @@ a.gold-btn { text-decoration: none; text-align: center; line-height: 1.2; }
   .today-card .tc-thumb { width: 100%; border-right: 0; border-bottom: 1px solid var(--line); }
   .filter-label { width: 100%; }
   .filter-row { flex-direction: column; gap: 8px; }
+  /* 칩 줄을 접는다. 학년 칩 9개는 한 줄에 472px 이 필요해서 375px 폰에서
+     페이지를 옆으로 민다. 가로 스크롤로 두는 안도 있었지만, 스크롤은 남은
+     칩이 있다는 걸 숨긴다 — "1초 만에 고르기"가 이 사이트의 목적이라
+     다 보이는 쪽을 골랐다. `.chips.wrap` 이 이미 쓰던 방식과 같다. */
+  .chips { flex-wrap: wrap; }
   .search-row .search-box { width: 100%; max-width: none; }
 }
