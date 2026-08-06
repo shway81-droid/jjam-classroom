@@ -1,0 +1,9 @@
+{
+  "name": "얼마일까?",
+  "description": "동전과 지폐를 계산해 금액을 가장 먼저 맞혀요! 돈 계산을 익히는 수학 게임",
+  "icon": "💰",
+  "color": "#F9A825",
+  "playTime": "1~2분",
+  "category": "math",
+  "players": "2-4명"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "자석과 전기",
+  "description": "자석과 전기에 관한 문제를 보고 정답을 가장 먼저 맞혀요! 자석·전기 과학 상식 게임",
+  "icon": "🧲",
+  "color": "#5E35B1",
+  "playTime": "1~2분",
+  "category": "science",
+  "players": "2-4명"
+}
