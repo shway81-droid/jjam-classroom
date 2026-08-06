@@ -1,0 +1,26 @@
+name: 게임 검증
+
+# 이 폴더가 바뀔 때만 돈다. 다섯 사이트가 한 저장소에 있으므로 경로 필터가 없으면
+# 낱말 문항 하나를 고쳐도 게임 105종 검증까지 따라 돈다.
+on:
+  pull_request:
+    paths: ['game/**', '.github/workflows/game.yml']
+  push:
+    branches: [main]
+    paths: ['game/**', '.github/workflows/game.yml']
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: game
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: 전 게임 정적 검증
+        run: npm test

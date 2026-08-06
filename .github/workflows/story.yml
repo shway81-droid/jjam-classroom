@@ -1,0 +1,26 @@
+name: 이야기 검증
+
+on:
+  pull_request:
+    paths: ['story/**', '.github/workflows/story.yml']
+  push:
+    branches: [main]
+    paths: ['story/**', '.github/workflows/story.yml']
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: story
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: 데이터 검증
+        run: node scripts/validate-data.mjs
+      - name: 웹폰트 글자 커버리지 검증
+        run: node scripts/check-font-coverage.mjs

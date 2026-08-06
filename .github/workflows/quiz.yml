@@ -1,0 +1,24 @@
+name: 퀴즈 검증
+
+on:
+  pull_request:
+    paths: ['quiz/**', '.github/workflows/quiz.yml']
+  push:
+    branches: [main]
+    paths: ['quiz/**', '.github/workflows/quiz.yml']
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: quiz
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: 전 게임 정적 검증
+        run: npm test
