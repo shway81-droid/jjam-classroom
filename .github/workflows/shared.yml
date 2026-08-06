@@ -1,0 +1,22 @@
+name: 공통 파일 일치 확인
+
+# 다섯 폴더가 공유하는 파일(헤더 바로가기·웹폰트)이 서로 어긋나지 않았는지 본다.
+# 경로 필터를 걸지 않는다 — 검사가 1초도 안 걸리고, 어느 폴더의 공통 파일을
+# 건드렸든 걸려야 하기 때문이다.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: game/ 와 나머지 넷이 같은지 확인
+        run: node scripts/sync-shared.mjs --check
