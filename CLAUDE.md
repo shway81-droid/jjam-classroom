@@ -54,6 +54,19 @@ CI 는 `.github/workflows/{game,quiz,video,story,word}.yml` 다섯 벌이고 각
 **경로 필터**가 걸려 있다. 필터를 지우지 마라 — 지우면 낱말 문항 하나를 고쳐도
 게임 105종 검증이 따라 돌아 커밋 하나에 수십 분이 걸린다.
 
+**위 명령은 정적 검증이다 — "게임이 실제로 돌아가는가"는 안 본다.** 그건
+`game-browser.yml`·`quiz-browser.yml` 이 크로미움으로 실제 플레이해서 확인한다
+(PR 은 건드린 게임만, main 푸시·월요일은 전체). 게임 로직을 고쳤다면 로컬에서도
+돌려 봐라.
+
+```bash
+cd game && npm run verify:browser -- <게임폴더명>
+cd game && npm run verify:browser -- --all      # 십수 분
+```
+
+`△` 는 실패가 아니다 — 조작 방식이 달라 끝까지 자동 플레이가 안 되는 게임이며,
+로딩·PLAY·게임화면 진입·콘솔 에러 0 까지는 확인된 것이다.
+
 ## 폴더 안의 `.github/` 는 동작하지 않는다
 
 `game/.github/workflows/` 같은 중첩 워크플로가 그대로 남아 있다. GitHub Actions 는
