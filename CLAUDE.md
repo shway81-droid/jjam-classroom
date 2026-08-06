@@ -61,14 +61,36 @@ CI 는 `.github/workflows/{game,quiz,video,story,word}.yml` 다섯 벌이고 각
 지운 것이 아니라 남겨 둔 것이다 — 기존 저장소가 아직 그 워크플로로 배포·동기화를
 하고 있어서, 원본과 대조할 때 필요하다.
 
-## 공통 파일
+## 공통 파일 — `game/` 한 곳에서만 고친다
 
-`shared/jjam-switcher.js`(헤더의 자매 사이트 바로가기)와 웹폰트가 다섯 폴더에
-한 벌씩 **중복**되어 있다. 합치기 1단계에서는 원본을 글자 하나 안 바꾸고 그대로
-옮기는 것이 목적이라 정리하지 않았다.
+다섯 폴더에서 글자 하나까지 같아야 하는 파일이 다섯 개 있다.
 
-상류는 `game/shared/jjam-switcher.js` 다. 고칠 때는 다섯 폴더를 함께 맞추고,
-**기존 저장소 다섯 곳도 맞춰야 한다**(위 "갈라짐 주의" 참고).
+```
+shared/jjam-switcher.js          헤더의 자매 사이트 바로가기
+scripts/check-font-coverage.mjs  폰트 커버리지 검증
+assets/fonts/PretendardVariable.subset.woff2
+assets/fonts/coverage.txt
+assets/fonts/LICENSE.txt
+```
+
+**상류는 `game/` 이다.** 여기서 고치고 아래를 돌리면 나머지 넷이 따라온다.
+
+```bash
+node scripts/sync-shared.mjs           # game/ 내용으로 맞춘다
+node scripts/sync-shared.mjs --check   # 어긋난 곳만 알려 준다 (CI 가 이걸 돌린다)
+```
+
+`quiz/`·`video/`·`story/`·`word/` 안의 이 다섯 파일은 **생성물이다. 손으로 고치지
+마라.** 고쳐도 CI(`공통 파일 일치 확인`)가 막고, 다음 동기화 때 덮어써진다.
+
+왜 한 벌로 줄이지 않았나 — 폰트와 스위처는 각 사이트가 **배포될 때 자기 루트에**
+갖고 있어야 한다. 저장소 루트에 한 벌만 두면 `game/index.html` 의
+`shared/jjam-switcher.js` 경로가 안 맞고, `../shared/` 로 바꾸면 배포된 사이트에서
+사이트 루트를 벗어나 404 가 난다. 심링크나 빌드 단계를 쓰면 되지만 이 프로젝트는
+**빌드 단계 없음**이 원칙이다. 그래서 파일은 다섯 벌로 두되 손대는 곳을 하나로 줄였다.
+
+`game/shared/style.css` 와 `game/shared/engine.js` 는 **공통이 아니다** — 게임 전용이고
+`SHARED` 목록에 없다.
 
 바로가기에 걸린 곳은 완성된 다섯뿐이다. 쉼·스트레칭·그리기는 작업 중이라 넣지 않는다.
 
