@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>짬짬이 이야기 - Wrap-up</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed": "#20005f",
+                      "on-background": "#1f1538",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-fixed-dim": "#cdbdff",
+                      "surface-container-high": "#ede4ff",
+                      "secondary": "#815600",
+                      "surface-bright": "#fdf7ff",
+                      "tertiary-container": "#c14c40",
+                      "surface-variant": "#e8ddff",
+                      "error-container": "#ffdad6",
+                      "primary": "#6145b5",
+                      "on-tertiary": "#ffffff",
+                      "surface": "#fdf7ff",
+                      "on-secondary-fixed": "#291800",
+                      "primary-container": "#7a5fd0",
+                      "on-surface": "#1f1538",
+                      "on-primary": "#ffffff",
+                      "tertiary-fixed-dim": "#ffb4aa",
+                      "tertiary-fixed": "#ffdad5",
+                      "on-surface-variant": "#494552",
+                      "outline": "#7a7584",
+                      "on-secondary": "#ffffff",
+                      "on-primary-fixed-variant": "#4d30a1",
+                      "tertiary": "#a0342b",
+                      "background": "#fdf7ff",
+                      "on-tertiary-fixed-variant": "#86211a",
+                      "primary-fixed": "#e8deff",
+                      "surface-container-highest": "#e8ddff",
+                      "surface-container": "#f3eaff",
+                      "surface-tint": "#664aba",
+                      "on-tertiary-fixed": "#410001",
+                      "on-primary-container": "#fdf7ff",
+                      "inverse-on-surface": "#f5eeff",
+                      "inverse-surface": "#342b4f",
+                      "error": "#ba1a1a",
+                      "secondary-container": "#fdb333",
+                      "on-error": "#ffffff",
+                      "surface-container-low": "#f8f1ff",
+                      "on-tertiary-container": "#fff7f6",
+                      "on-secondary-container": "#6c4700",
+                      "secondary-fixed": "#ffddb1",
+                      "on-secondary-fixed-variant": "#614000",
+                      "outline-variant": "#cac4d4",
+                      "secondary-fixed-dim": "#ffba49",
+                      "inverse-primary": "#cdbdff",
+                      "surface-dim": "#e0d4ff",
+                      "on-error-container": "#93000a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-edge": "64px",
+                      "card-padding": "48px",
+                      "unit": "8px",
+                      "gutter": "32px",
+                      "stack-gap": "24px"
+              },
+              "fontFamily": {
+                      "body-md": [
+                              "Be Vietnam Pro"
+                      ],
+                      "body-lg": [
+                              "Be Vietnam Pro"
+                      ],
+                      "label-lg": [
+                              "Be Vietnam Pro"
+                      ],
+                      "display-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ]
+              },
+              "fontSize": {
+                      "body-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "48px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "40px",
+                              {
+                                      "lineHeight": "60px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-lg": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "80px",
+                              {
+                                      "lineHeight": "100px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "48px",
+                              {
+                                      "lineHeight": "60px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "64px",
+                              {
+                                      "lineHeight": "80px",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-sans">
+<!-- Top Navigation (Suppressed for focused linear wrap-up screen, but JSON dictates inclusion for ecosystem anchor. Wait, rule says: "Automatic Suppression: You MUST exclude the navigation shell if the page intent is: Linear/Transactional: Login, Sign-up, Onboarding, Checkout, or 'Success/Confirmation' splash screens." This is a 'Wrap-up' / 'Success/Confirmation' screen. So I MUST SUPPRESS Nav Shells.) -->
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center p-margin-edge w-full h-screen">
+<div class="bg-surface-container-lowest rounded-[20px] p-[64px] shadow-[0px_4px_0px_#241B3E] max-w-4xl w-full flex flex-col items-center text-center gap-[48px] animate-[fadeIn_0.5s_ease-out]">
+<!-- Badge -->
+<div class="w-[120px] h-[120px] bg-surface-variant rounded-full flex items-center justify-center shadow-[0px_4px_0px_#241B3E]">
+<span class="material-symbols-outlined text-primary" style="font-size: 64px; font-variation-settings: 'FILL' 1;">
+                    celebration
+                </span>
+</div>
+<!-- Text Content -->
+<div class="flex flex-col gap-[16px] items-center w-full">
+<h1 class="font-headline-lg text-headline-lg text-on-background break-keep">
+                    오늘도 멋진 생각이 가득했어요!
+                </h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    「지각한 반장」 · 3~4학년 · 5분
+                </p>
+</div>
+<!-- Actions -->
+<div class="flex flex-row gap-[24px] mt-[24px]">
+<button class="h-[80px] px-[48px] bg-primary text-on-primary font-label-lg text-label-lg rounded-[20px] shadow-[0px_4px_0px_#241B3E] active:shadow-[0px_1px_0px_#241B3E] active:translate-y-[3px] transition-all flex items-center gap-[12px]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                    같은 조건, 다른 이야기
+                </button>
+<button class="h-[80px] px-[48px] bg-surface-container-lowest text-primary font-label-lg text-label-lg rounded-[20px] border-2 border-primary shadow-[0px_4px_0px_#241B3E] active:shadow-[0px_1px_0px_#241B3E] active:translate-y-[3px] transition-all flex items-center gap-[12px]">
+<span class="material-symbols-outlined">home</span>
+                    처음으로
+                </button>
+</div>
+</div>
+</main>
+<style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</body></html>

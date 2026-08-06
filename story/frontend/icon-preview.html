@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>짬짬이 이야기 — 홈 화면 아이콘 스타일 5종 비교</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+<style>
+:root{
+  --bg:#fdf7ff; --card:#fff; --surface-variant:#e8ddff;
+  --ink:#1f1538; --ink-soft:#494552; --outline-variant:#cac4d4;
+  --accent:#6145b5; --accent-deep:#4d30a1; --accent-soft:#e8deff;
+  --shadow-ink:#241b3e; --shadow:0 4px 0 var(--shadow-ink);
+  --radius:20px; --radius-sm:12px; --bd:2px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:"Pretendard Variable",Pretendard,"Noto Sans KR","Malgun Gothic",sans-serif;
+  background:#f4eefb;color:var(--ink);line-height:1.5;word-break:keep-all;
+  -webkit-font-smoothing:antialiased;padding:32px 24px 80px;
+}
+.page-head{max-width:1100px;margin:0 auto 8px}
+.page-head h1{font-size:1.7rem;font-weight:800;letter-spacing:-.02em}
+.page-head p{color:var(--ink-soft);margin-top:6px;font-size:.95rem}
+.jump{position:sticky;top:0;z-index:30;max-width:1100px;margin:20px auto 32px;
+  display:flex;gap:8px;flex-wrap:wrap;background:#f4eefb;padding:12px 0}
+.jump a{text-decoration:none;font-size:.85rem;font-weight:700;color:var(--accent);
+  background:#fff;border:var(--bd) solid var(--outline-variant);border-radius:999px;padding:8px 14px}
+.jump a:hover{border-color:var(--accent);background:var(--accent-soft)}
+
+.variant{max-width:1100px;margin:0 auto 44px;scroll-margin-top:72px}
+.variant-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.num{width:32px;height:32px;border-radius:999px;background:var(--accent);color:#fff;
+  font-weight:800;font-size:.95rem;display:inline-flex;align-items:center;justify-content:center}
+.variant-head h2{font-size:1.25rem;font-weight:800}
+.lib{font-size:.85rem;color:var(--ink-soft);font-weight:600}
+.pick{font-size:.75rem;font-weight:800;letter-spacing:.05em;color:#6c4700;
+  background:#fdb333;border:var(--bd) solid #6c4700;border-radius:999px;padding:3px 10px}
+.note{font-size:.85rem;color:var(--ink-soft);margin-bottom:12px}
+
+.frame{background:var(--bg);border:var(--bd) solid var(--outline-variant);
+  border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+
+/* ── 앱 화면 재현 ── */
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:14px 20px;background:var(--card);border-bottom:var(--bd) solid var(--outline-variant)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.1rem;color:var(--ink)}
+.brand-icon{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;
+  background:var(--accent-soft);border-radius:var(--radius-sm);font-size:24px;color:var(--accent)}
+.icon-btn{width:48px;height:48px;display:inline-flex;align-items:center;justify-content:center;
+  background:var(--card);border:var(--bd) solid var(--accent);color:var(--accent);
+  border-radius:var(--radius-sm);box-shadow:var(--shadow);font-size:22px}
+.app-main{padding:24px}
+.tagline{text-align:center;color:var(--ink-soft);font-size:1.05rem;font-weight:600;margin:8px 0 24px}
+.type-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.type-card{background:var(--card);border:var(--bd) solid var(--outline-variant);
+  border-top:8px solid var(--type-color,var(--accent));border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:20px 12px;text-align:center;display:flex;flex-direction:column;
+  gap:8px;align-items:center;justify-content:center;min-height:186px}
+.type-icon{width:72px;height:72px;display:inline-flex;align-items:center;justify-content:center;
+  background:var(--surface-variant);border-radius:999px;font-size:38px;color:var(--type-color,var(--accent))}
+.type-name{font-size:1.05rem;font-weight:800}
+.type-desc{color:var(--ink-soft);font-size:.8rem;font-weight:500}
+.sec{margin-top:28px}
+.sec h3{font-size:.95rem;font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.sec h3 iconify-icon,.sec h3 .emo{font-size:20px;color:var(--accent)}
+.chip-row{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--card);border:var(--bd) solid var(--outline-variant);border-radius:999px;
+  min-height:44px;padding:0 14px;font-size:.85rem;font-weight:700;display:inline-flex;
+  align-items:center;gap:7px}
+.chip iconify-icon{font-size:19px}
+.emo{font-size:34px;line-height:1}
+.chip .emo{font-size:16px}
+.brand-icon .emo{font-size:22px}
+.icon-btn .emo{font-size:20px}
+
+@media(max-width:900px){
+  .type-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<div class="page-head">
+  <h1>홈 화면 아이콘 스타일 5종 비교</h1>
+  <p>실제 아이콘 세트를 Iconify로 불러와 렌더링했습니다. 카드·그림자·색상은 현재 적용된 디자인 그대로입니다.</p>
+</div>
+
+<nav class="jump" id="jump"></nav>
+<div id="out"></div>
+
+<script>
+var TYPES = [
+  {key:'next',   name:'다음 이야기', desc:'다음 장면을 상상해요 · 20편', color:'#6145B5'},
+  {key:'why',    name:'왜 그랬을까', desc:'행동의 이유를 추리해요 · 20편', color:'#4FA8E8'},
+  {key:'mind',   name:'마음 읽기',   desc:'인물의 감정을 읽어요 · 20편',  color:'#C14C40'},
+  {key:'choice', name:'선택 이야기', desc:'나의 선택과 이유를 말해요 · 20편', color:'#12A57C'},
+  {key:'solve',  name:'어떻게 할까', desc:'해결할 방법을 찾아 말해요 · 20편', color:'#FDB333'}
+];
+
+var FAVS = [{type:'next', title:'책상 속 편지'}, {type:'mind', title:'상장을 넣은 가방'}];
+var RECENTS = [{type:'next', title:'첫눈이 왔어요'}, {type:'solve', title:'우유갑 씨름'},
+               {type:'choice', title:'단톡방 사진'}, {type:'why', title:'빈 화분 당번'}];
+
+var STYLES = [
+  {id:'now', num:'0', name:'현재 (이모지)', lib:'비교 기준',
+   note:'OS·브라우저마다 그림이 달라지고 채도가 제각각이라 보라색 팔레트와 따로 놉니다.',
+   emoji:true,
+   icons:{book:'📖', home:'🏠', star:'⭐', clock:'🕒',
+          next:'🔮', why:'🕵️', mind:'💗', choice:'⚖️', solve:'💡'}},
+
+  {id:'lucide', num:'1', name:'미니멀 라인', lib:'Lucide',
+   note:'2px 선 · 라운드 끝. DESIGN.md 아이콘 규칙과 정확히 일치하지만 원거리에서 가장 약합니다.',
+   icons:{book:'lucide:book-open', home:'lucide:house', star:'lucide:star', clock:'lucide:clock',
+          next:'lucide:sparkles', why:'lucide:search', mind:'lucide:heart',
+          choice:'lucide:scale', solve:'lucide:lightbulb'}},
+
+  {id:'duotone', num:'2', name:'듀오톤', lib:'Phosphor Duotone', pick:true,
+   note:'선 + 같은 색 면 채움. 유형별 색 구분이 가장 선명하고, 한 라이브러리로 나머지 굵기까지 커버됩니다.',
+   icons:{book:'ph:book-open-duotone', home:'ph:house-duotone', star:'ph:star-duotone', clock:'ph:clock-duotone',
+          next:'ph:sparkle-duotone', why:'ph:magnifying-glass-duotone', mind:'ph:heart-duotone',
+          choice:'ph:scales-duotone', solve:'ph:lightbulb-duotone'}},
+
+  {id:'filled', num:'3', name:'채움 라운드', lib:'Material Symbols Rounded',
+   note:'면으로 꽉 채운 구글 표준. frontend 시안이 쓴 계열이라 정합성이 높고 원거리도 강합니다.',
+   icons:{book:'material-symbols:menu-book-rounded', home:'material-symbols:home-rounded',
+          star:'material-symbols:star-rounded', clock:'material-symbols:schedule-rounded',
+          next:'material-symbols:auto-awesome-rounded', why:'material-symbols:search-rounded',
+          mind:'material-symbols:favorite-rounded', choice:'material-symbols:balance-rounded',
+          solve:'material-symbols:lightbulb-rounded'}},
+
+  {id:'bold', num:'4', name:'볼드 라인', lib:'Phosphor Bold',
+   note:'선을 유지하면서 굵기만 올린 절충안. 라인의 가벼움과 원거리 가독을 동시에 잡습니다.',
+   icons:{book:'ph:book-open-bold', home:'ph:house-bold', star:'ph:star-bold', clock:'ph:clock-bold',
+          next:'ph:sparkle-bold', why:'ph:magnifying-glass-bold', mind:'ph:heart-bold',
+          choice:'ph:scales-bold', solve:'ph:lightbulb-bold'}},
+
+  {id:'soft3d', num:'5', name:'소프트 3D · 다색', lib:'Streamline Plump Color',
+   note:'아이콘이 자체 색을 가지므로 유형 색과 겹칩니다. 가장 아이 친화적이지만 카드 디자인과 경쟁합니다.',
+   multicolor:true,
+   icons:{book:'streamline-plump-color:book-1', home:'streamline-plump-color:home-1',
+          star:'streamline-plump-color:star-medal', clock:'streamline-plump-color:circle-clock',
+          next:'streamline-plump-color:magic-wand-1', why:'streamline-plump-color:search-visual',
+          mind:'streamline-plump-color:user-feedback-heart', choice:'streamline-plump-color:justice-scale-2',
+          solve:'streamline-plump-color:lightbulb'}}
+];
+
+function ico(style, key) {
+  var v = style.icons[key];
+  if (style.emoji) return '<span class="emo">' + v + '</span>';
+  return '<iconify-icon icon="' + v + '"></iconify-icon>';
+}
+
+function chip(style, item) {
+  return '<span class="chip">' + ico(style, item.type) + item.title + '</span>';
+}
+
+function screen(style) {
+  var cards = TYPES.map(function (t) {
+    return '<div class="type-card" style="--type-color:' + t.color + '">' +
+      '<span class="type-icon">' + ico(style, t.key) + '</span>' +
+      '<span class="type-name">' + t.name + '</span>' +
+      '<span class="type-desc">' + t.desc + '</span></div>';
+  }).join('');
+
+  return '<div class="frame">' +
+    '<div class="topbar">' +
+      '<span class="brand"><span class="brand-icon">' + ico(style, 'book') + '</span>짬짬이 이야기</span>' +
+      '<span class="icon-btn">' + ico(style, 'home') + '</span>' +
+    '</div>' +
+    '<div class="app-main">' +
+      '<p class="tagline">짧은 이야기 하나로, 생각하고 말하는 3~7분</p>' +
+      '<div class="type-grid">' + cards + '</div>' +
+      '<div class="sec"><h3>' + ico(style, 'star') + '즐겨찾기</h3>' +
+        '<div class="chip-row">' + FAVS.map(function (f) { return chip(style, f); }).join('') + '</div></div>' +
+      '<div class="sec"><h3>' + ico(style, 'clock') + '최근 사용</h3>' +
+        '<div class="chip-row">' + RECENTS.map(function (r) { return chip(style, r); }).join('') + '</div></div>' +
+    '</div></div>';
+}
+
+document.getElementById('jump').innerHTML = STYLES.map(function (s) {
+  return '<a href="#s-' + s.id + '">' + s.num + ' · ' + s.name + '</a>';
+}).join('');
+
+document.getElementById('out').innerHTML = STYLES.map(function (s) {
+  return '<section class="variant" id="s-' + s.id + '">' +
+    '<div class="variant-head"><span class="num">' + s.num + '</span>' +
+      '<h2>' + s.name + '</h2><span class="lib">' + s.lib + '</span>' +
+      (s.pick ? '<span class="pick">추천</span>' : '') + '</div>' +
+    '<p class="note">' + s.note + '</p>' + screen(s) + '</section>';
+}).join('');
+</script>
+</body>
+</html>

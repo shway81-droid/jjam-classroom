@@ -1,0 +1,36 @@
+{
+  "name": "짬짬이 이야기",
+  "short_name": "짬짬이 이야기",
+  "description": "수업 전후 3~7분 자투리 시간, 짧은 이야기로 생각하고 말하는 활동",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#FDF7FF",
+  "theme_color": "#6145B5",
+  "lang": "ko",
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
