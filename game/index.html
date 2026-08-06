@@ -71,6 +71,19 @@
     .logo .sub { font-size: 0.8rem; color: #9DB0D8; font-weight: 600; }
     .header-right { margin-left: auto; display: flex; align-items: center; gap: 10px; }
 
+    /* 좁은 화면 — 자매 바로가기는 이름이 빠져 아이콘만 남아도 폭이 넓다.
+       브랜드와 도구 버튼까지 한 줄에 넣으면 375px 폰에서 폭을 넘겨,
+       제목이 한 글자씩 세로로 접힌다. .jjam-switch 의 스타일은 상류 공통
+       파일(shared/jjam-switcher.js) 안에 있어 여기서 줄일 수 없으므로,
+       상단 줄을 두 줄로 접는다 (짬짬이 낱말이 쓰는 방식과 같다). */
+    @media (max-width: 720px) {
+      .header-row { flex-wrap: wrap; row-gap: 8px; }
+      /* 버튼 줄도 접는다. 접지 않으면 오른쪽 정렬이라 넘치는 만큼 왼쪽으로
+         밀려 나가, 소리 버튼이 화면 밖으로 잘려 누를 수 없다. */
+      .header-right { width: 100%; margin-left: 0; justify-content: flex-end;
+                      flex-wrap: wrap; row-gap: 8px; }
+    }
+
     /* 헤더 토글 버튼 (사운드·전체화면·배경음악) */
     .sound-toggle, .fs-toggle, .bgm-toggle-hdr {
       width: 44px; height: 44px; border-radius: 12px;
