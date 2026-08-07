@@ -71,8 +71,15 @@ cd game && npm run verify:browser -- --all      # 십수 분
 
 `game/.github/workflows/` 같은 중첩 워크플로가 그대로 남아 있다. GitHub Actions 는
 저장소 **루트**의 `.github/workflows/` 만 읽으므로 이것들은 돌지 않는다.
-지운 것이 아니라 남겨 둔 것이다 — 기존 저장소가 아직 그 워크플로로 배포·동기화를
-하고 있어서, 원본과 대조할 때 필요하다.
+합치기 전 원본과 대조하려고 남겨 둔 사본이다.
+
+단, `shared-sync.yml` 과 `scripts/sync-shared.mjs` 는 **지웠다.** 나머지 사본과 달리
+이 둘은 적극적으로 틀린 곳을 가리켰다 — 얼어 있는 `shway81-droid/jjam` 저장소에서
+공통 파일을 받아오는 장치였고, 실수로 돌리면 옛 내용으로 덮어썼을 것이다.
+지금 맞는 장치는 루트의 `scripts/sync-shared.mjs` 하나뿐이다.
+
+`browser.yml` 도 사본이 남아 있지만, 그 검사 자체는 루트의 `game-browser.yml`·
+`quiz-browser.yml` 로 살아 있다.
 
 ## 공통 파일 — `game/` 한 곳에서만 고친다
 

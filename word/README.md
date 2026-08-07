@@ -90,7 +90,6 @@
 npm install
 npm start          # http://localhost:8379
 npm test           # 순수 로직 테스트 + 데이터 검증 + 폰트 커버리지
-npm run sync:check # 상류(jjam)와 공통 파일 일치 확인
 npm run icons      # favicon.svg → 앱 아이콘 PNG
 ```
 
