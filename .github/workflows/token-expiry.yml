@@ -1,0 +1,129 @@
+name: 발행 토큰 만료 확인
+
+# `PUBLISH_TOKEN` 이 만료되면 머지해도 즉시 발행이 멈춘다. 사이트가 죽지는 않고
+# 하루 한 번 크론이 대신 하지만, 만료된 줄 모르고 지나가면 "왜 반영이 늦지?" 로
+# 시간을 버린다. 그래서 만료 전에 미리 알린다.
+#
+# 어떻게 아는가 — GitHub API 에 토큰으로 아무 요청이나 보내면 응답 헤더에
+# 만료일이 실려 온다.
+#
+#   github-authentication-token-expiration: 2026-09-06 07:00:00 UTC
+#
+# 알리는 방법은 이슈다. 메일 알림이 오고, 고칠 때까지 목록에 남고, 다 하면
+# 닫으면 된다. 매주 새 이슈를 만들지 않고 열려 있는 것을 갱신한다.
+# 토큰을 갱신해 여유가 생기면 그 이슈를 자동으로 닫는다.
+#
+# 이슈 본문 틀은 `.github/token-expiry-issue.md` 에 따로 두었다. 워크플로 안에
+# heredoc 으로 넣으면 백틱이 명령으로 실행되거나 들여쓰기가 마크다운을
+# 코드블록으로 만들어 버린다.
+
+on:
+  schedule:
+    - cron: '0 22 * * 1'      # 매주 월요일 07:00 KST
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  contents: read
+
+env:
+  WARN_DAYS: '14'                                   # 남은 날이 이 이하면 알린다
+  TITLE: '발행 토큰(PUBLISH_TOKEN) 만료가 다가옵니다'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4     # 이슈 본문 틀을 읽어야 한다
+
+      - name: 만료일 확인
+        id: check
+        env:
+          TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "state=missing" >> "$GITHUB_OUTPUT"
+            echo "detail=PUBLISH_TOKEN 시크릿이 등록돼 있지 않습니다." >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          HDRS=$(curl -sS -D - -o /dev/null \
+            -H "Authorization: Bearer $TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/ | tr -d '\r')
+          CODE=$(printf '%s' "$HDRS" | head -1 | awk '{print $2}')
+
+          if [ "$CODE" = "401" ]; then
+            echo "state=invalid" >> "$GITHUB_OUTPUT"
+            echo "detail=토큰이 이미 만료됐거나 폐기됐습니다 (HTTP 401)." >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          EXP=$(printf '%s' "$HDRS" \
+            | grep -i '^github-authentication-token-expiration:' \
+            | cut -d: -f2- | sed 's/^ *//')
+
+          if [ -z "$EXP" ]; then
+            # 만료 없는 토큰이면 이 헤더가 오지 않는다. 알릴 것이 없다.
+            echo "state=no-expiry" >> "$GITHUB_OUTPUT"
+            echo "만료일 없는 토큰 — 확인할 것 없음"
+            exit 0
+          fi
+
+          DAY=$(printf '%s' "$EXP" | cut -c1-10)          # YYYY-MM-DD
+          LEFT=$(( ( $(date -u -d "$DAY" +%s) - $(date -u +%s) ) / 86400 ))
+          echo "만료일 $DAY — $LEFT 일 남음"
+          echo "expiry=$DAY" >> "$GITHUB_OUTPUT"
+          echo "left=$LEFT" >> "$GITHUB_OUTPUT"
+          if [ "$LEFT" -le "$WARN_DAYS" ]; then
+            echo "state=soon" >> "$GITHUB_OUTPUT"
+          else
+            echo "state=ok" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 알림 이슈 열기 · 갱신
+        if: contains(fromJSON('["soon","invalid","missing"]'), steps.check.outputs.state)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          OWNER: ${{ github.repository_owner }}
+          STATE: ${{ steps.check.outputs.state }}
+          EXPIRY: ${{ steps.check.outputs.expiry }}
+          LEFT: ${{ steps.check.outputs.left }}
+          DETAIL: ${{ steps.check.outputs.detail }}
+        run: |
+          case "$STATE" in
+            soon)    HEAD="**$EXPIRY 에 만료됩니다 (${LEFT}일 남음).**" ;;
+            invalid) HEAD="**토큰이 이미 만료됐거나 폐기됐습니다.** $DETAIL" ;;
+            missing) HEAD="**토큰이 등록돼 있지 않습니다.** $DETAIL" ;;
+          esac
+
+          {
+            printf '%s\n\n' "$HEAD"
+            sed "s/__OWNER__/$OWNER/g" .github/token-expiry-issue.md
+          } > /tmp/body.md
+
+          NUM=$(gh issue list --state open --limit 100 --json number,title \
+                 -q ".[] | select(.title == \"$TITLE\") | .number" | head -1)
+
+          if [ -n "$NUM" ]; then
+            gh issue edit "$NUM" --body-file /tmp/body.md
+            echo "기존 이슈 #$NUM 갱신"
+          else
+            gh issue create --title "$TITLE" --body-file /tmp/body.md
+          fi
+
+      - name: 여유가 생겼으면 열린 알림 닫기
+        if: steps.check.outputs.state == 'ok'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXPIRY: ${{ steps.check.outputs.expiry }}
+          LEFT: ${{ steps.check.outputs.left }}
+        run: |
+          NUM=$(gh issue list --state open --limit 100 --json number,title \
+                 -q ".[] | select(.title == \"$TITLE\") | .number" | head -1)
+          if [ -n "$NUM" ]; then
+            gh issue close "$NUM" --comment "토큰이 갱신되어 $EXPIRY 까지 여유가 생겼습니다 (${LEFT}일 남음)."
+            echo "이슈 #$NUM 닫음"
+          else
+            echo "알릴 것 없음 — $EXPIRY 까지 ${LEFT}일 남음"
+          fi
