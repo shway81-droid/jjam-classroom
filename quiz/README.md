@@ -22,20 +22,24 @@
 | 선별 기준 | — | "문제 제시 → 보기 중 정답 선택" 형식 |
 | 런처·디자인·엔진 | — | **동일** (그대로 계승) |
 
-### 공통 파일은 짬짬이 게임이 상류(upstream)
+### 공통 파일은 `game/` 이 상류(upstream)
 
-`shared/style.css` 같은 일부 파일은 두 저장소에서 **글자 하나까지 같아야 합니다.** 한쪽만
-고치면 두 사이트의 디자인이 조용히 갈라집니다(실제로 그동안 같은 수정을 양쪽에 두 번씩
-해 왔습니다). 그래서 **jjam을 상류로 정하고**, 이 저장소는 거기서 받아 맞춥니다.
+헤더의 자매 사이트 바로가기와 웹폰트는 다섯 폴더에서 **글자 하나까지 같아야 합니다.**
+한쪽만 고치면 사이트마다 다른 글씨체·다른 바로가기가 됩니다. 그래서 **`game/` 을 상류로
+정하고**, 나머지 넷은 거기서 받아 맞춥니다.
+
+저장소를 `jjam-classroom` 하나로 합치면서 이 장치가 **저장소 루트로 옮겨졌습니다.**
+이 폴더 안에서 돌리는 명령은 없어졌습니다.
 
 ```bash
-npm run sync:shared              # 상류 내용으로 공통 파일 맞추기
-node scripts/sync-shared.mjs --check   # 어긋난 게 있는지만 확인
+# 저장소 루트에서
+node scripts/sync-shared.mjs           # game/ 내용으로 공통 파일 맞추기
+node scripts/sync-shared.mjs --check   # 어긋난 게 있는지만 확인 (CI 게이트와 같은 명령)
 ```
 
-공통 파일을 고칠 때는 **jjam에서 먼저 고쳐 머지한 뒤** 이 저장소에서 `npm run sync:shared`
-하고 커밋합니다. 대상 파일 목록은 `scripts/sync-shared.mjs`의 `SHARED` 배열에 있고,
-매일 한 번 워크플로가 이탈을 확인합니다. (관계없는 PR을 막지 않도록 PR 게이트에는 넣지 않았습니다.)
+공통 파일을 고칠 때는 **`game/` 에서 고친 뒤** 위 명령으로 나머지 넷에 퍼뜨립니다.
+대상 파일 목록은 루트 `scripts/sync-shared.mjs` 의 `SHARED` 배열에 있고,
+모든 PR 에서 `공통 파일 일치 확인` 워크플로가 이탈을 막습니다.
 
 ## 게임 101종 (카테고리 분포)
 
@@ -61,8 +65,9 @@ scripts/verify-all.js   # 전 게임 일괄 검증 + registry 정합성 (npm tes
 scripts/gen-metadata.js # game.json → 파생 메타 생성 (npm run gen)
 scripts/browser-verify.js    # 실제 브라우저로 자동 플레이 (npm run verify:browser)
 scripts/check-font-coverage.mjs # 서브셋 폰트에 없는 글자가 생겼는지 확인
-scripts/sync-shared.mjs      # 상류(jjam)와 공통 파일 동기화 (npm run sync:shared)
 ```
+
+공통 파일 동기화 도구는 저장소 **루트**의 `scripts/sync-shared.mjs` 하나뿐입니다.
 
 ### 검증 두 겹
 
@@ -114,12 +119,13 @@ PNG가 따로 필요합니다(없으면 “홈 화면에 추가”에서 아이�
 인터넷 없이 건너갈 수 없는데, 그냥 이동시키면 **지금 쓰던 화면까지 잃기** 때문입니다.
 
 내용·스타일·아이콘이 모두 **`shared/jjam-switcher.js` 한 파일** 안에 있고, 넣는 쪽은 헤더에
-host 한 줄뿐입니다. 이 파일은 네 저장소에서 글자 하나까지 같아야 하므로
-**짬짬이 게임(jjam)이 상류**입니다 — 주소·이름·아이콘을 고칠 때는 거기서 먼저 고쳐 머지한 뒤
-이 저장소에서 아래를 실행하고 커밋합니다. (매일 워크플로가 이탈을 확인합니다.)
+host 한 줄뿐입니다. 이 파일은 다섯 폴더에서 글자 하나까지 같아야 하므로
+**`game/` 이 상류**입니다 — 주소·이름·아이콘을 고칠 때는 거기서 먼저 고친 뒤
+저장소 루트에서 아래를 실행하고 커밋합니다. (모든 PR 에서 CI 가 이탈을 막습니다.)
 
 ```bash
-npm run sync:shared                    # 상류 내용으로 공통 파일 맞추기
+# 저장소 루트에서
+node scripts/sync-shared.mjs           # game/ 내용으로 공통 파일 맞추기
 node scripts/sync-shared.mjs --check   # 어긋난 게 있는지만 확인
 ```
 

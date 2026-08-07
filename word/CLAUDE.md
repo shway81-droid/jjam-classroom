@@ -24,7 +24,8 @@ jjam(짬짬이 게임)의 자매 프로젝트 — 게임·퀴즈·영상·이야
 - 외부 이미지·영상·폰트 CDN·JS 라이브러리 의존 금지 (오프라인·저작권)
 - **상류에서 받아오는 파일은 직접 고치지 않는다** — `shared/jjam-switcher.js`,
   `scripts/check-font-coverage.mjs`, `assets/fonts/*`.
-  고칠 일이 있으면 jjam 에서 고쳐 머지한 뒤 `npm run sync:shared`
+  상류는 이제 `jjam-classroom` 의 **`game/` 폴더**다. 거기서 고친 뒤 저장소 루트에서
+  `node scripts/sync-shared.mjs` 를 돌린다 (예전의 `npm run sync:shared` 는 없어졌다)
 - 브랜드 색 원값은 `css/style.css` 의 `--accent` **한 곳뿐**. 나머지는 `color-mix` 로 파생된다
 - 아이콘 단일 소스는 `favicon.svg`. PNG 는 `npm run icons` 로 생성
 - `js/app.js` 의 TYPES/LEVELS/TOPICS 는 `scripts/validate-data.mjs` 가 정규식으로 읽어 간다.
@@ -39,10 +40,12 @@ jjam(짬짬이 게임)의 자매 프로젝트 — 게임·퀴즈·영상·이야
 
 ## 환경 주의
 
-- 이 개발 환경에서 `raw.githubusercontent.com` 직접 연결이 ECONNRESET 으로 끊긴다.
-  `scripts/sync-shared.mjs` 는 실패 시 `gh api` 로 우회한다 (CI 에서는 첫 경로가 통한다)
-- 저장소 안 줄바꿈은 항상 LF(`.gitattributes`). 안 그러면 상류 공통 파일이 CRLF 로
-  바뀌어 `sync:check` 가 영구히 이탈을 보고한다
+- 저장소 안 줄바꿈은 항상 LF(`.gitattributes`). 안 그러면 공통 파일이 CRLF 로
+  바뀌어 `공통 파일 일치 확인` 이 영구히 이탈을 보고한다
+
+  (예전에는 `raw.githubusercontent.com` 이 이 환경에서 ECONNRESET 으로 끊겨
+  `gh api` 우회가 필요했다. 저장소를 합친 뒤로는 공통 파일을 네트워크로 받지
+  않고 `game/` 폴더에서 복사하므로 그 문제 자체가 없어졌다.)
 
 ## 원본 문서
 
