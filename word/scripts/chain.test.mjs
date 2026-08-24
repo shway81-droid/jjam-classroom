@@ -109,15 +109,16 @@ test('시간이 다 된 뒤 시간 초과로 판정하면 그때 판이 끝난�
 // 두음법칙 때문에 우리말에는 ㄹ 로 시작하는 낱말이 거의 없다. 시작 단어가
 // 그런 글자로 끝나면 첫 아이부터 막힌다 — validate-data 도 같은 규칙으로 막지만,
 // 실제 데이터에도 하나도 없는지 여기서 다시 본다.
-test('시작 단어 60개는 모두 이어 갈 수 있는 끝 글자다', () => {
+// 개수는 validate-data.mjs 의 TOOL_TARGET.chain 과 같아야 한다 — 둘 다 고쳐야 한다.
+test('시작 단어 120개는 모두 이어 갈 수 있는 끝 글자다', () => {
   const root = join(dirname(fileURLToPath(import.meta.url)), '..');
   const { items } = JSON.parse(readFileSync(join(root, 'data', 'words.json'), 'utf8'));
   const chain = items.filter((it) => it.type === 'chain');
-  assert.equal(chain.length, 60);
+  assert.equal(chain.length, 120);
   const bad = chain.filter((it) => {
     const tail = it.word.codePointAt(it.word.length - 1);
     return tail >= 0xb77c && tail <= 0xb9c7;   // 초성이 ㄹ 인 음절 구간
   });
   assert.deepEqual(bad.map((b) => b.word), []);
-  assert.equal(new Set(chain.map((c) => c.word)).size, 60, '단어 중복 없음');
+  assert.equal(new Set(chain.map((c) => c.word)).size, 120, '단어 중복 없음');
 });

@@ -15,6 +15,14 @@
        --unicodes-file=<사용 코드포인트> --flavor=woff2 \
        --layout-features='*' --output-file=PretendardVariable.subset.woff2
 
+   폰트를 다시 만들면 coverage.txt 도 함께 다시 써야 한다. 세 가지가 들어간다.
+     1) `# sha256=` — 방금 만든 폰트의 해시. 짝이 안 맞으면 검사가 실패한다.
+     2) 담은 글자 — **요청한 목록이 아니라 완성된 폰트의 cmap 에서 뽑는다.**
+        요청 목록을 그대로 적으면 원본에 없던 글자까지 "담았다"고 적히고,
+        그 글자들은 시스템 폰트로 렌더되는데도 검사가 조용히 통과한다.
+     3) `!` 로 시작하는 줄 — 요청했지만 원본에 없어 못 담은 글자.
+        서브셋을 다시 만들어도 해결되지 않으니 알림 문구를 따로 낸다.
+
    실행: node scripts/check-font-coverage.mjs
    =================================================================== */
 
@@ -59,16 +67,25 @@ const coverageRaw = fs.readFileSync(COVERAGE, 'utf-8');
   }
 }
 
-const covered = new Set(
-  coverageRaw
-    .split('\n')
-    .filter((line) => !line.startsWith('#'))
-    .join(',')
-    .split(',')
-    .map((s) => s.trim())
-    .filter(Boolean)
-    .map((s) => parseInt(s.replace(/^U\+/i, ''), 16))
-);
+// 목록은 두 갈래다.
+//   그냥 나열된 줄  → 서브셋이 담고 있는 글자
+//   `!` 로 시작하는 줄 → 원본 Pretendard 에 아예 없어 담을 수 없는 글자
+// 둘을 갈라 두는 이유는 알림 문구가 달라야 하기 때문이다. 앞쪽은 서브셋을
+// 다시 만들면 해결되지만, 뒤쪽은 다시 만들어도 그대로다(한자·괘선 등).
+function parseList(text) {
+  return new Set(
+    text
+      .split(',')
+      .map((s) => s.trim())
+      .filter(Boolean)
+      .map((s) => parseInt(s.replace(/^U\+/i, ''), 16))
+  );
+}
+
+const lines = coverageRaw.split('\n').filter((line) => !line.startsWith('#'));
+const covered = parseList(lines.filter((line) => !line.startsWith('!')).join(','));
+// 원본에 없는 글자 목록은 서브셋을 만들 때 함께 적어 둔다. 없어도 동작한다.
+const unavailable = parseList(lines.filter((line) => line.startsWith('!')).map((l) => l.slice(1)).join(','));
 
 // ── 저장소 텍스트에서 사용 문자 수집 ────────────────────────────
 const used = new Map();   // codepoint → 처음 발견한 파일
@@ -97,21 +114,36 @@ walk(ROOT);
 const isEmoji = (cp) => cp >= 0x1F000 || (cp >= 0x2600 && cp <= 0x27BF) || cp === 0xFE0F || cp === 0x20E3;
 const isControl = (cp) => cp < 0x20 || (cp >= 0x7F && cp <= 0x9F);
 
-const missing = [];
+const missing = [];      // 서브셋을 다시 만들면 해결되는 것
+const hopeless = [];     // 원본에 없어 어떻게 해도 안 되는 것
 for (const [cp, where] of used) {
   if (isEmoji(cp) || isControl(cp) || covered.has(cp)) continue;
-  missing.push({ cp, ch: String.fromCodePoint(cp), where });
+  (unavailable.has(cp) ? hopeless : missing).push({ cp, ch: String.fromCodePoint(cp), where });
 }
 
-if (missing.length) {
-  console.log(`  ⚠ 서브셋에 없는 글자 ${missing.length}자 — 이 글자들만 시스템 폰트로 표시됩니다.`);
-  for (const m of missing.slice(0, 20)) {
-    console.log(`      '${m.ch}' (U+${m.cp.toString(16).toUpperCase().padStart(4, '0')})  ${m.where}`);
-  }
-  if (missing.length > 20) console.log(`      … 외 ${missing.length - 20}자`);
-  console.log('    → 서브셋을 다시 만들면 해결됩니다 (이 파일 상단 주석 참고).');
+const label = (m) => `      '${m.ch}' (U+${m.cp.toString(16).toUpperCase().padStart(4, '0')})  ${m.where}`;
+
+function report(list, head, tail) {
+  if (!list.length) return;
+  console.log(head(list.length));
+  for (const m of list.slice(0, 20)) console.log(label(m));
+  if (list.length > 20) console.log(`      … 외 ${list.length - 20}자`);
+  console.log(tail);
 }
+
+report(
+  missing,
+  (n) => `  ⚠ 서브셋에 없는 글자 ${n}자 — 이 글자들만 시스템 폰트로 표시됩니다.`,
+  '    → 서브셋을 다시 만들면 해결됩니다 (이 파일 상단 주석 참고).'
+);
+
+report(
+  hopeless,
+  (n) => `  · 원본 Pretendard 에 없는 글자 ${n}자 — 시스템 폰트로 표시됩니다.`,
+  '    → 서브셋을 다시 만들어도 그대로입니다. 바꾸려면 글자 자체를 바꿔야 합니다.'
+);
 
 const fontKB = (fs.statSync(FONT).size / 1024).toFixed(0);
 console.log(`\n✅ 웹폰트 커버리지 확인 — 사용 ${used.size}자 / 폰트 ${covered.size}자 / ${fontKB} KB` +
-  (missing.length ? ` (미포함 ${missing.length}자)` : ''));
+  (missing.length ? ` (미포함 ${missing.length}자)` : '') +
+  (hopeless.length ? ` (원본에 없음 ${hopeless.length}자)` : ''));
