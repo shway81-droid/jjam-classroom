@@ -6,6 +6,11 @@ on:
   push:
     branches: [main]
     paths: ['video/**', '.github/workflows/video.yml']
+  schedule:
+    # 주 1회 전수 출처 점검. PR 에서는 바뀐 영상만 보므로, 한 번 들어온 뒤
+    # 나중에 삭제·비공개로 바뀐 영상은 여기서 잡는다.
+    # 월요일 UTC 19:40 = KST 화요일 04:40 (다른 크론과 분을 어긋냈다).
+    - cron: '40 19 * * 1'
   workflow_dispatch:
 
 defaults:
@@ -17,12 +22,38 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # 출처 검증이 base 커밋과 비교하려면 그 커밋의 내용까지 있어야 한다.
+          # 얕은 체크아웃에서는 커밋 객체만 있고 트리가 없어
+          # "exists on disk, but not in <sha>" 로 넘어진다.
+          #
+          # PR 일 때만 0 으로 주려고 조건식을 썼다가 한 번 더 넘어졌다 —
+          # Actions 표현식에서 0 은 거짓이라 `A && 0 || 1` 이 항상 1 이 된다.
+          # 저장소가 작으니 조건 없이 전체를 받는다.
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+
       - name: 데이터 검증
         run: node scripts/validate-data.mjs
+
       - name: 파생 데이터 동기화 확인
         run: node scripts/gen-data.mjs --check
+
       - name: 웹폰트 글자 커버리지 검증
         run: node scripts/check-font-coverage.mjs
+
+      # ── 출처 검증 (유튜브 조회) ────────────────────────────────
+      # 승인 채널 목록(validate-data.mjs)만으로는 승인된 채널명을 적어 두고
+      # 엉뚱한 영상을 넣는 것을 막지 못한다. 여기서 실제 업로더를 대조한다.
+      # actions/checkout 은 PR 에서 origin/<브랜치> 원격 추적 이름을 만들어 주지 않는다
+      # (실제로 'invalid object name origin/main' 으로 한 번 넘어졌다).
+      # GitHub 이 알려 주는 base 커밋 SHA 를 쓴다 — fetch-depth: 0 이라 이력에 들어 있다.
+      - name: 출처 검증 (바뀐 영상만)
+        if: github.event_name == 'pull_request'
+        run: node scripts/check-sources.mjs --since ${{ github.event.pull_request.base.sha }}
+
+      - name: 출처 전수 점검
+        if: github.event_name != 'pull_request'
+        run: node scripts/check-sources.mjs

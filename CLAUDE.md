@@ -64,6 +64,7 @@ cd game  && npm test
 cd quiz  && npm test
 cd word  && npm test
 cd video && node scripts/validate-data.mjs && node scripts/gen-data.mjs --check && node scripts/check-font-coverage.mjs
+cd video && node scripts/check-sources.mjs   # 출처 검증 — 인터넷 필요
 cd story && node scripts/validate-data.mjs && node scripts/check-font-coverage.mjs
 ```
 

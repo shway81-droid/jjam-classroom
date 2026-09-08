@@ -1,0 +1,13 @@
+# 확장자는 텍스트지만 브라우저가 받지 않는 파일 — 폰트 커버리지 검사에서 뺀다.
+# 여기 적힌 글자는 화면에 나오지 않으므로, 세어 봐야 서브셋만 헛되이 키운다.
+# (scripts/check-font-coverage.mjs 가 읽는다. 사이트 루트 기준 상대경로.)
+
+# 사람이 고치는 원본. 런처는 이 파일이 아니라 아래 파생 파일을 받는다
+# (videos.index.json·videos.detail.json 은 계속 검사하므로 커버리지는 좁아지지 않는다).
+data/videos.json
+
+# 승인 채널 목록 — 영상 검증용이고 런처가 받지 않는다.
+data/channels.json
+
+# 썸네일 검토판 — scripts/thumb-sheet.mjs 가 만드는 임시 파일(.gitignore).
+thumb-sheet.html

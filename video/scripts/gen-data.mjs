@@ -32,12 +32,17 @@ const DETAIL = path.join(ROOT, 'data', 'videos.detail.json');
 // 목록에서 쓰지 않는 필드 — 모달 전용
 const DETAIL_FIELDS = ['ideas'];
 
+// 런처가 아예 쓰지 않는 필드 — 사람이 영상을 검토할 때만 보는 기록이다.
+// `channel`(업로드한 유튜브 채널)은 승인 목록 대조·출처 검증에만 쓰이므로
+// 파생 파일 어느 쪽에도 넣지 않는다. 넣어 봐야 첫 화면 내려받는 양만 는다.
+const SOURCE_ONLY_FIELDS = ['channel'];
+
 const videos = JSON.parse(fs.readFileSync(SOURCE, 'utf-8'));
 
 const index = videos.map((v) => {
   const out = {};
   for (const [k, val] of Object.entries(v)) {
-    if (!DETAIL_FIELDS.includes(k)) out[k] = val;
+    if (!DETAIL_FIELDS.includes(k) && !SOURCE_ONLY_FIELDS.includes(k)) out[k] = val;
   }
   return out;
 });
