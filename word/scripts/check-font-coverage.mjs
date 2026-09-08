@@ -38,6 +38,22 @@ const FONT = path.join(ROOT, 'assets', 'fonts', 'PretendardVariable.subset.woff2
 const TEXT_EXTS = new Set(['.html', '.js', '.json', '.css']);
 const SKIP_DIRS = new Set(['.git', 'node_modules', 'scripts', 'docs', '_original', 'bgm-preview', 'assets', '.github', 'frontend']);
 
+// 확장자는 텍스트지만 브라우저가 받지 않는 파일이 사이트마다 있다.
+// (예: video/ 는 사람이 고치는 원본 videos.json 에서 파생 파일을 만들어 내보낸다
+//  — 원본에만 있고 파생 파일에 없는 글자는 화면에 절대 안 나온다)
+// 그런 파일을 세면, 나오지도 않는 글자를 채우려고 폰트 서브셋을 헛되이 다시 만들게 된다.
+// 사이트 루트에 font-scan-ignore.txt 가 있으면 거기 적힌 경로를 건너뛴다.
+// 형식: 사이트 루트 기준 상대경로 한 줄에 하나, '#' 뒤는 주석, 빈 줄 무시.
+const IGNORE_LIST = path.join(ROOT, 'font-scan-ignore.txt');
+const SKIP_FILES = new Set(
+  fs.existsSync(IGNORE_LIST)
+    ? fs.readFileSync(IGNORE_LIST, 'utf-8')
+        .split('\n')
+        .map((line) => line.replace(/#.*$/, '').trim())
+        .filter(Boolean)
+    : []
+);
+
 // ── woff2 → cmap 코드포인트 집합 ─────────────────────────────────
 // woff2는 sfnt 테이블을 재배치·압축하므로 직접 파싱하지 않고,
 // 폰트에 동봉해 둔 커버리지 목록(coverage.txt)과 대조한다.
@@ -99,6 +115,7 @@ function walk(dir) {
     }
     if (!TEXT_EXTS.has(path.extname(entry.name).toLowerCase())) continue;
     const p = path.join(dir, entry.name);
+    if (SKIP_FILES.has(path.relative(ROOT, p).split(path.sep).join('/'))) continue;
     let text;
     try { text = fs.readFileSync(p, 'utf-8'); } catch { continue; }
     for (const ch of text) {

@@ -68,8 +68,23 @@ if (!Array.isArray(videos) || videos.length === 0) {
   process.exit(1);
 }
 
+// ── 승인 채널 목록 ───────────────────────────────────────────────
+// 유해 영상이 섞여 든 두 번의 사고는 모두 '업로드 채널'로 잡혔다(3분휴지·현대불교).
+// 제목·소개는 사람이 고쳐 적으므로 믿을 수 없고, 채널이 가장 단단한 단서다.
+// → 승인 목록에 없는 채널의 영상은 여기서 막는다. 새 채널을 쓰려면
+//    data/channels.json 에 사람이 직접 한 줄(승인 사유)을 적어야 한다.
+const CHANNELS_PATH = path.join(ROOT, 'data', 'channels.json');
+let allowedChannels;
+try {
+  allowedChannels = JSON.parse(fs.readFileSync(CHANNELS_PATH, 'utf-8'));
+} catch (e) {
+  console.error(`  ✗ data/channels.json 파싱 실패 — ${e.message}`);
+  process.exit(1);
+}
+const usedChannels = new Set();
+
 // ── 항목별 검증 ──────────────────────────────────────────────────
-const REQUIRED = ['id', 'title', 'youtubeId', 'topic', 'grade', 'minutes', 'description', 'ideas'];
+const REQUIRED = ['id', 'title', 'youtubeId', 'channel', 'topic', 'grade', 'minutes', 'description', 'ideas'];
 const OPTIONAL = ['occasions'];
 const ALLOWED = new Set([...REQUIRED, ...OPTIONAL]);
 
@@ -147,6 +162,15 @@ videos.forEach((v, i) => {
     err(`${where}: ideas 에 빈 항목이 있습니다.`);
   }
 
+  if (!nonEmptyStr(v.channel)) {
+    err(`${where}: channel 이 비어 있습니다 — 영상을 올린 유튜브 채널명을 적어 주세요.`);
+  } else if (!Object.prototype.hasOwnProperty.call(allowedChannels, v.channel)) {
+    err(`${where}: 승인되지 않은 채널 '${v.channel}' — 학생에게 보여도 되는 채널인지 확인한 뒤 ` +
+        `data/channels.json 에 승인 사유와 함께 추가해 주세요.`);
+  } else {
+    usedChannels.add(v.channel);
+  }
+
   if (v.occasions !== undefined) {
     if (!Array.isArray(v.occasions) || v.occasions.length === 0) {
       err(`${where}: occasions 는 비어 있지 않은 배열이어야 합니다.`);
@@ -160,6 +184,18 @@ videos.forEach((v, i) => {
     }
   }
 });
+
+// ── 승인 목록 위생 ───────────────────────────────────────────────
+// 쓰지 않는 채널이 목록에 남아 있으면 '한 번 승인하면 영영 통과'가 된다.
+// 영상을 뺀 뒤 채널도 함께 정리하도록 알린다.
+for (const name of Object.keys(allowedChannels)) {
+  if (!nonEmptyStr(allowedChannels[name])) {
+    err(`channels.json: '${name}' 의 승인 사유가 비어 있습니다 — 왜 써도 되는지 한 줄 적어 주세요.`);
+  }
+  if (!usedChannels.has(name)) {
+    warn(`channels.json: '${name}' 을 쓰는 영상이 없습니다 — 더 안 쓴다면 지워 주세요.`);
+  }
+}
 
 // ── 음력 명절 표 유효기간 ────────────────────────────────────────
 // 표에 없는 연도는 계기 후보에서 조용히 빠지므로, 만료 전에 미리 알린다.
