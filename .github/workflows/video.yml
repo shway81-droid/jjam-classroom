@@ -42,9 +42,12 @@ jobs:
       # ── 출처 검증 (유튜브 조회) ────────────────────────────────
       # 승인 채널 목록(validate-data.mjs)만으로는 승인된 채널명을 적어 두고
       # 엉뚱한 영상을 넣는 것을 막지 못한다. 여기서 실제 업로더를 대조한다.
+      # actions/checkout 은 PR 에서 origin/<브랜치> 원격 추적 이름을 만들어 주지 않는다
+      # (실제로 'invalid object name origin/main' 으로 한 번 넘어졌다).
+      # GitHub 이 알려 주는 base 커밋 SHA 를 쓴다 — fetch-depth: 0 이라 이력에 들어 있다.
       - name: 출처 검증 (바뀐 영상만)
         if: github.event_name == 'pull_request'
-        run: node scripts/check-sources.mjs --since origin/${{ github.base_ref }}
+        run: node scripts/check-sources.mjs --since ${{ github.event.pull_request.base.sha }}
 
       - name: 출처 전수 점검
         if: github.event_name != 'pull_request'
