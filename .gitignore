@@ -1,0 +1,58 @@
+# jjam-classroom 저장소 루트 규칙
+#
+# 하위 프로젝트(game·quiz·story·video·word)에는 각자 .gitignore 가 있습니다.
+# 이 파일은 그 위에 저장소 전체 공통 규칙을 덮습니다. 하위 규칙은 그대로 살아 있습니다.
+#
+# 목적은 두 가지입니다.
+#  (1) 자격증명이 실수로 커밋되는 것을 막습니다 — 이 저장소는 공개입니다.
+#  (2) 루트와 scripts/ 에서 만들어지는 임시 파일을 걸러냅니다.
+
+# ── 자격증명·비밀값 (가장 중요) ─────────────────────────
+# 공개 저장소이므로 값이 든 파일은 절대 들어가면 안 됩니다.
+# .env.example 처럼 값 없는 템플릿은 예외로 커밋을 허용합니다.
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.p12
+*.pfx
+*.key
+credentials*.json
+serviceAccount*.json
+service-account*.json
+*secret*.json
+.telegram.json
+*_key.txt
+*-key.txt
+
+# ── 의존성 ──────────────────────────────────────────
+node_modules/
+.pnpm-store/
+
+# ── 빌드·캐시 산출물 ─────────────────────────────────
+.cache/
+.parcel-cache/
+.vite/
+
+# ── 로컬 도구 설정 ───────────────────────────────────
+# settings.json 은 자동 루틴 권한 규칙을 공유하므로 커밋합니다 (game·quiz 규칙과 동일).
+.claude/*
+!.claude/settings.json
+.vscode/
+.idea/
+
+# ── OS·편집기 부산물 ────────────────────────────────
+.DS_Store
+._*
+Thumbs.db
+desktop.ini
+*~
+*.swp
+
+# ── 로그·임시 파일 ──────────────────────────────────
+*.log
+npm-debug.log*
+yarn-error.log*
+*.tmp
+*.bak
