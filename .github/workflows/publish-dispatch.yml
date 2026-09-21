@@ -27,6 +27,7 @@ on:
       - 'video/**'
       - 'story/**'
       - 'word/**'
+      - '1min/**'
   # 손으로 눌러 다섯 곳을 모두 발행시킬 때 (토큰 확인용으로도 쓴다)
   workflow_dispatch:
 
@@ -47,7 +48,7 @@ jobs:
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "손으로 실행 → 다섯 곳 모두"
-            echo "folders=game quiz video story word" >> "$GITHUB_OUTPUT"
+            echo "folders=game quiz video story word 1min" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           BEFORE="${{ github.event.before }}"
@@ -57,7 +58,7 @@ jobs:
             BEFORE="HEAD^"
           fi
           FOLDERS=$(git diff --name-only "$BEFORE" "${{ github.sha }}" \
-            | grep -E '^(game|quiz|video|story|word)/' | cut -d/ -f1 | sort -u | tr '\n' ' ')
+            | grep -E '^(game|quiz|video|story|word|1min)/' | cut -d/ -f1 | sort -u | tr '\n' ' ')
           echo "바뀐 폴더: ${FOLDERS:-(없음)}"
           echo "folders=$FOLDERS" >> "$GITHUB_OUTPUT"
 
@@ -80,6 +81,7 @@ jobs:
               video) echo "jjam-video" ;;
               story) echo "jjam-story" ;;
               word)  echo "jjam-word" ;;
+              1min)  echo "jjam-1min" ;;
             esac
           }
 
