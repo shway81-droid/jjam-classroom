@@ -34,6 +34,7 @@ const lessons = JSON.parse(fs.readFileSync(SOURCE, 'utf-8'));
 // 교과서 진도 순서로 정렬해 둔다 — 런처가 다시 정렬하지 않아도 되게.
 const sorted = [...lessons].sort(
   (a, b) =>
+    a.publisher.localeCompare(b.publisher, 'ko') ||
     a.subject.localeCompare(b.subject, 'ko') ||
     a.grade - b.grade ||
     a.semester - b.semester ||

@@ -14,10 +14,13 @@
 
   var DATA_URL = 'data/lessons.index.json';
 
+  // 첫 화면은 출판사 → 교과 → 학년 순으로 좁힌다. 지금은 단계마다 하나씩뿐이라
+  // 자동으로 골라 두지만, 교과서가 늘어나면 그대로 고르는 화면이 된다.
   var state = {
     lessons: [],
-    books: [],       // [{key, label, subject, grade, semester, count}]
-    book: null,      // 지금 고른 교과서 key
+    publisher: null,
+    subject: null,
+    grade: null,
     query: ''
   };
 
@@ -53,45 +56,69 @@
 
   function visible() {
     return state.lessons.filter(function (L) {
-      if (state.book && bookKey(L) !== state.book) return false;
+      if (state.publisher && L.publisher !== state.publisher) return false;
+      if (state.subject && L.subject !== state.subject) return false;
+      if (state.grade && L.grade !== state.grade) return false;
       return matches(L, state.query);
     });
   }
 
-  /* ── 교과서 칩 ───────────────────────────────────────── */
-  function renderBooks() {
-    var map = new Map();
+  /* ── 출판사 → 교과 → 학년 카드 ────────────────────────
+     아직 각 단계에 하나씩뿐이다. 그래도 카드를 그리는 까닭은, 선생님이
+     "내 교과서가 여기 있나"를 먼저 확인하기 때문이다. 없으면 검색해도 소용없다.
+     그래서 무엇이 있고 무엇이 아직 없는지를 옆의 문구로 같이 알려 준다. */
+
+  // 아직 못 담은 것 — 카드 옆에 붙는 안내. 담기면 여기서 지운다.
+  var SOON = {
+    publisher: '천재교과서부터 시작합니다. 다른 출판사는 차차 더합니다',
+    subject: '사회부터 시작합니다. 다른 교과는 차차 더합니다',
+    grade: '5학년부터 시작합니다. 다른 학년은 차차 더합니다'
+  };
+
+  function uniq(pick) {
+    var seen = new Map();
     state.lessons.forEach(function (L) {
-      var k = bookKey(L);
-      if (!map.has(k)) map.set(k, { key: k, label: bookLabel(L), count: 0 });
-      map.get(k).count++;
+      var v = pick(L);
+      if (!seen.has(v)) seen.set(v, 0);
+      seen.set(v, seen.get(v) + 1);
     });
-    state.books = Array.from(map.values());
-
-    el.bookChips.innerHTML = '';
-
-    // 교과서가 하나뿐이면 고를 것이 없다 — 그래도 무엇을 보고 있는지 보여 준다.
-    if (state.books.length > 1) {
-      el.bookChips.appendChild(chip('전체', state.book === null, function () {
-        state.book = null; render();
-      }));
-    }
-    state.books.forEach(function (b) {
-      el.bookChips.appendChild(chip(b.label + ' · ' + b.count + '편', state.book === b.key, function () {
-        state.book = (state.book === b.key && state.books.length > 1) ? null : b.key;
-        render();
-      }));
-    });
+    return Array.from(seen.entries());   // [[값, 건수], ...]
   }
 
-  function chip(text, pressed, onClick) {
-    var b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'chip';
-    b.textContent = text;
-    b.setAttribute('aria-pressed', pressed ? 'true' : 'false');
-    b.addEventListener('click', onClick);
-    return b;
+  function renderPickers() {
+    drawCards(el.pubCards, uniq(function (L) { return L.publisher; }),
+      function (v) { return v; }, 'publisher');
+    drawCards(el.subjectCards, uniq(function (L) { return L.subject; }),
+      function (v) { return v; }, 'subject');
+    drawCards(el.gradeCards, uniq(function (L) { return L.grade; }),
+      function (v) { return v + '학년'; }, 'grade');
+
+    el.pubNote.textContent = SOON.publisher;
+    el.subNote.textContent = SOON.subject;
+    el.gradeNote.textContent = SOON.grade;
+  }
+
+  function drawCards(host, entries, labelOf, key) {
+    host.innerHTML = '';
+    entries.forEach(function (pair) {
+      var value = pair[0];
+      var count = pair[1];
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'opt-card';
+      b.setAttribute('aria-pressed', state[key] === value ? 'true' : 'false');
+      b.innerHTML =
+        '<span class="opt-name">' + esc(labelOf(value)) + '</span>' +
+        '<span class="opt-sub">' + count + '편</span>';
+      b.addEventListener('click', function () {
+        // 하나뿐일 때는 꺼서 빈 화면을 만들 이유가 없다 — 항상 켜 둔다.
+        if (entries.length > 1 && state[key] === value) state[key] = null;
+        else state[key] = value;
+        renderPickers();
+        render();
+      });
+      host.appendChild(b);
+    });
   }
 
   /* ── 단원 → 차시 ─────────────────────────────────────── */
@@ -225,7 +252,12 @@
 
   /* ── 시작 ────────────────────────────────────────────── */
   function bind() {
-    el.bookChips = $('bookChips');
+    el.pubCards = $('pubCards');
+    el.subjectCards = $('subjectCards');
+    el.gradeCards = $('gradeCards');
+    el.pubNote = $('pubNote');
+    el.subNote = $('subNote');
+    el.gradeNote = $('gradeNote');
     el.units = $('units');
     el.emptyMsg = $('emptyMsg');
     el.ctaCount = $('ctaCount');
@@ -277,8 +309,12 @@
       .then(function (r) { return r.json(); })
       .then(function (data) {
         state.lessons = data;
-        if (state.books.length === 1) state.book = null;
-        renderBooks();
+        // 단계마다 하나뿐이면 고를 것이 없다 — 미리 골라 둔다.
+        ['publisher', 'subject', 'grade'].forEach(function (k) {
+          var vals = uniq(function (L) { return L[k]; });
+          if (vals.length === 1) state[k] = vals[0][0];
+        });
+        renderPickers();
         render();
       })
       .catch(function (e) {

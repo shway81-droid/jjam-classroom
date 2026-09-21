@@ -95,14 +95,33 @@
   </div>
 
   <main class="board">
-    <!-- ── 과목·학기 고르기 ── -->
+    <!-- ── 출판사 → 교과 → 학년 순으로 좁혀 간다 ── -->
     <section class="picker">
-      <div class="picker-row">
-        <span class="picker-label"><svg class="s3d s3d-20" aria-hidden="true"><use href="#i-book"/></svg>교과서</span>
-        <div id="bookChips" class="chips"></div>
+      <div class="pick-group">
+        <div class="pick-head">
+          <span class="pick-label"><svg class="s3d s3d-20" aria-hidden="true"><use href="#i-book"/></svg>출판사</span>
+          <span class="pick-note" id="pubNote"></span>
+        </div>
+        <div id="pubCards" class="opt-cards"></div>
       </div>
-      <div class="picker-row">
-        <span class="picker-label"><svg class="s3d s3d-20" aria-hidden="true"><use href="#i-search"/></svg>검색</span>
+      <div class="pick-group">
+        <div class="pick-head">
+          <span class="pick-label"><svg class="s3d s3d-20" aria-hidden="true"><use href="#i-tag"/></svg>교과</span>
+          <span class="pick-note" id="subNote"></span>
+        </div>
+        <div id="subjectCards" class="opt-cards"></div>
+      </div>
+      <div class="pick-group">
+        <div class="pick-head">
+          <span class="pick-label"><svg class="s3d s3d-20" aria-hidden="true"><use href="#i-clock"/></svg>학년</span>
+          <span class="pick-note" id="gradeNote"></span>
+        </div>
+        <div id="gradeCards" class="opt-cards"></div>
+      </div>
+      <div class="pick-group search-group">
+        <div class="pick-head">
+          <span class="pick-label"><svg class="s3d s3d-20" aria-hidden="true"><use href="#i-search"/></svg>검색</span>
+        </div>
         <div class="search-box">
           <input type="search" id="searchInput" placeholder="차시명·주제·낱말로 찾기 (예: 고인돌, 삼국, 불국사)"
             autocomplete="off" enterkeyhint="search" aria-label="차시 검색" />

@@ -46,6 +46,7 @@ const YT_ID = /^[A-Za-z0-9_-]{11}$/;
 
 const REQUIRED = {
   id: 'string',
+  publisher: 'string',
   subject: 'string',
   grade: 'number',
   semester: 'number',
@@ -97,13 +98,13 @@ lessons.forEach((L, i) => {
     else seenYt.set(L.youtubeId, i);
   }
 
-  const slot = `${L.subject}/${L.grade}-${L.semester}/${L.unit}/${L.lesson}`;
+  const slot = `${L.publisher}/${L.subject}/${L.grade}-${L.semester}/${L.unit}/${L.lesson}`;
   if (seenSlot.has(slot))
     errors.push(`${at}: ${slot} 차시가 lessons[${seenSlot.get(slot)}] 에 이미 있습니다.`);
   else seenSlot.set(slot, i);
 
   // 같은 단원인데 단원 제목이 다르면 화면에 단원이 두 번 나온다.
-  const uk = `${L.subject}/${L.grade}-${L.semester}/${L.unit}`;
+  const uk = `${L.publisher}/${L.subject}/${L.grade}-${L.semester}/${L.unit}`;
   if (unitTitles.has(uk) && unitTitles.get(uk) !== L.unitTitle) {
     errors.push(
       `${at}: 같은 단원(${uk})의 unitTitle 이 엇갈립니다 — ` +
