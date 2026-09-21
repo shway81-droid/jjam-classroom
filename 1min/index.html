@@ -95,38 +95,45 @@
   </div>
 
   <main class="board">
-    <!-- ── 출판사 → 교과 → 학년 순으로 좁혀 간다 ── -->
+    <!-- ── 검색이 맨 위, 그 아래로 출판사 → 교과 → 학년 → 단원 ── -->
     <section class="picker">
+      <div class="searchtop">
+        <svg class="searchtop-ico" viewBox="0 0 24 24" aria-hidden="true" fill="none"
+             stroke="currentColor" stroke-width="2.2">
+          <circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 L21 21" stroke-linecap="round"/>
+        </svg>
+        <input type="search" id="searchInput" placeholder="차시명·주제·낱말로 찾기 (예: 고인돌, 삼국, 불국사)"
+          autocomplete="off" enterkeyhint="search" aria-label="차시 검색" />
+        <button id="searchClear" class="search-clear" type="button" aria-label="검색어 지우기" hidden>✕</button>
+      </div>
+      <div class="pick-divider"></div>
       <div class="pick-group">
         <div class="pick-head">
-          <span class="pick-label"><svg class="s3d s3d-20" aria-hidden="true"><use href="#i-book"/></svg>출판사</span>
+          <span class="pick-label">출판사</span>
           <span class="pick-note" id="pubNote"></span>
         </div>
         <div id="pubCards" class="opt-cards"></div>
       </div>
       <div class="pick-group">
         <div class="pick-head">
-          <span class="pick-label"><svg class="s3d s3d-20" aria-hidden="true"><use href="#i-tag"/></svg>교과</span>
+          <span class="pick-label">교과</span>
           <span class="pick-note" id="subNote"></span>
         </div>
         <div id="subjectCards" class="opt-cards"></div>
       </div>
       <div class="pick-group">
         <div class="pick-head">
-          <span class="pick-label"><svg class="s3d s3d-20" aria-hidden="true"><use href="#i-clock"/></svg>학년</span>
+          <span class="pick-label">학년</span>
           <span class="pick-note" id="gradeNote"></span>
         </div>
         <div id="gradeCards" class="opt-cards"></div>
       </div>
-      <div class="pick-group search-group">
+      <div class="pick-group">
         <div class="pick-head">
-          <span class="pick-label"><svg class="s3d s3d-20" aria-hidden="true"><use href="#i-search"/></svg>검색</span>
+          <span class="pick-label">단원</span>
+          <span class="pick-note" id="unitNote"></span>
         </div>
-        <div class="search-box">
-          <input type="search" id="searchInput" placeholder="차시명·주제·낱말로 찾기 (예: 고인돌, 삼국, 불국사)"
-            autocomplete="off" enterkeyhint="search" aria-label="차시 검색" />
-          <button id="searchClear" class="search-clear" type="button" aria-label="검색어 지우기" hidden>✕</button>
-        </div>
+        <div id="unitCards" class="opt-cards"></div>
       </div>
     </section>
 

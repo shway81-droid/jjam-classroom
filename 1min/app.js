@@ -21,6 +21,7 @@
     publisher: null,
     subject: null,
     grade: null,
+    unit: null,      // null 이면 그 학년의 모든 단원
     query: ''
   };
 
@@ -59,65 +60,130 @@
       if (state.publisher && L.publisher !== state.publisher) return false;
       if (state.subject && L.subject !== state.subject) return false;
       if (state.grade && L.grade !== state.grade) return false;
+      if (state.unit && L.unit !== state.unit) return false;
       return matches(L, state.query);
     });
   }
 
-  /* ── 출판사 → 교과 → 학년 카드 ────────────────────────
-     아직 각 단계에 하나씩뿐이다. 그래도 카드를 그리는 까닭은, 선생님이
-     "내 교과서가 여기 있나"를 먼저 확인하기 때문이다. 없으면 검색해도 소용없다.
-     그래서 무엇이 있고 무엇이 아직 없는지를 옆의 문구로 같이 알려 준다. */
+  /* ── 출판사 → 교과 → 학년 → 단원 타일 ─────────────────
+     선생님이 가장 먼저 확인하는 것은 "내가 쓰는 교과서가 여기 있는가"다.
+     없으면 검색해도 소용이 없으므로, 무엇이 있고 무엇이 아직 없는지를
+     옆 문구로 같이 알려 준다. 위 단계에서 고른 것에 따라 아래 단계가 줄어든다. */
 
-  // 아직 못 담은 것 — 카드 옆에 붙는 안내. 담기면 여기서 지운다.
+  // 아직 못 담은 것 — 줄 옆에 붙는 안내. 담기면 여기서 지운다.
   var SOON = {
     publisher: '천재교과서부터 시작합니다. 다른 출판사는 차차 더합니다',
     subject: '사회부터 시작합니다. 다른 교과는 차차 더합니다',
-    grade: '5학년부터 시작합니다. 다른 학년은 차차 더합니다'
+    grade: '5학년부터 시작합니다. 다른 학년은 차차 더합니다',
+    unit: '1단원부터 올리고 있습니다. 나머지 단원은 차차 더합니다'
   };
 
-  function uniq(pick) {
+  // 타일 아이콘. 교과는 이름으로 고르고, 모르는 교과는 책으로 둔다.
+  var SVG = {
+    book: '<path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5z"/>' +
+          '<path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H13v16h5.5A1.5 1.5 0 0 0 20 18.5z"/>',
+    globe: '<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.4 2.4 14.2 0 17' +
+           'M12 3.5c-2.4 2.4-2.4 14.2 0 17"/>',
+    flask: '<path d="M9 3h6M10 3v6l-4.5 9A2 2 0 0 0 7.3 21h9.4a2 2 0 0 0 1.8-3L14 9V3"/>',
+    pen: '<path d="M4 20h4L20 8a2.8 2.8 0 0 0-4-4L4 16z"/><path d="M14.5 5.5l4 4"/>',
+    note: '<path d="M8 4h8a2 2 0 0 1 2 2v14l-6-3-6 3V6a2 2 0 0 1 2-2z"/>'
+  };
+  var SUBJECT_ICON = { '사회': 'globe', '과학': 'flask', '국어': 'pen', '수학': 'note' };
+
+  function svgTile(key) {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
+           'stroke-linecap="round" stroke-linejoin="round">' + SVG[key] + '</svg>';
+  }
+  function numTile(n) { return '<span class="opt-num">' + n + '</span>'; }
+
+  // 위 단계에서 고른 것까지만 반영해 센다 (단원 수는 고른 학년 안에서 세야 맞다)
+  function poolFor(level) {
+    var order = ['publisher', 'subject', 'grade', 'unit'];
+    var upto = order.indexOf(level);
+    return state.lessons.filter(function (L) {
+      for (var i = 0; i < upto; i++) {
+        var k = order[i];
+        if (state[k] && L[k] !== state[k]) return false;
+      }
+      return true;
+    });
+  }
+
+  function uniq(level, pick) {
     var seen = new Map();
-    state.lessons.forEach(function (L) {
+    poolFor(level).forEach(function (L) {
       var v = pick(L);
-      if (!seen.has(v)) seen.set(v, 0);
-      seen.set(v, seen.get(v) + 1);
+      seen.set(v, (seen.get(v) || 0) + 1);
     });
     return Array.from(seen.entries());   // [[값, 건수], ...]
   }
 
   function renderPickers() {
-    drawCards(el.pubCards, uniq(function (L) { return L.publisher; }),
-      function (v) { return v; }, 'publisher');
-    drawCards(el.subjectCards, uniq(function (L) { return L.subject; }),
-      function (v) { return v; }, 'subject');
-    drawCards(el.gradeCards, uniq(function (L) { return L.grade; }),
-      function (v) { return v + '학년'; }, 'grade');
+    drawCards(el.pubCards, uniq('publisher', function (L) { return L.publisher; }),
+      'publisher', function (v) { return v; }, function () { return svgTile('book'); });
+
+    drawCards(el.subjectCards, uniq('subject', function (L) { return L.subject; }),
+      'subject', function (v) { return v; },
+      function (v) { return svgTile(SUBJECT_ICON[v] || 'book'); });
+
+    drawCards(el.gradeCards, uniq('grade', function (L) { return L.grade; }),
+      'grade', function (v) { return v + '학년'; }, function (v) { return numTile(v); });
+
+    drawCards(el.unitCards, uniq('unit', function (L) { return L.unit; }),
+      'unit', function (v) { return v + '단원'; }, function (v) { return numTile(v); });
 
     el.pubNote.textContent = SOON.publisher;
     el.subNote.textContent = SOON.subject;
     el.gradeNote.textContent = SOON.grade;
+    el.unitNote.textContent = SOON.unit;
   }
 
-  function drawCards(host, entries, labelOf, key) {
+  function drawCards(host, entries, key, labelOf, iconOf) {
     host.innerHTML = '';
+
+    // 단원이 여럿이면 '전체'를 앞에 둔다 — 한 학기를 통째로 훑는 쓰임이 있다.
+    if (key === 'unit' && entries.length > 1) {
+      host.appendChild(tile(null, sum(entries), '전체', svgTile('note'), key));
+    }
     entries.forEach(function (pair) {
-      var value = pair[0];
-      var count = pair[1];
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'opt-card';
-      b.setAttribute('aria-pressed', state[key] === value ? 'true' : 'false');
-      b.innerHTML =
-        '<span class="opt-name">' + esc(labelOf(value)) + '</span>' +
-        '<span class="opt-sub">' + count + '편</span>';
-      b.addEventListener('click', function () {
-        // 하나뿐일 때는 꺼서 빈 화면을 만들 이유가 없다 — 항상 켜 둔다.
-        if (entries.length > 1 && state[key] === value) state[key] = null;
-        else state[key] = value;
-        renderPickers();
-        render();
-      });
-      host.appendChild(b);
+      host.appendChild(tile(pair[0], pair[1], labelOf(pair[0]), iconOf(pair[0]), key));
+    });
+  }
+
+  function sum(entries) {
+    return entries.reduce(function (n, p) { return n + p[1]; }, 0);
+  }
+
+  function tile(value, count, label, icoHtml, key) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'opt-card';
+    b.setAttribute('aria-pressed', state[key] === value ? 'true' : 'false');
+    b.innerHTML =
+      '<span class="opt-ico">' + icoHtml + '</span>' +
+      '<span class="opt-txt">' +
+        '<span class="opt-name">' + esc(label) + '</span>' +
+        '<span class="opt-sub">' + count + '편</span>' +
+      '</span>';
+    b.addEventListener('click', function () {
+      state[key] = value;
+      // 위를 바꾸면 아래 선택이 더는 맞지 않을 수 있으므로 비운다
+      var order = ['publisher', 'subject', 'grade', 'unit'];
+      order.slice(order.indexOf(key) + 1).forEach(function (k) { state[k] = null; });
+      autoPick();
+      renderPickers();
+      render();
+    });
+    return b;
+  }
+
+  // 단계에 하나뿐이면 고를 것이 없다 — 미리 골라 둔다.
+  // 단원은 예외다. 여럿이면 '전체'(null)로 두어 한 학기를 다 보여 준다.
+  function autoPick() {
+    ['publisher', 'subject', 'grade', 'unit'].forEach(function (k) {
+      if (state[k] !== null) return;
+      var vals = uniq(k, function (L) { return L[k]; });
+      if (vals.length === 1) state[k] = vals[0][0];
     });
   }
 
@@ -258,6 +324,8 @@
     el.pubNote = $('pubNote');
     el.subNote = $('subNote');
     el.gradeNote = $('gradeNote');
+    el.unitCards = $('unitCards');
+    el.unitNote = $('unitNote');
     el.units = $('units');
     el.emptyMsg = $('emptyMsg');
     el.ctaCount = $('ctaCount');
@@ -309,11 +377,7 @@
       .then(function (r) { return r.json(); })
       .then(function (data) {
         state.lessons = data;
-        // 단계마다 하나뿐이면 고를 것이 없다 — 미리 골라 둔다.
-        ['publisher', 'subject', 'grade'].forEach(function (k) {
-          var vals = uniq(function (L) { return L[k]; });
-          if (vals.length === 1) state[k] = vals[0][0];
-        });
+        autoPick();
         renderPickers();
         render();
       })
