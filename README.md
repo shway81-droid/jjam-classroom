@@ -3,7 +3,7 @@
 수업 자투리 시간(1~5분)에 전자칠판으로 바로 쓰는 초등 수업 도구 모음입니다.
 설치도 로그인도 없이 브라우저에서 열고, 인터넷이 끊겨도 동작합니다.
 
-**완성된 다섯 개를 이 저장소 하나에 모았습니다.** 그 전에는 저장소가 다섯으로
+**완성된 여섯 개를 이 저장소 하나에 모았습니다.** 그 전에는 저장소가 다섯으로
 갈라져 있어서, 공통 파일 한 줄을 고치려면 PR 을 다섯 번 머지해야 했습니다.
 
 | 폴더 | 이름 | 하는 일 | 바로 하기 |
@@ -13,6 +13,7 @@
 | `video/` | 짬짬이 영상 | 짧은 교육 영상 고르기 | https://shway81-droid.github.io/jjam-video/ |
 | `story/` | 짬짬이 이야기 | 생각하고 말하기 (3~7분) | https://shway81-droid.github.io/jjam-story/ |
 | `word/` | 짬짬이 낱말 | 반 전체가 입으로 외치는 말놀이 | https://shway81-droid.github.io/jjam-word/ |
+| `1min/` | 짬짬이 1분 수업 | 교과서 차시를 1분 영상으로 | https://shway81-droid.github.io/jjam-1min/ |
 
 작업 중이라 여기 없는 것 — 짬짬이 쉼(`jjam-rest`) · 스트레칭(`jjam-stretch`) ·
 그리기(`jjam-draw`). 완성되면 이 저장소로 들어옵니다.
@@ -22,7 +23,7 @@
 빌드 단계가 없습니다. 폴더에서 정적 서버를 띄우면 그게 전부입니다.
 
 ```bash
-cd game        # 또는 quiz / video / story / word
+cd game        # 또는 quiz / video / story / word / 1min
 python -m http.server 8000
 ```
 
