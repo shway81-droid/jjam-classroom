@@ -119,45 +119,41 @@ body {
 }
 .pick-divider { height: 1px; background: var(--line); }
 
-.pick-group { display: flex; flex-direction: column; gap: 7px; }
-.pick-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+/* 한 줄에 다 넣는다. 네 항목은 바꾸는 빈도가 다르다 —
+   출판사·교과·학년은 학기 내내 한 번 정하면 끝이라 접어 두고(드롭다운),
+   단원은 진도 따라 자주 바뀌므로 펼쳐 둔다(칩). */
+.pick-bar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.pick-fixed { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .pick-label { font-size: 0.86rem; font-weight: 800; color: var(--navy); }
+.sel-cap { font-size: 0.86rem; font-weight: 800; color: var(--navy); }
+.sel-slot { display: inline-flex; align-items: center; }
 
-.opt-cards { display: flex; gap: 10px; flex-wrap: wrap; }
-
-/* 아이콘 타일 — 전자칠판에서 멀리서도 무엇을 고른 상태인지 보여야 한다.
-   그래서 고른 것은 선이 아니라 네이비로 통째로 채운다. */
-.opt-card {
-  display: flex; align-items: center; gap: 11px;
-  border: 1px solid var(--line); background: #fff;
-  border-radius: 16px;
-  padding: 10px 16px 10px 11px;
-  cursor: pointer; font-family: inherit; text-align: left;
-  box-shadow: var(--shadow-card);
-  transition: transform .14s ease, box-shadow .14s ease, background .14s ease;
+/* 브라우저 기본 select 를 쓴다. 직접 만들면 코드가 늘고 키보드·화면낭독기
+   대응이 나빠진다. 모바일에서는 OS 피커로 떠서 오히려 누르기 편하다. */
+.pick-select {
+  appearance: none;
+  border: 1.5px solid var(--line); background: #fff; color: var(--ink);
+  border-radius: 999px;
+  padding: 7px 30px 7px 14px;
+  font-family: inherit; font-size: 0.92rem; font-weight: 700;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237A8499' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 10px center; background-size: 14px;
 }
-.opt-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
-.opt-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.pick-select:hover { border-color: #C8CEDA; }
+.pick-select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 
-.opt-ico {
-  width: 42px; height: 42px; border-radius: 12px; flex: none;
-  display: grid; place-items: center;
-  background: #F1F3F8; color: var(--navy);
+/* 고를 것이 하나뿐일 때는 드롭다운으로 두지 않는다 —
+   눌러도 아무것도 없는 것을 누를 수 있게 보이면 거짓말이 된다. */
+.sel-fixed {
+  display: inline-flex; align-items: baseline; gap: 5px;
+  padding: 7px 4px;
+  font-size: 0.92rem; font-weight: 700; color: var(--ink);
 }
-.opt-ico svg { width: 23px; height: 23px; }
-.opt-ico .opt-num { font-size: 1.06rem; font-weight: 900; }
+.sel-fixed .n { font-size: 0.76rem; color: var(--sub); font-variant-numeric: tabular-nums; }
 
-.opt-txt { display: flex; flex-direction: column; line-height: 1.24; }
-.opt-name { font-size: 0.98rem; font-weight: 800; color: var(--ink); letter-spacing: -0.02em; }
-.opt-sub  { font-size: 0.76rem; color: var(--sub); }
-
-.opt-card[aria-pressed="true"] {
-  background: var(--grad-navy); border-color: transparent;
-  box-shadow: 0 8px 20px rgba(21,36,71,0.28);
-}
-.opt-card[aria-pressed="true"] .opt-ico { background: rgba(255,255,255,0.16); color: #fff; }
-.opt-card[aria-pressed="true"] .opt-name { color: #fff; }
-.opt-card[aria-pressed="true"] .opt-sub  { color: #AFC0DE; }
+.pick-sep { width: 1px; align-self: stretch; min-height: 22px; background: var(--line); }
+.pick-units { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 
 .picker-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .picker-label {
@@ -365,10 +361,8 @@ body {
 @media (max-width: 720px) {
   .brand-text small { display: none; }
   .picker-label { min-width: 0; }
-  .opt-card { padding: 8px 13px 8px 9px; gap: 9px; }
-  .opt-ico { width: 36px; height: 36px; border-radius: 10px; }
-  .opt-ico svg { width: 20px; height: 20px; }
-  .opt-name { font-size: 0.92rem; }
+  .pick-sep { display: none; }
+  .pick-bar { gap: 10px; }
   .grid { grid-template-columns: repeat(auto-fill, minmax(136px, 1fr)); gap: 10px; }
   .modal { padding: 0; }
   .modal-panel {

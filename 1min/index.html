@@ -107,29 +107,25 @@
         <button id="searchClear" class="search-clear" type="button" aria-label="검색어 지우기" hidden>✕</button>
       </div>
       <div class="pick-divider"></div>
-      <div class="pick-group">
-        <div class="pick-head">
-          <span class="pick-label">출판사</span>
+      <div class="pick-bar">
+        <!-- 출판사·교과·학년은 학기 내내 거의 안 바뀐다. 그래서 접어 둔다.
+             고른 값은 브라우저에 기억해 두므로 다음 방문에는 건드릴 일이 없다. -->
+        <div class="pick-fixed">
+          <label class="sel" for="pubSelect"><span class="sel-cap">출판사</span></label>
+          <span id="pubSlot" class="sel-slot"></span>
+          <label class="sel" for="subjectSelect"><span class="sel-cap">교과</span></label>
+          <span id="subjectSlot" class="sel-slot"></span>
+          <label class="sel" for="gradeSelect"><span class="sel-cap">학년</span></label>
+          <span id="gradeSlot" class="sel-slot"></span>
         </div>
-        <div id="pubCards" class="opt-cards"></div>
-      </div>
-      <div class="pick-group">
-        <div class="pick-head">
-          <span class="pick-label">교과</span>
-        </div>
-        <div id="subjectCards" class="opt-cards"></div>
-      </div>
-      <div class="pick-group">
-        <div class="pick-head">
-          <span class="pick-label">학년</span>
-        </div>
-        <div id="gradeCards" class="opt-cards"></div>
-      </div>
-      <div class="pick-group">
-        <div class="pick-head">
+
+        <span class="pick-sep" aria-hidden="true"></span>
+
+        <!-- 단원은 진도 따라 자주 바뀐다. 제일 자주 쓰는 것을 숨기지 않는다. -->
+        <div class="pick-units">
           <span class="pick-label">단원</span>
+          <div id="unitChips" class="chips"></div>
         </div>
-        <div id="unitCards" class="opt-cards"></div>
       </div>
     </section>
 
