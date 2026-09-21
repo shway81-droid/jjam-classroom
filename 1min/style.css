@@ -122,7 +122,6 @@ body {
 .pick-group { display: flex; flex-direction: column; gap: 7px; }
 .pick-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .pick-label { font-size: 0.86rem; font-weight: 800; color: var(--navy); }
-.pick-note { font-size: 0.77rem; color: var(--sub); }
 
 .opt-cards { display: flex; gap: 10px; flex-wrap: wrap; }
 

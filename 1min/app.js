@@ -67,16 +67,8 @@
 
   /* ── 출판사 → 교과 → 학년 → 단원 타일 ─────────────────
      선생님이 가장 먼저 확인하는 것은 "내가 쓰는 교과서가 여기 있는가"다.
-     없으면 검색해도 소용이 없으므로, 무엇이 있고 무엇이 아직 없는지를
-     옆 문구로 같이 알려 준다. 위 단계에서 고른 것에 따라 아래 단계가 줄어든다. */
-
-  // 아직 못 담은 것 — 줄 옆에 붙는 안내. 담기면 여기서 지운다.
-  var SOON = {
-    publisher: '천재교과서부터 시작합니다. 다른 출판사는 차차 더합니다',
-    subject: '사회부터 시작합니다. 다른 교과는 차차 더합니다',
-    grade: '5학년부터 시작합니다. 다른 학년은 차차 더합니다',
-    unit: '1단원부터 올리고 있습니다. 나머지 단원은 차차 더합니다'
-  };
+     그래서 고르기를 검색 아래 네 줄로 둔다.
+     위 단계에서 고른 것에 따라 아래 단계의 목록과 건수가 줄어든다. */
 
   // 타일 아이콘. 교과는 이름으로 고르고, 모르는 교과는 책으로 둔다.
   var SVG = {
@@ -131,17 +123,12 @@
 
     drawCards(el.unitCards, uniq('unit', function (L) { return L.unit; }),
       'unit', function (v) { return v + '단원'; }, function (v) { return numTile(v); });
-
-    el.pubNote.textContent = SOON.publisher;
-    el.subNote.textContent = SOON.subject;
-    el.gradeNote.textContent = SOON.grade;
-    el.unitNote.textContent = SOON.unit;
   }
 
   function drawCards(host, entries, key, labelOf, iconOf) {
     host.innerHTML = '';
 
-    // 단원이 여럿이면 '전체'를 앞에 둔다 — 한 학기를 통째로 훑는 쓰임이 있다.
+    // 단원이 여럿이면 '전체'를 앞에 둔다 — 한 학기를 통째로 보는 쓰임이 있다.
     if (key === 'unit' && entries.length > 1) {
       host.appendChild(tile(null, sum(entries), '전체', svgTile('note'), key));
     }
@@ -321,11 +308,7 @@
     el.pubCards = $('pubCards');
     el.subjectCards = $('subjectCards');
     el.gradeCards = $('gradeCards');
-    el.pubNote = $('pubNote');
-    el.subNote = $('subNote');
-    el.gradeNote = $('gradeNote');
     el.unitCards = $('unitCards');
-    el.unitNote = $('unitNote');
     el.units = $('units');
     el.emptyMsg = $('emptyMsg');
     el.ctaCount = $('ctaCount');
