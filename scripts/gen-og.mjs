@@ -68,7 +68,7 @@ const SITES = [
     dir: '1min', accent: '#E8590C',
     title: '짬짬이 1분 수업',
     subtitle: '교과서 한 차시를 1분으로',
-    footer: '진도 순서대로 골라 바로 트는 교과서 숏폼',
+    footer: '진도 순서대로 골라 바로 트는 1분 영상',
   },
 ];
 
@@ -167,7 +167,7 @@ if (CHECK) {
     console.log(`\n❌ 공유 카드 ${drift}건이 어긋났습니다 — \`node scripts/gen-og.mjs\` 를 돌리세요.`);
     process.exit(1);
   }
-  console.log('\n✅ 공유 카드 SVG 가 favicon·문구와 일치 (5건 확인)');
+  console.log('\n✅ 공유 카드 SVG 가 favicon·문구와 일치 (${SITES.length}건 확인)');
   process.exit(0);
 }
 
