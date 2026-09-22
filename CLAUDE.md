@@ -1,11 +1,11 @@
 # 짬짬이 교실 — 작업 규칙 (Claude용)
 
-다섯 사이트를 한 저장소에 모은 곳이다. **폴더 하나가 사이트 하나다.**
+여섯 사이트를 한 저장소에 모은 곳이다. **폴더 하나가 사이트 하나다.**
 
 ```
 game/   퀴즈 아닌 미니게임 105종      quiz/   문답형만 모은 자매 버전
 video/  짧은 교육 영상                story/  생각하고 말하기
-word/   입으로 외치는 말놀이
+word/   입으로 외치는 말놀이          1min/   교과서 차시를 1분 영상으로
 ```
 
 ## 폴더 안의 규칙이 우선이다
@@ -26,11 +26,12 @@ word/   입으로 외치는 말놀이
 | `video/` | `shway81-droid/jjam-video` | Actions 소스 (`actions/deploy-pages`) |
 | `story/` | `shway81-droid/jjam-story` | 레포 설정에서 main 루트 직접 발행 |
 | `word/` | `shway81-droid/jjam-word` | 레포 설정에서 main 루트 직접 발행 |
+| `1min/` | `shway81-droid/jjam-1min` | 레포 설정에서 main 루트 직접 발행 |
 
 주소가 저장소 이름에서 나오기 때문에(`github.io/<레포>/`) 여기서 발행하면
 선생님들의 즐겨찾기가 전부 깨진다. 그래서 배포는 아직 저쪽에 있다.
 
-**소스는 이 저장소 하나다.** 기존 다섯 곳은 사람이 손대지 않는 발행 대상이다.
+**소스는 이 저장소 하나다.** 기존 여섯 곳은 사람이 손대지 않는 발행 대상이다.
 거기서 고쳐 봐야 발행이 이곳 내용으로 덮어쓴다.
 
 ## 반영은 자동이다
@@ -39,7 +40,7 @@ word/   입으로 외치는 말놀이
 저장소에만** `repository_dispatch`(`classroom-published`)를 보내고, 각 저장소의
 `publish.yml` 이 받아 몇 분 안에 발행한다.
 
-신호를 보내려면 다른 저장소를 두드려야 하므로 `PUBLISH_TOKEN` 시크릿(저 다섯
+신호를 보내려면 다른 저장소를 두드려야 하므로 `PUBLISH_TOKEN` 시크릿(저 여섯
 저장소에 대한 Contents 쓰기 권한만 가진 fine-grained PAT)이 필요하다.
 
 **토큰이 만료돼도 사이트는 죽지 않는다.** `publish-dispatch.yml` 만 빨간불이 되고,
@@ -53,7 +54,7 @@ word/   입으로 외치는 말놀이
 `.github/token-expiry-issue.md` 에 있다.
 
 급하면 각 저장소 Actions 탭의 **Run workflow** 로 직접 발행할 수도 있고,
-이 저장소의 `발행 신호 보내기` 를 손으로 돌리면 다섯 곳이 모두 발행된다.
+이 저장소의 `발행 신호 보내기` 를 손으로 돌리면 여섯 곳이 모두 발행된다.
 
 ## 검증
 
@@ -66,9 +67,11 @@ cd word  && npm test
 cd video && node scripts/validate-data.mjs && node scripts/gen-data.mjs --check && node scripts/check-font-coverage.mjs
 cd video && node scripts/check-sources.mjs   # 출처 검증 — 인터넷 필요
 cd story && node scripts/validate-data.mjs && node scripts/check-font-coverage.mjs
+cd 1min  && node scripts/validate-data.mjs && node scripts/gen-data.mjs --check && node scripts/check-font-coverage.mjs
+cd 1min  && node scripts/check-sources.mjs   # 출처 검증 — 인터넷 필요
 ```
 
-CI 는 `.github/workflows/{game,quiz,video,story,word}.yml` 다섯 벌이고 각각
+CI 는 `.github/workflows/{game,quiz,video,story,word,1min}.yml` 여섯 벌이고 각각
 **경로 필터**가 걸려 있다. 필터를 지우지 마라 — 지우면 낱말 문항 하나를 고쳐도
 게임 105종 검증이 따라 돌아 커밋 하나에 수십 분이 걸린다.
 
@@ -101,7 +104,7 @@ cd game && npm run verify:browser -- --all      # 십수 분
 
 ## 공통 파일 — `game/` 한 곳에서만 고친다
 
-다섯 폴더에서 글자 하나까지 같아야 하는 파일이 다섯 개 있다.
+여섯 폴더에서 글자 하나까지 같아야 하는 파일이 다섯 개 있다.
 
 ```
 shared/jjam-switcher.js          헤더의 자매 사이트 바로가기
@@ -111,33 +114,35 @@ assets/fonts/coverage.txt
 assets/fonts/LICENSE.txt
 ```
 
-**상류는 `game/` 이다.** 여기서 고치고 아래를 돌리면 나머지 넷이 따라온다.
+**상류는 `game/` 이다.** 여기서 고치고 아래를 돌리면 나머지 다섯이 따라온다.
 
 ```bash
 node scripts/sync-shared.mjs           # game/ 내용으로 맞춘다
 node scripts/sync-shared.mjs --check   # 어긋난 곳만 알려 준다 (CI 가 이걸 돌린다)
 ```
 
-`quiz/`·`video/`·`story/`·`word/` 안의 이 다섯 파일은 **생성물이다. 손으로 고치지
+`quiz/`·`video/`·`story/`·`word/`·`1min/` 안의 이 다섯 파일은 **생성물이다. 손으로 고치지
 마라.** 고쳐도 CI(`공통 파일 일치 확인`)가 막고, 다음 동기화 때 덮어써진다.
 
 왜 한 벌로 줄이지 않았나 — 폰트와 스위처는 각 사이트가 **배포될 때 자기 루트에**
 갖고 있어야 한다. 저장소 루트에 한 벌만 두면 `game/index.html` 의
 `shared/jjam-switcher.js` 경로가 안 맞고, `../shared/` 로 바꾸면 배포된 사이트에서
 사이트 루트를 벗어나 404 가 난다. 심링크나 빌드 단계를 쓰면 되지만 이 프로젝트는
-**빌드 단계 없음**이 원칙이다. 그래서 파일은 다섯 벌로 두되 손대는 곳을 하나로 줄였다.
+**빌드 단계 없음**이 원칙이다. 그래서 파일은 여섯 벌로 두되 손대는 곳을 하나로 줄였다.
 
 `game/shared/style.css` 와 `game/shared/engine.js` 는 **공통이 아니다** — 게임 전용이고
 `SHARED` 목록에 없다.
 
-바로가기에 걸린 곳은 완성된 다섯뿐이다. 쉼·스트레칭·그리기는 작업 중이라 넣지 않는다.
+바로가기에 걸린 곳은 완성된 여섯뿐이다 — 게임·퀴즈·영상·이야기·낱말·1분 수업.
+쉼·스트레칭·그리기는 작업 중이라 넣지 않는다. 사이트를 더 걸 때는
+`game/shared/jjam-switcher.js` 의 `SITES`·`ART` 에 한 벌 더하고 `sync-shared` 를 돌린다.
 
 ## 공유 카드 — `favicon.svg` 에서 나온다
 
 주소를 카카오톡·슬랙에 붙이면 뜨는 미리보기 그림(`<사이트>/og-image.png`)이다.
 
 ```bash
-node scripts/gen-og.mjs           # favicon.svg 에서 다섯 벌을 다시 만든다
+node scripts/gen-og.mjs           # favicon.svg 에서 여섯 벌을 다시 만든다
 node scripts/gen-og.mjs --check   # 어긋났는지만 본다 (CI 가 이걸 돌린다)
 ```
 
