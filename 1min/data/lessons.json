@@ -465,5 +465,127 @@
       "과거",
       "세종"
     ]
+  },
+  {
+    "id": "sa5-2-2-04",
+    "publisher": "천재교과서",
+    "subject": "사회",
+    "grade": 5,
+    "semester": 2,
+    "unit": 2,
+    "unitTitle": "달라지는 시대, 변화하는 생활 모습",
+    "lesson": 4,
+    "lessonTitle": "유교 문화는 조선 시대 사람들에게 어떻게 전파되었는지 알아보기",
+    "topic": "유교 문화의 전파와 신분",
+    "youtubeId": "YM2FBsUIixI",
+    "seconds": 72,
+    "summary": "서원과 향약을 통한 유교 문화 전파, 양반·중인·상민·천인 신분제와 관혼상제 예절",
+    "keywords": [
+      "서원",
+      "향약",
+      "양반",
+      "중인",
+      "상민",
+      "천인",
+      "관혼상제",
+      "신분제"
+    ]
+  },
+  {
+    "id": "sa5-2-2-06",
+    "publisher": "천재교과서",
+    "subject": "사회",
+    "grade": 5,
+    "semester": 2,
+    "unit": 2,
+    "unitTitle": "달라지는 시대, 변화하는 생활 모습",
+    "lesson": 6,
+    "lessonTitle": "유교 문화가 정착된 조선 시대 마을은 어떤 모습이었을까요",
+    "topic": "유교 마을의 모습",
+    "youtubeId": "G64rq2r2LeU",
+    "seconds": 83,
+    "summary": "같은 성씨 마을(집성촌) 형성, 종갓집 중심의 대가족, 한옥의 사랑채·안채·사당 공간 구조",
+    "keywords": [
+      "집성촌",
+      "종갓집",
+      "사랑채",
+      "안채",
+      "사당",
+      "행랑채",
+      "한옥",
+      "유교"
+    ]
+  },
+  {
+    "id": "sa5-2-2-07",
+    "publisher": "천재교과서",
+    "subject": "사회",
+    "grade": 5,
+    "semester": 2,
+    "unit": 2,
+    "unitTitle": "달라지는 시대, 변화하는 생활 모습",
+    "lesson": 7,
+    "lessonTitle": "조선 후기의 정치 변화 살펴보기",
+    "topic": "조선 후기의 정치 변화",
+    "youtubeId": "iLCXXbpVzQY",
+    "seconds": 70,
+    "summary": "영조와 정조의 탕평책, 서양 물건의 유입과 양 자가 붙은 이름, 조선 후기 달라진 생활",
+    "keywords": [
+      "탕평책",
+      "영조",
+      "정조",
+      "규장각",
+      "세도 정치",
+      "양복",
+      "양초"
+    ]
+  },
+  {
+    "id": "sa5-2-2-08",
+    "publisher": "천재교과서",
+    "subject": "사회",
+    "grade": 5,
+    "semester": 2,
+    "unit": 2,
+    "unitTitle": "달라지는 시대, 변화하는 생활 모습",
+    "lesson": 8,
+    "lessonTitle": "조선 후기 사회에는 어떤 어려움이 있었을까요",
+    "topic": "조선 후기 사회의 어려움",
+    "youtubeId": "WzPQUAho-2c",
+    "seconds": 61,
+    "summary": "세도 정치와 관리 부패, 홍경래의 난과 진주 농민 봉기, 동학과 전봉준의 농민 운동",
+    "keywords": [
+      "세도 정치",
+      "홍경래",
+      "진주 농민 봉기",
+      "동학",
+      "최제우",
+      "전봉준"
+    ]
+  },
+  {
+    "id": "sa5-2-2-09",
+    "publisher": "천재교과서",
+    "subject": "사회",
+    "grade": 5,
+    "semester": 2,
+    "unit": 2,
+    "unitTitle": "달라지는 시대, 변화하는 생활 모습",
+    "lesson": 9,
+    "lessonTitle": "조선 후기 사람들은 어떤 문화를 즐겼을까요",
+    "topic": "조선 후기의 서민 문화",
+    "youtubeId": "BOMVY9zObEU",
+    "seconds": 60,
+    "summary": "판소리와 탈놀이, 한글 소설, 김홍도·신윤복의 풍속화와 민화 유행",
+    "keywords": [
+      "판소리",
+      "탈놀이",
+      "한글 소설",
+      "풍속화",
+      "민화",
+      "김홍도",
+      "신윤복",
+      "서민"
+    ]
   }
 ]
