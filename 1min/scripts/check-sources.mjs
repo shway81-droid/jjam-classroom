@@ -25,8 +25,21 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SOURCE = path.join(ROOT, 'data', 'lessons.json');
 
-// 이 채널 이름으로 올라온 것만 통과시킨다.
-const CHANNEL = 'Shway Song';
+// 내 채널로 올라온 것만 통과시킨다.
+// 채널 이름·핸들은 바뀔 수 있어(14일에 2회) 이름 하나에 묶지 않는다.
+// oEmbed 의 author_url(핸들 주소) 또는 author_name 중 하나가 목록에 있으면 내 채널이다.
+// 옛 이름·옛 핸들은 유튜브 캐시가 한동안 옛 값을 돌려주므로 남겨 둔다.
+//   2026-09-24  Shway Song(@shway81) → 짬짬이 1분수업(@jjam1min)
+const CHANNEL = '짬짬이 1분수업';
+const CHANNEL_NAMES = ['짬짬이 1분수업', 'Shway Song'];
+const CHANNEL_URLS = [
+  'https://www.youtube.com/@jjam1min',
+  'https://www.youtube.com/@shway81',
+  'https://www.youtube.com/channel/UCHdWtZJyxVsA7hT9aOGjdXA',
+];
+const isMine = (d) =>
+  CHANNEL_URLS.includes(String(d.author_url || '').replace(/\/$/, '')) ||
+  CHANNEL_NAMES.includes(d.author_name);
 
 const sinceIdx = process.argv.indexOf('--since');
 const SINCE = sinceIdx >= 0 ? process.argv[sinceIdx + 1] : null;
@@ -99,11 +112,11 @@ for (const L of targets) {
   }
 
   const data = await res.json();
-  if (data.author_name !== CHANNEL) {
+  if (!isMine(data)) {
     fails.push(
       `${L.id} '${L.topic}': 내 채널 영상이 아닙니다.\n` +
-        `      기대한 채널: ${CHANNEL}\n` +
-        `      실제 업로더: ${data.author_name}\n` +
+        `      기대한 채널: ${CHANNEL} (${CHANNEL_URLS[0]})\n` +
+        `      실제 업로더: ${data.author_name} (${data.author_url})\n` +
         `      실제 제목: ${data.title}`
     );
     continue;
