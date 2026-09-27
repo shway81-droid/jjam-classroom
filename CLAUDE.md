@@ -133,7 +133,7 @@ node scripts/sync-shared.mjs --check   # 어긋난 곳만 알려 준다 (CI 가 
 `game/shared/style.css` 와 `game/shared/engine.js` 는 **공통이 아니다** — 게임 전용이고
 `SHARED` 목록에 없다.
 
-바로가기에 걸린 곳은 완성된 여섯뿐이다 — 게임·퀴즈·영상·이야기·낱말·1분 수업.
+바로가기에 걸린 곳은 완성된 여섯뿐이다 — 게임·퀴즈·영상·이야기·낱말·1분사회.
 쉼·스트레칭·그리기는 작업 중이라 넣지 않는다. 사이트를 더 걸 때는
 `game/shared/jjam-switcher.js` 의 `SITES`·`ART` 에 한 벌 더하고 `sync-shared` 를 돌린다.
 
