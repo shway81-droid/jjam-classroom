@@ -30,8 +30,9 @@ const SOURCE = path.join(ROOT, 'data', 'lessons.json');
 // oEmbed 의 author_url(핸들 주소) 또는 author_name 중 하나가 목록에 있으면 내 채널이다.
 // 옛 이름·옛 핸들은 유튜브 캐시가 한동안 옛 값을 돌려주므로 남겨 둔다.
 //   2026-09-24  Shway Song(@shway81) → 짬짬이 1분수업(@jjam1min)
-const CHANNEL = '짬짬이 1분수업';
-const CHANNEL_NAMES = ['짬짬이 1분수업', 'Shway Song'];
+//   2026-09-28  짬짬이 1분수업 → 짬짬이 1분사회 (핸들 @jjam1min 그대로)
+const CHANNEL = '짬짬이 1분사회';
+const CHANNEL_NAMES = ['짬짬이 1분사회', '짬짬이 1분수업', 'Shway Song'];
 const CHANNEL_URLS = [
   'https://www.youtube.com/@jjam1min',
   'https://www.youtube.com/@shway81',
