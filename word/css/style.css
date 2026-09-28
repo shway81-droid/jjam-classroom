@@ -567,6 +567,37 @@ body.is-over .topbar { background: var(--accent-deep); }
 }
 .chain-log-item.is-out { background: var(--accent-soft); color: var(--accent-deep); }
 
+/* 이어진 말 한 줄 — 최근 말이 오른쪽 끝. 넘치는 앞쪽은 js 가 빼고 … 을 붙인다. */
+.chain-log.is-trail {
+  /* 가운데 칸 폭을 넘지 않는다 — 넘치면 왼쪽 끝 낱말이 화면 밖으로 삐져나간다. */
+  max-width: min(48rem, 100%);
+  align-items: baseline;
+  gap: 0.45rem;
+  font-size: clamp(1rem, 1.9vw, 1.35rem);
+  font-weight: 800;
+  color: var(--ink-soft);
+}
+.chain-trail-word { white-space: nowrap; }
+.chain-trail-word:last-child { color: var(--accent-deep); }
+.chain-trail-sep, .chain-trail-more { color: var(--outline-variant); font-weight: 700; }
+.chain-trail-more { color: var(--ink-soft); }
+
+/* 판 끝 요약 — 이어진 말 전부. 타이머 링 자리를 내주고 여러 줄로 편다. */
+.chain-summary { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; max-width: min(64rem, 94vw); }
+.chain-summary-title { font-size: clamp(1.4rem, 3.4vw, 2.4rem); font-weight: 900; color: var(--accent-deep); }
+.chain-summary-words {
+  text-align: center;
+  word-break: keep-all;
+  font-weight: 800;
+  line-height: 1.5;
+  color: var(--ink);
+  max-height: 34vh;
+  overflow-y: auto;
+}
+.chain-summary-words[data-size="l"] { font-size: clamp(1.3rem, 2.8vw, 2.2rem); }
+.chain-summary-words[data-size="m"] { font-size: clamp(1.1rem, 2.1vw, 1.7rem); }
+.chain-summary-words[data-size="s"] { font-size: clamp(0.95rem, 1.6vw, 1.3rem); }
+
 /* 다음 글자 — 방금 나온 말 바로 아래. 두음법칙으로 바뀐 글자도 함께 띄운다(력 · 역). */
 .chain-next {
   font-size: clamp(1.2rem, 2.8vw, 2rem);

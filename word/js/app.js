@@ -9,7 +9,7 @@
 import { candidates, pickNext } from './pick.js';
 import { store } from './store.js';
 import { sound } from './sound.js';
-import { createRound, advance, expire, checkWord, currentWord, nextHeads } from './chain.js';
+import { createRound, advance, expire, checkWord, currentWord, nextHeads, okCount, hasWords } from './chain.js';
 import * as clock from './clock.js';
 
 const TYPES = {
@@ -478,6 +478,69 @@ function startChain() {
 
 const LOG_SHOWN = 6;
 
+// 끝말잇기는 앞말에서 뒷말로 이어지고, 줄줄이는 한 글자에서 나란히 뻗는다.
+const trailSep = (r) => (r.mode === 'chain' ? '→' : '·');
+
+/* 지나간 기록 — 한 줄.
+   낱말을 적었으면 이어진 말을 화살표로 잇는다(기차 → 차표 → 표범). 들어가는 만큼 보여 주고,
+   넘치면 오래된 말부터 빼고 앞에 … 을 붙인다 — 앞에 더 있다는 표시다. 전부는 판이 끝나면 펼친다.
+   낱말을 안 적었으면 예전처럼 최근 차례(1번 ✓ 2번 ✗)를 보여 준다. */
+function renderChainLog(r) {
+  const log = $('chain-log');
+  log.textContent = '';
+  const trail = hasWords(r);
+  log.classList.toggle('is-trail', trail);
+  log.hidden = r.done && trail;   // 판이 끝나면 아래 요약이 전부 보여 준다
+  if (!trail) {
+    for (const e of r.log.slice(-LOG_SHOWN)) {
+      const chip = document.createElement('span');
+      chip.className = 'chain-log-item' + (e.result === 'ok' ? '' : ' is-out');
+      const mark = e.result === 'ok' ? '✓' : e.result === 'timeout' ? '초과' : '✗';
+      chip.textContent = `${e.turn}번 ${mark}`;
+      log.appendChild(chip);
+    }
+    return;
+  }
+  if (log.hidden) return;
+  const words = r.words;
+  const paint = (from) => {
+    log.textContent = '';
+    if (from > 0) log.append(trailPart('…', 'chain-trail-more'));
+    words.slice(from).forEach((w, i) => {
+      if (i > 0 || from > 0) log.append(trailPart(trailSep(r), 'chain-trail-sep'));
+      log.append(trailPart(w, 'chain-trail-word'));
+    });
+  };
+  // 넘치지 않을 때까지 앞에서부터 뺀다. 마지막 낱말은 무슨 일이 있어도 남긴다.
+  let from = 0;
+  paint(from);
+  while (log.scrollWidth > log.clientWidth + 1 && from < words.length - 1) paint(++from);
+}
+
+function trailPart(text, cls) {
+  const el = document.createElement('span');
+  el.className = cls;
+  el.textContent = text;
+  return el;
+}
+
+/* 판이 끝나면 — 몇 번 이었는지와 이어진 말 전부. 낱말이 많을수록 글자를 줄여 한 화면에 담는다. */
+function renderChainSummary(r) {
+  const box = $('chain-summary');
+  const n = okCount(r);
+  box.hidden = !r.done || n === 0;
+  $('chain-clock').hidden = r.done && !box.hidden;
+  if (box.hidden) return;
+  $('chain-summary-title').textContent = r.mode === 'chain' ? `🔗 ${n}번 이어졌어요!` : `🔁 ${n}개 말했어요!`;
+  const words = $('chain-summary-words');
+  const trail = hasWords(r);
+  words.hidden = !trail;
+  // 화살표는 앞말에 붙인다(줄바꿈 없는 공백) — 줄이 바뀌어도 새 줄이 화살표로 시작하지 않게.
+  words.textContent = trail ? r.words.join(`\u00A0${trailSep(r)} `) : '';
+  const count = r.words.length;
+  words.dataset.size = count > 30 ? 's' : count > 15 ? 'm' : 'l';
+}
+
 function renderChain() {
   const r = state.round;
   // 시간이 다 됐지만 아직 교사가 판정하지 않은 상태. 판은 살아 있다.
@@ -495,16 +558,8 @@ function renderChain() {
     : expired ? `${r.turn}번 모둠 — 시간 초과` : `${r.turn}번 모둠 차례`;
   $('chain-turn').classList.toggle('is-expired', expired);
 
-  const log = $('chain-log');
-  log.textContent = '';
-  // 최근 것만 — 기록은 한 줄로 둔다(css .chain-log). 낱말이 길면 여덟 개는 넘친다.
-  for (const e of r.log.slice(-LOG_SHOWN)) {
-    const chip = document.createElement('span');
-    chip.className = 'chain-log-item' + (e.result === 'ok' ? '' : ' is-out');
-    const mark = e.result === 'ok' ? '✓' : e.result === 'timeout' ? '초과' : '✗';
-    chip.textContent = e.word ? `${e.turn}번 ${e.word}` : `${e.turn}번 ${mark}`;
-    log.appendChild(chip);
-  }
+  renderChainLog(r);
+  renderChainSummary(r);
 
   // 시간이 다 되면 두 버튼의 *뜻*이 바뀐다 — 자리는 그대로 둔다.
   // 교사는 화면이 아니라 교실을 보고 있으므로, 손이 기억한 위치가 흔들리면 안 된다.
@@ -816,6 +871,10 @@ function wire() {
   $('btn-chain-ok').addEventListener('click', () => {
     if ($('chain-input').value.trim()) chainOk();
     else chainAdvance('ok');
+  });
+  // 창 크기가 바뀌면 이어진 말 한 줄을 다시 맞춘다 — 들어가는 개수가 화면 폭에 달렸다.
+  window.addEventListener('resize', () => {
+    if (state.screen === 'CHAIN' && state.round) renderChain();
   });
   // 입력칸 안에서는 Enter 만 우리 것이다. 한글 조합 중의 Enter 는 글자를 확정할 뿐이다.
   $('chain-input').addEventListener('keydown', (e) => {

@@ -187,3 +187,18 @@ test('줄줄이 말해요: 모두 제시 글자로 시작하고 화면 낱말은
   assert.equal(checkWord(r, '방석'), 'head');
   assert.equal(checkWord(r, '가방'), 'used');
 });
+
+import { okCount, hasWords } from '../js/chain.js';
+
+test('okCount·hasWords: 성공 수는 낱말과 상관없이 세고, 적은 낱말이 있는지 알려 준다', () => {
+  let r = createRound({ word: '기차', groups: 3, seconds: 10 });
+  assert.equal(okCount(r), 0);
+  assert.equal(hasWords(r), false);
+  r = advance(r, 'ok');
+  assert.equal(hasWords(r), false);
+  r = advance(r, 'ok', '차표');
+  r = advance(r, 'out');
+  assert.equal(okCount(r), 2);
+  assert.equal(hasWords(r), true);
+  assert.deepEqual(r.words, ['기차', '차표']);
+});
