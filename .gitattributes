@@ -1,0 +1,19 @@
+# 저장소 안과 작업 사본 모두 항상 LF.
+# 윈도우의 core.autocrlf=true 가 작업 사본을 CRLF 로 풀면, 로컬에서
+# `node scripts/sync-shared.mjs` 가 game/ 의 CRLF 를 다른 다섯 폴더로 복사하고
+# `--check` 는 멀쩡한 공통 파일을 "다름"으로 보고한다. eol=lf 가 그걸 막는다.
+* text=auto eol=lf
+
+# 변환하면 안 되는 파일. 폰트가 바뀌면 check-font-coverage 의 sha256 대조에서 걸린다.
+*.woff2 binary
+*.woff  binary
+*.ttf   binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
+*.ico   binary
+*.mp3   binary
+*.mp4   binary
+*.pdf   binary
