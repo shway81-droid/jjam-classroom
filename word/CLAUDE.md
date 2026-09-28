@@ -1,7 +1,8 @@
 # 짬짬이 낱말 (jjam-word)
 
 보기 없이 반 전체가 입으로 외치는 전자칠판용 말놀이. 정적 SPA.
-jjam(짬짬이 게임)의 자매 프로젝트 — 게임·퀴즈·영상·이야기·쉼에 이은 여섯 번째.
+짬짬이 게임의 자매 사이트 — 헤더 바로가기의 여섯(게임·퀴즈·영상·이야기·낱말·1분 수업) 중 하나.
+`jjam-classroom` 저장소의 `word/` 폴더이고, 발행만 `shway81-droid/jjam-word` 가 한다.
 
 ## 구조
 
@@ -15,12 +16,15 @@ jjam(짬짬이 게임)의 자매 프로젝트 — 게임·퀴즈·영상·이야
 - `js/clock.js` — [순수] 수업 타이머(상단바, 1~5분). 놀이에 속하지 않아 화면을 바꿔도
   이어서 흐른다. 끝말잇기 차례 타이머(`chain.js`)와는 다른 물건이다
 - `data/words.json` — 단일 소스 1120개: 문항 800 + 끝말잇기 시작단어 120 + 몸으로말해요 카드 200
-- `sw.js` — network-first 서비스워커 (콘텐츠 갱신과 오프라인을 함께)
+- `sw.js` — network-first 서비스워커 (콘텐츠 갱신과 오프라인을 함께).
+  `js/` 에 모듈을 더하면 `ASSETS` 에도 더한다 — 빠지면 오프라인 첫 실행에서 앱이 안 뜬다
+  (`scripts/sw.test.mjs` 가 막는다)
 
 ## 규칙
 
 - `npm test` 필수 통과 = `node --test` + `validate-data` + `check-font-coverage`.
-  PR·main 푸시마다 `.github/workflows/verify.yml` 이 같은 명령을 돌린다
+  PR·main 푸시마다 저장소 루트의 `.github/workflows/word.yml` 이 같은 명령을 돌린다.
+  이 폴더 안의 `.github/workflows/verify.yml` 은 합치기 전 사본이라 돌지 않는다
 - 외부 이미지·영상·폰트 CDN·JS 라이브러리 의존 금지 (오프라인·저작권)
 - **상류에서 받아오는 파일은 직접 고치지 않는다** — `shared/jjam-switcher.js`,
   `scripts/check-font-coverage.mjs`, `assets/fonts/*`.
@@ -32,6 +36,10 @@ jjam(짬짬이 게임)의 자매 프로젝트 — 게임·퀴즈·영상·이야
   상수 이름이나 형태를 바꾸면 검증도 함께 고쳐야 한다 (안 고치면 통과가 아니라 실패한다)
 - 문항 추가 시 안전 기준(PRD 3절)과 난이도 분포를 지킨다 — 검증이 강제한다.
   금칙어 표는 `scripts/banned.mjs`, 오탐/탐지 사례는 `scripts/banned.test.mjs` 에 고정돼 있다
+- 몸으로 말해요에는 **'나라' 주제를 두지 않는다.** 나라 흉내는 민족 비하 몸짓으로 번지기 쉽다.
+  `validate-data.mjs` 의 `EXCLUDED_TOPICS` 가 빈 주제 경고에서 빼고, 문항이 들어오면 실패시킨다
+- 화면 글자는 Pretendard 에 있는 것만 쓴다(주석 포함 — 검사가 소스 전체를 읽는다).
+  `⏸`·`⏱`·`─` 는 원본 폰트에 없어 `‖`·'초과'·`—` 로 바꿨다
 - 초성퀴즈 `prompt` 는 정답에서 기계적으로 나온 초성이어야 한다 — **겹자음 그대로**
   (토끼 → `ㅌㄲ`). 초기 계획은 홑자음으로 펴는 것이었으나 뒤집혔다: 화면이 아이들에게
   틀린 초성을 가르치면 안 된다. 초성이 욕설로 읽히는 낱말은 `CHOSEONG_BANNED` 로 막는다

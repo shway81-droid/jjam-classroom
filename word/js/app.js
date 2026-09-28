@@ -1,4 +1,4 @@
-/* ── 짬짬이 낱말 ──
+/* —— 짬짬이 낱말 ——
    화면에 닿는 코드는 전부 여기 있다. 출제 규칙(pick.js)·저장(store.js)은
    DOM을 모르는 모듈로 빼 두었다.
 
@@ -120,7 +120,7 @@ function todayStr() {
   return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
 }
 
-/* ── 홈 ────────────────────────────────────────────────────── */
+/* —— 홈 —————————————————————————————————————————————————————— */
 
 function renderHome() {
   const quiz = $('type-grid-quiz');
@@ -143,7 +143,7 @@ function renderHome() {
   }
 }
 
-/* ── 조건 선택 ──────────────────────────────────────────────── */
+/* —— 조건 선택 ———————————————————————————————————————————————— */
 
 function optionButton(row, label, checked, onPick) {
   const btn = document.createElement('button');
@@ -242,7 +242,7 @@ function updateCount() {
   $('btn-start').disabled = n === 0;
 }
 
-/* ── 출제 ──────────────────────────────────────────────────── */
+/* —— 출제 ———————————————————————————————————————————————————— */
 
 function start() {
   // 첫 사용자 제스처에서 오디오를 깨운다 — 이보다 늦으면 자동재생 정책에 막힌다.
@@ -342,7 +342,7 @@ function finish() {
   show('DONE');
 }
 
-/* ── 도구형 (끝말잇기·몸으로 말해요) ──────────────────────────
+/* —— 도구형 (끝말잇기·몸으로 말해요) ——————————————————————————
    화면은 각자의 모듈에서 그린다. 여기서는 어느 화면으로 보낼지만 정한다. */
 
 function startTool() {
@@ -351,7 +351,7 @@ function startTool() {
   nextCard();
 }
 
-/* ── 몸으로 말해요 ──
+/* —— 몸으로 말해요 ——
    한 명만 화면을 등지고 맞힌다. 정답 데이터가 없으니 단계도 없다 —
    카드를 크게 띄우고 [다음 카드] 하나뿐이다. */
 
@@ -374,7 +374,7 @@ function nextCard() {
   show('GESTURE');
 }
 
-/* ── 끝말잇기 도우미 ──
+/* —— 끝말잇기 도우미 ——
    화면은 아이들이 말한 단어를 모른다(교사가 타이핑하지 않으므로).
    차례와 남은 시간만 맡고, 성공·탈락은 교사의 딸깍으로 기록한다. */
 
@@ -408,7 +408,7 @@ function renderChain() {
   for (const e of r.log) {
     const chip = document.createElement('span');
     chip.className = 'chain-log-item' + (e.result === 'ok' ? '' : ' is-out');
-    const mark = e.result === 'ok' ? '✓' : e.result === 'timeout' ? '⏱' : '✗';
+    const mark = e.result === 'ok' ? '✓' : e.result === 'timeout' ? '초과' : '✗';
     chip.textContent = `${e.turn}번 ${mark}`;
     log.appendChild(chip);
   }
@@ -417,14 +417,14 @@ function renderChain() {
   // 교사는 화면이 아니라 교실을 보고 있으므로, 손이 기억한 위치가 흔들리면 안 된다.
   // Space 는 어느 쪽이든 "지금 가장 흔한 다음"에 붙는다.
   $('btn-chain-ok').innerHTML = expired ? '그래도 성공' : '성공 <kbd>Space</kbd>';
-  $('btn-chain-out').innerHTML = expired ? '시간 초과 ⏱ <kbd>Space</kbd>' : '탈락';
+  $('btn-chain-out').innerHTML = expired ? '시간 초과 <kbd>Space</kbd>' : '탈락';
   $('btn-chain-ok').hidden = r.done;
   $('btn-chain-out').hidden = r.done;
   $('btn-chain-again').hidden = !r.done;
 
   const pause = $('btn-chain-pause');
   pause.hidden = r.done || expired;
-  pause.textContent = state.paused ? '▶ 이어서 (P)' : '⏸ 잠깐 (P)';
+  pause.textContent = state.paused ? '▶ 이어서 (P)' : '‖ 잠깐 (P)';
   pause.setAttribute('aria-pressed', state.paused ? 'true' : 'false');
 }
 
@@ -510,7 +510,7 @@ function chainAdvance(result) {
   if (!state.round.done) startChainTimer();
 }
 
-/* ── 수업 타이머 ───────────────────────────────────────────────
+/* —— 수업 타이머 ———————————————————————————————————————————————
    규칙(js/clock.js)은 DOM 을 모른다. 여기서는 그리고 듣기만 한다.
    화면을 옮겨도 끊지 않는다 — show() 가 이 시계를 건드리지 않는 것이 핵심이다.
    (끝말잇기 차례 타이머는 반대로 화면을 떠나면 끊는다. 다른 물건이다.) */
@@ -545,7 +545,7 @@ function renderClock() {
   const pause = $('btn-clock');
   const canPause = !idle && !c.expired;
   pause.disabled = !canPause;
-  pause.innerHTML = c.running || !canPause ? '⏸ 잠깐 <kbd>P</kbd>' : '▶ 이어서 <kbd>P</kbd>';
+  pause.innerHTML = c.running || !canPause ? '‖ 잠깐 <kbd>P</kbd>' : '▶ 이어서 <kbd>P</kbd>';
   // 눈으로 보이는 글자와 화면 낭독기가 읽는 말이 서로 어긋나지 않게 한다.
   pause.setAttribute('aria-label', !canPause ? '잠깐 멈춤 — 걸어 둔 시간이 없어요'
     : c.running ? `남은 시간 ${clock.format(left)}, 잠깐 멈추기`
@@ -653,7 +653,7 @@ function toggleClockPause() {
   if (state.clock.running) pauseClockNow(); else resumeClockNow();
 }
 
-/** `P` 와 끝말잇기의 [⏸ 잠깐] 이 함께 부른다.
+/** `P` 와 끝말잇기의 [‖ 잠깐] 이 함께 부른다.
     끝말잇기 화면에서는 차례 타이머와 수업 타이머가 한 번에 멈춘다 — 아이 말을
     되물을 때 둘 중 하나만 멈추면 소용이 없다. 하나라도 흐르고 있으면 둘 다
     멈추고, 아무것도 흐르지 않으면 둘 다 이어서 간다(따로 놀지 않게). */
@@ -679,7 +679,7 @@ function buildClockPicks() {
   }
 }
 
-/* ── 부팅 ──────────────────────────────────────────────────── */
+/* —— 부팅 ———————————————————————————————————————————————————— */
 
 function wire() {
   $('brand-home').addEventListener('click', (e) => { e.preventDefault(); show('HOME'); });
@@ -693,7 +693,7 @@ function wire() {
   $('btn-continue').addEventListener('click', () => (state.item ? nextItem() : show('HOME')));
   $('btn-home').addEventListener('click', () => show('HOME'));
 
-  // 시간 초과 뒤의 [탈락] 자리는 '시간 초과'다 — 기록에 ⏱ 로 남는다.
+  // 시간 초과 뒤의 [탈락] 자리는 '시간 초과'다 — 기록에 '초과' 로 남는다.
   $('btn-chain-ok').addEventListener('click', () => chainAdvance('ok'));
   $('btn-chain-out').addEventListener('click', () => chainAdvance(state.round.expired ? 'timeout' : 'out'));
   $('btn-chain-pause').addEventListener('click', togglePauseAll);

@@ -14,6 +14,7 @@ var ASSETS = [
   './js/store.js',
   './js/sound.js',
   './js/chain.js',
+  './js/clock.js',
   './shared/jjam-switcher.js',
   './data/words.json',
   './favicon.svg',
