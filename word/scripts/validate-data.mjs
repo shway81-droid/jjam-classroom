@@ -85,6 +85,11 @@ const TARGET = {
   proverb:  { easy: 70, normal: 80, hard: 50 },   // 200
   idiom:    { easy: 50, normal: 70, hard: 60 },   // 180
   riddle:   { easy: 70, normal: 70, hard: 40 },   // 180
+  // 외쳐라 말놀이 뒤쪽 넷 (2026-09-28). 글자 뒤섞기는 초성퀴즈의 세 글자 이상 낱말에서 나왔다.
+  opposite: { easy: 25, normal: 20, hard: 15 },   // 60
+  mimetic:  { easy: 25, normal: 21, hard: 16 },   // 62
+  spelling: { easy: 22, normal: 24, hard: 22 },   // 68
+  scramble: { easy: 32, normal: 65, hard: 27 },   // 124
   // 지구오락실 말놀이 (2026-09-28)
   fourword: { easy: 60, normal: 60, hard: 30 },   // 150
   // 인물 수는 자유 라이선스 사진이 있는 사람으로 정해진다 — 사진을 못 구하면 넣지 않는다.
@@ -272,6 +277,27 @@ data.items.forEach((it, i) => {
       if (!/^[가-힣]{2}$/.test(it.answer)) err(`${where}: 4글자 정답은 한글 두 글자여야 합니다 — '${it.answer}'`);
       else if (it.hint !== choseongOf(it.answer)) {
         err(`${where}: 힌트는 정답의 초성 '${choseongOf(it.answer)}' 이어야 합니다 — '${it.hint}'`);
+      }
+    }
+    // 반대말·흉내 내는 말 — 힌트는 정답의 초성(기계적으로).
+    if ((it.type === 'opposite' || it.type === 'mimetic') && nonEmpty(it.answer) && it.hint !== choseongOf(it.answer)) {
+      err(`${where}: 힌트는 정답의 초성 '${choseongOf(it.answer)}' 이어야 합니다 — '${it.hint}'`);
+    }
+    // 흉내 내는 말은 문장 속 빈칸을 채운다 — 정답을 열면 그 자리에 들어간다.
+    if (it.type === 'mimetic' && !it.prompt.includes('______')) {
+      err(`${where}: 흉내 내는 말 prompt 에 빈칸(______, 언더바 6개)이 없습니다.`);
+    }
+    // 맞춤법 — 틀린 말과 바른 말이 같으면 고칠 것이 없다.
+    if (it.type === 'spelling' && it.prompt === it.answer) {
+      err(`${where}: 맞춤법 문제와 정답이 같습니다 — '${it.prompt}'`);
+    }
+    // 글자 뒤섞기 — 문제는 정답의 글자를 순서만 바꾼 것이어야 한다(띄어쓰기는 무시).
+    if (it.type === 'scramble' && nonEmpty(it.prompt) && nonEmpty(it.answer)) {
+      const letters = (w) => [...w.replace(/\s/g, '')].sort().join('');
+      if (letters(it.prompt) !== letters(it.answer)) {
+        err(`${where}: 뒤섞은 글자가 정답 '${it.answer}' 의 글자와 다릅니다 — '${it.prompt}'`);
+      } else if (it.prompt.replace(/\s/g, '') === it.answer) {
+        err(`${where}: 글자가 섞이지 않았습니다 — '${it.prompt}'`);
       }
     }
     // 인물퀴즈 — 힌트는 이름의 초성으로 시작한다(초성은 정답에서 기계적으로 나온다).
