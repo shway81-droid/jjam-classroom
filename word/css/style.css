@@ -405,6 +405,16 @@ body.is-over .topbar { background: var(--accent-deep); }
    무엇이 답이었는지 한눈에 보이게 한다. inline 요소라 transform 대신 opacity 로
    나타낸다 — inline-block 으로 만들면 긴 답이 통째로 줄바꿈을 못 해 화면을 넘긴다. */
 @keyframes fill-in { from { opacity: 0; } to { opacity: 1; } }
+/* 4글자 이어말하기의 빈칸 — 글자 한 자 폭의 밑줄을 정답 글자 수만큼 끊어 긋는다 */
+.quiz-prompt .slot {
+  display: inline-block;
+  width: 0.9em;
+  height: 0.08em;
+  margin: 0 0.06em;
+  background: currentColor;
+  border-radius: 0.04em;
+  vertical-align: baseline;
+}
 .quiz-prompt .filled { color: var(--accent); animation: fill-in 0.28s ease-out both; }
 @media (prefers-reduced-motion: reduce) {
   .quiz-prompt .filled { animation: none; }
