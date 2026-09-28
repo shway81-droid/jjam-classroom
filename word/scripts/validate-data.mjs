@@ -85,7 +85,7 @@ const TARGET = {
   proverb:  { easy: 70, normal: 80, hard: 50 },   // 200
   idiom:    { easy: 50, normal: 70, hard: 60 },   // 180
   riddle:   { easy: 70, normal: 70, hard: 40 },   // 180
-  // 문제 내기 뒤쪽 넷 (2026-09-28). 글자 뒤섞기는 초성퀴즈의 세 글자 이상 낱말에서 나왔다.
+  // 외쳐라 말놀이 뒤쪽 넷 (2026-09-28). 글자 뒤섞기는 초성퀴즈의 세 글자 이상 낱말에서 나왔다.
   opposite: { easy: 25, normal: 20, hard: 15 },   // 60
   mimetic:  { easy: 25, normal: 21, hard: 16 },   // 62
   spelling: { easy: 22, normal: 24, hard: 22 },   // 68

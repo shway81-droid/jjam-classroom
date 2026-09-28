@@ -17,7 +17,7 @@ const TYPES = {
   proverb: { label: '속담 이어말하기', emoji: '🗣', kind: 'quiz', topics: false, blurb: '앞부분을 보고 뒷부분을 외쳐요' },
   idiom: { label: '사자성어', emoji: '🀄', kind: 'quiz', topics: false, blurb: '뜻을 보고 사자성어를 외쳐요' },
   riddle: { label: '수수께끼', emoji: '❓', kind: 'quiz', topics: false, blurb: '수수께끼의 답을 외쳐요' },
-  // 문제 내기 묶음의 뒤쪽 넷 (2026-09-28). cue 는 문제 위에 작게 띄우는 물음이다 —
+  // 외쳐라 말놀이 묶음의 뒤쪽 넷 (2026-09-28). cue 는 문제 위에 작게 띄우는 물음이다 —
   // '뜨겁다' 한 낱말만 띄우면 무엇을 외칠지 화면만 보고는 모른다.
   opposite: { label: '반대말 외치기', emoji: '🔄', kind: 'quiz', topics: false, cue: '반대말은?', blurb: '낱말을 보고 반대말을 외쳐요' },
   mimetic: { label: '흉내 내는 말', emoji: '🐸', kind: 'quiz', topics: false, blurb: '빈칸에 어울리는 소리·모양을 외쳐요' },
@@ -25,7 +25,7 @@ const TYPES = {
   scramble: { label: '글자 뒤섞기', emoji: '🔀', kind: 'quiz', topics: true, cue: '글자를 바로 놓으면?', blurb: '뒤섞인 글자를 바로 놓아 외쳐요' },
   chain: { label: '끝말잇기 도우미', emoji: '🔗', kind: 'tool', topics: false, blurb: '차례와 시간을 화면이 맡아요' },
   gesture: { label: '몸으로 말해요', emoji: '🎭', kind: 'tool', topics: true, blurb: '단어 카드를 크게 띄워요' },
-  // 지구오락실 말놀이 — 예능에서 본 놀이를 교실로. 홈에서 세 번째 묶음에 선다(arcade).
+  // 지구오락실 말놀이 — 예능에서 본 놀이를 교실로. 홈에서 두 번째 묶음에 선다(arcade).
   fourword: { label: '4글자 이어말하기', emoji: '🔠', kind: 'quiz', topics: false, arcade: true, blurb: '앞 두 글자를 보고 뒤 두 글자를 외쳐요' },
   person: { label: '인물퀴즈', emoji: '🧑', kind: 'quiz', topics: true, arcade: true, blurb: '사진을 보고 누구인지 외쳐요' },
   relay: { label: '줄줄이 말해요', emoji: '🔁', kind: 'tool', topics: false, arcade: true, blurb: '그 글자로 시작하는 말을 차례로 외쳐요' },
