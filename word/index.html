@@ -139,6 +139,11 @@
       <p class="chain-word" id="chain-word"></p>
       <p class="chain-next" id="chain-next" hidden></p>
       <p class="chain-turn" id="chain-turn" role="status"></p>
+      <!-- 판이 끝나면 — 이어진 말을 전부 펼친다. 타이머·버튼이 쉬는 동안이라 화면을 다 내줘도 된다. -->
+      <div class="chain-summary" id="chain-summary" hidden>
+        <p class="chain-summary-title" id="chain-summary-title"></p>
+        <p class="chain-summary-words" id="chain-summary-words"></p>
+      </div>
       <!-- 남은 시간 — 줄어드는 링 안에 숫자. 뒷자리에서는 숫자보다 호가 먼저 읽힌다.
            0이 되어도 판을 자동으로 끝내지 않는다(js/chain.js expire 참고). -->
       <div class="chain-clock" id="chain-clock">

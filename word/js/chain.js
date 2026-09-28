@@ -94,3 +94,13 @@ export function advance(round, result, word) {
   const words = w ? [...round.words, w] : round.words;
   return { ...round, log, words, expired: false, turn: (round.turn % round.groups) + 1 };
 }
+
+/** 이 판에서 성공한 차례 수 — 낱말을 적었든 안 적었든 센다. */
+export function okCount(round) {
+  return round.log.filter((e) => e.result === 'ok').length;
+}
+
+/** 적은 낱말이 하나라도 있나 — 없으면 기록 줄은 예전처럼 차례(1번 ✓)를 보여 준다. */
+export function hasWords(round) {
+  return round.log.some((e) => e.word);
+}
