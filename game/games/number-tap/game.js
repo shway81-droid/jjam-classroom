@@ -440,13 +440,22 @@
 
     var allOrdered = finished.concat(unfinished.map(function (ps) { return ps.index; }));
 
-    allOrdered.forEach(function (pIdx, rankIdx) {
+    // 아무도 한 칸도 못 눌렀으면 메달을 주지 않는다 (모두 🥇가 되지 않도록)
+    var nobodyMoved = finished.length === 0 && unfinished.every(function (ps) { return ps.current <= 1; });
+
+    // Equal progress among unfinished players shares the same rank/medal
+    var prevRankIdx = -1;
+    allOrdered.forEach(function (pIdx, pos) {
       var ps    = playerStates[pIdx];
       var color = PLAYER_COLORS[pIdx];
-      var medal = RANK_MEDALS[rankIdx] || (rankIdx + 1) + '위';
+      var prev  = pos > 0 ? playerStates[allOrdered[pos - 1]] : null;
+      var rankIdx = (prev && !ps.done && !prev.done && prev.current === ps.current)
+        ? prevRankIdx : pos;
+      prevRankIdx = rankIdx;
+      var medal = nobodyMoved ? '-' : (RANK_MEDALS[rankIdx] || (rankIdx + 1) + '위');
 
       var row = document.createElement('div');
-      row.className = 'rank-row' + (rankIdx === 0 ? ' rank-1' : '');
+      row.className = 'rank-row' + (rankIdx === 0 && !nobodyMoved ? ' rank-1' : '');
 
       var medalEl = document.createElement('div');
       medalEl.className = 'rank-medal';

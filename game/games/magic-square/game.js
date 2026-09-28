@@ -79,7 +79,7 @@ function msCountSolutions(givenCells) {
 }
 
 // 라운드별 빈칸 수 (중앙 5는 항상 힌트 유지)
-const MS_BLANK_COUNTS = [3, 5, 7];
+const MS_BLANK_COUNTS = [3, 5, 6]; // 유일해를 지키면 7칸은 만들어지지 않는다 (최대 6)
 
 // 라운드별 퍼즐 생성
 let msPuzzleVariantIdx = 0;
@@ -541,7 +541,8 @@ function msLoadRound() {
   msSolved = [];
   msSelected = [];
 
-  const blanks = MS_BLANK_COUNTS[msRoundIdx];
+  // 표시는 실제로 비운 칸 수로 (유일해 검사로 계획보다 적어질 수 있음)
+  const blanks = msCurrentPuzzle.blankSet.size;
 
   for (let i = 0; i < msPlayerCount; i++) {
     const cells = [...msCurrentPuzzle.sol];
@@ -596,7 +597,7 @@ function msShowResult() {
   const max = Math.max(...msScores);
   const winners = msScores.map((s, i) => ({ s, i })).filter(x => x.s === max).map(x => x.i);
   if (max === 0) {
-    msResultTitle.textContent = '무승부!';
+    msResultTitle.textContent = '게임 종료!';
     msResultWinner.textContent = '아무도 먼저 완성하지 못했어요.';
   } else if (winners.length === 1) {
     msResultTitle.textContent = '게임 종료!';

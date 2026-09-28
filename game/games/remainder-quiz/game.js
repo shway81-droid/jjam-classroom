@@ -399,6 +399,7 @@ function resolveQuestion(winnerIdx, winBtn) {
     } else {
       sound.play('timeout');
       problemStatus.textContent = '모두 실격 😅';
+      revealAnswer();
     }
 
     questionLog.push({
@@ -492,7 +493,11 @@ function showResult() {
   const maxScore = Math.max(...scores);
   const winners  = scores.reduce((acc, s, i) => { if (s === maxScore) acc.push(i); return acc; }, []);
 
-  if (winners.length === 1) {
+  if (maxScore === 0) {
+    resultTitle.textContent  = '😅 게임 종료!';
+    resultWinner.textContent = '아무도 점수를 얻지 못했어요.';
+    resultWinner.style.color = '#26A69A';
+  } else if (winners.length === 1) {
     const cfg = PLAYER_CONFIG[winners[0]];
     resultTitle.textContent  = '🏆 게임 종료!';
     resultWinner.textContent = `${cfg.label} 최종 우승! 🎉`;

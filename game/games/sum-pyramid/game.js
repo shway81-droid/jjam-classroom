@@ -522,7 +522,7 @@ function spShowResult() {
   const max = Math.max(...spScores);
   const winners = spScores.map((s, i) => ({ s, i })).filter(x => x.s === max).map(x => x.i);
   if (max === 0) {
-    spResultTitle.textContent = '무승부!';
+    spResultTitle.textContent = '게임 종료!';
     spResultWinner.textContent = '아무도 먼저 완성하지 못했어요.';
   } else if (winners.length === 1) {
     spResultTitle.textContent = '게임 종료!';

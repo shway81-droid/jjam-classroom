@@ -406,12 +406,15 @@ function hcHandleAnswerTap(playerIdx, slotIdx, btn) {
 function hcDisqualifyPlayer(playerIdx) {
   if (hcDqSet.has(playerIdx)) return;
   hcDqSet.add(playerIdx);
+  hcScores[playerIdx] = Math.max(0, hcScores[playerIdx] - 1);
+  hcUpdateScoreChip(playerIdx);
+  hcUpdateBarScore(playerIdx);
 
   const zone = hcGetZone(playerIdx);
   if (zone) {
     const flash = document.createElement('div');
     flash.className = 'penalty-flash';
-    flash.textContent = '실격!';
+    flash.textContent = '-1 실격!';
     zone.appendChild(flash);
     flash.addEventListener('animationend', () => flash.remove());
     zone.classList.add('dq-zone');
@@ -610,7 +613,10 @@ function hcShowResult() {
     .filter(x => x.s === maxScore)
     .map(x => x.i);
 
-  if (winners.length === 1) {
+  if (maxScore === 0) {
+    hcResultTitle.textContent  = '😅 게임 종료!';
+    hcResultWinner.textContent = '아무도 점수를 얻지 못했어요.';
+  } else if (winners.length === 1) {
     const w = winners[0];
     hcResultTitle.textContent  = '🏆 게임 종료!';
     hcResultWinner.textContent = `${HC_PLAYER_CONFIG[w].label} 승리! (${maxScore}점)`;

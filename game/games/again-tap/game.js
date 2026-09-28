@@ -260,9 +260,8 @@
     allTimers.push(t);
   }
 
-  function advanceZone(st) {
+  function advanceZone(st, next) {
     // 반복 여부는 "지금 화면에 떠 있는 아이콘" 기준 (1-back).
-    var next = nextItem(st.currentItem);
     st.prevItem        = st.currentItem; // 직전 표시 아이템 기록(참고용)
     st.currentItem     = next.item;
     st.currentIsRepeat = next.isRepeat;
@@ -300,11 +299,15 @@
     return TICK_END + ratio * (TICK_START - TICK_END);
   }
 
-  function scheduleTick(st) {
+  // 모든 존이 같은 카드를 같은 순간에 받는다 — 운에 따라 최고 점수가 달라지지 않도록
+  var sharedItem = null;
+  function scheduleTick() {
     if (!gameRunning) return;
-    advanceZone(st);
+    var next = nextItem(sharedItem);
+    sharedItem = next.item;
+    zones.forEach(function (st) { advanceZone(st, next); });
     var t = setTimeout(function () {
-      scheduleTick(st);
+      scheduleTick();
     }, getTickInterval());
     allTimers.push(t);
   }
@@ -332,16 +335,9 @@
 
     gameTimer.start();
 
-    // 각 존 약간씩 시차를 두고 시작 (병렬, 독립 스트림)
-    for (var p = 0; p < playerCount; p++) {
-      (function (idx) {
-        var delay = idx * 150 + Math.random() * 200;
-        var t = setTimeout(function () {
-          scheduleTick(zones[idx]);
-        }, delay);
-        allTimers.push(t);
-      })(p);
-    }
+    // 모든 존이 같은 스트림을 함께 받는다
+    sharedItem = null;
+    scheduleTick();
   }
 
   // ===== 게임 종료 =====

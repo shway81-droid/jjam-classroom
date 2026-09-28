@@ -398,6 +398,7 @@ function eoAllAnswered() {
 
 // -- Item timeout ---------------------------------------------
 function eoHandleItemTimeout() {
+  eoPhase = 'reveal'; // 정답 공개 중에는 탭을 받지 않는다 — eoLoadItem 이 다시 연다
   eoSound.play('timeout');
   var currentItem = eoItems[eoItemIdx];
   for (var i = 0; i < eoPlayerCount; i++) {

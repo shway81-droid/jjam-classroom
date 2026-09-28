@@ -387,8 +387,10 @@ function startGame() {
   buildZones();
   buildScoreBar();
 
+  // 같은 기준으로 겨루므로 모두 같은 판에서 시작한다 (판 하나를 만들어 깊은 복사)
+  const baseGrid = makeGrid(dims.rows, dims.cols);
   for (let i = 0; i < playerCount; i++) {
-    zoneGrid.push(makeGrid(dims.rows, dims.cols));
+    zoneGrid.push(baseGrid.map(row => row.slice()));
     renderBoard(i);
     updateRemovedChip(i);
   }
@@ -413,7 +415,7 @@ function showResult() {
   }
 
   if (maxScore === 0) {
-    resultTitle.textContent = '무승부!';
+    resultTitle.textContent = '게임 종료!';
     resultWinner.textContent = '아무도 블록을 없애지 못했어요.';
   } else if (winners.length === 1) {
     const w = winners[0];
@@ -429,7 +431,7 @@ function showResult() {
   totalRow.innerHTML = '';
   for (let i = 0; i < playerCount; i++) {
     const cfg = PLAYER_CONFIG[i];
-    const isWin = winners.includes(i);
+    const isWin = maxScore > 0 && winners.includes(i);
     const chip = document.createElement('div');
     chip.className = 'total-chip';
     chip.innerHTML = `

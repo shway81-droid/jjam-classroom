@@ -362,6 +362,7 @@ function hlAllAnswered() {
 
 // -- Item timeout ---------------------------------------------
 function hlHandleItemTimeout() {
+  hlPhase = 'reveal'; // 정답 공개 중에는 탭을 받지 않는다 — hlLoadItem 이 다시 연다
   hlSound.play('timeout');
   // 정답 버튼 공개
   const currentItem = hlItems[hlItemIdx];

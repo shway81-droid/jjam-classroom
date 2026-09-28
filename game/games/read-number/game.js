@@ -16,40 +16,41 @@ const PLAYER_CONFIG = [
 ];
 
 // -- Number-Reading Data --------------------------------------
-// front = 우리말 읽기, answer = 숫자, wrongs = 비슷한 숫자 2개
+// front = 우리말 읽기, answer = 숫자, wrongs = 자릿값을 헷갈린 숫자 2개
+// (정답이 보기 중 가장 큰 수·가장 작은 수·가운데 수가 고루 섞이도록)
 const ALL_PROVERBS = [
-  { front: "천이백삼십사", answer: "1234", wrongs: ["1233", "1235"] },
-  { front: "이천오백칠십", answer: "2570", wrongs: ["2571", "2560"] },
-  { front: "삼천사백육", answer: "3406", wrongs: ["3405", "3407"] },
-  { front: "사천구십", answer: "4090", wrongs: ["4091", "4080"] },
-  { front: "오천일", answer: "5001", wrongs: ["5000", "5002"] },
-  { front: "육천팔백이십", answer: "6820", wrongs: ["6821", "6810"] },
-  { front: "칠천삼백십오", answer: "7315", wrongs: ["7314", "7316"] },
-  { front: "팔천육십사", answer: "8064", wrongs: ["8063", "8065"] },
-  { front: "구천이백", answer: "9200", wrongs: ["9201", "9210"] },
-  { front: "천오십", answer: "1050", wrongs: ["1051", "1040"] },
-  { front: "이천삼", answer: "2003", wrongs: ["2002", "2004"] },
-  { front: "삼천칠백이십", answer: "3720", wrongs: ["3721", "3710"] },
-  { front: "사천오백십칠", answer: "4517", wrongs: ["4516", "4518"] },
-  { front: "오천육백팔십", answer: "5680", wrongs: ["5681", "5670"] },
-  { front: "육천구", answer: "6009", wrongs: ["6008", "6019"] },
-  { front: "칠천백", answer: "7100", wrongs: ["7101", "7110"] },
-  { front: "팔천사백삼십이", answer: "8432", wrongs: ["8431", "8433"] },
-  { front: "구천팔백칠십오", answer: "9875", wrongs: ["9874", "9876"] },
-  { front: "천육백칠", answer: "1607", wrongs: ["1606", "1608"] },
-  { front: "이천팔백사십", answer: "2840", wrongs: ["2841", "2830"] },
-  { front: "삼천오십", answer: "3050", wrongs: ["3051", "3040"] },
-  { front: "사천이백육", answer: "4206", wrongs: ["4205", "4207"] },
-  { front: "오천삼백구십", answer: "5390", wrongs: ["5391", "5380"] },
-  { front: "육천칠백십사", answer: "6714", wrongs: ["6713", "6715"] },
-  { front: "칠천이", answer: "7002", wrongs: ["7001", "7003"] },
-  { front: "팔천백육십", answer: "8160", wrongs: ["8161", "8150"] },
-  { front: "구천사십삼", answer: "9043", wrongs: ["9042", "9044"] },
-  { front: "천구백이십팔", answer: "1928", wrongs: ["1927", "1929"] },
-  { front: "이천십육", answer: "2016", wrongs: ["2015", "2017"] },
-  { front: "삼천오백", answer: "3500", wrongs: ["3501", "3510"] },
-  { front: "사천육백팔십일", answer: "4681", wrongs: ["4680", "4682"] },
-  { front: "오천이백칠", answer: "5207", wrongs: ["5206", "5208"] },
+  { front: "천이백삼십사", answer: "1234", wrongs: ["1324", "1243"] },
+  { front: "이천오백칠십", answer: "2570", wrongs: ["257", "2507"] },
+  { front: "삼천사백육", answer: "3406", wrongs: ["3046", "3460"] },
+  { front: "사천구십", answer: "4090", wrongs: ["409", "4009"] },
+  { front: "오천일", answer: "5001", wrongs: ["5100", "5010"] },
+  { front: "육천팔백이십", answer: "6820", wrongs: ["6802", "682"] },
+  { front: "칠천삼백십오", answer: "7315", wrongs: ["7351", "7305"] },
+  { front: "팔천육십사", answer: "8064", wrongs: ["8604", "8640"] },
+  { front: "구천이백", answer: "9200", wrongs: ["920", "9020"] },
+  { front: "천오십", answer: "1050", wrongs: ["1500", "1005"] },
+  { front: "이천삼", answer: "2003", wrongs: ["2030", "2300"] },
+  { front: "삼천칠백이십", answer: "3720", wrongs: ["3702", "372"] },
+  { front: "사천오백십칠", answer: "4517", wrongs: ["4571", "4507"] },
+  { front: "오천육백팔십", answer: "5680", wrongs: ["5608", "568"] },
+  { front: "육천구", answer: "6009", wrongs: ["6090", "6900"] },
+  { front: "칠천백", answer: "7100", wrongs: ["7010", "7001"] },
+  { front: "팔천사백삼십이", answer: "8432", wrongs: ["8423", "8342"] },
+  { front: "구천팔백칠십오", answer: "9875", wrongs: ["9857", "98705"] },
+  { front: "천육백칠", answer: "1607", wrongs: ["1670", "1760"] },
+  { front: "이천팔백사십", answer: "2840", wrongs: ["2804", "20840"] },
+  { front: "삼천오십", answer: "3050", wrongs: ["3500", "3005"] },
+  { front: "사천이백육", answer: "4206", wrongs: ["4260", "4602"] },
+  { front: "오천삼백구십", answer: "5390", wrongs: ["539", "5309"] },
+  { front: "육천칠백십사", answer: "6714", wrongs: ["6741", "7614"] },
+  { front: "칠천이", answer: "7002", wrongs: ["7020", "7200"] },
+  { front: "팔천백육십", answer: "8160", wrongs: ["8106", "816"] },
+  { front: "구천사십삼", answer: "9043", wrongs: ["9430", "9034"] },
+  { front: "천구백이십팔", answer: "1928", wrongs: ["1982", "1298"] },
+  { front: "이천십육", answer: "2016", wrongs: ["2106", "2160"] },
+  { front: "삼천오백", answer: "3500", wrongs: ["3050", "350"] },
+  { front: "사천육백팔십일", answer: "4681", wrongs: ["4618", "4861"] },
+  { front: "오천이백칠", answer: "5207", wrongs: ["5270", "5027"] },
 ];
 
 // -- Sound Manager --------------------------------------------
@@ -662,12 +663,12 @@ function showResult() {
     </td>`;
 
     for (let i = 0; i < playerCount; i++) {
-      if (log.timedOut) {
-        cells += `<td class="cell-timeout">시간초과</td>`;
-      } else if (log.winnerIdx === i) {
+      if (log.winnerIdx === i) {
         cells += `<td class="cell-win">+1</td>`;
       } else if (log.dqPlayers.includes(i)) {
         cells += `<td class="cell-wrong">오답</td>`;
+      } else if (log.timedOut) {
+        cells += `<td class="cell-timeout">시간초과</td>`;
       } else {
         cells += `<td class="cell-none">-</td>`;
       }

@@ -334,6 +334,11 @@
       resultEmojiEl.textContent = '🎉';
       resultTitleEl.textContent = PLAYER_NAMES[winners[0]] + ' 승리!';
       resultTitleEl.style.color = PLAYER_COLORS[winners[0]];
+    } else if (winners.length < playerCount) {
+      // 1위 동점자만 공동 우승 (다른 사람은 점수가 더 낮음)
+      resultEmojiEl.textContent = '🎉';
+      resultTitleEl.textContent = winners.map(function (w) { return PLAYER_NAMES[w]; }).join(', ') + ' 공동 우승!';
+      resultTitleEl.style.color = '#AB47BC';
     } else {
       resultEmojiEl.textContent = '🤝';
       resultTitleEl.textContent = '무승부!';
@@ -348,9 +353,9 @@
     order.sort(function (x, y) { return scores[y] - scores[x]; });
 
     order.forEach(function (p) {
-      var isWinner = scores[p] === maxScore && winners.length === 1;
+      var isWinner = scores[p] === maxScore && winners.length < playerCount;
       var row = document.createElement('div');
-      row.className = 'result-score-row' + (scores[p] === maxScore ? ' winner-row' : '');
+      row.className = 'result-score-row' + (isWinner ? ' winner-row' : '');
 
       var dot = document.createElement('span');
       dot.className = 'result-score-dot';

@@ -55,6 +55,7 @@ scripts/verify-game.js  # 게임 1개 정적 검증 23항목 (node scripts/verif
 scripts/verify-all.js   # 전 게임 일괄 검증 + registry 정합성 (npm test)
 scripts/gen-metadata.js # game.json → 파생 메타 생성 (npm run gen)
 scripts/browser-verify.js       # 실제 브라우저로 자동 플레이 (npm run verify:browser)
+scripts/touch-tap.test.js       # onTap 터치 회귀 검사 — disabled 버튼 터치 차단 (npm run test:touch)
 scripts/check-font-coverage.mjs # 서브셋 폰트에 없는 글자가 생겼는지 확인
 ```
 
@@ -84,12 +85,16 @@ npm run verify:browser -- <폴더> [<폴더> ...]   # 특정 게임
 npm run verify:browser -- --all --jobs=4        # 전 게임
 ```
 
-`.github/workflows/browser.yml`이 **PR에서는 그 PR이 건드린 게임만**, main 푸시·매주 월요일에는
-전 게임을 돈다. (전 게임이 로드하는 `shared/style.css`·`shared/engine.js`나 하니스 자체가
+저장소 루트의 `.github/workflows/game-browser.yml`이 **PR에서는 그 PR이 건드린 게임만**, main 푸시·매주
+월요일에는 전 게임을 돈다. (전 게임이 로드하는 `shared/style.css`·`shared/engine.js`나 하니스 자체가
 바뀌면 PR에서도 전 게임을 돈다 — 전체에 영향이 가므로.)
 
 조작 방식이 달라 자동 플레이가 안 되는 게임(타일 배치·드래그·시퀀스 재현 등)은 **실패가 아니라
 △로 구분해 보고**한다. 그 게임도 로딩·PLAY·게임화면 진입·콘솔 에러 0 까지는 확인된다.
+
+자동 플레이는 **마우스로** 누르므로 터치에서만 생기는 문제는 못 본다. 크로미움은 disabled 버튼에
+click 은 안 보내지만 **touchstart 는 보낸다** — 그래서 `onTap`이 터치에서도 disabled 를 거른다.
+이 동작은 같은 워크플로의 `npm run test:touch`(`scripts/touch-tap.test.js`)가 터치 에뮬레이션으로 지킨다.
 
 ## 사이트 아이콘
 

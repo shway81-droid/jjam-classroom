@@ -401,6 +401,7 @@ function msAllAnswered() {
 
 // -- Item timeout ---------------------------------------------
 function msHandleItemTimeout() {
+  msPhase = 'item-reveal';  // 정답 공개 중에는 탭을 받지 않는다 (다음 문항이 item-active 로 되돌림)
   msSound.play('timeout');
   var currentItem = msItems[msItemIdx];
   for (var i = 0; i < msPlayerCount; i++) {
@@ -514,7 +515,7 @@ function msShowResult() {
     .map(function(x) { return x.i; });
 
   if (maxScore === 0) {
-    msResultTitle.textContent  = '무승부!';
+    msResultTitle.textContent  = '게임 종료!';
     msResultWinner.textContent = '아무도 점수를 얻지 못했어요.';
   } else if (winners.length === 1) {
     var w = winners[0];

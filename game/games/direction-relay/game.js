@@ -143,7 +143,7 @@ function nextRound(){
   renderSlots(true);
   renderInputDots();
   disableInputs(true);
-  showBanner('👁 P1: 집중해서 보세요!','info');
+  showBanner('👁 P1만 보세요! P2는 잠깐 화면을 보지 마세요!','info');
   revealSequence();
 }
 
@@ -208,6 +208,7 @@ function revealSequence(){
 
 function startInputPhase(){
   roundActive=true;
+  renderSlots(true); // 순서를 가린다 — P2는 P1의 말만 듣고 눌러야 한다
   disableInputs(false);
   showBanner('🗣 P1: 순서를 말해주세요!','info');
   if(roundTimer)roundTimer.stop();

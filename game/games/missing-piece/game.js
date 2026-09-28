@@ -630,10 +630,10 @@ function nextRound() {
     roundStatus.textContent = '';
     roundStatus.className   = 'round-status';
 
-    // Build answer sets for each player (same choices, independently shuffled)
+    // Build one answer set per round — 먼저 누르기 경쟁이 공정하도록 모두 같은 보기·같은 순서
+    var wrongs  = generateWrongPieces(currentPattern.answer);
+    var choices = shuffle([currentPattern.answer].concat(wrongs));
     for (var p = 0; p < playerCount; p++) {
-      var wrongs  = generateWrongPieces(currentPattern.answer);
-      var choices = shuffle([currentPattern.answer].concat(wrongs));
       populateAnswerGrid(p, choices);
 
       var zone = getZone(p);
@@ -678,7 +678,10 @@ function showResult() {
 
   resultTitle.textContent = '게임 종료!';
 
-  if (winners.length === 1) {
+  if (maxScore <= 0) {
+    resultWinner.textContent = '아무도 점수를 얻지 못했어요.';
+    resultWinner.style.color = '#546E7A';
+  } else if (winners.length === 1) {
     var cfg = PLAYER_CONFIG[winners[0]];
     resultWinner.textContent = cfg.label + ' 최종 우승!';
     resultWinner.style.color = cfg.hex;
@@ -695,14 +698,17 @@ function showResult() {
   order.sort(function(a, b) { return scores[b] - scores[a]; });
 
   resultScoresWrap.innerHTML = '';
-  order.forEach(function(p, rank) {
+  order.forEach(function(p) {
     var row = document.createElement('div');
-    row.className = 'result-score-row' + (scores[p] === maxScore ? ' winner-row' : '');
+    row.className = 'result-score-row' + (maxScore > 0 && scores[p] === maxScore ? ' winner-row' : '');
 
     var rankEl = document.createElement('span');
     rankEl.className = 'result-score-rank';
     // Use text ranks, avoid emoji per spec
-    rankEl.textContent = rank === 0 ? '1위' : (rank === 1 ? '2위' : (rank === 2 ? '3위' : (rank + 1) + '위'));
+    // 같은 점수는 같은 등수 (나보다 점수가 높은 사람 수 + 1)
+    var tieRank = 1;
+    for (var q = 0; q < playerCount; q++) { if (scores[q] > scores[p]) tieRank++; }
+    rankEl.textContent = tieRank + '위';
 
     var dot = document.createElement('span');
     dot.className = 'result-score-dot';

@@ -524,12 +524,12 @@ function showResult() {
     let cells = `<td style="text-align:left;font-size:0.82rem;font-variant-numeric:tabular-nums;">${idx + 1}. ${eqText}</td>`;
 
     for (let i = 0; i < playerCount; i++) {
-      if (log.timedOut) {
-        cells += `<td class="cell-timeout">시간초과</td>`;
-      } else if (log.winnerIdx === i) {
+      if (log.winnerIdx === i) {
         cells += `<td class="cell-win">+1</td>`;
       } else if (log.dqPlayers.includes(i)) {
         cells += `<td class="cell-wrong">-1</td>`;
+      } else if (log.timedOut) {
+        cells += `<td class="cell-timeout">시간초과</td>`;
       } else {
         cells += `<td class="cell-none">—</td>`;
       }

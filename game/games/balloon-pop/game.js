@@ -295,20 +295,39 @@
   }
 
   // ===== 풍선 스폰 =====
-  function spawnBalloon(playerIdx) {
+  // 모든 존에 같은 풍선(색·가로 위치 비율·속도)을 같은 순간에 띄운다 — 운에 따라 최고 점수가 달라지지 않도록
+  function spawnWave() {
+    if (!gameRunning) return;
+
+    var color  = BALLOON_COLORS[Math.floor(Math.random() * BALLOON_COLORS.length)];
+    var xRatio = Math.random();
+    for (var p = 0; p < playerCount; p++) {
+      spawnBalloon(p, color, xRatio);
+    }
+
+    // Schedule next wave
+    var spawnDelay = 800 + Math.random() * 1000;
+    // Slightly faster when time is low
+    var ratio = timerRemaining / GAME_DURATION;
+    spawnDelay = Math.max(400, spawnDelay * (0.4 + ratio * 0.6));
+
+    var nextT = setTimeout(spawnWave, spawnDelay);
+    allTimers.push(nextT);
+  }
+
+  function spawnBalloon(playerIdx, color, xRatio) {
     if (!gameRunning) return;
 
     var field = zoneFields[playerIdx];
     var fieldW = field.offsetWidth  || 120;
     var fieldH = field.offsetHeight || 200;
 
-    var color   = BALLOON_COLORS[Math.floor(Math.random() * BALLOON_COLORS.length)];
     var balloon = document.createElement('div');
     balloon.className = 'balloon';
 
     // Random horizontal position (keep within bounds: 50px wide)
     var maxX = Math.max(0, fieldW - 54);
-    var xPos = Math.floor(Math.random() * maxX);
+    var xPos = Math.floor(xRatio * maxX);
     balloon.style.left = xPos + 'px';
     balloon.style.bottom = '-70px';
 
@@ -362,17 +381,6 @@
       }
     }, duration);
     allTimers.push(missTimer);
-
-    // Schedule next balloon spawn for this zone
-    var spawnDelay = 800 + Math.random() * 1000;
-    // Slightly faster when time is low
-    var ratio = timerRemaining / GAME_DURATION;
-    spawnDelay = Math.max(400, spawnDelay * (0.4 + ratio * 0.6));
-
-    var nextT = setTimeout(function () {
-      spawnBalloon(playerIdx);
-    }, spawnDelay);
-    allTimers.push(nextT);
   }
 
   // ===== 게임 시작 =====
@@ -398,16 +406,9 @@
 
     gameTimer.start();
 
-    // Stagger initial spawns per zone
-    for (var p = 0; p < playerCount; p++) {
-      (function (idx) {
-        var delay = idx * 200 + Math.random() * 300;
-        var t = setTimeout(function () {
-          spawnBalloon(idx);
-        }, delay);
-        allTimers.push(t);
-      })(p);
-    }
+    // 첫 풍선은 모든 존에 동시에
+    var t = setTimeout(spawnWave, 300);
+    allTimers.push(t);
   }
 
   // ===== 게임 종료 =====

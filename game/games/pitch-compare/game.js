@@ -455,9 +455,12 @@ function handleChoiceTap(playerIdx, choice) {
   if (choice === currentRound.answer) {
     resolveRound(playerIdx);
   } else {
-    // Wrong answer: disqualify for this round
+    // Wrong answer: -1 (floor 0) and disqualify for this round
     sound.play('buzz');
     dqSet.add(playerIdx);
+    scores[playerIdx] = Math.max(0, scores[playerIdx] - 1);
+    updateScoreChip(playerIdx);
+    updateBarScore(playerIdx);
 
     getChoiceBtns(playerIdx).forEach(function(btn) {
       if (btn.dataset.choice === choice) {
@@ -661,7 +664,7 @@ function showResult() {
       if (log.winnerIdx === i) {
         cells += '<td class="cell-win">+1</td>';
       } else if (log.dqPlayers.includes(i)) {
-        cells += '<td class="cell-wrong">실격</td>';
+        cells += '<td class="cell-wrong">-1</td>';
       } else if (log.timedOut) {
         cells += '<td class="cell-timeout">시간초과</td>';
       } else {

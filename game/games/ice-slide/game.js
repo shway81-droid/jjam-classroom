@@ -507,7 +507,7 @@ function iceShowResult() {
   iceSound.play('fanfare');
   const max = Math.max(...iceScores);
   const winners = iceScores.map((s, i) => ({ s, i })).filter(x => x.s === max).map(x => x.i);
-  if (max === 0) { iceResultTitle.textContent = '무승부!'; iceResultWinner.textContent = '아무도 완성하지 못했어요.'; }
+  if (max === 0) { iceResultTitle.textContent = '게임 종료!'; iceResultWinner.textContent = '아무도 완성하지 못했어요.'; }
   else if (winners.length === 1) { iceResultTitle.textContent = '게임 종료!'; iceResultWinner.textContent = `${ICE_PLAYER_CONFIG[winners[0]].label} 우승! (${max}승)`; }
   else { const labels = winners.map(w => ICE_PLAYER_CONFIG[w].label).join(', '); iceResultTitle.textContent = '동점!'; iceResultWinner.textContent = `${labels} 공동 1위! (${max}승)`; }
   iceTotalRow.innerHTML = '';

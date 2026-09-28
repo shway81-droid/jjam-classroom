@@ -30,7 +30,7 @@ var PATTERN_POOL = [
   [[1,0,0],[1,1,0],[0,1,1]],
   [[2,1,0],[0,0,1],[1,2,1]],
   // Row 1
-  [[1,2,1],[0,1,0],[2,0,2]],
+  [[1,2,0],[0,1,1],[2,0,2]],
   [[0,0,1],[1,1,0],[1,0,1]],
   [[1,1,1],[0,0,1],[2,1,0]],
   [[2,0,1],[1,2,1],[0,1,2]],
@@ -46,13 +46,13 @@ var PATTERN_POOL = [
   [[0,2,1],[1,0,1],[2,1,0]],
   [[1,1,0],[2,0,2],[0,1,1]],
   [[2,1,2],[0,0,1],[1,2,0]],
-  [[0,1,0],[1,2,1],[2,0,2]],
+  [[0,1,0],[1,2,0],[2,0,1]],
   // Row 4
   [[1,2,1],[2,0,0],[0,1,2]],
   [[0,0,2],[1,1,0],[2,1,1]],
   [[2,1,0],[0,2,1],[1,0,2]],
-  [[1,0,1],[2,1,2],[0,2,0]],
-  [[0,2,0],[1,0,1],[2,1,2]],
+  [[1,0,0],[2,1,2],[0,2,1]],
+  [[0,2,1],[1,0,0],[2,1,2]],
   // Row 5
   [[1,1,2],[0,2,1],[2,0,0]],
   [[2,0,1],[1,1,2],[0,2,1]],
@@ -734,7 +734,10 @@ function showResult() {
 
   resultTitle.textContent = '게임 종료!';
 
-  if (winners.length === 1) {
+  if (maxScore <= 0) {
+    resultWinner.textContent = '아무도 점수를 얻지 못했어요.';
+    resultWinner.style.color = '#546E7A';
+  } else if (winners.length === 1) {
     var cfg = PLAYER_CONFIG[winners[0]];
     resultWinner.textContent = cfg.label + ' 최종 우승!';
     resultWinner.style.color = cfg.hex;
@@ -751,13 +754,16 @@ function showResult() {
   order.sort(function(a, b) { return scores[b] - scores[a]; });
 
   resultScoresWrap.innerHTML = '';
-  order.forEach(function(p, rank) {
+  order.forEach(function(p) {
     var row = document.createElement('div');
-    row.className = 'result-score-row' + (scores[p] === maxScore ? ' winner-row' : '');
+    row.className = 'result-score-row' + (maxScore > 0 && scores[p] === maxScore ? ' winner-row' : '');
 
     var rankEl = document.createElement('span');
     rankEl.className = 'result-score-rank';
-    rankEl.textContent = (rank + 1) + '위';
+    // 같은 점수는 같은 등수 (나보다 점수가 높은 사람 수 + 1)
+    var tieRank = 1;
+    for (var q = 0; q < playerCount; q++) { if (scores[q] > scores[p]) tieRank++; }
+    rankEl.textContent = tieRank + '위';
 
     var dot = document.createElement('span');
     dot.className = 'result-score-dot';
