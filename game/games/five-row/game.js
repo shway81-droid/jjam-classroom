@@ -172,6 +172,7 @@
   // --- 게임 상태 ------------------------------------------------------------
   var board;          // board[r][c] = -1(빈칸) | 0 | 1
   var currentPlayer;  // 0 or 1
+  var gamesPlayed = 0; // 이 페이지에서 시작한 판 수 — 판마다 먼저 두는 사람을 바꾼다
   var gameOver;
   var locked;         // 애니메이션 중 입력 잠금
   var stoneCount;     // 놓인 돌 수
@@ -196,7 +197,8 @@
       for (var c = 0; c < SIZE; c++) row.push(-1);
       board.push(row);
     }
-    currentPlayer = 0;
+    currentPlayer = gamesPlayed % 2; // 첫 판은 P1, 다시하기마다 번갈아 먼저
+    gamesPlayed++;
     gameOver = false;
     locked = false;
     stoneCount = 0;

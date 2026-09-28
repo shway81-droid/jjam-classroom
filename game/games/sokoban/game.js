@@ -397,7 +397,7 @@ function showResult() {
   sound.play('fanfare');
   const max = Math.max(...scores);
   const winners = scores.map((s, i) => ({ s, i })).filter(x => x.s === max).map(x => x.i);
-  if (max === 0) { resultTitle.textContent = '무승부!'; resultWinner.textContent = '아무도 라운드를 이기지 못했어요.'; }
+  if (max === 0) { resultTitle.textContent = '게임 종료!'; resultWinner.textContent = '아무도 라운드를 이기지 못했어요.'; }
   else if (winners.length === 1) { resultTitle.textContent = '게임 종료!'; resultWinner.textContent = `${PLAYER_CONFIG[winners[0]].label} 우승! (${max}승)`; }
   else { const labels = winners.map(w => PLAYER_CONFIG[w].label).join(', '); resultTitle.textContent = '동점!'; resultWinner.textContent = `${labels} 공동 1위! (${max}승)`; }
   totalRow.innerHTML = '';

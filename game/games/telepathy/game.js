@@ -226,6 +226,7 @@
   var locked;         // 입력 잠금
   var p1Choice;       // { idx, e, n }
   var p2Choice;
+  var roundChoices;   // 이번 차례에 화면에 깔린 순서 (라운드·차례마다 섞는다)
 
   // --- DOM -----------------------------------------------------------------
   var topicText     = document.getElementById('topicText');
@@ -285,9 +286,9 @@
   }
 
   // --- 선택 카드 생성 (하단, 크게) -----------------------------------------
-  function buildChoices(topic) {
+  function buildChoices(choices) {
     choiceGrid.innerHTML = '';
-    topic.choices.forEach(function (ch, idx) {
+    choices.forEach(function (ch, idx) {
       var btn = document.createElement('button');
       btn.className = 'choice-card';
       btn.type = 'button';
@@ -322,8 +323,7 @@
     if (locked) return;
     if (phase !== 'p1' && phase !== 'p2') return;
 
-    var topic = topics[currentRound];
-    var ch = topic.choices[idx];
+    var ch = roundChoices[idx];
     locked = true;
     sounds.play('pick');
 
@@ -340,6 +340,10 @@
       }, 300);
       later(function () {
         showOverlay('👀', 'P2 차례!', 'P1 선택 완료! 이제 P2가 같은 질문에 답해요', 'P2 시작!', function () {
+          // P2 차례에 다시 섞어 "항상 첫 번째 카드" 같은 자리 약속이 통하지 않게 한다
+          roundChoices = shuffleArr(roundChoices);
+          buildChoices(roundChoices);
+          void choiceGrid.offsetWidth;   // 뒷면 상태로 먼저 그려야 뒤집기 연출이 산다
           setFacedown(false);
           sounds.play('flip');
           phase = 'p2';
@@ -371,7 +375,7 @@
     p2PickCard.classList.add('revealed');
 
     later(function () {
-      var isMatch = p1Choice.idx === p2Choice.idx;
+      var isMatch = p1Choice.n === p2Choice.n;   // 차례마다 순서가 달라 자리 대신 이름으로 비교
       if (isMatch) {
         matches++;
         updateScoreUI();
@@ -407,7 +411,8 @@
 
     var topic = topics[currentRound];
     topicText.textContent = topic.q;
-    buildChoices(topic);
+    roundChoices = shuffleArr(topic.choices);
+    buildChoices(roundChoices);
     setFacedown(false);
     updateRoundUI();
 

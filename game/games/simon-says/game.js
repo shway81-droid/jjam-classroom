@@ -118,6 +118,7 @@ let currentAction = null;
 let simonClaimed  = false;   // 가라사대 라운드에서 정답자가 나왔는지
 let roundDeltas   = [];      // 이번 라운드 플레이어별 득점
 let trapPressed   = new Set();
+let earlyLocked   = new Set(); // 지시가 뜨기 전에 눌러 이번 라운드가 잠긴 플레이어
 
 let prepTimer   = null;
 let windowTimer = null;
@@ -243,7 +244,7 @@ function clearZoneStates() {
 function setAllZonesArmed(armed) {
   for (let i = 0; i < playerCount; i++) {
     const z = getZone(i);
-    if (z) z.classList.toggle('armed', armed);
+    if (z) z.classList.toggle('armed', armed && !earlyLocked.has(i));
   }
 }
 
@@ -296,6 +297,7 @@ function nextRound() {
   phase        = 'prep';
   simonClaimed = false;
   trapPressed  = new Set();
+  earlyLocked  = new Set();
   roundDeltas  = new Array(playerCount).fill(0);
 
   clearZoneStates();
@@ -329,7 +331,19 @@ function showCommand() {
 
 // -- Tap handler ----------------------------------------------
 function handleActionTap(idx, zone) {
+  if (phase === 'prep') {
+    // 지시가 뜨기 전에 누르면 이번 라운드는 잠금 (마구 누르기 방지)
+    if (earlyLocked.has(idx)) return;
+    earlyLocked.add(idx);
+    sound.play('buzz');
+    zone.classList.add('shake', 'trapped');
+    zone.addEventListener('animationend', () => zone.classList.remove('shake'), { once: true });
+    setZoneFeedback(idx, '💥');
+    problemStatus.textContent = `${PLAYER_CONFIG[idx].label} 너무 빨라요! 이번 판은 쉬어요`;
+    return;
+  }
   if (phase !== 'active') return;
+  if (earlyLocked.has(idx)) return;
 
   if (currentSimon) {
     // 가라사대 라운드: 가장 먼저 누른 플레이어 +1
@@ -406,7 +420,11 @@ function showResult() {
   const maxScore = Math.max(...scores);
   const winners  = scores.reduce((acc, s, i) => { if (s === maxScore) acc.push(i); return acc; }, []);
 
-  if (winners.length === 1) {
+  if (maxScore <= 0) {
+    resultTitle.textContent  = '😅 게임 종료!';
+    resultWinner.textContent = '아무도 점수를 얻지 못했어요.';
+    resultWinner.style.color = '#555';
+  } else if (winners.length === 1) {
     const cfg = PLAYER_CONFIG[winners[0]];
     resultTitle.textContent  = '🏆 게임 종료!';
     resultWinner.textContent = `${cfg.label} 최종 우승! 🎉 (${maxScore}점)`;

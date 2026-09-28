@@ -34,6 +34,9 @@
 
 .zone-header { display: flex; align-items: center; justify-content: space-between; width: 100%; flex-shrink: 0; padding: 0 4px; }
 .zone-label { font-size: 0.82rem; font-weight: 900; letter-spacing: 0.04em; color: #2C2C2C; }
+.zone-tools { display: flex; align-items: center; gap: 6px; }
+.ball-reset-btn { font-family: inherit; font-size: 0.74rem; font-weight: 900; background: #FFD54F; border: 2px solid #2C2C2C; border-radius: 999px; padding: 2px 10px; color: #2C2C2C; white-space: nowrap; cursor: pointer; touch-action: manipulation; box-shadow: 2px 2px 0 #2C2C2C; }
+.ball-reset-btn:active { transform: translate(2px, 2px); box-shadow: none; }
 .zone-moves { font-size: 0.74rem; font-weight: 800; background: #fff; border: 2px solid #2C2C2C; border-radius: 999px; padding: 2px 10px; color: #2C2C2C; white-space: nowrap; }
 
 /* 시험관 영역 */

@@ -634,11 +634,26 @@
 
   // --- 결과 화면 -----------------------------------------------------------
   function showResult(winnerIdx) {
+    // 1위 동점자(공동 우승). 전원 같은 점수일 때만 무승부.
+    var topScore = Math.max.apply(null, scores.slice(0, numPlayers));
+    var coWinners = [];
+    for (var w = 0; w < numPlayers; w++) {
+      if (scores[w] === topScore) coWinners.push(w);
+    }
+    var allTied = coWinners.length === numPlayers;
+    function isTop(idx) { return !allTied && coWinners.indexOf(idx) !== -1; }
+
     if (winnerIdx >= 0) {
       resultEmoji.textContent = '🏆';
       resultTitle.textContent = PLAYER_NAMES[winnerIdx] + ' 승리!';
       resultTitle.style.color = PLAYER_COLORS[winnerIdx];
       resultSub.textContent   = PLAYER_NAMES[winnerIdx] + '가 가장 많은 사각형을 완성했어요!';
+    } else if (!allTied) {
+      var coNames = coWinners.map(function (c) { return PLAYER_NAMES[c]; }).join(', ');
+      resultEmoji.textContent = '🏆';
+      resultTitle.textContent = '공동 우승!';
+      resultTitle.style.color = '#78909C';
+      resultSub.textContent   = coNames + '가 똑같이 가장 많은 사각형을 완성했어요!';
     } else {
       resultEmoji.textContent = '🤝';
       resultTitle.textContent = '무승부!';
@@ -658,7 +673,7 @@
 
     ranked.forEach(function (item) {
       var row = document.createElement('div');
-      row.className = 'result-score-row' + (item.idx === winnerIdx ? ' winner' : '');
+      row.className = 'result-score-row' + (isTop(item.idx) ? ' winner' : '');
 
       var dot = document.createElement('div');
       dot.className = 'result-score-dot';
@@ -673,7 +688,7 @@
       boxCount.className = 'result-score-boxes';
       boxCount.textContent = item.score + '칸';
 
-      if (item.idx === winnerIdx) {
+      if (isTop(item.idx)) {
         var crown = document.createElement('span');
         crown.className = 'winner-crown';
         crown.textContent = '👑';

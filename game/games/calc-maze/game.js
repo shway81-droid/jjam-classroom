@@ -490,7 +490,7 @@ function showResult() {
     .map(x => x.i);
 
   if (maxScore === 0) {
-    resultTitle.textContent = '무승부!';
+    resultTitle.textContent = '게임 종료!';
     resultWinner.textContent = '아무도 라운드를 이기지 못했어요.';
   } else if (winners.length === 1) {
     const w = winners[0];
@@ -505,7 +505,7 @@ function showResult() {
   totalRow.innerHTML = '';
   for (let i = 0; i < playerCount; i++) {
     const cfg = PLAYER_CONFIG[i];
-    const isWin = winners.includes(i);
+    const isWin = maxScore > 0 && winners.includes(i);
     const chip = document.createElement('div');
     chip.className = 'total-chip';
     chip.innerHTML = `

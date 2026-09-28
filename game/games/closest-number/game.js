@@ -341,12 +341,15 @@ function cnHandleAnswerTap(playerIdx, slotIdx, btn) {
 function cnDisqualifyPlayer(playerIdx) {
   if (cnDqSet.has(playerIdx)) return;
   cnDqSet.add(playerIdx);
+  cnScores[playerIdx] = Math.max(0, cnScores[playerIdx] - 1);
+  cnUpdateScoreChip(playerIdx);
+  cnUpdateBarScore(playerIdx);
 
   const zone = cnGetZone(playerIdx);
   if (zone) {
     const flash = document.createElement('div');
     flash.className = 'penalty-flash';
-    flash.textContent = '실격!';
+    flash.textContent = '-1 실격!';
     zone.appendChild(flash);
     flash.addEventListener('animationend', () => flash.remove());
     zone.classList.add('dq-zone');
@@ -536,7 +539,10 @@ function cnShowResult() {
     .filter(x => x.s === maxScore)
     .map(x => x.i);
 
-  if (winners.length === 1) {
+  if (maxScore === 0) {
+    cnResultTitle.textContent  = '😅 게임 종료!';
+    cnResultWinner.textContent = '아무도 점수를 얻지 못했어요.';
+  } else if (winners.length === 1) {
     const w = winners[0];
     cnResultTitle.textContent  = '🏆 게임 종료!';
     cnResultWinner.textContent = `${CN_PLAYER_CONFIG[w].label} 승리! (${maxScore}점)`;

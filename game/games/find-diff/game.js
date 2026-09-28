@@ -508,7 +508,7 @@ function showResult() {
     .map(x => x.i);
 
   if (maxScore === 0) {
-    resultTitle.textContent  = '무승부!';
+    resultTitle.textContent  = '게임 종료!';
     resultWinner.textContent = '아무도 점수를 얻지 못했어요.';
   } else if (winners.length === 1) {
     const w = winners[0];

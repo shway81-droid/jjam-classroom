@@ -1130,10 +1130,20 @@ if (document.readyState === 'loading') {
  */
 function onTap(element, callback) {
   let touched = false;
+  let touchResetTimer = null;
 
   element.addEventListener('touchstart', function(e) {
     touched = true;
     e.preventDefault();
+    // preventDefault 로 뒤따르는 click 이 오지 않으므로, 플래그를 그대로 두면
+    // 다음 마우스 클릭 한 번이 무시된다(터치·마우스를 섞어 쓰는 전자칠판).
+    clearTimeout(touchResetTimer);
+    touchResetTimer = setTimeout(function() { touched = false; }, 600);
+    // disabled 버튼도 touchstart 는 받는다(click 만 막힘) — 터치에서도 막는다.
+    // 부모에 onTap 을 건 경우도 있으므로, 누른 곳이 disabled 컨트롤 안이면 무시한다
+    // (마우스로 disabled 버튼을 누르면 click 이 부모까지 가지 않는 것과 같게).
+    var t = e.target;
+    if (t && t.closest && t.closest(':disabled')) return;
     callback(e);
   }, { passive: false });
 

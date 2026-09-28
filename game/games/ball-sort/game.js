@@ -214,10 +214,14 @@ function ballBuildZones() {
     zone.innerHTML = `
       <div class="zone-header">
         <span class="zone-label">${cfg.label}</span>
-        <span class="zone-moves" id="ball-moves-${i}">이동 0</span>
+        <span class="zone-tools">
+          <button type="button" class="ball-reset-btn" id="ball-reset-${i}" aria-label="처음부터">↺처음부터</button>
+          <span class="zone-moves" id="ball-moves-${i}">이동 0</span>
+        </span>
       </div>
       <div class="ball-tubes" id="ball-tubes-${i}"></div>`;
     ballZonesWrap.appendChild(zone);
+    onTap(zone.querySelector(`#ball-reset-${i}`), () => ballHandleReset(i));
   }
 }
 
@@ -328,6 +332,18 @@ function ballHandleTubeTap(playerIdx, tubeIdx) {
   if (ballIsSolvedState(tubes)) {
     ballSolvePuzzle(playerIdx);
   }
+}
+
+// 막다른 배치에서 빠져나오도록 — 이 존만 라운드 시작 배치로 되돌린다 (타이머·점수 그대로)
+function ballHandleReset(playerIdx) {
+  if (ballPhase !== 'active' || ballSolved[playerIdx] || !ballCurLevelDef) return;
+  ballTubes[playerIdx] = ballCurLevelDef.map(t => t.slice());
+  ballSelected[playerIdx] = null;
+  ballMoves[playerIdx] = 0;
+  const movesEl = document.getElementById(`ball-moves-${playerIdx}`);
+  if (movesEl) movesEl.textContent = '이동 0';
+  ballSound.play('lift');
+  ballRenderBoard(playerIdx);
 }
 
 function ballSolvePuzzle(playerIdx) {
@@ -445,7 +461,7 @@ function ballShowResult() {
   ballSound.play('fanfare');
   const max = Math.max(...ballScores);
   const winners = ballScores.map((s, i) => ({ s, i })).filter(x => x.s === max).map(x => x.i);
-  if (max === 0) { ballResultTitle.textContent = '무승부!'; ballResultWinner.textContent = '아무도 완성하지 못했어요.'; }
+  if (max === 0) { ballResultTitle.textContent = '게임 종료!'; ballResultWinner.textContent = '아무도 완성하지 못했어요.'; }
   else if (winners.length === 1) { ballResultTitle.textContent = '게임 종료!'; ballResultWinner.textContent = `${BALL_PLAYER_CONFIG[winners[0]].label} 우승! (${max}승)`; }
   else { const labels = winners.map(w => BALL_PLAYER_CONFIG[w].label).join(', '); ballResultTitle.textContent = '동점!'; ballResultWinner.textContent = `${labels} 공동 1위! (${max}승)`; }
   ballTotalRow.innerHTML = '';

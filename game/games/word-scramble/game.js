@@ -656,7 +656,7 @@ function wsShowResult() {
     .map(function(x) { return x.i; });
 
   if (maxScore === 0) {
-    wsResultTitle.textContent  = '무승부!';
+    wsResultTitle.textContent  = '게임 종료!';
     wsResultWinner.textContent = '아무도 완성하지 못했어요.';
   } else if (winners.length === 1) {
     const w = winners[0];

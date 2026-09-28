@@ -176,6 +176,7 @@
   // --- 게임 상태 ------------------------------------------------------------
   var stonesLeft;
   var currentPlayer;  // 0 or 1
+  var gamesPlayed = 0; // 이 페이지에서 시작한 판 수 — 판마다 먼저 두는 사람을 바꾼다
   var gameOver;
   var stoneEls;       // array of DOM elements (stone-wrap divs), index 0..14
 
@@ -213,7 +214,8 @@
     clearAllTimers();
 
     stonesLeft = TOTAL_STONES;
-    currentPlayer = 0;
+    currentPlayer = gamesPlayed % 2; // 첫 판은 P1, 다시하기마다 번갈아 먼저
+    gamesPlayed++;
     gameOver = false;
     stoneEls = [];
 

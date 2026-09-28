@@ -408,7 +408,11 @@ function showResult() {
   const maxScore = Math.max(...totals);
   const winners  = totals.reduce((acc, s, i) => { if (s === maxScore) acc.push(i); return acc; }, []);
 
-  if (winners.length === 1) {
+  if (maxScore === 0) {
+    resultTitle.textContent  = '😅 게임 종료!';
+    resultWinner.textContent = '아무도 점수를 얻지 못했어요.';
+    resultWinner.style.color = '#555';
+  } else if (winners.length === 1) {
     const cfg = PLAYER_CONFIG[winners[0]];
     resultTitle.textContent  = '🏆 게임 종료!';
     resultWinner.textContent = `${cfg.label} 최종 우승! 🎉 (${maxScore}점)`;
@@ -441,7 +445,7 @@ function showResult() {
 
   // 총점 칩
   totalRow.innerHTML = players.map((p, i) => `
-    <div class="total-chip ${totals[i] === maxScore ? 'champ' : ''}">
+    <div class="total-chip ${maxScore > 0 && totals[i] === maxScore ? 'champ' : ''}">
       <span class="chip-dot" style="background:${p.hex}"></span>
       <span>${p.label}</span>
       <span class="chip-score">${totals[i]}점</span>

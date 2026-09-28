@@ -172,7 +172,8 @@ function cellMatches(cell, cond) {
 
 function makeTier(tier) {
   // Pick the condition
-  var condShape  = randItem(SHAPES);
+  // 별·삼각형은 clip-path 로 그려 테두리가 안 보이므로, 테두리 조건은 원·네모에만 건다
+  var condShape  = (tier === 3) ? randItem(['circle', 'square']) : randItem(SHAPES);
   var condColor  = randItem(COLORS);
   var condBorder = (tier === 3) ? (Math.random() < 0.5) : null;
 

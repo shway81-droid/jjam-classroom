@@ -16,7 +16,7 @@
   // --- 색 혼합 규칙 (순서 무관) ---------------------------------------------
   var MIX_RESULTS = {
     'red+yellow':   { key: 'orange',     name: '주황',   hex: '#FB8C00' },
-    'blue+yellow':  { key: 'lightgreen', name: '연두',   hex: '#7CB342' },
+    'blue+yellow':  { key: 'green',      name: '초록',   hex: '#43A047' },
     'blue+red':     { key: 'purple',     name: '보라',   hex: '#8E24AA' },
     'red+white':    { key: 'pink',       name: '분홍',   hex: '#F48FB1' },
     'blue+white':   { key: 'skyblue',    name: '하늘',   hex: '#81D4FA' },
@@ -25,7 +25,7 @@
     'black+yellow': { key: 'olive',      name: '카키',   hex: '#827717' },
     'green+red':    { key: 'darkbrown',  name: '진갈색', hex: '#4E342E' },
     'green+white':  { key: 'mint',       name: '민트',   hex: '#A5D6A7' },
-    'green+yellow': { key: 'lime',       name: '라임',   hex: '#C0CA33' },
+    'green+yellow': { key: 'lightgreen', name: '연두',   hex: '#9CCC65' },
     'black+blue':   { key: 'navy',       name: '남색',   hex: '#1A237E' },
     'black+green':  { key: 'darkgreen',  name: '진초록', hex: '#1B5E20' }
   };
@@ -43,10 +43,10 @@
     { p1: ['red', 'blue', 'green', 'white'], p2: ['yellow', 'black', 'white', 'green'], answer: ['red', 'yellow'] },
     { p1: ['white', 'red', 'black', 'green'], p2: ['blue', 'yellow', 'white', 'green'], answer: ['red', 'yellow'] },
     { p1: ['red', 'black', 'green', 'blue'], p2: ['yellow', 'red', 'white', 'blue'], answer: ['red', 'yellow'] },
-    // 연두 = 파랑 + 노랑
-    { p1: ['blue', 'red', 'white', 'black'], p2: ['yellow', 'red', 'green', 'white'], answer: ['blue', 'yellow'] },
-    { p1: ['green', 'blue', 'white', 'red'], p2: ['black', 'yellow', 'red', 'white'], answer: ['blue', 'yellow'] },
-    { p1: ['blue', 'green', 'red', 'black'], p2: ['yellow', 'white', 'green', 'black'], answer: ['blue', 'yellow'] },
+    // 초록 = 파랑 + 노랑 (목표가 초록이므로 초록 카드는 보기에서 뺀다)
+    { p1: ['blue', 'red', 'white', 'black'], p2: ['yellow', 'red', 'black', 'white'], answer: ['blue', 'yellow'] },
+    { p1: ['black', 'blue', 'white', 'red'], p2: ['black', 'yellow', 'red', 'white'], answer: ['blue', 'yellow'] },
+    { p1: ['blue', 'white', 'red', 'black'], p2: ['yellow', 'white', 'red', 'black'], answer: ['blue', 'yellow'] },
     // 보라 = 빨강 + 파랑
     { p1: ['red', 'green', 'yellow', 'white'], p2: ['blue', 'yellow', 'green', 'black'], answer: ['red', 'blue'] },
     { p1: ['red', 'white', 'yellow', 'black'], p2: ['blue', 'red', 'green', 'white'], answer: ['red', 'blue'] },
@@ -72,7 +72,7 @@
     // 민트 = 초록 + 흰색
     { p1: ['green', 'red', 'blue', 'yellow'], p2: ['white', 'black', 'red', 'yellow'], answer: ['green', 'white'] },
     { p1: ['white', 'yellow', 'red', 'blue'], p2: ['green', 'black', 'yellow', 'red'], answer: ['white', 'green'] },
-    // 라임 = 초록 + 노랑
+    // 연두 = 초록 + 노랑
     { p1: ['green', 'red', 'blue', 'white'], p2: ['yellow', 'red', 'white', 'black'], answer: ['green', 'yellow'] },
     { p1: ['yellow', 'red', 'blue', 'black'], p2: ['green', 'white', 'blue', 'red'], answer: ['yellow', 'green'] },
     // 남색 = 검정 + 파랑

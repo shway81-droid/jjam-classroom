@@ -187,7 +187,8 @@ function nlGenerateRound(roundIdx) {
   if (arrowIdx - 2 >= 0) adjacents.push(ticks[arrowIdx - 2]);
   if (arrowIdx + 2 < ticks.length) adjacents.push(ticks[arrowIdx + 2]);
 
-  for (const v of adjacents) {
+  // Shuffle so the answer's rank among the choices varies each round
+  for (const v of nlShuffleArray(adjacents)) {
     if (!used.has(v) && wrongChoices.length < 3) {
       used.add(v);
       wrongChoices.push(v);
@@ -488,11 +489,14 @@ function nlHandleChoiceTap(playerIdx, choiceIdx, btn, isCorrect) {
     nlSound.play('buzz');
     btn.classList.add('state-wrong');
     nlDqSet.add(playerIdx);
+    nlScores[playerIdx] = Math.max(0, nlScores[playerIdx] - 1);
+    nlUpdateScoreChip(playerIdx);
+    nlUpdateBarScore(playerIdx);
 
     const zone = nlGetZone(playerIdx);
     const flash = document.createElement('div');
     flash.className = 'penalty-flash';
-    flash.textContent = '실격!';
+    flash.textContent = '-1 실격!';
     zone.appendChild(flash);
     flash.addEventListener('animationend', function() { flash.remove(); });
 

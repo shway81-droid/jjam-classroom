@@ -336,6 +336,10 @@
       sounds.play('wrong');
       timeLeft = Math.max(0, timeLeft - MISS_PENALTY);
       updateTimeUI();
+      // createTimer 는 내부 remaining 으로 onTick 을 덮어쓰므로 줄어든 시간으로 다시 만든다.
+      if (gameTimer) { gameTimer.stop(); gameTimer = null; }
+      if (timeLeft <= 0) { showResult(); return; }
+      startGameTimer(timeLeft);
       showBanner('막혔어요! 벽/밖 (−' + MISS_PENALTY + '초)', 'ng');
       later(function () {
         clearPending();
@@ -426,7 +430,11 @@
     loadRound(roundIdx);
     showScreen('game');
 
-    gameTimer = createTimer(GAME_SECONDS, function (remaining) {
+    startGameTimer(GAME_SECONDS);
+  }
+
+  function startGameTimer(seconds) {
+    gameTimer = createTimer(seconds, function (remaining) {
       timeLeft = remaining;
       updateTimeUI();
     }, function () {

@@ -17,43 +17,45 @@ const PLAYER_CONFIG = [
 
 // -- Pair Data ------------------------------------------------
 // 서로 어울리는 짝. 36쌍 (패턴 A 30+ 필수). answer는 모두 고유.
+// avoid: 이 문제에서 그럴듯한 두 번째 정답이 되는 보기 (오답 보기에서 뺀다).
+// 문제 낱말 안에 든 보기(눈송이의 '눈' 등)는 makeChoices 가 따로 뺀다.
 const ALL_PAIRS = [
   { emoji: '🪡', word: '바늘',   answer: '실' },
   { emoji: '🥄', word: '숟가락', answer: '젓가락' },
-  { emoji: '✏️', word: '연필',   answer: '지우개' },
+  { emoji: '✏️', word: '연필',   answer: '지우개', avoid: ['책가방'] },
   { emoji: '🪥', word: '칫솔',   answer: '치약' },
   { emoji: '🏹', word: '활',     answer: '화살' },
   { emoji: '🔨', word: '망치',   answer: '못' },
   { emoji: '🔒', word: '자물쇠', answer: '열쇠' },
-  { emoji: '🐝', word: '벌',     answer: '꿀' },
-  { emoji: '🐦', word: '새',     answer: '둥지' },
+  { emoji: '🐝', word: '벌',     answer: '꿀', avoid: ['꽃', '둥지'] },
+  { emoji: '🐦', word: '새',     answer: '둥지', avoid: ['하늘'] },
   { emoji: '🧦', word: '양말',   answer: '발' },
-  { emoji: '🧤', word: '장갑',   answer: '손' },
+  { emoji: '🧤', word: '장갑',   answer: '손', avoid: ['겨울', '눈'] },
   { emoji: '👓', word: '안경',   answer: '눈' },
   { emoji: '🍞', word: '빵',     answer: '잼' },
-  { emoji: '☂️', word: '우산',   answer: '비' },
-  { emoji: '🚗', word: '자동차', answer: '도로' },
-  { emoji: '🚂', word: '기차',   answer: '철길' },
+  { emoji: '☂️', word: '우산',   answer: '비', avoid: ['천둥', '눈'] },
+  { emoji: '🚗', word: '자동차', answer: '도로', avoid: ['철길'] },
+  { emoji: '🚂', word: '기차',   answer: '철길', avoid: ['도로'] },
   { emoji: '✈️', word: '비행기', answer: '하늘' },
-  { emoji: '⛵', word: '배',     answer: '바다' },
-  { emoji: '🐟', word: '물고기', answer: '지느러미' },
+  { emoji: '⛵', word: '배',     answer: '바다', avoid: ['바람'] },
+  { emoji: '🐟', word: '물고기', answer: '지느러미', avoid: ['바다', '생선'] },
   { emoji: '🐰', word: '토끼',   answer: '당근' },
   { emoji: '🐶', word: '강아지', answer: '뼈다귀' },
   { emoji: '🐱', word: '고양이', answer: '생선' },
-  { emoji: '🐻', word: '곰',     answer: '동굴' },
-  { emoji: '🦋', word: '나비',   answer: '꽃' },
+  { emoji: '🐻', word: '곰',     answer: '동굴', avoid: ['꿀', '겨울', '생선'] },
+  { emoji: '🦋', word: '나비',   answer: '꽃', avoid: ['꿀', '화분'] },
   { emoji: '🕷️', word: '거미',   answer: '거미줄' },
-  { emoji: '🌙', word: '달',     answer: '별' },
-  { emoji: '☀️', word: '해',     answer: '낮' },
+  { emoji: '🌙', word: '달',     answer: '별', avoid: ['하늘', '빛'] },
+  { emoji: '☀️', word: '해',     answer: '낮', avoid: ['빛', '하늘', '별'] },
   { emoji: '❄️', word: '눈송이', answer: '겨울' },
-  { emoji: '🌷', word: '꽃',     answer: '화분' },
-  { emoji: '🔥', word: '불',     answer: '연기' },
+  { emoji: '🌷', word: '꽃',     answer: '화분', avoid: ['꿀'] },
+  { emoji: '🔥', word: '불',     answer: '연기', avoid: ['빛'] },
   { emoji: '💡', word: '전구',   answer: '빛' },
-  { emoji: '🎈', word: '풍선',   answer: '바람' },
+  { emoji: '🎈', word: '풍선',   answer: '바람', avoid: ['하늘'] },
   { emoji: '📚', word: '책',     answer: '책가방' },
-  { emoji: '⚽', word: '공',     answer: '골대' },
-  { emoji: '🎹', word: '피아노', answer: '건반' },
-  { emoji: '🌧️', word: '구름',   answer: '천둥' },
+  { emoji: '⚽', word: '공',     answer: '골대', avoid: ['발', '손'] },
+  { emoji: '🎹', word: '피아노', answer: '건반', avoid: ['손'] },
+  { emoji: '🌧️', word: '구름',   answer: '천둥', avoid: ['비', '하늘', '눈', '바람'] },
 ];
 
 const ANSWER_POOL = Array.from(new Set(ALL_PAIRS.map(p => p.answer)));
@@ -133,9 +135,12 @@ function clearTimers() {
 
 
 // Pick 4 answer choices: correct + 3 distinct distractors (no duplicates)
-function makeChoices(correctAnswer) {
-  const others = shuffle(ANSWER_POOL.filter(a => a !== correctAnswer));
-  return shuffle([correctAnswer, ...others.slice(0, 3)]);
+// 정답이 하나로 확정되도록 avoid 목록과 문제 낱말 안에 든 보기는 뺀다.
+function makeChoices(pair) {
+  const avoid = pair.avoid || [];
+  const others = shuffle(ANSWER_POOL.filter(a =>
+    a !== pair.answer && !avoid.includes(a) && !pair.word.includes(a)));
+  return shuffle([pair.answer, ...others.slice(0, 3)]);
 }
 
 // Render the prompt (emoji + word) into the display box
@@ -448,7 +453,7 @@ function handleTimeout() {
 function loadRound() {
   phase          = 'active';
   currentPair    = gameRounds[roundIdx];
-  currentChoices = makeChoices(currentPair.answer);
+  currentChoices = makeChoices(currentPair);
   dqSet          = new Set();
 
   questionCounter.textContent = `${roundIdx + 1} / ${TOTAL_ROUNDS}`;
@@ -499,8 +504,8 @@ function showResult() {
     .filter(x => x.s === maxScore)
     .map(x => x.i);
 
-  if (maxScore === 0) {
-    resultTitle.textContent  = '무승부!';
+  if (maxScore <= 0) {
+    resultTitle.textContent  = '게임 종료!';
     resultWinner.textContent = '아무도 점수를 얻지 못했어요.';
   } else if (winners.length === 1) {
     const w = winners[0];
@@ -526,12 +531,12 @@ function showResult() {
     let cells = `<td style="text-align:left;font-size:0.8rem;">${idx + 1}. ${log.label}</td>`;
 
     for (let i = 0; i < playerCount; i++) {
-      if (log.timedOut) {
-        cells += `<td class="cell-timeout">시간초과</td>`;
-      } else if (log.winnerIdx === i) {
+      if (log.winnerIdx === i) {
         cells += `<td class="cell-win">+1</td>`;
       } else if (log.dqPlayers.includes(i)) {
         cells += `<td class="cell-wrong">-1</td>`;
+      } else if (log.timedOut) {
+        cells += `<td class="cell-timeout">시간초과</td>`;
       } else {
         cells += `<td class="cell-none">—</td>`;
       }
@@ -543,7 +548,7 @@ function showResult() {
   totalRow.innerHTML = '';
   for (let i = 0; i < playerCount; i++) {
     const cfg   = PLAYER_CONFIG[i];
-    const isWin = winners.includes(i);
+    const isWin = maxScore > 0 && winners.includes(i);
     const chip  = document.createElement('div');
     chip.className = 'total-chip';
     chip.innerHTML = `

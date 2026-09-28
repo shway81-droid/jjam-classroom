@@ -380,11 +380,16 @@ function handleCardTap(playerIdx, cardIdx) {
       firstBtn.classList.add('wrong-flash');
       btn.classList.add('wrong-flash');
 
+      // Wrong pair costs a point (floor 0) so trying pairs in order isn't free
+      scores[playerIdx] = Math.max(0, scores[playerIdx] - 1);
+      updateScoreChip(playerIdx);
+      updateBarScore(playerIdx);
+
       // Show lock flash on zone
       const zone = getZone(playerIdx);
       const flash = document.createElement('div');
       flash.className = 'lock-flash';
-      flash.textContent = '✗ 1초';
+      flash.textContent = '✗ -1점';
       zone.appendChild(flash);
       flash.addEventListener('animationend', () => flash.remove());
 

@@ -285,6 +285,7 @@ function handleAnswer(playerIdx, chosenColor, btn) {
 
   // Correct answer = the INK color the word is printed in.
   if (chosenColor === st.ink.id) {
+    st.locked = true; // 다음 문제가 뜰 때까지(120ms) 연타 방지 — newPrompt 가 풀어 준다
     sound.play('ding');
     btn.classList.add('state-correct');
     scores[playerIdx]++;
@@ -388,7 +389,7 @@ function showResult() {
   totalRow.innerHTML = '';
   for (let i = 0; i < playerCount; i++) {
     const cfg   = PLAYER_CONFIG[i];
-    const isWin = winners.includes(i);
+    const isWin = maxScore > 0 && winners.includes(i);
     const chip  = document.createElement('div');
     chip.className = 'total-chip';
     chip.innerHTML = `

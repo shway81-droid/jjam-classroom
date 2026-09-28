@@ -247,15 +247,15 @@ function generateRound() {
 }
 
 function generateOptions(correct) {
-  const opts = new Set([correct]);
-
-  // Expand outward from correct until we have 4 unique non-negative values
-  for (let delta = 1; opts.size < 4; delta++) {
-    if (correct - delta >= 0) opts.add(correct - delta);
-    if (opts.size < 4) opts.add(correct + delta);
+  // Pick 3 random distractors within ±3 (non-negative, unique) so the
+  // answer's rank among the options varies from round to round.
+  const cands = [];
+  for (let d = -3; d <= 3; d++) {
+    if (d !== 0 && correct + d >= 0) cands.push(correct + d);
   }
+  const opts = [correct, ...shuffle(cands).slice(0, 3)];
 
-  return shuffle([...opts]);
+  return shuffle(opts);
 }
 
 // -- SVG circle rendering ---------------------------------------
@@ -581,7 +581,11 @@ function showResult() {
     return acc;
   }, []);
 
-  if (winners.length === 1) {
+  if (maxScore === 0) {
+    resultTitle.textContent  = '게임 종료!';
+    resultWinner.textContent = '아무도 점수를 얻지 못했어요.';
+    resultWinner.style.color = '#1565C0';
+  } else if (winners.length === 1) {
     const cfg = PLAYER_CONFIG[winners[0]];
     resultTitle.textContent  = '게임 종료!';
     resultWinner.textContent = cfg.label + ' 최종 우승!';

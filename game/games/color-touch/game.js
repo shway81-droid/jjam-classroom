@@ -458,7 +458,11 @@ function showResult() {
     return acc;
   }, []);
 
-  if (winners.length === 1) {
+  if (maxScore <= 0) {
+    resultTitle.textContent  = '게임 종료!';
+    resultWinner.textContent = '아무도 점수를 얻지 못했어요.';
+    resultWinner.style.color = '#9C27B0';
+  } else if (winners.length === 1) {
     const cfg = PLAYER_CONFIG[winners[0]];
     resultTitle.textContent  = '게임 종료!';
     resultWinner.textContent = cfg.label + ' 최종 우승!';

@@ -168,6 +168,7 @@
   // --- 게임 상태 ------------------------------------------------------------
   var board;          // board[i] = -1(빈칸) | 0 | 1   (i = 0..8)
   var currentPlayer;  // 0 or 1
+  var gamesPlayed = 0; // 이 페이지에서 시작한 판 수 — 판마다 먼저 두는 사람을 바꾼다
   var gameOver;
   var locked;         // 애니메이션 중 입력 잠금
   var markCount;      // 놓인 표식 수
@@ -188,7 +189,8 @@
 
     board = [];
     for (var i = 0; i < CELL_COUNT; i++) board.push(-1);
-    currentPlayer = 0;
+    currentPlayer = gamesPlayed % 2; // 첫 판은 P1, 다시하기마다 번갈아 먼저
+    gamesPlayed++;
     gameOver = false;
     locked = false;
     markCount = 0;
