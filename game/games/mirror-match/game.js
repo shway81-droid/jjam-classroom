@@ -211,6 +211,8 @@ function buildAnswerSVG(grid, colorPair) {
 
 var TOTAL_ROUNDS   = 10;
 var ANSWERS_COUNT  = 4; // 2x2 grid of answer choices per zone
+var ROUND_TIME     = 15; // 라운드 제한 시간(초) — 아무도 못 맞히면 시간초과로 넘어간다
+var ROUND_PAUSE_MS = getAutoplayPauseMs(1500);
 
 var PLAYER_CONFIG = [
   { label: 'P1', hex: '#00BCD4', bgTint: 'rgba(0,188,212,0.14)' },
@@ -318,6 +320,7 @@ var zonesWrap        = document.getElementById('zonesWrap');
 var roundBadge       = document.getElementById('roundBadge');
 var targetSvgBox     = document.getElementById('targetSvgBox');
 var roundStatus      = document.getElementById('roundStatus');
+var problemTimer     = document.getElementById('problemTimer');
 var resultTitle      = document.getElementById('resultTitle');
 var resultWinner     = document.getElementById('resultWinner');
 var resultScoresWrap = document.getElementById('resultScoresWrap');
@@ -361,8 +364,14 @@ function clearNextRoundTimer() {
   }
 }
 
+var roundTimer = createTimer(ROUND_TIME, function(t) {
+  problemTimer.textContent = t;
+  problemTimer.classList.toggle('urgent', t <= 3);
+}, function() { handleTimeout(); });
+
 function cleanup() {
   if (countdownInterval) { clearInterval(countdownInterval); countdownInterval = null; }
+  roundTimer.stop();
   gameActive = false;
   clearNextRoundTimer();
 }
@@ -504,6 +513,7 @@ function handleAnswerTap(playerIdx, ansIdx, btn, e) {
   if (isCorrect) {
     roundResolved = true;
     phase = 'resolved';
+    roundTimer.stop();
     sound.play('ding');
 
     scores[playerIdx]++;
@@ -579,11 +589,37 @@ function handleAnswerTap(playerIdx, ansIdx, btn, e) {
       clearTimeout(timeoutStatus);
       roundResolved = true;
       phase = 'resolved';
+      roundTimer.stop();
       roundStatus.textContent = '전원 실격 — 다음 라운드';
       roundStatus.className   = 'round-status wrong';
       scheduleNextOrEnd();
     }
   }
+}
+
+// ======================================================
+// TIMEOUT
+// ======================================================
+
+function handleTimeout() {
+  if (phase !== 'active' || roundResolved) return;
+  roundResolved = true;
+  phase = 'resolved';
+  roundTimer.stop();
+  sound.play('timeout');
+
+  // 정답 보기를 모든 존에 표시
+  for (var i = 0; i < playerCount; i++) {
+    var z = getZone(i);
+    if (!z) continue;
+    var ans = z.querySelector('.answer-btn[data-ans-idx="' + correctAnswerIdx + '"]');
+    if (ans) ans.classList.add('ans-correct-flash');
+  }
+
+  roundStatus.textContent = '시간 초과! 정답을 확인하세요';
+  roundStatus.className   = 'round-status wrong';
+
+  scheduleNextOrEnd();
 }
 
 // ======================================================
@@ -634,6 +670,8 @@ function nextRound() {
   roundBadge.textContent  = currentRound + ' / ' + TOTAL_ROUNDS;
   roundStatus.textContent = '준비...';
   roundStatus.className   = 'round-status';
+  problemTimer.textContent = ROUND_TIME;
+  problemTimer.classList.remove('urgent');
 
   // Show empty center (waiting state)
   targetSvgBox.innerHTML = '<svg viewBox="0 0 148 74" xmlns="http://www.w3.org/2000/svg">'
@@ -699,6 +737,8 @@ function nextRound() {
     }
 
     phase = 'active';
+    roundTimer.stop();
+    roundTimer.start();
   }, 700);
 }
 
@@ -712,7 +752,7 @@ function scheduleNextOrEnd() {
     } else {
       nextRound();
     }
-  }, 1500);
+  }, ROUND_PAUSE_MS);
 }
 
 // ======================================================
@@ -722,6 +762,7 @@ function scheduleNextOrEnd() {
 function showResult() {
   sound.play('fanfare');
   gameActive = false;
+  roundTimer.stop();
 
   var maxScore = 0;
   for (var i = 0; i < playerCount; i++) {

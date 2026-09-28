@@ -83,6 +83,7 @@ CI(저장소 루트의 `.github/workflows/game.yml`)가 PR마다 `npm test`로 �
 ```
 npm run verify:browser -- <폴더> [<폴더> ...]   # 특정 게임
 npm run verify:browser -- --all --jobs=4        # 전 게임
+VERIFY_PORT=8701 npm run verify:browser -- <폴더>   # 여러 검증을 동시에 돌릴 때 (기본 포트 8099)
 ```
 
 저장소 루트의 `.github/workflows/game-browser.yml`이 **PR에서는 그 PR이 건드린 게임만**, main 푸시·매주

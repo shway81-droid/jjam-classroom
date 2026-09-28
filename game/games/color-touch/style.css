@@ -448,3 +448,36 @@
   transform: translateX(-50%) !important;
   max-width: 90%;
 }
+
+/* -- Round timer (라운드 제한 시간) ------------------------- */
+.round-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.problem-timer {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #fff;
+  background: rgba(0,0,0,0.55);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.2);
+  transition: color 0.3s;
+}
+.problem-timer.urgent {
+  color: #FFD600;
+  box-shadow: 0 0 0 3px #FFD600;
+  animation: pulse-urgent 0.5s ease-in-out infinite alternate;
+}
+@keyframes pulse-urgent {
+  from { transform: scale(1); }
+  to   { transform: scale(1.15); }
+}
+.cell-timeout { color: #E65100; font-size: 0.8rem; font-weight: 700; }

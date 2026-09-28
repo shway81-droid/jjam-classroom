@@ -33,6 +33,7 @@
   ];
 
   var TOTAL_ROUNDS = 5;
+  var ROUND_TIME = 25;   // 라운드 제한 시간(초) — 아무도 고르지 않으면 시간초과로 넘어간다
 
   // --- 자가검증: 모든 문제에 정답 쌍이 존재하는지 확인 ---------------------
   PROBLEM_POOL.forEach(function (prob, i) {
@@ -53,6 +54,7 @@
   }
 
   function clearAllTimers() {
+    stopRoundTimer();
     if (countdownInterval) { clearInterval(countdownInterval); countdownInterval = null; }
     timers.forEach(function (id) { clearTimeout(id); });
     timers = [];
@@ -181,6 +183,7 @@
   var roundNumEl   = document.getElementById('roundNum');
   var roundScoreEl = document.getElementById('roundScore');
   var bannerEl     = document.getElementById('banner');
+  var hudFill      = document.getElementById('hudTimerFill');
   var boardsEl     = document.querySelector('.boards');
   var resultTitle  = document.getElementById('resultTitle');
   var resultSub    = document.getElementById('resultSub');
@@ -233,6 +236,7 @@
 
     if (p1Selected && p2Selected) {
       locked = true;
+      stopRoundTimer();
       boardsEl.classList.add('locked');
       later(checkAnswer, 500);
     }
@@ -261,7 +265,11 @@
     }
 
     updateScoreUI();
+    advanceRound();
+  }
 
+  // --- 다음 라운드로 (정상 채점·시간초과 공통) -----------------------------
+  function advanceRound() {
     later(function () {
       currentRound++;
       if (currentRound >= TOTAL_ROUNDS) {
@@ -269,7 +277,55 @@
       } else {
         nextRound();
       }
-    }, 1500);
+    }, getAutoplayPauseMs(1500));
+  }
+
+  // --- 라운드 제한 시간 ---------------------------------------------------
+  var roundTimer = null;
+
+  function stopRoundTimer() {
+    if (roundTimer) { roundTimer.stop(); roundTimer = null; }
+  }
+
+  function startRoundTimer() {
+    stopRoundTimer();
+    hudFill.style.width = '100%';
+    hudFill.className = 'hud-timer-fill';
+    roundTimer = createTimer(ROUND_TIME, function (rem) {
+      hudFill.style.width = (rem / ROUND_TIME * 100) + '%';
+      if (rem <= 5) hudFill.className = 'hud-timer-fill danger';
+    }, handleTimeout);
+    roundTimer.start();
+  }
+
+  // 시간초과: 이 라운드는 실패(점수 없음), 정답을 보여 주고 평소처럼 넘어간다
+  function handleTimeout() {
+    roundTimer = null;
+    if (locked) return;
+    locked = true;
+    boardsEl.classList.add('locked');
+    showBanner('⏰ 시간초과! 정답: ' + revealAnswer(), 'ng');
+    sounds.play('wrong');
+    advanceRound();
+  }
+
+  // 화면의 카드 중 목표를 만드는 한 쌍을 찾아 표시한다
+  function revealAnswer() {
+    var target = problems[currentRound].target;
+    var c1 = p1Grid.querySelectorAll('.num-card');
+    var c2 = p2Grid.querySelectorAll('.num-card');
+    for (var i = 0; i < c1.length; i++) {
+      for (var j = 0; j < c2.length; j++) {
+        var a = Number(c1[i].getAttribute('data-val'));
+        var b = Number(c2[j].getAttribute('data-val'));
+        if (a * b === target) {
+          c1[i].classList.add('correct');
+          c2[j].classList.add('correct');
+          return a + ' × ' + b + ' = ' + target;
+        }
+      }
+    }
+    return '목표 ' + target;
   }
 
   // --- 다음 라운드 ---------------------------------------------------------
@@ -287,6 +343,7 @@
     buildCards(p1Grid, shuffleArr(problem.p1), 1);
     buildCards(p2Grid, shuffleArr(problem.p2), 2);
     updateRoundUI();
+    startRoundTimer();
   }
 
   // --- UI 업데이트 ---------------------------------------------------------

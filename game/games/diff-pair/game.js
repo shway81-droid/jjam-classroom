@@ -52,9 +52,32 @@
   }
 
   function clearAllTimers() {
+    stopRoundTimer();
     if (countdownInterval) { clearInterval(countdownInterval); countdownInterval = null; }
     timers.forEach(function (id) { clearTimeout(id); });
     timers = [];
+  }
+
+  // --- 라운드 제한 시간 -----------------------------------------------------
+  // 아무도 고르지 않아도 게임이 멈춰 있지 않도록 라운드마다 제한 시간을 둔다.
+  var ROUND_TIME = 25;   // 라운드 제한 시간(초)
+  var ROUND_DANGER = 5;  // 남은 시간이 이 이하면 게이지가 빨갛게
+  var roundTimer = null;
+
+  function stopRoundTimer() {
+    if (roundTimer) { roundTimer.stop(); roundTimer = null; }
+  }
+
+  function startRoundTimer() {
+    stopRoundTimer();
+    var fill = document.getElementById('hudTimerFill');
+    fill.style.width = '100%';
+    fill.className = 'hud-timer-fill';
+    roundTimer = createTimer(ROUND_TIME, function (rem) {
+      fill.style.width = (rem / ROUND_TIME * 100) + '%';
+      if (rem <= ROUND_DANGER) fill.className = 'hud-timer-fill danger';
+    }, onTimeUp);
+    roundTimer.start();
   }
 
   // --- 화면 전환 ------------------------------------------------------------
@@ -234,6 +257,7 @@
     if (p1Selected && p2Selected) {
       locked = true;
       boardsEl.classList.add('locked');
+      stopRoundTimer();
       later(checkAnswer, 500);
     }
   }
@@ -264,14 +288,41 @@
 
     updateScoreUI();
 
-    later(function () {
-      currentRound++;
-      if (currentRound >= TOTAL_ROUNDS) {
-        showResult();
-      } else {
-        nextRound();
+    later(advanceRound, getAutoplayPauseMs(ADVANCE_PAUSE));
+  }
+
+  // --- 라운드 넘기기 · 시간 초과 ------------------------------------------
+  var ADVANCE_PAUSE = 1500;  // 결과를 보여 주고 다음 라운드로 넘어가기까지(ms)
+
+  function advanceRound() {
+    currentRound++;
+    if (currentRound >= TOTAL_ROUNDS) {
+      showResult();
+    } else {
+      nextRound();
+    }
+  }
+
+  function answerText() {
+    var problem = problems[currentRound];
+    for (var i = 0; i < problem.p1.length; i++) {
+      for (var j = 0; j < problem.p2.length; j++) {
+        if (Math.abs(problem.p1[i] - problem.p2[j]) === problem.target) {
+          return Math.max(problem.p1[i], problem.p2[j]) + ' − ' + Math.min(problem.p1[i], problem.p2[j]) + ' = ' + problem.target;
+        }
       }
-    }, 1500);
+    }
+    return '차가 ' + problem.target + '인 두 수';
+  }
+
+  // 제한 시간이 끝나면 그 라운드는 실패 — 정답을 보여 주고 다음으로
+  function onTimeUp() {
+    if (locked) return;
+    locked = true;
+    boardsEl.classList.add('locked');
+    showBanner('시간 초과! 정답은 ' + answerText(), 'ng');
+    sounds.play('wrong');
+    later(advanceRound, getAutoplayPauseMs(ADVANCE_PAUSE));
   }
 
   // --- 다음 라운드 ---------------------------------------------------------
@@ -289,6 +340,7 @@
     buildCards(p1Grid, shuffleArr(problem.p1), 1);
     buildCards(p2Grid, shuffleArr(problem.p2), 2);
     updateRoundUI();
+    startRoundTimer();
   }
 
   // --- UI 업데이트 ---------------------------------------------------------

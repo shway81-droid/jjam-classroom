@@ -13,6 +13,8 @@ const COLOR_BY_ID = {};
 COLORS.forEach(c => { COLOR_BY_ID[c.id] = c; });
 
 const TOTAL_ROUNDS    = 10;
+const ROUND_TIME      = 12;   // 라운드 제한 시간(초) — 아무도 안 누르면 시간초과로 넘어간다
+const ROUND_PAUSE_MS  = getAutoplayPauseMs(1800);
 const SVG_W           = 260;
 const SVG_H           = 200;
 const CIRCLE_R_MIN    = 12;
@@ -119,12 +121,19 @@ const roundBadge       = document.getElementById('roundBadge');
 const circlesSvg       = document.getElementById('circlesSvg');
 const questionText     = document.getElementById('questionText');
 const roundStatus      = document.getElementById('roundStatus');
+const problemTimer     = document.getElementById('problemTimer');
 
 const resultTitle      = document.getElementById('resultTitle');
 const resultWinner     = document.getElementById('resultWinner');
 const resultTableHead  = document.getElementById('resultTableHead');
 const resultTableBody  = document.getElementById('resultTableBody');
 const totalRow         = document.getElementById('totalRow');
+
+// -- Round timer ------------------------------------------------
+const roundTimer = createTimer(ROUND_TIME, (t) => {
+  problemTimer.textContent = t;
+  problemTimer.classList.toggle('urgent', t <= 3);
+}, () => handleTimeout());
 
 // -- Helpers ----------------------------------------------------
 function showScreen(s) {
@@ -400,6 +409,7 @@ function handleNumTap(playerIdx, num, zone, e) {
   if (isCorrect) {
     roundResolved = true;
     phase = 'result';
+    roundTimer.stop();
     sound.play('ding');
 
     scores[playerIdx]++;
@@ -465,6 +475,7 @@ function handleNumTap(playerIdx, num, zone, e) {
     if (alive.length === 0) {
       roundResolved = true;
       phase = 'result';
+      roundTimer.stop();
       roundStatus.textContent = '전원 실격 — 무효';
       roundStatus.className   = 'round-status wrong';
       roundResults.push({
@@ -476,6 +487,35 @@ function handleNumTap(playerIdx, num, zone, e) {
       scheduleNextOrEnd();
     }
   }
+}
+
+// -- Timeout ------------------------------------------------------
+function handleTimeout() {
+  if (phase !== 'active' || roundResolved) return;
+  roundResolved = true;
+  phase = 'result';
+  roundTimer.stop();
+  sound.play('timeout');
+
+  for (let i = 0; i < playerCount; i++) {
+    const z = getZone(i);
+    if (!z || roundDQ.has(i)) continue;
+    z.classList.remove('state-active', 'state-correct', 'state-wrong');
+    z.classList.add('state-idle');
+  }
+
+  roundStatus.textContent = '시간 초과! 정답: ' + currentRoundData.targetCount + '개';
+  roundStatus.className   = 'round-status wrong';
+
+  roundResults.push({
+    winner:        -1,
+    targetColorId: currentRoundData.targetColorId,
+    targetCount:   currentRoundData.targetCount,
+    dq:            new Set(roundDQ),
+    timedOut:      true,
+  });
+
+  scheduleNextOrEnd();
 }
 
 // -- Game flow ---------------------------------------------------
@@ -498,6 +538,8 @@ function nextRound() {
   roundBadge.textContent  = currentRound + ' / ' + TOTAL_ROUNDS;
   roundStatus.textContent = '준비...';
   roundStatus.className   = 'round-status';
+  problemTimer.textContent = ROUND_TIME;
+  problemTimer.classList.remove('urgent');
   questionText.textContent = '?';
 
   // Reset all zones to idle
@@ -542,6 +584,8 @@ function nextRound() {
       }
     }
     phase = 'active';
+    roundTimer.stop();
+    roundTimer.start();
   }, 700));
 }
 
@@ -554,6 +598,7 @@ function clearNextRoundTimer() {
 
 function clearAllTimers() {
   if (countdownInterval) { clearInterval(countdownInterval); countdownInterval = null; }
+  roundTimer.stop();
   clearNextRoundTimer();
   pendingTimers.forEach(id => clearTimeout(id));
   pendingTimers = [];
@@ -568,11 +613,12 @@ function scheduleNextOrEnd() {
     } else {
       nextRound();
     }
-  }, 1800);
+  }, ROUND_PAUSE_MS);
 }
 
 // -- Result screen -----------------------------------------------
 function showResult() {
+  roundTimer.stop();
   sound.play('fanfare');
 
   const maxScore = Math.max(...scores);
@@ -612,6 +658,7 @@ function showResult() {
     const cells = players.map((_, pi) => {
       if (r.dq.has(pi))    return `<td class="cell-dq">실격</td>`;
       if (r.winner === pi) return `<td class="cell-win">★ 정답</td>`;
+      if (r.timedOut)      return `<td class="cell-timeout">시간초과</td>`;
       return `<td class="cell-none">—</td>`;
     }).join('');
     return `<tr><td>${ri + 1}</td><td>${colorDot}</td>${cells}</tr>`;

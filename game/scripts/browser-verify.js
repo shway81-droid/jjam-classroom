@@ -21,7 +21,7 @@ const http = require('http');
 const { chromium } = require('playwright');
 
 const ROOT = path.resolve(__dirname, '..');
-const PORT = 8099;
+const PORT = Number(process.env.VERIFY_PORT) || 8099;   // 여러 검증을 동시에 돌릴 때 VERIFY_PORT 로 바꾼다
 
 // 사전설치 Chromium 바이너리 경로 탐색 (버전 불일치 회피 위해 executablePath 명시)
 function findChromium() {
