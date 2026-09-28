@@ -55,6 +55,10 @@ jobs:
 
       # 이 스텝만 저장소 루트에서 돈다 — git diff 가 내놓는 경로가 루트 기준이라
       # `game/` 접두어를 그대로 보고 걸러야 한다.
+      - name: 터치 회귀 검사 (onTap)
+        working-directory: game
+        run: node scripts/touch-tap.test.js
+
       - name: 검증 대상 결정
         id: scope
         run: |

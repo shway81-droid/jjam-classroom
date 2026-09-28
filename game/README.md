@@ -94,7 +94,7 @@ npm run verify:browser -- --all --jobs=4        # 전 게임
 
 자동 플레이는 **마우스로** 누르므로 터치에서만 생기는 문제는 못 본다. 크로미움은 disabled 버튼에
 click 은 안 보내지만 **touchstart 는 보낸다** — 그래서 `onTap`이 터치에서도 disabled 를 거른다.
-이 동작은 `npm run test:touch`(`scripts/touch-tap.test.js`)가 터치 에뮬레이션으로 확인한다.
+이 동작은 같은 워크플로의 `npm run test:touch`(`scripts/touch-tap.test.js`)가 터치 에뮬레이션으로 지킨다.
 
 ## 사이트 아이콘
 
