@@ -1,13 +1,13 @@
 /* games/reaction-race/style.css */
 
-/* ── Countdown screen ─────────────────────────────────────── */
+/* -- Countdown screen --------------------------------------- */
 .screen-countdown {
   justify-content: center;
   align-items: center;
   background: #FFF8E1;
 }
 
-/* ── Shared header ────────────────────────────────────────── */
+/* -- Shared header ------------------------------------------ */
 .game-header {
   display: flex;
   align-items: center;
@@ -25,7 +25,7 @@
   color: var(--text);
 }
 
-/* ── Intro screen ─────────────────────────────────────────── */
+/* -- Intro screen ------------------------------------------- */
 .screen-intro {
   background: linear-gradient(160deg, #E8F5E9 0%, #F1F8E9 100%);
   justify-content: space-between;
@@ -88,7 +88,7 @@
   letter-spacing: 0.06em;
 }
 
-/* ── Game screen ──────────────────────────────────────────── */
+/* -- Game screen -------------------------------------------- */
 .screen-game {
   background: #FFF8E1;
   position: relative;
@@ -106,18 +106,18 @@
   display: grid;
 }
 
-/* ─ 2-player: left / right halves ─ */
+/* - 2-player: left / right halves - */
 .zones-wrap.p2 {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
 }
 
-/* ─ 3-player: top-left / top-right / bottom-center ─ */
+/* - 3-player: top-left / top-right / bottom-center - */
 .zones-wrap.p3 {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
 }
-/* ─ 4-player: quadrants ─ */
+/* - 4-player: quadrants - */
 .zones-wrap.p4 {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
@@ -201,7 +201,7 @@
   to { transform: scale(4); opacity: 0; }
 }
 
-/* ── Status panel (center overlay) ───────────────────────── */
+/* -- Status panel (center overlay) ------------------------- */
 .status-panel {
   position: absolute;
   top: 50%;
@@ -250,7 +250,7 @@
   100% { transform: scale(1.12); }
 }
 
-/* ── Background green flash on GO ─────────────────────────── */
+/* -- Background green flash on GO --------------------------- */
 .screen-game.flash-green {
   animation: bg-flash 0.35s ease-out;
 }
@@ -259,7 +259,7 @@
   100% { background: #FFF8E1; }
 }
 
-/* ── Close button ─────────────────────────────────────────── */
+/* -- Close button ------------------------------------------- */
 .close-btn {
   position: absolute;
   top: var(--space-md);
@@ -270,7 +270,7 @@
   box-shadow: none;
 }
 
-/* ── Result screen ────────────────────────────────────────── */
+/* -- Result screen ------------------------------------------ */
 .screen-result {
   background: linear-gradient(160deg, #E8F5E9 0%, #F1F8E9 100%);
   align-items: center;
@@ -379,7 +379,7 @@
 }
 
 
-/* ── 3·4-player mode: move center panel to top so middle players aren't blocked ── */
+/* -- 3·4-player mode: move center panel to top so middle players aren't blocked -- */
 .screen-game:has(.zones-wrap.p4) .status-panel,
 .screen-game:has(.zones-wrap.p3) .status-panel {
   top: 8px !important;

@@ -2,7 +2,7 @@
 
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const TOTAL_ROUNDS    = 10;
 const ROUND_TIME      = 8;     // seconds per round
 const RESULT_PAUSE_MS = 2000;  // pause before next round
@@ -15,7 +15,7 @@ const PLAYER_CONFIG = [
   { label: 'P4', dot: '#F57C00', zoneBg: '#FFE0B2', cls: 'p4', btnFill: '#E65100' },
 ];
 
-// ── Number-Reading Data ──────────────────────────────────────
+// -- Number-Reading Data --------------------------------------
 // front = 우리말 읽기, answer = 숫자, wrongs = 비슷한 숫자 2개
 const ALL_PROVERBS = [
   { front: "천이백삼십사", answer: "1234", wrongs: ["1233", "1235"] },
@@ -52,10 +52,10 @@ const ALL_PROVERBS = [
   { front: "오천이백칠", answer: "5207", wrongs: ["5206", "5208"] },
 ];
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const sound = createSoundManager();
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let playerCount   = 2;
 let roundIdx      = 0;
 let scores        = [];
@@ -69,7 +69,7 @@ let nextHandle    = null;
 let timeRemaining = ROUND_TIME;
 let gameProverbs  = [];    // 10 randomly selected items
 
-// ── DOM refs ─────────────────────────────────────────────────
+// -- DOM refs -------------------------------------------------
 const introScreen     = document.getElementById('introScreen');
 const countdownScreen = document.getElementById('countdownScreen');
 const countdownNumber = document.getElementById('countdownNumber');
@@ -97,7 +97,7 @@ const resultTableHead  = document.getElementById('resultTableHead');
 const resultTableBody  = document.getElementById('resultTableBody');
 const totalRow         = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function showScreen(s) {
   [introScreen, countdownScreen, gameScreen, resultScreen].forEach(x => x.classList.remove('active'));
   s.classList.add('active');
@@ -141,24 +141,24 @@ function updateSoundIcon() {
   }
 }
 
-// ── Player count selection ───────────────────────────────────
+// -- Player count selection -----------------------------------
 setupPlayerSelect(function (n) { playerCount = n; });
 
-// ── Sound toggle ─────────────────────────────────────────────
+// -- Sound toggle ---------------------------------------------
 onTap(soundToggleIntro, () => {
   sound.toggleMute();
   updateSoundIcon();
 });
 updateSoundIcon();
 
-// ── Navigation ───────────────────────────────────────────────
+// -- Navigation -----------------------------------------------
 onTap(backBtn,  () => goHome());
 onTap(closeBtn, () => { clearTimers(); goHome(); });
 onTap(homeBtn,  () => goHome());
 onTap(retryBtn, () => startPreGameCountdown(() => startGame()));
 onTap(playBtn,  () => startPreGameCountdown(() => startGame()));
 
-// ── SVG button builder ───────────────────────────────────────
+// -- SVG button builder ---------------------------------------
 // Creates a full-SVG-backed answer button
 function buildAnswerSvgBtn(text, fill, playerIdx, answerIdx) {
   const btn = document.createElement('button');
@@ -214,7 +214,7 @@ function buildAnswerSvgBtn(text, fill, playerIdx, answerIdx) {
   return btn;
 }
 
-// ── Build zone grid ──────────────────────────────────────────
+// -- Build zone grid ------------------------------------------
 function buildZones() {
   zonesWrap.innerHTML = '';
   zonesWrap.className = `zones-wrap p${playerCount}`;
@@ -253,7 +253,7 @@ function updateScoreChip(playerIdx) {
   if (chip) chip.textContent = `${scores[playerIdx]}점`;
 }
 
-// ── Score bar ────────────────────────────────────────────────
+// -- Score bar ------------------------------------------------
 function buildScoreBar() {
   scoreBar.innerHTML = '';
   for (let i = 0; i < playerCount; i++) {
@@ -274,7 +274,7 @@ function updateBarScore(playerIdx) {
   if (el) el.textContent = scores[playerIdx];
 }
 
-// ── Ripple effect ────────────────────────────────────────────
+// -- Ripple effect --------------------------------------------
 function spawnRipple(zone, e) {
   const rect  = zone.getBoundingClientRect();
   const touch = e && e.touches ? e.touches[0] : (e || null);
@@ -291,7 +291,7 @@ function spawnRipple(zone, e) {
   r.addEventListener('animationend', () => r.remove());
 }
 
-// ── Clue SVG display ─────────────────────────────────────────
+// -- Clue SVG display -----------------------------------------
 // Dynamically adjusts font size + wraps long text in SVG
 function renderProverbSvg(frontText) {
   const svgNS = 'http://www.w3.org/2000/svg';
@@ -371,7 +371,7 @@ function renderProverbSvg(frontText) {
   }
 }
 
-// ── Populate answer buttons for a round ─────────────────────
+// -- Populate answer buttons for a round ---------------------
 function populateAnswerButtons() {
   for (let i = 0; i < playerCount; i++) {
     const list = document.getElementById(`answer-list-${i}`);
@@ -393,7 +393,7 @@ function getAnswerBtns(playerIdx) {
   return list ? list.querySelectorAll('.answer-btn') : [];
 }
 
-// ── Timer logic ──────────────────────────────────────────────
+// -- Timer logic ----------------------------------------------
 function startCountdown() {
   timeRemaining = ROUND_TIME;
   problemTimer.textContent = timeRemaining;
@@ -414,7 +414,7 @@ function startCountdown() {
   }, 1000);
 }
 
-// ── Disable / enable answer buttons ─────────────────────────
+// -- Disable / enable answer buttons -------------------------
 function setPlayerBtnsDisabled(playerIdx, disabled) {
   const btns = getAnswerBtns(playerIdx);
   btns.forEach(btn => {
@@ -441,7 +441,7 @@ function resetBtnsForRound() {
   }
 }
 
-// ── Answer tap handler ───────────────────────────────────────
+// -- Answer tap handler ---------------------------------------
 function handleAnswerTap(playerIdx, answerIdx, btn, e) {
   if (phase !== 'active') return;
   if (dqSet.has(playerIdx)) return;
@@ -491,7 +491,7 @@ function handleAnswerTap(playerIdx, answerIdx, btn, e) {
   }
 }
 
-// ── Correct answer ───────────────────────────────────────────
+// -- Correct answer -------------------------------------------
 function resolveRound(winnerIdx, correctAnsIdx) {
   phase = 'done';
   clearTimers();
@@ -532,7 +532,7 @@ function resolveRound(winnerIdx, correctAnsIdx) {
   nextHandle = setTimeout(() => nextRound(), RESULT_PAUSE_MS);
 }
 
-// ── Timeout ──────────────────────────────────────────────────
+// -- Timeout --------------------------------------------------
 function handleTimeout() {
   phase = 'done';
   clearTimers();
@@ -564,7 +564,7 @@ function handleTimeout() {
   nextHandle = setTimeout(() => nextRound(), RESULT_PAUSE_MS);
 }
 
-// ── Load round ───────────────────────────────────────────────
+// -- Load round -----------------------------------------------
 function loadRound() {
   phase    = 'active';
   currentP = gameProverbs[roundIdx];
@@ -588,7 +588,7 @@ function loadRound() {
   startCountdown();
 }
 
-// ── Next round ────────────────────────────────────────────────
+// -- Next round ------------------------------------------------
 function nextRound() {
   roundIdx++;
   if (roundIdx >= TOTAL_ROUNDS) {
@@ -598,7 +598,7 @@ function nextRound() {
   }
 }
 
-// ── Start game ───────────────────────────────────────────────
+// -- Start game -----------------------------------------------
 function startGame() {
   gameProverbs = shuffle(ALL_PROVERBS).slice(0, TOTAL_ROUNDS);
   roundIdx     = 0;
@@ -616,7 +616,7 @@ function startGame() {
   loadRound();
 }
 
-// ── Show result ──────────────────────────────────────────────
+// -- Show result ----------------------------------------------
 function showResult() {
   clearTimers();
   phase = 'idle';

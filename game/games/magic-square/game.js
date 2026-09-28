@@ -27,7 +27,7 @@ const MS_BASE_VARIANTS = [
   [6,1,8, 7,5,3, 2,9,4], // 부대각선 반전
 ];
 
-// ── 유일해 검증 ──
+// -- 유일해 검증 --
 // 3×3 마방진에서 주어진 힌트로 남은 수 순열 대입 → 해 1개 확인
 function msCountSolutions(givenCells) {
   // givenCells: 9개 배열, 0=비어있음, 1~9=주어진 수
@@ -118,7 +118,7 @@ function msMakePuzzle(roundIdx) {
   return { sol, blankSet, centerIdx };
 }
 
-// ── 사운드 ──
+// -- 사운드 --
 const msSound = createSoundManager({
   place(ctx) {
     const o = ctx.createOscillator(); const g = ctx.createGain();
@@ -229,7 +229,7 @@ function msClearTimers() {
 }
 
 
-// ── 합 계산 ──
+// -- 합 계산 --
 // lines: 각 라인별 합 (8개: row0,row1,row2,col0,col1,col2,diag1,diag2)
 function msGetLineSums(cells) {
   return [
@@ -267,7 +267,7 @@ function msIsComplete(cells, sol) {
   return true;
 }
 
-// ── 보드 렌더링 ──
+// -- 보드 렌더링 --
 // ms-outer 5×5 구조:
 // [corner] [col0sum] [col1sum] [col2sum] [diagTR_label]
 // [row0sum] [cell0]  [cell1]   [cell2]   [diag_label_right]
@@ -387,7 +387,7 @@ function msPaletteIsCurrentSel(playerIdx, n) {
   return msBoards[playerIdx].cells[sel] === n;
 }
 
-// ── 셀 탭 ──
+// -- 셀 탭 --
 function msHandleCellTap(playerIdx, cellIdx) {
   if (msPhase !== 'active' || msSolved[playerIdx]) return;
   const bd = msBoards[playerIdx];
@@ -403,7 +403,7 @@ function msHandleCellTap(playerIdx, cellIdx) {
   msRenderBoard(playerIdx);
 }
 
-// ── 팔레트 탭 ──
+// -- 팔레트 탭 --
 function msHandlePaletteTap(playerIdx, num) {
   if (msPhase !== 'active' || msSolved[playerIdx]) return;
   const sel = msSelected[playerIdx];
@@ -441,7 +441,7 @@ function msHandlePaletteTap(playerIdx, num) {
   }
 }
 
-// ── 존 빌드 ──
+// -- 존 빌드 --
 function msBuildZones() {
   msZonesWrap.innerHTML = '';
   msZonesWrap.className = `zones-wrap p${msPlayerCount}`;
@@ -474,7 +474,7 @@ function msBuildZones() {
   }
 }
 
-// ── 라운드 종료 ──
+// -- 라운드 종료 --
 function msHandleSolve(playerIdx) {
   if (msSolved[playerIdx]) return;
   msSolved[playerIdx] = true;
@@ -506,7 +506,7 @@ function msHandleTimeout() {
   msNextHandle = setTimeout(() => msNextRound(), MS_RESULT_PAUSE_MS);
 }
 
-// ── 점수 바 ──
+// -- 점수 바 --
 function msBuildScoreBar() {
   msScoreBar.innerHTML = '';
   for (let i = 0; i < msPlayerCount; i++) {
@@ -519,7 +519,7 @@ function msBuildScoreBar() {
 }
 function msRenderBarScore(idx) { const el = msEl(`ms-bar-${idx}`); if (el) el.textContent = msScores[idx]; }
 
-// ── 타이머 ──
+// -- 타이머 --
 function msStartTimer() {
   msTimeRemaining = MS_ROUND_TIME;
   msProblemTimer.textContent = msTimeRemaining;
@@ -532,7 +532,7 @@ function msStartTimer() {
   }, 1000);
 }
 
-// ── 게임 흐름 ──
+// -- 게임 흐름 --
 function msLoadRound() {
   msPhase = 'active';
   msRoundFirstWinner = -1;
@@ -618,7 +618,7 @@ function msShowResult() {
   msShowScreen(msResultScreen);
 }
 
-// ── 이벤트 바인딩 ──
+// -- 이벤트 바인딩 --
 setupPlayerSelect(function (n) { msPlayerCount = n; });
 
 setupSoundToggle(msSound, msSoundToggleIntro);

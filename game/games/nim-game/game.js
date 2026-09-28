@@ -3,12 +3,12 @@
 (function () {
   'use strict';
 
-  // ─── 상수 ───────────────────────────────────────────────────────────────
+  // --- 상수 ---------------------------------------------------------------
   var TOTAL_STONES = 15;
   var PLAYER_COLORS = ['#29B6F6', '#EF5350'];
   var PLAYER_NAMES  = ['P1', 'P2'];
 
-  // ─── 타이머 관리 ─────────────────────────────────────────────────────────
+  // --- 타이머 관리 ---------------------------------------------------------
   var timers = [];
 
   function later(fn, ms) {
@@ -23,7 +23,7 @@
     timers = [];
   }
 
-  // ─── 화면 전환 ────────────────────────────────────────────────────────────
+  // --- 화면 전환 ------------------------------------------------------------
   var screens = {
     intro:     document.getElementById('introScreen'),
     countdown: document.getElementById('countdownScreen'),
@@ -44,7 +44,7 @@
     countdownInterval = runCountdown(countdownNumber, onDone);
   }
 
-  // ─── 사운드 ──────────────────────────────────────────────────────────────
+  // --- 사운드 --------------------------------------------------------------
   var sounds = createSoundManager({
     // 돌 클릭: 짧고 단단한 소리
     stone: function (ctx) {
@@ -146,7 +146,7 @@
     }
   });
 
-  // ─── 사운드 버튼 ──────────────────────────────────────────────────────────
+  // --- 사운드 버튼 ----------------------------------------------------------
   var soundBtns = [
     document.getElementById('soundToggleIntro'),
     document.getElementById('soundToggleGame')
@@ -173,13 +173,13 @@
 
   updateSoundIcons();
 
-  // ─── 게임 상태 ────────────────────────────────────────────────────────────
+  // --- 게임 상태 ------------------------------------------------------------
   var stonesLeft;
   var currentPlayer;  // 0 or 1
   var gameOver;
   var stoneEls;       // array of DOM elements (stone-wrap divs), index 0..14
 
-  // ─── DOM ─────────────────────────────────────────────────────────────────
+  // --- DOM -----------------------------------------------------------------
   var stonesArea  = document.getElementById('stonesArea');
   var stoneCount  = document.getElementById('stoneCount');
   var turnBanner  = document.getElementById('turnBanner');
@@ -195,7 +195,7 @@
   var resultSub      = document.getElementById('resultSub');
   var resultIconWrap = document.getElementById('resultIconWrap');
 
-  // ─── 돌 SVG 생성 ──────────────────────────────────────────────────────────
+  // --- 돌 SVG 생성 ----------------------------------------------------------
   function makeStoneSVG() {
     // 모든 돌은 동일한 색상으로 통일 (가져갈 때 자연스럽게 보이도록)
     var fill = '#78909C';
@@ -208,7 +208,7 @@
     );
   }
 
-  // ─── 게임 초기화 ──────────────────────────────────────────────────────────
+  // --- 게임 초기화 ----------------------------------------------------------
   function initGame() {
     clearAllTimers();
 
@@ -225,7 +225,7 @@
     showScreen('game');
   }
 
-  // ─── 돌 그리드 빌드 (3 rows x 5 cols = 15) ────────────────────────────────
+  // --- 돌 그리드 빌드 (3 rows x 5 cols = 15) --------------------------------
   function buildStonesGrid() {
     stonesArea.innerHTML = '';
     stonesArea.classList.remove('tension');
@@ -253,7 +253,7 @@
     });
   }
 
-  // ─── 턴 UI 업데이트 ──────────────────────────────────────────────────────
+  // --- 턴 UI 업데이트 ------------------------------------------------------
   function updateTurnUI(announce) {
     var color = PLAYER_COLORS[currentPlayer];
     var name  = PLAYER_NAMES[currentPlayer];
@@ -283,7 +283,7 @@
     }
   }
 
-  // ─── 풀스크린 턴 변경 오버레이 ──────────────────────────────────────────
+  // --- 풀스크린 턴 변경 오버레이 ------------------------------------------
   function showTurnOverlay(name, color, pCls) {
     var overlay = document.getElementById('turnOverlay');
     if (!overlay) {
@@ -302,7 +302,7 @@
     }, 600);
   }
 
-  // ─── 카운터 UI 업데이트 ──────────────────────────────────────────────────
+  // --- 카운터 UI 업데이트 --------------------------------------------------
   function updateCounterUI() {
     stoneCount.textContent = stonesLeft;
     stoneCount.classList.toggle('danger', stonesLeft <= 3);
@@ -312,7 +312,7 @@
     stoneCount.classList.add('bump');
   }
 
-  // ─── 버튼 활성/비활성 ─────────────────────────────────────────────────────
+  // --- 버튼 활성/비활성 -----------------------------------------------------
   function updateButtonState() {
     takeBtns.forEach(function (btn) {
       var n = parseInt(btn.getAttribute('data-n'), 10);
@@ -321,7 +321,7 @@
     takeButtons.classList.toggle('locked', gameOver);
   }
 
-  // ─── 가져가기 처리 ────────────────────────────────────────────────────────
+  // --- 가져가기 처리 --------------------------------------------------------
   function handleTake(n) {
     if (gameOver) return;
     if (n > stonesLeft) return;
@@ -380,7 +380,7 @@
     }, animDelay + 80);
   }
 
-  // ─── 결과 화면 ───────────────────────────────────────────────────────────
+  // --- 결과 화면 -----------------------------------------------------------
   var SVG_TROPHY =
     '<svg viewBox="0 0 80 80" width="80" height="80">' +
       '<rect x="28" y="62" width="24" height="6" rx="3" fill="#FFA726"/>' +
@@ -413,7 +413,7 @@
     showScreen('result');
   }
 
-  // ─── 버튼 이벤트 바인딩 ──────────────────────────────────────────────────
+  // --- 버튼 이벤트 바인딩 --------------------------------------------------
   // 가져가기 버튼
   takeBtns.forEach(function (btn) {
     onTap(btn, function () {

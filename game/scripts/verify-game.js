@@ -15,8 +15,11 @@
  *   4. shared/style.css, shared/engine.js 링크
  *   5. registry.json 등록
  *   6. game.json category 유효 + launcher FALLBACK_GAMES 등록
- *   7. JS 문법 오류 검사
+ *   7. 스타일·접근성·3인용 배치 규칙
  *   8. 카테고리 일관성 (game.json ↔ engine.js 파생맵)
+ *   9. JS 문법 오류 검사
+ *  10. 오프라인 미리받기 대상만 참조 (sw.js GAME_FILES·CORE_FILES)
+ *  11. 셔플 편향 없음 (sort + Math.random 금지)
  *
  * 종료 코드:
  *   0: 모든 검증 통과
@@ -246,6 +249,42 @@ check('9. game.js 문법 검사', () => {
   } catch (e) {
     return `문법 오류: ${e.stderr.toString().split('\n')[0]}`;
   }
+});
+
+// === 10. 오프라인 미리받기 대상만 참조 ===
+// sw.js 는 설치 때 게임 폴더의 GAME_FILES 와 공통 CORE_FILES 만 미리 받는다.
+// 게임이 그 밖의 파일(그림·소리 등)을 부르면, 안 열어 본 채 오프라인이 됐을 때 그 파일만 빠진다.
+check('10. 오프라인 미리받기 대상만 참조 (sw.js)', () => {
+  const sw = fs.readFileSync(path.join(ROOT, 'sw.js'), 'utf-8');
+  const listOf = (name) => {
+    const m = sw.match(new RegExp(`const ${name} = \\[([\\s\\S]*?)\\];`));
+    if (!m) throw new Error(`sw.js 에서 ${name} 목록을 못 찾음`);
+    return [...m[1].matchAll(/'([^']+)'/g)].map(x => x[1]);
+  };
+  const gameFiles = new Set(listOf('GAME_FILES'));
+  const coreFiles = new Set(listOf('CORE_FILES').map(u => u.replace(/^\.\//, '')));
+  const html = fs.readFileSync(path.join(gameDir, 'index.html'), 'utf-8');
+  const refs = [...html.matchAll(/\b(?:src|href)\s*=\s*["']([^"'#]+)["']/g)].map(m => m[1])
+    .filter(u => !/^(?:[a-z]+:|\/\/|#)/i.test(u));
+  const bad = [];
+  if (!gameFiles.has('index.html')) bad.push('index.html');
+  for (const ref of refs) {
+    const rel = path.posix.normalize(`games/${folder}/${ref.split('?')[0]}`);
+    const inGame = rel.startsWith(`games/${folder}/`);
+    const ok = inGame ? gameFiles.has(rel.slice(`games/${folder}/`.length)) : coreFiles.has(rel);
+    if (!ok) bad.push(ref);
+  }
+  return bad.length === 0 ||
+    `미리받기 목록 밖 파일: ${bad.join(', ')} — sw.js 의 GAME_FILES/CORE_FILES 에 더하세요`;
+});
+
+// === 11. 셔플 편향 없음 ===
+// arr.sort(() => Math.random() - 0.5) 는 순서가 고르게 섞이지 않는다(엔진마다 치우침이 다름).
+// 게임마다 쓰는 shuffle 은 Fisher-Yates 로 쓴다: for (i = n-1; i > 0; i--) j = floor(random*(i+1)).
+check('11. 셔플 편향 없음 (sort + Math.random 금지)', () => {
+  const js = fs.readFileSync(path.join(gameDir, 'game.js'), 'utf-8');
+  const hit = js.match(/\.sort\(\s*(?:function\s*\([^)]*\)\s*\{[^}]*|\([^)]*\)\s*=>\s*\{?[^})]*)Math\.random\(\)/);
+  return !hit || `치우친 셔플: ${hit[0].replace(/\s+/g, ' ')} — Fisher-Yates 로 바꾸세요`;
 });
 
 // === 결과 출력 ===

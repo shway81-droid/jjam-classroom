@@ -1,7 +1,7 @@
 /* games/block-pop/style.css
    Level 3 Comic 스타일 — 크림 배경 + 파스텔 zone + 검정 두꺼운 테두리 */
 
-/* ── Intro screen ───────────────────────────────────────────── */
+/* -- Intro screen --------------------------------------------- */
 .intro-illustration {
   display: flex;
   justify-content: center;
@@ -18,7 +18,7 @@
   background: #EC407A;
 }
 
-/* ── Game screen ─────────────────────────────────────────────── */
+/* -- Game screen ----------------------------------------------- */
 .screen-game {
   height: 100vh;
   overflow: hidden;
@@ -153,7 +153,7 @@
   white-space: nowrap;
 }
 
-/* ── Block-pop board ─────────────────────────────────────────── */
+/* -- Block-pop board ------------------------------------------- */
 .bp-board {
   display: grid;
   gap: 3px;

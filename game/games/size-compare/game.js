@@ -1,7 +1,7 @@
 /* games/size-compare/game.js */
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const TOTAL_ROUNDS = 15;
 
 const PLAYER_CONFIG = [
@@ -19,7 +19,7 @@ const NUM_COLORS = [
   { fill: '#AB47BC', stroke: '#4A148C' },
 ];
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const sound = createSoundManager({
   ding(ctx) {
     [523, 659, 784].forEach((freq, i) => {
@@ -65,7 +65,7 @@ const sound = createSoundManager({
   },
 });
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let playerCount  = 2;
 let difficulty   = 'easy';   // 'easy' | 'normal'
 let currentRound = 0;
@@ -79,7 +79,7 @@ let roundDQ      = new Set();
 // timers
 let nextRoundTimer = null;
 
-// ── DOM references ───────────────────────────────────────────
+// -- DOM references -------------------------------------------
 const introScreen     = document.getElementById('introScreen');
 const countdownScreen = document.getElementById('countdownScreen');
 const countdownNumber = document.getElementById('countdownNumber');
@@ -106,7 +106,7 @@ const resultTableHead  = document.getElementById('resultTableHead');
 const resultTableBody  = document.getElementById('resultTableBody');
 const totalRow         = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function showScreen(screen) {
   [introScreen, countdownScreen, gameScreen, resultScreen].forEach(s => s.classList.remove('active'));
   screen.classList.add('active');
@@ -139,7 +139,7 @@ function generateNumbers() {
   return [a, b];
 }
 
-// ── SVG Builders ─────────────────────────────────────────────
+// -- SVG Builders ---------------------------------------------
 function makeSvgNumber(num, fill, stroke) {
   const fontSize = num >= 100 ? 28 : num >= 10 ? 36 : 44;
   return `<svg viewBox="0 0 120 120" width="110" height="110" xmlns="http://www.w3.org/2000/svg">
@@ -164,10 +164,10 @@ function makeSvgArrowRight(fill, stroke) {
   </svg>`;
 }
 
-// ── Sound Toggle ─────────────────────────────────────────────
+// -- Sound Toggle ---------------------------------------------
 setupSoundToggle(sound, soundToggleIntro);
 
-// ── Intro selectors ──────────────────────────────────────────
+// -- Intro selectors ------------------------------------------
 setupPlayerSelect(function (n) { playerCount = n; });
 
 document.querySelectorAll('.diff-btn').forEach(btn => {
@@ -178,14 +178,14 @@ document.querySelectorAll('.diff-btn').forEach(btn => {
   });
 });
 
-// ── Nav ──────────────────────────────────────────────────────
+// -- Nav ------------------------------------------------------
 onTap(backBtn,  () => { clearAllTimers(); goHome(); });
 onTap(closeBtn, () => { clearAllTimers(); goHome(); });
 onTap(homeBtn,  () => { clearAllTimers(); goHome(); });
 onTap(retryBtn, () => startCountdown(() => startGame()));
 onTap(playBtn,  () => startCountdown(() => startGame()));
 
-// ── Timer cleanup ─────────────────────────────────────────────
+// -- Timer cleanup ---------------------------------------------
 function clearAllTimers() {
   if (countdownInterval) { clearInterval(countdownInterval); countdownInterval = null; }
   if (nextRoundTimer) {
@@ -194,7 +194,7 @@ function clearAllTimers() {
   }
 }
 
-// ── Build zones ──────────────────────────────────────────────
+// -- Build zones ----------------------------------------------
 function buildZones() {
   zonesWrap.innerHTML = '';
   zonesWrap.className = `zones-wrap p${playerCount}`;
@@ -235,7 +235,7 @@ function getZone(idx) {
   return zonesWrap.querySelector(`.zone[data-player="${idx}"]`);
 }
 
-// ── Ripple ────────────────────────────────────────────────────
+// -- Ripple ----------------------------------------------------
 function spawnRipple(btn, e) {
   const zone   = btn.closest('.zone');
   const rect   = zone.getBoundingClientRect();
@@ -253,7 +253,7 @@ function spawnRipple(btn, e) {
   ripple.addEventListener('animationend', () => ripple.remove());
 }
 
-// ── Arrow tap handler ─────────────────────────────────────────
+// -- Arrow tap handler -----------------------------------------
 function handleArrowTap(playerIdx, side, zone, e) {
   if (!roundActive) return;
   if (roundDQ.has(playerIdx)) return;
@@ -273,7 +273,7 @@ function handleArrowTap(playerIdx, side, zone, e) {
   }
 }
 
-// ── Disqualify ────────────────────────────────────────────────
+// -- Disqualify ------------------------------------------------
 function disqualifyPlayer(idx, zone) {
   if (roundDQ.has(idx)) return;
   roundDQ.add(idx);
@@ -301,7 +301,7 @@ function disqualifyPlayer(idx, zone) {
   }
 }
 
-// ── Game flow ─────────────────────────────────────────────────
+// -- Game flow -------------------------------------------------
 function startGame() {
   clearAllTimers();
   scores       = new Array(playerCount).fill(0);
@@ -396,7 +396,7 @@ function endRound(winnerIdx) {
   }, 1400);
 }
 
-// ── Zone state helpers ────────────────────────────────────────
+// -- Zone state helpers ----------------------------------------
 function setAllZoneState(stateClass) {
   for (let i = 0; i < playerCount; i++) {
     const z = getZone(i);
@@ -420,7 +420,7 @@ function updateScoreDisplay(idx) {
   if (el) el.textContent = `${scores[idx]}점`;
 }
 
-// ── Result screen ─────────────────────────────────────────────
+// -- Result screen ---------------------------------------------
 function showResult() {
   sound.play('fanfare');
 

@@ -2,7 +2,7 @@
 
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const GAME_DURATION   = 30;                 // 초
 const RESULT_PAUSE_MS = getAutoplayPauseMs(2000);
 
@@ -26,10 +26,10 @@ const PLAYER_CONFIG = [
   { label: 'P4', dot: '#F57C00', cls: 'p4' },
 ];
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const btSound = createSoundManager();
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let btPlayerCount   = 2;
 let btScores        = [];
 let btSolved        = [];   // per player: 맞힌 문제 수
@@ -39,7 +39,7 @@ let btPhase         = 'idle';
 let btTimerHandle   = null;
 let btTimeRemaining = GAME_DURATION;
 
-// ── DOM refs ─────────────────────────────────────────────────
+// -- DOM refs -------------------------------------------------
 const btIntroScreen     = document.getElementById('introScreen');
 const btCountdownScreen = document.getElementById('countdownScreen');
 const btCountdownNumber = document.getElementById('countdownNumber');
@@ -66,7 +66,7 @@ const btResultTableHead = document.getElementById('resultTableHead');
 const btResultTableBody = document.getElementById('resultTableBody');
 const btTotalRow        = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function btShowScreen(s) {
   [btIntroScreen, btCountdownScreen, btGameScreen, btResultScreen]
     .forEach(x => x.classList.remove('active'));
@@ -146,7 +146,7 @@ function btGeneratePrompt(diff) {
   return { target: target, values: shuffled, nearIdx: nearIdx };
 }
 
-// ── Intro illustration ───────────────────────────────────────
+// -- Intro illustration ---------------------------------------
 (function() {
   const el = document.getElementById('introIllust');
   if (el) {
@@ -164,20 +164,20 @@ function btGeneratePrompt(diff) {
   }
 })();
 
-// ── Player count selection ───────────────────────────────────
+// -- Player count selection -----------------------------------
 setupPlayerSelect(function (n) { btPlayerCount = n; });
 
-// ── Sound toggle ─────────────────────────────────────────────
+// -- Sound toggle ---------------------------------------------
 setupSoundToggle(btSound, btSoundToggle);
 
-// ── Navigation ───────────────────────────────────────────────
+// -- Navigation -----------------------------------------------
 onTap(btBackBtn,  function() { goHome(); });
 onTap(btCloseBtn, function() { btClearTimers(); goHome(); });
 onTap(btHomeBtn,  function() { goHome(); });
 onTap(btRetryBtn, function() { btStartPreCountdown(function() { btStartGame(); }); });
 onTap(btPlayBtn,  function() { btStartPreCountdown(function() { btStartGame(); }); });
 
-// ── Build zones ──────────────────────────────────────────────
+// -- Build zones ----------------------------------------------
 function btBuildZones() {
   btZonesWrap.innerHTML = '';
   btZonesWrap.className = 'zones-wrap p' + btPlayerCount;
@@ -220,7 +220,7 @@ function btUpdateScoreChip(playerIdx) {
   if (chip) chip.textContent = btScores[playerIdx] + '점';
 }
 
-// ── Score bar ────────────────────────────────────────────────
+// -- Score bar ------------------------------------------------
 function btBuildScoreBar() {
   btScoreBar.innerHTML = '';
   for (let i = 0; i < btPlayerCount; i++) {
@@ -240,7 +240,7 @@ function btUpdateBarScore(playerIdx) {
   if (el) el.textContent = btScores[playerIdx];
 }
 
-// ── Render a fresh prompt into a player's zone ────────────────
+// -- Render a fresh prompt into a player's zone ----------------
 function btLoadPrompt(playerIdx) {
   const diff   = btCurrentDifficulty();
   const prompt = btGeneratePrompt(diff);
@@ -265,7 +265,7 @@ function btLoadPrompt(playerIdx) {
   });
 }
 
-// ── Penalty / bonus flash ─────────────────────────────────────
+// -- Penalty / bonus flash -------------------------------------
 function btFlash(playerIdx, text, isBonus) {
   const zone = btGetZone(playerIdx);
   if (!zone) return;
@@ -276,7 +276,7 @@ function btFlash(playerIdx, text, isBonus) {
   flash.addEventListener('animationend', function() { flash.remove(); });
 }
 
-// ── Tap handler ───────────────────────────────────────────────
+// -- Tap handler -----------------------------------------------
 function btHandleTap(playerIdx, idx, btn) {
   if (btPhase !== 'playing') return;
   const prompt = btPrompts[playerIdx];
@@ -326,7 +326,7 @@ function btHandleTap(playerIdx, idx, btn) {
   }
 }
 
-// ── Global timer ──────────────────────────────────────────────
+// -- Global timer ----------------------------------------------
 function btStartTimer() {
   btTimeRemaining = GAME_DURATION;
   btProblemTimer.textContent = btTimeRemaining;
@@ -346,7 +346,7 @@ function btStartTimer() {
   }, 1000);
 }
 
-// ── Start game ────────────────────────────────────────────────
+// -- Start game ------------------------------------------------
 function btStartGame() {
   btScores  = new Array(btPlayerCount).fill(0);
   btSolved  = new Array(btPlayerCount).fill(0);
@@ -365,14 +365,14 @@ function btStartGame() {
   btStartTimer();
 }
 
-// ── End game ──────────────────────────────────────────────────
+// -- End game --------------------------------------------------
 function btEndGame() {
   btPhase = 'idle';
   btProblemStatus.textContent = '시간 종료!';
   setTimeout(function() { btShowResult(); }, RESULT_PAUSE_MS);
 }
 
-// ── Show result ───────────────────────────────────────────────
+// -- Show result -----------------------------------------------
 function btShowResult() {
   btClearTimers();
   btPhase = 'idle';

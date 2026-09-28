@@ -1,13 +1,13 @@
 /* games/biggest-tap/style.css */
 
-/* ── Countdown screen ─────────────────────────────────────── */
+/* -- Countdown screen --------------------------------------- */
 .screen-countdown {
   justify-content: center;
   align-items: center;
   background: #FFF8E1;
 }
 
-/* ── Intro screen ─────────────────────────────────────────── */
+/* -- Intro screen ------------------------------------------- */
 .screen-intro {
   background: linear-gradient(160deg, #FCE4EC 0%, #FFF8E1 100%);
   justify-content: space-between;
@@ -84,7 +84,7 @@
   box-shadow: 0 2px 8px rgba(236,64,122,0.35);
 }
 
-/* ── Game header ──────────────────────────────────────────── */
+/* -- Game header -------------------------------------------- */
 .game-header {
   display: flex;
   align-items: center;
@@ -102,7 +102,7 @@
   color: var(--text);
 }
 
-/* ── Game screen ──────────────────────────────────────────── */
+/* -- Game screen -------------------------------------------- */
 .screen-game {
   background: #FFF8E1;
   height: 100vh;
@@ -115,7 +115,7 @@
   align-items: stretch;
 }
 
-/* ── Top bar ──────────────────────────────────────────────── */
+/* -- Top bar ------------------------------------------------ */
 .top-bar {
   flex-shrink: 0;
   display: flex;
@@ -132,7 +132,7 @@
   gap: 10px;
 }
 
-/* ── Status & Timer ───────────────────────────────────────── */
+/* -- Status & Timer ----------------------------------------- */
 .question-counter {
   background: rgba(0,0,0,0.55);
   color: rgba(255,255,255,0.9);
@@ -179,7 +179,7 @@
 }
 .problem-status:empty { opacity: 0; }
 
-/* ── Close button ─────────────────────────────────────────── */
+/* -- Close button ------------------------------------------- */
 .close-btn {
   position: absolute;
   top: 6px;
@@ -205,7 +205,7 @@
 }
 .icon-btn:active { background: rgba(0,0,0,0.14); }
 
-/* ── Zone grid ────────────────────────────────────────────── */
+/* -- Zone grid ---------------------------------------------- */
 .zones-wrap {
   flex: 1;
   min-height: 0;
@@ -215,7 +215,7 @@
 .zones-wrap.p3 { grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr; }
 .zones-wrap.p4 { grid-template-columns: 1fr 1fr 1fr 1fr; grid-template-rows: 1fr; }
 
-/* ── Individual zone ──────────────────────────────────────── */
+/* -- Individual zone ---------------------------------------- */
 .zone {
   position: relative;
   display: flex;
@@ -252,7 +252,7 @@
   color: var(--text);
 }
 
-/* ── Choice buttons (numbers) ─────────────────────────────── */
+/* -- Choice buttons (numbers) ------------------------------- */
 .bt-btn-group {
   margin-top: auto;
   margin-bottom: auto;
@@ -315,7 +315,7 @@
   75%     { transform: translateX(8px); }
 }
 
-/* ── Penalty / bonus flash ────────────────────────────────── */
+/* -- Penalty / bonus flash ---------------------------------- */
 .penalty-flash {
   position: absolute;
   top: 50%;
@@ -336,7 +336,7 @@
   100% { opacity: 0; transform: translate(-50%,-120%) scale(0.8); }
 }
 
-/* ── Score bar ────────────────────────────────────────────── */
+/* -- Score bar ---------------------------------------------- */
 .score-bar {
   flex-shrink: 0;
   display: flex;
@@ -360,7 +360,7 @@
 .score-chip-dot { width: 10px; height: 10px; border-radius: 50%; }
 .score-chip-val { min-width: 18px; text-align: center; }
 
-/* ── Result screen ────────────────────────────────────────── */
+/* -- Result screen ------------------------------------------ */
 .screen-result {
   background: linear-gradient(160deg, #FCE4EC 0%, #FFF8E1 100%);
   align-items: center;

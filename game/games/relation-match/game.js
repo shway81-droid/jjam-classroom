@@ -2,7 +2,7 @@
 
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const TOTAL_ROUNDS    = 10;
 const ROUND_TIME      = 8;     // seconds per round
 const RESULT_PAUSE_MS = getAutoplayPauseMs(2000);
@@ -15,7 +15,7 @@ const PLAYER_CONFIG = [
   { label: 'P4', dot: '#F57C00', zoneBg: '#FFE0B2', cls: 'p4' },
 ];
 
-// ── Pair Data ────────────────────────────────────────────────
+// -- Pair Data ------------------------------------------------
 // 서로 어울리는 짝. 36쌍 (패턴 A 30+ 필수). answer는 모두 고유.
 const ALL_PAIRS = [
   { emoji: '🪡', word: '바늘',   answer: '실' },
@@ -58,10 +58,10 @@ const ALL_PAIRS = [
 
 const ANSWER_POOL = Array.from(new Set(ALL_PAIRS.map(p => p.answer)));
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const sound = createSoundManager();
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let playerCount    = 2;
 let roundIdx       = 0;
 let scores         = [];
@@ -75,7 +75,7 @@ let nextHandle     = null;
 let timeRemaining  = ROUND_TIME;
 let gameRounds     = [];     // 10 selected pairs
 
-// ── DOM refs ─────────────────────────────────────────────────
+// -- DOM refs -------------------------------------------------
 const introScreen     = document.getElementById('introScreen');
 const countdownScreen = document.getElementById('countdownScreen');
 const countdownNumber = document.getElementById('countdownNumber');
@@ -104,7 +104,7 @@ const resultTableHead = document.getElementById('resultTableHead');
 const resultTableBody = document.getElementById('resultTableBody');
 const totalRow      = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function showScreen(s) {
   [introScreen, countdownScreen, gameScreen, resultScreen].forEach(x => x.classList.remove('active'));
   s.classList.add('active');
@@ -146,7 +146,7 @@ function renderPrompt(container, pair) {
   `;
 }
 
-// ── Intro preview ────────────────────────────────────────────
+// -- Intro preview --------------------------------------------
 // 이모지를 SVG <text>로 렌더 (인트로 일러스트)
 function emojiSvg(emoji) {
   return `<svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
@@ -166,20 +166,20 @@ function renderIntroFlags() {
 }
 renderIntroFlags();
 
-// ── Player count selection ───────────────────────────────────
+// -- Player count selection -----------------------------------
 setupPlayerSelect(function (n) { playerCount = n; });
 
-// ── Sound toggle ─────────────────────────────────────────────
+// -- Sound toggle ---------------------------------------------
 setupSoundToggle(sound, soundToggleIntro);
 
-// ── Navigation ───────────────────────────────────────────────
+// -- Navigation -----------------------------------------------
 onTap(backBtn,  () => goHome());
 onTap(closeBtn, () => { clearTimers(); goHome(); });
 onTap(homeBtn,  () => goHome());
 onTap(retryBtn, () => startPreGameCountdown(() => startGame()));
 onTap(playBtn,  () => startPreGameCountdown(() => startGame()));
 
-// ── Build zone grid ──────────────────────────────────────────
+// -- Build zone grid ------------------------------------------
 function buildZones() {
   zonesWrap.innerHTML = '';
   zonesWrap.className = `zones-wrap p${playerCount}`;
@@ -221,7 +221,7 @@ function updateScoreChip(playerIdx) {
   if (chip) chip.textContent = `${scores[playerIdx]}점`;
 }
 
-// ── Score bar ────────────────────────────────────────────────
+// -- Score bar ------------------------------------------------
 function buildScoreBar() {
   scoreBar.innerHTML = '';
   for (let i = 0; i < playerCount; i++) {
@@ -242,7 +242,7 @@ function updateBarScore(playerIdx) {
   if (el) el.textContent = scores[playerIdx];
 }
 
-// ── Populate answer buttons for a round ─────────────────────
+// -- Populate answer buttons for a round ---------------------
 function populateAnswerBtns() {
   for (let i = 0; i < playerCount; i++) {
     const grid = document.getElementById(`answer-grid-${i}`);
@@ -270,7 +270,7 @@ function populateAnswerBtns() {
   }
 }
 
-// ── Reset buttons for new round ──────────────────────────────
+// -- Reset buttons for new round ------------------------------
 function resetBtnsForRound() {
   for (let i = 0; i < playerCount; i++) {
     const btns = getAnswerBtns(i);
@@ -290,7 +290,7 @@ function resetBtnsForRound() {
   }
 }
 
-// ── Ripple effect ────────────────────────────────────────────
+// -- Ripple effect --------------------------------------------
 function spawnRipple(zone, e) {
   const rect  = zone.getBoundingClientRect();
   const touch = e && e.touches ? e.touches[0] : (e || null);
@@ -307,7 +307,7 @@ function spawnRipple(zone, e) {
   r.addEventListener('animationend', () => r.remove());
 }
 
-// ── Timer logic ──────────────────────────────────────────────
+// -- Timer logic ----------------------------------------------
 function startCountdown() {
   timeRemaining = ROUND_TIME;
   problemTimer.textContent = timeRemaining;
@@ -329,7 +329,7 @@ function startCountdown() {
   }, 1000);
 }
 
-// ── Answer tap handler ───────────────────────────────────────
+// -- Answer tap handler ---------------------------------------
 function handleAnswerTap(playerIdx, chosenName, btn) {
   if (phase !== 'active') return;
   if (dqSet.has(playerIdx)) return;
@@ -375,7 +375,7 @@ function handleAnswerTap(playerIdx, chosenName, btn) {
   }
 }
 
-// ── Correct answer resolved ──────────────────────────────────
+// -- Correct answer resolved ----------------------------------
 function resolveRound(winnerIdx) {
   phase = 'done';
   clearTimers();
@@ -413,7 +413,7 @@ function resolveRound(winnerIdx) {
   nextHandle = setTimeout(() => nextRound(), RESULT_PAUSE_MS);
 }
 
-// ── Timeout ──────────────────────────────────────────────────
+// -- Timeout --------------------------------------------------
 function handleTimeout() {
   phase = 'done';
   clearTimers();
@@ -444,7 +444,7 @@ function handleTimeout() {
   nextHandle = setTimeout(() => nextRound(), RESULT_PAUSE_MS);
 }
 
-// ── Load round ───────────────────────────────────────────────
+// -- Load round -----------------------------------------------
 function loadRound() {
   phase          = 'active';
   currentPair    = gameRounds[roundIdx];
@@ -461,7 +461,7 @@ function loadRound() {
   startCountdown();
 }
 
-// ── Next round ───────────────────────────────────────────────
+// -- Next round -----------------------------------------------
 function nextRound() {
   roundIdx++;
   if (roundIdx >= TOTAL_ROUNDS) {
@@ -471,7 +471,7 @@ function nextRound() {
   }
 }
 
-// ── Start game ───────────────────────────────────────────────
+// -- Start game -----------------------------------------------
 function startGame() {
   gameRounds  = shuffle(ALL_PAIRS).slice(0, TOTAL_ROUNDS);
   roundIdx    = 0;
@@ -487,7 +487,7 @@ function startGame() {
   loadRound();
 }
 
-// ── Show result ──────────────────────────────────────────────
+// -- Show result ----------------------------------------------
 function showResult() {
   clearTimers();
   phase = 'idle';

@@ -1,6 +1,6 @@
 /* games/times-pair/style.css — 곱셈 짝꿍 (Level 3 Comic, 2인 협력) */
 
-/* ── Countdown screen ─────────────────────────────────────── */
+/* -- Countdown screen --------------------------------------- */
 .screen-countdown {
   justify-content: center;
   align-items: center;

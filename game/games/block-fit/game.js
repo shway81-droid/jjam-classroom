@@ -10,7 +10,7 @@
  */
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const TOTAL_ROUNDS = 3;
 const ROUND_TIME = 60;        // seconds
 const RESULT_PAUSE_MS = getAutoplayPauseMs(2200);
@@ -36,7 +36,7 @@ const PLAYER_CONFIG = [
   { label: 'P4', dot: '#F57C00', cls: 'p4' },
 ];
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const sound = createSoundManager({
   ding(ctx) {
     [523, 659, 784].forEach((f, i) => {
@@ -113,7 +113,7 @@ const sound = createSoundManager({
   },
 });
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let playerCount = 2;
 let roundIdx = 0;
 let scores = [];                 // round wins per player
@@ -129,7 +129,7 @@ let nextHandle = null;
 let timeRemaining = ROUND_TIME;
 let statusTimer = null;
 
-// ── DOM refs ─────────────────────────────────────────────────
+// -- DOM refs -------------------------------------------------
 const introScreen = document.getElementById('introScreen');
 const countdownScreen = document.getElementById('countdownScreen');
 const countdownNumber = document.getElementById('countdownNumber');
@@ -154,7 +154,7 @@ const resultTitle = document.getElementById('resultTitle');
 const resultWinner = document.getElementById('resultWinner');
 const totalRow = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function showScreen(s) {
   [introScreen, countdownScreen, gameScreen, resultScreen].forEach(x => x.classList.remove('active'));
   s.classList.add('active');
@@ -173,7 +173,7 @@ function clearTimers() {
   if (statusTimer) { clearTimeout(statusTimer); statusTimer = null; }
 }
 
-// ── Puzzle generation ────────────────────────────────────────
+// -- Puzzle generation ----------------------------------------
 // 격자를 무작위로 폴리오미노(3~5칸)로 분할한다. 셀을 행우선으로 순회하며
 // 아직 배정 안 된 셀을 씨앗으로 영역을 키운다. 행우선 최소 셀이 씨앗이 되므로
 // 그 셀이 조각의 기준점(origin)이 된다 → 항상 원래 분할대로 채울 해가 존재.
@@ -254,7 +254,7 @@ function clonePuzzleToZone(puzzle) {
   return { pieces, grid };
 }
 
-// ── Build zones ──────────────────────────────────────────────
+// -- Build zones ----------------------------------------------
 function buildZones() {
   zonesWrap.innerHTML = '';
   zonesWrap.className = `zones-wrap p${playerCount}`;
@@ -296,7 +296,7 @@ function getZone(idx) {
   return zonesWrap.querySelector(`.zone[data-player="${idx}"]`);
 }
 
-// ── Render ───────────────────────────────────────────────────
+// -- Render ---------------------------------------------------
 function renderBoard(playerIdx) {
   const board = document.getElementById(`pf-board-${playerIdx}`);
   if (!board) return;
@@ -362,7 +362,7 @@ function updateLeftChip(playerIdx) {
   }
 }
 
-// ── Score bar ────────────────────────────────────────────────
+// -- Score bar ------------------------------------------------
 function buildScoreBar() {
   scoreBar.innerHTML = '';
   for (let i = 0; i < playerCount; i++) {
@@ -383,7 +383,7 @@ function updateBarScore(playerIdx) {
   if (el) el.textContent = scores[playerIdx];
 }
 
-// ── Interaction ──────────────────────────────────────────────
+// -- Interaction ----------------------------------------------
 function handlePieceTap(playerIdx, pieceId) {
   if (phase !== 'active' || zoneSolved[playerIdx]) return;
   const piece = zonePieces[playerIdx].find(p => p.id === pieceId);
@@ -476,7 +476,7 @@ function flashStatus(msg) {
   }, 900);
 }
 
-// ── Solve / round flow ───────────────────────────────────────
+// -- Solve / round flow ---------------------------------------
 function handleSolve(winnerIdx) {
   if (zoneSolved[winnerIdx]) return;
   zoneSolved[winnerIdx] = true;
@@ -588,7 +588,7 @@ function startGame() {
   loadRound();
 }
 
-// ── Result ───────────────────────────────────────────────────
+// -- Result ---------------------------------------------------
 function showResult() {
   clearTimers();
   phase = 'idle';
@@ -630,13 +630,13 @@ function showResult() {
   showScreen(resultScreen);
 }
 
-// ── Player count selection ───────────────────────────────────
+// -- Player count selection -----------------------------------
 setupPlayerSelect(function (n) { playerCount = n; });
 
-// ── Sound toggle ─────────────────────────────────────────────
+// -- Sound toggle ---------------------------------------------
 setupSoundToggle(sound, soundToggleIntro);
 
-// ── Navigation ───────────────────────────────────────────────
+// -- Navigation -----------------------------------------------
 onTap(backBtn, () => goHome());
 onTap(closeBtn, () => { clearTimers(); goHome(); });
 onTap(homeBtn, () => goHome());

@@ -1,6 +1,6 @@
 /* games/stop-bar/style.css */
 
-/* ── Intro screen ─────────────────────────────────────────── */
+/* -- Intro screen ------------------------------------------- */
 .screen-intro {
   justify-content: space-between;
 }
@@ -90,7 +90,7 @@
   letter-spacing: 0.06em;
 }
 
-/* ── Game screen ──────────────────────────────────────────── */
+/* -- Game screen -------------------------------------------- */
 .screen-game {
   position: relative;
 }
@@ -141,19 +141,19 @@
   display: grid;
 }
 
-/* ─ 2-player: left / right halves ─ */
+/* - 2-player: left / right halves - */
 .zones-wrap.p2 {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
 }
 
-/* ─ 3-player: 3 equal columns (공정성 — 2+1 금지) ─ */
+/* - 3-player: 3 equal columns (공정성 — 2+1 금지) - */
 .zones-wrap.p3 {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
 }
 
-/* ─ 4-player: 4 equal columns ─ */
+/* - 4-player: 4 equal columns - */
 .zones-wrap.p4 {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
@@ -321,7 +321,7 @@
   z-index: 5;
 }
 
-/* ── Close button ─────────────────────────────────────────── */
+/* -- Close button ------------------------------------------- */
 .close-btn {
   position: absolute;
   top: var(--space-md);
@@ -329,7 +329,7 @@
   z-index: 30;
 }
 
-/* ── Result screen ────────────────────────────────────────── */
+/* -- Result screen ------------------------------------------ */
 .screen-result {
   align-items: center;
   justify-content: flex-start;
@@ -433,7 +433,7 @@
   font-weight: 900;
 }
 
-/* ── 전자칠판(대형 화면) 확대 ─────────────────────────────── */
+/* -- 전자칠판(대형 화면) 확대 ------------------------------- */
 @media (min-width: 1280px) {
   .gauge-track   { height: 68px; max-width: 560px; }
   .marker-arrow  { font-size: 1.8rem; }

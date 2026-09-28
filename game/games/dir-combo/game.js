@@ -3,10 +3,10 @@
 (function () {
   'use strict';
 
-  // ─── 미로 데이터 (점증 난이도, 모두 BFS 해 존재 검증됨) ───────────────────
+  // --- 미로 데이터 (점증 난이도, 모두 BFS 해 존재 검증됨) -------------------
   // 각 라운드: cols, rows, start[c,r], goal[c,r], walls:[[c,r],...]
   // 좌표계: c(열)는 오른쪽으로 증가, r(행)은 아래로 증가.
-  // 대각선 이동 허용(dx,dy ∈ -1/0/+1, 둘 다 0은 제외) 기준으로 풀 수 있음.
+  // 대각선 이동 허용(dx,dy 는 -1/0/+1, 둘 다 0은 제외) 기준으로 풀 수 있음.
   var ROUNDS = [
     { cols: 5, rows: 5, start: [0, 0], goal: [4, 4],
       walls: [[2, 1], [2, 2], [2, 3]] },
@@ -30,7 +30,7 @@
   var MISS_PENALTY = 2;            // 벽/밖 충돌 시 시간 페널티(초)
   var RESULT_PAUSE_MS = function () { return getAutoplayPauseMs(900); };
 
-  // ─── 타이머 관리 ─────────────────────────────────────────────────────────
+  // --- 타이머 관리 ---------------------------------------------------------
   var timers = [];
   var gameTimer = null;
 
@@ -47,7 +47,7 @@
     timers = [];
   }
 
-  // ─── 화면 전환 ────────────────────────────────────────────────────────────
+  // --- 화면 전환 ------------------------------------------------------------
   var screens = {
     intro:     document.getElementById('introScreen'),
     countdown: document.getElementById('countdownScreen'),
@@ -68,7 +68,7 @@
     countdownInterval = runCountdown(countdownNumber, onDone);
   }
 
-  // ─── 사운드 ──────────────────────────────────────────────────────────────
+  // --- 사운드 --------------------------------------------------------------
   var sounds = createSoundManager({
     move: function (ctx) {
       var osc = ctx.createOscillator();
@@ -141,7 +141,7 @@
     }
   });
 
-  // ─── 사운드 버튼 ──────────────────────────────────────────────────────────
+  // --- 사운드 버튼 ----------------------------------------------------------
   var soundIconIds = ['soundIconIntro', 'soundIconGame'];
   var SVG_SOUND_ON  = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>';
   var SVG_SOUND_OFF = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
@@ -165,18 +165,18 @@
   });
   updateSoundIcons();
 
-  // ─── 게임 상태 ────────────────────────────────────────────────────────────
+  // --- 게임 상태 ------------------------------------------------------------
   var roundIdx;        // 현재 미로 인덱스
   var score;           // 클리어한 미로 수(협력 점수)
   var pos;             // 토큰 현재 위치 [c, r]
-  var pendingP1;       // dx ∈ -1/0/+1 또는 null
-  var pendingP2;       // dy ∈ -1/0/+1 또는 null
+  var pendingP1;       // dx 는 -1/0/+1 또는 null
+  var pendingP2;       // dy 는 -1/0/+1 또는 null
   var wallSet;         // 현재 미로 벽 집합
   var current;         // 현재 미로 객체
   var locked;          // 이동 애니메이션/라운드 전환 중 잠금
   var timeLeft;
 
-  // ─── DOM ─────────────────────────────────────────────────────────────────
+  // --- DOM -----------------------------------------------------------------
   var mazeBoard    = document.getElementById('mazeBoard');
   var p1Btns       = document.getElementById('p1Btns');
   var p2Btns       = document.getElementById('p2Btns');
@@ -187,7 +187,7 @@
   var resultSub    = document.getElementById('resultSub');
   var resultIconWrap = document.getElementById('resultIconWrap');
 
-  // ─── 미로 헬퍼 ───────────────────────────────────────────────────────────
+  // --- 미로 헬퍼 -----------------------------------------------------------
   function cellKey(c, r) { return c + ',' + r; }
 
   function isWall(c, r) { return !!wallSet[cellKey(c, r)]; }
@@ -223,7 +223,7 @@
     return false;
   }
 
-  // ─── 보드 렌더 ───────────────────────────────────────────────────────────
+  // --- 보드 렌더 -----------------------------------------------------------
   function renderBoard() {
     mazeBoard.innerHTML = '';
     mazeBoard.style.gridTemplateColumns = 'repeat(' + current.cols + ', auto)';
@@ -264,7 +264,7 @@
     cell.appendChild(span);
   }
 
-  // ─── 보류 선택 처리 ──────────────────────────────────────────────────────
+  // --- 보류 선택 처리 ------------------------------------------------------
   function buildControls() {
     // P1: 좌우 (dx)
     p1Btns.innerHTML = '';
@@ -315,7 +315,7 @@
     p2Btns.querySelectorAll('.dir-btn').forEach(function (b) { b.classList.remove('pending'); });
   }
 
-  // ─── 한 스텝 해결: 조합 벡터로 한 칸 이동 ─────────────────────────────────
+  // --- 한 스텝 해결: 조합 벡터로 한 칸 이동 ---------------------------------
   function resolveStep() {
     locked = true;
     var dx = pendingP1;
@@ -373,7 +373,7 @@
     }
   }
 
-  // ─── 라운드 진행 ─────────────────────────────────────────────────────────
+  // --- 라운드 진행 ---------------------------------------------------------
   function loadRound(idx) {
     current = ROUNDS[idx % ROUNDS.length];
     wallSet = {};
@@ -388,7 +388,7 @@
     loadRound(roundIdx);
   }
 
-  // ─── UI ──────────────────────────────────────────────────────────────────
+  // --- UI ------------------------------------------------------------------
   function updateScoreUI() {
     roundScoreEl.textContent = '★ ' + score;
   }
@@ -405,7 +405,7 @@
     bannerEl.textContent = '';
   }
 
-  // ─── 게임 초기화 ─────────────────────────────────────────────────────────
+  // --- 게임 초기화 ---------------------------------------------------------
   function initGame() {
     clearAllTimers();
     roundIdx = 0;
@@ -435,7 +435,7 @@
     gameTimer.start();
   }
 
-  // ─── 결과 화면 ───────────────────────────────────────────────────────────
+  // --- 결과 화면 -----------------------------------------------------------
   var SVG_TROPHY =
     '<svg viewBox="0 0 80 80" width="80" height="80">' +
       '<rect x="28" y="62" width="24" height="6" rx="3" fill="#FFA726"/>' +
@@ -479,7 +479,7 @@
     showScreen('result');
   }
 
-  // ─── 버튼 이벤트 ─────────────────────────────────────────────────────────
+  // --- 버튼 이벤트 ---------------------------------------------------------
   onTap(document.getElementById('playBtn'), function () {
     startCountdown(function () { initGame(); });
   });

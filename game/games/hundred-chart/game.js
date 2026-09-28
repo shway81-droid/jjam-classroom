@@ -2,7 +2,7 @@
 
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const HC_TOTAL_ROUNDS    = 8;
 const HC_ROUND_TIME      = 12;
 const HC_RESULT_PAUSE_MS = getAutoplayPauseMs(2000);
@@ -15,10 +15,10 @@ const HC_PLAYER_CONFIG = [
   { label: 'P4', dot: '#F57C00', cls: 'p4' },
 ];
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const hcSound = createSoundManager();
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let hcPlayerCount   = 2;
 let hcRoundIdx      = 0;
 let hcScores        = [];
@@ -31,7 +31,7 @@ let hcNextHandle    = null;
 let hcTimeRemaining = HC_ROUND_TIME;
 let hcGameRounds    = [];
 
-// ── DOM refs ─────────────────────────────────────────────────
+// -- DOM refs -------------------------------------------------
 const hcIntroScreen     = document.getElementById('introScreen');
 const hcCountdownScreen = document.getElementById('countdownScreen');
 const hcCountdownNumber = document.getElementById('countdownNumber');
@@ -59,7 +59,7 @@ const hcResultTableHead = document.getElementById('resultTableHead');
 const hcResultTableBody = document.getElementById('resultTableBody');
 const hcTotalRow        = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function hcShowScreen(s) {
   [hcIntroScreen, hcCountdownScreen, hcGameScreen, hcResultScreen]
     .forEach(x => x.classList.remove('active'));
@@ -85,7 +85,7 @@ function hcClearTimers() {
 }
 
 
-// ── 백판 (1~100, 가로 10, 아래 +10) ─────────────────────────
+// -- 백판 (1~100, 가로 10, 아래 +10) -------------------------
 // row: 0~9 (top=1~10, bottom=91~100)
 // col: 0~9
 // value = row * 10 + col + 1
@@ -93,7 +93,7 @@ function hcCellValue(row, col) {
   return row * 10 + col + 1;
 }
 
-// ── Round generation ─────────────────────────────────────────
+// -- Round generation -----------------------------------------
 // 3x3 창(windowRow, windowCol) = 시작 행/열(0-based)
 // windowRow: 0~7(마지막 창의 마지막 행은 row9, 3행 필요하므로 windowRow ≤ 7)
 // windowCol: 0~7
@@ -240,7 +240,7 @@ function hcBuildGameRounds() {
   return rounds;
 }
 
-// ── Render the 3x3 chart grid ─────────────────────────────────
+// -- Render the 3x3 chart grid ---------------------------------
 function hcRenderChartGrid(round) {
   hcChartGrid.innerHTML = '';
   for (let i = 0; i < 9; i++) {
@@ -281,7 +281,7 @@ function hcRenderChartGrid(round) {
   }
 }
 
-// ── Navigation ───────────────────────────────────────────────
+// -- Navigation -----------------------------------------------
 var hcCountdownInterval = null;
 function hcStartPreGameCountdown(onDone) {
   hcShowScreen(hcCountdownScreen);
@@ -298,7 +298,7 @@ onTap(hcHomeBtn,  () => goHome());
 onTap(hcRetryBtn, () => hcStartPreGameCountdown(() => hcStartGame()));
 onTap(hcPlayBtn,  () => hcStartPreGameCountdown(() => hcStartGame()));
 
-// ── Build zones ───────────────────────────────────────────────
+// -- Build zones -----------------------------------------------
 function hcBuildZones() {
   hcZonesWrap.innerHTML = '';
   hcZonesWrap.className = `zones-wrap p${hcPlayerCount}`;
@@ -349,7 +349,7 @@ function hcUpdateScoreChip(playerIdx) {
   if (chip) chip.textContent = `${hcScores[playerIdx]}점`;
 }
 
-// ── Score bar ─────────────────────────────────────────────────
+// -- Score bar -------------------------------------------------
 function hcBuildScoreBar() {
   hcScoreBar.innerHTML = '';
   for (let i = 0; i < hcPlayerCount; i++) {
@@ -370,7 +370,7 @@ function hcUpdateBarScore(playerIdx) {
   if (el) el.textContent = hcScores[playerIdx];
 }
 
-// ── Populate answers ──────────────────────────────────────────
+// -- Populate answers ------------------------------------------
 function hcPopulateAnswers(round) {
   for (let i = 0; i < hcPlayerCount; i++) {
     const btns = hcGetAnswerBtns(i);
@@ -386,7 +386,7 @@ function hcPopulateAnswers(round) {
   }
 }
 
-// ── Answer tap handler ────────────────────────────────────────
+// -- Answer tap handler ----------------------------------------
 function hcHandleAnswerTap(playerIdx, slotIdx, btn) {
   if (hcPhase !== 'active') return;
   if (hcDqSet.has(playerIdx)) return;
@@ -524,7 +524,7 @@ function hcHandleTimeout() {
   hcNextHandle = setTimeout(() => hcNextRound(), HC_RESULT_PAUSE_MS);
 }
 
-// ── Timer ─────────────────────────────────────────────────────
+// -- Timer -----------------------------------------------------
 function hcStartTimer() {
   hcTimeRemaining = HC_ROUND_TIME;
   hcProblemTimer.textContent = hcTimeRemaining;
@@ -545,7 +545,7 @@ function hcStartTimer() {
   }, 1000);
 }
 
-// ── Round flow ────────────────────────────────────────────────
+// -- Round flow ------------------------------------------------
 function hcLoadRound() {
   hcCurrentRound = hcGameRounds[hcRoundIdx];
   hcDqSet = new Set();
@@ -598,7 +598,7 @@ function hcStartGame() {
   hcLoadRound();
 }
 
-// ── Result screen ─────────────────────────────────────────────
+// -- Result screen ---------------------------------------------
 function hcShowResult() {
   hcClearTimers();
   hcPhase = 'idle';

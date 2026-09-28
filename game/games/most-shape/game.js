@@ -2,7 +2,7 @@
 
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const MS_TOTAL_ROUNDS    = 8;
 const MS_RESULT_PAUSE_MS = getAutoplayPauseMs(2000);
 const MS_ITEMS_PER_ROUND = 4;
@@ -32,7 +32,7 @@ const MS_PLAYER_CONFIG = [
   { label: 'P4', dot: '#F57C00', cls: 'p4' },
 ];
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const msSound = createSoundManager({
   ding(ctx) {
     [523, 659, 784].forEach(function(freq, i) {
@@ -93,7 +93,7 @@ const msSound = createSoundManager({
   },
 });
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let msPlayerCount   = 2;
 let msRoundIdx      = 0;
 let msScores        = [];
@@ -108,7 +108,7 @@ let msItems         = [];
 let msItemIdx       = 0;
 let msRoundScores   = [];
 
-// ── DOM refs ─────────────────────────────────────────────────
+// -- DOM refs -------------------------------------------------
 const msIntroScreen     = document.getElementById('introScreen');
 const msCountdownScreen = document.getElementById('countdownScreen');
 const msCountdownNumber = document.getElementById('countdownNumber');
@@ -136,7 +136,7 @@ const msResultTableHead = document.getElementById('resultTableHead');
 const msResultTableBody = document.getElementById('resultTableBody');
 const msTotalRow        = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function msShowScreen(s) {
   [msIntroScreen, msCountdownScreen, msGameScreen, msResultScreen]
     .forEach(function(x) { x.classList.remove('active'); });
@@ -216,7 +216,7 @@ function msGenerateItems(phaseNum) {
   return items;
 }
 
-// ── Intro illustration ───────────────────────────────────────
+// -- Intro illustration ---------------------------------------
 (function() {
   var el = document.getElementById('introIllust');
   if (el) {
@@ -235,20 +235,20 @@ function msGenerateItems(phaseNum) {
   }
 })();
 
-// ── Player count selection ───────────────────────────────────
+// -- Player count selection -----------------------------------
 setupPlayerSelect(function (n) { msPlayerCount = n; });
 
-// ── Sound toggle ─────────────────────────────────────────────
+// -- Sound toggle ---------------------------------------------
 setupSoundToggle(msSound, msSoundToggle);
 
-// ── Navigation ───────────────────────────────────────────────
+// -- Navigation -----------------------------------------------
 onTap(msBackBtn,  function() { goHome(); });
 onTap(msCloseBtn, function() { msClearTimers(); goHome(); });
 onTap(msHomeBtn,  function() { goHome(); });
 onTap(msRetryBtn, function() { msStartPreCountdown(function() { msStartGame(); }); });
 onTap(msPlayBtn,  function() { msStartPreCountdown(function() { msStartGame(); }); });
 
-// ── Build zones ──────────────────────────────────────────────
+// -- Build zones ----------------------------------------------
 function msBuildZones() {
   msZonesWrap.innerHTML = '';
   msZonesWrap.className = 'zones-wrap p' + msPlayerCount;
@@ -310,7 +310,7 @@ function msUpdateScoreChip(playerIdx) {
   if (chip) chip.textContent = msScores[playerIdx] + '점';
 }
 
-// ── Score bar ────────────────────────────────────────────────
+// -- Score bar ------------------------------------------------
 function msBuildScoreBar() {
   msScoreBar.innerHTML = '';
   for (var i = 0; i < msPlayerCount; i++) {
@@ -330,7 +330,7 @@ function msUpdateBarScore(playerIdx) {
   if (el) el.textContent = msScores[playerIdx];
 }
 
-// ── Disable / reset ───────────────────────────────────────────
+// -- Disable / reset -------------------------------------------
 function msDisablePlayerBtns(playerIdx) {
   msGetBtns(playerIdx).forEach(function(btn) {
     btn.classList.add('state-disabled');
@@ -338,7 +338,7 @@ function msDisablePlayerBtns(playerIdx) {
   });
 }
 
-// ── Timer ─────────────────────────────────────────────────────
+// -- Timer -----------------------------------------------------
 function msStartItemTimer() {
   var plan = MS_ROUND_PLAN[msRoundIdx];
   msTimeRemaining = plan.timeLimit;
@@ -359,7 +359,7 @@ function msStartItemTimer() {
   }, 1000);
 }
 
-// ── Tap handler ───────────────────────────────────────────────
+// -- Tap handler -----------------------------------------------
 function msHandleTap(playerIdx, ans, btn) {
   if (msPhase !== 'item-active') return;
   if (msDqSet.has(playerIdx)) return;
@@ -416,7 +416,7 @@ function msAllAnswered() {
   return true;
 }
 
-// ── Item timeout ─────────────────────────────────────────────
+// -- Item timeout ---------------------------------------------
 function msHandleItemTimeout() {
   msSound.play('timeout');
   var currentItem = msItems[msItemIdx];
@@ -437,7 +437,7 @@ function msHandleItemTimeout() {
   msNextHandle = setTimeout(function() { msNextItem(); }, 1300);
 }
 
-// ── Load item ─────────────────────────────────────────────────
+// -- Load item -------------------------------------------------
 function msLoadItem() {
   msPhase = 'item-active';
   var currentItem = msItems[msItemIdx];
@@ -463,7 +463,7 @@ function msLoadItem() {
   msStartItemTimer();
 }
 
-// ── Next item ─────────────────────────────────────────────────
+// -- Next item -------------------------------------------------
 function msNextItem() {
   msItemIdx++;
   if (msItemIdx >= MS_ITEMS_PER_ROUND) {
@@ -473,7 +473,7 @@ function msNextItem() {
   }
 }
 
-// ── End round ─────────────────────────────────────────────────
+// -- End round -------------------------------------------------
 function msEndRound() {
   msPhase = 'done';
   msRoundLog.push({
@@ -493,7 +493,7 @@ function msNextRound() {
   }
 }
 
-// ── Start round ───────────────────────────────────────────────
+// -- Start round -----------------------------------------------
 function msStartRound() {
   var plan = MS_ROUND_PLAN[msRoundIdx];
   msItems = msGenerateItems(plan.phase);
@@ -503,7 +503,7 @@ function msStartRound() {
   msLoadItem();
 }
 
-// ── Start game ────────────────────────────────────────────────
+// -- Start game ------------------------------------------------
 function msStartGame() {
   msRoundIdx   = 0;
   msScores     = new Array(msPlayerCount).fill(0);
@@ -518,7 +518,7 @@ function msStartGame() {
   msStartRound();
 }
 
-// ── Show result ───────────────────────────────────────────────
+// -- Show result -----------------------------------------------
 function msShowResult() {
   msClearTimers();
   msPhase = 'idle';

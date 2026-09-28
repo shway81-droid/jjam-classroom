@@ -1,13 +1,13 @@
 /* games/find-diff/style.css */
 
-/* ── Countdown screen ─────────────────────────────────────── */
+/* -- Countdown screen --------------------------------------- */
 .screen-countdown {
   justify-content: center;
   align-items: center;
   background: #FFF8E1;
 }
 
-/* ── Game header (intro) ──────────────────────────────────── */
+/* -- Game header (intro) ------------------------------------ */
 .game-header {
   display: flex;
   align-items: center;
@@ -25,7 +25,7 @@
   color: var(--text);
 }
 
-/* ── Intro screen ─────────────────────────────────────────── */
+/* -- Intro screen ------------------------------------------- */
 .screen-intro {
   background: linear-gradient(160deg, #E8EAF6 0%, #FFF3E0 100%);
   justify-content: space-between;
@@ -111,7 +111,7 @@
   box-shadow: 0 2px 8px rgba(92,107,192,0.35);
 }
 
-/* ── Game screen ──────────────────────────────────────────── */
+/* -- Game screen -------------------------------------------- */
 .screen-game {
   background: #FFF8E1;
   height: 100vh;
@@ -124,7 +124,7 @@
   align-items: stretch;
 }
 
-/* ── Top bar (problem panel) ─────────────────────────────── */
+/* -- Top bar (problem panel) ------------------------------- */
 .top-bar {
   flex-shrink: 0;
   display: flex;
@@ -142,7 +142,7 @@
   gap: 10px;
 }
 
-/* ── Diff panel: two 3x3 emoji grids side by side ─────────── */
+/* -- Diff panel: two 3x3 emoji grids side by side ----------- */
 .diff-panel {
   display: flex;
   align-items: center;
@@ -215,7 +215,7 @@
   to   { transform: scale(1.12); }
 }
 
-/* ── Zone grid ────────────────────────────────────────────── */
+/* -- Zone grid ---------------------------------------------- */
 .zones-wrap {
   flex: 1;
   min-height: 0;
@@ -240,7 +240,7 @@
   grid-template-rows: 1fr;
 }
 
-/* ── Individual zone ──────────────────────────────────────── */
+/* -- Individual zone ---------------------------------------- */
 /* 배경색은 shared/style.css 의 nth-child 파스텔 규칙이 적용 (하드코딩 금지) */
 .zone {
   position: relative;
@@ -285,7 +285,7 @@
   flex-shrink: 0;
 }
 
-/* ── Position pick grid (3x3, zone 하단 배치) ─────────────── */
+/* -- Position pick grid (3x3, zone 하단 배치) --------------- */
 .pick-grid {
   margin-top: auto;            /* 인터랙션 요소는 zone 하단 */
   align-self: center;
@@ -406,7 +406,7 @@
 }
 .problem-status:empty { opacity: 0; }
 
-/* ── Close button ─────────────────────────────────────────── */
+/* -- Close button ------------------------------------------- */
 .close-btn {
   position: absolute;
   top: 6px;
@@ -417,7 +417,7 @@
   box-shadow: none;
 }
 
-/* ── Score bar ────────────────────────────────────────────── */
+/* -- Score bar ---------------------------------------------- */
 .score-bar {
   flex-shrink: 0;
   display: flex;
@@ -448,7 +448,7 @@
   text-align: center;
 }
 
-/* ── Icon btn ─────────────────────────────────────────────── */
+/* -- Icon btn ----------------------------------------------- */
 .icon-btn {
   width: 44px;
   height: 44px;
@@ -465,7 +465,7 @@
 }
 .icon-btn:active { background: rgba(0,0,0,0.14); }
 
-/* ── DQ flash ─────────────────────────────────────────────── */
+/* -- DQ flash ----------------------------------------------- */
 .penalty-flash {
   position: absolute;
   top: 50%;
@@ -486,7 +486,7 @@
   100% { opacity: 0; transform: translate(-50%, -120%) scale(0.8); }
 }
 
-/* ── Result screen ────────────────────────────────────────── */
+/* -- Result screen ------------------------------------------ */
 .screen-result {
   background: linear-gradient(160deg, #E8EAF6 0%, #FFF3E0 100%);
   align-items: center;

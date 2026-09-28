@@ -1,7 +1,7 @@
 /* games/slide-puzzle/game.js — 패턴 D (퍼즐 병렬 경쟁) 골든 템플릿 */
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const TOTAL_ROUNDS = 3;
 const ROUND_TIME = 60;        // seconds
 const RESULT_PAUSE_MS = getAutoplayPauseMs(2200);
@@ -16,7 +16,7 @@ const PLAYER_CONFIG = [
 
 const SOLVED_STATE = [1, 2, 3, 4, 5, 6, 7, 8, 0]; // 0 = empty cell
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const sound = createSoundManager({
   ding(ctx) {
     [523, 659, 784].forEach((f, i) => {
@@ -67,7 +67,7 @@ const sound = createSoundManager({
   },
 });
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let playerCount = 2;
 let roundIdx = 0;
 let scores = [];                 // round wins per player
@@ -81,7 +81,7 @@ let nextHandle = null;
 let timeRemaining = ROUND_TIME;
 let initialPuzzleForRound = null; // shuffled state shared by all players
 
-// ── DOM refs ─────────────────────────────────────────────────
+// -- DOM refs -------------------------------------------------
 const introScreen = document.getElementById('introScreen');
 const countdownScreen = document.getElementById('countdownScreen');
 const countdownNumber = document.getElementById('countdownNumber');
@@ -106,7 +106,7 @@ const resultTitle = document.getElementById('resultTitle');
 const resultWinner = document.getElementById('resultWinner');
 const totalRow = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function showScreen(s) {
   [introScreen, countdownScreen, gameScreen, resultScreen].forEach(x => x.classList.remove('active'));
   s.classList.add('active');
@@ -125,7 +125,7 @@ function clearTimers() {
 }
 
 
-// ── Puzzle utilities ─────────────────────────────────────────
+// -- Puzzle utilities -----------------------------------------
 function findEmptyIdx(state) {
   return state.indexOf(0);
 }
@@ -167,7 +167,7 @@ function isSolved(state) {
   return true;
 }
 
-// ── Build zones (each zone has its own 3x3 puzzle) ──────────
+// -- Build zones (each zone has its own 3x3 puzzle) ----------
 function buildZones() {
   zonesWrap.innerHTML = '';
   zonesWrap.className = `zones-wrap p${playerCount}`;
@@ -225,7 +225,7 @@ function updateMovesChip(playerIdx) {
   if (el) el.textContent = `${zoneMoves[playerIdx]}회`;
 }
 
-// ── Score bar ────────────────────────────────────────────────
+// -- Score bar ------------------------------------------------
 function buildScoreBar() {
   scoreBar.innerHTML = '';
   for (let i = 0; i < playerCount; i++) {
@@ -246,7 +246,7 @@ function updateBarScore(playerIdx) {
   if (el) el.textContent = scores[playerIdx];
 }
 
-// ── Tile tap handler ─────────────────────────────────────────
+// -- Tile tap handler -----------------------------------------
 function handleTileTap(playerIdx, posIdx) {
   if (phase !== 'active') return;
   if (zoneSolved[playerIdx]) return;
@@ -301,7 +301,7 @@ function handleSolve(winnerIdx) {
   }
 }
 
-// ── Timer ────────────────────────────────────────────────────
+// -- Timer ----------------------------------------------------
 function startCountdown() {
   timeRemaining = ROUND_TIME;
   problemTimer.textContent = timeRemaining;
@@ -342,7 +342,7 @@ function handleTimeout() {
   nextHandle = setTimeout(() => nextRound(), RESULT_PAUSE_MS);
 }
 
-// ── Round flow ───────────────────────────────────────────────
+// -- Round flow -----------------------------------------------
 function loadRound() {
   phase = 'active';
 
@@ -392,7 +392,7 @@ function startGame() {
   loadRound();
 }
 
-// ── Result ───────────────────────────────────────────────────
+// -- Result ---------------------------------------------------
 function showResult() {
   clearTimers();
   phase = 'idle';
@@ -434,13 +434,13 @@ function showResult() {
   showScreen(resultScreen);
 }
 
-// ── Player count selection ───────────────────────────────────
+// -- Player count selection -----------------------------------
 setupPlayerSelect(function (n) { playerCount = n; });
 
-// ── Sound toggle ─────────────────────────────────────────────
+// -- Sound toggle ---------------------------------------------
 setupSoundToggle(sound, soundToggleIntro);
 
-// ── Navigation ───────────────────────────────────────────────
+// -- Navigation -----------------------------------------------
 onTap(backBtn, () => goHome());
 onTap(closeBtn, () => { clearTimers(); goHome(); });
 onTap(homeBtn, () => goHome());

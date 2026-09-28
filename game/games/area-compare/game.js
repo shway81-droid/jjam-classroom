@@ -2,7 +2,7 @@
 
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const TOTAL_ROUNDS    = 10;
 const ROUND_TIME      = 10;
 const RESULT_PAUSE_MS = 2000;
@@ -17,7 +17,7 @@ const PLAYER_CONFIG = [
 const LABEL_LETTERS = ['A', 'B', 'C', 'D'];
 const SHAPE_FILLS   = ['#B3E5FC', '#FFCDD2', '#C8E6C9', '#FFE0B2'];
 
-// ── Shape Library ────────────────────────────────────────────
+// -- Shape Library --------------------------------------------
 // 각 도형은 (r,c) 셀 좌표 배열로 표현. 모든 도형은 4x4 격자 안에 들어감.
 // 셀 수 (cells.length) = 넓이.
 const SHAPES = [
@@ -73,10 +73,10 @@ function shapeArea(s){
   return set.size;
 }
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const sound = createSoundManager();
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let playerCount   = 2;
 let roundIdx      = 0;
 let scores        = [];
@@ -89,7 +89,7 @@ let timerHandle   = null;
 let nextHandle    = null;
 let timeRemaining = ROUND_TIME;
 
-// ── DOM refs ─────────────────────────────────────────────────
+// -- DOM refs -------------------------------------------------
 const introScreen     = document.getElementById('introScreen');
 const countdownScreen = document.getElementById('countdownScreen');
 const countdownNumber = document.getElementById('countdownNumber');
@@ -118,7 +118,7 @@ const resultTableHead = document.getElementById('resultTableHead');
 const resultTableBody = document.getElementById('resultTableBody');
 const totalRow      = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function showScreen(s) {
   [introScreen, countdownScreen, gameScreen, resultScreen].forEach(x => x.classList.remove('active'));
   s.classList.add('active');
@@ -146,7 +146,7 @@ function clearTimers() {
 }
 
 
-// ── Shape rendering ──────────────────────────────────────────
+// -- Shape rendering ------------------------------------------
 function shapeBoundingBox(shape){
   let maxR = 0, maxC = 0;
   shape.cells.forEach(([r,c])=>{
@@ -178,7 +178,7 @@ function shapeSVG(shape, fillColor, gridW, gridH, cellPx){
   return `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">${rects.join('')}</svg>`;
 }
 
-// ── Round generation ─────────────────────────────────────────
+// -- Round generation -----------------------------------------
 function pickRound(){
   const byArea = new Map();
   SHAPES.forEach(s=>{
@@ -228,7 +228,7 @@ function pickRound(){
   };
 }
 
-// ── Intro thumbnails ─────────────────────────────────────────
+// -- Intro thumbnails -----------------------------------------
 function renderIntroFlags() {
   introFlagRow.innerHTML = '';
   const small = SHAPES.filter(s => shapeArea(s)<=6);
@@ -250,20 +250,20 @@ function renderIntroFlags() {
 }
 renderIntroFlags();
 
-// ── Player count selection ───────────────────────────────────
+// -- Player count selection -----------------------------------
 setupPlayerSelect(function (n) { playerCount = n; });
 
-// ── Sound toggle ─────────────────────────────────────────────
+// -- Sound toggle ---------------------------------------------
 setupSoundToggle(sound, soundToggleIntro);
 
-// ── Navigation ───────────────────────────────────────────────
+// -- Navigation -----------------------------------------------
 onTap(backBtn,  () => goHome());
 onTap(closeBtn, () => { clearTimers(); goHome(); });
 onTap(homeBtn,  () => goHome());
 onTap(retryBtn, () => startPreGameCountdown(() => startGame()));
 onTap(playBtn,  () => startPreGameCountdown(() => startGame()));
 
-// ── Build zone grid ──────────────────────────────────────────
+// -- Build zone grid ------------------------------------------
 function buildZones() {
   zonesWrap.innerHTML = '';
   zonesWrap.className = `zones-wrap p${playerCount}`;
@@ -303,7 +303,7 @@ function updateScoreChip(playerIdx) {
   if (chip) chip.textContent = `${scores[playerIdx]}점`;
 }
 
-// ── Score bar ────────────────────────────────────────────────
+// -- Score bar ------------------------------------------------
 function buildScoreBar() {
   scoreBar.innerHTML = '';
   for (let i = 0; i < playerCount; i++) {
@@ -323,7 +323,7 @@ function updateBarScore(playerIdx) {
   if (el) el.textContent = scores[playerIdx];
 }
 
-// ── Populate answer buttons ─────────────────────────────────
+// -- Populate answer buttons ---------------------------------
 function populateAnswerBtns() {
   for (let i = 0; i < playerCount; i++) {
     const grid = document.getElementById(`answer-grid-${i}`);
@@ -386,7 +386,7 @@ function spawnRipple(zone, e) {
   r.addEventListener('animationend', () => r.remove());
 }
 
-// ── Timer ────────────────────────────────────────────────────
+// -- Timer ----------------------------------------------------
 function startCountdown() {
   timeRemaining = ROUND_TIME;
   problemTimer.textContent = timeRemaining;
@@ -408,7 +408,7 @@ function startCountdown() {
   }, 1000);
 }
 
-// ── Answer tap handler ───────────────────────────────────────
+// -- Answer tap handler ---------------------------------------
 function handleAnswerTap(playerIdx, chosenLetter, btn) {
   if (phase !== 'active') return;
   if (dqSet.has(playerIdx)) return;

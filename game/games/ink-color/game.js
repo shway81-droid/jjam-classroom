@@ -2,7 +2,7 @@
 
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const ROUND_TIME      = 45;    // shared seconds for the whole game
 const LOCKOUT_MS      = 600;   // brief lockout after a wrong tap
 const RESULT_PAUSE_MS = 2200;
@@ -15,7 +15,7 @@ const PLAYER_CONFIG = [
   { label: 'P4', dot: '#F57C00', cls: 'p4' },
 ];
 
-// ── Color palette (fixed 5) ──────────────────────────────────
+// -- Color palette (fixed 5) ----------------------------------
 // id, Korean color word, ink hex used to paint text / swatch.
 const COLORS = [
   { id: 'red',    name: '빨강', hex: '#E53935' },
@@ -27,10 +27,10 @@ const COLORS = [
 
 const N_OPTIONS = 4; // answer swatch count per prompt
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const sound = createSoundManager();
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let playerCount   = 2;
 let scores        = [];
 let zoneState     = [];   // per player: { word, ink, options, locked }
@@ -39,7 +39,7 @@ let roundTimer    = null;
 let nextHandle    = null;
 let lockHandles   = [];
 
-// ── DOM refs ─────────────────────────────────────────────────
+// -- DOM refs -------------------------------------------------
 const introScreen     = document.getElementById('introScreen');
 const countdownScreen = document.getElementById('countdownScreen');
 const countdownNumber = document.getElementById('countdownNumber');
@@ -63,7 +63,7 @@ const resultTitle   = document.getElementById('resultTitle');
 const resultWinner  = document.getElementById('resultWinner');
 const totalRow      = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function showScreen(s) {
   [introScreen, countdownScreen, gameScreen, resultScreen].forEach(x => x.classList.remove('active'));
   s.classList.add('active');
@@ -92,7 +92,7 @@ function clearTimers() {
   lockHandles = [];
 }
 
-// ── Build a Stroop prompt ────────────────────────────────────
+// -- Build a Stroop prompt ------------------------------------
 // Returns { word, ink, options }. word = the COLOR WORD shown (meaning);
 // ink = the color the word is PRINTED in (the correct answer);
 // options = N color objects including ink, the rest distinct distractors.
@@ -118,7 +118,7 @@ function makePrompt() {
   return { word: word, ink: ink, options: options };
 }
 
-// ── Intro illustration: a color word in a different ink color ─
+// -- Intro illustration: a color word in a different ink color -
 function renderIntroIllust() {
   introIllust.innerHTML = `<svg viewBox="0 0 210 130" xmlns="http://www.w3.org/2000/svg">
     <rect x="6" y="6" width="198" height="118" rx="16" fill="#FFF8E1" stroke="#2C2C2C" stroke-width="3"/>
@@ -135,20 +135,20 @@ function renderIntroIllust() {
 }
 renderIntroIllust();
 
-// ── Player count selection ───────────────────────────────────
+// -- Player count selection -----------------------------------
 setupPlayerSelect(function (n) { playerCount = n; });
 
-// ── Sound toggle ─────────────────────────────────────────────
+// -- Sound toggle ---------------------------------------------
 setupSoundToggle(sound, soundToggleIntro);
 
-// ── Navigation ───────────────────────────────────────────────
+// -- Navigation -----------------------------------------------
 onTap(backBtn,  () => goHome());
 onTap(closeBtn, () => { clearTimers(); goHome(); });
 onTap(homeBtn,  () => goHome());
 onTap(retryBtn, () => startPreGameCountdown(() => startGame()));
 onTap(playBtn,  () => startPreGameCountdown(() => startGame()));
 
-// ── Build zone grid ──────────────────────────────────────────
+// -- Build zone grid ------------------------------------------
 function buildZones() {
   zonesWrap.innerHTML = '';
   zonesWrap.className = `zones-wrap p${playerCount}`;
@@ -190,7 +190,7 @@ function updateScoreChip(playerIdx) {
   if (chip) chip.textContent = `${scores[playerIdx]}점`;
 }
 
-// ── Score bar ────────────────────────────────────────────────
+// -- Score bar ------------------------------------------------
 function buildScoreBar() {
   scoreBar.innerHTML = '';
   for (let i = 0; i < playerCount; i++) {
@@ -211,7 +211,7 @@ function updateBarScore(playerIdx) {
   if (el) el.textContent = scores[playerIdx];
 }
 
-// ── New prompt for one zone (independent & continuous) ───────
+// -- New prompt for one zone (independent & continuous) -------
 function newPrompt(playerIdx) {
   const prompt = makePrompt();
   zoneState[playerIdx] = {
@@ -250,7 +250,7 @@ function newPrompt(playerIdx) {
   if (zone) zone.classList.remove('locked-zone');
 }
 
-// ── Ripple effect ────────────────────────────────────────────
+// -- Ripple effect --------------------------------------------
 function spawnRipple(zone) {
   if (!zone) return;
   const rect  = zone.getBoundingClientRect();
@@ -274,7 +274,7 @@ function spawnFlash(zone, text, cls) {
   f.addEventListener('animationend', () => f.remove());
 }
 
-// ── Answer handler ───────────────────────────────────────────
+// -- Answer handler -------------------------------------------
 function handleAnswer(playerIdx, chosenColor, btn) {
   if (phase !== 'active') return;
   const st = zoneState[playerIdx];
@@ -307,7 +307,7 @@ function handleAnswer(playerIdx, chosenColor, btn) {
   }
 }
 
-// ── Timer ────────────────────────────────────────────────────
+// -- Timer ----------------------------------------------------
 function startRoundTimer() {
   problemTimer.textContent = ROUND_TIME;
   problemTimer.classList.remove('urgent');
@@ -324,7 +324,7 @@ function startRoundTimer() {
   roundTimer.start();
 }
 
-// ── Start game ───────────────────────────────────────────────
+// -- Start game -----------------------------------------------
 function startGame() {
   scores      = new Array(playerCount).fill(0);
   zoneState   = new Array(playerCount).fill(null);
@@ -343,7 +343,7 @@ function startGame() {
   startRoundTimer();
 }
 
-// ── End game ─────────────────────────────────────────────────
+// -- End game -------------------------------------------------
 function endGame() {
   phase = 'done';
   clearTimers();
@@ -359,7 +359,7 @@ function endGame() {
   nextHandle = setTimeout(() => showResult(), getAutoplayPauseMs(RESULT_PAUSE_MS));
 }
 
-// ── Show result ──────────────────────────────────────────────
+// -- Show result ----------------------------------------------
 function showResult() {
   clearTimers();
   phase = 'idle';

@@ -3,7 +3,7 @@
    shared/style.css에서 공통 스타일 자동 적용. 여기는 게임 고유 요소만.
 */
 
-/* ── Intro screen ───────────────────────────────────────────── */
+/* -- Intro screen --------------------------------------------- */
 .intro-illustration {
   display: flex;
   justify-content: center;
@@ -18,7 +18,7 @@
   justify-content: center;
 }
 
-/* ── Game screen ─────────────────────────────────────────────── */
+/* -- Game screen ----------------------------------------------- */
 .screen-game {
   height: 100vh;
   overflow: hidden;
@@ -153,7 +153,7 @@
   white-space: nowrap;
 }
 
-/* ── Numbrix board (각 zone에 복제되는 N×N 격자) ─────────────── */
+/* -- Numbrix board (각 zone에 복제되는 N×N 격자) --------------- */
 .np-board {
   display: grid;
   gap: 4px;
@@ -209,7 +209,7 @@
   cursor: default;
 }
 
-/* ── 계산 미로: 목표/현재값 칩 ────────────────────────────── */
+/* -- 계산 미로: 목표/현재값 칩 ------------------------------ */
 .cm-chip {
   font-size: 0.76rem;
   font-weight: 900;
@@ -223,7 +223,7 @@
 .cm-chip .cm-cur { color: #1565C0; }
 .cm-chip .cm-tgt { color: #C62828; }
 
-/* ── 계산 미로: 칸 상태 ───────────────────────────────────── */
+/* -- 계산 미로: 칸 상태 ------------------------------------- */
 .np-cell.cm-op {
   background: #FCEFD8;
   border: 2px solid #D9BE93;

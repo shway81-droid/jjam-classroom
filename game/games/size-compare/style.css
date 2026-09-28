@@ -1,13 +1,13 @@
 /* games/size-compare/style.css */
 
-/* ── Countdown screen ─────────────────────────────────────── */
+/* -- Countdown screen --------------------------------------- */
 .screen-countdown {
   justify-content: center;
   align-items: center;
   background: #FFF8E1;
 }
 
-/* ── Shared header ────────────────────────────────────────── */
+/* -- Shared header ------------------------------------------ */
 .game-header {
   display: flex;
   align-items: center;
@@ -25,7 +25,7 @@
   color: var(--text);
 }
 
-/* ── Intro screen ─────────────────────────────────────────── */
+/* -- Intro screen ------------------------------------------- */
 .screen-intro {
   background: linear-gradient(160deg, #FFF3E0 0%, #FFF8F0 100%);
   justify-content: space-between;
@@ -124,7 +124,7 @@
   box-shadow: 0 4px 14px rgba(255,152,0,0.4);
 }
 
-/* ── Game screen ──────────────────────────────────────────── */
+/* -- Game screen -------------------------------------------- */
 .screen-game {
   background: #FFF8E1;
   position: relative;
@@ -154,7 +154,7 @@
   grid-template-rows: 1fr;
 }
 
-/* ── Individual zone ──────────────────────────────────────── */
+/* -- Individual zone ---------------------------------------- */
 .zone {
   display: flex;
   flex-direction: column;
@@ -174,7 +174,7 @@
 .zone.p-orange { background: #FFE0B2; }
 .zone.p-purple { background: #E1BEE7; }
 
-/* ── Zone states ──────────────────────────────────────────── */
+/* -- Zone states -------------------------------------------- */
 .zone.state-wait   { filter: brightness(0.55) saturate(0.5); }
 .zone.state-active { filter: brightness(1) saturate(1); }
 .zone.state-dq     { filter: brightness(0.3) saturate(0); }
@@ -195,7 +195,7 @@
   100% { filter: brightness(0.3) saturate(0); }
 }
 
-/* ── Zone label ───────────────────────────────────────────── */
+/* -- Zone label --------------------------------------------- */
 .zone-label {
   font-size: 0.8rem;
   font-weight: 800;
@@ -211,7 +211,7 @@
   pointer-events: none;
 }
 
-/* ── Arrow buttons ────────────────────────────────────────── */
+/* -- Arrow buttons ------------------------------------------ */
 .arrows-row {
   display: flex;
   gap: 10px;
@@ -241,7 +241,7 @@
   pointer-events: none;
 }
 
-/* ── Zone ripple ──────────────────────────────────────────── */
+/* -- Zone ripple -------------------------------------------- */
 .zone-ripple {
   position: absolute;
   border-radius: 50%;
@@ -254,7 +254,7 @@
   to { transform: scale(4); opacity: 0; }
 }
 
-/* ── Center panel ─────────────────────────────────────────── */
+/* -- Center panel ------------------------------------------- */
 .center-panel {
   position: absolute;
   top: 50%;
@@ -316,7 +316,7 @@
   white-space: nowrap;
 }
 
-/* ── Close button ─────────────────────────────────────────── */
+/* -- Close button ------------------------------------------- */
 .close-btn {
   position: absolute;
   top: var(--space-md);
@@ -327,7 +327,7 @@
   box-shadow: none;
 }
 
-/* ── Result screen ────────────────────────────────────────── */
+/* -- Result screen ------------------------------------------ */
 .screen-result {
   background: linear-gradient(160deg, #FFF3E0 0%, #FFF8F0 100%);
   align-items: center;
@@ -431,7 +431,7 @@
   box-shadow: var(--shadow-card);
 }
 
-/* ── Penalty flash ─────────────────────────────────────────── */
+/* -- Penalty flash ------------------------------------------- */
 .penalty-flash {
   position: absolute;
   color: #EF5350;
@@ -447,7 +447,7 @@
 }
 
 
-/* ── 3·4-player mode: move center panel to top so middle players aren't blocked ── */
+/* -- 3·4-player mode: move center panel to top so middle players aren't blocked -- */
 .screen-game:has(.zones-wrap.p4) .center-panel,
 .screen-game:has(.zones-wrap.p3) .center-panel {
   top: 8px !important;

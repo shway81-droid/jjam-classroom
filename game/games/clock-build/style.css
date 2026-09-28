@@ -1,6 +1,6 @@
 /* games/clock-build/style.css — 시계 함께 맞추기 (Level 3 Comic) */
 
-/* ── Countdown screen ─────────────────────────────────────── */
+/* -- Countdown screen --------------------------------------- */
 .screen-countdown {
   justify-content: center;
   align-items: center;

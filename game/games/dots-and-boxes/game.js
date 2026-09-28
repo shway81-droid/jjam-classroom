@@ -3,7 +3,7 @@
 (function () {
   'use strict';
 
-  // ─── 상수 ───────────────────────────────────────────────────────────────
+  // --- 상수 ---------------------------------------------------------------
   var GRID = 5;          // 5x5 dots → 4x4 boxes
   var COLS = GRID - 1;   // 4 boxes per row/col
 
@@ -11,7 +11,7 @@
   var PLAYER_COLORS = ['#29B6F6', '#EF5350', '#66BB6A', '#FFA726'];
   var PLAYER_NAMES  = ['P1', 'P2', 'P3', 'P4'];
 
-  // ─── 화면 전환 ────────────────────────────────────────────────────────────
+  // --- 화면 전환 ------------------------------------------------------------
   var screens = {
     intro:     document.getElementById('introScreen'),
     countdown: document.getElementById('countdownScreen'),
@@ -32,7 +32,7 @@
     countdownInterval = runCountdown(countdownNumber, onDone);
   }
 
-  // ─── 사운드 ──────────────────────────────────────────────────────────────
+  // --- 사운드 --------------------------------------------------------------
   var sounds = createSoundManager({
     // 선 긋기: 짧고 경쾌한 클릭
     draw: function (ctx) {
@@ -165,7 +165,7 @@
 
   updateSoundBtns();
 
-  // ─── 인트로: 플레이어 수 선택 ─────────────────────────────────────────────
+  // --- 인트로: 플레이어 수 선택 ---------------------------------------------
   var selectedCount = 2;
   var playerCountBtns = document.querySelectorAll('.player-count-btn');
 
@@ -177,7 +177,7 @@
     });
   });
 
-  // ─── 게임 상태 ────────────────────────────────────────────────────────────
+  // --- 게임 상태 ------------------------------------------------------------
   /*
    * hLines[row][col] = playerIndex (0-based) | -1 (undrawn)
    *   row: 0..GRID-1 (5 rows of horizontal lines)
@@ -196,7 +196,7 @@
   var numPlayers;
   var gameOver;
 
-  // ─── DOM ─────────────────────────────────────────────────────────────────
+  // --- DOM -----------------------------------------------------------------
   var scoreboardEl    = document.getElementById('scoreboard');
   var boardContainer  = document.getElementById('boardContainer');
   var turnDot         = document.getElementById('turnDot');
@@ -207,7 +207,7 @@
   var resultScoresEl  = document.getElementById('resultScores');
   var resultBoardPrev = document.getElementById('resultBoardPreview');
 
-  // ─── 보드 크기 계산 ──────────────────────────────────────────────────────
+  // --- 보드 크기 계산 ------------------------------------------------------
   function getBoardSize() {
     // Available space (roughly square)
     var vh = window.innerHeight;
@@ -219,7 +219,7 @@
     return Math.max(size, 240);
   }
 
-  // ─── 게임 초기화 ──────────────────────────────────────────────────────────
+  // --- 게임 초기화 ----------------------------------------------------------
   function initGame() {
     numPlayers = selectedCount;
     currentPlayer = 0;
@@ -253,7 +253,7 @@
     showScreen('game');
   }
 
-  // ─── 점수판 빌드 ──────────────────────────────────────────────────────────
+  // --- 점수판 빌드 ----------------------------------------------------------
   function buildScoreboard() {
     scoreboardEl.innerHTML = '';
     for (var i = 0; i < numPlayers; i++) {
@@ -286,7 +286,7 @@
     }
   }
 
-  // ─── 턴 UI ────────────────────────────────────────────────────────────────
+  // --- 턴 UI ----------------------------------------------------------------
   function updateTurnUI(announce) {
     turnDot.style.background = PLAYER_COLORS[currentPlayer];
     turnText.textContent = PLAYER_NAMES[currentPlayer] + '의 차례';
@@ -307,7 +307,7 @@
     }
   }
 
-  // ─── 풀스크린 턴 변경 오버레이 ──────────────────────────────────────────
+  // --- 풀스크린 턴 변경 오버레이 ------------------------------------------
   function showTurnOverlay() {
     var overlay = document.getElementById('turnOverlay');
     if (!overlay) {
@@ -327,7 +327,7 @@
     }, 600);
   }
 
-  // ─── 보드 빌드 ────────────────────────────────────────────────────────────
+  // --- 보드 빌드 ------------------------------------------------------------
   /*
    * 레이아웃:
    *   boardSize x boardSize 컨테이너
@@ -491,7 +491,7 @@
     return hitDiv;
   }
 
-  // ─── 선 탭 처리 ───────────────────────────────────────────────────────────
+  // --- 선 탭 처리 -----------------------------------------------------------
   function handleLineTap(dir, row, col, hitDiv, visualDiv) {
     // 이미 그려진 선이면 무시
     if (dir === 'h' && hLines[row][col] !== -1) return;
@@ -536,7 +536,7 @@
     }
   }
 
-  // ─── 박스 완성 체크 ──────────────────────────────────────────────────────
+  // --- 박스 완성 체크 ------------------------------------------------------
   /*
    * 선(dir,row,col)이 그어졌을 때 영향받는 박스를 확인
    * Returns: 이번에 완성된 박스 수
@@ -606,7 +606,7 @@
     el.appendChild(label);
   }
 
-  // ─── 게임 종료 체크 ──────────────────────────────────────────────────────
+  // --- 게임 종료 체크 ------------------------------------------------------
   function allBoxesFilled() {
     for (var r = 0; r < COLS; r++) {
       for (var c = 0; c < COLS; c++) {
@@ -632,7 +632,7 @@
     return tie ? -1 : winner;
   }
 
-  // ─── 결과 화면 ───────────────────────────────────────────────────────────
+  // --- 결과 화면 -----------------------------------------------------------
   function showResult(winnerIdx) {
     if (winnerIdx >= 0) {
       resultEmoji.textContent = '🏆';
@@ -789,7 +789,7 @@
     resultBoardPrev.appendChild(svg);
   }
 
-  // ─── 버튼 이벤트 ──────────────────────────────────────────────────────────
+  // --- 버튼 이벤트 ----------------------------------------------------------
   document.getElementById('playBtn').addEventListener('click', function () {
     startCountdown(function() { initGame(); });
   });

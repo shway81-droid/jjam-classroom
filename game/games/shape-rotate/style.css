@@ -1,13 +1,13 @@
 /* games/quick-math/style.css */
 
-/* ── Countdown screen ─────────────────────────────────────── */
+/* -- Countdown screen --------------------------------------- */
 .screen-countdown {
   justify-content: center;
   align-items: center;
   background: #FFF8E1;
 }
 
-/* ── Game header (intro) ──────────────────────────────────── */
+/* -- Game header (intro) ------------------------------------ */
 .game-header {
   display: flex;
   align-items: center;
@@ -25,7 +25,7 @@
   color: var(--text);
 }
 
-/* ── Intro screen ─────────────────────────────────────────── */
+/* -- Intro screen ------------------------------------------- */
 .screen-intro {
   background: linear-gradient(160deg, #E0F7FA 0%, #E8F5E9 100%);
   justify-content: space-between;
@@ -135,13 +135,13 @@
   box-shadow: 0 2px 8px rgba(38,166,154,0.35);
 }
 
-/* ── Game screen ──────────────────────────────────────────── */
+/* -- Game screen -------------------------------------------- */
 .screen-game {
   background: #FFF8E1;
   position: relative;
 }
 
-/* ── Zone grid ────────────────────────────────────────────── */
+/* -- Zone grid ---------------------------------------------- */
 .zones-wrap {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -166,7 +166,7 @@
   grid-template-rows: 1fr;
 }
 
-/* ── Individual zone ──────────────────────────────────────── */
+/* -- Individual zone ---------------------------------------- */
 .zone {
   position: relative;
   display: flex;
@@ -292,7 +292,7 @@
   to { transform: scale(5); opacity: 0; }
 }
 
-/* ── Problem panel (center overlay) ──────────────────────── */
+/* -- Problem panel (center overlay) ------------------------ */
 .problem-panel {
   position: absolute;
   top: 50%;
@@ -353,7 +353,7 @@
   100% { background: rgba(0,0,0,0.82); }
 }
 
-/* ── Close button ─────────────────────────────────────────── */
+/* -- Close button ------------------------------------------- */
 .close-btn {
   position: absolute;
   top: var(--space-md);
@@ -364,7 +364,7 @@
   box-shadow: none;
 }
 
-/* ── Score bar (bottom strip) ─────────────────────────────── */
+/* -- Score bar (bottom strip) ------------------------------- */
 .score-bar {
   position: absolute;
   bottom: 0;
@@ -399,7 +399,7 @@
   text-align: center;
 }
 
-/* ── Result screen ────────────────────────────────────────── */
+/* -- Result screen ------------------------------------------ */
 .screen-result {
   background: linear-gradient(160deg, #E0F7FA 0%, #E8F5E9 100%);
   align-items: center;
@@ -505,7 +505,7 @@
   box-shadow: var(--shadow-card);
 }
 
-/* ── Penalty flash ─────────────────────────────────────────── */
+/* -- Penalty flash ------------------------------------------- */
 .penalty-flash {
   position: absolute;
   color: #EF5350;
@@ -521,7 +521,7 @@
 }
 
 
-/* ── 3·4-player mode: move center panel to top so middle players aren't blocked ── */
+/* -- 3·4-player mode: move center panel to top so middle players aren't blocked -- */
 .screen-game:has(.zones-wrap.p4) .problem-panel,
 .screen-game:has(.zones-wrap.p3) .problem-panel {
   top: 8px !important;
@@ -529,14 +529,14 @@
   max-width: 90%;
 }
 
-/* ── 2-player mode: move center panel to top so it doesn't cover the inner
-      answer buttons (keep narrow width so corner score chips stay visible) ── */
+/* -- 2-player mode: move center panel to top so it doesn't cover the inner
+      answer buttons (keep narrow width so corner score chips stay visible) -- */
 .screen-game:has(.zones-wrap.p2) .problem-panel {
   top: 12px !important;
   transform: translateX(-50%) !important;
 }
 
-/* ── shape-rotate overrides: red theme + rotation grids ── */
+/* -- shape-rotate overrides: red theme + rotation grids -- */
 .screen-intro { background: linear-gradient(160deg, #FFEBEE 0%, #FCE4EC 100%); }
 .player-btn { border-color: #FFCDD2; }
 .player-btn.active { background: #EF5350; border-color: #EF5350; box-shadow: 0 4px 14px rgba(239,83,80,0.4); }

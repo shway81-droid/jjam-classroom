@@ -1,7 +1,7 @@
 /* ===================================================================
    자가 호스팅 웹폰트 글자 커버리지 검사 — CI 게이트
    ===================================================================
-   assets/fonts/PretendardVariable.subset.woff2 는 짬짬이 4개 사이트가 쓰는
+   assets/fonts/PretendardVariable.subset.woff2 는 짬짬이 여섯 사이트가 쓰는
    글자만 남긴 서브셋이다. 새 게임·이야기·영상이 들어오면서 서브셋에 없는
    글자가 생기면, 그 글자만 시스템 폰트로 렌더링되어 한 문장 안에서 서체가
    섞인다(깨지지는 않지만 눈에 띈다).
@@ -128,7 +128,9 @@ walk(ROOT);
 
 // ── 폰트가 담당하지 않는 문자는 검사 대상에서 제외 ───────────────
 // 이모지·기호는 시스템 컬러 이모지 폰트가 그린다. 제어문자도 제외.
-const isEmoji = (cp) => cp >= 0x1F000 || (cp >= 0x2600 && cp <= 0x27BF) || cp === 0xFE0F || cp === 0x20E3;
+// 범위만으로는 ⭐(U+2B50)·⏱(U+23F1)처럼 BMP 곳곳에 흩어진 그림 문자를 놓친다 — 유니코드 속성으로도 본다.
+const isEmoji = (cp) => cp >= 0x1F000 || (cp >= 0x2600 && cp <= 0x27BF) || cp === 0xFE0F || cp === 0x20E3 ||
+  /\p{Extended_Pictographic}/u.test(String.fromCodePoint(cp));
 const isControl = (cp) => cp < 0x20 || (cp >= 0x7F && cp <= 0x9F);
 
 const missing = [];      // 서브셋을 다시 만들면 해결되는 것

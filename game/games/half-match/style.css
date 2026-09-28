@@ -1,6 +1,6 @@
 /* games/half-match/style.css */
 
-/* ── Countdown screen ───────────────────────────── */
+/* -- Countdown screen ----------------------------- */
 .screen-countdown {
   justify-content: center;
   align-items: center;
@@ -11,7 +11,7 @@
   text-shadow: 0 0 40px rgba(200,230,201,0.6);
 }
 
-/* ── Intro screen ───────────────────────────────── */
+/* -- Intro screen --------------------------------- */
 .screen-intro {
   background: linear-gradient(160deg, #E8F5E9 0%, #C8E6C9 100%);
   justify-content: space-between;
@@ -93,7 +93,7 @@
   margin: var(--space-lg) auto;
 }
 
-/* ── Game screen ────────────────────────────────── */
+/* -- Game screen ---------------------------------- */
 .screen-game {
   background: #E8F5E9;
   flex-direction: column;
@@ -177,7 +177,7 @@
 .banner.ng { color: #B71C1C; background: #FFCDD2; }
 .banner.info { color: #1B5E20; background: #C8E6C9; }
 
-/* ── Stage ──────────────────────────────────────── */
+/* -- Stage ---------------------------------------- */
 .stage {
   flex: 1;
   display: flex;
@@ -349,7 +349,7 @@
   box-shadow: 0 4px 16px rgba(0,0,0,0.25);
 }
 
-/* ── Result screen ──────────────────────────────── */
+/* -- Result screen -------------------------------- */
 .screen-result {
   background: linear-gradient(160deg, #1B5E20 0%, #2E7D32 60%, #1B5E20 100%);
   justify-content: center;

@@ -2,7 +2,7 @@
 
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const TOTAL_ROUNDS       = 10;
 const SIMON_PROBABILITY  = 0.6;    // "가라사대"가 붙을 확률
 const RESPONSE_WINDOW_MS = 4000;   // 지시 후 반응 제한 시간 (함정: 4초 버티면 통과)
@@ -24,7 +24,7 @@ const PLAYER_CONFIG = [
   { label: 'P4', hex: '#E65100' },
 ];
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const sound = createSoundManager({
   tick(ctx) {
     // 지시문 등장 알림 — 짧고 또렷한 블립
@@ -107,7 +107,7 @@ const sound = createSoundManager({
   },
 });
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let playerCount   = 2;
 let currentRound  = 0;
 let scores        = [];      // 누적 점수 (음수 가능)
@@ -123,7 +123,7 @@ let prepTimer   = null;
 let windowTimer = null;
 let restTimer   = null;
 
-// ── DOM references ───────────────────────────────────────────
+// -- DOM references -------------------------------------------
 const introScreen     = document.getElementById('introScreen');
 const countdownScreen = document.getElementById('countdownScreen');
 const countdownNumber = document.getElementById('countdownNumber');
@@ -150,7 +150,7 @@ const resultTableHead = document.getElementById('resultTableHead');
 const resultTableBody = document.getElementById('resultTableBody');
 const totalRow        = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function showScreen(screen) {
   [introScreen, countdownScreen, gameScreen, resultScreen].forEach(s => s.classList.remove('active'));
   screen.classList.add('active');
@@ -176,13 +176,13 @@ function prepDelayFor(round) {
 }
 
 
-// ── Sound Toggle ─────────────────────────────────────────────
+// -- Sound Toggle ---------------------------------------------
 setupSoundToggle(sound, soundToggleIntro);
 
-// ── Player count selection ───────────────────────────────────
+// -- Player count selection -----------------------------------
 setupPlayerSelect(function (n) { playerCount = n; });
 
-// ── Back / Home / Retry ──────────────────────────────────────
+// -- Back / Home / Retry --------------------------------------
 onTap(backBtn, () => goHome());
 onTap(closeBtn, () => {
   clearAllTimers();
@@ -191,10 +191,10 @@ onTap(closeBtn, () => {
 onTap(homeBtn, () => goHome());
 onTap(retryBtn, () => startCountdown(() => startGame()));
 
-// ── PLAY button ──────────────────────────────────────────────
+// -- PLAY button ----------------------------------------------
 onTap(playBtn, () => startCountdown(() => startGame()));
 
-// ── Build zones ──────────────────────────────────────────────
+// -- Build zones ----------------------------------------------
 function buildZones() {
   zonesWrap.innerHTML = '';
   zonesWrap.className = `zones-wrap p${playerCount}`;
@@ -255,7 +255,7 @@ function spawnPenaltyFloat(zone) {
   float.addEventListener('animationend', () => float.remove());
 }
 
-// ── Score bar ────────────────────────────────────────────────
+// -- Score bar ------------------------------------------------
 function renderScoreBar() {
   scoreBar.innerHTML = Array.from({ length: playerCount }, (_, i) => {
     const cfg = PLAYER_CONFIG[i];
@@ -278,7 +278,7 @@ function updateScores() {
   }
 }
 
-// ── Game flow ────────────────────────────────────────────────
+// -- Game flow ------------------------------------------------
 function startGame() {
   clearAllTimers();
   scores       = new Array(playerCount).fill(0);
@@ -327,7 +327,7 @@ function showCommand() {
   windowTimer = setTimeout(onWindowTimeout, getAutoplayPauseMs(RESPONSE_WINDOW_MS));
 }
 
-// ── Tap handler ──────────────────────────────────────────────
+// -- Tap handler ----------------------------------------------
 function handleActionTap(idx, zone) {
   if (phase !== 'active') return;
 
@@ -362,7 +362,7 @@ function handleActionTap(idx, zone) {
   }
 }
 
-// ── Round end ────────────────────────────────────────────────
+// -- Round end ------------------------------------------------
 function onWindowTimeout() {
   windowTimer = null;
   if (phase !== 'active') return;
@@ -399,7 +399,7 @@ function finishRound() {
   }, getAutoplayPauseMs(REST_MS));
 }
 
-// ── Result screen ────────────────────────────────────────────
+// -- Result screen --------------------------------------------
 function showResult() {
   sound.play('win');
 

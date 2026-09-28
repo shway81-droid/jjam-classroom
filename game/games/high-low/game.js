@@ -2,7 +2,7 @@
 
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const TOTAL_ROUNDS    = 8;
 const RESULT_PAUSE_MS = getAutoplayPauseMs(2000);
 
@@ -29,10 +29,10 @@ const PLAYER_CONFIG = [
   { label: 'P4', dot: '#F57C00', cls: 'p4' },
 ];
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const hlSound = createSoundManager();
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let hlPlayerCount   = 2;
 let hlRoundIdx      = 0;
 let hlScores        = [];
@@ -50,7 +50,7 @@ let hlItemDqSets    = [];    // dq per item
 // 라운드 내 점수 (문항당 정답자 기록)
 let hlRoundScores   = [];    // per player score in this round
 
-// ── DOM refs ─────────────────────────────────────────────────
+// -- DOM refs -------------------------------------------------
 const hlIntroScreen     = document.getElementById('introScreen');
 const hlCountdownScreen = document.getElementById('countdownScreen');
 const hlCountdownNumber = document.getElementById('countdownNumber');
@@ -79,7 +79,7 @@ const hlResultTableHead = document.getElementById('resultTableHead');
 const hlResultTableBody = document.getElementById('resultTableBody');
 const hlTotalRow        = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function hlShowScreen(s) {
   [hlIntroScreen, hlCountdownScreen, hlGameScreen, hlResultScreen]
     .forEach(x => x.classList.remove('active'));
@@ -148,7 +148,7 @@ function hlGenerateItems(phaseNum) {
   return items;
 }
 
-// ── Intro illustration ───────────────────────────────────────
+// -- Intro illustration ---------------------------------------
 (function() {
   const el = document.getElementById('introIllust');
   if (el) {
@@ -164,20 +164,20 @@ function hlGenerateItems(phaseNum) {
   }
 })();
 
-// ── Player count selection ───────────────────────────────────
+// -- Player count selection -----------------------------------
 setupPlayerSelect(function (n) { hlPlayerCount = n; });
 
-// ── Sound toggle ─────────────────────────────────────────────
+// -- Sound toggle ---------------------------------------------
 setupSoundToggle(hlSound, hlSoundToggle);
 
-// ── Navigation ───────────────────────────────────────────────
+// -- Navigation -----------------------------------------------
 onTap(hlBackBtn,  function() { goHome(); });
 onTap(hlCloseBtn, function() { hlClearTimers(); goHome(); });
 onTap(hlHomeBtn,  function() { goHome(); });
 onTap(hlRetryBtn, function() { hlStartPreCountdown(function() { hlStartGame(); }); });
 onTap(hlPlayBtn,  function() { hlStartPreCountdown(function() { hlStartGame(); }); });
 
-// ── Build zones ──────────────────────────────────────────────
+// -- Build zones ----------------------------------------------
 function hlBuildZones() {
   hlZonesWrap.innerHTML = '';
   hlZonesWrap.className = 'zones-wrap p' + hlPlayerCount;
@@ -236,7 +236,7 @@ function hlUpdateScoreChip(playerIdx) {
   if (chip) chip.textContent = hlScores[playerIdx] + '점';
 }
 
-// ── Score bar ────────────────────────────────────────────────
+// -- Score bar ------------------------------------------------
 function hlBuildScoreBar() {
   hlScoreBar.innerHTML = '';
   for (let i = 0; i < hlPlayerCount; i++) {
@@ -256,7 +256,7 @@ function hlUpdateBarScore(playerIdx) {
   if (el) el.textContent = hlScores[playerIdx];
 }
 
-// ── Reset buttons for new item ────────────────────────────────
+// -- Reset buttons for new item --------------------------------
 function hlResetItemBtns() {
   for (let i = 0; i < hlPlayerCount; i++) {
     hlGetBtns(i).forEach(function(btn) {
@@ -276,7 +276,7 @@ function hlDisablePlayerBtns(playerIdx) {
   });
 }
 
-// ── Timer ─────────────────────────────────────────────────────
+// -- Timer -----------------------------------------------------
 function hlStartItemTimer() {
   const plan = ROUND_PLAN[hlRoundIdx];
   hlTimeRemaining = plan.timeLimit;
@@ -297,7 +297,7 @@ function hlStartItemTimer() {
   }, 1000);
 }
 
-// ── Tap handler ───────────────────────────────────────────────
+// -- Tap handler -----------------------------------------------
 function hlHandleTap(playerIdx, dir, btn) {
   if (hlPhase !== 'item-active') return;
   if (hlDqSet.has(playerIdx)) return;
@@ -360,7 +360,7 @@ function hlAllAnswered() {
   return true;
 }
 
-// ── Item timeout ─────────────────────────────────────────────
+// -- Item timeout ---------------------------------------------
 function hlHandleItemTimeout() {
   hlSound.play('timeout');
   // 정답 버튼 공개
@@ -382,7 +382,7 @@ function hlHandleItemTimeout() {
   hlNextHandle = setTimeout(function() { hlNextItem(); }, 1200);
 }
 
-// ── Load item ─────────────────────────────────────────────────
+// -- Load item -------------------------------------------------
 function hlLoadItem() {
   hlPhase = 'item-active';
   const currentItem = hlItems[hlItemIdx];
@@ -402,7 +402,7 @@ function hlLoadItem() {
   hlStartItemTimer();
 }
 
-// ── Next item ─────────────────────────────────────────────────
+// -- Next item -------------------------------------------------
 function hlNextItem() {
   hlItemIdx++;
   if (hlItemIdx >= ITEMS_PER_ROUND) {
@@ -412,7 +412,7 @@ function hlNextItem() {
   }
 }
 
-// ── End round (log result, pause, next round) ─────────────────
+// -- End round (log result, pause, next round) -----------------
 function hlEndRound() {
   hlPhase = 'done';
   // 라운드 결과 로그: 이 라운드 각 플레이어가 얻은 점 기록
@@ -424,7 +424,7 @@ function hlEndRound() {
   hlNextHandle = setTimeout(function() { hlNextRound(); }, RESULT_PAUSE_MS);
 }
 
-// ── Next round ────────────────────────────────────────────────
+// -- Next round ------------------------------------------------
 function hlNextRound() {
   hlRoundIdx++;
   if (hlRoundIdx >= TOTAL_ROUNDS) {
@@ -434,7 +434,7 @@ function hlNextRound() {
   }
 }
 
-// ── Start round ───────────────────────────────────────────────
+// -- Start round -----------------------------------------------
 function hlStartRound() {
   const plan = ROUND_PLAN[hlRoundIdx];
   hlItems = hlGenerateItems(plan.phase);
@@ -444,7 +444,7 @@ function hlStartRound() {
   hlLoadItem();
 }
 
-// ── Start game ────────────────────────────────────────────────
+// -- Start game ------------------------------------------------
 function hlStartGame() {
   hlRoundIdx   = 0;
   hlScores     = new Array(hlPlayerCount).fill(0);
@@ -459,7 +459,7 @@ function hlStartGame() {
   hlStartRound();
 }
 
-// ── Show result ───────────────────────────────────────────────
+// -- Show result -----------------------------------------------
 function hlShowResult() {
   hlClearTimers();
   hlPhase = 'idle';

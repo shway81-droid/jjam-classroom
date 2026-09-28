@@ -2,9 +2,9 @@
 
 'use strict';
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // SHAPE / COLOR DEFINITIONS
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 var SHAPES = ['circle', 'square', 'triangle'];
 var COLORS = {
@@ -34,9 +34,9 @@ function makePieceSVG(shape, colorKey, svgSize) {
   return '<svg viewBox="0 0 50 50" width="' + s + '" height="' + s + '" xmlns="http://www.w3.org/2000/svg">' + inner + '</svg>';
 }
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // PATTERN TYPES
-// ══════════════════════════════════════════════════════
+// ======================================================
 //
 // We have two pattern types (simpler for elementary):
 //   'color-row'  : each row = same color, columns = all 3 shapes
@@ -108,9 +108,9 @@ function generatePattern() {
   }
 }
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // WRONG ANSWER GENERATION
-// ══════════════════════════════════════════════════════
+// ======================================================
 //
 // Generate 3 wrong pieces (distinct from each other and from correct).
 // Strategy: vary color or shape of the correct piece to get plausible distractors.
@@ -140,9 +140,9 @@ function generateWrongPieces(answer) {
   return pool.slice(0, 3);
 }
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // CONSTANTS
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 var TOTAL_ROUNDS = 10;
 
@@ -153,9 +153,9 @@ var PLAYER_CONFIG = [
   { label: 'P4', hex: '#4CAF50', bgTint: 'rgba(76,175,80,0.14)'  },
 ];
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // SOUND
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 var sound = createSoundManager({
   ding: function(ctx) {
@@ -214,9 +214,9 @@ var sound = createSoundManager({
   }
 });
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // STATE
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 var playerCount    = 2;
 var currentRound   = 0;
@@ -228,9 +228,9 @@ var roundResolved  = false;
 var nextRoundTimer = null;
 var gameActive     = false;
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // DOM REFS
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 var introScreen      = document.getElementById('introScreen');
 var countdownScreen  = document.getElementById('countdownScreen');
@@ -252,9 +252,9 @@ var resultTitle      = document.getElementById('resultTitle');
 var resultWinner     = document.getElementById('resultWinner');
 var resultScoresWrap = document.getElementById('resultScoresWrap');
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // HELPERS
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 function showScreen(el) {
   [introScreen, countdownScreen, gameScreen, resultScreen].forEach(function(s) {
@@ -295,21 +295,21 @@ function cleanup() {
   clearNextRoundTimer();
 }
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // SOUND TOGGLE
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 setupSoundToggle(sound, soundToggleIntro);
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // PLAYER COUNT SELECT
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 setupPlayerSelect(function (n) { playerCount = n; });
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // NAV BUTTONS
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 onTap(backBtn,  function() { cleanup(); goHome(); });
 onTap(playBtn,  function() { startCountdown(function() { startGame(); }); });
@@ -317,9 +317,9 @@ onTap(closeBtn, function() { cleanup(); goHome(); });
 onTap(retryBtn, function() { startCountdown(function() { startGame(); }); });
 onTap(homeBtn,  function() { cleanup(); goHome(); });
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // ZONE BUILDING
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 function buildZones() {
   zonesWrap.innerHTML = '';
@@ -370,9 +370,9 @@ function updateZoneScore(idx) {
   if (el) el.textContent = scores[idx] + '점';
 }
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // POPULATE ANSWER BUTTONS
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 function populateAnswerGrid(playerIdx, answers) {
   // answers: array of 4 pieces { shape, colorKey }, shuffled with 1 correct
@@ -396,9 +396,9 @@ function populateAnswerGrid(playerIdx, answers) {
   });
 }
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // PATTERN GRID RENDERING (CENTER)
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 function renderPatternGrid(pattern) {
   patternGrid.innerHTML = '';
@@ -432,9 +432,9 @@ function showReadyPattern() {
   patternHint.textContent = '준비...';
 }
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // RIPPLE
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 function spawnRipple(zone, e) {
   var rect = zone.getBoundingClientRect();
@@ -454,9 +454,9 @@ function spawnRipple(zone, e) {
   r.addEventListener('animationend', function() { r.remove(); });
 }
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // TAP HANDLER
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 function piecesMatch(a, b) {
   return a.shape === b.shape && a.colorKey === b.colorKey;
@@ -565,9 +565,9 @@ function revealMissingCell(pattern) {
   cell.innerHTML = makePieceSVG(pattern.answer.shape, pattern.answer.colorKey, 38);
 }
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // GAME FLOW
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 function startGame() {
   cleanup();
@@ -659,9 +659,9 @@ function scheduleNextOrEnd() {
   }, 1800);
 }
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // RESULT SCREEN
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 function showResult() {
   cleanup();

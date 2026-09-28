@@ -3,7 +3,7 @@
 (function () {
   'use strict';
 
-  // ─── 시계 협력 ───────────────────────────────────────────────────────────
+  // --- 시계 협력 -----------------------------------------------------------
   // 목표 시계(아날로그)를 읽고 P1은 '시', P2는 '분' 카드를 골라 시각을 맞춘다.
   // 두 보드 모두 항상 활성 — 둘 다 골라야 채점, 틀리면 그 라운드 실패.
   var TOTAL_ROUNDS = 5;
@@ -29,7 +29,7 @@
     3: [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]
   };
 
-  // ─── 타이머 관리 ─────────────────────────────────────────────────────────
+  // --- 타이머 관리 ---------------------------------------------------------
   var timers = [];
   function later(fn, ms) { var id = setTimeout(fn, ms); timers.push(id); return id; }
   function clearAllTimers() {
@@ -38,7 +38,7 @@
     timers = [];
   }
 
-  // ─── 화면 전환 ────────────────────────────────────────────────────────────
+  // --- 화면 전환 ------------------------------------------------------------
   var screens = {
     intro:     document.getElementById('introScreen'),
     countdown: document.getElementById('countdownScreen'),
@@ -58,7 +58,7 @@
     countdownInterval = runCountdown(countdownNumber, onDone);
   }
 
-  // ─── 사운드 ──────────────────────────────────────────────────────────────
+  // --- 사운드 --------------------------------------------------------------
   var sounds = createSoundManager({
     pick: function (ctx) {
       var osc = ctx.createOscillator(); var gain = ctx.createGain();
@@ -105,7 +105,7 @@
     }
   });
 
-  // ─── 사운드 버튼 ──────────────────────────────────────────────────────────
+  // --- 사운드 버튼 ----------------------------------------------------------
   var soundIconIds = ['soundIconIntro', 'soundIconGame'];
   var SVG_SOUND_ON  = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>';
   var SVG_SOUND_OFF = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
@@ -123,10 +123,10 @@
     });
   updateSoundIcons();
 
-  // ─── 게임 상태 ────────────────────────────────────────────────────────────
+  // --- 게임 상태 ------------------------------------------------------------
   var currentRound, score, problems, p1Selected, p2Selected, locked;
 
-  // ─── DOM ─────────────────────────────────────────────────────────────────
+  // --- DOM -----------------------------------------------------------------
   var p1Grid       = document.getElementById('p1Cards');
   var p2Grid       = document.getElementById('p2Cards');
   var p1Pick       = document.getElementById('p1Pick');
@@ -140,7 +140,7 @@
   var resultSub    = document.getElementById('resultSub');
   var resultIconWrap = document.getElementById('resultIconWrap');
 
-  // ─── 유틸 ────────────────────────────────────────────────────────────────
+  // --- 유틸 ----------------------------------------------------------------
   function shuffleArr(arr) {
     var a = arr.slice();
     for (var i = a.length - 1; i > 0; i--) {
@@ -162,7 +162,7 @@
     return shuffleArr(set);
   }
 
-  // ─── 아날로그 시계 SVG ─────────────────────────────────────────────────────
+  // --- 아날로그 시계 SVG -----------------------------------------------------
   function handXY(angleDeg, len) {
     var rad = angleDeg * Math.PI / 180;
     return { x: 60 + len * Math.sin(rad), y: 60 - len * Math.cos(rad) };
@@ -194,7 +194,7 @@
       '</svg>';
   }
 
-  // ─── 문제 빌드 ─────────────────────────────────────────────────────────────
+  // --- 문제 빌드 -------------------------------------------------------------
   function buildProblem(plan) {
     var hour = randInt(1, 12);
     var minTargets = MIN_TARGETS[plan.phase];
@@ -212,7 +212,7 @@
     return ROUND_PLAN.map(function (plan) { return buildProblem(plan); });
   }
 
-  // ─── 카드 생성 ───────────────────────────────────────────────────────────
+  // --- 카드 생성 -----------------------------------------------------------
   function buildCards(grid, items, player) {
     grid.innerHTML = '';
     items.forEach(function (val, idx) {
@@ -230,7 +230,7 @@
     });
   }
 
-  // ─── 카드 선택 처리 ──────────────────────────────────────────────────────
+  // --- 카드 선택 처리 ------------------------------------------------------
   function handleCardPick(player, idx, val, grid) {
     sounds.play('pick');
     var cards = grid.querySelectorAll('.num-card');
@@ -252,7 +252,7 @@
     }
   }
 
-  // ─── 채점 ────────────────────────────────────────────────────────────────
+  // --- 채점 ----------------------------------------------------------------
   function checkAnswer() {
     var problem = problems[currentRound];
     var ok = (p1Selected.val === problem.hour) && (p2Selected.val === problem.minute);
@@ -281,7 +281,7 @@
     }, 1600);
   }
 
-  // ─── 다음 라운드 ─────────────────────────────────────────────────────────
+  // --- 다음 라운드 ---------------------------------------------------------
   function nextRound() {
     locked = false;
     boardsEl.classList.remove('locked');
@@ -298,13 +298,13 @@
     updateRoundUI();
   }
 
-  // ─── UI 업데이트 ─────────────────────────────────────────────────────────
+  // --- UI 업데이트 ---------------------------------------------------------
   function updateRoundUI() { roundNumEl.textContent = (currentRound + 1) + '/' + TOTAL_ROUNDS; }
   function updateScoreUI() { roundScoreEl.textContent = '★ ' + score; }
   function showBanner(text, cls) { bannerEl.textContent = text; bannerEl.className = 'banner show ' + cls; }
   function hideBanner() { bannerEl.classList.remove('show', 'ok', 'ng'); bannerEl.textContent = ''; }
 
-  // ─── 게임 초기화 ─────────────────────────────────────────────────────────
+  // --- 게임 초기화 ---------------------------------------------------------
   function initGame() {
     clearAllTimers();
     currentRound = 0;
@@ -318,7 +318,7 @@
     showScreen('game');
   }
 
-  // ─── 결과 화면 ───────────────────────────────────────────────────────────
+  // --- 결과 화면 -----------------------------------------------------------
   var SVG_TROPHY =
     '<svg viewBox="0 0 80 80" width="80" height="80">' +
       '<rect x="28" y="62" width="24" height="6" rx="3" fill="#FFA726"/>' +
@@ -352,7 +352,7 @@
     showScreen('result');
   }
 
-  // ─── 버튼 이벤트 ─────────────────────────────────────────────────────────
+  // --- 버튼 이벤트 ---------------------------------------------------------
   onTap(document.getElementById('playBtn'), function () { startCountdown(function() { initGame(); }); });
   onTap(document.getElementById('retryBtn'), function () { startCountdown(function() { initGame(); }); });
   onTap(document.getElementById('homeBtn'), function () { clearAllTimers(); goHome(); });

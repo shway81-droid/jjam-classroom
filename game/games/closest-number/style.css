@@ -1,13 +1,13 @@
 /* games/closest-number/style.css */
 
-/* ── Countdown screen ─────────────────────────────────────── */
+/* -- Countdown screen --------------------------------------- */
 .screen-countdown {
   justify-content: center;
   align-items: center;
   background: #FFF8E1;
 }
 
-/* ── Intro screen ─────────────────────────────────────────── */
+/* -- Intro screen ------------------------------------------- */
 .screen-intro {
   background: linear-gradient(160deg, #E3F2FD 0%, #FFF3E0 100%);
   justify-content: space-between;
@@ -107,7 +107,7 @@
   box-shadow: 0 2px 8px rgba(30,136,229,0.35);
 }
 
-/* ── Game screen ──────────────────────────────────────────── */
+/* -- Game screen -------------------------------------------- */
 .screen-game {
   background: #FFF8E1;
   height: 100vh;
@@ -120,7 +120,7 @@
   align-items: stretch;
 }
 
-/* ── Top bar ─────────────────────────────────────────────── */
+/* -- Top bar ----------------------------------------------- */
 .top-bar {
   flex-shrink: 0;
   display: flex;
@@ -138,7 +138,7 @@
   gap: 10px;
 }
 
-/* ── Problem panel body ──────────────────────────────────── */
+/* -- Problem panel body ------------------------------------ */
 .problem-panel-body {
   display: flex;
   flex-direction: column;
@@ -180,7 +180,7 @@
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-/* ── Number line (초반 라운드 보조) ─────────────────────── */
+/* -- Number line (초반 라운드 보조) ----------------------- */
 .number-line-wrap {
   position: relative;
   width: min(90%, 320px);
@@ -212,7 +212,7 @@
   pointer-events: none;
 }
 
-/* ── Problem status ──────────────────────────────────────── */
+/* -- Problem status ---------------------------------------- */
 .problem-status {
   font-size: 0.95rem;
   font-weight: 800;
@@ -227,7 +227,7 @@
 }
 .problem-status:empty { opacity: 0; }
 
-/* ── Question counter ───────────────────────────────────── */
+/* -- Question counter ------------------------------------- */
 .question-counter {
   background: rgba(0,0,0,0.35);
   color: rgba(255,255,255,0.9);
@@ -238,7 +238,7 @@
   letter-spacing: 0.06em;
 }
 
-/* ── Problem timer ──────────────────────────────────────── */
+/* -- Problem timer ---------------------------------------- */
 .problem-timer {
   font-size: 1.5rem;
   font-weight: 900;
@@ -263,7 +263,7 @@
   to   { transform: scale(1.15); }
 }
 
-/* ── Close button ─────────────────────────────────────────── */
+/* -- Close button ------------------------------------------- */
 .close-btn {
   position: absolute;
   top: 6px;
@@ -274,7 +274,7 @@
   box-shadow: none;
 }
 
-/* ── Zone grid ────────────────────────────────────────────── */
+/* -- Zone grid ---------------------------------------------- */
 .zones-wrap {
   flex: 1;
   min-height: 0;
@@ -293,7 +293,7 @@
   grid-template-rows: 1fr;
 }
 
-/* ── Individual zone ──────────────────────────────────────── */
+/* -- Individual zone ---------------------------------------- */
 .zone {
   position: relative;
   display: flex;
@@ -327,7 +327,7 @@
   padding: 2px 10px;
 }
 
-/* ── Answer buttons ───────────────────────────────────────── */
+/* -- Answer buttons ----------------------------------------- */
 .answer-grid {
   margin-top: auto;
   display: grid;
@@ -398,7 +398,7 @@
   filter: brightness(0.4) saturate(0.25);
 }
 
-/* ── Score bar ────────────────────────────────────────────── */
+/* -- Score bar ---------------------------------------------- */
 .score-bar {
   flex-shrink: 0;
   display: flex;
@@ -429,7 +429,7 @@
   text-align: center;
 }
 
-/* ── Icon btn ─────────────────────────────────────────────── */
+/* -- Icon btn ----------------------------------------------- */
 .icon-btn {
   width: 44px;
   height: 44px;
@@ -446,7 +446,7 @@
 }
 .icon-btn:active { background: rgba(0,0,0,0.14); }
 
-/* ── Penalty flash ────────────────────────────────────────── */
+/* -- Penalty flash ------------------------------------------ */
 .penalty-flash {
   position: absolute;
   top: 50%;
@@ -466,7 +466,7 @@
   100% { opacity: 0; transform: translate(-50%, -120%) scale(0.8); }
 }
 
-/* ── Result screen ────────────────────────────────────────── */
+/* -- Result screen ------------------------------------------ */
 .screen-result {
   background: linear-gradient(160deg, #E3F2FD 0%, #FFF3E0 100%);
   align-items: center;

@@ -2,7 +2,7 @@
 
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const TOTAL_QUESTIONS  = 10;
 const TIMEOUT_MS       = 7000;   // counting the corridor takes thought
 const RESULT_PAUSE_MS  = 1800;
@@ -18,7 +18,7 @@ const PLAYER_CONFIG = [
   { label: 'P4', dot: '#F57C00', zoneBg: '#FFE0B2', cls: 'p4' },
 ];
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const sound = createSoundManager({
   ding(ctx) {
     [523, 659, 784].forEach((freq, i) => {
@@ -69,7 +69,7 @@ const sound = createSoundManager({
   },
 });
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let playerCount  = 2;
 let difficulty   = 'easy';
 let questionIdx  = 0;
@@ -81,7 +81,7 @@ let phase        = 'idle';
 let timeoutHandle = null;
 let nextHandle    = null;
 
-// ── DOM refs ─────────────────────────────────────────────────
+// -- DOM refs -------------------------------------------------
 const introScreen     = document.getElementById('introScreen');
 const countdownScreen = document.getElementById('countdownScreen');
 const countdownNumber = document.getElementById('countdownNumber');
@@ -108,7 +108,7 @@ const resultTableHead  = document.getElementById('resultTableHead');
 const resultTableBody  = document.getElementById('resultTableBody');
 const totalRow         = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function showScreen(s) {
   [introScreen, countdownScreen, gameScreen, resultScreen].forEach(x => x.classList.remove('active'));
   s.classList.add('active');
@@ -132,7 +132,7 @@ function shuffle(arr) {
   return arr;
 }
 
-// ── Question generation ──────────────────────────────────────
+// -- Question generation --------------------------------------
 function generateQuestion(){
     const labels = ['가','나','다','라'];
     // 4 distinct sizes (px diameters), clearly different
@@ -160,13 +160,13 @@ function generateQuestion(){
     return { html, answer, choices };
   }
 
-// ── Sound toggle ─────────────────────────────────────────────
+// -- Sound toggle ---------------------------------------------
 setupSoundToggle(sound, soundToggleIntro);
 
-// ── Player count selection ───────────────────────────────────
+// -- Player count selection -----------------------------------
 setupPlayerSelect(function (n) { playerCount = n; });
 
-// ── Difficulty selection ─────────────────────────────────────
+// -- Difficulty selection -------------------------------------
 document.querySelectorAll('.diff-btn').forEach(btn => {
   onTap(btn, () => {
     document.querySelectorAll('.diff-btn').forEach(b => b.classList.remove('active'));
@@ -175,14 +175,14 @@ document.querySelectorAll('.diff-btn').forEach(btn => {
   });
 });
 
-// ── Navigation ───────────────────────────────────────────────
+// -- Navigation -----------------------------------------------
 onTap(backBtn,  () => goHome());
 onTap(closeBtn, () => { clearTimers(); goHome(); });
 onTap(homeBtn,  () => goHome());
 onTap(retryBtn, () => startCountdown(() => startGame()));
 onTap(playBtn,  () => startCountdown(() => startGame()));
 
-// ── Build zone grid ──────────────────────────────────────────
+// -- Build zone grid ------------------------------------------
 function buildZones() {
   zonesWrap.innerHTML = '';
   zonesWrap.className = `zones-wrap p${playerCount}`;
@@ -233,7 +233,7 @@ function updateScoreChip(playerIdx) {
   if (chip) chip.textContent = `${scores[playerIdx]}점`;
 }
 
-// ── Build score bar ──────────────────────────────────────────
+// -- Build score bar ------------------------------------------
 function buildScoreBar() {
   scoreBar.innerHTML = '';
   for (let i = 0; i < playerCount; i++) {
@@ -254,7 +254,7 @@ function updateBarScore(playerIdx) {
   if (el) el.textContent = scores[playerIdx];
 }
 
-// ── Populate answer buttons for a question ───────────────────
+// -- Populate answer buttons for a question -------------------
 function populateAnswers(question) {
   for (let i = 0; i < playerCount; i++) {
     const btns = getAnswerBtns(i);
@@ -270,7 +270,7 @@ function populateAnswers(question) {
   }
 }
 
-// ── Ripple effect ────────────────────────────────────────────
+// -- Ripple effect --------------------------------------------
 function spawnRipple(zone, e) {
   const rect  = zone.getBoundingClientRect();
   const touch = e && e.touches ? e.touches[0] : e;
@@ -286,7 +286,7 @@ function spawnRipple(zone, e) {
   r.addEventListener('animationend', () => r.remove());
 }
 
-// ── Answer tap handler ───────────────────────────────────────
+// -- Answer tap handler ---------------------------------------
 function handleAnswerTap(playerIdx, slotIdx, btn) {
   if (phase !== 'active') return;
   if (dqSet.has(playerIdx)) return;
@@ -335,7 +335,7 @@ function disqualifyPlayer(playerIdx) {
   }
 }
 
-// ── Resolve a question ───────────────────────────────────────
+// -- Resolve a question ---------------------------------------
 function resolveQuestion(winnerIdx, winBtn) {
   if (phase !== 'active') return;
   clearTimers();
@@ -393,7 +393,7 @@ function revealAnswer() {
   }
 }
 
-// ── Question flow ─────────────────────────────────────────────
+// -- Question flow ---------------------------------------------
 function startGame() {
   scores      = new Array(playerCount).fill(0);
   questionLog = [];
@@ -449,7 +449,7 @@ function clearTimers() {
   if (nextHandle)    { clearTimeout(nextHandle);    nextHandle    = null; }
 }
 
-// ── Result screen ─────────────────────────────────────────────
+// -- Result screen ---------------------------------------------
 function showResult() {
   sound.play('fanfare');
 

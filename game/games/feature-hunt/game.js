@@ -2,7 +2,7 @@
 
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const TOTAL_ROUNDS    = 8;
 const ROUND_TIME      = 12;   // seconds per round
 const GRID_COLS       = 4;
@@ -18,16 +18,16 @@ const PLAYER_CONFIG = [
   { label: 'P4', dot: '#F57C00', cls: 'p4' },
 ];
 
-// ── Shape & Color definitions ─────────────────────────────────
+// -- Shape & Color definitions ---------------------------------
 const SHAPES = ['circle', 'square', 'star', 'triangle'];
 const COLORS = ['red', 'yellow', 'blue', 'green'];
 const COLOR_LABELS = { red: '빨간', yellow: '노란', blue: '파란', green: '초록' };
 const SHAPE_LABELS = { circle: '원', square: '네모', star: '별', triangle: '삼각형' };
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const sound = createSoundManager();
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 var playerCount   = 2;
 var roundIdx      = 0;
 var scores        = [];
@@ -45,7 +45,7 @@ var timeRemaining = ROUND_TIME;
 var gameRounds    = [];
 var countdownInterval = null;
 
-// ── DOM refs ─────────────────────────────────────────────────
+// -- DOM refs -------------------------------------------------
 var introScreen     = document.getElementById('introScreen');
 var countdownScreen = document.getElementById('countdownScreen');
 var countdownNumber = document.getElementById('countdownNumber');
@@ -75,7 +75,7 @@ var resultTableHead  = document.getElementById('resultTableHead');
 var resultTableBody  = document.getElementById('resultTableBody');
 var totalRow         = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function showScreen(s) {
   [introScreen, countdownScreen, gameScreen, resultScreen].forEach(function(x) {
     x.classList.remove('active');
@@ -112,7 +112,7 @@ function clearTimers() {
 }
 
 
-// ── Shape HTML builder ────────────────────────────────────────
+// -- Shape HTML builder ----------------------------------------
 function makeShapeEl(shape, color, bordered, sizeClass) {
   var el = document.createElement('div');
   var cls = 'shape shape-' + shape + ' shape-' + color;
@@ -122,7 +122,7 @@ function makeShapeEl(shape, color, bordered, sizeClass) {
   return el;
 }
 
-// ── Condition text builder ────────────────────────────────────
+// -- Condition text builder ------------------------------------
 function conditionLabel(cond) {
   var parts = [];
   if (cond.color) parts.push(COLOR_LABELS[cond.color]);
@@ -132,7 +132,7 @@ function conditionLabel(cond) {
   return parts.join(' ');
 }
 
-// ── Render condition panel ────────────────────────────────────
+// -- Render condition panel ------------------------------------
 function renderCondPanel(cond) {
   // Text label
   condText.innerHTML = '';
@@ -156,7 +156,7 @@ function renderCondPanel(cond) {
   condText.appendChild(wrap);
 }
 
-// ── Cell matching ─────────────────────────────────────────────
+// -- Cell matching ---------------------------------------------
 function cellMatches(cell, cond) {
   if (cond.shape !== null && cell.shape !== cond.shape) return false;
   if (cond.color !== null && cell.color !== cond.color) return false;
@@ -164,7 +164,7 @@ function cellMatches(cell, cond) {
   return true;
 }
 
-// ── Round generation ──────────────────────────────────────────
+// -- Round generation ------------------------------------------
 // Difficulty tiers:
 //   1-3: color+shape, grid has exactly 1 match, decoys differ in at least one attribute
 //   4-6: color+shape, increased decoys (same color/diff shape, same shape/diff color)
@@ -321,7 +321,7 @@ function buildGameRounds() {
   return rounds;
 }
 
-// ── Intro illustration ───────────────────────────────────────
+// -- Intro illustration ---------------------------------------
 function renderIntroIllust() {
   introIllust.innerHTML = '<svg viewBox="0 0 220 130" xmlns="http://www.w3.org/2000/svg">' +
     '<rect x="6" y="6" width="208" height="118" rx="16" fill="#FFF8E1" stroke="#2C2C2C" stroke-width="3"/>' +
@@ -335,20 +335,20 @@ function renderIntroIllust() {
 }
 renderIntroIllust();
 
-// ── Player count selection ───────────────────────────────────
+// -- Player count selection -----------------------------------
 setupPlayerSelect(function (n) { playerCount = n; });
 
-// ── Sound toggle ─────────────────────────────────────────────
+// -- Sound toggle ---------------------------------------------
 setupSoundToggle(sound, soundToggleIntro);
 
-// ── Navigation ───────────────────────────────────────────────
+// -- Navigation -----------------------------------------------
 onTap(backBtn,  function() { goHome(); });
 onTap(closeBtn, function() { clearTimers(); goHome(); });
 onTap(homeBtn,  function() { goHome(); });
 onTap(retryBtn, function() { startPreGameCountdown(function() { startGame(); }); });
 onTap(playBtn,  function() { startPreGameCountdown(function() { startGame(); }); });
 
-// ── Build zone grid ──────────────────────────────────────────
+// -- Build zone grid ------------------------------------------
 function buildZones() {
   zonesWrap.innerHTML = '';
   zonesWrap.className = 'zones-wrap p' + playerCount;
@@ -409,7 +409,7 @@ function updateScoreChip(playerIdx) {
   if (chip) chip.textContent = scores[playerIdx] + '점';
 }
 
-// ── Score bar ────────────────────────────────────────────────
+// -- Score bar ------------------------------------------------
 function buildScoreBar() {
   scoreBar.innerHTML = '';
   for (var i = 0; i < playerCount; i++) {
@@ -429,7 +429,7 @@ function updateBarScore(playerIdx) {
   if (el) el.textContent = scores[playerIdx];
 }
 
-// ── Render shape cells in grid ────────────────────────────────
+// -- Render shape cells in grid --------------------------------
 function renderGridShapes(playerIdx) {
   var btns = getFeatBtns(playerIdx);
   btns.forEach(function(btn, p) {
@@ -442,7 +442,7 @@ function renderGridShapes(playerIdx) {
   });
 }
 
-// ── Reset zone buttons for new round ─────────────────────────
+// -- Reset zone buttons for new round -------------------------
 function resetBtnsForRound() {
   for (var i = 0; i < playerCount; i++) {
     renderGridShapes(i);
@@ -462,7 +462,7 @@ function disablePlayerBtns(playerIdx) {
   });
 }
 
-// ── Timer logic ──────────────────────────────────────────────
+// -- Timer logic ----------------------------------------------
 function startCountdown() {
   timeRemaining = ROUND_TIME;
   problemTimer.textContent = timeRemaining;
@@ -484,7 +484,7 @@ function startCountdown() {
   }, 1000);
 }
 
-// ── Tap handler ───────────────────────────────────────────────
+// -- Tap handler -----------------------------------------------
 function handleFeatTap(playerIdx, pos, btn) {
   if (phase !== 'active') return;
   if (dqSet.has(playerIdx)) return;
@@ -521,7 +521,7 @@ function handleFeatTap(playerIdx, pos, btn) {
   }
 }
 
-// ── Correct answer resolved ──────────────────────────────────
+// -- Correct answer resolved ----------------------------------
 function resolveRound(winnerIdx) {
   phase = 'done';
   clearTimers();
@@ -561,7 +561,7 @@ function resolveRound(winnerIdx) {
   nextHandle = setTimeout(function() { nextRound(); }, RESULT_PAUSE_MS);
 }
 
-// ── Timeout / all disqualified ────────────────────────────────
+// -- Timeout / all disqualified --------------------------------
 function handleTimeout() {
   phase = 'done';
   clearTimers();
@@ -597,7 +597,7 @@ function handleTimeout() {
   nextHandle = setTimeout(function() { nextRound(); }, RESULT_PAUSE_MS);
 }
 
-// ── Load round ───────────────────────────────────────────────
+// -- Load round -----------------------------------------------
 function loadRound() {
   phase        = 'active';
   currentRound = gameRounds[roundIdx];
@@ -612,7 +612,7 @@ function loadRound() {
   startCountdown();
 }
 
-// ── Next round ───────────────────────────────────────────────
+// -- Next round -----------------------------------------------
 function nextRound() {
   roundIdx++;
   if (roundIdx >= TOTAL_ROUNDS) {
@@ -622,7 +622,7 @@ function nextRound() {
   }
 }
 
-// ── Start game ───────────────────────────────────────────────
+// -- Start game -----------------------------------------------
 function startGame() {
   gameRounds  = buildGameRounds();
   roundIdx    = 0;
@@ -638,7 +638,7 @@ function startGame() {
   loadRound();
 }
 
-// ── Show result ──────────────────────────────────────────────
+// -- Show result ----------------------------------------------
 function showResult() {
   clearTimers();
   phase = 'idle';

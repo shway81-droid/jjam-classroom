@@ -2,7 +2,7 @@
 
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const TOTAL_ROUNDS    = 8;
 const ROUND_TIME      = 10;   // seconds per round (starts after playback)
 const RESULT_PAUSE_MS = getAutoplayPauseMs(2000);
@@ -22,7 +22,7 @@ const SEMITONE = Math.pow(2, 1 / 12);
 // R1-2: 12 semitones, R3-4: 7, R5-6: 4, R7-8: 2
 const SEMITONE_PLAN = [12, 12, 7, 7, 4, 4, 2, 2];
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const sound = createSoundManager({
   beepA(ctx) {
     // placeholder — actual tone playback is done via playToneSequence
@@ -99,7 +99,7 @@ const sound = createSoundManager({
   },
 });
 
-// ── Audio context for tone playback ──────────────────────────
+// -- Audio context for tone playback --------------------------
 let audioCtx = null;
 
 function getAudioCtx() {
@@ -112,7 +112,7 @@ function getAudioCtx() {
   return audioCtx;
 }
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let playerCount   = 2;
 let roundIdx      = 0;
 let scores        = [];
@@ -127,7 +127,7 @@ let gameRounds    = [];
 let replayUsed    = false;
 let playbackLocked = false;
 
-// ── DOM refs ─────────────────────────────────────────────────
+// -- DOM refs -------------------------------------------------
 const introScreen     = document.getElementById('introScreen');
 const countdownScreen = document.getElementById('countdownScreen');
 const countdownNumber = document.getElementById('countdownNumber');
@@ -157,7 +157,7 @@ const resultTableHead = document.getElementById('resultTableHead');
 const resultTableBody = document.getElementById('resultTableBody');
 const totalRow        = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function showScreen(s) {
   [introScreen, countdownScreen, gameScreen, resultScreen].forEach(x => x.classList.remove('active'));
   s.classList.add('active');
@@ -180,7 +180,7 @@ function clearTimers() {
 }
 
 
-// ── Tone sequence playback ────────────────────────────────────
+// -- Tone sequence playback ------------------------------------
 function playToneSequence(freqA, freqB, onDone) {
   const ctx = getAudioCtx();
   const now = ctx.currentTime;
@@ -240,7 +240,7 @@ function setChoiceBtnsLocked(locked) {
   });
 }
 
-// ── Round generation ─────────────────────────────────────────
+// -- Round generation -----------------------------------------
 function buildGameRounds() {
   var rounds = [];
   for (var i = 0; i < TOTAL_ROUNDS; i++) {
@@ -269,20 +269,20 @@ function buildGameRounds() {
   return rounds;
 }
 
-// ── Player count selection ───────────────────────────────────
+// -- Player count selection -----------------------------------
 setupPlayerSelect(function (n) { playerCount = n; });
 
-// ── Sound toggle ─────────────────────────────────────────────
+// -- Sound toggle ---------------------------------------------
 setupSoundToggle(sound, soundToggleIntro);
 
-// ── Navigation ───────────────────────────────────────────────
+// -- Navigation -----------------------------------------------
 onTap(backBtn,  function() { goHome(); });
 onTap(closeBtn, function() { clearTimers(); goHome(); });
 onTap(homeBtn,  function() { goHome(); });
 onTap(retryBtn, function() { startPreGameCountdown(function() { startGame(); }); });
 onTap(playBtn,  function() { startPreGameCountdown(function() { startGame(); }); });
 
-// ── Replay button ─────────────────────────────────────────────
+// -- Replay button ---------------------------------------------
 onTap(replayBtn, function() {
   if (phase !== 'active') return;
   if (replayUsed) return;
@@ -300,7 +300,7 @@ onTap(replayBtn, function() {
   });
 });
 
-// ── Build zone grid ──────────────────────────────────────────
+// -- Build zone grid ------------------------------------------
 function buildZones() {
   zonesWrap.innerHTML = '';
   zonesWrap.className = 'zones-wrap p' + playerCount;
@@ -365,7 +365,7 @@ function updateScoreChip(playerIdx) {
   if (chip) chip.textContent = scores[playerIdx] + '점';
 }
 
-// ── Score bar ────────────────────────────────────────────────
+// -- Score bar ------------------------------------------------
 function buildScoreBar() {
   scoreBar.innerHTML = '';
   for (var i = 0; i < playerCount; i++) {
@@ -385,7 +385,7 @@ function updateBarScore(playerIdx) {
   if (el) el.textContent = scores[playerIdx];
 }
 
-// ── Reset zone buttons for new round ─────────────────────────
+// -- Reset zone buttons for new round -------------------------
 function resetBtnsForRound() {
   for (var i = 0; i < playerCount; i++) {
     getChoiceBtns(i).forEach(function(btn) {
@@ -405,7 +405,7 @@ function disablePlayerBtns(playerIdx) {
   });
 }
 
-// ── Timer logic ──────────────────────────────────────────────
+// -- Timer logic ----------------------------------------------
 function startCountdown() {
   timeRemaining = ROUND_TIME;
   problemTimer.textContent = timeRemaining;
@@ -446,7 +446,7 @@ function startCountdownResume() {
   }, 1000);
 }
 
-// ── Choice tap handler ───────────────────────────────────────
+// -- Choice tap handler ---------------------------------------
 function handleChoiceTap(playerIdx, choice) {
   if (phase !== 'active') return;
   if (dqSet.has(playerIdx)) return;
@@ -487,7 +487,7 @@ function handleChoiceTap(playerIdx, choice) {
   }
 }
 
-// ── Correct answer resolved ──────────────────────────────────
+// -- Correct answer resolved ----------------------------------
 function resolveRound(winnerIdx) {
   phase = 'done';
   clearTimers();
@@ -522,7 +522,7 @@ function resolveRound(winnerIdx) {
   nextHandle = setTimeout(function() { nextRound(); }, RESULT_PAUSE_MS);
 }
 
-// ── Timeout (or all disqualified) ────────────────────────────
+// -- Timeout (or all disqualified) ----------------------------
 function handleTimeout() {
   phase = 'done';
   clearTimers();
@@ -555,7 +555,7 @@ function handleTimeout() {
   nextHandle = setTimeout(function() { nextRound(); }, RESULT_PAUSE_MS);
 }
 
-// ── Load round ───────────────────────────────────────────────
+// -- Load round -----------------------------------------------
 function loadRound() {
   phase        = 'active';
   currentRound = gameRounds[roundIdx];
@@ -580,7 +580,7 @@ function loadRound() {
   });
 }
 
-// ── Next round ───────────────────────────────────────────────
+// -- Next round -----------------------------------------------
 function nextRound() {
   roundIdx++;
   if (roundIdx >= TOTAL_ROUNDS) {
@@ -590,7 +590,7 @@ function nextRound() {
   }
 }
 
-// ── Start game ───────────────────────────────────────────────
+// -- Start game -----------------------------------------------
 function startGame() {
   gameRounds  = buildGameRounds();
   roundIdx    = 0;
@@ -608,7 +608,7 @@ function startGame() {
   loadRound();
 }
 
-// ── Show result ──────────────────────────────────────────────
+// -- Show result ----------------------------------------------
 function showResult() {
   clearTimers();
   phase = 'idle';

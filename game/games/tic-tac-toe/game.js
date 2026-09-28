@@ -3,7 +3,7 @@
 (function () {
   'use strict';
 
-  // ─── 상수 ───────────────────────────────────────────────────────────────
+  // --- 상수 ---------------------------------------------------------------
   var SIZE = 3;                 // 3×3 격자
   var CELL_COUNT = SIZE * SIZE; // 9칸
   var PLAYER_COLORS = ['#29B6F6', '#EF5350'];
@@ -17,7 +17,7 @@
     [0, 4, 8], [2, 4, 6]               // 대각선
   ];
 
-  // ─── 타이머 관리 ─────────────────────────────────────────────────────────
+  // --- 타이머 관리 ---------------------------------------------------------
   var timers = [];
 
   function later(fn, ms) {
@@ -32,7 +32,7 @@
     timers = [];
   }
 
-  // ─── 화면 전환 ────────────────────────────────────────────────────────────
+  // --- 화면 전환 ------------------------------------------------------------
   var screens = {
     intro:     document.getElementById('introScreen'),
     countdown: document.getElementById('countdownScreen'),
@@ -53,7 +53,7 @@
     countdownInterval = runCountdown(countdownNumber, onDone);
   }
 
-  // ─── 사운드 ──────────────────────────────────────────────────────────────
+  // --- 사운드 --------------------------------------------------------------
   var sounds = createSoundManager({
     // 칸에 표식 놓는 소리: 짧고 단단하게 하강
     drop: function (ctx) {
@@ -138,7 +138,7 @@
     }
   });
 
-  // ─── 사운드 버튼 ──────────────────────────────────────────────────────────
+  // --- 사운드 버튼 ----------------------------------------------------------
   var soundBtns = [
     document.getElementById('soundToggleIntro'),
     document.getElementById('soundToggleGame')
@@ -165,7 +165,7 @@
 
   updateSoundIcons();
 
-  // ─── 게임 상태 ────────────────────────────────────────────────────────────
+  // --- 게임 상태 ------------------------------------------------------------
   var board;          // board[i] = -1(빈칸) | 0 | 1   (i = 0..8)
   var currentPlayer;  // 0 or 1
   var gameOver;
@@ -173,7 +173,7 @@
   var markCount;      // 놓인 표식 수
   var cellEls;        // cellEls[i] = DOM element
 
-  // ─── DOM ─────────────────────────────────────────────────────────────────
+  // --- DOM -----------------------------------------------------------------
   var boardGrid   = document.getElementById('boardGrid');
   var turnBanner  = document.getElementById('turnBanner');
   var turnDot     = document.getElementById('turnDot');
@@ -182,7 +182,7 @@
   var resultSub      = document.getElementById('resultSub');
   var resultIconWrap = document.getElementById('resultIconWrap');
 
-  // ─── 게임 초기화 ──────────────────────────────────────────────────────────
+  // --- 게임 초기화 ----------------------------------------------------------
   function initGame() {
     clearAllTimers();
 
@@ -200,7 +200,7 @@
     showScreen('game');
   }
 
-  // ─── 보드 빌드 ────────────────────────────────────────────────────────────
+  // --- 보드 빌드 ------------------------------------------------------------
   function buildBoard() {
     // 칸 그리드 (3×3, 인덱스 0..8: 위→아래, 왼→오)
     boardGrid.innerHTML = '';
@@ -218,7 +218,7 @@
     }
   }
 
-  // ─── 턴 UI 업데이트 ──────────────────────────────────────────────────────
+  // --- 턴 UI 업데이트 ------------------------------------------------------
   function updateTurnUI(announce) {
     var color = PLAYER_COLORS[currentPlayer];
     var name  = PLAYER_NAMES[currentPlayer];
@@ -245,7 +245,7 @@
     }
   }
 
-  // ─── 풀스크린 턴 변경 오버레이 ──────────────────────────────────────────
+  // --- 풀스크린 턴 변경 오버레이 ------------------------------------------
   function showTurnOverlay(name, color, pCls) {
     var overlay = document.getElementById('turnOverlay');
     if (!overlay) {
@@ -263,12 +263,12 @@
     }, 600);
   }
 
-  // ─── 입력 잠금 상태 반영 ──────────────────────────────────────────────────
+  // --- 입력 잠금 상태 반영 --------------------------------------------------
   function updateLockState() {
     boardGrid.classList.toggle('locked', gameOver || locked);
   }
 
-  // ─── 칸에 표식 놓기 ───────────────────────────────────────────────────────
+  // --- 칸에 표식 놓기 -------------------------------------------------------
   function handlePlace(idx) {
     if (gameOver || locked) return;
     if (board[idx] !== -1) return; // 이미 채워진 칸 → 무시
@@ -320,7 +320,7 @@
     }, 340);
   }
 
-  // ─── 승리 판정: 8개 라인 검사 ──────────────────────────────────────────────
+  // --- 승리 판정: 8개 라인 검사 ----------------------------------------------
   // 반환: 승리한 3칸 인덱스 배열 [i,i,i] 또는 null
   function findWinLine(p) {
     for (var k = 0; k < WIN_LINES.length; k++) {
@@ -332,7 +332,7 @@
     return null;
   }
 
-  // ─── 결과 화면 ───────────────────────────────────────────────────────────
+  // --- 결과 화면 -----------------------------------------------------------
   var SVG_TROPHY =
     '<svg viewBox="0 0 80 80" width="80" height="80">' +
       '<rect x="28" y="62" width="24" height="6" rx="3" fill="#FFA726"/>' +
@@ -369,7 +369,7 @@
     showScreen('result');
   }
 
-  // ─── 버튼 이벤트 바인딩 ──────────────────────────────────────────────────
+  // --- 버튼 이벤트 바인딩 --------------------------------------------------
   // PLAY
   onTap(document.getElementById('playBtn'), function () {
     startCountdown(function () { initGame(); });

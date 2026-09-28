@@ -1,13 +1,13 @@
 /* games/math-sign/style.css */
 
-/* ── Countdown screen ─────────────────────────────────────── */
+/* -- Countdown screen --------------------------------------- */
 .screen-countdown {
   justify-content: center;
   align-items: center;
   background: #FFF8E1;
 }
 
-/* ── Game header (intro) ──────────────────────────────────── */
+/* -- Game header (intro) ------------------------------------ */
 .game-header {
   display: flex;
   align-items: center;
@@ -25,7 +25,7 @@
   color: var(--text);
 }
 
-/* ── Intro screen ─────────────────────────────────────────── */
+/* -- Intro screen ------------------------------------------- */
 .screen-intro {
   background: linear-gradient(160deg, #FFF3E0 0%, #FCE4EC 100%);
   justify-content: space-between;
@@ -128,7 +128,7 @@
   box-shadow: 0 2px 8px rgba(251,140,0,0.35);
 }
 
-/* ── Game screen ──────────────────────────────────────────── */
+/* -- Game screen -------------------------------------------- */
 .screen-game {
   background: #FFF8E1;
   height: 100vh;
@@ -141,7 +141,7 @@
   align-items: stretch;
 }
 
-/* ── Top bar (equation + meta) ────────────────────────────── */
+/* -- Top bar (equation + meta) ------------------------------ */
 .top-bar {
   flex-shrink: 0;
   display: flex;
@@ -159,7 +159,7 @@
   gap: 10px;
 }
 
-/* ── Zone grid ────────────────────────────────────────────── */
+/* -- Zone grid ---------------------------------------------- */
 .zones-wrap {
   flex: 1;
   min-height: 0;
@@ -184,7 +184,7 @@
   grid-template-rows: 1fr;
 }
 
-/* ── Individual zone ──────────────────────────────────────── */
+/* -- Individual zone ---------------------------------------- */
 .zone {
   position: relative;
   display: flex;
@@ -228,7 +228,7 @@
   color: rgba(0,0,0,0.6);
 }
 
-/* ── Answer button 2x2 grid ───────────────────────────────── */
+/* -- Answer button 2x2 grid --------------------------------- */
 .answer-grid {
   flex: 1;
   display: grid;
@@ -410,7 +410,7 @@
 }
 .problem-status:empty { opacity: 0; }
 
-/* ── Close button ─────────────────────────────────────────── */
+/* -- Close button ------------------------------------------- */
 .close-btn {
   position: absolute;
   top: 6px;
@@ -421,7 +421,7 @@
   box-shadow: none;
 }
 
-/* ── Score bar ────────────────────────────────────────────── */
+/* -- Score bar ---------------------------------------------- */
 .score-bar {
   flex-shrink: 0;
   display: flex;
@@ -452,7 +452,7 @@
   text-align: center;
 }
 
-/* ── Icon btn ─────────────────────────────────────────────── */
+/* -- Icon btn ----------------------------------------------- */
 .icon-btn {
   width: 44px;
   height: 44px;
@@ -469,7 +469,7 @@
 }
 .icon-btn:active { background: rgba(0,0,0,0.14); }
 
-/* ── Penalty flash ────────────────────────────────────────── */
+/* -- Penalty flash ------------------------------------------ */
 .penalty-flash {
   position: absolute;
   top: 50%;
@@ -488,7 +488,7 @@
   100% { opacity: 0; transform: translate(-50%, -120%) scale(0.8); }
 }
 
-/* ── Result screen ────────────────────────────────────────── */
+/* -- Result screen ------------------------------------------ */
 .screen-result {
   background: linear-gradient(160deg, #FFF3E0 0%, #FCE4EC 100%);
   align-items: center;

@@ -1,13 +1,13 @@
 /* games/mirror-match/style.css */
 
-/* ── Countdown screen ─────────────────────────────────────── */
+/* -- Countdown screen --------------------------------------- */
 .screen-countdown {
   justify-content: center;
   align-items: center;
   background: #0A1929;
 }
 
-/* ── Shared header ────────────────────────────────────────── */
+/* -- Shared header ------------------------------------------ */
 .game-header {
   display: flex;
   align-items: center;
@@ -25,7 +25,7 @@
   color: var(--text);
 }
 
-/* ── Intro screen ─────────────────────────────────────────── */
+/* -- Intro screen ------------------------------------------- */
 .screen-intro {
   background: linear-gradient(160deg, #E0F7FA 0%, #B2EBF2 100%);
   justify-content: space-between;
@@ -101,7 +101,7 @@
   box-shadow: 0 4px 14px rgba(38,198,218,0.35);
 }
 
-/* ── Game screen ──────────────────────────────────────────── */
+/* -- Game screen -------------------------------------------- */
 .screen-game {
   background: #0A1929;
   position: relative;
@@ -115,19 +115,19 @@
   display: grid;
 }
 
-/* ─ 2-player: left / right halves ─ */
+/* - 2-player: left / right halves - */
 .zones-wrap.p2 {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
 }
 
-/* ─ 3-player: top-left / top-right / bottom (full width) ─ */
+/* - 3-player: top-left / top-right / bottom (full width) - */
 .zones-wrap.p3 {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
 }
 
-/* ─ 4-player: quadrants ─ */
+/* - 4-player: quadrants - */
 .zones-wrap.p4 {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
@@ -265,7 +265,7 @@
   to { transform: scale(4); opacity: 0; }
 }
 
-/* ── Center target panel ──────────────────────────────────── */
+/* -- Center target panel ------------------------------------ */
 .target-panel {
   position: absolute;
   top: 50%;
@@ -344,7 +344,7 @@
 .round-status.correct { background: rgba(27,94,32,0.92); }
 .round-status.wrong   { background: rgba(183,28,28,0.92); }
 
-/* ── Close button ─────────────────────────────────────────── */
+/* -- Close button ------------------------------------------- */
 .close-btn {
   position: absolute;
   top: var(--space-md);
@@ -355,7 +355,7 @@
   box-shadow: none;
 }
 
-/* ── Result screen ────────────────────────────────────────── */
+/* -- Result screen ------------------------------------------ */
 .screen-result {
   background: linear-gradient(160deg, #E0F7FA 0%, #B2EBF2 100%);
   align-items: center;
@@ -425,7 +425,7 @@
   box-shadow: var(--shadow-card);
 }
 
-/* ── Responsive ───────────────────────────────────────────── */
+/* -- Responsive --------------------------------------------- */
 @media (max-height: 600px) {
   .target-wrap { padding: 8px 12px; }
   .target-svg-box { width: 120px; height: 60px; }
@@ -439,7 +439,7 @@
   .answer-btn svg { width: 52px; height: 52px; }
 }
 
-/* ── Penalty flash ─────────────────────────────────────────── */
+/* -- Penalty flash ------------------------------------------- */
 .penalty-flash {
   position: absolute;
   color: #EF5350;
@@ -455,7 +455,7 @@
 }
 
 
-/* ── 3·4-player mode: move center panel to top so middle players aren't blocked ── */
+/* -- 3·4-player mode: move center panel to top so middle players aren't blocked -- */
 .screen-game:has(.zones-wrap.p4) .target-panel,
 .screen-game:has(.zones-wrap.p3) .target-panel {
   top: 8px !important;

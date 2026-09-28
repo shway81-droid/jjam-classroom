@@ -1,7 +1,7 @@
 /* games/num-path/game.js — 패턴 C (퍼즐 병렬 경쟁) — 숫자 길 (Numbrix 스타일) */
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const TOTAL_ROUNDS = 3;
 const ROUND_TIME = 60;        // seconds
 const RESULT_PAUSE_MS = getAutoplayPauseMs(2200);
@@ -17,7 +17,7 @@ const PLAYER_CONFIG = [
   { label: 'P4', dot: '#F57C00', cls: 'p4' },
 ];
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const sound = createSoundManager({
   ding(ctx) {
     [523, 659, 784].forEach((f, i) => {
@@ -86,7 +86,7 @@ const sound = createSoundManager({
   },
 });
 
-// ── Pure puzzle generator + validator (테스트 가능, DOM 비의존) ──
+// -- Pure puzzle generator + validator (테스트 가능, DOM 비의존) --
 // 좌표 인덱스: cell index = r * size + c. 값: 경로상 위치(1..size*size).
 
 const DIRS4 = [[-1, 0], [1, 0], [0, -1], [0, 1]];
@@ -252,7 +252,7 @@ function verifySolvableByReplay(puzzle) {
   }
 }
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let playerCount = 2;
 let roundIdx = 0;
 let scores = [];
@@ -268,7 +268,7 @@ let timerHandle = null;
 let nextHandle = null;
 let timeRemaining = ROUND_TIME;
 
-// ── DOM refs ─────────────────────────────────────────────────
+// -- DOM refs -------------------------------------------------
 const introScreen = document.getElementById('introScreen');
 const countdownScreen = document.getElementById('countdownScreen');
 const countdownNumber = document.getElementById('countdownNumber');
@@ -293,7 +293,7 @@ const resultTitle = document.getElementById('resultTitle');
 const resultWinner = document.getElementById('resultWinner');
 const totalRow = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function showScreen(s) {
   [introScreen, countdownScreen, gameScreen, resultScreen].forEach(x => x.classList.remove('active'));
   s.classList.add('active');
@@ -311,7 +311,7 @@ function clearTimers() {
   if (nextHandle) { clearTimeout(nextHandle); nextHandle = null; }
 }
 
-// ── Build zones (각 zone에 동일 퍼즐 보드를 복제) ──────────────
+// -- Build zones (각 zone에 동일 퍼즐 보드를 복제) --------------
 function buildZones() {
   zonesWrap.innerHTML = '';
   zonesWrap.className = `zones-wrap p${playerCount}`;
@@ -386,7 +386,7 @@ function updateNextChip(playerIdx) {
   el.textContent = next > total ? '완성!' : `다음: ${next}`;
 }
 
-// ── Score bar ────────────────────────────────────────────────
+// -- Score bar ------------------------------------------------
 function buildScoreBar() {
   scoreBar.innerHTML = '';
   for (let i = 0; i < playerCount; i++) {
@@ -407,7 +407,7 @@ function updateBarScore(playerIdx) {
   if (el) el.textContent = scores[playerIdx];
 }
 
-// ── Cell tap handler ─────────────────────────────────────────
+// -- Cell tap handler -----------------------------------------
 function handleCellTap(playerIdx, idx) {
   if (phase !== 'active') return;
   if (zoneSolved[playerIdx]) return;
@@ -480,7 +480,7 @@ function handleSolve(winnerIdx) {
   }
 }
 
-// ── Timer ────────────────────────────────────────────────────
+// -- Timer ----------------------------------------------------
 function startCountdown() {
   timeRemaining = ROUND_TIME;
   problemTimer.textContent = timeRemaining;
@@ -519,7 +519,7 @@ function handleTimeout() {
   nextHandle = setTimeout(() => nextRound(), RESULT_PAUSE_MS);
 }
 
-// ── Round flow ───────────────────────────────────────────────
+// -- Round flow -----------------------------------------------
 function loadRound() {
   phase = 'active';
   curSize = ROUND_SIZE[roundIdx];
@@ -577,7 +577,7 @@ function startGame() {
   loadRound();
 }
 
-// ── Result ───────────────────────────────────────────────────
+// -- Result ---------------------------------------------------
 function showResult() {
   clearTimers();
   phase = 'idle';
@@ -619,20 +619,20 @@ function showResult() {
   showScreen(resultScreen);
 }
 
-// ── Player count selection ───────────────────────────────────
+// -- Player count selection -----------------------------------
 setupPlayerSelect(function (n) { playerCount = n; });
 
-// ── Sound toggle ─────────────────────────────────────────────
+// -- Sound toggle ---------------------------------------------
 setupSoundToggle(sound, soundToggleIntro);
 
-// ── Navigation ───────────────────────────────────────────────
+// -- Navigation -----------------------------------------------
 onTap(backBtn, () => goHome());
 onTap(closeBtn, () => { clearTimers(); goHome(); });
 onTap(homeBtn, () => goHome());
 onTap(retryBtn, () => startPreGameCountdown(() => startGame()));
 onTap(playBtn, () => startPreGameCountdown(() => startGame()));
 
-// ── Test hook (Node 환경에서만 export; 브라우저 무영향) ─────────
+// -- Test hook (Node 환경에서만 export; 브라우저 무영향) ---------
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
     generateHamiltonianPath, verifyPath, generatePuzzle,

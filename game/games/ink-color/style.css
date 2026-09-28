@@ -1,6 +1,6 @@
 /* games/ink-color/style.css */
 
-/* ── Countdown screen ─────────────────────────────────────── */
+/* -- Countdown screen --------------------------------------- */
 .screen-countdown {
   justify-content: center;
   align-items: center;
@@ -8,7 +8,7 @@
 }
 .countdown-number { color: #EC407A; }
 
-/* ── Game header (intro) ──────────────────────────────────── */
+/* -- Game header (intro) ------------------------------------ */
 .game-header {
   display: flex;
   align-items: center;
@@ -26,7 +26,7 @@
   color: var(--text);
 }
 
-/* ── Intro screen ─────────────────────────────────────────── */
+/* -- Intro screen ------------------------------------------- */
 .screen-intro {
   background: linear-gradient(160deg, #FFF3E0 0%, #FCE4EC 100%);
   justify-content: space-between;
@@ -136,7 +136,7 @@
   box-shadow: 0 2px 8px rgba(236,64,122,0.35);
 }
 
-/* ── Game screen ──────────────────────────────────────────── */
+/* -- Game screen -------------------------------------------- */
 .screen-game {
   background: #FFF8E1;
   height: 100vh;
@@ -149,7 +149,7 @@
   align-items: stretch;
 }
 
-/* ── Top bar (prompt + meta) ─────────────────────────────── */
+/* -- Top bar (prompt + meta) ------------------------------- */
 .top-bar {
   flex-shrink: 0;
   display: flex;
@@ -183,7 +183,7 @@
   text-shadow: 0 1px 0 rgba(0,0,0,0.5);
 }
 
-/* ── Zone grid ────────────────────────────────────────────── */
+/* -- Zone grid ---------------------------------------------- */
 .zones-wrap {
   flex: 1;
   min-height: 0;
@@ -208,7 +208,7 @@
   grid-template-rows: 1fr;
 }
 
-/* ── Individual zone ──────────────────────────────────────── */
+/* -- Individual zone ---------------------------------------- */
 .zone {
   position: relative;
   display: flex;
@@ -252,7 +252,7 @@
   color: rgba(0,0,0,0.6);
 }
 
-/* ── Prompt word (the Stroop stimulus) ───────────────────── */
+/* -- Prompt word (the Stroop stimulus) --------------------- */
 .prompt-card {
   flex-shrink: 0;
   background: #fff;
@@ -273,7 +273,7 @@
   text-shadow: 0 1px 0 rgba(0,0,0,0.12);
 }
 
-/* ── Answer swatch grid ──────────────────────────────────── */
+/* -- Answer swatch grid ------------------------------------ */
 .answer-grid {
   flex: 1;
   display: grid;
@@ -395,7 +395,7 @@
   to   { transform: scale(1.12); }
 }
 
-/* ── Close button ─────────────────────────────────────────── */
+/* -- Close button ------------------------------------------- */
 .close-btn {
   position: absolute;
   top: 6px;
@@ -406,7 +406,7 @@
   box-shadow: none;
 }
 
-/* ── Score bar ────────────────────────────────────────────── */
+/* -- Score bar ---------------------------------------------- */
 .score-bar {
   flex-shrink: 0;
   display: flex;
@@ -437,7 +437,7 @@
   text-align: center;
 }
 
-/* ── Icon btn (shared) ────────────────────────────────────── */
+/* -- Icon btn (shared) -------------------------------------- */
 .icon-btn {
   width: 44px;
   height: 44px;
@@ -454,7 +454,7 @@
 }
 .icon-btn:active { background: rgba(0,0,0,0.14); }
 
-/* ── Score pop flash ──────────────────────────────────────── */
+/* -- Score pop flash ---------------------------------------- */
 .score-flash {
   position: absolute;
   top: 50%;
@@ -474,7 +474,7 @@
   100% { opacity: 0; transform: translate(-50%, -120%) scale(0.8); }
 }
 
-/* ── Result screen ────────────────────────────────────────── */
+/* -- Result screen ------------------------------------------ */
 .screen-result {
   background: linear-gradient(160deg, #FFF3E0 0%, #FCE4EC 100%);
   align-items: center;
