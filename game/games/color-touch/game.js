@@ -19,6 +19,8 @@ COLORS.forEach(c => {
 });
 
 const TOTAL_ROUNDS = 10;
+const ROUND_TIME     = 10;   // 라운드 제한 시간(초) — 아무도 안 누르면 시간초과로 넘어간다
+const ROUND_PAUSE_MS = getAutoplayPauseMs(1600);
 
 // Player zone configs (background tint for zone border/header)
 const PLAYER_CONFIG = [
@@ -124,12 +126,19 @@ const stroopPanel   = document.getElementById('stroopPanel');
 const stroopWord    = document.getElementById('stroopWord');
 const roundBadge    = document.getElementById('roundBadge');
 const roundStatus   = document.getElementById('roundStatus');
+const problemTimer  = document.getElementById('problemTimer');
 
 const resultTitle   = document.getElementById('resultTitle');
 const resultWinner  = document.getElementById('resultWinner');
 const resultTableHead = document.getElementById('resultTableHead');
 const resultTableBody = document.getElementById('resultTableBody');
 const totalRow      = document.getElementById('totalRow');
+
+// -- Round timer -------------------------------------------
+const roundTimer = createTimer(ROUND_TIME, (t) => {
+  problemTimer.textContent = t;
+  problemTimer.classList.toggle('urgent', t <= 3);
+}, () => handleTimeout());
 
 // -- Helpers -----------------------------------------------
 function showScreen(s) {
@@ -286,6 +295,7 @@ function handleColorTap(playerIdx, colorId, zone, e) {
     // First correct tap wins the round
     roundResolved = true;
     phase = 'result';
+    roundTimer.stop();
     sound.play('ding');
 
     scores[playerIdx]++;
@@ -346,6 +356,7 @@ function handleColorTap(playerIdx, colorId, zone, e) {
     if (alive.length === 0) {
       roundResolved = true;
       phase = 'result';
+      roundTimer.stop();
       roundStatus.textContent = '전원 실격 — 무승부';
       roundStatus.className   = 'round-status wrong';
       roundResults.push({
@@ -371,6 +382,29 @@ function setAllZonesIdle(exceptIdx) {
   }
 }
 
+// -- Timeout -----------------------------------------------
+function handleTimeout() {
+  if (phase !== 'active' || roundResolved) return;
+  roundResolved = true;
+  phase = 'result';
+  roundTimer.stop();
+  sound.play('timeout');
+
+  setAllZonesIdle(-1);
+
+  roundStatus.textContent = '시간 초과! 정답: ' + COLOR_BY_ID[currentRoundData.correctId].label;
+  roundStatus.className   = 'round-status wrong';
+
+  roundResults.push({
+    winner:    -1,
+    correctId: currentRoundData.correctId,
+    dq:        new Set(roundDQ),
+    timedOut:  true,
+  });
+
+  scheduleNextOrEnd();
+}
+
 // -- Game flow ---------------------------------------------
 function startGame() {
   clearAllTimers();
@@ -391,6 +425,8 @@ function nextRound() {
   roundBadge.textContent  = currentRound + ' / ' + TOTAL_ROUNDS;
   roundStatus.textContent = '준비...';
   roundStatus.className   = 'round-status';
+  problemTimer.textContent = ROUND_TIME;
+  problemTimer.classList.remove('urgent');
   stroopWord.textContent  = '?';
   stroopWord.style.color  = 'rgba(255,255,255,0.6)';
 
@@ -419,6 +455,8 @@ function nextRound() {
       }
     }
     phase = 'active';
+    roundTimer.stop();
+    roundTimer.start();
   }, 800));
 }
 
@@ -431,6 +469,7 @@ function clearNextRoundTimer() {
 
 function clearAllTimers() {
   if (countdownInterval) { clearInterval(countdownInterval); countdownInterval = null; }
+  roundTimer.stop();
   clearNextRoundTimer();
   pendingTimers.forEach(id => clearTimeout(id));
   pendingTimers = [];
@@ -445,11 +484,12 @@ function scheduleNextOrEnd() {
     } else {
       nextRound();
     }
-  }, 1600);
+  }, ROUND_PAUSE_MS);
 }
 
 // -- Result screen -----------------------------------------
 function showResult() {
+  roundTimer.stop();
   sound.play('fanfare');
 
   const maxScore = Math.max(...scores);
@@ -489,6 +529,7 @@ function showResult() {
     const cells = players.map((_, pi) => {
       if (r.dq.has(pi))   return `<td class="cell-dq">실격</td>`;
       if (r.winner === pi) return `<td class="cell-win">★ 정답</td>`;
+      if (r.timedOut)      return `<td class="cell-timeout">시간초과</td>`;
       return `<td class="cell-none">—</td>`;
     }).join('');
     return `<tr><td>${ri + 1}</td><td>${colorDot}</td>${cells}</tr>`;

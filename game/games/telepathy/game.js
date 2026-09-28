@@ -82,6 +82,7 @@
 
   var TOTAL_ROUNDS = 7;
   var SUCCESS_MATCHES = 4;
+  var TURN_TIME = 20;   // 차례마다 제한 시간(초, 차례 안내 화면 포함) — 넘기면 이번 라운드는 불일치
 
   // --- 타이머 관리 ---------------------------------------------------------
   var timers = [];
@@ -93,6 +94,7 @@
   }
 
   function clearAllTimers() {
+    stopTurnTimer();
     if (countdownInterval) { clearInterval(countdownInterval); countdownInterval = null; }
     timers.forEach(function (id) { clearTimeout(id); });
     timers = [];
@@ -241,6 +243,7 @@
   var roundNumEl    = document.getElementById('roundNum');
   var roundScoreEl  = document.getElementById('roundScore');
   var bannerEl      = document.getElementById('banner');
+  var hudFill       = document.getElementById('hudTimerFill');
   var resultTitle   = document.getElementById('resultTitle');
   var resultSub     = document.getElementById('resultSub');
   var resultIconWrap = document.getElementById('resultIconWrap');
@@ -325,6 +328,7 @@
 
     var ch = roundChoices[idx];
     locked = true;
+    stopTurnTimer();
     sounds.play('pick');
 
     var card = choiceGrid.querySelectorAll('.choice-card')[idx];
@@ -349,6 +353,7 @@
           phase = 'p2';
           locked = false;
         });
+        startTurnTimer();
       }, 950);
     } else {
       p2Choice = { idx: idx, e: ch.e, n: ch.n };
@@ -387,15 +392,66 @@
         sounds.play('miss');
       }
 
-      later(function () {
-        currentRound++;
-        if (currentRound >= TOTAL_ROUNDS) {
-          showResult();
-        } else {
-          nextRound();
-        }
-      }, getAutoplayPauseMs(2100));
+      advanceRound();
     }, 750);
+  }
+
+  // --- 다음 라운드로 (공개·시간초과 공통) ----------------------------------
+  function advanceRound() {
+    later(function () {
+      currentRound++;
+      if (currentRound >= TOTAL_ROUNDS) {
+        showResult();
+      } else {
+        nextRound();
+      }
+    }, getAutoplayPauseMs(2100));
+  }
+
+  // --- 차례 제한 시간 -------------------------------------------------------
+  // 차례 안내가 뜰 때 시작해 카드를 고르면 멈춘다.
+  var turnTimer = null;
+
+  function stopTurnTimer() {
+    if (turnTimer) { turnTimer.stop(); turnTimer = null; }
+  }
+
+  function startTurnTimer() {
+    stopTurnTimer();
+    hudFill.style.width = '100%';
+    hudFill.className = 'hud-timer-fill';
+    turnTimer = createTimer(TURN_TIME, function (rem) {
+      hudFill.style.width = (rem / TURN_TIME * 100) + '%';
+      if (rem <= 5) hudFill.className = 'hud-timer-fill danger';
+    }, handleTimeout);
+    turnTimer.start();
+  }
+
+  // 시간초과: 이번 라운드는 불일치로 치고, 고른 것까지만 보여 준 뒤 넘어간다
+  function handleTimeout() {
+    turnTimer = null;
+    if (phase === 'reveal') return;   // 고른 뒤에는 타이머가 멈춰 있어 여기 오지 않는다
+    var who = p1Choice ? 'P2' : 'P1';
+    phase = 'reveal';
+    locked = true;
+    hideOverlay();
+    clearPickedHighlight();
+    setFacedown(true);
+
+    if (p1Choice) {
+      p1RevealEmoji.textContent = p1Choice.e;
+      p1RevealName.textContent  = p1Choice.n;
+      p1PickCard.classList.add('revealed');
+    }
+    var lateCardEmoji = who === 'P1' ? p1RevealEmoji : p2RevealEmoji;
+    var lateCardName  = who === 'P1' ? p1RevealName  : p2RevealName;
+    lateCardEmoji.textContent = '⏰';
+    lateCardName.textContent  = '시간초과';
+    (who === 'P1' ? p1PickCard : p2PickCard).classList.add('revealed');
+
+    showBanner('⏰ 시간초과! 이번엔 통하지 못했어요', 'ng');
+    sounds.play('miss');
+    advanceRound();
   }
 
   // --- 다음 라운드 ---------------------------------------------------------
@@ -419,6 +475,7 @@
     showOverlay('🙈', 'P1 차례!', 'P2는 눈을 감아요! P1이 몰래 골라요', 'P1 시작!', function () {
       phase = 'p1';
     });
+    startTurnTimer();
   }
 
   // --- UI 업데이트 ---------------------------------------------------------

@@ -3,6 +3,8 @@
 
 // -- Constants ------------------------------------------------
 const TOTAL_ROUNDS = 15;
+const ROUND_TIME     = 10;   // 라운드 제한 시간(초) — 아무도 안 누르면 시간초과로 넘어간다
+const ROUND_PAUSE_MS = getAutoplayPauseMs(1400);
 
 const PLAYER_CONFIG = [
   { label: 'P1', colorClass: 'p-blue',   hex: '#1565C0', arrowFill: '#42A5F5', arrowStroke: '#1565C0' },
@@ -95,6 +97,7 @@ const homeBtn      = document.getElementById('homeBtn');
 const zonesWrap    = document.getElementById('zonesWrap');
 const roundBadge   = document.getElementById('roundBadge');
 const roundMsg     = document.getElementById('roundMsg');
+const problemTimer = document.getElementById('problemTimer');
 const numLeftEl    = document.getElementById('numLeft');
 const numRightEl   = document.getElementById('numRight');
 
@@ -185,9 +188,16 @@ onTap(homeBtn,  () => { clearAllTimers(); goHome(); });
 onTap(retryBtn, () => startCountdown(() => startGame()));
 onTap(playBtn,  () => startCountdown(() => startGame()));
 
+// -- Round timer ----------------------------------------------
+const roundTimer = createTimer(ROUND_TIME, (t) => {
+  problemTimer.textContent = t;
+  problemTimer.classList.toggle('urgent', t <= 3);
+}, () => handleTimeout());
+
 // -- Timer cleanup ---------------------------------------------
 function clearAllTimers() {
   if (countdownInterval) { clearInterval(countdownInterval); countdownInterval = null; }
+  roundTimer.stop();
   if (nextRoundTimer) {
     clearTimeout(nextRoundTimer);
     nextRoundTimer = null;
@@ -320,6 +330,8 @@ function nextRound() {
 
   updateRoundBadge();
   setRoundMsg('');
+  problemTimer.textContent = ROUND_TIME;
+  problemTimer.classList.remove('urgent');
   setAllZoneState('state-wait');
 
   // Generate numbers
@@ -345,12 +357,15 @@ function activateRound() {
   // Re-enable buttons (they might have been disabled)
   zonesWrap.querySelectorAll('.arrow-btn').forEach(b => b.disabled = false);
   roundActive = true;
+  roundTimer.stop();
+  roundTimer.start();
   setRoundMsg('더 큰 숫자를 골라라!');
 }
 
 function resolveRound(winnerIdx) {
   if (!roundActive) return;
   roundActive = false;
+  roundTimer.stop();
 
   sound.play('ding');
   scores[winnerIdx]++;
@@ -376,11 +391,12 @@ function resolveRound(winnerIdx) {
     } else {
       nextRound();
     }
-  }, 1400);
+  }, ROUND_PAUSE_MS);
 }
 
 function endRound(winnerIdx) {
   roundActive = false;
+  roundTimer.stop();
   if (winnerIdx === -1) {
     setRoundMsg('모두 탈락! 다음 라운드...');
   }
@@ -393,7 +409,30 @@ function endRound(winnerIdx) {
     } else {
       nextRound();
     }
-  }, 1400);
+  }, ROUND_PAUSE_MS);
+}
+
+// -- Timeout -------------------------------------------------
+function handleTimeout() {
+  if (!roundActive) return;
+  roundActive = false;
+  roundTimer.stop();
+  sound.play('timeout');
+
+  zonesWrap.querySelectorAll('.arrow-btn').forEach(b => b.disabled = true);
+  setAllZoneState('state-wait');
+  setRoundMsg(`시간 초과! 정답: ${numLeft > numRight ? '왼쪽' : '오른쪽'}`);
+
+  roundResults.push({ winner: -1, dq: new Set(roundDQ), timedOut: true });
+
+  nextRoundTimer = setTimeout(() => {
+    nextRoundTimer = null;
+    if (currentRound >= TOTAL_ROUNDS) {
+      showResult();
+    } else {
+      nextRound();
+    }
+  }, ROUND_PAUSE_MS);
 }
 
 // -- Zone state helpers ----------------------------------------
@@ -422,6 +461,7 @@ function updateScoreDisplay(idx) {
 
 // -- Result screen ---------------------------------------------
 function showResult() {
+  roundTimer.stop();
   sound.play('fanfare');
 
   const maxScore = Math.max(...scores);
@@ -455,6 +495,7 @@ function showResult() {
     const cells = players.map((_, pi) => {
       if (r.dq.has(pi)) return `<td class="cell-dq">오답</td>`;
       if (r.winner === pi) return `<td class="cell-win">★ 정답</td>`;
+      if (r.timedOut) return `<td class="cell-timeout">시간초과</td>`;
       return `<td class="cell-none">—</td>`;
     }).join('');
     return `<tr><td>${ri + 1}</td>${cells}</tr>`;

@@ -439,3 +439,25 @@ body {
   min-width: 58px;
   box-shadow: 3px 3px 0 #2C2C2C;
 }
+
+/* === 라운드 제한 시간 게이지 === */
+.round-timer {
+  width: 100%;
+  padding: 6px var(--space-lg) 2px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.hud-timer-track {
+  height: 12px;
+  background: rgba(0,0,0,0.08);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.hud-timer-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #81C784, #FFEE58);
+  transition: width 1s linear;
+}
+.hud-timer-fill.danger {
+  background: linear-gradient(90deg, #FF7043, #EF5350);
+}
