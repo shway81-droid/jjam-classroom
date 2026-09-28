@@ -11032,6 +11032,4413 @@
       "level": "hard",
       "topic": "운동",
       "word": "마라톤"
+    },
+    {
+      "id": "fourword-001",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "옹기______",
+      "hint": "ㅈㄱ",
+      "answer": "종기",
+      "also": [],
+      "note": "작은 것들이 한데 모여 있는 모양이에요."
+    },
+    {
+      "id": "fourword-002",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "알록______",
+      "hint": "ㄷㄹ",
+      "answer": "달록",
+      "also": [],
+      "note": "여러 빛깔이 고르지 않게 섞인 모양이에요."
+    },
+    {
+      "id": "fourword-003",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "싱글______",
+      "hint": "ㅂㄱ",
+      "answer": "벙글",
+      "also": [],
+      "note": "소리 없이 환하게 자꾸 웃는 모양이에요."
+    },
+    {
+      "id": "fourword-004",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "울긋______",
+      "hint": "ㅂㄱ",
+      "answer": "불긋",
+      "also": [],
+      "note": "여러 빛깔이 뒤섞여 야단스러운 모양이에요."
+    },
+    {
+      "id": "fourword-005",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "오순______",
+      "hint": "ㄷㅅ",
+      "answer": "도순",
+      "also": [],
+      "note": "정답게 지내거나 이야기하는 모양이에요."
+    },
+    {
+      "id": "fourword-006",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "갈팡______",
+      "hint": "ㅈㅍ",
+      "answer": "질팡",
+      "also": [],
+      "note": "어디로 갈지 몰라 이리저리 헤매는 모양이에요."
+    },
+    {
+      "id": "fourword-007",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "허둥______",
+      "hint": "ㅈㄷ",
+      "answer": "지둥",
+      "also": [],
+      "note": "정신없이 서두르는 모양이에요."
+    },
+    {
+      "id": "fourword-008",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "우물______",
+      "hint": "ㅉㅁ",
+      "answer": "쭈물",
+      "also": [],
+      "note": "망설이며 머뭇거리는 모양이에요."
+    },
+    {
+      "id": "fourword-009",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "티격______",
+      "hint": "ㅌㄱ",
+      "answer": "태격",
+      "also": [],
+      "note": "서로 뜻이 맞지 않아 옥신각신하는 모양이에요."
+    },
+    {
+      "id": "fourword-010",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "시끌______",
+      "hint": "ㅂㅈ",
+      "answer": "벅적",
+      "also": [],
+      "note": "많은 사람이 모여 떠들썩한 모양이에요."
+    },
+    {
+      "id": "fourword-011",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "알쏭______",
+      "hint": "ㄷㅆ",
+      "answer": "달쏭",
+      "also": [],
+      "note": "헷갈려서 알 듯 말 듯한 모양이에요."
+    },
+    {
+      "id": "fourword-012",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "뒤죽______",
+      "hint": "ㅂㅈ",
+      "answer": "박죽",
+      "also": [],
+      "note": "여럿이 마구 섞여 엉망인 모양이에요."
+    },
+    {
+      "id": "fourword-013",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "울퉁______",
+      "hint": "ㅂㅌ",
+      "answer": "불퉁",
+      "also": [],
+      "note": "겉이 고르지 않게 튀어나오고 들어간 모양이에요."
+    },
+    {
+      "id": "fourword-014",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "요리______",
+      "hint": "ㅈㄹ",
+      "answer": "조리",
+      "also": [],
+      "note": "방향을 이리저리 바꾸는 모양이에요."
+    },
+    {
+      "id": "fourword-015",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "알콩______",
+      "hint": "ㄷㅋ",
+      "answer": "달콩",
+      "also": [],
+      "note": "서로 아끼며 재미있게 지내는 모양이에요."
+    },
+    {
+      "id": "fourword-016",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "반짝______",
+      "hint": "ㅂㅉ",
+      "answer": "반짝",
+      "also": [],
+      "note": "작은 빛이 잇따라 빛나는 모양이에요."
+    },
+    {
+      "id": "fourword-017",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "두근______",
+      "hint": "ㄷㄱ",
+      "answer": "두근",
+      "also": [],
+      "note": "놀라거나 설레서 가슴이 뛰는 소리예요."
+    },
+    {
+      "id": "fourword-018",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "무럭______",
+      "hint": "ㅁㄹ",
+      "answer": "무럭",
+      "also": [],
+      "note": "쑥쑥 잘 자라는 모양이에요."
+    },
+    {
+      "id": "fourword-019",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "차근______",
+      "hint": "ㅊㄱ",
+      "answer": "차근",
+      "also": [],
+      "note": "순서에 따라 찬찬히 하는 모양이에요."
+    },
+    {
+      "id": "fourword-020",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "엉망______",
+      "hint": "ㅈㅊ",
+      "answer": "진창",
+      "also": [],
+      "note": "일이나 물건이 마구 뒤섞여 어수선한 모양이에요."
+    },
+    {
+      "id": "fourword-021",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "일석______",
+      "hint": "ㅇㅈ",
+      "answer": "이조",
+      "also": [],
+      "note": "돌 하나로 새 두 마리를 잡듯, 한 번에 두 가지 이득을 봐요."
+    },
+    {
+      "id": "fourword-022",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "십중______",
+      "hint": "ㅍㄱ",
+      "answer": "팔구",
+      "also": [],
+      "note": "열 가운데 여덟이나 아홉, 거의 틀림없다는 말이에요."
+    },
+    {
+      "id": "fourword-023",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "동문______",
+      "hint": "ㅅㄷ",
+      "answer": "서답",
+      "also": [],
+      "note": "동쪽을 물었는데 서쪽을 답하듯 엉뚱하게 대답해요."
+    },
+    {
+      "id": "fourword-024",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "작심______",
+      "hint": "ㅅㅇ",
+      "answer": "삼일",
+      "also": [],
+      "note": "마음먹은 것이 사흘을 가지 못해요."
+    },
+    {
+      "id": "fourword-025",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "우왕______",
+      "hint": "ㅈㅇ",
+      "answer": "좌왕",
+      "also": [],
+      "note": "이리저리 왔다 갔다 하며 갈피를 못 잡아요."
+    },
+    {
+      "id": "fourword-026",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "이심______",
+      "hint": "ㅈㅅ",
+      "answer": "전심",
+      "also": [],
+      "note": "말하지 않아도 마음과 마음이 통해요."
+    },
+    {
+      "id": "fourword-027",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "백발______",
+      "hint": "ㅂㅈ",
+      "answer": "백중",
+      "also": [],
+      "note": "백 번 쏘아 백 번 맞혀요."
+    },
+    {
+      "id": "fourword-028",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "일편______",
+      "hint": "ㄷㅅ",
+      "answer": "단심",
+      "also": [],
+      "note": "한 조각 붉은 마음, 변하지 않는 마음이에요."
+    },
+    {
+      "id": "fourword-029",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "천하______",
+      "hint": "ㅁㅈ",
+      "answer": "무적",
+      "also": [],
+      "note": "세상에 맞설 사람이 없을 만큼 강해요."
+    },
+    {
+      "id": "fourword-030",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "박장______",
+      "hint": "ㄷㅅ",
+      "answer": "대소",
+      "also": [],
+      "note": "손뼉을 치며 크게 웃어요."
+    },
+    {
+      "id": "fourword-031",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "동고______",
+      "hint": "ㄷㄹ",
+      "answer": "동락",
+      "also": [],
+      "note": "괴로움과 즐거움을 함께해요."
+    },
+    {
+      "id": "fourword-032",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "이구______",
+      "hint": "ㄷㅅ",
+      "answer": "동성",
+      "also": [],
+      "note": "여러 사람이 입을 모아 같은 말을 해요."
+    },
+    {
+      "id": "fourword-033",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "자화______",
+      "hint": "ㅈㅊ",
+      "answer": "자찬",
+      "also": [],
+      "note": "자기가 한 일을 스스로 칭찬해요."
+    },
+    {
+      "id": "fourword-034",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "칠전______",
+      "hint": "ㅍㄱ",
+      "answer": "팔기",
+      "also": [],
+      "note": "일곱 번 넘어져도 여덟 번 일어나요."
+    },
+    {
+      "id": "fourword-035",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "남녀______",
+      "hint": "ㄴㅅ",
+      "answer": "노소",
+      "also": [],
+      "note": "남자와 여자, 늙은이와 젊은이 — 모든 사람이에요."
+    },
+    {
+      "id": "fourword-036",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "각양______",
+      "hint": "ㄱㅅ",
+      "answer": "각색",
+      "also": [],
+      "note": "저마다 모양과 빛깔이 달라요."
+    },
+    {
+      "id": "fourword-037",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "삼삼______",
+      "hint": "ㅇㅇ",
+      "answer": "오오",
+      "also": [],
+      "note": "서너 사람 또는 대여섯 사람씩 무리 지어 다녀요."
+    },
+    {
+      "id": "fourword-038",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "방방______",
+      "hint": "ㄱㄱ",
+      "answer": "곡곡",
+      "also": [],
+      "note": "한 곳도 빠짐없이 모든 곳이에요."
+    },
+    {
+      "id": "fourword-039",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "사시______",
+      "hint": "ㅅㅊ",
+      "answer": "사철",
+      "also": [],
+      "note": "봄·여름·가을·겨울 네 철 내내예요."
+    },
+    {
+      "id": "fourword-040",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "춘하______",
+      "hint": "ㅊㄷ",
+      "answer": "추동",
+      "also": [],
+      "note": "봄, 여름, 가을, 겨울이에요."
+    },
+    {
+      "id": "fourword-041",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "백전______",
+      "hint": "ㅂㅅ",
+      "answer": "백승",
+      "also": [],
+      "note": "백 번 싸워 백 번 다 이겨요."
+    },
+    {
+      "id": "fourword-042",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "인산______",
+      "hint": "ㅇㅎ",
+      "answer": "인해",
+      "also": [],
+      "note": "사람이 산과 바다를 이룰 만큼 많이 모였어요."
+    },
+    {
+      "id": "fourword-043",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "다다______",
+      "hint": "ㅇㅅ",
+      "answer": "익선",
+      "also": [],
+      "note": "많으면 많을수록 더 좋아요."
+    },
+    {
+      "id": "fourword-044",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "고진______",
+      "hint": "ㄱㄹ",
+      "answer": "감래",
+      "also": [],
+      "note": "쓴 것이 다하면 단 것이 와요. 고생 끝에 즐거움이 와요."
+    },
+    {
+      "id": "fourword-045",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "유비______",
+      "hint": "ㅁㅎ",
+      "answer": "무환",
+      "also": [],
+      "note": "미리 준비해 두면 걱정할 일이 없어요."
+    },
+    {
+      "id": "fourword-046",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "대기______",
+      "hint": "ㅁㅅ",
+      "answer": "만성",
+      "also": [],
+      "note": "큰 그릇은 늦게 이루어져요. 큰 인물은 늦게 이름을 떨쳐요."
+    },
+    {
+      "id": "fourword-047",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "금상______",
+      "hint": "ㅊㅎ",
+      "answer": "첨화",
+      "also": [],
+      "note": "비단 위에 꽃을 더하듯, 좋은 일에 좋은 일이 더해져요."
+    },
+    {
+      "id": "fourword-048",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "설상______",
+      "hint": "ㄱㅅ",
+      "answer": "가상",
+      "also": [],
+      "note": "눈 위에 서리가 덮이듯, 나쁜 일이 겹쳐요."
+    },
+    {
+      "id": "fourword-049",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "역지______",
+      "hint": "ㅅㅈ",
+      "answer": "사지",
+      "also": [],
+      "note": "처지를 바꾸어 생각해 봐요."
+    },
+    {
+      "id": "fourword-050",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "자업______",
+      "hint": "ㅈㄷ",
+      "answer": "자득",
+      "also": [],
+      "note": "자기가 한 일의 결과를 자기가 받아요."
+    },
+    {
+      "id": "fourword-051",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "일취______",
+      "hint": "ㅇㅈ",
+      "answer": "월장",
+      "also": [],
+      "note": "날마다 달마다 쑥쑥 나아져요."
+    },
+    {
+      "id": "fourword-052",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "만장______",
+      "hint": "ㅇㅊ",
+      "answer": "일치",
+      "also": [],
+      "note": "모든 사람의 뜻이 하나로 같아요."
+    },
+    {
+      "id": "fourword-053",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "자급______",
+      "hint": "ㅈㅈ",
+      "answer": "자족",
+      "also": [],
+      "note": "필요한 것을 스스로 만들어 채워요."
+    },
+    {
+      "id": "fourword-054",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "자문______",
+      "hint": "ㅈㄷ",
+      "answer": "자답",
+      "also": [],
+      "note": "스스로 묻고 스스로 대답해요."
+    },
+    {
+      "id": "fourword-055",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "정정______",
+      "hint": "ㄷㄷ",
+      "answer": "당당",
+      "also": [],
+      "note": "태도나 수단이 바르고 떳떳해요."
+    },
+    {
+      "id": "fourword-056",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "천생______",
+      "hint": "ㅇㅂ",
+      "answer": "연분",
+      "also": [],
+      "note": "하늘이 정해 준 인연이에요."
+    },
+    {
+      "id": "fourword-057",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "무병______",
+      "hint": "ㅈㅅ",
+      "answer": "장수",
+      "also": [],
+      "note": "병 없이 오래 살아요."
+    },
+    {
+      "id": "fourword-058",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "희희______",
+      "hint": "ㄴㄹ",
+      "answer": "낙락",
+      "also": [],
+      "note": "매우 기뻐하며 즐거워해요."
+    },
+    {
+      "id": "fourword-059",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "불철______",
+      "hint": "ㅈㅇ",
+      "answer": "주야",
+      "also": [],
+      "note": "밤낮을 가리지 않고 힘써요."
+    },
+    {
+      "id": "fourword-060",
+      "type": "fourword",
+      "level": "easy",
+      "topic": null,
+      "prompt": "죽마______",
+      "hint": "ㄱㅇ",
+      "answer": "고우",
+      "also": [],
+      "note": "대나무 말을 타고 놀던 어릴 적 친구예요."
+    },
+    {
+      "id": "fourword-061",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "옥신______",
+      "hint": "ㄱㅅ",
+      "answer": "각신",
+      "also": [],
+      "note": "옳고 그름을 따지며 서로 다투는 모양이에요."
+    },
+    {
+      "id": "fourword-062",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "왁자______",
+      "hint": "ㅈㄲ",
+      "answer": "지껄",
+      "also": [],
+      "note": "여럿이 한데 모여 시끄럽게 떠드는 소리예요."
+    },
+    {
+      "id": "fourword-063",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "오락______",
+      "hint": "ㄱㄹ",
+      "answer": "가락",
+      "also": [],
+      "note": "왔다 갔다 하거나 비가 내리다 말다 하는 모양이에요."
+    },
+    {
+      "id": "fourword-064",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "싱숭______",
+      "hint": "ㅅㅅ",
+      "answer": "생숭",
+      "also": [],
+      "note": "마음이 들떠 갈피를 잡지 못하는 모양이에요."
+    },
+    {
+      "id": "fourword-065",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "아옹______",
+      "hint": "ㄷㅇ",
+      "answer": "다옹",
+      "also": [],
+      "note": "대수롭지 않은 일로 자꾸 다투는 모양이에요."
+    },
+    {
+      "id": "fourword-066",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "오밀______",
+      "hint": "ㅈㅁ",
+      "answer": "조밀",
+      "also": [],
+      "note": "솜씨가 꼼꼼하고 자잘한 모양이에요."
+    },
+    {
+      "id": "fourword-067",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "흐지______",
+      "hint": "ㅂㅈ",
+      "answer": "부지",
+      "also": [],
+      "note": "끝을 분명히 맺지 못하고 흐리멍덩하게 넘어가요."
+    },
+    {
+      "id": "fourword-068",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "얼렁______",
+      "hint": "ㄸㄸ",
+      "answer": "뚱땅",
+      "also": [],
+      "note": "대충 얼버무려 넘기는 모양이에요."
+    },
+    {
+      "id": "fourword-069",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "허겁______",
+      "hint": "ㅈㄱ",
+      "answer": "지겁",
+      "also": [],
+      "note": "조급한 마음으로 몹시 서두르는 모양이에요."
+    },
+    {
+      "id": "fourword-070",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "알뜰______",
+      "hint": "ㅅㄸ",
+      "answer": "살뜰",
+      "also": [],
+      "note": "살림을 아끼고 정성스럽게 꾸리는 모양이에요."
+    },
+    {
+      "id": "fourword-071",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "사필______",
+      "hint": "ㄱㅈ",
+      "answer": "귀정",
+      "also": [],
+      "note": "모든 일은 반드시 바른길로 돌아가요."
+    },
+    {
+      "id": "fourword-072",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "과유______",
+      "hint": "ㅂㄱ",
+      "answer": "불급",
+      "also": [],
+      "note": "지나친 것은 모자란 것과 같아요."
+    },
+    {
+      "id": "fourword-073",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "전화______",
+      "hint": "ㅇㅂ",
+      "answer": "위복",
+      "also": [],
+      "note": "나쁜 일이 오히려 좋은 일로 바뀌어요."
+    },
+    {
+      "id": "fourword-074",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "청출______",
+      "hint": "ㅇㄹ",
+      "answer": "어람",
+      "also": [],
+      "note": "제자가 스승보다 더 나아져요."
+    },
+    {
+      "id": "fourword-075",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "온고______",
+      "hint": "ㅈㅅ",
+      "answer": "지신",
+      "also": [],
+      "note": "옛것을 익혀 새것을 알아요."
+    },
+    {
+      "id": "fourword-076",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "어부______",
+      "hint": "ㅈㄹ",
+      "answer": "지리",
+      "also": [],
+      "note": "둘이 다투는 사이 엉뚱한 사람이 이득을 봐요."
+    },
+    {
+      "id": "fourword-077",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "우공______",
+      "hint": "ㅇㅅ",
+      "answer": "이산",
+      "also": [],
+      "note": "어리석어 보여도 꾸준히 하면 산도 옮겨요."
+    },
+    {
+      "id": "fourword-078",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "애지______",
+      "hint": "ㅈㅈ",
+      "answer": "중지",
+      "also": [],
+      "note": "매우 사랑하고 소중히 여겨요."
+    },
+    {
+      "id": "fourword-079",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "마이______",
+      "hint": "ㄷㅍ",
+      "answer": "동풍",
+      "also": [],
+      "note": "말의 귀에 동풍이 스치듯, 남의 말을 흘려들어요."
+    },
+    {
+      "id": "fourword-080",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "인과______",
+      "hint": "ㅇㅂ",
+      "answer": "응보",
+      "also": [],
+      "note": "좋은 일에는 좋은 결과가, 나쁜 일에는 나쁜 결과가 따라요."
+    },
+    {
+      "id": "fourword-081",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "조삼______",
+      "hint": "ㅁㅅ",
+      "answer": "모사",
+      "also": [],
+      "note": "눈앞의 차이만 알고 결과가 같은 것을 몰라요."
+    },
+    {
+      "id": "fourword-082",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "천고______",
+      "hint": "ㅁㅂ",
+      "answer": "마비",
+      "also": [],
+      "note": "하늘이 높고 맑은 가을을 말해요."
+    },
+    {
+      "id": "fourword-083",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "풍전______",
+      "hint": "ㄷㅎ",
+      "answer": "등화",
+      "also": [],
+      "note": "바람 앞의 등불처럼 몹시 위태로워요."
+    },
+    {
+      "id": "fourword-084",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "형설______",
+      "hint": "ㅈㄱ",
+      "answer": "지공",
+      "also": [],
+      "note": "반딧불과 눈빛으로 공부하듯 어렵게 공부해 이룬 보람이에요."
+    },
+    {
+      "id": "fourword-085",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "호시______",
+      "hint": "ㅌㅌ",
+      "answer": "탐탐",
+      "also": [],
+      "note": "호랑이가 먹이를 노리듯 기회를 엿봐요."
+    },
+    {
+      "id": "fourword-086",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "임기______",
+      "hint": "ㅇㅂ",
+      "answer": "응변",
+      "also": [],
+      "note": "그때그때 상황에 맞게 알맞게 대처해요."
+    },
+    {
+      "id": "fourword-087",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "적반______",
+      "hint": "ㅎㅈ",
+      "answer": "하장",
+      "also": [],
+      "note": "잘못한 사람이 오히려 큰소리를 쳐요."
+    },
+    {
+      "id": "fourword-088",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "주경______",
+      "hint": "ㅇㄷ",
+      "answer": "야독",
+      "also": [],
+      "note": "낮에는 밭을 갈고 밤에는 책을 읽어요."
+    },
+    {
+      "id": "fourword-089",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "지피______",
+      "hint": "ㅈㄱ",
+      "answer": "지기",
+      "also": [],
+      "note": "상대를 알고 나를 알아요."
+    },
+    {
+      "id": "fourword-090",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "천진______",
+      "hint": "ㄴㅁ",
+      "answer": "난만",
+      "also": [],
+      "note": "꾸밈없이 순수하고 참된 모습이에요."
+    },
+    {
+      "id": "fourword-091",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "학수______",
+      "hint": "ㄱㄷ",
+      "answer": "고대",
+      "also": [],
+      "note": "학처럼 목을 길게 빼고 몹시 기다려요."
+    },
+    {
+      "id": "fourword-092",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "횡설______",
+      "hint": "ㅅㅅ",
+      "answer": "수설",
+      "also": [],
+      "note": "말을 이리저리 두서없이 늘어놓아요."
+    },
+    {
+      "id": "fourword-093",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "희로______",
+      "hint": "ㅇㄹ",
+      "answer": "애락",
+      "also": [],
+      "note": "기쁨, 노여움, 슬픔, 즐거움이에요."
+    },
+    {
+      "id": "fourword-094",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "구사______",
+      "hint": "ㅇㅅ",
+      "answer": "일생",
+      "also": [],
+      "note": "아홉 번 죽을 뻔하다 한 번 살아나요."
+    },
+    {
+      "id": "fourword-095",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "군계______",
+      "hint": "ㅇㅎ",
+      "answer": "일학",
+      "also": [],
+      "note": "닭 무리 속의 학 한 마리처럼 눈에 띄게 뛰어나요."
+    },
+    {
+      "id": "fourword-096",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "권선______",
+      "hint": "ㅈㅇ",
+      "answer": "징악",
+      "also": [],
+      "note": "착한 일은 권하고 나쁜 일은 벌해요."
+    },
+    {
+      "id": "fourword-097",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "금시______",
+      "hint": "ㅊㅁ",
+      "answer": "초문",
+      "also": [],
+      "note": "지금 처음 들어요."
+    },
+    {
+      "id": "fourword-098",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "기상______",
+      "hint": "ㅊㅇ",
+      "answer": "천외",
+      "also": [],
+      "note": "보통 사람은 생각하지 못할 만큼 엉뚱하고 기발해요."
+    },
+    {
+      "id": "fourword-099",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "막상______",
+      "hint": "ㅁㅎ",
+      "answer": "막하",
+      "also": [],
+      "note": "누가 낫고 못한지 가리기 어려워요."
+    },
+    {
+      "id": "fourword-100",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "무용______",
+      "hint": "ㅈㅁ",
+      "answer": "지물",
+      "also": [],
+      "note": "쓸모없는 물건이에요."
+    },
+    {
+      "id": "fourword-101",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "반신______",
+      "hint": "ㅂㅇ",
+      "answer": "반의",
+      "also": [],
+      "note": "반쯤은 믿고 반쯤은 의심해요."
+    },
+    {
+      "id": "fourword-102",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "산전______",
+      "hint": "ㅅㅈ",
+      "answer": "수전",
+      "also": [],
+      "note": "산에서도 물에서도 싸워 본 것처럼 온갖 일을 겪었어요."
+    },
+    {
+      "id": "fourword-103",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "새옹______",
+      "hint": "ㅈㅁ",
+      "answer": "지마",
+      "also": [],
+      "note": "인생의 좋은 일과 나쁜 일은 미리 알 수 없어요."
+    },
+    {
+      "id": "fourword-104",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "선견______",
+      "hint": "ㅈㅁ",
+      "answer": "지명",
+      "also": [],
+      "note": "앞일을 미리 내다보는 지혜예요."
+    },
+    {
+      "id": "fourword-105",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "속수______",
+      "hint": "ㅁㅊ",
+      "answer": "무책",
+      "also": [],
+      "note": "손을 묶인 듯 어찌할 방법이 없어요."
+    },
+    {
+      "id": "fourword-106",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "십시______",
+      "hint": "ㅇㅂ",
+      "answer": "일반",
+      "also": [],
+      "note": "열 사람이 한 숟가락씩 보태면 한 그릇이 돼요."
+    },
+    {
+      "id": "fourword-107",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "오리______",
+      "hint": "ㅁㅈ",
+      "answer": "무중",
+      "also": [],
+      "note": "짙은 안개 속처럼 도무지 알 수가 없어요."
+    },
+    {
+      "id": "fourword-108",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "용두______",
+      "hint": "ㅅㅁ",
+      "answer": "사미",
+      "also": [],
+      "note": "용의 머리에 뱀의 꼬리, 시작은 좋은데 끝이 흐려요."
+    },
+    {
+      "id": "fourword-109",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "유유______",
+      "hint": "ㅅㅈ",
+      "answer": "상종",
+      "also": [],
+      "note": "비슷한 사람끼리 서로 어울려요."
+    },
+    {
+      "id": "fourword-110",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "일사______",
+      "hint": "ㅊㄹ",
+      "answer": "천리",
+      "also": [],
+      "note": "강물이 한 번에 천 리를 가듯 일이 거침없이 진행돼요."
+    },
+    {
+      "id": "fourword-111",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "자초______",
+      "hint": "ㅈㅈ",
+      "answer": "지종",
+      "also": [],
+      "note": "처음부터 끝까지의 모든 사정이에요."
+    },
+    {
+      "id": "fourword-112",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "좌충______",
+      "hint": "ㅇㄷ",
+      "answer": "우돌",
+      "also": [],
+      "note": "이리저리 마구 부딪쳐요."
+    },
+    {
+      "id": "fourword-113",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "천차______",
+      "hint": "ㅁㅂ",
+      "answer": "만별",
+      "also": [],
+      "note": "여러 가지가 서로 크게 달라요."
+    },
+    {
+      "id": "fourword-114",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "청천______",
+      "hint": "ㅂㄹ",
+      "answer": "벽력",
+      "also": [],
+      "note": "맑은 하늘의 날벼락처럼 뜻밖의 일이에요."
+    },
+    {
+      "id": "fourword-115",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "초지______",
+      "hint": "ㅇㄱ",
+      "answer": "일관",
+      "also": [],
+      "note": "처음 먹은 마음을 끝까지 밀고 나가요."
+    },
+    {
+      "id": "fourword-116",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "팔방______",
+      "hint": "ㅁㅇ",
+      "answer": "미인",
+      "also": [],
+      "note": "여러 방면에 두루 능한 사람이에요."
+    },
+    {
+      "id": "fourword-117",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "동상______",
+      "hint": "ㅇㅁ",
+      "answer": "이몽",
+      "also": [],
+      "note": "같은 자리에 있어도 서로 다른 생각을 해요."
+    },
+    {
+      "id": "fourword-118",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "비몽______",
+      "hint": "ㅅㅁ",
+      "answer": "사몽",
+      "also": [],
+      "note": "꿈인지 생시인지 어렴풋한 상태예요."
+    },
+    {
+      "id": "fourword-119",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "상부______",
+      "hint": "ㅅㅈ",
+      "answer": "상조",
+      "also": [],
+      "note": "서로서로 도와요."
+    },
+    {
+      "id": "fourword-120",
+      "type": "fourword",
+      "level": "normal",
+      "topic": null,
+      "prompt": "심사______",
+      "hint": "ㅅㄱ",
+      "answer": "숙고",
+      "also": [],
+      "note": "깊이 생각하고 또 생각해요."
+    },
+    {
+      "id": "fourword-121",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "감언______",
+      "hint": "ㅇㅅ",
+      "answer": "이설",
+      "also": [],
+      "note": "귀가 솔깃하게 남의 비위를 맞추는 달콤한 말이에요."
+    },
+    {
+      "id": "fourword-122",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "개과______",
+      "hint": "ㅊㅅ",
+      "answer": "천선",
+      "also": [],
+      "note": "잘못을 고쳐 착한 사람이 돼요."
+    },
+    {
+      "id": "fourword-123",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "결초______",
+      "hint": "ㅂㅇ",
+      "answer": "보은",
+      "also": [],
+      "note": "은혜를 입으면 끝까지 잊지 않고 갚아요."
+    },
+    {
+      "id": "fourword-124",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "괄목______",
+      "hint": "ㅅㄷ",
+      "answer": "상대",
+      "also": [],
+      "note": "눈을 비비고 볼 만큼 실력이 부쩍 늘었어요."
+    },
+    {
+      "id": "fourword-125",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "교학______",
+      "hint": "ㅅㅈ",
+      "answer": "상장",
+      "also": [],
+      "note": "가르치고 배우면서 함께 자라요."
+    },
+    {
+      "id": "fourword-126",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "노심______",
+      "hint": "ㅊㅅ",
+      "answer": "초사",
+      "also": [],
+      "note": "마음을 졸이며 애를 태워요."
+    },
+    {
+      "id": "fourword-127",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "단도______",
+      "hint": "ㅈㅇ",
+      "answer": "직입",
+      "also": [],
+      "note": "곧바로 요점을 말해요."
+    },
+    {
+      "id": "fourword-128",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "대동______",
+      "hint": "ㅅㅇ",
+      "answer": "소이",
+      "also": [],
+      "note": "크게 보면 같고 조금만 달라요."
+    },
+    {
+      "id": "fourword-129",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "동병______",
+      "hint": "ㅅㄹ",
+      "answer": "상련",
+      "also": [],
+      "note": "같은 처지의 사람끼리 서로 딱하게 여겨요."
+    },
+    {
+      "id": "fourword-130",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "두문______",
+      "hint": "ㅂㅊ",
+      "answer": "불출",
+      "also": [],
+      "note": "집 안에만 있고 밖에 나가지 않아요."
+    },
+    {
+      "id": "fourword-131",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "문전______",
+      "hint": "ㅅㅅ",
+      "answer": "성시",
+      "also": [],
+      "note": "찾아오는 사람이 많아 문 앞이 시장처럼 북적여요."
+    },
+    {
+      "id": "fourword-132",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "부화______",
+      "hint": "ㄴㄷ",
+      "answer": "뇌동",
+      "also": [],
+      "note": "줏대 없이 남의 의견을 따라가요."
+    },
+    {
+      "id": "fourword-133",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "사면______",
+      "hint": "ㅊㄱ",
+      "answer": "초가",
+      "also": [],
+      "note": "사방이 적에게 둘러싸여 도움받을 곳이 없어요."
+    },
+    {
+      "id": "fourword-134",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "아전______",
+      "hint": "ㅇㅅ",
+      "answer": "인수",
+      "also": [],
+      "note": "제 논에 물 대기, 자기에게만 이롭게 생각해요."
+    },
+    {
+      "id": "fourword-135",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "안하______",
+      "hint": "ㅁㅇ",
+      "answer": "무인",
+      "also": [],
+      "note": "눈 아래 사람이 없는 듯 남을 업신여겨요."
+    },
+    {
+      "id": "fourword-136",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "언중______",
+      "hint": "ㅇㄱ",
+      "answer": "유골",
+      "also": [],
+      "note": "말 속에 뼈가 있어요. 예사로운 말 속에 속뜻이 있어요."
+    },
+    {
+      "id": "fourword-137",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "오합______",
+      "hint": "ㅈㅈ",
+      "answer": "지졸",
+      "also": [],
+      "note": "까마귀 떼처럼 질서 없이 모인 무리예요."
+    },
+    {
+      "id": "fourword-138",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "외유______",
+      "hint": "ㄴㄱ",
+      "answer": "내강",
+      "also": [],
+      "note": "겉은 부드럽지만 속은 굳세요."
+    },
+    {
+      "id": "fourword-139",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "우이______",
+      "hint": "ㄷㄱ",
+      "answer": "독경",
+      "also": [],
+      "note": "소 귀에 경 읽기, 아무리 말해도 알아듣지 못해요."
+    },
+    {
+      "id": "fourword-140",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "일장______",
+      "hint": "ㅇㄷ",
+      "answer": "일단",
+      "also": [],
+      "note": "좋은 점도 있고 나쁜 점도 있어요."
+    },
+    {
+      "id": "fourword-141",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "전전______",
+      "hint": "ㄱㄱ",
+      "answer": "긍긍",
+      "also": [],
+      "note": "몹시 두려워 벌벌 떨며 조심해요."
+    },
+    {
+      "id": "fourword-142",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "절치______",
+      "hint": "ㅂㅅ",
+      "answer": "부심",
+      "also": [],
+      "note": "이를 갈며 마음을 굳게 먹어요."
+    },
+    {
+      "id": "fourword-143",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "주객______",
+      "hint": "ㅈㄷ",
+      "answer": "전도",
+      "also": [],
+      "note": "주인과 손님이 뒤바뀌듯 중요한 것과 덜 중요한 것이 바뀌었어요."
+    },
+    {
+      "id": "fourword-144",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "진퇴______",
+      "hint": "ㅇㄴ",
+      "answer": "양난",
+      "also": [],
+      "note": "나아갈 수도 물러설 수도 없는 어려운 처지예요."
+    },
+    {
+      "id": "fourword-145",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "촌철______",
+      "hint": "ㅅㅇ",
+      "answer": "살인",
+      "also": [],
+      "note": "짧은 말 한마디로 핵심을 찔러요."
+    },
+    {
+      "id": "fourword-146",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "탁상______",
+      "hint": "ㄱㄹ",
+      "answer": "공론",
+      "also": [],
+      "note": "실천할 수 없는 헛된 이론이에요."
+    },
+    {
+      "id": "fourword-147",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "타산______",
+      "hint": "ㅈㅅ",
+      "answer": "지석",
+      "also": [],
+      "note": "다른 산의 돌도 내 옥을 가는 데 쓰듯, 남의 일에서도 배워요."
+    },
+    {
+      "id": "fourword-148",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "화룡______",
+      "hint": "ㅈㅈ",
+      "answer": "점정",
+      "also": [],
+      "note": "용 그림에 눈동자를 찍듯, 가장 중요한 마무리를 해요."
+    },
+    {
+      "id": "fourword-149",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "환골______",
+      "hint": "ㅌㅌ",
+      "answer": "탈태",
+      "also": [],
+      "note": "뼈를 바꾸고 태를 벗듯 몰라보게 달라져요."
+    },
+    {
+      "id": "fourword-150",
+      "type": "fourword",
+      "level": "hard",
+      "topic": null,
+      "prompt": "흥망______",
+      "hint": "ㅅㅅ",
+      "answer": "성쇠",
+      "also": [],
+      "note": "일어나고 망하고 번성하고 쇠퇴하는 일이에요."
+    },
+    {
+      "id": "relay-001",
+      "type": "relay",
+      "level": "easy",
+      "word": "가"
+    },
+    {
+      "id": "relay-002",
+      "type": "relay",
+      "level": "easy",
+      "word": "사"
+    },
+    {
+      "id": "relay-003",
+      "type": "relay",
+      "level": "easy",
+      "word": "자"
+    },
+    {
+      "id": "relay-004",
+      "type": "relay",
+      "level": "easy",
+      "word": "고"
+    },
+    {
+      "id": "relay-005",
+      "type": "relay",
+      "level": "easy",
+      "word": "나"
+    },
+    {
+      "id": "relay-006",
+      "type": "relay",
+      "level": "easy",
+      "word": "바"
+    },
+    {
+      "id": "relay-007",
+      "type": "relay",
+      "level": "easy",
+      "word": "다"
+    },
+    {
+      "id": "relay-008",
+      "type": "relay",
+      "level": "easy",
+      "word": "마"
+    },
+    {
+      "id": "relay-009",
+      "type": "relay",
+      "level": "easy",
+      "word": "수"
+    },
+    {
+      "id": "relay-010",
+      "type": "relay",
+      "level": "easy",
+      "word": "도"
+    },
+    {
+      "id": "relay-011",
+      "type": "relay",
+      "level": "easy",
+      "word": "기"
+    },
+    {
+      "id": "relay-012",
+      "type": "relay",
+      "level": "easy",
+      "word": "하"
+    },
+    {
+      "id": "relay-013",
+      "type": "relay",
+      "level": "easy",
+      "word": "오"
+    },
+    {
+      "id": "relay-014",
+      "type": "relay",
+      "level": "easy",
+      "word": "우"
+    },
+    {
+      "id": "relay-015",
+      "type": "relay",
+      "level": "easy",
+      "word": "주"
+    },
+    {
+      "id": "relay-016",
+      "type": "relay",
+      "level": "easy",
+      "word": "소"
+    },
+    {
+      "id": "relay-017",
+      "type": "relay",
+      "level": "easy",
+      "word": "부"
+    },
+    {
+      "id": "relay-018",
+      "type": "relay",
+      "level": "easy",
+      "word": "이"
+    },
+    {
+      "id": "relay-019",
+      "type": "relay",
+      "level": "easy",
+      "word": "아"
+    },
+    {
+      "id": "relay-020",
+      "type": "relay",
+      "level": "easy",
+      "word": "시"
+    },
+    {
+      "id": "relay-021",
+      "type": "relay",
+      "level": "easy",
+      "word": "거"
+    },
+    {
+      "id": "relay-022",
+      "type": "relay",
+      "level": "easy",
+      "word": "모"
+    },
+    {
+      "id": "relay-023",
+      "type": "relay",
+      "level": "easy",
+      "word": "보"
+    },
+    {
+      "id": "relay-024",
+      "type": "relay",
+      "level": "easy",
+      "word": "구"
+    },
+    {
+      "id": "relay-025",
+      "type": "relay",
+      "level": "easy",
+      "word": "지"
+    },
+    {
+      "id": "relay-026",
+      "type": "relay",
+      "level": "normal",
+      "word": "노"
+    },
+    {
+      "id": "relay-027",
+      "type": "relay",
+      "level": "normal",
+      "word": "무"
+    },
+    {
+      "id": "relay-028",
+      "type": "relay",
+      "level": "normal",
+      "word": "너"
+    },
+    {
+      "id": "relay-029",
+      "type": "relay",
+      "level": "normal",
+      "word": "조"
+    },
+    {
+      "id": "relay-030",
+      "type": "relay",
+      "level": "normal",
+      "word": "비"
+    },
+    {
+      "id": "relay-031",
+      "type": "relay",
+      "level": "normal",
+      "word": "초"
+    },
+    {
+      "id": "relay-032",
+      "type": "relay",
+      "level": "normal",
+      "word": "토"
+    },
+    {
+      "id": "relay-033",
+      "type": "relay",
+      "level": "normal",
+      "word": "호"
+    },
+    {
+      "id": "relay-034",
+      "type": "relay",
+      "level": "normal",
+      "word": "파"
+    },
+    {
+      "id": "relay-035",
+      "type": "relay",
+      "level": "normal",
+      "word": "포"
+    },
+    {
+      "id": "relay-036",
+      "type": "relay",
+      "level": "normal",
+      "word": "코"
+    },
+    {
+      "id": "relay-037",
+      "type": "relay",
+      "level": "normal",
+      "word": "카"
+    },
+    {
+      "id": "relay-038",
+      "type": "relay",
+      "level": "normal",
+      "word": "타"
+    },
+    {
+      "id": "relay-039",
+      "type": "relay",
+      "level": "normal",
+      "word": "차"
+    },
+    {
+      "id": "relay-040",
+      "type": "relay",
+      "level": "normal",
+      "word": "치"
+    },
+    {
+      "id": "relay-041",
+      "type": "relay",
+      "level": "normal",
+      "word": "두"
+    },
+    {
+      "id": "relay-042",
+      "type": "relay",
+      "level": "normal",
+      "word": "누"
+    },
+    {
+      "id": "relay-043",
+      "type": "relay",
+      "level": "normal",
+      "word": "루"
+    },
+    {
+      "id": "relay-044",
+      "type": "relay",
+      "level": "normal",
+      "word": "로"
+    },
+    {
+      "id": "relay-045",
+      "type": "relay",
+      "level": "normal",
+      "word": "리"
+    },
+    {
+      "id": "relay-046",
+      "type": "relay",
+      "level": "hard",
+      "word": "쥐"
+    },
+    {
+      "id": "relay-047",
+      "type": "relay",
+      "level": "hard",
+      "word": "뼈"
+    },
+    {
+      "id": "relay-048",
+      "type": "relay",
+      "level": "hard",
+      "word": "꿀"
+    },
+    {
+      "id": "relay-049",
+      "type": "relay",
+      "level": "hard",
+      "word": "뚜"
+    },
+    {
+      "id": "relay-050",
+      "type": "relay",
+      "level": "hard",
+      "word": "쑥"
+    },
+    {
+      "id": "relay-051",
+      "type": "relay",
+      "level": "hard",
+      "word": "쫄"
+    },
+    {
+      "id": "relay-052",
+      "type": "relay",
+      "level": "hard",
+      "word": "딸"
+    },
+    {
+      "id": "relay-053",
+      "type": "relay",
+      "level": "hard",
+      "word": "짝"
+    },
+    {
+      "id": "relay-054",
+      "type": "relay",
+      "level": "hard",
+      "word": "빵"
+    },
+    {
+      "id": "relay-055",
+      "type": "relay",
+      "level": "hard",
+      "word": "떡"
+    },
+    {
+      "id": "relay-056",
+      "type": "relay",
+      "level": "hard",
+      "word": "뽀"
+    },
+    {
+      "id": "relay-057",
+      "type": "relay",
+      "level": "hard",
+      "word": "찜"
+    },
+    {
+      "id": "relay-058",
+      "type": "relay",
+      "level": "hard",
+      "word": "껌"
+    },
+    {
+      "id": "relay-059",
+      "type": "relay",
+      "level": "hard",
+      "word": "팥"
+    },
+    {
+      "id": "relay-060",
+      "type": "relay",
+      "level": "hard",
+      "word": "삐"
+    },
+    {
+      "id": "person-001",
+      "type": "person",
+      "level": "easy",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅇㅇ · \"좋은 날\"로 3단 고음을 부른 가수이자 배우",
+      "answer": "아이유",
+      "also": [
+        "IU"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-001.webp",
+        "author": "티비텐 TV10",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:250718_Lee_Ji-eun_%28%EC%9D%B4%EC%A7%80%EC%9D%80%29.png"
+      }
+    },
+    {
+      "id": "person-002",
+      "type": "person",
+      "level": "easy",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅆㅇ · \"강남스타일\"로 세계를 들썩이게 한 가수",
+      "answer": "싸이",
+      "also": [
+        "박재상"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-002.webp",
+        "author": "Korea.net / Korean Culture and Information Service (Jeon …",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:PSY%28%EC%8B%B8%EC%9D%B4%29_at_2015_Summer_K-POP_Festival.jpg"
+      }
+    },
+    {
+      "id": "person-003",
+      "type": "person",
+      "level": "normal",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅂㅇ · 열세 살에 데뷔해 일본에서도 큰 인기를 얻은 가수",
+      "answer": "보아",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-003.webp",
+        "author": "Dispatch",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:BoA_at_Incheon_Airport_on_May_15%2C_2019_%282%29.png"
+      }
+    },
+    {
+      "id": "person-004",
+      "type": "person",
+      "level": "normal",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅌㅇ · 소녀시대의 리더였던 가수",
+      "answer": "태연",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-004.webp",
+        "author": "sublimitas_spes",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:250807_%ED%83%9C%EC%97%B0_%27%EC%95%85%EB%A7%88%EA%B0%80_%EC%9D%B4%EC%82%AC%EC%99%94%EB%8B%A4%27_VIP_Premiere_04_%28cropped%29.jpg"
+      }
+    },
+    {
+      "id": "person-005",
+      "type": "person",
+      "level": "easy",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅇㅇ · 트로트 오디션에서 1등을 한 가수",
+      "answer": "임영웅",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-005.webp",
+        "author": "구전녹용",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Lim_Young-woong_in_an_ad_for_%EA%B5%AC%EC%A0%84%EB%85%B9%EC%9A%A9_%28June_2020%29_%28cropped%29.jpg"
+      }
+    },
+    {
+      "id": "person-006",
+      "type": "person",
+      "level": "easy",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㄴ · 블랙핑크 멤버",
+      "answer": "제니",
+      "also": [
+        "김제니"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-006.webp",
+        "author": "티비텐 TV10",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Jennie_2026_GDA_1.jpg"
+      }
+    },
+    {
+      "id": "person-007",
+      "type": "person",
+      "level": "normal",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅅ · 블랙핑크 멤버",
+      "answer": "지수",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-007.webp",
+        "author": "티비텐 TV10",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Jisoo_at_Boyfriend_on_Demand_press_conference_on_26022026_%2812%29.png"
+      }
+    },
+    {
+      "id": "person-008",
+      "type": "person",
+      "level": "easy",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㄹㅈ · 블랙핑크 멤버, \"아파트\"를 부른 가수",
+      "answer": "로제",
+      "also": [
+        "박채영"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-008.webp",
+        "author": "TV10",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Blackpink_Ros%C3%A9_Rimowa_1.jpg"
+      }
+    },
+    {
+      "id": "person-009",
+      "type": "person",
+      "level": "normal",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㄹㅅ · 블랙핑크 멤버, 태국에서 왔어요",
+      "answer": "리사",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-009.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:20240314_Lisa_Manoban_07.png"
+      }
+    },
+    {
+      "id": "person-010",
+      "type": "person",
+      "level": "normal",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "방탄소년단의 리더",
+      "answer": "RM",
+      "also": [
+        "알엠",
+        "김남준"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-010.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:RM_at_W_Korea_Love_Your_W%2C_November_2023.jpg"
+      }
+    },
+    {
+      "id": "person-011",
+      "type": "person",
+      "level": "easy",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㄱ · 방탄소년단의 막내",
+      "answer": "정국",
+      "also": [
+        "전정국"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-011.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Jung_Kook_of_BTS%2C_February_12%2C_2026_%281%29.png"
+      }
+    },
+    {
+      "id": "person-012",
+      "type": "person",
+      "level": "easy",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅁ · 방탄소년단 멤버, 노래 \"Like Crazy\"",
+      "answer": "지민",
+      "also": [
+        "박지민"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-012.webp",
+        "author": "K-POPIT 케이팝잇 TV10",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Jimin_on_the_way_to_SBS_Radio%2C_31_March_2023_%282%29.jpg"
+      }
+    },
+    {
+      "id": "person-013",
+      "type": "person",
+      "level": "easy",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅂ · 방탄소년단 멤버",
+      "answer": "뷔",
+      "also": [
+        "김태형",
+        "V"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-013.webp",
+        "author": "TV10",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:V_at_W_Korea_Breast_Cancer_Campaign%2C_15_October_2025.png"
+      }
+    },
+    {
+      "id": "person-014",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅈ · 방탄소년단의 맏형",
+      "answer": "진",
+      "also": [
+        "김석진"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-014.webp",
+        "author": "TV 10",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:BTS_Jin_at_Maison_Fred%2C_13_March_2025_04.png"
+      }
+    },
+    {
+      "id": "person-015",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅇㅎ · 방탄소년단 멤버, 춤을 잘 추는 래퍼",
+      "answer": "제이홉",
+      "also": [
+        "정호석"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-015.webp",
+        "author": "TV10",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:J-Hope_at_W_Korea_Breast_Cancer_Campaign%2C_15_October_2025.png"
+      }
+    },
+    {
+      "id": "person-016",
+      "type": "person",
+      "level": "easy",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅇㅈ · 아이브의 리더",
+      "answer": "안유진",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-016.webp",
+        "author": "TenAsia",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:An_Yu-jin_at_the_2024_Melon_Music_Awards.png"
+      }
+    },
+    {
+      "id": "person-017",
+      "type": "person",
+      "level": "easy",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅇㅇ · 아이브 멤버",
+      "answer": "장원영",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-017.webp",
+        "author": "Ten Asia",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:051226_Jang_Won-young_airport_departure_%282%29.jpg"
+      }
+    },
+    {
+      "id": "person-018",
+      "type": "person",
+      "level": "easy",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅋㄹㄴ · 에스파의 리더",
+      "answer": "카리나",
+      "also": [
+        "유지민"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-018.webp",
+        "author": "David Lee",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:KARINA_-_AESPA_-_2025.01.28.jpg"
+      }
+    },
+    {
+      "id": "person-019",
+      "type": "person",
+      "level": "normal",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅌ · 에스파 멤버",
+      "answer": "윈터",
+      "also": [
+        "김민정"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-019.webp",
+        "author": "snow plumflower",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:250315-16_aespa_Winter_06.jpg"
+      }
+    },
+    {
+      "id": "person-020",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅁㅁ · 오마이걸 멤버, 예능에서 토롱이를 쫓았어요",
+      "answer": "미미",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-020.webp",
+        "author": "f2.8",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:160730_%EC%98%A4%EB%A7%88%EC%9D%B4%EA%B1%B8_%EB%B4%89%ED%99%94%EC%9D%80%EC%96%B4%EC%B6%95%EC%A0%9C_12.jpg"
+      }
+    },
+    {
+      "id": "person-021",
+      "type": "person",
+      "level": "easy",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅇㅈ · 고등래퍼 우승자, 예능에서 토롱이를 쫓았어요",
+      "answer": "이영지",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-021.webp",
+        "author": "TV10",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Lee_Young-ji_in_February_2026.png"
+      }
+    },
+    {
+      "id": "person-022",
+      "type": "person",
+      "level": "normal",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㅈ · 미쓰에이 출신 가수이자 배우",
+      "answer": "수지",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-022.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:20241128_Bae_Suzy_CELINE_photocall_%28cropped%29.jpg"
+      }
+    },
+    {
+      "id": "person-023",
+      "type": "person",
+      "level": "normal",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅎㄹ · 핑클 출신, \"텐 미닛\"을 부른 가수",
+      "answer": "이효리",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-023.webp",
+        "author": "Marie Claire Korea",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:%28Marie_Claire_Korea%29_Feel_The_Soul_-_%EC%9D%B4%ED%9A%A8%EB%A6%AC_%284%29.jpg"
+      }
+    },
+    {
+      "id": "person-024",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅂ · \"레이니즘\"을 부른 가수, 이름이 날씨예요",
+      "answer": "비",
+      "also": [
+        "정지훈"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-024.webp",
+        "author": "TV10",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Rain_%28entertainer%29_in_March_2026.png"
+      }
+    },
+    {
+      "id": "person-025",
+      "type": "person",
+      "level": "easy",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㄷㄹㄱ · 빅뱅의 리더",
+      "answer": "지드래곤",
+      "also": [
+        "GD",
+        "권지용"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-025.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:G-Dragon_in_February_2025.png"
+      }
+    },
+    {
+      "id": "person-026",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅇㅍ · \"가왕\"이라 불리는 가수",
+      "answer": "조용필",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-026.webp",
+        "author": "acrofan.com",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Cho_Yong-pil_from_acrofan.jpg"
+      }
+    },
+    {
+      "id": "person-027",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅎ · \"사건의 지평선\"을 부른 가수",
+      "answer": "윤하",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-027.webp",
+        "author": "티비텐 TV10",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Younha_at_Incheon_Airport_on_050123_%282%29.png"
+      }
+    },
+    {
+      "id": "person-028",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅌㅇ · 빅뱅 멤버, \"눈, 코, 입\"",
+      "answer": "태양",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-028.webp",
+        "author": "GOM",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Taeyang_-_MADE_THE_MOVIE_Premiere_%28Chopped%29.png"
+      }
+    },
+    {
+      "id": "person-029",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅂㅎ · 엑소 멤버",
+      "answer": "백현",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-029.webp",
+        "author": "DonutB_56",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:%ED%95%98%EC%96%80%EB%A8%B8%EB%A6%AC_%EB%B0%B1%ED%98%84_3.jpg"
+      }
+    },
+    {
+      "id": "person-030",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㄴㅇ · 트와이스 멤버",
+      "answer": "나연",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-030.webp",
+        "author": "TV10",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Nayeon_in_November_2025.png"
+      }
+    },
+    {
+      "id": "person-032",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅂㅎ · 드라마 \"미스터 션샤인\"의 주인공",
+      "answer": "이병헌",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-032.webp",
+        "author": "Desmond Herzfelder",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Lee_Byung-hun_2025_Toronto_%28cropped%29.jpg"
+      }
+    },
+    {
+      "id": "person-033",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅈㅈ · \"오징어 게임\"의 456번 참가자",
+      "answer": "이정재",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-033.webp",
+        "author": "사진기자머길",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:210305_%EC%9D%B4%EC%A0%95%EC%9E%AC_%28cropped%29.jpg"
+      }
+    },
+    {
+      "id": "person-034",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅇㅈ · 영화 \"미나리\"로 아카데미 조연상을 받은 배우",
+      "answer": "윤여정",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-034.webp",
+        "author": "TV10",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Youn_Yuh-jung_in_February_2026.png"
+      }
+    },
+    {
+      "id": "person-035",
+      "type": "person",
+      "level": "easy",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅁㄷㅅ · \"범죄도시\"에서 주먹 한 방으로 악당을 잡는 형사",
+      "answer": "마동석",
+      "also": [
+        "돈 리"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-035.webp",
+        "author": "Gage Skidmore",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Don_Lee_by_Gage_Skidmore.jpg"
+      }
+    },
+    {
+      "id": "person-036",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㅇ · 드라마 \"도깨비\"의 도깨비, 이름이 \"함께 쓰기\"와 같아요",
+      "answer": "공유",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-036.webp",
+        "author": "Marie Claire Korea",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Gong_yoo.png"
+      }
+    },
+    {
+      "id": "person-037",
+      "type": "person",
+      "level": "easy",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅂㅂㄱ · 드라마 \"폭싹 속았수다\"의 관식이",
+      "answer": "박보검",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-037.webp",
+        "author": "Marie Claire Korea",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Park_Bo-gum_%EB%B0%95%EB%B3%B4%EA%B2%80_%E6%9C%B4%E5%AF%B6%E5%8A%8D_for_Marie_Claire_Korea%2C_April_2025_4.png"
+      }
+    },
+    {
+      "id": "person-038",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㅈㄱ · 드라마 \"태양의 후예\"의 유시진 대위",
+      "answer": "송중기",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-038.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Song_Joong_Ki_Blue_Dragon.jpg"
+      }
+    },
+    {
+      "id": "person-039",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅈㅎ · \"별에서 온 그대\"의 천송이",
+      "answer": "전지현",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-039.webp",
+        "author": "Republic of Korea",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Jun_Ji-hyun.jpg"
+      }
+    },
+    {
+      "id": "person-040",
+      "type": "person",
+      "level": "hard",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㄱㅇ · 영화 \"파묘\"의 무당 역",
+      "answer": "김고은",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-040.webp",
+        "author": "John Sears",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Kim_Go-eun_at_the_2024_Toronto_International_Film_Festival_%28cropped%29.jpg"
+      }
+    },
+    {
+      "id": "person-041",
+      "type": "person",
+      "level": "hard",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㅅㄱ · 드라마 \"나의 해방일지\"의 구씨",
+      "answer": "손석구",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-041.webp",
+        "author": "Marie Claire Korea",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:20220801_Son_Seok-koo_%EC%86%90%EC%84%9D%EA%B5%AC_Marie_Claire_Korea_%281%29.jpg"
+      }
+    },
+    {
+      "id": "person-042",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅂㅅㅈ · 드라마 \"이태원 클라쓰\"의 박새로이",
+      "answer": "박서준",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-042.webp",
+        "author": "디스패치",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Park_Seo-joon_in_June_2019.png"
+      }
+    },
+    {
+      "id": "person-043",
+      "type": "person",
+      "level": "hard",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㅎㅅ · 드라마 \"시그널\"의 차수현 형사",
+      "answer": "김혜수",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-043.webp",
+        "author": "Napim22",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Kim_Hye-Soo_%28%EA%B9%80%ED%98%9C%EC%88%98%29_%5E.jpg"
+      }
+    },
+    {
+      "id": "person-044",
+      "type": "person",
+      "level": "hard",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅎㅇ · \"오징어 게임\"의 067번 새벽이",
+      "answer": "정호연",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-044.webp",
+        "author": "Republic of Korea",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:HoYeon_Jung.jpg"
+      }
+    },
+    {
+      "id": "person-045",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅌㅎㄹㄷ · 영화 \"스파이더맨\"의 피터 파커",
+      "answer": "톰 홀랜드",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-045.webp",
+        "author": "PhilipRomano",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:TomHolland-byPhilipRomano.jpg"
+      }
+    },
+    {
+      "id": "person-046",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅁㅇㅅ · 영화 \"해리 포터\"의 헤르미온느",
+      "answer": "엠마 왓슨",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-046.webp",
+        "author": "Georges Biard",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Emma_Watson_2013.jpg"
+      }
+    },
+    {
+      "id": "person-047",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㄷㄴㅇㄹㄷㅋㄹㅍ · 영화 \"해리 포터\"의 해리 포터",
+      "answer": "다니엘 래드클리프",
+      "also": [
+        "대니얼 래드클리프"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-047.webp",
+        "author": "Gage Skidmore from Peoria, AZ, United States of America",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Daniel_Radcliffe_in_July_2015.jpg"
+      }
+    },
+    {
+      "id": "person-048",
+      "type": "person",
+      "level": "hard",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㄹㅂㅌㄷㅇㄴㅈㄴㅇ · 영화 \"아이언맨\"의 토니 스타크",
+      "answer": "로버트 다우니 주니어",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-048.webp",
+        "author": "Gage Skidmore",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Robert_Downey_Jr_2014_Comic_Con_%28cropped%29.jpg"
+      }
+    },
+    {
+      "id": "person-049",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㄹ · 맨몸 액션으로 유명한 홍콩 배우",
+      "answer": "성룡",
+      "also": [
+        "재키 찬"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-049.webp",
+        "author": "Segolene Liger",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Jackie_Chan_-_2025_Locarno_Film_Festival.jpg"
+      }
+    },
+    {
+      "id": "person-050",
+      "type": "person",
+      "level": "easy",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅈㅅ · \"국민 MC\"라 불리는 진행자",
+      "answer": "유재석",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-050.webp",
+        "author": "Republic of Korea",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Yoo_Jae-suk.jpg"
+      }
+    },
+    {
+      "id": "person-051",
+      "type": "person",
+      "level": "easy",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㅎㄷ · 씨름 선수 출신 진행자, \"1박 2일\"",
+      "answer": "강호동",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-051.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:%27%ED%95%9C%EB%81%BC%EC%A4%8D%EC%87%BC%27_%EC%A0%9C%EC%9E%91%EB%B0%9C%ED%91%9C%ED%9A%8C_%ED%98%84%EC%9E%A5_14s.jpg"
+      }
+    },
+    {
+      "id": "person-052",
+      "type": "person",
+      "level": "normal",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㄷㅇ · \"동물농장\"의 진행자",
+      "answer": "신동엽",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-052.webp",
+        "author": "dispatchsns",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:180503_%EC%8B%A0%EB%8F%99%EC%97%BD.png"
+      }
+    },
+    {
+      "id": "person-053",
+      "type": "person",
+      "level": "easy",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㅈㄱ · \"런닝맨\"의 능력자, 운동을 아주 좋아하는 가수",
+      "answer": "김종국",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-053.webp",
+        "author": "Vernon Chan from Kuala Lumpur, Malaysia",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Kim_Jong_Kook_at_Malaysia_for_Running_Man_Fan_Meeting_Asian_Tour_2014.jpg"
+      }
+    },
+    {
+      "id": "person-054",
+      "type": "person",
+      "level": "easy",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㅎㅎ · \"무한도전\"과 \"런닝맨\"에 나온 예능인",
+      "answer": "하하",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-054.webp",
+        "author": "Explicit",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:180802_%EB%B6%80%EC%82%B0%EB%B0%94%EB%8B%A4%EC%B6%95%EC%A0%9C_%ED%95%98%ED%95%98_1.jpg"
+      }
+    },
+    {
+      "id": "person-055",
+      "type": "person",
+      "level": "easy",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㄱㅅ · \"런닝맨\"의 기린, 배우",
+      "answer": "이광수",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-055.webp",
+        "author": "Republic of Korea",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Lee_Kwang-soo_2026.jpg"
+      }
+    },
+    {
+      "id": "person-056",
+      "type": "person",
+      "level": "normal",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅎㅁ · 아나운서 출신 진행자, \"나 혼자 산다\"",
+      "answer": "전현무",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-056.webp",
+        "author": "디스패치",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:MBC_%27%EB%82%98_%ED%98%BC%EC%9E%90_%EC%82%B0%EB%8B%A4%27_%EA%B8%B0%EC%9E%90_%EA%B0%84%EB%8B%B4%ED%9A%8C_%EC%A0%84%ED%98%84%EB%AC%B4.jpg"
+      }
+    },
+    {
+      "id": "person-058",
+      "type": "person",
+      "level": "hard",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅇㅈ · 개그우먼, 예능에서 토롱이를 쫓았어요",
+      "answer": "이은지",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-058.webp",
+        "author": "티비텐",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Lee_Eun-ji_in_May_2024.png"
+      }
+    },
+    {
+      "id": "person-059",
+      "type": "person",
+      "level": "hard",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㄷㅇ · 개그우먼, \"살롱드립\"의 진행자",
+      "answer": "장도연",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-059.webp",
+        "author": "TV10",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Jang_Do-yeon_in_December_2025.png"
+      }
+    },
+    {
+      "id": "person-060",
+      "type": "person",
+      "level": "normal",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㅂㅈㅇ · \"골목식당\"에 나온 요리 사업가",
+      "answer": "백종원",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-060.webp",
+        "author": "밥상위의 국가대표 우리돼지 한돈",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:%EB%B0%B1%EC%A2%85%EC%9B%90_%ED%95%9C%EB%8F%88_%EC%B6%94%EC%B6%9C.png"
+      }
+    },
+    {
+      "id": "person-061",
+      "type": "person",
+      "level": "easy",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㅎㅁ · 축구 국가대표 주장, 토트넘에서 뛰었어요",
+      "answer": "손흥민",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-061.webp",
+        "author": "Ujishadow",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:BFA_2023_-2_Heung-Min_Son_%28cropped%29.jpg"
+      }
+    },
+    {
+      "id": "person-062",
+      "type": "person",
+      "level": "easy",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㅇㅇ · 피겨스케이팅 올림픽 금메달리스트",
+      "answer": "김연아",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-062.webp",
+        "author": "Republic of Korea from Seoul, Republic of Korea",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:PyeongChang_2018_Torch_20170417_03_%2833274089633%29_%28cropped%29.jpg"
+      }
+    },
+    {
+      "id": "person-063",
+      "type": "person",
+      "level": "normal",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅂㅈㅅ · 맨체스터 유나이티드에서 뛴 \"두 개의 심장\"",
+      "answer": "박지성",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-063.webp",
+        "author": "Korea.net / Korean Culture and Information Service",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Park_Ji-sung_G20_Seoul_Summit_Ambassador_%28cropped%29.jpg"
+      }
+    },
+    {
+      "id": "person-064",
+      "type": "person",
+      "level": "normal",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㄹㅎㅈ · 메이저리그에서 뛴 야구 투수, 한화 이글스",
+      "answer": "류현진",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-064.webp",
+        "author": "Derral Chen (Flickr)",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Hyun_jin_Ryu_2013_NLDS.jpg"
+      }
+    },
+    {
+      "id": "person-065",
+      "type": "person",
+      "level": "normal",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㄱㅇ · 파리 생제르맹에서 뛰는 축구 선수",
+      "answer": "이강인",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-065.webp",
+        "author": "Republic of Korea from Seoul, Republic of Korea",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Lee_Kang-in_-_2022_%2852551771501%29_%28cropped%29.jpg"
+      }
+    },
+    {
+      "id": "person-066",
+      "type": "person",
+      "level": "normal",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㅁㅈ · \"괴물 수비수\"라 불리는 축구 선수",
+      "answer": "김민재",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-066.webp",
+        "author": "Werner100359",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:FC_Red_Bull_Salzburg_gegen_Bayern_M%C3%BCnchen_%282025-01-06_Testspiel%29_26.jpg"
+      }
+    },
+    {
+      "id": "person-067",
+      "type": "person",
+      "level": "normal",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅎㅎㅊ · 울버햄튼에서 뛴 축구 선수, \"황소\"",
+      "answer": "황희찬",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-067.webp",
+        "author": "Explicit",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:240622_%ED%99%A9%ED%9D%AC%EC%B0%AC_%ED%92%8B%EB%B3%BC_%ED%8E%98%EC%8A%A4%ED%8B%B0%EB%B2%8C.jpg"
+      }
+    },
+    {
+      "id": "person-068",
+      "type": "person",
+      "level": "easy",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅅㅇ · 배드민턴 올림픽 금메달리스트",
+      "answer": "안세영",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-068.webp",
+        "author": "KOCIS(Korean Culture and Information Service) Official Ph…",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Hangzhou_AsianGames_Team_Korea_05_%28An_Se-young%29.jpg"
+      }
+    },
+    {
+      "id": "person-069",
+      "type": "person",
+      "level": "easy",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㅇㄱ · \"배구 여제\"라 불리는 배구 선수",
+      "answer": "김연경",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-069.webp",
+        "author": "매맞는고참",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:%EC%9B%94%EB%93%9C%EA%B7%B8%EB%9E%91%ED%94%84%EB%A6%AC2_%288%29_%28cropped%29.jpg"
+      }
+    },
+    {
+      "id": "person-070",
+      "type": "person",
+      "level": "normal",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅅㅎ · 스피드스케이팅 500m 올림픽 2연패",
+      "answer": "이상화",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-070.webp",
+        "author": "Republic of Korea",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Korea_Lee_Sanghwa_Gold_Medal_Ceremony_02.jpg"
+      }
+    },
+    {
+      "id": "person-071",
+      "type": "person",
+      "level": "hard",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅎㅅㅇ · 자유형 200m 세계선수권 금메달, 수영 선수",
+      "answer": "황선우",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-071.webp",
+        "author": "OSEN SPORTS",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:%ED%99%A9%EC%84%A0%EC%9A%B0_%EC%88%98%EC%98%81_%EC%84%A0%EC%88%98.jpg"
+      }
+    },
+    {
+      "id": "person-072",
+      "type": "person",
+      "level": "easy",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㅇㅂ · \"삐약이\"라 불리는 탁구 선수",
+      "answer": "신유빈",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-072.webp",
+        "author": "KTTL 한국프로탁구리그 (한국실업탁구연맹)",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:%EC%8B%A0%EC%9C%A0%EB%B9%88_%EC%84%A0%EC%88%98.jpg"
+      }
+    },
+    {
+      "id": "person-073",
+      "type": "person",
+      "level": "hard",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅅㅇ · 펜싱 사브르 올림픽 금메달리스트",
+      "answer": "오상욱",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-073.webp",
+        "author": "Lotte Entertainment",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Oh_Sang-uk_at_the_Gladiator_II_VIP_premiere%2C_November_2024_01.png"
+      }
+    },
+    {
+      "id": "person-074",
+      "type": "person",
+      "level": "hard",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅅㅎ · 높이뛰기 선수, 늘 웃으며 뛰어요",
+      "answer": "우상혁",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-074.webp",
+        "author": "Athletics Federation of India",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:WOO_SANGHYEOK_Of_Korea_Won_Gold_%28cropped%29.jpg"
+      }
+    },
+    {
+      "id": "person-075",
+      "type": "person",
+      "level": "hard",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㅇㅈ · 양궁 올림픽 3관왕",
+      "answer": "김우진",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-075.webp",
+        "author": "Trainholic",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Archery_Kim_Woo-jin.jpg"
+      }
+    },
+    {
+      "id": "person-076",
+      "type": "person",
+      "level": "hard",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅅㅎ · 양궁 여자 올림픽 3관왕",
+      "answer": "임시현",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-076.webp",
+        "author": "Trainholic",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Lim_Si-hyeon%2C_2025.jpg"
+      }
+    },
+    {
+      "id": "person-077",
+      "type": "person",
+      "level": "normal",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅊㅁㅈ · 쇼트트랙 올림픽 금메달리스트",
+      "answer": "최민정",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-077.webp",
+        "author": "유사나헬스사이언스코리아",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:%EC%B5%9C%EB%AF%BC%EC%A0%95_%EC%84%A0%EC%88%98.jpg"
+      }
+    },
+    {
+      "id": "person-078",
+      "type": "person",
+      "level": "normal",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅈㅎ · 샌프란시스코 자이언츠의 야구 선수, \"바람의 손자\"",
+      "answer": "이정후",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-078.webp",
+        "author": "Trainholic",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Kiwoom_Heroes_Lee_Jeong-Hoo_%282019%29.jpg"
+      }
+    },
+    {
+      "id": "person-079",
+      "type": "person",
+      "level": "hard",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅂㅊㅎ · 한국인 첫 메이저리거 투수",
+      "answer": "박찬호",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-079.webp",
+        "author": "chris.ptacek",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Chan_Ho_Park_Yankees.jpg"
+      }
+    },
+    {
+      "id": "person-080",
+      "type": "person",
+      "level": "hard",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅊㅂㄱ · 독일 분데스리가에서 활약한 \"차붐\"",
+      "answer": "차범근",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-080.webp",
+        "author": "Nationaal Archief, Den Haag, Rijksfotoarchief: Fotocollec…",
+        "license": "CC BY-SA 3.0 nl",
+        "source": "https://commons.wikimedia.org/wiki/File:Cha_Bum_Kun.jpg"
+      }
+    },
+    {
+      "id": "person-081",
+      "type": "person",
+      "level": "easy",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅍㅇㅋ · 리그 오브 레전드 세계 대회를 여러 번 우승한 선수",
+      "answer": "페이커",
+      "also": [
+        "이상혁"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-081.webp",
+        "author": "Marie Claire",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:T1_Faker_Lee_Sang-Hyeok_in_a_2026_Interview.png"
+      }
+    },
+    {
+      "id": "person-082",
+      "type": "person",
+      "level": "easy",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㄹㅇㄴㅁㅅ · 아르헨티나 축구 선수, 월드컵 우승",
+      "answer": "리오넬 메시",
+      "also": [
+        "메시"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-082.webp",
+        "author": "Bryan Berlin",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Leo_Messi_Argentina_v_Egypt_7_July_2026-1.jpg"
+      }
+    },
+    {
+      "id": "person-083",
+      "type": "person",
+      "level": "easy",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅋㄹㅅㅌㅇㄴㅎㄴㄷ · 포르투갈 축구 선수, \"호우!\" 세리머니",
+      "answer": "크리스티아누 호날두",
+      "also": [
+        "호날두"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-083.webp",
+        "author": "Bryan Berlin",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_%28cropped%29.jpg"
+      }
+    },
+    {
+      "id": "person-084",
+      "type": "person",
+      "level": "easy",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅌㄴㅅㅎㅇ · 투수와 타자를 모두 하는 일본 야구 선수",
+      "answer": "오타니 쇼헤이",
+      "also": [
+        "오타니"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-084.webp",
+        "author": "The White House",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:2026_Shohei_Ohtani_%28cropped%29.jpg"
+      }
+    },
+    {
+      "id": "person-085",
+      "type": "person",
+      "level": "easy",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅅㅇㅂㅌ · 100m 세계 기록을 가진 자메이카 육상 선수",
+      "answer": "우사인 볼트",
+      "also": [
+        "볼트"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-085.webp",
+        "author": "Fernando Frazão/Agência Brasil",
+        "license": "CC BY 3.0 br",
+        "source": "https://commons.wikimedia.org/wiki/File:Usain_Bolt_Rio_100m_final_2016k.jpg"
+      }
+    },
+    {
+      "id": "person-086",
+      "type": "person",
+      "level": "hard",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅁㅇㅋㅈㄷ · 미국 프로농구의 전설",
+      "answer": "마이클 조던",
+      "also": [
+        "조던"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-086.webp",
+        "author": "Joshua Massel. Cropped by en:User:Quadzilla99",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Michael_Jordan.jpg"
+      }
+    },
+    {
+      "id": "person-087",
+      "type": "person",
+      "level": "hard",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㅌㅍㅋㄹ · 3점 슛의 달인, 미국 농구 선수",
+      "answer": "스테픈 커리",
+      "also": [
+        "스테판 커리"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-087.webp",
+        "author": "Cyrus Saatsaz",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Stephen_Curry_Shooting_%28cropped%29_%28cropped%29.jpg"
+      }
+    },
+    {
+      "id": "person-088",
+      "type": "person",
+      "level": "easy",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㄱㅅ · 3·1 운동 때 태극기를 들고 만세를 외친 독립운동가",
+      "answer": "유관순",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-088.webp",
+        "author": "작자 미상",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Ryu_Gwan-sun.jpg"
+      }
+    },
+    {
+      "id": "person-089",
+      "type": "person",
+      "level": "easy",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅈㄱ · 하얼빈에서 이토 히로부미를 처단한 독립운동가",
+      "answer": "안중근",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-089.webp",
+        "author": "작자 미상",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:An_Jung-geun.JPG"
+      }
+    },
+    {
+      "id": "person-090",
+      "type": "person",
+      "level": "easy",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㄱ · 대한민국 임시정부를 이끈 \"백범\"",
+      "answer": "김구",
+      "also": [
+        "백범 김구"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-090.webp",
+        "author": "작자 미상",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Kim_Gu_in_1949.jpg"
+      }
+    },
+    {
+      "id": "person-091",
+      "type": "person",
+      "level": "easy",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㄷㅈ · \"서시\", \"별 헤는 밤\"을 쓴 시인",
+      "answer": "윤동주",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-091.webp",
+        "author": "작자 미상",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Yoon_Dong-ju.jpg"
+      }
+    },
+    {
+      "id": "person-092",
+      "type": "person",
+      "level": "easy",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㅂㅈㅎ · 어린이날을 만든 사람",
+      "answer": "방정환",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-092.webp",
+        "author": "작자 미상",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:%EB%B0%A9%EC%A0%95%ED%99%98.JPG"
+      }
+    },
+    {
+      "id": "person-093",
+      "type": "person",
+      "level": "hard",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅊㅎ · \"도산\"이라는 호를 가진 독립운동가",
+      "answer": "안창호",
+      "also": [
+        "도산 안창호"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-093.webp",
+        "author": "작자 미상",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Dosan_Ahn_Chang-ho_in_1919.jpg"
+      }
+    },
+    {
+      "id": "person-094",
+      "type": "person",
+      "level": "hard",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅂㄱ · 훙커우 공원에서 도시락 폭탄을 던진 독립운동가",
+      "answer": "윤봉길",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-094.webp",
+        "author": "작자 미상",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:%EC%82%AC%EC%A7%841%28%EC%9C%A4%EB%B4%89%EA%B8%B8_%EC%84%A0%EC%84%9C%EC%9E%A5%EB%A9%B4%29.jpg"
+      }
+    },
+    {
+      "id": "person-095",
+      "type": "person",
+      "level": "hard",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅂㅊ · 일본 왕에게 폭탄을 던진 독립운동가",
+      "answer": "이봉창",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-095.webp",
+        "author": "작자 미상",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:%EC%9D%B4%EB%B4%89%EC%B0%BD.jpg"
+      }
+    },
+    {
+      "id": "person-096",
+      "type": "person",
+      "level": "hard",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅅㄱ · \"한글\"이라는 이름을 널리 쓴 국어학자",
+      "answer": "주시경",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-096.webp",
+        "author": "작자 미상",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Ju_Si-gyeong_1876-1914_portrait_from_%E5%91%A8%E6%99%82%E7%B6%93%E5%85%88%E7%94%9F%E9%81%BA%E7%A8%BF.png"
+      }
+    },
+    {
+      "id": "person-097",
+      "type": "person",
+      "level": "hard",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㅈ · 대한제국을 세운 황제",
+      "answer": "고종",
+      "also": [
+        "고종 황제"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-097.webp",
+        "author": "작자 미상",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Gojong_of_the_Korean_Empire_02.jpg"
+      }
+    },
+    {
+      "id": "person-098",
+      "type": "person",
+      "level": "easy",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㅎㄹㅋㄹ · 보지도 듣지도 못했지만 장애를 딛고 일어선 작가",
+      "answer": "헬렌 켈러",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-098.webp",
+        "author": "Los Angeles Times; restored by User:Rhododendrites",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Helen_Keller_circa_1920_-_restored.jpg"
+      }
+    },
+    {
+      "id": "person-099",
+      "type": "person",
+      "level": "normal",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㅁㅎㅌㅁㄱㄷ · 비폭력으로 인도의 독립을 이끈 사람",
+      "answer": "마하트마 간디",
+      "also": [
+        "간디"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-099.webp",
+        "author": "Elliott & Fry",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Mahatma-Gandhi%2C_studio%2C_1931.jpg"
+      }
+    },
+    {
+      "id": "person-100",
+      "type": "person",
+      "level": "hard",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㅁㅌㄹㅅㅋ · \"나에게는 꿈이 있습니다\" 연설을 한 인권 운동가",
+      "answer": "마틴 루서 킹",
+      "also": [
+        "마틴 루터 킹"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-100.webp",
+        "author": "Associated Press",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:The_Rev._Dr._Martin_Luther_King_Jr._Color_Portrait_%28high_quality%29.jpg"
+      }
+    },
+    {
+      "id": "person-101",
+      "type": "person",
+      "level": "normal",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㄴㅍㄹㅇ · 프랑스의 황제, \"내 사전에 불가능은 없다\"",
+      "answer": "나폴레옹",
+      "also": [
+        "나폴레옹 보나파르트"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-101.webp",
+        "author": "Jacques-Louis David",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project.jpg"
+      }
+    },
+    {
+      "id": "person-102",
+      "type": "person",
+      "level": "easy",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㄹㅋ · 노예 해방을 이끈 미국의 16대 지도자",
+      "answer": "링컨",
+      "also": [
+        "에이브러햄 링컨"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-102.webp",
+        "author": "Alexander Gardner",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Abraham_Lincoln_O-77_matte_collodion_print.jpg"
+      }
+    },
+    {
+      "id": "person-103",
+      "type": "person",
+      "level": "easy",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㄴㅇㅌㄱㅇ · \"백의의 천사\"라 불린 간호사",
+      "answer": "나이팅게일",
+      "also": [
+        "플로렌스 나이팅게일"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-103.webp",
+        "author": "Henry Hering (1814-1893)",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Florence_Nightingale_%28H_Hering_NPG_x82368%29.jpg"
+      }
+    },
+    {
+      "id": "person-104",
+      "type": "person",
+      "level": "hard",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㅋㄹㅂㅅ · 대서양을 건너 아메리카에 닿은 탐험가",
+      "answer": "콜럼버스",
+      "also": [
+        "크리스토퍼 콜럼버스"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-104.webp",
+        "author": "Ridolfo del Ghirlandaio",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Ridolfo_del_Ghirlandaio_-_Ritratto_di_Cristoforo_Colombo_%281520%29.jpg"
+      }
+    },
+    {
+      "id": "person-105",
+      "type": "person",
+      "level": "normal",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㄴㅇㅅㅌㄹ · 달에 처음 발을 디딘 우주비행사",
+      "answer": "닐 암스트롱",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-105.webp",
+        "author": "작자 미상",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Neil_Armstrong_pose.jpg"
+      }
+    },
+    {
+      "id": "person-106",
+      "type": "person",
+      "level": "hard",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅅㅇ · 한국인 첫 우주인",
+      "answer": "이소연",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-106.webp",
+        "author": "NASA",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Yi_So-yeon_%28NASA_-_JSC2008-E-004174%29.jpg"
+      }
+    },
+    {
+      "id": "person-107",
+      "type": "person",
+      "level": "easy",
+      "topic": "과학자",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅇㅅㅌㅇ · 상대성 이론을 만든 과학자",
+      "answer": "아인슈타인",
+      "also": [
+        "알베르트 아인슈타인"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-107.webp",
+        "author": "Ferdinand Schmutzer / Adam Cuerden",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Einstein_1921_by_F_Schmutzer_-_restoration.jpg"
+      }
+    },
+    {
+      "id": "person-108",
+      "type": "person",
+      "level": "easy",
+      "topic": "과학자",
+      "prompt": "누구일까요?",
+      "hint": "ㄴㅌ · 사과가 떨어지는 것을 보고 만유인력을 생각한 과학자",
+      "answer": "뉴턴",
+      "also": [
+        "아이작 뉴턴"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-108.webp",
+        "author": "Godfrey Kneller",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:GodfreyKneller-IsaacNewton-1689.jpg"
+      }
+    },
+    {
+      "id": "person-109",
+      "type": "person",
+      "level": "normal",
+      "topic": "과학자",
+      "prompt": "누구일까요?",
+      "hint": "ㅁㄹㅋㄹ · 노벨상을 두 번 받은 여성 과학자, 라듐 발견",
+      "answer": "마리 퀴리",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-109.webp",
+        "author": "작자 미상",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Marie_Curie_%281900%29_%28cropped%29.jpg"
+      }
+    },
+    {
+      "id": "person-110",
+      "type": "person",
+      "level": "easy",
+      "topic": "과학자",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㄷㅅ · 전구와 축음기를 만든 발명왕",
+      "answer": "에디슨",
+      "also": [
+        "토머스 에디슨"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-110.webp",
+        "author": "Louis Bachrach, Bachrach Studios, restored by Michel Vuij…",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Thomas_Edison2-crop.jpg"
+      }
+    },
+    {
+      "id": "person-111",
+      "type": "person",
+      "level": "normal",
+      "topic": "과학자",
+      "prompt": "누구일까요?",
+      "hint": "ㄷㅇ · \"종의 기원\"으로 진화론을 펼친 과학자",
+      "answer": "다윈",
+      "also": [
+        "찰스 다윈"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-111.webp",
+        "author": "Herbert Rose Barraud",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Charles_Darwin_portrait.jpg"
+      }
+    },
+    {
+      "id": "person-112",
+      "type": "person",
+      "level": "normal",
+      "topic": "과학자",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㄹㄹㅇ · \"그래도 지구는 돈다\"고 말한 과학자",
+      "answer": "갈릴레이",
+      "also": [
+        "갈릴레오 갈릴레이",
+        "갈릴레오"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-112.webp",
+        "author": "Justus Sustermans",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Galileo.arp.300pix.jpg"
+      }
+    },
+    {
+      "id": "person-113",
+      "type": "person",
+      "level": "normal",
+      "topic": "과학자",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㅌㅂㅎㅋ · 휠체어에 앉아 블랙홀을 연구한 과학자",
+      "answer": "스티븐 호킹",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-113.webp",
+        "author": "NASA",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Stephen_Hawking.StarChild.jpg"
+      }
+    },
+    {
+      "id": "person-115",
+      "type": "person",
+      "level": "normal",
+      "topic": "과학자",
+      "prompt": "누구일까요?",
+      "hint": "ㅂ · 전화기를 발명한 사람",
+      "answer": "벨",
+      "also": [
+        "그레이엄 벨"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-115.webp",
+        "author": "Moffett Studio",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Alexander_Graham_Bell.jpg"
+      }
+    },
+    {
+      "id": "person-116",
+      "type": "person",
+      "level": "hard",
+      "topic": "과학자",
+      "prompt": "누구일까요?",
+      "hint": "ㅍㅅㅌㄹ · 우유를 오래 두는 저온 살균법을 만든 과학자",
+      "answer": "파스퇴르",
+      "also": [
+        "루이 파스퇴르"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-116.webp",
+        "author": "Paul Nadar",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Louis_Pasteur_%281822_-_1895%29%2C_microbiologist_and_chemist_Wellcome_V0026980.jpg"
+      }
+    },
+    {
+      "id": "person-117",
+      "type": "person",
+      "level": "hard",
+      "topic": "과학자",
+      "prompt": "누구일까요?",
+      "hint": "ㄴㅂ · 다이너마이트를 발명하고 상을 만든 사람",
+      "answer": "노벨",
+      "also": [
+        "알프레드 노벨"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-117.webp",
+        "author": "작자 미상",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:AlfredNobel2.jpg"
+      }
+    },
+    {
+      "id": "person-118",
+      "type": "person",
+      "level": "hard",
+      "topic": "과학자",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅈㅊ · 씨 없는 수박을 널리 알린 육종학자",
+      "answer": "우장춘",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-118.webp",
+        "author": "작자 미상",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Woo_Jang-chun_as_an_adult_man_in_his_40s%2C_taken_when_he_was_in_Japan.jpg"
+      }
+    },
+    {
+      "id": "person-119",
+      "type": "person",
+      "level": "hard",
+      "topic": "과학자",
+      "prompt": "누구일까요?",
+      "hint": "ㄴㅋㄹㅌㅅㄹ · 교류 전기를 연구한 발명가",
+      "answer": "니콜라 테슬라",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-119.webp",
+        "author": "Napoleon Sarony",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Tesla_circa_1890.jpeg"
+      }
+    },
+    {
+      "id": "person-120",
+      "type": "person",
+      "level": "hard",
+      "topic": "과학자",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅇㄱㄷ · 침팬지와 함께 지내며 연구한 동물학자",
+      "answer": "제인 구달",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-120.webp",
+        "author": "U.S. Department of State from United States",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Deputy_Secretary_Higginbottom_Poses_for_a_Photo_With_Dr._Jane_Goodall_and_the_State_Department%27s_Global_Health_Diplomacy_Director_Jordan_in_Washington_%2822365513310%29_%282%29_%28cropped_2%29.jpg"
+      }
+    },
+    {
+      "id": "person-121",
+      "type": "person",
+      "level": "normal",
+      "topic": "과학자",
+      "prompt": "누구일까요?",
+      "hint": "ㅂㄱㅇㅊ · 마이크로소프트를 만든 사람",
+      "answer": "빌 게이츠",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-121.webp",
+        "author": "Bogdan Hoyaux / European Union",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Bill_Gates_at_the_European_Commission_-_2025_-_P067383-987995_%28cropped%29.jpg"
+      }
+    },
+    {
+      "id": "person-122",
+      "type": "person",
+      "level": "easy",
+      "topic": "과학자",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㅌㅂㅈㅅ · 아이폰을 만든 애플의 창업자",
+      "answer": "스티브 잡스",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-122.webp",
+        "author": "MetalGearLiquid, based on File:Steve_Jobs_Headshot_2010-C…",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Steve_Jobs_Headshot_2010-CROP2.jpg"
+      }
+    },
+    {
+      "id": "person-123",
+      "type": "person",
+      "level": "easy",
+      "topic": "예술가",
+      "prompt": "누구일까요?",
+      "hint": "ㅁㅊㄹㅌ · 다섯 살에 작곡을 한 음악 신동, \"작은 별 변주곡\"",
+      "answer": "모차르트",
+      "also": [
+        "볼프강 아마데우스 모차르트"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-123.webp",
+        "author": "Barbara Krafft",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Wolfgang-amadeus-mozart_1.jpg"
+      }
+    },
+    {
+      "id": "person-124",
+      "type": "person",
+      "level": "easy",
+      "topic": "예술가",
+      "prompt": "누구일까요?",
+      "hint": "ㅂㅌㅂ · 귀가 들리지 않게 된 뒤에도 \"운명\" 교향곡을 쓴 작곡가",
+      "answer": "베토벤",
+      "also": [
+        "루트비히 판 베토벤"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-124.webp",
+        "author": "Joseph Karl Stieler",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Beethoven.jpg"
+      }
+    },
+    {
+      "id": "person-125",
+      "type": "person",
+      "level": "easy",
+      "topic": "예술가",
+      "prompt": "누구일까요?",
+      "hint": "ㅂㄱㅎ · \"해바라기\", \"별이 빛나는 밤\"을 그린 화가",
+      "answer": "반 고흐",
+      "also": [
+        "고흐",
+        "빈센트 반 고흐"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-125.webp",
+        "author": "Vincent van Gogh",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Self-portrait_-_Vincent_van_Gogh.jpg"
+      }
+    },
+    {
+      "id": "person-126",
+      "type": "person",
+      "level": "easy",
+      "topic": "예술가",
+      "prompt": "누구일까요?",
+      "hint": "ㄹㅇㄴㄹㄷㄷㅂㅊ · \"모나리자\"를 그린 화가",
+      "answer": "레오나르도 다빈치",
+      "also": [
+        "레오나르도 다 빈치",
+        "다빈치"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-126.webp",
+        "author": "Attributed to Francesco Melzi",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Francesco_Melzi_-_Portrait_of_Leonardo.png"
+      }
+    },
+    {
+      "id": "person-127",
+      "type": "person",
+      "level": "normal",
+      "topic": "예술가",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㅇㅅㅍㅇ · \"로미오와 줄리엣\"을 쓴 작가",
+      "answer": "셰익스피어",
+      "also": [
+        "윌리엄 셰익스피어"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-127.webp",
+        "author": "Attributed to John Taylor",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Shakespeare.jpg"
+      }
+    },
+    {
+      "id": "person-128",
+      "type": "person",
+      "level": "normal",
+      "topic": "예술가",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㄷㄹㅅ · \"미운 오리 새끼\", \"인어 공주\"를 쓴 동화 작가",
+      "answer": "안데르센",
+      "also": [
+        "한스 크리스티안 안데르센"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-128.webp",
+        "author": "Thora Hallager",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Hans_Christian_Andersen_by_Thora_Hallager_1869.jpg"
+      }
+    },
+    {
+      "id": "person-129",
+      "type": "person",
+      "level": "hard",
+      "topic": "예술가",
+      "prompt": "누구일까요?",
+      "hint": "ㅂㄴㅈ · TV 여러 대로 작품을 만든 비디오 아트 작가",
+      "answer": "백남준",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-129.webp",
+        "author": "김언호",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Paik_Nam_June_%28cropped%29.jpg"
+      }
+    },
+    {
+      "id": "person-130",
+      "type": "person",
+      "level": "hard",
+      "topic": "예술가",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅅㅈ · 쇼팽 콩쿠르에서 우승한 피아니스트",
+      "answer": "조성진",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-130.webp",
+        "author": "KBS 뷰",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Seong-Jin_Cho_20161116_05_%28cropped%29.png"
+      }
+    },
+    {
+      "id": "person-131",
+      "type": "person",
+      "level": "hard",
+      "topic": "예술가",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅇㅊ · 반 클라이번 콩쿠르에서 최연소 우승한 피아니스트",
+      "answer": "임윤찬",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-131.webp",
+        "author": "Parisgirl562",
+        "license": "CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:Yunchan_Lim.jpg"
+      }
+    },
+    {
+      "id": "person-132",
+      "type": "person",
+      "level": "normal",
+      "topic": "예술가",
+      "prompt": "누구일까요?",
+      "hint": "ㅂㅎ · \"음악의 아버지\"라 불리는 작곡가",
+      "answer": "바흐",
+      "also": [
+        "요한 제바스티안 바흐"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-132.webp",
+        "author": "Elias Gottlob Haussmann",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Johann_Sebastian_Bach.png"
+      }
+    },
+    {
+      "id": "person-133",
+      "type": "person",
+      "level": "hard",
+      "topic": "예술가",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㅍ · \"피아노의 시인\"이라 불리는 작곡가",
+      "answer": "쇼팽",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-133.webp",
+        "author": "Maria Wodzińska",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Chopin%2C_by_Wodzinska.JPG"
+      }
+    },
+    {
+      "id": "person-134",
+      "type": "person",
+      "level": "hard",
+      "topic": "예술가",
+      "prompt": "누구일까요?",
+      "hint": "ㅁㅋㄹㅈㄹ · \"다비드\" 조각과 시스티나 성당 천장화를 만든 예술가",
+      "answer": "미켈란젤로",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-134.webp",
+        "author": "Attributed to Daniele da Volterra",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Michelangelo_Daniele_da_Volterra_%28dettaglio%29.jpg"
+      }
+    },
+    {
+      "id": "person-135",
+      "type": "person",
+      "level": "easy",
+      "topic": "예술가",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅌㄷㅈㄴ · 미키 마우스를 만든 사람",
+      "answer": "월트 디즈니",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-135.webp",
+        "author": "Boy Scouts of America",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Walt_Disney_1946.JPG"
+      }
+    },
+    {
+      "id": "person-136",
+      "type": "person",
+      "level": "normal",
+      "topic": "예술가",
+      "prompt": "누구일까요?",
+      "hint": "ㅊㄹㅊㅍㄹ · 무성 영화 \"모던 타임스\"에 나온 희극 배우",
+      "answer": "찰리 채플린",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-136.webp",
+        "author": "Strauss-Peyton Studio",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Charlie_Chaplin_portrait_Getty_1739411952.jpg"
+      }
+    },
+    {
+      "id": "person-137",
+      "type": "person",
+      "level": "normal",
+      "topic": "예술가",
+      "prompt": "누구일까요?",
+      "hint": "ㅂㅈㅎ · 영화 \"기생충\"으로 아카데미 작품상을 받은 감독",
+      "answer": "봉준호",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-137.webp",
+        "author": "Kevin Paul",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Bong_Joon_Ho_-_Okja.jpg"
+      }
+    },
+    {
+      "id": "person-138",
+      "type": "person",
+      "level": "normal",
+      "topic": "예술가",
+      "prompt": "누구일까요?",
+      "hint": "ㅎㄱ · 노벨 문학상을 받은 소설가",
+      "answer": "한강",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-138.webp",
+        "author": "John Sears",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Han_Kang%2C_2024_Nobel_Prize_Laureate_in_Literature_%28cropped%29.jpg"
+      }
     }
   ]
 }
