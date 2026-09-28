@@ -64,6 +64,11 @@ const LEVELS = extract('LEVELS', /const LEVELS = \[([^\]]*)\];/, (m) =>
 const TOPICS = extract('TOPICS', /const TOPICS = \[([^\]]*)\];/, (m) =>
   [...m[1].matchAll(/'([^']+)'/g)].map((x) => x[1]));
 
+// 인물퀴즈는 낱말 주제 대신 자기 분야(가수·배우…)를 쓴다.
+const PERSON_TOPICS = extract('PERSON_TOPICS', /const PERSON_TOPICS = \[([^\]]*)\];/, (m) =>
+  [...m[1].matchAll(/'([^']+)'/g)].map((x) => x[1]));
+const topicsOf = (type) => (type === 'person' ? PERSON_TOPICS : TOPICS);
+
 if (errors.length) {
   for (const e of errors) console.error(`  ✗ ${e}`);
   process.exit(1);
@@ -80,14 +85,23 @@ const TARGET = {
   proverb:  { easy: 70, normal: 80, hard: 50 },   // 200
   idiom:    { easy: 50, normal: 70, hard: 60 },   // 180
   riddle:   { easy: 70, normal: 70, hard: 40 },   // 180
+  // 오락실 말놀이 (2026-09-28)
+  fourword: { easy: 60, normal: 60, hard: 30 },   // 150
+  // 인물 수는 자유 라이선스 사진이 있는 사람으로 정해진다 — 사진을 못 구하면 넣지 않는다.
+  person:   { easy: 47, normal: 45, hard: 43 },   // 135
 };
-const TOOL_TARGET = { chain: 120, gesture: 200 };
+const TOOL_TARGET = { chain: 120, gesture: 200, relay: 60 };
 const TOLERANCE = 0.15;   // 목표 대비 ±15%까지는 통과
 
 const QUIZ_REQUIRED = ['id', 'type', 'level', 'topic', 'prompt', 'hint', 'answer', 'also', 'note'];
 const TOOL_REQUIRED = ['id', 'type', 'level', 'word'];
 const PROMPT_MAX = 34;   // 전자칠판 한 화면에 읽히는 길이 (경고)
 const ANSWER_MAX = 20;
+
+// 인물 사진에 허용하는 라이선스. 모두 교실 화면·공개 사이트에 출처만 밝히면 쓸 수 있다.
+// 이 밖의 것(비상업 전용 NC, 변경 금지 ND, 각국 정부 라이선스 등)은 받지 않는다.
+const PHOTO_LICENSE = /^(CC0|Public domain|CC BY(-SA)? [1-4]\.0( [a-z]{2})?|KOGL Type 1)$/;
+const PHOTO_SOURCE = 'https://commons.wikimedia.org/wiki/File:';
 
 // 초성 'ㄹ' 로 시작하는 한글 음절 구간. 두음법칙 때문에 우리말에는 ㄹ 로
 // 시작하는 낱말이 거의 없어, 끝말잇기 시작 단어가 이렇게 끝나면 이어 갈 말이 없다.
@@ -131,6 +145,36 @@ const seenId = new Map();
 const seenAnswer = new Map();   // `${type}\u0000${answer}` → index
 const seenWord = new Map();     // 도구형 단어 중복
 
+const usedPhotos = new Set();
+function checkPhoto(where, photo) {
+  if (typeof photo !== 'object' || photo === null) {
+    err(`${where}: 인물퀴즈에는 photo 가 있어야 합니다 — 사진을 못 구한 인물은 넣지 않습니다.`);
+    return;
+  }
+  for (const k of ['file', 'author', 'license', 'source']) {
+    if (!nonEmpty(photo[k])) err(`${where}: photo.${k} 가 비어 있습니다.`);
+  }
+  for (const k of Object.keys(photo)) {
+    if (!['file', 'author', 'license', 'source'].includes(k)) err(`${where}: photo 에 알 수 없는 필드 '${k}'`);
+  }
+  if (nonEmpty(photo.license) && !PHOTO_LICENSE.test(photo.license)) {
+    err(`${where}: 허용하지 않는 사진 라이선스 '${photo.license}' — CC0·퍼블릭 도메인·CC BY·CC BY-SA·공공누리 1유형만 됩니다.`);
+  }
+  if (nonEmpty(photo.source) && !photo.source.startsWith(PHOTO_SOURCE)) {
+    err(`${where}: 사진 출처는 위키미디어 공용 파일 주소여야 합니다 — '${photo.source}'`);
+  }
+  if (nonEmpty(photo.file)) {
+    if (!/^assets\/people\/[\w-]+\.webp$/.test(photo.file)) {
+      err(`${where}: 사진 파일은 assets/people/<이름>.webp 여야 합니다 — '${photo.file}'`);
+    } else if (!fs.existsSync(path.join(ROOT, photo.file))) {
+      err(`${where}: 사진 파일이 없습니다 — ${photo.file}`);
+    } else if (usedPhotos.has(photo.file)) {
+      err(`${where}: 사진 ${photo.file} 을 다른 인물이 이미 씁니다.`);
+    }
+    usedPhotos.add(photo.file);
+  }
+}
+
 function checkSafety(where, text) {
   for (const why of violations(text)) {
     err(`${where}: 안전 기준 위반 — ${why}\n      "${text}"`);
@@ -160,6 +204,7 @@ data.items.forEach((it, i) => {
   const isQuiz = meta.kind === 'quiz';
   const required = isQuiz ? QUIZ_REQUIRED : TOOL_REQUIRED;
   const allowed = new Set(isQuiz ? QUIZ_REQUIRED : [...TOOL_REQUIRED, 'topic']);
+  if (it.type === 'person') allowed.add('photo');
 
   for (const k of required) {
     if (it[k] === undefined) err(`${where}: 필수 필드 '${k}' 누락`);
@@ -170,8 +215,8 @@ data.items.forEach((it, i) => {
 
   // 주제 — topics:true 인 유형만 값을 갖는다. 나머지 문항형은 반드시 null.
   if (meta.topics) {
-    if (!TOPICS.includes(it.topic)) {
-      err(`${where}: 알 수 없는 주제 '${it.topic}' (가능: ${TOPICS.join(', ')})`);
+    if (!topicsOf(it.type).includes(it.topic)) {
+      err(`${where}: 알 수 없는 주제 '${it.topic}' (가능: ${topicsOf(it.type).join(', ')})`);
     }
   } else if (isQuiz && it.topic !== null) {
     err(`${where}: 유형 '${it.type}' 은 주제를 갖지 않습니다 — topic 은 null 이어야 합니다.`);
@@ -219,6 +264,23 @@ data.items.forEach((it, i) => {
     if (it.type === 'idiom' && nonEmpty(it.answer) && it.answer.replace(/\s/g, '').length !== 4) {
       err(`${where}: 사자성어 정답은 네 글자여야 합니다 — '${it.answer}'`);
     }
+    // 4글자 이어말하기 — 앞 두 글자 + 빈칸, 답은 뒤 두 글자, 힌트는 답의 초성.
+    if (it.type === 'fourword') {
+      if (!/^[가-힣]{2}______$/.test(it.prompt)) {
+        err(`${where}: 4글자 prompt 는 '앞 두 글자 + ______' 여야 합니다 — '${it.prompt}'`);
+      }
+      if (!/^[가-힣]{2}$/.test(it.answer)) err(`${where}: 4글자 정답은 한글 두 글자여야 합니다 — '${it.answer}'`);
+      else if (it.hint !== choseongOf(it.answer)) {
+        err(`${where}: 힌트는 정답의 초성 '${choseongOf(it.answer)}' 이어야 합니다 — '${it.hint}'`);
+      }
+    }
+    // 인물퀴즈 — 힌트는 이름의 초성으로 시작한다(초성은 정답에서 기계적으로 나온다).
+    if (it.type === 'person' && nonEmpty(it.answer) && nonEmpty(it.hint)) {
+      const cho = choseongOf(it.answer);
+      if (cho && !it.hint.startsWith(`${cho} · `)) {
+        err(`${where}: 인물 힌트는 '${cho} · 설명' 으로 시작해야 합니다 — '${it.hint}'`);
+      }
+    }
     // 속담 이어말하기는 빈칸이 있어야 문제가 성립한다.
     if (it.type === 'proverb' && !it.prompt.includes('______')) {
       err(`${where}: 속담 prompt 에 빈칸(______, 언더바 6개)이 없습니다.`);
@@ -234,6 +296,9 @@ data.items.forEach((it, i) => {
     for (const f of ['prompt', 'hint', 'answer', 'note']) {
       if (nonEmpty(it[f])) checkSafety(`${where} ${f}`, it[f]);
     }
+
+    // 인물 사진 — 저작권이 걸린 사진이 배포되지 않도록 출처·라이선스를 강제한다.
+    if (it.type === 'person') checkPhoto(where, it.photo);
     for (const a of Array.isArray(it.also) ? it.also : []) {
       if (nonEmpty(a)) checkSafety(`${where} also`, a);
     }
@@ -247,6 +312,10 @@ data.items.forEach((it, i) => {
         err(`${where}: 단어 '${it.word}' 이 items[${seenWord.get(key)}] 와 같은 유형에서 중복됩니다.`);
       } else seenWord.set(key, i);
 
+      // 줄줄이 말해요의 제시어는 한글 한 글자다.
+      if (it.type === 'relay' && !/^[가-힣]$/.test(it.word)) {
+        err(`${where}: 줄줄이 말해요 제시어는 한글 한 글자여야 합니다 — '${it.word}'`);
+      }
       // 끝말잇기 시작 단어가 ㄹ 로 시작하는 글자로 끝나면 이을 말이 없다(두음법칙).
       if (it.type === 'chain') {
         const tail = it.word.codePointAt(it.word.length - 1);
@@ -282,7 +351,8 @@ for (const [type, want] of Object.entries(TARGET)) {
     }
   }
 }
-console.log(`    ─ 문항형 합계 ${quizTotal} (목표 800)`);
+const quizWant = Object.values(TARGET).reduce((a, t) => a + LEVELS.reduce((b, lv) => b + t[lv], 0), 0);
+console.log(`    — 문항형 합계 ${quizTotal} (목표 ${quizWant})`);
 
 for (const [type, want] of Object.entries(TOOL_TARGET)) {
   const n = data.items.filter((it) => it.type === type).length;
@@ -308,9 +378,17 @@ for (const [type, meta] of Object.entries(TYPE_META)) {
   const byTopic = {};
   for (const it of data.items) if (it.type === type) byTopic[it.topic] = (byTopic[it.topic] || 0) + 1;
   const skip = EXCLUDED_TOPICS[type] || [];
-  const empty = TOPICS.filter((tp) => !byTopic[tp] && !skip.includes(tp));
+  const empty = topicsOf(type).filter((tp) => !byTopic[tp] && !skip.includes(tp));
   if (empty.length && data.items.some((it) => it.type === type)) {
     warn(`유형 '${type}' 에 문항이 없는 주제: ${empty.join(', ')} — 그 주제 버튼은 화면에 뜨지 않습니다.`);
+  }
+}
+
+// 어느 인물도 쓰지 않는 사진 — 라이선스를 확인한 적 없는 파일이 배포되는 것을 막는다.
+const PEOPLE_DIR = path.join(ROOT, 'assets', 'people');
+if (fs.existsSync(PEOPLE_DIR)) {
+  for (const f of fs.readdirSync(PEOPLE_DIR)) {
+    if (!usedPhotos.has(`assets/people/${f}`)) err(`assets/people/${f}: 어느 인물도 쓰지 않는 사진입니다 — 지워 주세요.`);
   }
 }
 

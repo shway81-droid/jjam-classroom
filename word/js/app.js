@@ -19,10 +19,21 @@ const TYPES = {
   riddle: { label: '수수께끼', emoji: '❓', kind: 'quiz', topics: false, blurb: '수수께끼의 답을 외쳐요' },
   chain: { label: '끝말잇기 도우미', emoji: '🔗', kind: 'tool', topics: false, blurb: '차례와 시간을 화면이 맡아요' },
   gesture: { label: '몸으로 말해요', emoji: '🎭', kind: 'tool', topics: true, blurb: '단어 카드를 크게 띄워요' },
+  // 오락실 말놀이 — 예능에서 본 놀이를 교실로. 홈에서 세 번째 묶음에 선다(arcade).
+  fourword: { label: '4글자 이어말하기', emoji: '🔠', kind: 'quiz', topics: false, arcade: true, blurb: '앞 두 글자를 보고 뒤 두 글자를 외쳐요' },
+  person: { label: '인물퀴즈', emoji: '🧑', kind: 'quiz', topics: true, arcade: true, blurb: '사진을 보고 누구인지 외쳐요' },
+  relay: { label: '줄줄이 말해요', emoji: '🔁', kind: 'tool', topics: false, arcade: true, blurb: '그 글자로 시작하는 말을 차례로 외쳐요' },
 };
 
 const LEVELS = ['easy', 'normal', 'hard'];
 const TOPICS = ['동물', '음식', '학교물건', '직업', '나라', '자연', '탈것', '운동'];
+// 인물퀴즈는 낱말 주제와 겹치지 않는 자기 분야를 쓴다 — '동물' 인물은 없다.
+const PERSON_TOPICS = ['가수', '배우', '예능인', '운동선수', '역사 인물', '과학자', '예술가'];
+const topicsOf = (type) => (type === 'person' ? PERSON_TOPICS : TOPICS);
+
+// 끝말잇기와 줄줄이 말해요는 같은 판(차례·타이머·성공/탈락)을 쓴다. 제시어만 다르다.
+const ROUND_TYPES = ['chain', 'relay'];
+const ROUND_LABEL = { chain: '시작 단어', relay: '이 글자로 시작하는 말!' };
 const STATES = ['HOME', 'SETUP', 'PROMPT', 'HINT', 'ANSWER', 'CHAIN', 'GESTURE', 'DONE'];
 
 const LEVEL_LABEL = { all: '전체', easy: '쉬움', normal: '보통', hard: '어려움' };
@@ -125,8 +136,10 @@ function todayStr() {
 function renderHome() {
   const quiz = $('type-grid-quiz');
   const tool = $('type-grid-tool');
+  const arcade = $('type-grid-arcade');
   quiz.textContent = '';
   tool.textContent = '';
+  arcade.textContent = '';
 
   for (const [key, t] of Object.entries(TYPES)) {
     const btn = document.createElement('button');
@@ -139,7 +152,7 @@ function renderHome() {
     btn.querySelector('.type-label').textContent = t.label;
     btn.querySelector('.type-blurb').textContent = t.blurb;
     btn.addEventListener('click', () => openSetup(key));
-    (t.kind === 'quiz' ? quiz : tool).appendChild(btn);
+    (t.arcade ? arcade : t.kind === 'quiz' ? quiz : tool).appendChild(btn);
   }
 }
 
@@ -169,13 +182,15 @@ function openSetup(type) {
   const t = TYPES[type];
   $('setup-title').textContent = `${t.emoji} ${t.label}`;
 
-  const isChain = type === 'chain';
-  $('group-level').hidden = isChain;
+  // 끝말잇기 시작 단어는 난이도가 없다. 줄줄이 말해요는 글자에 따라 쉽고 어렵다.
+  const isRound = ROUND_TYPES.includes(type);
+  const hasLevel = type !== 'chain';
+  $('group-level').hidden = !hasLevel;
   $('group-topic').hidden = !t.topics;
-  $('group-groups').hidden = !isChain;
-  $('group-seconds').hidden = !isChain;
+  $('group-groups').hidden = !isRound;
+  $('group-seconds').hidden = !isRound;
 
-  if (!isChain) {
+  if (hasLevel) {
     const levelRow = $('opt-level');
     levelRow.textContent = '';
     for (const lv of ['all', ...LEVELS]) {
@@ -191,7 +206,7 @@ function openSetup(type) {
     topicRow.textContent = '';
     // 그 유형에 실제로 문항이 있는 주제만 보여 준다 — 고르고 나서 "0개"가 되면
     // 선생님이 이유를 알 수 없다.
-    const present = TOPICS.filter((tp) => candidates(state.items, { type, topic: tp }).length > 0);
+    const present = topicsOf(type).filter((tp) => candidates(state.items, { type, topic: tp }).length > 0);
     optionButton(topicRow, '전체', true, () => {
       state.topic = 'all';
       updateCount();
@@ -204,7 +219,7 @@ function openSetup(type) {
     }
   }
 
-  if (isChain) {
+  if (isRound) {
     const gRow = $('opt-groups');
     gRow.textContent = '';
     for (const g of GROUPS) {
@@ -227,9 +242,9 @@ function poolNow() {
 
 function updateCount() {
   const el = $('setup-count');
-  if (state.type === 'chain') {
-    const n = candidates(state.items, { type: 'chain' }).length;
-    el.textContent = `시작 단어 ${n}개 중에서 뽑아요.`;
+  if (ROUND_TYPES.includes(state.type)) {
+    const n = poolNow().length;
+    el.textContent = state.type === 'chain' ? `시작 단어 ${n}개 중에서 뽑아요.` : `제시 글자 ${n}개 중에서 뽑아요.`;
     el.classList.toggle('is-empty', n === 0);
     $('btn-start').disabled = n === 0;
     return;
@@ -283,6 +298,7 @@ function renderItem() {
   const prompt = $('quiz-prompt');
   prompt.textContent = it.prompt;
   prompt.dataset.len = lenClass(it.prompt);
+  renderPhoto(it);
   $('quiz-hint').textContent = it.hint;
   $('answer-text').textContent = it.answer;
   $('answer-text').hidden = false;   // 빈칸에 채운 문항에서는 정답을 아래에 또 띄우지 않는다
@@ -299,11 +315,39 @@ function renderItem() {
   $('quiz-count').textContent = `오늘 ${store.todayCount(todayStr())}문항`;
 }
 
+/* 인물퀴즈 사진. 한 번 본 사진만 오프라인 캐시에 남으므로(sw.js 가 미리 받지 않는다 —
+   사진을 다 받으면 첫 방문이 몇 MB 가 된다) 못 불러오는 때가 있다. 그때는 빈 사진틀을
+   두지 않고 힌트를 바로 연다 — 초성과 설명만으로도 맞힐 수 있다. */
+function renderPhoto(it) {
+  const img = $('quiz-photo');
+  const credit = $('answer-credit');
+  img.onerror = null;
+  if (!it.photo) {
+    img.hidden = true;
+    img.removeAttribute('src');
+    credit.hidden = true;
+    return;
+  }
+  img.hidden = false;
+  img.onerror = () => {
+    img.hidden = true;
+    if (state.item === it && state.stage === 'PROMPT') setStage('HINT');
+  };
+  img.src = it.photo.file;
+  // 자유 라이선스(CC BY·BY-SA)의 조건 — 저작자·라이선스·원본을 밝히고, 고친 것(크기)을 적는다.
+  const link = $('answer-credit-link');
+  link.href = it.photo.source;
+  link.textContent = `사진: ${it.photo.author} · ${it.photo.license} · 위키미디어 공용 (크기 조정)`;
+  credit.hidden = false;
+}
+
 function setStage(stage) {
   const entering = state.stage !== stage;
   state.stage = stage;
   if (stage === 'HINT') state.hintOpened = true;
   const showAnswer = stage === 'ANSWER';
+  // 단계에 따라 사진 크기가 바뀐다(css .quiz[data-stage]) — 힌트·정답이 쌓여도 한 화면에 든다.
+  $('screen-quiz').dataset.stage = stage;
 
   if (entering && stage === 'HINT') sound.hint();
   if (entering && stage === 'ANSWER') sound.reveal();
@@ -346,7 +390,7 @@ function finish() {
    화면은 각자의 모듈에서 그린다. 여기서는 어느 화면으로 보낼지만 정한다. */
 
 function startTool() {
-  if (state.type === 'chain') { startChain(); return; }
+  if (ROUND_TYPES.includes(state.type)) { startChain(); return; }
   state.cardCount = 0;
   nextCard();
 }
@@ -379,11 +423,12 @@ function nextCard() {
    차례와 남은 시간만 맡고, 성공·탈락은 교사의 딸깍으로 기록한다. */
 
 function startChain() {
-  const pool = candidates(state.items, { type: 'chain' });
-  const got = pickNext(pool, { recentIds: store.recentIds('chain') });
+  const type = state.type;
+  const got = pickNext(poolNow(), { recentIds: store.recentIds(type) });
   if (!got) { show('HOME'); return; }
-  if (got.exhausted) store.clearRecent('chain');
-  store.pushRecent('chain', got.item.id);
+  if (got.exhausted) store.clearRecent(type);
+  store.pushRecent(type, got.item.id);
+  $('chain-label').textContent = ROUND_LABEL[type];
 
   state.round = createRound({ word: got.item.word, groups: state.groups, seconds: state.seconds });
   state.paused = false;   // 지난 판을 멈춰 둔 채 나갔을 수 있다
