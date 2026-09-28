@@ -85,7 +85,7 @@ const TARGET = {
   proverb:  { easy: 70, normal: 80, hard: 50 },   // 200
   idiom:    { easy: 50, normal: 70, hard: 60 },   // 180
   riddle:   { easy: 70, normal: 70, hard: 40 },   // 180
-  // 오락실 말놀이 (2026-09-28)
+  // 지구오락실 말놀이 (2026-09-28)
   fourword: { easy: 60, normal: 60, hard: 30 },   // 150
   // 인물 수는 자유 라이선스 사진이 있는 사람으로 정해진다 — 사진을 못 구하면 넣지 않는다.
   person:   { easy: 47, normal: 45, hard: 43 },   // 135

@@ -19,7 +19,7 @@ const TYPES = {
   riddle: { label: '수수께끼', emoji: '❓', kind: 'quiz', topics: false, blurb: '수수께끼의 답을 외쳐요' },
   chain: { label: '끝말잇기 도우미', emoji: '🔗', kind: 'tool', topics: false, blurb: '차례와 시간을 화면이 맡아요' },
   gesture: { label: '몸으로 말해요', emoji: '🎭', kind: 'tool', topics: true, blurb: '단어 카드를 크게 띄워요' },
-  // 오락실 말놀이 — 예능에서 본 놀이를 교실로. 홈에서 세 번째 묶음에 선다(arcade).
+  // 지구오락실 말놀이 — 예능에서 본 놀이를 교실로. 홈에서 세 번째 묶음에 선다(arcade).
   fourword: { label: '4글자 이어말하기', emoji: '🔠', kind: 'quiz', topics: false, arcade: true, blurb: '앞 두 글자를 보고 뒤 두 글자를 외쳐요' },
   person: { label: '인물퀴즈', emoji: '🧑', kind: 'quiz', topics: true, arcade: true, blurb: '사진을 보고 누구인지 외쳐요' },
   relay: { label: '줄줄이 말해요', emoji: '🔁', kind: 'tool', topics: false, arcade: true, blurb: '그 글자로 시작하는 말을 차례로 외쳐요' },
@@ -69,6 +69,26 @@ function fillBlank(el, prompt, answer) {
   el.append(document.createTextNode(head), span, document.createTextNode(tail));
   // 채우고 나면 문장이 길어진다 — 글자 크기를 다시 계산해 한 화면에 담는다.
   el.dataset.len = lenClass(head + answer + tail);
+  return true;
+}
+
+// 4글자 이어말하기는 뒤가 딱 두 글자다. 속담용 빈칸(______)을 그대로 그리면
+// 밑줄이 길게 이어져 뒤에 글자가 많아 보인다 — 정답 글자 수만큼 한 칸씩 끊어 그린다.
+function slotBlank(el, prompt, count) {
+  const at = prompt.indexOf(BLANK);
+  if (at < 0) return false;
+  const slots = Array.from({ length: count }, () => {
+    const slot = document.createElement('span');
+    slot.className = 'slot';
+    slot.setAttribute('aria-hidden', 'true');
+    return slot;
+  });
+  el.textContent = '';
+  el.append(
+    document.createTextNode(prompt.slice(0, at)),
+    ...slots,
+    document.createTextNode(prompt.slice(at + BLANK.length)),
+  );
   return true;
 }
 
@@ -297,6 +317,7 @@ function renderItem() {
   $('quiz-topic').textContent = it.topic || '';
   const prompt = $('quiz-prompt');
   prompt.textContent = it.prompt;
+  if (it.type === 'fourword') slotBlank(prompt, it.prompt, [...it.answer].length);
   prompt.dataset.len = lenClass(it.prompt);
   renderPhoto(it);
   $('quiz-hint').textContent = it.hint;
