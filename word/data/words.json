@@ -15439,6 +15439,3556 @@
         "license": "CC BY-SA 4.0",
         "source": "https://commons.wikimedia.org/wiki/File:Han_Kang%2C_2024_Nobel_Prize_Laureate_in_Literature_%28cropped%29.jpg"
       }
+    },
+    {
+      "id": "opposite-001",
+      "type": "opposite",
+      "level": "easy",
+      "topic": null,
+      "prompt": "크다",
+      "hint": "ㅈㄷ",
+      "answer": "작다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-002",
+      "type": "opposite",
+      "level": "easy",
+      "topic": null,
+      "prompt": "길다",
+      "hint": "ㅉㄷ",
+      "answer": "짧다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-003",
+      "type": "opposite",
+      "level": "easy",
+      "topic": null,
+      "prompt": "많다",
+      "hint": "ㅈㄷ",
+      "answer": "적다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-004",
+      "type": "opposite",
+      "level": "easy",
+      "topic": null,
+      "prompt": "높다",
+      "hint": "ㄴㄷ",
+      "answer": "낮다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-005",
+      "type": "opposite",
+      "level": "easy",
+      "topic": null,
+      "prompt": "뜨겁다",
+      "hint": "ㅊㄱㄷ",
+      "answer": "차갑다",
+      "also": [
+        "차다"
+      ],
+      "note": ""
+    },
+    {
+      "id": "opposite-006",
+      "type": "opposite",
+      "level": "easy",
+      "topic": null,
+      "prompt": "무겁다",
+      "hint": "ㄱㅂㄷ",
+      "answer": "가볍다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-007",
+      "type": "opposite",
+      "level": "easy",
+      "topic": null,
+      "prompt": "넓다",
+      "hint": "ㅈㄷ",
+      "answer": "좁다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-008",
+      "type": "opposite",
+      "level": "easy",
+      "topic": null,
+      "prompt": "밝다",
+      "hint": "ㅇㄷㄷ",
+      "answer": "어둡다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-009",
+      "type": "opposite",
+      "level": "easy",
+      "topic": null,
+      "prompt": "빠르다",
+      "hint": "ㄴㄹㄷ",
+      "answer": "느리다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-010",
+      "type": "opposite",
+      "level": "easy",
+      "topic": null,
+      "prompt": "두껍다",
+      "hint": "ㅇㄷ",
+      "answer": "얇다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-011",
+      "type": "opposite",
+      "level": "easy",
+      "topic": null,
+      "prompt": "깨끗하다",
+      "hint": "ㄷㄹㄷ",
+      "answer": "더럽다",
+      "also": [
+        "지저분하다"
+      ],
+      "note": ""
+    },
+    {
+      "id": "opposite-012",
+      "type": "opposite",
+      "level": "easy",
+      "topic": null,
+      "prompt": "앞",
+      "hint": "ㄷ",
+      "answer": "뒤",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-013",
+      "type": "opposite",
+      "level": "easy",
+      "topic": null,
+      "prompt": "위",
+      "hint": "ㅇㄹ",
+      "answer": "아래",
+      "also": [
+        "밑"
+      ],
+      "note": ""
+    },
+    {
+      "id": "opposite-014",
+      "type": "opposite",
+      "level": "easy",
+      "topic": null,
+      "prompt": "안",
+      "hint": "ㅂ",
+      "answer": "밖",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-015",
+      "type": "opposite",
+      "level": "easy",
+      "topic": null,
+      "prompt": "왼쪽",
+      "hint": "ㅇㄹㅉ",
+      "answer": "오른쪽",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-016",
+      "type": "opposite",
+      "level": "easy",
+      "topic": null,
+      "prompt": "낮",
+      "hint": "ㅂ",
+      "answer": "밤",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-017",
+      "type": "opposite",
+      "level": "easy",
+      "topic": null,
+      "prompt": "여름",
+      "hint": "ㄱㅇ",
+      "answer": "겨울",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-018",
+      "type": "opposite",
+      "level": "easy",
+      "topic": null,
+      "prompt": "시작",
+      "hint": "ㄲ",
+      "answer": "끝",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-019",
+      "type": "opposite",
+      "level": "easy",
+      "topic": null,
+      "prompt": "들어가다",
+      "hint": "ㄴㅇㄷ",
+      "answer": "나오다",
+      "also": [
+        "나가다"
+      ],
+      "note": ""
+    },
+    {
+      "id": "opposite-020",
+      "type": "opposite",
+      "level": "easy",
+      "topic": null,
+      "prompt": "열다",
+      "hint": "ㄷㄷ",
+      "answer": "닫다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-021",
+      "type": "opposite",
+      "level": "easy",
+      "topic": null,
+      "prompt": "웃다",
+      "hint": "ㅇㄷ",
+      "answer": "울다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-022",
+      "type": "opposite",
+      "level": "easy",
+      "topic": null,
+      "prompt": "입다",
+      "hint": "ㅂㄷ",
+      "answer": "벗다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-023",
+      "type": "opposite",
+      "level": "easy",
+      "topic": null,
+      "prompt": "기쁘다",
+      "hint": "ㅅㅍㄷ",
+      "answer": "슬프다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-024",
+      "type": "opposite",
+      "level": "easy",
+      "topic": null,
+      "prompt": "굵다",
+      "hint": "ㄱㄴㄷ",
+      "answer": "가늘다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-025",
+      "type": "opposite",
+      "level": "easy",
+      "topic": null,
+      "prompt": "멀다",
+      "hint": "ㄱㄲㄷ",
+      "answer": "가깝다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-026",
+      "type": "opposite",
+      "level": "normal",
+      "topic": null,
+      "prompt": "출발",
+      "hint": "ㄷㅊ",
+      "answer": "도착",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-027",
+      "type": "opposite",
+      "level": "normal",
+      "topic": null,
+      "prompt": "입학",
+      "hint": "ㅈㅇ",
+      "answer": "졸업",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-028",
+      "type": "opposite",
+      "level": "normal",
+      "topic": null,
+      "prompt": "성공",
+      "hint": "ㅅㅍ",
+      "answer": "실패",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-029",
+      "type": "opposite",
+      "level": "normal",
+      "topic": null,
+      "prompt": "찬성",
+      "hint": "ㅂㄷ",
+      "answer": "반대",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-030",
+      "type": "opposite",
+      "level": "normal",
+      "topic": null,
+      "prompt": "질문",
+      "hint": "ㄷㄷ",
+      "answer": "대답",
+      "also": [
+        "답"
+      ],
+      "note": ""
+    },
+    {
+      "id": "opposite-031",
+      "type": "opposite",
+      "level": "normal",
+      "topic": null,
+      "prompt": "남쪽",
+      "hint": "ㅂㅉ",
+      "answer": "북쪽",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-032",
+      "type": "opposite",
+      "level": "normal",
+      "topic": null,
+      "prompt": "동쪽",
+      "hint": "ㅅㅉ",
+      "answer": "서쪽",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-033",
+      "type": "opposite",
+      "level": "normal",
+      "topic": null,
+      "prompt": "안전",
+      "hint": "ㅇㅎ",
+      "answer": "위험",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-034",
+      "type": "opposite",
+      "level": "normal",
+      "topic": null,
+      "prompt": "쉽다",
+      "hint": "ㅇㄹㄷ",
+      "answer": "어렵다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-035",
+      "type": "opposite",
+      "level": "normal",
+      "topic": null,
+      "prompt": "사다",
+      "hint": "ㅍㄷ",
+      "answer": "팔다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-036",
+      "type": "opposite",
+      "level": "normal",
+      "topic": null,
+      "prompt": "이기다",
+      "hint": "ㅈㄷ",
+      "answer": "지다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-037",
+      "type": "opposite",
+      "level": "normal",
+      "topic": null,
+      "prompt": "주다",
+      "hint": "ㅂㄷ",
+      "answer": "받다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-038",
+      "type": "opposite",
+      "level": "normal",
+      "topic": null,
+      "prompt": "켜다",
+      "hint": "ㄲㄷ",
+      "answer": "끄다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-039",
+      "type": "opposite",
+      "level": "normal",
+      "topic": null,
+      "prompt": "늘다",
+      "hint": "ㅈㄷ",
+      "answer": "줄다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-040",
+      "type": "opposite",
+      "level": "normal",
+      "topic": null,
+      "prompt": "더하다",
+      "hint": "ㅃㄷ",
+      "answer": "빼다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-041",
+      "type": "opposite",
+      "level": "normal",
+      "topic": null,
+      "prompt": "묶다",
+      "hint": "ㅍㄷ",
+      "answer": "풀다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-042",
+      "type": "opposite",
+      "level": "normal",
+      "topic": null,
+      "prompt": "채우다",
+      "hint": "ㅂㅇㄷ",
+      "answer": "비우다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-043",
+      "type": "opposite",
+      "level": "normal",
+      "topic": null,
+      "prompt": "부지런하다",
+      "hint": "ㄱㅇㄹㄷ",
+      "answer": "게으르다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-044",
+      "type": "opposite",
+      "level": "normal",
+      "topic": null,
+      "prompt": "올라가다",
+      "hint": "ㄴㄹㄱㄷ",
+      "answer": "내려가다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-045",
+      "type": "opposite",
+      "level": "normal",
+      "topic": null,
+      "prompt": "비싸다",
+      "hint": "ㅆㄷ",
+      "answer": "싸다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-046",
+      "type": "opposite",
+      "level": "hard",
+      "topic": null,
+      "prompt": "장점",
+      "hint": "ㄷㅈ",
+      "answer": "단점",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-047",
+      "type": "opposite",
+      "level": "hard",
+      "topic": null,
+      "prompt": "수입",
+      "hint": "ㅅㅊ",
+      "answer": "수출",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-048",
+      "type": "opposite",
+      "level": "hard",
+      "topic": null,
+      "prompt": "공격",
+      "hint": "ㅅㅂ",
+      "answer": "수비",
+      "also": [
+        "방어"
+      ],
+      "note": ""
+    },
+    {
+      "id": "opposite-049",
+      "type": "opposite",
+      "level": "hard",
+      "topic": null,
+      "prompt": "긍정",
+      "hint": "ㅂㅈ",
+      "answer": "부정",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-050",
+      "type": "opposite",
+      "level": "hard",
+      "topic": null,
+      "prompt": "증가",
+      "hint": "ㄱㅅ",
+      "answer": "감소",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-051",
+      "type": "opposite",
+      "level": "hard",
+      "topic": null,
+      "prompt": "확대",
+      "hint": "ㅊㅅ",
+      "answer": "축소",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-052",
+      "type": "opposite",
+      "level": "hard",
+      "topic": null,
+      "prompt": "원인",
+      "hint": "ㄱㄱ",
+      "answer": "결과",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-053",
+      "type": "opposite",
+      "level": "hard",
+      "topic": null,
+      "prompt": "생산",
+      "hint": "ㅅㅂ",
+      "answer": "소비",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-054",
+      "type": "opposite",
+      "level": "hard",
+      "topic": null,
+      "prompt": "입구",
+      "hint": "ㅊㄱ",
+      "answer": "출구",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-055",
+      "type": "opposite",
+      "level": "hard",
+      "topic": null,
+      "prompt": "낙관",
+      "hint": "ㅂㄱ",
+      "answer": "비관",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-056",
+      "type": "opposite",
+      "level": "hard",
+      "topic": null,
+      "prompt": "의무",
+      "hint": "ㄱㄹ",
+      "answer": "권리",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-057",
+      "type": "opposite",
+      "level": "hard",
+      "topic": null,
+      "prompt": "전진",
+      "hint": "ㅎㅈ",
+      "answer": "후진",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-058",
+      "type": "opposite",
+      "level": "hard",
+      "topic": null,
+      "prompt": "직접",
+      "hint": "ㄱㅈ",
+      "answer": "간접",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-059",
+      "type": "opposite",
+      "level": "hard",
+      "topic": null,
+      "prompt": "절약",
+      "hint": "ㄴㅂ",
+      "answer": "낭비",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "opposite-060",
+      "type": "opposite",
+      "level": "hard",
+      "topic": null,
+      "prompt": "상승",
+      "hint": "ㅎㄱ",
+      "answer": "하강",
+      "also": [
+        "하락"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-001",
+      "type": "mimetic",
+      "level": "easy",
+      "topic": null,
+      "prompt": "강아지가 ______ 짖어요",
+      "hint": "ㅁㅁ",
+      "answer": "멍멍",
+      "also": [
+        "왈왈"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-002",
+      "type": "mimetic",
+      "level": "easy",
+      "topic": null,
+      "prompt": "고양이가 ______ 울어요",
+      "hint": "ㅇㅇㅇㅇ",
+      "answer": "야옹야옹",
+      "also": [
+        "야옹"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-003",
+      "type": "mimetic",
+      "level": "easy",
+      "topic": null,
+      "prompt": "병아리가 ______ 울어요",
+      "hint": "ㅃㅇㅃㅇ",
+      "answer": "삐약삐약",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "mimetic-004",
+      "type": "mimetic",
+      "level": "easy",
+      "topic": null,
+      "prompt": "오리가 ______ 울어요",
+      "hint": "ㄲㄲ",
+      "answer": "꽥꽥",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "mimetic-005",
+      "type": "mimetic",
+      "level": "easy",
+      "topic": null,
+      "prompt": "돼지가 ______ 울어요",
+      "hint": "ㄲㄲ",
+      "answer": "꿀꿀",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "mimetic-006",
+      "type": "mimetic",
+      "level": "easy",
+      "topic": null,
+      "prompt": "소가 ______ 울어요",
+      "hint": "ㅇㅁ",
+      "answer": "음매",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "mimetic-007",
+      "type": "mimetic",
+      "level": "easy",
+      "topic": null,
+      "prompt": "개구리가 ______ 울어요",
+      "hint": "ㄱㄱㄱㄱ",
+      "answer": "개굴개굴",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "mimetic-008",
+      "type": "mimetic",
+      "level": "easy",
+      "topic": null,
+      "prompt": "비가 ______ 내려요",
+      "hint": "ㅈㄹㅈㄹ",
+      "answer": "주룩주룩",
+      "also": [
+        "주르륵"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-009",
+      "type": "mimetic",
+      "level": "easy",
+      "topic": null,
+      "prompt": "토끼가 ______ 뛰어요",
+      "hint": "ㄲㅊㄲㅊ",
+      "answer": "깡충깡충",
+      "also": [
+        "껑충껑충"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-010",
+      "type": "mimetic",
+      "level": "easy",
+      "topic": null,
+      "prompt": "별이 ______ 빛나요",
+      "hint": "ㅂㅉㅂㅉ",
+      "answer": "반짝반짝",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "mimetic-011",
+      "type": "mimetic",
+      "level": "easy",
+      "topic": null,
+      "prompt": "시계가 ______ 가요",
+      "hint": "ㄸㄸㄸㄸ",
+      "answer": "똑딱똑딱",
+      "also": [
+        "째깍째깍"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-012",
+      "type": "mimetic",
+      "level": "easy",
+      "topic": null,
+      "prompt": "문을 ______ 두드려요",
+      "hint": "ㄸㄸ",
+      "answer": "똑똑",
+      "also": [
+        "쾅쾅"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-013",
+      "type": "mimetic",
+      "level": "easy",
+      "topic": null,
+      "prompt": "아기가 ______ 웃어요",
+      "hint": "ㅂㄱㅂㄱ",
+      "answer": "방긋방긋",
+      "also": [
+        "방실방실",
+        "까르르"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-014",
+      "type": "mimetic",
+      "level": "easy",
+      "topic": null,
+      "prompt": "펭귄이 ______ 걸어요",
+      "hint": "ㄷㄸㄷㄸ",
+      "answer": "뒤뚱뒤뚱",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "mimetic-015",
+      "type": "mimetic",
+      "level": "easy",
+      "topic": null,
+      "prompt": "배에서 ______ 소리가 나요",
+      "hint": "ㄲㄹㄹ",
+      "answer": "꼬르륵",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "mimetic-016",
+      "type": "mimetic",
+      "level": "easy",
+      "topic": null,
+      "prompt": "눈이 ______ 내려요",
+      "hint": "ㅍㅍ",
+      "answer": "펑펑",
+      "also": [
+        "펄펄",
+        "소복소복"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-017",
+      "type": "mimetic",
+      "level": "easy",
+      "topic": null,
+      "prompt": "참새가 ______ 울어요",
+      "hint": "ㅉㅉ",
+      "answer": "짹짹",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "mimetic-018",
+      "type": "mimetic",
+      "level": "easy",
+      "topic": null,
+      "prompt": "닭이 ______ 울어요",
+      "hint": "ㄲㄲㅇ",
+      "answer": "꼬끼오",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "mimetic-019",
+      "type": "mimetic",
+      "level": "easy",
+      "topic": null,
+      "prompt": "바람이 ______ 불어요",
+      "hint": "ㅆㅆ",
+      "answer": "쌩쌩",
+      "also": [
+        "솔솔",
+        "살랑살랑"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-020",
+      "type": "mimetic",
+      "level": "easy",
+      "topic": null,
+      "prompt": "물을 ______ 마셔요",
+      "hint": "ㅂㅋㅂㅋ",
+      "answer": "벌컥벌컥",
+      "also": [
+        "꿀꺽꿀꺽"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-021",
+      "type": "mimetic",
+      "level": "easy",
+      "topic": null,
+      "prompt": "종이 ______ 울려요",
+      "hint": "ㄸㄸ",
+      "answer": "땡땡",
+      "also": [
+        "댕댕"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-022",
+      "type": "mimetic",
+      "level": "easy",
+      "topic": null,
+      "prompt": "거북이가 ______ 기어가요",
+      "hint": "ㅇㄱㅇㄱ",
+      "answer": "엉금엉금",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "mimetic-023",
+      "type": "mimetic",
+      "level": "easy",
+      "topic": null,
+      "prompt": "공이 ______ 굴러가요",
+      "hint": "ㄷㄱㄷㄱ",
+      "answer": "데굴데굴",
+      "also": [
+        "대굴대굴"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-024",
+      "type": "mimetic",
+      "level": "easy",
+      "topic": null,
+      "prompt": "아기가 ______ 잠을 자요",
+      "hint": "ㅅㄱㅅㄱ",
+      "answer": "새근새근",
+      "also": [
+        "쌔근쌔근"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-025",
+      "type": "mimetic",
+      "level": "easy",
+      "topic": null,
+      "prompt": "벌이 ______ 날아요",
+      "hint": "ㅇㅇ",
+      "answer": "윙윙",
+      "also": [
+        "붕붕"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-026",
+      "type": "mimetic",
+      "level": "normal",
+      "topic": null,
+      "prompt": "고양이가 ______ 다가가요",
+      "hint": "ㅅㄱㅅㄱ",
+      "answer": "살금살금",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "mimetic-027",
+      "type": "mimetic",
+      "level": "normal",
+      "topic": null,
+      "prompt": "나뭇잎이 ______ 떨어져요",
+      "hint": "ㅇㅅㅅ",
+      "answer": "우수수",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "mimetic-028",
+      "type": "mimetic",
+      "level": "normal",
+      "topic": null,
+      "prompt": "나비가 ______ 날아요",
+      "hint": "ㅍㄹㅍㄹ",
+      "answer": "팔랑팔랑",
+      "also": [
+        "훨훨",
+        "나풀나풀"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-029",
+      "type": "mimetic",
+      "level": "normal",
+      "topic": null,
+      "prompt": "가슴이 ______ 뛰어요",
+      "hint": "ㄷㄱㄷㄱ",
+      "answer": "두근두근",
+      "also": [
+        "콩닥콩닥"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-030",
+      "type": "mimetic",
+      "level": "normal",
+      "topic": null,
+      "prompt": "추워서 몸이 ______ 떨려요",
+      "hint": "ㄷㄷ",
+      "answer": "덜덜",
+      "also": [
+        "부들부들",
+        "오들오들"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-031",
+      "type": "mimetic",
+      "level": "normal",
+      "topic": null,
+      "prompt": "라면을 ______ 먹어요",
+      "hint": "ㅎㄹㄹ",
+      "answer": "후루룩",
+      "also": [
+        "호로록"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-032",
+      "type": "mimetic",
+      "level": "normal",
+      "topic": null,
+      "prompt": "사과를 ______ 깨물어요",
+      "hint": "ㅇㅅㅇㅅ",
+      "answer": "아삭아삭",
+      "also": [
+        "아삭"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-033",
+      "type": "mimetic",
+      "level": "normal",
+      "topic": null,
+      "prompt": "과자를 ______ 씹어요",
+      "hint": "ㅂㅅㅂㅅ",
+      "answer": "바삭바삭",
+      "also": [
+        "와삭와삭"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-034",
+      "type": "mimetic",
+      "level": "normal",
+      "topic": null,
+      "prompt": "풍선이 ______ 터졌어요",
+      "hint": "ㅍ",
+      "answer": "펑",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "mimetic-035",
+      "type": "mimetic",
+      "level": "normal",
+      "topic": null,
+      "prompt": "불이 ______ 타올라요",
+      "hint": "ㅎㅎ",
+      "answer": "활활",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "mimetic-036",
+      "type": "mimetic",
+      "level": "normal",
+      "topic": null,
+      "prompt": "물이 ______ 끓어요",
+      "hint": "ㅂㄱㅂㄱ",
+      "answer": "보글보글",
+      "also": [
+        "부글부글"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-037",
+      "type": "mimetic",
+      "level": "normal",
+      "topic": null,
+      "prompt": "친구와 ______ 이야기해요",
+      "hint": "ㅅㄱㅅㄱ",
+      "answer": "소곤소곤",
+      "also": [
+        "속닥속닥"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-038",
+      "type": "mimetic",
+      "level": "normal",
+      "topic": null,
+      "prompt": "봄비가 ______ 내려요",
+      "hint": "ㅂㅅㅂㅅ",
+      "answer": "보슬보슬",
+      "also": [
+        "부슬부슬"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-039",
+      "type": "mimetic",
+      "level": "normal",
+      "topic": null,
+      "prompt": "눈을 ______ 감았다 떠요",
+      "hint": "ㄲㅃ",
+      "answer": "깜빡",
+      "also": [
+        "끔뻑"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-040",
+      "type": "mimetic",
+      "level": "normal",
+      "topic": null,
+      "prompt": "개울물이 ______ 흘러요",
+      "hint": "ㅈㅈ",
+      "answer": "졸졸",
+      "also": [
+        "졸졸졸"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-041",
+      "type": "mimetic",
+      "level": "normal",
+      "topic": null,
+      "prompt": "구두 소리가 ______ 나요",
+      "hint": "ㄸㄱㄸㄱ",
+      "answer": "또각또각",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "mimetic-042",
+      "type": "mimetic",
+      "level": "normal",
+      "topic": null,
+      "prompt": "아이들이 ______ 웃어요",
+      "hint": "ㄲㄲ",
+      "answer": "깔깔",
+      "also": [
+        "하하",
+        "깔깔깔"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-043",
+      "type": "mimetic",
+      "level": "normal",
+      "topic": null,
+      "prompt": "방귀가 ______ 나왔어요",
+      "hint": "ㅃ",
+      "answer": "뿡",
+      "also": [
+        "뽕"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-044",
+      "type": "mimetic",
+      "level": "normal",
+      "topic": null,
+      "prompt": "코를 ______ 골아요",
+      "hint": "ㄷㄹㄹ",
+      "answer": "드르렁",
+      "also": [
+        "드르렁드르렁"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-045",
+      "type": "mimetic",
+      "level": "normal",
+      "topic": null,
+      "prompt": "깃발이 ______ 날려요",
+      "hint": "ㅍㄹㅍㄹ",
+      "answer": "펄럭펄럭",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "mimetic-046",
+      "type": "mimetic",
+      "level": "normal",
+      "topic": null,
+      "prompt": "문이 ______ 닫혔어요",
+      "hint": "ㅋ",
+      "answer": "쾅",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "mimetic-047",
+      "type": "mimetic",
+      "level": "hard",
+      "topic": null,
+      "prompt": "진흙에 발이 ______ 빠져요",
+      "hint": "ㅍㅍ",
+      "answer": "푹푹",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "mimetic-048",
+      "type": "mimetic",
+      "level": "hard",
+      "topic": null,
+      "prompt": "땀이 ______ 흘러요",
+      "hint": "ㅃㅃ",
+      "answer": "뻘뻘",
+      "also": [
+        "줄줄"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-049",
+      "type": "mimetic",
+      "level": "hard",
+      "topic": null,
+      "prompt": "머리를 ______ 긁어요",
+      "hint": "ㄱㅈㄱㅈ",
+      "answer": "긁적긁적",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "mimetic-050",
+      "type": "mimetic",
+      "level": "hard",
+      "topic": null,
+      "prompt": "눈물이 ______ 떨어져요",
+      "hint": "ㄸㄸ",
+      "answer": "뚝뚝",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "mimetic-051",
+      "type": "mimetic",
+      "level": "hard",
+      "topic": null,
+      "prompt": "부끄러워서 얼굴이 ______ 달아올라요",
+      "hint": "ㅎㄲ",
+      "answer": "화끈",
+      "also": [
+        "화끈화끈"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-052",
+      "type": "mimetic",
+      "level": "hard",
+      "topic": null,
+      "prompt": "화가 나서 숨을 ______ 쉬어요",
+      "hint": "ㅆㅆ",
+      "answer": "씩씩",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "mimetic-053",
+      "type": "mimetic",
+      "level": "hard",
+      "topic": null,
+      "prompt": "놀라서 입을 ______ 벌렸어요",
+      "hint": "ㄸ",
+      "answer": "떡",
+      "also": [
+        "쩍"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-054",
+      "type": "mimetic",
+      "level": "hard",
+      "topic": null,
+      "prompt": "옆 친구를 ______ 쳐다봐요",
+      "hint": "ㅎㄲㅎㄲ",
+      "answer": "힐끔힐끔",
+      "also": [
+        "힐끗",
+        "흘끔흘끔"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-055",
+      "type": "mimetic",
+      "level": "hard",
+      "topic": null,
+      "prompt": "고기가 ______ 구워져요",
+      "hint": "ㅈㄱㅈㄱ",
+      "answer": "지글지글",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "mimetic-056",
+      "type": "mimetic",
+      "level": "hard",
+      "topic": null,
+      "prompt": "소나기가 ______ 쏟아져요",
+      "hint": "ㅆ",
+      "answer": "쏴",
+      "also": [
+        "쏴아",
+        "좍좍"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-057",
+      "type": "mimetic",
+      "level": "hard",
+      "topic": null,
+      "prompt": "키가 ______ 자라요",
+      "hint": "ㅆㅆ",
+      "answer": "쑥쑥",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "mimetic-058",
+      "type": "mimetic",
+      "level": "hard",
+      "topic": null,
+      "prompt": "치즈가 ______ 늘어나요",
+      "hint": "ㅉㅉ",
+      "answer": "쭉쭉",
+      "also": [
+        "죽죽"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-059",
+      "type": "mimetic",
+      "level": "hard",
+      "topic": null,
+      "prompt": "넘어진 무릎이 ______ 쑤셔요",
+      "hint": "ㅇㅅㅇㅅ",
+      "answer": "욱신욱신",
+      "also": [
+        "쿡쿡"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-060",
+      "type": "mimetic",
+      "level": "hard",
+      "topic": null,
+      "prompt": "추워서 입술이 ______ 떨려요",
+      "hint": "ㅍㄹㄹ",
+      "answer": "파르르",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "mimetic-061",
+      "type": "mimetic",
+      "level": "hard",
+      "topic": null,
+      "prompt": "비눗방울이 ______ 떠올라요",
+      "hint": "ㄷㅅㄷㅅ",
+      "answer": "둥실둥실",
+      "also": [
+        "둥둥"
+      ],
+      "note": ""
+    },
+    {
+      "id": "mimetic-062",
+      "type": "mimetic",
+      "level": "hard",
+      "topic": null,
+      "prompt": "종이를 ______ 구겨요",
+      "hint": "ㄲㄱㄲㄱ",
+      "answer": "꼬깃꼬깃",
+      "also": [
+        "구깃구깃"
+      ],
+      "note": ""
+    },
+    {
+      "id": "spelling-001",
+      "type": "spelling",
+      "level": "easy",
+      "topic": null,
+      "prompt": "설겆이를 해요",
+      "hint": "끝 글자는 '지'예요",
+      "answer": "설거지를 해요",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-002",
+      "type": "spelling",
+      "level": "easy",
+      "topic": null,
+      "prompt": "떡볶기",
+      "hint": "먹을거리 이름은 '-이'로 끝날 때가 많아요",
+      "answer": "떡볶이",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-003",
+      "type": "spelling",
+      "level": "easy",
+      "topic": null,
+      "prompt": "김치찌게",
+      "hint": "끝 글자 모음을 살펴봐요",
+      "answer": "김치찌개",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-004",
+      "type": "spelling",
+      "level": "easy",
+      "topic": null,
+      "prompt": "베게를 베요",
+      "hint": "'베다'에 도구를 뜻하는 '-개'가 붙었어요",
+      "answer": "베개를 베요",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-005",
+      "type": "spelling",
+      "level": "easy",
+      "topic": null,
+      "prompt": "숫가락",
+      "hint": "첫 글자 받침이 'ㄷ'이에요",
+      "answer": "숟가락",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-006",
+      "type": "spelling",
+      "level": "easy",
+      "topic": null,
+      "prompt": "젖가락",
+      "hint": "첫 글자 받침이 'ㅅ'이에요",
+      "answer": "젓가락",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-007",
+      "type": "spelling",
+      "level": "easy",
+      "topic": null,
+      "prompt": "깨끗히 씻어요",
+      "hint": "'-히'가 아니라 '-이'예요",
+      "answer": "깨끗이 씻어요",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-008",
+      "type": "spelling",
+      "level": "easy",
+      "topic": null,
+      "prompt": "내가 할께요",
+      "hint": "소리는 [께]지만 적을 때는 예사소리예요",
+      "answer": "내가 할게요",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-009",
+      "type": "spelling",
+      "level": "easy",
+      "topic": null,
+      "prompt": "이렇게 하면 되요",
+      "hint": "'되어요'를 줄이면?",
+      "answer": "이렇게 하면 돼요",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-010",
+      "type": "spelling",
+      "level": "easy",
+      "topic": null,
+      "prompt": "깍뚜기",
+      "hint": "둘째 글자는 예사소리예요",
+      "answer": "깍두기",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-011",
+      "type": "spelling",
+      "level": "easy",
+      "topic": null,
+      "prompt": "눈꼽",
+      "hint": "'곱'은 끈끈한 물질이라는 뜻이에요",
+      "answer": "눈곱",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-012",
+      "type": "spelling",
+      "level": "easy",
+      "topic": null,
+      "prompt": "목거리",
+      "hint": "'걸다'에서 온 말이에요",
+      "answer": "목걸이",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-013",
+      "type": "spelling",
+      "level": "easy",
+      "topic": null,
+      "prompt": "연필깍기",
+      "hint": "'깎다'에서 온 말이에요",
+      "answer": "연필깎이",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-014",
+      "type": "spelling",
+      "level": "easy",
+      "topic": null,
+      "prompt": "꺼꾸로",
+      "hint": "첫 글자는 예사소리예요",
+      "answer": "거꾸로",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-015",
+      "type": "spelling",
+      "level": "easy",
+      "topic": null,
+      "prompt": "트름이 나와요",
+      "hint": "둘째 글자 모음을 살펴봐요",
+      "answer": "트림이 나와요",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-016",
+      "type": "spelling",
+      "level": "easy",
+      "topic": null,
+      "prompt": "풍선이 날라갔어요",
+      "hint": "'날다' + '가다'",
+      "answer": "풍선이 날아갔어요",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-017",
+      "type": "spelling",
+      "level": "easy",
+      "topic": null,
+      "prompt": "몇일 동안",
+      "hint": "'몇 일'로 나누지 않고 소리 나는 대로 적어요",
+      "answer": "며칠 동안",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-018",
+      "type": "spelling",
+      "level": "easy",
+      "topic": null,
+      "prompt": "오랫만이야",
+      "hint": "'오래간만'을 줄인 말이에요",
+      "answer": "오랜만이야",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-019",
+      "type": "spelling",
+      "level": "easy",
+      "topic": null,
+      "prompt": "이제 어떻해",
+      "hint": "'어떻게 해'를 줄인 말이에요",
+      "answer": "이제 어떡해",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-020",
+      "type": "spelling",
+      "level": "easy",
+      "topic": null,
+      "prompt": "개구장이",
+      "hint": "성질을 나타낼 때는 '-쟁이'",
+      "answer": "개구쟁이",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-021",
+      "type": "spelling",
+      "level": "easy",
+      "topic": null,
+      "prompt": "멋장이",
+      "hint": "성질을 나타낼 때는 '-쟁이'",
+      "answer": "멋쟁이",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-022",
+      "type": "spelling",
+      "level": "easy",
+      "topic": null,
+      "prompt": "솔직이 말해요",
+      "hint": "'-하다'가 붙는 말은 '-히'가 많아요",
+      "answer": "솔직히 말해요",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-023",
+      "type": "spelling",
+      "level": "normal",
+      "topic": null,
+      "prompt": "금새 끝났어",
+      "hint": "'금시에'가 줄어든 말이에요",
+      "answer": "금세 끝났어",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-024",
+      "type": "spelling",
+      "level": "normal",
+      "topic": null,
+      "prompt": "어의없다",
+      "hint": "'어처구니'와 같은 뜻의 말이에요",
+      "answer": "어이없다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-025",
+      "type": "spelling",
+      "level": "normal",
+      "topic": null,
+      "prompt": "왠일이야",
+      "hint": "'어찌 된'이라는 뜻의 말이에요",
+      "answer": "웬일이야",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-026",
+      "type": "spelling",
+      "level": "normal",
+      "topic": null,
+      "prompt": "내 역활",
+      "hint": "'하다'의 '할'과 같은 글자예요",
+      "answer": "내 역할",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-027",
+      "type": "spelling",
+      "level": "normal",
+      "topic": null,
+      "prompt": "곰곰히 생각해요",
+      "hint": "'-히'가 아니라 '-이'예요",
+      "answer": "곰곰이 생각해요",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-028",
+      "type": "spelling",
+      "level": "normal",
+      "topic": null,
+      "prompt": "일일히 세어요",
+      "hint": "'-히'가 아니라 '-이'예요",
+      "answer": "일일이 세어요",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-029",
+      "type": "spelling",
+      "level": "normal",
+      "topic": null,
+      "prompt": "틈틈히 연습해요",
+      "hint": "같은 말이 겹치면 '-이'예요",
+      "answer": "틈틈이 연습해요",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-030",
+      "type": "spelling",
+      "level": "normal",
+      "topic": null,
+      "prompt": "햇님",
+      "hint": "'님' 앞에는 사이시옷을 쓰지 않아요",
+      "answer": "해님",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-031",
+      "type": "spelling",
+      "level": "normal",
+      "topic": null,
+      "prompt": "윗층",
+      "hint": "뒤 글자가 거센소리면 사이시옷을 안 써요",
+      "answer": "위층",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-032",
+      "type": "spelling",
+      "level": "normal",
+      "topic": null,
+      "prompt": "뒷풀이",
+      "hint": "뒤 글자가 거센소리면 사이시옷을 안 써요",
+      "answer": "뒤풀이",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-033",
+      "type": "spelling",
+      "level": "normal",
+      "topic": null,
+      "prompt": "설레임",
+      "hint": "기본형은 '설레다'예요",
+      "answer": "설렘",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-034",
+      "type": "spelling",
+      "level": "normal",
+      "topic": null,
+      "prompt": "내 바램은",
+      "hint": "기본형은 '바라다'예요",
+      "answer": "내 바람은",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-035",
+      "type": "spelling",
+      "level": "normal",
+      "topic": null,
+      "prompt": "희안하다",
+      "hint": "둘째 글자 첫소리를 살펴봐요",
+      "answer": "희한하다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-036",
+      "type": "spelling",
+      "level": "normal",
+      "topic": null,
+      "prompt": "구지 안 해도 돼",
+      "hint": "'굳다'에서 온 말이에요",
+      "answer": "굳이 안 해도 돼",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-037",
+      "type": "spelling",
+      "level": "normal",
+      "topic": null,
+      "prompt": "내일 뵈요",
+      "hint": "'뵈어요'를 줄이면?",
+      "answer": "내일 봬요",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-038",
+      "type": "spelling",
+      "level": "normal",
+      "topic": null,
+      "prompt": "손가락으로 가르켜요",
+      "hint": "방향을 보일 때는 '가리키다'",
+      "answer": "손가락으로 가리켜요",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-039",
+      "type": "spelling",
+      "level": "normal",
+      "topic": null,
+      "prompt": "김치를 담궜어요",
+      "hint": "기본형은 '담그다'예요",
+      "answer": "김치를 담갔어요",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-040",
+      "type": "spelling",
+      "level": "normal",
+      "topic": null,
+      "prompt": "문을 잠궜어요",
+      "hint": "기본형은 '잠그다'예요",
+      "answer": "문을 잠갔어요",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-041",
+      "type": "spelling",
+      "level": "normal",
+      "topic": null,
+      "prompt": "통채로 먹어요",
+      "hint": "'그대로 전부'를 뜻하는 '-째'",
+      "answer": "통째로 먹어요",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-042",
+      "type": "spelling",
+      "level": "normal",
+      "topic": null,
+      "prompt": "하마트면 넘어질 뻔",
+      "hint": "셋째 글자 모음을 살펴봐요",
+      "answer": "하마터면 넘어질 뻔",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-043",
+      "type": "spelling",
+      "level": "normal",
+      "topic": null,
+      "prompt": "도데체 왜?",
+      "hint": "둘째 글자 모음을 살펴봐요",
+      "answer": "도대체 왜?",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-044",
+      "type": "spelling",
+      "level": "normal",
+      "topic": null,
+      "prompt": "눈이 싸였어요",
+      "hint": "기본형은 '쌓다'예요",
+      "answer": "눈이 쌓였어요",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-045",
+      "type": "spelling",
+      "level": "normal",
+      "topic": null,
+      "prompt": "꼼꼼이 살펴요",
+      "hint": "'-하다'가 붙는 말은 '-히'가 많아요",
+      "answer": "꼼꼼히 살펴요",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-046",
+      "type": "spelling",
+      "level": "normal",
+      "topic": null,
+      "prompt": "소근소근",
+      "hint": "둘째 글자 모음을 살펴봐요",
+      "answer": "소곤소곤",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-047",
+      "type": "spelling",
+      "level": "hard",
+      "topic": null,
+      "prompt": "위험을 무릎쓰고",
+      "hint": "몸의 '무릎'과는 상관없는 말이에요",
+      "answer": "위험을 무릅쓰고",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-048",
+      "type": "spelling",
+      "level": "hard",
+      "topic": null,
+      "prompt": "귀뜸해 줘",
+      "hint": "'띄우다'와 관련 있어요",
+      "answer": "귀띔해 줘",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-049",
+      "type": "spelling",
+      "level": "hard",
+      "topic": null,
+      "prompt": "어쨋든 좋아",
+      "hint": "'어찌했든'이 줄어든 말이에요",
+      "answer": "어쨌든 좋아",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-050",
+      "type": "spelling",
+      "level": "hard",
+      "topic": null,
+      "prompt": "비로서 알았어",
+      "hint": "끝 글자 모음을 살펴봐요",
+      "answer": "비로소 알았어",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-051",
+      "type": "spelling",
+      "level": "hard",
+      "topic": null,
+      "prompt": "주말엔 대게 쉬어요",
+      "hint": "'대게'는 바닷게 이름이에요",
+      "answer": "주말엔 대개 쉬어요",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-052",
+      "type": "spelling",
+      "level": "hard",
+      "topic": null,
+      "prompt": "제작년 여름",
+      "hint": "'다시'를 뜻하는 '재'예요",
+      "answer": "재작년 여름",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-053",
+      "type": "spelling",
+      "level": "hard",
+      "topic": null,
+      "prompt": "휴계실",
+      "hint": "'쉴 휴, 쉴 게'예요",
+      "answer": "휴게실",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-054",
+      "type": "spelling",
+      "level": "hard",
+      "topic": null,
+      "prompt": "출입구 폐쇠",
+      "hint": "'닫을 폐, 쇠사슬 쇄'예요",
+      "answer": "출입구 폐쇄",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-055",
+      "type": "spelling",
+      "level": "hard",
+      "topic": null,
+      "prompt": "알맞는 답",
+      "hint": "'알맞다'는 모양을 나타내는 말이에요",
+      "answer": "알맞은 답",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-056",
+      "type": "spelling",
+      "level": "hard",
+      "topic": null,
+      "prompt": "희노애락",
+      "hint": "소리 나는 대로 적는 한자어예요",
+      "answer": "희로애락",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-057",
+      "type": "spelling",
+      "level": "hard",
+      "topic": null,
+      "prompt": "넓다란 운동장",
+      "hint": "소리 나는 대로 적어요",
+      "answer": "널따란 운동장",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-058",
+      "type": "spelling",
+      "level": "hard",
+      "topic": null,
+      "prompt": "자장면 곱배기",
+      "hint": "둘째 글자는 된소리예요",
+      "answer": "자장면 곱빼기",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-059",
+      "type": "spelling",
+      "level": "hard",
+      "topic": null,
+      "prompt": "짜집기",
+      "hint": "'깁다'(꿰매다)에서 온 말이에요",
+      "answer": "짜깁기",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-060",
+      "type": "spelling",
+      "level": "hard",
+      "topic": null,
+      "prompt": "우뢰와 같은 박수",
+      "hint": "천둥을 뜻하는 고유어예요",
+      "answer": "우레와 같은 박수",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-061",
+      "type": "spelling",
+      "level": "hard",
+      "topic": null,
+      "prompt": "뛰는 것을 삼가해 주세요",
+      "hint": "기본형은 '삼가다'예요",
+      "answer": "뛰는 것을 삼가 주세요",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-062",
+      "type": "spelling",
+      "level": "hard",
+      "topic": null,
+      "prompt": "비밀이 들어났어",
+      "hint": "'들다'와 상관없는 말이에요",
+      "answer": "비밀이 드러났어",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-063",
+      "type": "spelling",
+      "level": "hard",
+      "topic": null,
+      "prompt": "엇그제 일",
+      "hint": "'어제그제'가 줄어든 말이에요",
+      "answer": "엊그제 일",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-064",
+      "type": "spelling",
+      "level": "hard",
+      "topic": null,
+      "prompt": "인삿말",
+      "hint": "소리가 덧나지 않으면 사이시옷을 안 써요",
+      "answer": "인사말",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-065",
+      "type": "spelling",
+      "level": "hard",
+      "topic": null,
+      "prompt": "책의 머릿말",
+      "hint": "소리가 덧나지 않으면 사이시옷을 안 써요",
+      "answer": "책의 머리말",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-066",
+      "type": "spelling",
+      "level": "hard",
+      "topic": null,
+      "prompt": "시험을 치뤘어요",
+      "hint": "기본형은 '치르다'예요",
+      "answer": "시험을 치렀어요",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-067",
+      "type": "spelling",
+      "level": "hard",
+      "topic": null,
+      "prompt": "얼굴이 핼쓱해",
+      "hint": "둘째 글자 모음을 살펴봐요",
+      "answer": "얼굴이 핼쑥해",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "spelling-068",
+      "type": "spelling",
+      "level": "hard",
+      "topic": null,
+      "prompt": "내노라하는 선수",
+      "hint": "'내가 바로 나다'라는 뜻이에요",
+      "answer": "내로라하는 선수",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-001",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "동물",
+      "prompt": "끼 코 리",
+      "hint": "코가 아주 길어요.",
+      "answer": "코끼리",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-002",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "동물",
+      "prompt": "랑 이 호",
+      "hint": "산에 사는 줄무늬 임금님이에요.",
+      "answer": "호랑이",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-003",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "동물",
+      "prompt": "강 지 아",
+      "hint": "멍멍 짖어요.",
+      "answer": "강아지",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-004",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "동물",
+      "prompt": "양 고 이",
+      "hint": "야옹 하고 울어요.",
+      "answer": "고양이",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-005",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "동물",
+      "prompt": "아 병 리",
+      "hint": "노란 솜털, 삐약삐약 울어요.",
+      "answer": "병아리",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-006",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "동물",
+      "prompt": "쥐 다 람",
+      "hint": "볼에 도토리를 넣고 다녀요.",
+      "answer": "다람쥐",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-007",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "동물",
+      "prompt": "원 이 숭",
+      "hint": "나무를 잘 타고 바나나를 좋아해요.",
+      "answer": "원숭이",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-008",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "동물",
+      "prompt": "북 거 이",
+      "hint": "등에 집을 지고 천천히 걸어요.",
+      "answer": "거북이",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-009",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "음식",
+      "prompt": "나 나 바",
+      "hint": "노랗고 길쭉해요. 원숭이가 좋아해요.",
+      "answer": "바나나",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-010",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "음식",
+      "prompt": "이 떡 볶",
+      "hint": "빨간 양념에 볶아 먹는 분식이에요.",
+      "answer": "떡볶이",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-011",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "학교물건",
+      "prompt": "개 우 지",
+      "hint": "틀린 글씨를 문질러 없어지게 해요.",
+      "answer": "지우개",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-012",
+      "type": "scramble",
+      "level": "hard",
+      "topic": "학교물건",
+      "prompt": "스 크 레 파",
+      "hint": "여러 색으로 그림을 그려요.",
+      "answer": "크레파스",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-013",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "학교물건",
+      "prompt": "내 실 화",
+      "hint": "교실에서만 신는 신발이에요.",
+      "answer": "실내화",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-014",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "동물",
+      "prompt": "알 라 코",
+      "hint": "나무에 매달려 잠을 많이 자요. 호주에 살아요.",
+      "answer": "코알라",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-015",
+      "type": "scramble",
+      "level": "hard",
+      "topic": "동물",
+      "prompt": "멜 레 온 카",
+      "hint": "몸 색을 바꿔 나뭇잎 사이에 숨어요.",
+      "answer": "카멜레온",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-016",
+      "type": "scramble",
+      "level": "hard",
+      "topic": "동물",
+      "prompt": "하 나 이 에",
+      "hint": "무리로 다니며 웃는 듯한 소리를 내요.",
+      "answer": "하이에나",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-017",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "음식",
+      "prompt": "역 국 미",
+      "hint": "생일에 끓여 먹어요.",
+      "answer": "미역국",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-018",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "음식",
+      "prompt": "빔 비 밥",
+      "hint": "여러 나물을 넣고 고추장에 섞어요.",
+      "answer": "비빔밥",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-019",
+      "type": "scramble",
+      "level": "hard",
+      "topic": "음식",
+      "prompt": "리 브 콜 로",
+      "hint": "초록색 작은 나무처럼 생긴 채소예요.",
+      "answer": "브로콜리",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-020",
+      "type": "scramble",
+      "level": "hard",
+      "topic": "음식",
+      "prompt": "플 인 애 파",
+      "hint": "겉이 거칠고 머리에 잎이 달린 열대 과일이에요.",
+      "answer": "파인애플",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-021",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "학교물건",
+      "prompt": "필 색 연",
+      "hint": "여러 색으로 칠하는 필기도구예요.",
+      "answer": "색연필",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-022",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "학교물건",
+      "prompt": "물 사 함",
+      "hint": "교실에서 내 물건을 넣어 두는 칸이에요.",
+      "answer": "사물함",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-023",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "학교물건",
+      "prompt": "삼 자 각",
+      "hint": "세모 모양으로 각도를 재요.",
+      "answer": "삼각자",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-024",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "학교물건",
+      "prompt": "미 경 현",
+      "hint": "아주 작은 것을 크게 볼 때 써요.",
+      "answer": "현미경",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-025",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "직업",
+      "prompt": "생 님 선",
+      "hint": "학교에서 공부를 가르쳐 주세요.",
+      "answer": "선생님",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-026",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "직업",
+      "prompt": "관 경 찰",
+      "hint": "위험한 일이 생기면 달려와 주세요.",
+      "answer": "경찰관",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-027",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "직업",
+      "prompt": "방 관 소",
+      "hint": "불을 끄고 사람을 구해요.",
+      "answer": "소방관",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-028",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "직업",
+      "prompt": "리 요 사",
+      "hint": "음식을 만드는 일을 해요.",
+      "answer": "요리사",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-029",
+      "type": "scramble",
+      "level": "hard",
+      "topic": "직업",
+      "prompt": "동 수 운 선",
+      "hint": "경기에 나가 뛰는 일을 해요.",
+      "answer": "운동선수",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-030",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "직업",
+      "prompt": "체 부 우",
+      "hint": "편지와 소포를 집으로 가져다줘요.",
+      "answer": "우체부",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-031",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "직업",
+      "prompt": "사 미 용",
+      "hint": "머리를 다듬어 주는 일을 해요.",
+      "answer": "미용사",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-032",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "직업",
+      "prompt": "의 사 수",
+      "hint": "아픈 동물을 치료해요.",
+      "answer": "수의사",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-033",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "직업",
+      "prompt": "사 종 조",
+      "hint": "비행기를 몰아요.",
+      "answer": "조종사",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-034",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "직업",
+      "prompt": "설 가 소",
+      "hint": "이야기를 써서 책을 만들어요.",
+      "answer": "소설가",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-035",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "나라",
+      "prompt": "프 스 랑",
+      "hint": "에펠탑이 있는 나라예요.",
+      "answer": "프랑스",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-036",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "나라",
+      "prompt": "다 캐 나",
+      "hint": "단풍잎이 국기에 있는 북쪽 나라예요.",
+      "answer": "캐나다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-037",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "나라",
+      "prompt": "라 질 브",
+      "hint": "아마존과 축구로 유명한 남아메리카 나라예요.",
+      "answer": "브라질",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-038",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "나라",
+      "prompt": "트 집 이",
+      "hint": "피라미드와 스핑크스가 있어요.",
+      "answer": "이집트",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-039",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "나라",
+      "prompt": "스 스 위",
+      "hint": "알프스 산과 시계로 유명해요.",
+      "answer": "스위스",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-040",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "나라",
+      "prompt": "코 멕 시",
+      "hint": "타코와 선인장으로 유명한 나라예요.",
+      "answer": "멕시코",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-041",
+      "type": "scramble",
+      "level": "hard",
+      "topic": "나라",
+      "prompt": "란 드 네 덜",
+      "hint": "풍차와 튤립으로 유명해요.",
+      "answer": "네덜란드",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-042",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "자연",
+      "prompt": "지 무 개",
+      "hint": "비 온 뒤 하늘에 뜨는 일곱 색 띠예요.",
+      "answer": "무지개",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-043",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "자연",
+      "prompt": "소 기 나",
+      "hint": "갑자기 쏟아지다 그치는 비예요.",
+      "answer": "소나기",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-044",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "자연",
+      "prompt": "라 오 로",
+      "hint": "북쪽 밤하늘에 커튼처럼 흐르는 빛이에요.",
+      "answer": "오로라",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-045",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "자연",
+      "prompt": "산 초 호",
+      "hint": "따뜻한 바다에 사는 알록달록한 바위 같은 것이에요.",
+      "answer": "산호초",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-046",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "자연",
+      "prompt": "유 종 석",
+      "hint": "동굴 천장에 고드름처럼 자라는 돌이에요.",
+      "answer": "종유석",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-047",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "탈것",
+      "prompt": "차 동 자",
+      "hint": "네 바퀴로 길을 달려요.",
+      "answer": "자동차",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-048",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "탈것",
+      "prompt": "구 차 급",
+      "hint": "아픈 사람을 태우고 소리를 내며 달려요.",
+      "answer": "구급차",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-049",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "탈것",
+      "prompt": "자 거 전",
+      "hint": "두 바퀴를 발로 밟아 움직여요.",
+      "answer": "자전거",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-050",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "탈것",
+      "prompt": "기 행 비",
+      "hint": "하늘을 날아 먼 곳으로 가요.",
+      "answer": "비행기",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-051",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "탈것",
+      "prompt": "선 객 여",
+      "hint": "사람을 태우고 바다를 건너요.",
+      "answer": "여객선",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-052",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "탈것",
+      "prompt": "철 하 지",
+      "hint": "땅 밑 길을 달려요.",
+      "answer": "지하철",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-053",
+      "type": "scramble",
+      "level": "hard",
+      "topic": "탈것",
+      "prompt": "이 토 오 바",
+      "hint": "두 바퀴에 엔진이 달렸어요.",
+      "answer": "오토바이",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-054",
+      "type": "scramble",
+      "level": "hard",
+      "topic": "탈것",
+      "prompt": "터 콥 헬 리",
+      "hint": "날개가 위에서 빙빙 돌아요.",
+      "answer": "헬리콥터",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-055",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "탈것",
+      "prompt": "수 함 잠",
+      "hint": "물속으로 들어가 다녀요.",
+      "answer": "잠수함",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-056",
+      "type": "scramble",
+      "level": "hard",
+      "topic": "탈것",
+      "prompt": "블 이 케 카",
+      "hint": "줄에 매달려 산을 올라가요.",
+      "answer": "케이블카",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-057",
+      "type": "scramble",
+      "level": "hard",
+      "topic": "탈것",
+      "prompt": "증 기 관 기 차",
+      "hint": "굴뚝에서 흰 연기를 내며 달렸던 옛 기차예요.",
+      "answer": "증기기관차",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-058",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "탈것",
+      "prompt": "기 구 열",
+      "hint": "뜨거운 공기로 하늘에 둥실 떠올라요.",
+      "answer": "열기구",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-059",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "운동",
+      "prompt": "권 태 도",
+      "hint": "우리나라에서 시작된 발차기 무술이에요.",
+      "answer": "태권도",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-060",
+      "type": "scramble",
+      "level": "hard",
+      "topic": "운동",
+      "prompt": "드 배 민 턴",
+      "hint": "깃털 달린 공을 채로 넘겨요.",
+      "answer": "배드민턴",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-061",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "운동",
+      "prompt": "줄 기 넘",
+      "hint": "줄을 돌리며 뛰어넘어요.",
+      "answer": "줄넘기",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-062",
+      "type": "scramble",
+      "level": "hard",
+      "topic": "운동",
+      "prompt": "스 이 트 케",
+      "hint": "얼음 위를 미끄러져 달려요.",
+      "answer": "스케이트",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-063",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "운동",
+      "prompt": "톤 마 라",
+      "hint": "아주 먼 거리를 오래 달려요.",
+      "answer": "마라톤",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-064",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "나라",
+      "prompt": "남 베 트",
+      "hint": "쌀국수가 유명한 동남아시아 나라예요.",
+      "answer": "베트남",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-065",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "나라",
+      "prompt": "시 러 아",
+      "hint": "세계에서 땅이 가장 넓어요.",
+      "answer": "러시아",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-066",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "나라",
+      "prompt": "페 스 인",
+      "hint": "축구와 플라멩코로 알려졌어요.",
+      "answer": "스페인",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-067",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "나라",
+      "prompt": "핀 필 리",
+      "hint": "섬이 칠천 개가 넘는 나라예요.",
+      "answer": "필리핀",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-068",
+      "type": "scramble",
+      "level": "hard",
+      "topic": "나라",
+      "prompt": "리 탈 이 아",
+      "hint": "장화 모양이고 피자로 유명해요.",
+      "answer": "이탈리아",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-069",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "나라",
+      "prompt": "리 스 그",
+      "hint": "올림픽이 처음 열린 나라예요.",
+      "answer": "그리스",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-070",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "나라",
+      "prompt": "드 란 핀",
+      "hint": "산타 마을과 오로라로 알려졌어요.",
+      "answer": "핀란드",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-071",
+      "type": "scramble",
+      "level": "hard",
+      "topic": "나라",
+      "prompt": "노 웨 르 이",
+      "hint": "좁고 깊은 바닷길 피오르가 있어요.",
+      "answer": "노르웨이",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-072",
+      "type": "scramble",
+      "level": "hard",
+      "topic": "나라",
+      "prompt": "나 티 아 르 헨",
+      "hint": "탱고 춤과 넓은 목장으로 알려졌어요.",
+      "answer": "아르헨티나",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-073",
+      "type": "scramble",
+      "level": "hard",
+      "topic": "나라",
+      "prompt": "아 스 트 오 리",
+      "hint": "음악가 모차르트가 태어난 나라예요.",
+      "answer": "오스트리아",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-074",
+      "type": "scramble",
+      "level": "hard",
+      "topic": "나라",
+      "prompt": "이 아 드 슬 란",
+      "hint": "불의 화산과 얼음이 함께 있어요.",
+      "answer": "아이슬란드",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-075",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "동물",
+      "prompt": "구 너 리",
+      "hint": "눈 둘레가 까매서 안경 쓴 것 같아요.",
+      "answer": "너구리",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-076",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "동물",
+      "prompt": "더 두 지",
+      "hint": "땅속에 굴을 파고 살아요.",
+      "answer": "두더지",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-077",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "동물",
+      "prompt": "챙 올 이",
+      "hint": "개구리가 되기 전 모습이에요.",
+      "answer": "올챙이",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-078",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "동물",
+      "prompt": "래 고 돌",
+      "hint": "바다에 사는데 물고기가 아니라 젖을 먹여요.",
+      "answer": "돌고래",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-079",
+      "type": "scramble",
+      "level": "hard",
+      "topic": "동물",
+      "prompt": "슴 치 도 고",
+      "hint": "등에 바늘 같은 가시가 촘촘해요.",
+      "answer": "고슴도치",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-080",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "동물",
+      "prompt": "자 잠 리",
+      "hint": "날개가 넉 장이고 눈이 아주 커요.",
+      "answer": "잠자리",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-081",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "동물",
+      "prompt": "캥 루 거",
+      "hint": "배에 주머니가 있고 껑충껑충 뛰어요.",
+      "answer": "캥거루",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-082",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "동물",
+      "prompt": "곰 극 북",
+      "hint": "얼음 위에 사는 하얀 곰이에요.",
+      "answer": "북극곰",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-083",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "운동",
+      "prompt": "드 핸 볼",
+      "hint": "손으로 공을 던져 골을 넣어요.",
+      "answer": "핸드볼",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-084",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "운동",
+      "prompt": "이 클 사",
+      "hint": "자전거로 빠르기를 겨뤄요.",
+      "answer": "사이클",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-085",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "운동",
+      "prompt": "레 링 슬",
+      "hint": "맞붙어 상대를 넘어뜨려요.",
+      "answer": "레슬링",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-086",
+      "type": "scramble",
+      "level": "hard",
+      "topic": "운동",
+      "prompt": "인 종 철 삼",
+      "hint": "수영과 자전거와 달리기를 이어서 해요.",
+      "answer": "철인삼종",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-087",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "음식",
+      "prompt": "마 구 고",
+      "hint": "달고 노란 속살, 구워 먹으면 맛있어요.",
+      "answer": "고구마",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-088",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "음식",
+      "prompt": "수 수 옥",
+      "hint": "알갱이가 줄지어 붙어 있어요.",
+      "answer": "옥수수",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-089",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "음식",
+      "prompt": "치 시 금",
+      "hint": "초록 잎채소, 힘이 세진다고들 해요.",
+      "answer": "시금치",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-090",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "음식",
+      "prompt": "토 도 리",
+      "hint": "다람쥐가 좋아하고 묵으로도 만들어요.",
+      "answer": "도토리",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-091",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "음식",
+      "prompt": "콜 초 릿",
+      "hint": "카카오로 만든 달콤한 갈색 간식이에요.",
+      "answer": "초콜릿",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-092",
+      "type": "scramble",
+      "level": "hard",
+      "topic": "음식",
+      "prompt": "아 림 스 크 이",
+      "hint": "차갑고 달아서 여름에 많이 먹어요.",
+      "answer": "아이스크림",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-093",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "자연",
+      "prompt": "은 수 하",
+      "hint": "밤하늘에 별이 강처럼 흐르듯 보여요.",
+      "answer": "은하수",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-094",
+      "type": "scramble",
+      "level": "hard",
+      "topic": "자연",
+      "prompt": "동 굴 회 석",
+      "hint": "물에 녹은 바위가 만든 굴이에요.",
+      "answer": "석회동굴",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-095",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "직업",
+      "prompt": "호 사 간",
+      "hint": "병원에서 아픈 사람을 돌봐요.",
+      "answer": "간호사",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-096",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "직업",
+      "prompt": "호 변 사",
+      "hint": "억울한 일을 대신 말해 줘요.",
+      "answer": "변호사",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-097",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "직업",
+      "prompt": "가 축 건",
+      "hint": "건물의 모양을 설계해요.",
+      "answer": "건축가",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-098",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "직업",
+      "prompt": "과 자 학",
+      "hint": "실험을 하며 모르는 것을 밝혀내요.",
+      "answer": "과학자",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-099",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "직업",
+      "prompt": "역 통 사",
+      "hint": "다른 나라 말을 옮겨 전해 줘요.",
+      "answer": "통역사",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-100",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "직업",
+      "prompt": "용 무 수",
+      "hint": "몸짓으로 이야기를 표현해요.",
+      "answer": "무용수",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-101",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "직업",
+      "prompt": "휘 지 자",
+      "hint": "악단 앞에서 손짓으로 이끌어요.",
+      "answer": "지휘자",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-102",
+      "type": "scramble",
+      "level": "hard",
+      "topic": "직업",
+      "prompt": "작 진 가 사",
+      "hint": "순간을 사진으로 남기는 사람이에요.",
+      "answer": "사진작가",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-103",
+      "type": "scramble",
+      "level": "hard",
+      "topic": "직업",
+      "prompt": "미 원 환 경 화",
+      "hint": "거리를 깨끗하게 치워 줘요.",
+      "answer": "환경미화원",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-104",
+      "type": "scramble",
+      "level": "hard",
+      "topic": "직업",
+      "prompt": "머 그 프 래 로",
+      "hint": "컴퓨터가 할 일을 글자로 적어 줘요.",
+      "answer": "프로그래머",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-105",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "탈것",
+      "prompt": "소 차 방",
+      "hint": "불을 끄러 빨갛게 달려가요.",
+      "answer": "소방차",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-106",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "탈것",
+      "prompt": "경 차 찰",
+      "hint": "사이렌을 울리며 출동해요.",
+      "answer": "경찰차",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-107",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "탈것",
+      "prompt": "청 차 소",
+      "hint": "거리의 쓰레기를 실어 가요.",
+      "answer": "청소차",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-108",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "탈것",
+      "prompt": "람 선 유",
+      "hint": "경치를 보며 타는 큰 배예요.",
+      "answer": "유람선",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-109",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "탈것",
+      "prompt": "지 차 게",
+      "hint": "무거운 짐을 앞으로 들어 올려요.",
+      "answer": "지게차",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-110",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "탈것",
+      "prompt": "터 스 쿠",
+      "hint": "발판이 있는 작은 오토바이예요.",
+      "answer": "스쿠터",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-111",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "탈것",
+      "prompt": "선 우 주",
+      "hint": "지구 밖으로 나가는 탈것이에요.",
+      "answer": "우주선",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-112",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "탈것",
+      "prompt": "굴 기 착",
+      "hint": "땅을 파는 팔이 달린 기계예요.",
+      "answer": "굴착기",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-113",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "탈것",
+      "prompt": "불 저 도",
+      "hint": "앞의 넓은 날로 흙을 밀어요.",
+      "answer": "불도저",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-114",
+      "type": "scramble",
+      "level": "hard",
+      "topic": "탈것",
+      "prompt": "모 노 일 레",
+      "hint": "한 줄 선로 위를 달려요.",
+      "answer": "모노레일",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-115",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "탈것",
+      "prompt": "선 쇄 빙",
+      "hint": "얼음을 깨며 나아가는 배예요.",
+      "answer": "쇄빙선",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-116",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "학교물건",
+      "prompt": "종 색 이",
+      "hint": "접어서 학이나 배를 만들어요.",
+      "answer": "색종이",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-117",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "학교물건",
+      "prompt": "산 계 기",
+      "hint": "숫자를 눌러 셈을 해 줘요.",
+      "answer": "계산기",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-118",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "학교물건",
+      "prompt": "사 펜 인",
+      "hint": "굵고 진하게 써지는 필기구예요.",
+      "answer": "사인펜",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-119",
+      "type": "scramble",
+      "level": "hard",
+      "topic": "학교물건",
+      "prompt": "케 북 스 치",
+      "hint": "그림 그리는 두꺼운 종이 묶음이에요.",
+      "answer": "스케치북",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-120",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "학교물건",
+      "prompt": "보 돋 기",
+      "hint": "작은 글씨를 크게 보여 줘요.",
+      "answer": "돋보기",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-121",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "학교물건",
+      "prompt": "컴 터 퓨",
+      "hint": "자판을 두드려 글을 쓰고 그림도 그려요.",
+      "answer": "컴퓨터",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-122",
+      "type": "scramble",
+      "level": "normal",
+      "topic": "학교물건",
+      "prompt": "터 린 프",
+      "hint": "화면에 있는 것을 종이로 뽑아 줘요.",
+      "answer": "프린터",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-123",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "학교물건",
+      "prompt": "팔 트 레",
+      "hint": "물감을 짜서 섞는 판이에요.",
+      "answer": "팔레트",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "scramble-124",
+      "type": "scramble",
+      "level": "easy",
+      "topic": "학교물건",
+      "prompt": "경 대 확",
+      "hint": "작은 것을 크게 보는 도구예요.",
+      "answer": "확대경",
+      "also": [],
+      "note": ""
     }
   ]
 }
