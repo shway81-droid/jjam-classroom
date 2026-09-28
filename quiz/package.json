@@ -8,7 +8,7 @@
     "gen:icons": "node scripts/gen-icons.mjs",
     "verify": "node scripts/verify-all.js",
     "verify:browser": "node scripts/browser-verify.js",
-    "test": "node scripts/gen-metadata.js --check && node scripts/check-font-coverage.mjs && node scripts/verify-all.js"
+    "test": "node --test scripts/sw.test.mjs && node scripts/gen-metadata.js --check && node scripts/check-font-coverage.mjs && node scripts/verify-all.js"
   },
   "license": "MIT",
   "devDependencies": {
