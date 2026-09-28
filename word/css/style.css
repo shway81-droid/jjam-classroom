@@ -486,7 +486,7 @@ body.is-over .topbar { background: var(--accent-deep); }
    교사는 [성공]·[탈락] 두 버튼만 본다. */
 .chain-label, .gesture-topic { font-size: 1rem; font-weight: 800; color: var(--ink-soft); }
 .chain-word {
-  font-size: clamp(3.4rem, 14vw, 11rem);
+  font-size: clamp(3.4rem, min(14vw, 17vh), 11rem);
   font-weight: 900;
   line-height: 1.1;
   letter-spacing: 0.02em;
@@ -509,7 +509,7 @@ body.is-over .topbar { background: var(--accent-deep); }
   place-items: center;
   /* 세로도 함께 본다 — 링만 커지고 아래 [성공]·[탈락]이 화면 밖으로 밀리면 안 된다.
      전자칠판은 넓지만 교탁 노트북 화면은 낮다. */
-  width: clamp(5.4rem, min(16vw, 17vh), 11rem);
+  width: clamp(5.4rem, min(16vw, 14vh), 11rem);
   aspect-ratio: 1;
   border-radius: 50%;
   background: conic-gradient(
@@ -553,6 +553,10 @@ body.is-over .topbar { background: var(--accent-deep); }
 }
 
 .chain-log { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; max-width: 42rem; }
+/* 낱말을 적으면 기록이 길어진다 — 한 줄만 두고 넘치는 앞쪽은 가린다(최근 것만 js 가 넣는다).
+   기록이 줄을 늘리면 [성공]·[탈락]이 화면 밖으로 밀린다. */
+.chain-log { flex-wrap: nowrap; overflow: hidden; max-width: min(56rem, 94vw); }
+.chain-log-item { white-space: nowrap; }
 .chain-log-item {
   font-size: 0.94rem;
   font-weight: 700;
@@ -563,12 +567,58 @@ body.is-over .topbar { background: var(--accent-deep); }
 }
 .chain-log-item.is-out { background: var(--accent-soft); color: var(--accent-deep); }
 
+/* 다음 글자 — 방금 나온 말 바로 아래. 두음법칙으로 바뀐 글자도 함께 띄운다(력 · 역). */
+.chain-next {
+  font-size: clamp(1.2rem, 2.8vw, 2rem);
+  font-weight: 800;
+  color: var(--accent-deep);
+  margin-top: -0.4rem;
+}
+
+/* 낱말 적기 — 쓰고 싶을 때만. 버튼보다 앞에 두되 눈에 덜 띄게. */
+.chain-entry { position: relative; display: flex; flex-direction: column; align-items: center; width: min(30rem, 92%); }
+.chain-input {
+  width: 100%;
+  font: inherit;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--outline-variant);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--ink);
+}
+.chain-input::placeholder { color: var(--ink-soft); font-weight: 500; font-size: 1rem; }
+.chain-input:focus { outline: none; border-color: var(--accent); }
+.chain-warn {
+  /* 입력칸 바로 위, 기록 줄에 겹쳐 뜬다 — 경고가 줄을 차지하면 버튼이 밀린다. */
+  position: absolute;
+  bottom: calc(100% + 0.3rem);
+  white-space: nowrap;
+  z-index: 1;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent-deep);
+  background: var(--accent-soft);
+  padding: 0.25rem 0.9rem;
+  border-radius: var(--radius-pill);
+}
+
 /* 교탁 노트북처럼 낮은 화면 — 시작 단어와 간격을 조금 내주고 [성공]·[탈락]을 지킨다.
    판정 버튼이 화면 밖으로 밀리면 도우미가 아니라 방해물이 된다. */
 @media (max-height: 860px) {
-  .chain { gap: 0.6rem; padding-top: 3rem; }
-  .chain-word { font-size: clamp(3rem, 11vw, 8rem); }
+  .chain { gap: 0.45rem; padding-top: 3rem; }
+  /* 낱말 적기 칸이 들어오면서 한 화면에 담을 것이 늘었다 — 낱말·링을 화면 높이에 맞춘다. */
+  .chain-word { font-size: clamp(2.6rem, min(11vw, 14vh), 8rem); }
+  .chain-turn { font-size: clamp(1.2rem, 3.4vh, 2rem); padding: 0.2rem 1.2rem; }
+  .chain-clock { width: clamp(4.6rem, min(16vw, 13vh), 11rem); }
+  .chain-timer { font-size: clamp(1.6rem, min(6.4vw, 5.4vh), 4.6rem); }
+  .chain-next { margin-top: -0.2rem; }
+  .chain-input { font-size: 1.1rem; padding: 0.35rem 1rem; }
 }
+/* 넘칠 때는 위에서부터 쌓는다 — 가운데 맞춤이 넘치면 맨 위 낱말이 머리띠 밑으로 잘린다. */
+.chain { justify-content: safe center; }
 
 /* —— 몸으로 말해요 — 한 명만 화면을 등지고 맞힌다. 단어가 화면의 절반이다. —— */
 .gesture-word {

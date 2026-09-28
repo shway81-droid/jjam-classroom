@@ -122,3 +122,68 @@ test('시작 단어 120개는 모두 이어 갈 수 있는 끝 글자다', () =>
   assert.deepEqual(bad.map((b) => b.word), []);
   assert.equal(new Set(chain.map((c) => c.word)).size, 120, '단어 중복 없음');
 });
+
+// ── 낱말 적기 (2026-09-28) ──
+// 교사가 원할 때만 적는다. 적으면 화면의 낱말이 바뀌고 다음 글자가 따라온다.
+import { heads, currentWord, nextHeads, checkWord } from '../js/chain.js';
+
+test('advance(ok, 낱말): 적은 낱말이 기록되고 화면 낱말이 된다', () => {
+  const r = advance(createRound({ word: '기차', groups: 4, seconds: 10 }), 'ok', '차표');
+  assert.deepEqual(r.log, [{ turn: 1, result: 'ok', word: '차표' }]);
+  assert.deepEqual(r.words, ['기차', '차표']);
+  assert.equal(currentWord(r), '차표');
+  assert.deepEqual(nextHeads(r), ['표']);
+});
+
+test('advance(ok): 안 적으면 예전처럼 차례만 넘어간다', () => {
+  const r = advance(createRound({ word: '기차', groups: 4, seconds: 10 }), 'ok');
+  assert.deepEqual(r.log, [{ turn: 1, result: 'ok' }]);
+  assert.equal(currentWord(r), '기차');
+});
+
+test('advance(out, 낱말): 탈락한 차례의 낱말은 남기지 않는다', () => {
+  const r = advance(createRound({ word: '기차', groups: 4, seconds: 10 }), 'out', '차표');
+  assert.deepEqual(r.log, [{ turn: 1, result: 'out' }]);
+  assert.deepEqual(r.words, ['기차']);
+});
+
+test('heads: 두음법칙 — ㄹ·ㄴ 으로 시작하는 글자는 바뀐 글자도 받는다', () => {
+  assert.deepEqual(heads('력'), ['력', '역']);
+  assert.deepEqual(heads('락'), ['락', '낙']);
+  assert.deepEqual(heads('로'), ['로', '노']);
+  assert.deepEqual(heads('리'), ['리', '이']);
+  assert.deepEqual(heads('녀'), ['녀', '여']);
+  assert.deepEqual(heads('니'), ['니', '이']);
+  assert.deepEqual(heads('나'), ['나']);
+  assert.deepEqual(heads('차'), ['차']);
+});
+
+test('checkWord: 걸리는 점을 알려 준다', () => {
+  const r = createRound({ word: '기차', groups: 4, seconds: 10 });
+  assert.equal(checkWord(r, '차표'), null);
+  assert.equal(checkWord(r, ' 차 표 '), null);
+  assert.equal(checkWord(r, '사과'), 'head');
+  assert.equal(checkWord(r, '차'), 'short');
+  assert.equal(checkWord(r, 'car'), 'hangul');
+  const r2 = advance(advance(r, 'ok', '차기'), 'ok', '기차');
+  assert.equal(checkWord(r2, '차기'), 'used');
+  // 시작 단어도 이미 나온 말이다
+  assert.equal(checkWord(advance(r, 'ok', '차기'), '기차'), 'used');
+});
+
+test('checkWord: 두음법칙으로 바꾼 첫 글자를 받는다', () => {
+  const r = advance(createRound({ word: '기차', groups: 4, seconds: 10 }), 'ok', '차력');
+  assert.equal(checkWord(r, '역사'), null);
+  assert.equal(checkWord(r, '력사'), null);
+});
+
+test('줄줄이 말해요: 모두 제시 글자로 시작하고 화면 낱말은 제시 글자 그대로다', () => {
+  let r = createRound({ word: '가', groups: 3, seconds: 10, mode: 'relay' });
+  assert.deepEqual(r.words, []);
+  assert.equal(checkWord(r, '가방'), null);
+  r = advance(r, 'ok', '가방');
+  assert.equal(currentWord(r), '가');
+  assert.deepEqual(nextHeads(r), ['가']);
+  assert.equal(checkWord(r, '방석'), 'head');
+  assert.equal(checkWord(r, '가방'), 'used');
+});

@@ -137,6 +137,7 @@
     <section id="screen-chain" class="screen chain" hidden>
       <p class="chain-label" id="chain-label">시작 단어</p>
       <p class="chain-word" id="chain-word"></p>
+      <p class="chain-next" id="chain-next" hidden></p>
       <p class="chain-turn" id="chain-turn" role="status"></p>
       <!-- 남은 시간 — 줄어드는 링 안에 숫자. 뒷자리에서는 숫자보다 호가 먼저 읽힌다.
            0이 되어도 판을 자동으로 끝내지 않는다(js/chain.js expire 참고). -->
@@ -144,6 +145,13 @@
         <div class="chain-timer" id="chain-timer" role="timer" aria-label="남은 시간">0</div>
       </div>
       <div class="chain-log" id="chain-log" aria-label="지나간 차례"></div>
+      <!-- 낱말 적기 — 적고 싶을 때만. 비워 두고 [성공]·Space 만 눌러도 예전처럼 흐른다.
+           걸리는 점(첫 글자·이미 나온 말)은 알려 주기만 하고, Enter 를 한 번 더 누르면 인정한다. -->
+      <div class="chain-entry" id="chain-entry">
+        <input class="chain-input" id="chain-input" type="text" autocomplete="off" spellcheck="false"
+               enterkeyhint="done" placeholder="말한 낱말을 적고 Enter (안 적어도 돼요)" aria-label="말한 낱말">
+        <p class="chain-warn" id="chain-warn" role="alert" hidden></p>
+      </div>
       <div class="chain-actions">
         <button class="btn btn-primary btn-big" id="btn-chain-ok" type="button">성공 <kbd>Space</kbd></button>
         <button class="btn btn-ghost btn-big" id="btn-chain-out" type="button">탈락</button>
