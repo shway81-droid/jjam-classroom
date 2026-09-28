@@ -2,7 +2,7 @@
 
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const TOTAL_ROUNDS  = 5;
 const WAIT_MIN_MS   = 1000;
 const WAIT_MAX_MS   = 4000;
@@ -14,7 +14,7 @@ const PLAYER_CONFIG = [
   { label: 'P4', icon: '🟣', colorClass: 'p-purple', hex: '#6A1B9A' },
 ];
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const sound = createSoundManager({
   beep(ctx) {
     // Short metronome tick: low-pitched beep during wait phase
@@ -96,7 +96,7 @@ const sound = createSoundManager({
   },
 });
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let playerCount = 2;
 let currentRound = 0;
 let scores       = [];       // wins per player
@@ -107,7 +107,7 @@ let tickInterval = null;
 let nextRoundTimer = null;
 let roundActive  = false;
 
-// ── DOM references ───────────────────────────────────────────
+// -- DOM references -------------------------------------------
 const introScreen     = document.getElementById('introScreen');
 const countdownScreen = document.getElementById('countdownScreen');
 const countdownNumber = document.getElementById('countdownNumber');
@@ -133,7 +133,7 @@ const resultTableHead = document.getElementById('resultTableHead');
 const resultTableBody = document.getElementById('resultTableBody');
 const totalRow     = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function showScreen(screen) {
   [introScreen, countdownScreen, gameScreen, resultScreen].forEach(s => s.classList.remove('active'));
   screen.classList.add('active');
@@ -153,7 +153,7 @@ function updateSoundToggle(btn) {
   btn.textContent = sound.isMuted() ? '🔇' : '🔊';
 }
 
-// ── Sound Toggle ─────────────────────────────────────────────
+// -- Sound Toggle ---------------------------------------------
 [soundToggleIntro].forEach(btn => {
   onTap(btn, () => {
     sound.toggleMute();
@@ -162,10 +162,10 @@ function updateSoundToggle(btn) {
   updateSoundToggle(btn);
 });
 
-// ── Player count selection ───────────────────────────────────
+// -- Player count selection -----------------------------------
 setupPlayerSelect(function (n) { playerCount = n; });
 
-// ── Back / Home ──────────────────────────────────────────────
+// -- Back / Home ----------------------------------------------
 onTap(backBtn, () => goHome());
 onTap(closeBtn, () => {
   clearWaitTimer();
@@ -174,10 +174,10 @@ onTap(closeBtn, () => {
 onTap(homeBtn, () => goHome());
 onTap(retryBtn, () => startGame());
 
-// ── PLAY button ──────────────────────────────────────────────
+// -- PLAY button ----------------------------------------------
 onTap(playBtn, () => startCountdown(() => startGame()));
 
-// ── Build zone grid ──────────────────────────────────────────
+// -- Build zone grid ------------------------------------------
 function buildZones() {
   zonesWrap.innerHTML = '';
   zonesWrap.className = `zones-wrap p${playerCount}`;
@@ -202,7 +202,7 @@ function getZone(idx) {
   return zonesWrap.querySelector(`.zone[data-player="${idx}"]`);
 }
 
-// ── Ripple visual ────────────────────────────────────────────
+// -- Ripple visual --------------------------------------------
 function spawnRipple(zone, e) {
   const rect   = zone.getBoundingClientRect();
   const touch  = e.touches ? e.touches[0] : e;
@@ -218,7 +218,7 @@ function spawnRipple(zone, e) {
   ripple.addEventListener('animationend', () => ripple.remove());
 }
 
-// ── Zone tap handler ─────────────────────────────────────────
+// -- Zone tap handler -----------------------------------------
 function handleZoneTap(playerIdx, zone, e) {
   if (!roundActive) return;
 
@@ -237,7 +237,7 @@ function handleZoneTap(playerIdx, zone, e) {
   }
 }
 
-// ── Disqualify a player ──────────────────────────────────────
+// -- Disqualify a player --------------------------------------
 // Track which players are DQ'd this round
 let roundDQ = new Set();
 
@@ -255,7 +255,7 @@ function disqualifyPlayer(idx, zone) {
   }
 }
 
-// ── Game flow ────────────────────────────────────────────────
+// -- Game flow ------------------------------------------------
 function startGame() {
   scores       = new Array(playerCount).fill(0);
   roundResults = [];
@@ -391,7 +391,7 @@ function scheduleNextOrEnd() {
   }, 1800);
 }
 
-// ── Zone state helpers ───────────────────────────────────────
+// -- Zone state helpers ---------------------------------------
 function setAllZoneState(stateClass) {
   for (let i = 0; i < playerCount; i++) {
     const z = getZone(i);
@@ -416,7 +416,7 @@ function setStatusText(text, isGo) {
   }
 }
 
-// ── Result screen ────────────────────────────────────────────
+// -- Result screen --------------------------------------------
 function showResult() {
   sound.play('fanfare');
 

@@ -2,7 +2,7 @@
 
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const TOTAL_ROUNDS    = 8;
 const ROUND_TIME      = 12;    // seconds per round
 const GRID_SIZE       = 9;     // 3x3
@@ -16,7 +16,7 @@ const PLAYER_CONFIG = [
   { label: 'P4', dot: '#F57C00', cls: 'p4' },
 ];
 
-// ── Emoji sets (tier가 높을수록 서로 비슷해서 어려움) ────────
+// -- Emoji sets (tier가 높을수록 서로 비슷해서 어려움) --------
 const EMOJI_SETS = [
   // tier 1: 한눈에 구분되는 세트 (라운드 1~3)
   { tier: 1, emojis: ['🍎', '🍌', '🍇', '🍉'] },
@@ -41,10 +41,10 @@ const EMOJI_SETS = [
 // 라운드별 난이도 계획 (8라운드: 쉬움 → 어려움)
 const TIER_PLAN = [1, 1, 1, 2, 2, 2, 3, 3];
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const sound = createSoundManager();
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let playerCount   = 2;
 let roundIdx      = 0;
 let scores        = [];
@@ -57,7 +57,7 @@ let nextHandle    = null;
 let timeRemaining = ROUND_TIME;
 let gameRounds    = [];    // 8 generated rounds
 
-// ── DOM refs ─────────────────────────────────────────────────
+// -- DOM refs -------------------------------------------------
 const introScreen     = document.getElementById('introScreen');
 const countdownScreen = document.getElementById('countdownScreen');
 const countdownNumber = document.getElementById('countdownNumber');
@@ -87,7 +87,7 @@ const resultTableHead = document.getElementById('resultTableHead');
 const resultTableBody = document.getElementById('resultTableBody');
 const totalRow      = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function showScreen(s) {
   [introScreen, countdownScreen, gameScreen, resultScreen].forEach(x => x.classList.remove('active'));
   s.classList.add('active');
@@ -123,7 +123,7 @@ function posLabel(pos) {
   return `${Math.floor(pos / 3) + 1}행 ${pos % 3 + 1}열`;
 }
 
-// ── Round generation ─────────────────────────────────────────
+// -- Round generation -----------------------------------------
 // 한 라운드 = 3x3 격자 9칸 (세트 이모지 무작위 배치) + 다른 칸 1개
 function buildGameRounds() {
   const rounds = [];
@@ -154,7 +154,7 @@ function buildGameRounds() {
   return rounds;
 }
 
-// ── Intro illustration ───────────────────────────────────────
+// -- Intro illustration ---------------------------------------
 function renderIntroIllust() {
   introIllust.innerHTML = `<svg viewBox="0 0 220 130" xmlns="http://www.w3.org/2000/svg">
     <rect x="6" y="6" width="208" height="118" rx="16" fill="#FFF8E1" stroke="#2C2C2C" stroke-width="3"/>
@@ -174,20 +174,20 @@ function renderIntroIllust() {
 }
 renderIntroIllust();
 
-// ── Player count selection ───────────────────────────────────
+// -- Player count selection -----------------------------------
 setupPlayerSelect(function (n) { playerCount = n; });
 
-// ── Sound toggle ─────────────────────────────────────────────
+// -- Sound toggle ---------------------------------------------
 setupSoundToggle(sound, soundToggleIntro);
 
-// ── Navigation ───────────────────────────────────────────────
+// -- Navigation -----------------------------------------------
 onTap(backBtn,  () => goHome());
 onTap(closeBtn, () => { clearTimers(); goHome(); });
 onTap(homeBtn,  () => goHome());
 onTap(retryBtn, () => startPreGameCountdown(() => startGame()));
 onTap(playBtn,  () => startPreGameCountdown(() => startGame()));
 
-// ── Problem grids (top panel) ────────────────────────────────
+// -- Problem grids (top panel) --------------------------------
 function renderProblemGrids() {
   gridLeft.innerHTML  = '';
   gridRight.innerHTML = '';
@@ -212,7 +212,7 @@ function markAnswerCell(cls) {
   if (cell) cell.classList.add(cls);
 }
 
-// ── Build zone grid ──────────────────────────────────────────
+// -- Build zone grid ------------------------------------------
 function buildZones() {
   zonesWrap.innerHTML = '';
   zonesWrap.className = `zones-wrap p${playerCount}`;
@@ -272,7 +272,7 @@ function updateScoreChip(playerIdx) {
   if (chip) chip.textContent = `${scores[playerIdx]}점`;
 }
 
-// ── Score bar ────────────────────────────────────────────────
+// -- Score bar ------------------------------------------------
 function buildScoreBar() {
   scoreBar.innerHTML = '';
   for (let i = 0; i < playerCount; i++) {
@@ -293,7 +293,7 @@ function updateBarScore(playerIdx) {
   if (el) el.textContent = scores[playerIdx];
 }
 
-// ── Reset zone buttons for new round ─────────────────────────
+// -- Reset zone buttons for new round -------------------------
 function resetBtnsForRound() {
   for (let i = 0; i < playerCount; i++) {
     getPickBtns(i).forEach(btn => {
@@ -313,7 +313,7 @@ function disablePlayerBtns(playerIdx) {
   });
 }
 
-// ── Timer logic ──────────────────────────────────────────────
+// -- Timer logic ----------------------------------------------
 function startCountdown() {
   timeRemaining = ROUND_TIME;
   problemTimer.textContent = timeRemaining;
@@ -335,7 +335,7 @@ function startCountdown() {
   }, 1000);
 }
 
-// ── Pick tap handler ─────────────────────────────────────────
+// -- Pick tap handler -----------------------------------------
 function handlePickTap(playerIdx, pos, btn) {
   if (phase !== 'active') return;
   if (dqSet.has(playerIdx)) return;
@@ -372,7 +372,7 @@ function handlePickTap(playerIdx, pos, btn) {
   }
 }
 
-// ── Correct answer resolved ──────────────────────────────────
+// -- Correct answer resolved ----------------------------------
 function resolveRound(winnerIdx) {
   phase = 'done';
   clearTimers();
@@ -415,7 +415,7 @@ function resolveRound(winnerIdx) {
   nextHandle = setTimeout(() => nextRound(), RESULT_PAUSE_MS);
 }
 
-// ── Timeout (또는 전원 실격) ─────────────────────────────────
+// -- Timeout (또는 전원 실격) ---------------------------------
 function handleTimeout() {
   phase = 'done';
   clearTimers();
@@ -454,7 +454,7 @@ function handleTimeout() {
   nextHandle = setTimeout(() => nextRound(), RESULT_PAUSE_MS);
 }
 
-// ── Load round ───────────────────────────────────────────────
+// -- Load round -----------------------------------------------
 function loadRound() {
   phase        = 'active';
   currentRound = gameRounds[roundIdx];
@@ -469,7 +469,7 @@ function loadRound() {
   startCountdown();
 }
 
-// ── Next round ───────────────────────────────────────────────
+// -- Next round -----------------------------------------------
 function nextRound() {
   roundIdx++;
   if (roundIdx >= TOTAL_ROUNDS) {
@@ -479,7 +479,7 @@ function nextRound() {
   }
 }
 
-// ── Start game ───────────────────────────────────────────────
+// -- Start game -----------------------------------------------
 function startGame() {
   gameRounds  = buildGameRounds();
   roundIdx    = 0;
@@ -495,7 +495,7 @@ function startGame() {
   loadRound();
 }
 
-// ── Show result ──────────────────────────────────────────────
+// -- Show result ----------------------------------------------
 function showResult() {
   clearTimers();
   phase = 'idle';

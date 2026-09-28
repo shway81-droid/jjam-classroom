@@ -3,7 +3,7 @@
  * 오른쪽 아래 칸에서 값이 목표와 같아지는 길을 가장 먼저 찾으면 승리. */
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const TOTAL_ROUNDS = 3;
 const ROUND_SIZE = [3, 3, 4];       // 라운드별 격자 크기 (난이도 점증)
 const ROUND_TIME = [40, 45, 60];    // 라운드별 제한시간
@@ -16,7 +16,7 @@ const PLAYER_CONFIG = [
   { label: 'P4', dot: '#F57C00', cls: 'p4' },
 ];
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const sound = createSoundManager({
   ding(ctx) {
     [523, 659, 784].forEach((f, i) => {
@@ -85,7 +85,7 @@ const sound = createSoundManager({
   },
 });
 
-// ── Pure puzzle logic (DOM 비의존, 테스트 가능) ───────────────
+// -- Pure puzzle logic (DOM 비의존, 테스트 가능) ---------------
 function randInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -156,7 +156,7 @@ function rightDownNeighbors(n, idx) {
   };
 }
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let playerCount = 2;
 let roundIdx = 0;
 let scores = [];
@@ -173,7 +173,7 @@ let timerHandle = null;
 let nextHandle = null;
 let timeRemaining = 0;
 
-// ── DOM refs ─────────────────────────────────────────────────
+// -- DOM refs -------------------------------------------------
 const introScreen = document.getElementById('introScreen');
 const countdownScreen = document.getElementById('countdownScreen');
 const countdownNumber = document.getElementById('countdownNumber');
@@ -198,7 +198,7 @@ const resultTitle = document.getElementById('resultTitle');
 const resultWinner = document.getElementById('resultWinner');
 const totalRow = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function showScreen(s) {
   [introScreen, countdownScreen, gameScreen, resultScreen].forEach(x => x.classList.remove('active'));
   s.classList.add('active');
@@ -216,7 +216,7 @@ function clearTimers() {
   if (nextHandle) { clearTimeout(nextHandle); nextHandle = null; }
 }
 
-// ── Build zones ──────────────────────────────────────────────
+// -- Build zones ----------------------------------------------
 function buildZones() {
   zonesWrap.innerHTML = '';
   zonesWrap.className = `zones-wrap p${playerCount}`;
@@ -288,7 +288,7 @@ function updateChip(playerIdx) {
   if (tgt) tgt.textContent = curTarget;
 }
 
-// ── Score bar ────────────────────────────────────────────────
+// -- Score bar ------------------------------------------------
 function buildScoreBar() {
   scoreBar.innerHTML = '';
   for (let i = 0; i < playerCount; i++) {
@@ -309,7 +309,7 @@ function updateBarScore(playerIdx) {
   if (el) el.textContent = scores[playerIdx];
 }
 
-// ── Cell tap handler ─────────────────────────────────────────
+// -- Cell tap handler -----------------------------------------
 function handleCellTap(playerIdx, idx) {
   if (phase !== 'active') return;
   if (zoneSolved[playerIdx]) return;
@@ -391,7 +391,7 @@ function handleSolve(winnerIdx) {
   }
 }
 
-// ── Timer ────────────────────────────────────────────────────
+// -- Timer ----------------------------------------------------
 function startCountdown() {
   timeRemaining = ROUND_TIME[roundIdx];
   problemTimer.textContent = timeRemaining;
@@ -428,7 +428,7 @@ function handleTimeout() {
   nextHandle = setTimeout(() => nextRound(), RESULT_PAUSE_MS);
 }
 
-// ── Round flow ───────────────────────────────────────────────
+// -- Round flow -----------------------------------------------
 function loadRound() {
   phase = 'active';
   curN = ROUND_SIZE[roundIdx];
@@ -478,7 +478,7 @@ function startGame() {
   loadRound();
 }
 
-// ── Result ───────────────────────────────────────────────────
+// -- Result ---------------------------------------------------
 function showResult() {
   clearTimers();
   phase = 'idle';
@@ -520,20 +520,20 @@ function showResult() {
   showScreen(resultScreen);
 }
 
-// ── Player count selection ───────────────────────────────────
+// -- Player count selection -----------------------------------
 setupPlayerSelect(function (n) { playerCount = n; });
 
-// ── Sound toggle ─────────────────────────────────────────────
+// -- Sound toggle ---------------------------------------------
 setupSoundToggle(sound, soundToggleIntro);
 
-// ── Navigation ───────────────────────────────────────────────
+// -- Navigation -----------------------------------------------
 onTap(backBtn, () => goHome());
 onTap(closeBtn, () => { clearTimers(); goHome(); });
 onTap(homeBtn, () => goHome());
 onTap(retryBtn, () => startPreGameCountdown(() => startGame()));
 onTap(playBtn, () => startPreGameCountdown(() => startGame()));
 
-// ── Test hook (Node 환경에서만 export) ─────────────────────────
+// -- Test hook (Node 환경에서만 export) -------------------------
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
     randomOp, applyOp, opLabel, randomMonotonePath,

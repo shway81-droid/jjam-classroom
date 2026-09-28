@@ -2,7 +2,7 @@
 
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const TOTAL_QUESTIONS  = 10;
 const TIMEOUT_MS       = 4500;   // 십 모형 읽기 — 조금 더 여유
 const RESULT_PAUSE_MS  = 1600;   // pause before next question
@@ -15,7 +15,7 @@ const PLAYER_CONFIG = [
   { label: 'P4', dot: '#F57C00', zoneBg: '#FFE0B2', cls: 'p4' },
 ];
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const sound = createSoundManager({
   ding(ctx) {
     // Correct answer — bright ascending arpeggio
@@ -81,7 +81,7 @@ const sound = createSoundManager({
   },
 });
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let playerCount  = 2;
 let difficulty   = 'easy';       // 'easy' | 'normal'
 let questionIdx  = 0;            // 0-based current question index
@@ -94,7 +94,7 @@ let timeoutHandle = null;
 let nextHandle    = null;
 let scoreboards   = [];          // createScoreboard instances (unused visually but tracked)
 
-// ── DOM refs ─────────────────────────────────────────────────
+// -- DOM refs -------------------------------------------------
 const introScreen     = document.getElementById('introScreen');
 const countdownScreen = document.getElementById('countdownScreen');
 const countdownNumber = document.getElementById('countdownNumber');
@@ -121,7 +121,7 @@ const resultTableHead  = document.getElementById('resultTableHead');
 const resultTableBody  = document.getElementById('resultTableBody');
 const totalRow         = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function showScreen(s) {
   [introScreen, countdownScreen, gameScreen, resultScreen].forEach(x => x.classList.remove('active'));
   s.classList.add('active');
@@ -146,7 +146,7 @@ function shuffle(arr) {
 }
 
 
-// ── 십 모형(base-ten blocks) SVG 렌더 ─────────────────────────
+// -- 십 모형(base-ten blocks) SVG 렌더 -------------------------
 // 십 묶음 = 작은 정육면체 10개를 세로로 쌓은 막대, 낱개 = 정육면체 1개.
 // 모든 정육면체는 같은 색(같은 의미=같은 색, 시각 일관성) — 묶음/낱개 구분은 '배치'로만.
 function renderBlocksSVG(tens, ones) {
@@ -180,7 +180,7 @@ function renderBlocksSVG(tens, ones) {
        + `role="img" aria-label="십 묶음 ${tens}개, 낱개 ${ones}개">${cubes}</svg>`;
 }
 
-// ── Problem generation ───────────────────────────────────────
+// -- Problem generation ---------------------------------------
 // 십 묶음과 낱개를 보고 두 자리 수를 읽는다. 정답은 하나로 확정(10·tens + ones).
 function generateQuestion() {
   let tens, ones;
@@ -215,13 +215,13 @@ function generateQuestion() {
   return { expr, answer, choices, display };
 }
 
-// ── Sound toggle ─────────────────────────────────────────────
+// -- Sound toggle ---------------------------------------------
 setupSoundToggle(sound, soundToggleIntro);
 
-// ── Player count selection ───────────────────────────────────
+// -- Player count selection -----------------------------------
 setupPlayerSelect(function (n) { playerCount = n; });
 
-// ── Difficulty selection ─────────────────────────────────────
+// -- Difficulty selection -------------------------------------
 document.querySelectorAll('.diff-btn').forEach(btn => {
   onTap(btn, () => {
     document.querySelectorAll('.diff-btn').forEach(b => b.classList.remove('active'));
@@ -230,14 +230,14 @@ document.querySelectorAll('.diff-btn').forEach(btn => {
   });
 });
 
-// ── Navigation ───────────────────────────────────────────────
+// -- Navigation -----------------------------------------------
 onTap(backBtn,  () => goHome());
 onTap(closeBtn, () => { clearTimers(); goHome(); });
 onTap(homeBtn,  () => goHome());
 onTap(retryBtn, () => startCountdown(() => startGame()));
 onTap(playBtn,  () => startCountdown(() => startGame()));
 
-// ── Build zone grid ──────────────────────────────────────────
+// -- Build zone grid ------------------------------------------
 function buildZones() {
   zonesWrap.innerHTML = '';
   zonesWrap.className = `zones-wrap p${playerCount}`;
@@ -290,7 +290,7 @@ function updateScoreChip(playerIdx) {
   if (chip) chip.textContent = `${scores[playerIdx]}점`;
 }
 
-// ── Build score bar ──────────────────────────────────────────
+// -- Build score bar ------------------------------------------
 function buildScoreBar() {
   scoreBar.innerHTML = '';
   for (let i = 0; i < playerCount; i++) {
@@ -311,7 +311,7 @@ function updateBarScore(playerIdx) {
   if (el) el.textContent = scores[playerIdx];
 }
 
-// ── Populate answer buttons for a question ───────────────────
+// -- Populate answer buttons for a question -------------------
 function populateAnswers(question) {
   for (let i = 0; i < playerCount; i++) {
     const btns = getAnswerBtns(i);
@@ -328,7 +328,7 @@ function populateAnswers(question) {
   }
 }
 
-// ── Ripple effect ────────────────────────────────────────────
+// -- Ripple effect --------------------------------------------
 function spawnRipple(zone, e) {
   const rect  = zone.getBoundingClientRect();
   const touch = e.touches ? e.touches[0] : e;
@@ -344,7 +344,7 @@ function spawnRipple(zone, e) {
   r.addEventListener('animationend', () => r.remove());
 }
 
-// ── Answer tap handler ───────────────────────────────────────
+// -- Answer tap handler ---------------------------------------
 function handleAnswerTap(playerIdx, slotIdx, btn) {
   if (phase !== 'active') return;
   if (dqSet.has(playerIdx)) return;
@@ -398,7 +398,7 @@ function disqualifyPlayer(playerIdx) {
   }
 }
 
-// ── Resolve a question ───────────────────────────────────────
+// -- Resolve a question ---------------------------------------
 function resolveQuestion(winnerIdx, winBtn) {
   if (phase !== 'active') return;
   clearTimers();
@@ -464,7 +464,7 @@ function revealAnswer() {
   }
 }
 
-// ── Question flow ─────────────────────────────────────────────
+// -- Question flow ---------------------------------------------
 function startGame() {
   scores      = new Array(playerCount).fill(0);
   questionLog = [];
@@ -523,7 +523,7 @@ function clearTimers() {
   if (nextHandle)    { clearTimeout(nextHandle);    nextHandle    = null; }
 }
 
-// ── Result screen ─────────────────────────────────────────────
+// -- Result screen ---------------------------------------------
 function showResult() {
   sound.play('fanfare');
 

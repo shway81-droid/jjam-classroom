@@ -1,7 +1,7 @@
 /* games/word-scramble/game.js */
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const TOTAL_ROUNDS    = 8;
 const ROUND_TIME      = 30;    // 30초 제한
 const RESULT_PAUSE_MS = getAutoplayPauseMs(2000);
@@ -15,14 +15,14 @@ const PLAYER_CONFIG = [
   { label: 'P4', dot: '#F57C00', cls: 'p4' },
 ];
 
-// ── 단어 라이브러리 ────────────────────────────────────────────
+// -- 단어 라이브러리 --------------------------------------------
 // 형식: { word: "사과", syllables: ["사","과"], hint: "🍎", len: 2 }
 // 규칙: 음절 재배열로 다른 유효 단어가 되지 않는 것만 수록
 // (예: "자기"/"기자" 같은 경우 제외)
 // 난이도별 분류: len 2 = 쉬움, len 3 = 중간, len 4 = 어려움
 
 const WS_WORD_LIBRARY = [
-  // ── 2글자 (라운드 1~2용) ────────────────────────────────
+  // -- 2글자 (라운드 1~2용) --------------------------------
   { word: '사과', syllables: ['사', '과'], hint: '🍎', hintLabel: '사과', len: 2 },
   { word: '바나나', syllables: ['바', '나', '나'], hint: '🍌', hintLabel: '바나나', len: 3 },
   // 2글자 추가 — "나비/비나"는 '비나' 도 단어가 아님 OK, 그러나 안전하게 확인한 것만
@@ -36,7 +36,7 @@ const WS_WORD_LIBRARY = [
   { word: '거미', syllables: ['거', '미'], hint: '🕷️', hintLabel: '거미', len: 2 },
   { word: '개미', syllables: ['개', '미'], hint: '🐜', hintLabel: '개미', len: 2 },
   { word: '달팽이', syllables: ['달', '팽', '이'], hint: '🐌', hintLabel: '달팽이', len: 3 },
-  // ── 3글자 (라운드 3~5용) ────────────────────────────────
+  // -- 3글자 (라운드 3~5용) --------------------------------
   { word: '무지개', syllables: ['무', '지', '개'], hint: '🌈', hintLabel: '무지개', len: 3 },
   { word: '파란색', syllables: ['파', '란', '색'], hint: '🔵', hintLabel: '파란색', len: 3 },
   { word: '빨간색', syllables: ['빨', '간', '색'], hint: '🔴', hintLabel: '빨간색', len: 3 },
@@ -53,7 +53,7 @@ const WS_WORD_LIBRARY = [
   { word: '냉장고', syllables: ['냉', '장', '고'], hint: '🧊', hintLabel: '냉장고', len: 3 },
   { word: '세탁기', syllables: ['세', '탁', '기'], hint: '🫧', hintLabel: '세탁기', len: 3 },
   { word: '태양계', syllables: ['태', '양', '계'], hint: '🌞', hintLabel: '태양계', len: 3 },
-  // ── 4글자 (라운드 6~8용) ────────────────────────────────
+  // -- 4글자 (라운드 6~8용) --------------------------------
   { word: '운동장에', syllables: ['운', '동', '장', '에'], hint: '⚽', hintLabel: '운동장에서', len: 4 },
   { word: '도서관에', syllables: ['도', '서', '관', '에'], hint: '📚', hintLabel: '도서관에서', len: 4 },
   { word: '놀이터에', syllables: ['놀', '이', '터', '에'], hint: '🛝', hintLabel: '놀이터에서', len: 4 },
@@ -75,7 +75,7 @@ const ROUND_PLAN = [
   { len: 4, hint: false },
 ];
 
-// ── 라운드 데이터 생성 ─────────────────────────────────────────
+// -- 라운드 데이터 생성 -----------------------------------------
 function wsShuffleArr(arr) {
   const a = arr.slice();
   for (let i = a.length - 1; i > 0; i--) {
@@ -127,7 +127,7 @@ function wsBuildGameRounds() {
   return rounds;
 }
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const wsSound = createSoundManager({
   click(ctx) {
     const osc = ctx.createOscillator();
@@ -198,7 +198,7 @@ const wsSound = createSoundManager({
   },
 });
 
-// ── State ─────────────────────────────────────────────────────
+// -- State -----------------------------------------------------
 let wsPlayerCount   = 2;
 let wsRoundIdx      = 0;
 let wsScores        = [];
@@ -218,7 +218,7 @@ let wsLockHandles   = [];
 // wsDone[i] = 완성 여부
 let wsDone          = [];
 
-// ── DOM refs ──────────────────────────────────────────────────
+// -- DOM refs --------------------------------------------------
 const wsIntroScreen     = document.getElementById('introScreen');
 const wsCountdownScreen = document.getElementById('countdownScreen');
 const wsCountdownNumber = document.getElementById('countdownNumber');
@@ -248,7 +248,7 @@ const wsResultTableHead = document.getElementById('resultTableHead');
 const wsResultTableBody = document.getElementById('resultTableBody');
 const wsTotalRow        = document.getElementById('totalRow');
 
-// ── Helpers ───────────────────────────────────────────────────
+// -- Helpers ---------------------------------------------------
 function wsShowScreen(s) {
   [wsIntroScreen, wsCountdownScreen, wsGameScreen, wsResultScreen].forEach(function(x) { x.classList.remove('active'); });
   s.classList.add('active');
@@ -269,7 +269,7 @@ function wsClearTimers() {
 }
 
 
-// ── Intro illustration ─────────────────────────────────────────
+// -- Intro illustration -----------------------------------------
 (function wsRenderIntroIllust() {
   const el = document.getElementById('introIllust');
   if (!el) return;
@@ -286,20 +286,20 @@ function wsClearTimers() {
   </svg>`;
 })();
 
-// ── Player count selection ─────────────────────────────────────
+// -- Player count selection -------------------------------------
 setupPlayerSelect(function (n) { wsPlayerCount = n; });
 
-// ── Sound toggle ───────────────────────────────────────────────
+// -- Sound toggle -----------------------------------------------
 setupSoundToggle(wsSound, wsSoundToggleIntro);
 
-// ── Navigation ────────────────────────────────────────────────
+// -- Navigation ------------------------------------------------
 onTap(wsBackBtn,  function() { goHome(); });
 onTap(wsCloseBtn, function() { wsClearTimers(); goHome(); });
 onTap(wsHomeBtn,  function() { goHome(); });
 onTap(wsRetryBtn, function() { wsStartPreGameCountdown(function() { wsStartGame(); }); });
 onTap(wsPlayBtn,  function() { wsStartPreGameCountdown(function() { wsStartGame(); }); });
 
-// ── Problem panel ──────────────────────────────────────────────
+// -- Problem panel ----------------------------------------------
 function wsRenderHint() {
   const r = wsCurrentRound;
   if (r.showHint) {
@@ -311,7 +311,7 @@ function wsRenderHint() {
   }
 }
 
-// ── Build zones ────────────────────────────────────────────────
+// -- Build zones ------------------------------------------------
 function wsBuildZones() {
   wsZonesWrap.innerHTML = '';
   wsZonesWrap.className = `zones-wrap p${wsPlayerCount}`;
@@ -356,7 +356,7 @@ function wsUpdateScoreChip(playerIdx) {
   if (chip) chip.textContent = `${wsScores[playerIdx]}점`;
 }
 
-// ── Score bar ──────────────────────────────────────────────────
+// -- Score bar --------------------------------------------------
 function wsBuildScoreBar() {
   wsScoreBar.innerHTML = '';
   for (let i = 0; i < wsPlayerCount; i++) {
@@ -377,7 +377,7 @@ function wsUpdateBarScore(playerIdx) {
   if (el) el.textContent = wsScores[playerIdx];
 }
 
-// ── 라운드 초기화 — 슬롯 + 카드 렌더 ───────────────────────────
+// -- 라운드 초기화 — 슬롯 + 카드 렌더 ---------------------------
 function wsInitPlayerZone(playerIdx) {
   const r = wsCurrentRound;
   const slots = document.getElementById(`ws-slots-${playerIdx}`);
@@ -420,7 +420,7 @@ function wsResetBtnsForRound() {
   }
 }
 
-// ── 카드 탭 핸들러 ─────────────────────────────────────────────
+// -- 카드 탭 핸들러 ---------------------------------------------
 function wsHandleCardTap(playerIdx, card) {
   if (wsPhase !== 'active') return;
   if (wsDone[playerIdx]) return;
@@ -455,7 +455,7 @@ function wsHandleCardTap(playerIdx, card) {
   }
 }
 
-// ── 오답 처리 ──────────────────────────────────────────────────
+// -- 오답 처리 --------------------------------------------------
 function wsHandleWrongCard(playerIdx, card) {
   wsSound.play('wrong');
 
@@ -506,7 +506,7 @@ function wsHandleWrongCard(playerIdx, card) {
   }, LOCK_MS);
 }
 
-// ── 완성 처리 ──────────────────────────────────────────────────
+// -- 완성 처리 --------------------------------------------------
 function wsHandleComplete(playerIdx) {
   if (wsPhase !== 'active') return;
   wsPhase = 'done';
@@ -556,7 +556,7 @@ function wsHandleComplete(playerIdx) {
   wsNextHandle = setTimeout(function() { wsNextRound(); }, RESULT_PAUSE_MS);
 }
 
-// ── Timeout ────────────────────────────────────────────────────
+// -- Timeout ----------------------------------------------------
 function wsHandleTimeout() {
   wsPhase = 'done';
   wsClearTimers();
@@ -579,7 +579,7 @@ function wsHandleTimeout() {
   wsNextHandle = setTimeout(function() { wsNextRound(); }, RESULT_PAUSE_MS);
 }
 
-// ── Timer ──────────────────────────────────────────────────────
+// -- Timer ------------------------------------------------------
 function wsStartCountdown() {
   wsTimeRemaining = ROUND_TIME;
   wsProblemTimer.textContent = wsTimeRemaining;
@@ -600,7 +600,7 @@ function wsStartCountdown() {
   }, 1000);
 }
 
-// ── Load round ──────────────────────────────────────────────────
+// -- Load round --------------------------------------------------
 function wsLoadRound() {
   wsPhase       = 'active';
   wsCurrentRound = wsGameRounds[wsRoundIdx];
@@ -615,7 +615,7 @@ function wsLoadRound() {
   wsStartCountdown();
 }
 
-// ── Next round ─────────────────────────────────────────────────
+// -- Next round -------------------------------------------------
 function wsNextRound() {
   wsRoundIdx++;
   if (wsRoundIdx >= TOTAL_ROUNDS) {
@@ -625,7 +625,7 @@ function wsNextRound() {
   }
 }
 
-// ── Start game ─────────────────────────────────────────────────
+// -- Start game -------------------------------------------------
 function wsStartGame() {
   wsGameRounds  = wsBuildGameRounds();
   wsRoundIdx    = 0;
@@ -643,7 +643,7 @@ function wsStartGame() {
   wsLoadRound();
 }
 
-// ── Show result ────────────────────────────────────────────────
+// -- Show result ------------------------------------------------
 function wsShowResult() {
   wsClearTimers();
   wsPhase = 'idle';

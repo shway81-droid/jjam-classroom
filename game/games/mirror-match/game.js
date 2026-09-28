@@ -2,11 +2,11 @@
 
 'use strict';
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // PATTERN GENERATION
 // Each pattern: 3x3 grid of cells, each cell = 0 (empty) | 1 (color A) | 2 (color B)
 // The correct mirror = reverse each row (horizontal flip)
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 // Color palette pairs [fillA, strokeA, fillB, strokeB]
 var COLOR_PAIRS = [
@@ -127,9 +127,9 @@ function makeRandomGrid() {
   return g;
 }
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // SVG RENDERING
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 // Render a 3x3 grid as SVG (viewBox determined by caller)
 // cellSize, gap, x0, y0 are in SVG units
@@ -205,9 +205,9 @@ function buildAnswerSVG(grid, colorPair) {
     + '</svg>';
 }
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // CONSTANTS
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 var TOTAL_ROUNDS   = 10;
 var ANSWERS_COUNT  = 4; // 2x2 grid of answer choices per zone
@@ -219,9 +219,9 @@ var PLAYER_CONFIG = [
   { label: 'P4', hex: '#4CAF50', bgTint: 'rgba(76,175,80,0.14)'  },
 ];
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // SOUND
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 var sound = createSoundManager({
   ding: function(ctx) {
@@ -280,9 +280,9 @@ var sound = createSoundManager({
   }
 });
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // STATE
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 var playerCount    = 2;
 var currentRound   = 0;
@@ -299,9 +299,9 @@ var currentMirrorGrid  = null;  // correct answer
 var currentColorPair   = null;
 var correctAnswerIdx   = -1;    // index among 4 answers (same for all zones)
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // DOM REFS
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 var introScreen      = document.getElementById('introScreen');
 var countdownScreen  = document.getElementById('countdownScreen');
@@ -322,9 +322,9 @@ var resultTitle      = document.getElementById('resultTitle');
 var resultWinner     = document.getElementById('resultWinner');
 var resultScoresWrap = document.getElementById('resultScoresWrap');
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // HELPERS
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 function showScreen(el) {
   [introScreen, countdownScreen, gameScreen, resultScreen].forEach(function(s) {
@@ -367,21 +367,21 @@ function cleanup() {
   clearNextRoundTimer();
 }
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // SOUND TOGGLE
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 setupSoundToggle(sound, soundToggleIntro);
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // PLAYER COUNT SELECT
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 setupPlayerSelect(function (n) { playerCount = n; });
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // NAV BUTTONS
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 onTap(backBtn,  function() { cleanup(); goHome(); });
 onTap(playBtn,  function() { startCountdown(function() { startGame(); }); });
@@ -389,9 +389,9 @@ onTap(closeBtn, function() { cleanup(); goHome(); });
 onTap(retryBtn, function() { startCountdown(function() { startGame(); }); });
 onTap(homeBtn,  function() { cleanup(); goHome(); });
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // ZONE BUILDING
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 function buildZones() {
   zonesWrap.innerHTML = '';
@@ -465,9 +465,9 @@ function populateZoneGrid(playerIdx, roundData) {
   });
 }
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // RIPPLE
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 function spawnRipple(zone, e) {
   var rect = zone.getBoundingClientRect();
@@ -487,9 +487,9 @@ function spawnRipple(zone, e) {
   r.addEventListener('animationend', function() { r.remove(); });
 }
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // TAP HANDLER
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 function handleAnswerTap(playerIdx, ansIdx, btn, e) {
   if (phase !== 'active') return;
@@ -586,9 +586,9 @@ function handleAnswerTap(playerIdx, ansIdx, btn, e) {
   }
 }
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // GAME FLOW
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 function startGame() {
   cleanup();
@@ -715,9 +715,9 @@ function scheduleNextOrEnd() {
   }, 1500);
 }
 
-// ══════════════════════════════════════════════════════
+// ======================================================
 // RESULT SCREEN
-// ══════════════════════════════════════════════════════
+// ======================================================
 
 function showResult() {
   sound.play('fanfare');

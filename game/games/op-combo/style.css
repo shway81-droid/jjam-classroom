@@ -1,6 +1,6 @@
 /* games/sum-relay/style.css */
 
-/* ── Countdown screen ─────────────────────────────────────── */
+/* -- Countdown screen --------------------------------------- */
 .screen-countdown {
   justify-content: center;
   align-items: center;
@@ -427,7 +427,7 @@ body {
   justify-content: center;
 }
 
-/* ── 연산 콤비: 고정 앞의 수 카드 ─────────────────────────── */
+/* -- 연산 콤비: 고정 앞의 수 카드 --------------------------- */
 .target-fixed {
   display: flex;
   flex-direction: column;

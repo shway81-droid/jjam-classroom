@@ -21,7 +21,7 @@ const SP_PLAYER_CONFIG = [
   { label: 'P4', dot: '#F57C00', cls: 'p4' },
 ];
 
-// ── 피라미드 기하 ──
+// -- 피라미드 기하 --
 // row r (0=꼭대기) 는 r+1 칸. flat 인덱스 = offset[r] + c.
 function spOffsets(base) {
   const off = []; let s = 0;
@@ -118,7 +118,7 @@ function spMakePuzzle(plan) {
   return { base, sol, given: sol.slice(), blankCells: [], range };
 }
 
-// ── 사운드 ──
+// -- 사운드 --
 const spSound = createSoundManager({
   place(ctx) {
     const o = ctx.createOscillator(); const g = ctx.createGain();
@@ -176,7 +176,7 @@ const spSound = createSoundManager({
   },
 });
 
-// ── 상태 ──
+// -- 상태 --
 let spPlayerCount = 2;
 let spRoundIdx = 0;
 let spScores = [];
@@ -234,7 +234,7 @@ function spGetZone(idx) {
   return spZonesWrap.querySelector(`.zone[data-player="${idx}"]`);
 }
 
-// ── 보드 렌더 ──
+// -- 보드 렌더 --
 function spRenderBoard(p) {
   const zone = spGetZone(p);
   if (!zone) return;
@@ -292,7 +292,7 @@ function spRenderPalette(p) {
   });
 }
 
-// ── 입력 ──
+// -- 입력 --
 function spHandleCellTap(p, ci) {
   if (spPhase !== 'active' || spSolved[p]) return;
   const bd = spBoards[p];
@@ -380,7 +380,7 @@ function spJustSatisfiedRelation(p, ci) {
   return false;
 }
 
-// ── 존 빌드 ──
+// -- 존 빌드 --
 function spBuildZones() {
   spZonesWrap.innerHTML = '';
   spZonesWrap.className = `zones-wrap p${spPlayerCount}`;
@@ -400,7 +400,7 @@ function spBuildZones() {
   }
 }
 
-// ── 라운드 종료 ──
+// -- 라운드 종료 --
 function spHandleSolve(p) {
   if (spSolved[p]) return;
   spSolved[p] = true;
@@ -432,7 +432,7 @@ function spHandleTimeout() {
   spNextHandle = setTimeout(() => spNextRound(), SP_RESULT_PAUSE_MS);
 }
 
-// ── 점수 바 ──
+// -- 점수 바 --
 function spBuildScoreBar() {
   spScoreBar.innerHTML = '';
   for (let i = 0; i < spPlayerCount; i++) {
@@ -445,7 +445,7 @@ function spBuildScoreBar() {
 }
 function spRenderBarScore(idx) { const el = spEl(`sp-bar-${idx}`); if (el) el.textContent = spScores[idx]; }
 
-// ── 타이머 ──
+// -- 타이머 --
 function spStartTimer(seconds) {
   spTimeRemaining = seconds;
   spProblemTimer.textContent = spTimeRemaining;
@@ -458,7 +458,7 @@ function spStartTimer(seconds) {
   }, 1000);
 }
 
-// ── 게임 흐름 ──
+// -- 게임 흐름 --
 function spLoadRound() {
   spPhase = 'active';
   spRoundFirstWinner = -1;
@@ -544,7 +544,7 @@ function spShowResult() {
   spShowScreen(spResultScreen);
 }
 
-// ── 이벤트 바인딩 ──
+// -- 이벤트 바인딩 --
 setupPlayerSelect(function (n) { spPlayerCount = n; });
 setupSoundToggle(spSound, spSoundToggleIntro);
 onTap(spBackBtn, () => goHome());

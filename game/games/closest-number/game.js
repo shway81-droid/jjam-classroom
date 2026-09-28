@@ -2,7 +2,7 @@
 
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const CN_TOTAL_ROUNDS    = 8;
 const CN_ROUND_TIME      = 12;
 const CN_RESULT_PAUSE_MS = getAutoplayPauseMs(2000);
@@ -15,10 +15,10 @@ const CN_PLAYER_CONFIG = [
   { label: 'P4', dot: '#F57C00', cls: 'p4' },
 ];
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const cnSound = createSoundManager();
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let cnPlayerCount   = 2;
 let cnRoundIdx      = 0;
 let cnScores        = [];
@@ -31,7 +31,7 @@ let cnNextHandle    = null;
 let cnTimeRemaining = CN_ROUND_TIME;
 let cnGameRounds    = [];
 
-// ── DOM refs ─────────────────────────────────────────────────
+// -- DOM refs -------------------------------------------------
 const cnIntroScreen     = document.getElementById('introScreen');
 const cnCountdownScreen = document.getElementById('countdownScreen');
 const cnCountdownNumber = document.getElementById('countdownNumber');
@@ -61,7 +61,7 @@ const cnResultTableHead = document.getElementById('resultTableHead');
 const cnResultTableBody = document.getElementById('resultTableBody');
 const cnTotalRow        = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function cnShowScreen(s) {
   [cnIntroScreen, cnCountdownScreen, cnGameScreen, cnResultScreen]
     .forEach(x => x.classList.remove('active'));
@@ -87,7 +87,7 @@ function cnClearTimers() {
 }
 
 
-// ── Round generation ─────────────────────────────────────────
+// -- Round generation -----------------------------------------
 // 라운드 계획 (점증 난이도 8단계):
 // 1~3: 차이 뚜렷 (target ±10 이상 차이)
 // 4~5: 근소 (±2 vs ±4)
@@ -200,7 +200,7 @@ function cnBuildGameRounds() {
   return rounds;
 }
 
-// ── Number line helper ────────────────────────────────────────
+// -- Number line helper ----------------------------------------
 // min and max values displayed on the line (surrounding choices + target)
 function cnUpdateNumberLine(round) {
   if (!round.showLine) {
@@ -216,7 +216,7 @@ function cnUpdateNumberLine(round) {
   cnNumberLineTarget.style.left = `${Math.min(Math.max(pct, 5), 95)}%`;
 }
 
-// ── Navigation ───────────────────────────────────────────────
+// -- Navigation -----------------------------------------------
 var cnCountdownInterval = null;
 function cnStartPreGameCountdown(onDone) {
   cnShowScreen(cnCountdownScreen);
@@ -233,7 +233,7 @@ onTap(cnHomeBtn,  () => goHome());
 onTap(cnRetryBtn, () => cnStartPreGameCountdown(() => cnStartGame()));
 onTap(cnPlayBtn,  () => cnStartPreGameCountdown(() => cnStartGame()));
 
-// ── Build zones ───────────────────────────────────────────────
+// -- Build zones -----------------------------------------------
 function cnBuildZones() {
   cnZonesWrap.innerHTML = '';
   cnZonesWrap.className = `zones-wrap p${cnPlayerCount}`;
@@ -284,7 +284,7 @@ function cnUpdateScoreChip(playerIdx) {
   if (chip) chip.textContent = `${cnScores[playerIdx]}점`;
 }
 
-// ── Score bar ─────────────────────────────────────────────────
+// -- Score bar -------------------------------------------------
 function cnBuildScoreBar() {
   cnScoreBar.innerHTML = '';
   for (let i = 0; i < cnPlayerCount; i++) {
@@ -305,7 +305,7 @@ function cnUpdateBarScore(playerIdx) {
   if (el) el.textContent = cnScores[playerIdx];
 }
 
-// ── Populate answers ──────────────────────────────────────────
+// -- Populate answers ------------------------------------------
 function cnPopulateAnswers(round) {
   for (let i = 0; i < cnPlayerCount; i++) {
     const btns = cnGetAnswerBtns(i);
@@ -321,7 +321,7 @@ function cnPopulateAnswers(round) {
   }
 }
 
-// ── Answer tap handler ────────────────────────────────────────
+// -- Answer tap handler ----------------------------------------
 function cnHandleAnswerTap(playerIdx, slotIdx, btn) {
   if (cnPhase !== 'active') return;
   if (cnDqSet.has(playerIdx)) return;
@@ -442,7 +442,7 @@ function cnHandleTimeout() {
   cnNextHandle = setTimeout(() => cnNextRound(), CN_RESULT_PAUSE_MS);
 }
 
-// ── Timer ─────────────────────────────────────────────────────
+// -- Timer -----------------------------------------------------
 function cnStartTimer() {
   cnTimeRemaining = CN_ROUND_TIME;
   cnProblemTimer.textContent = cnTimeRemaining;
@@ -463,7 +463,7 @@ function cnStartTimer() {
   }, 1000);
 }
 
-// ── Round flow ────────────────────────────────────────────────
+// -- Round flow ------------------------------------------------
 function cnLoadRound() {
   cnCurrentRound = cnGameRounds[cnRoundIdx];
   cnDqSet = new Set();
@@ -524,7 +524,7 @@ function cnStartGame() {
   cnLoadRound();
 }
 
-// ── Result screen ─────────────────────────────────────────────
+// -- Result screen ---------------------------------------------
 function cnShowResult() {
   cnClearTimers();
   cnPhase = 'idle';

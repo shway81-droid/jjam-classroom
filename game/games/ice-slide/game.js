@@ -81,7 +81,7 @@ const ICE_LEVEL_LIBRARY = [
 // 4라운드 레벨 매핑
 const ICE_ROUND_LEVELS = [0, 2, 4, 7];
 
-// ─── 미끄럼 BFS 자가검증 ─────────────────────────────────────
+// --- 미끄럼 BFS 자가검증 -------------------------------------
 function iceBfsVerify(levelDef) {
   const { penguin, fish, rocks } = levelDef;
   const rockSet = new Set(rocks.map(r => r.row * ICE_GRID + r.col));
@@ -125,7 +125,7 @@ ICE_LEVEL_LIBRARY.forEach((lv, i) => {
   }
 });
 
-// ─── Sound ───────────────────────────────────────────────────
+// --- Sound ---------------------------------------------------
 const iceSound = createSoundManager({
   slide(ctx) {
     const o = ctx.createOscillator(); const g = ctx.createGain();
@@ -184,7 +184,7 @@ const iceSound = createSoundManager({
   },
 });
 
-// ─── State ───────────────────────────────────────────────────
+// --- State ---------------------------------------------------
 let icePlayerCount = 2;
 let iceRoundIdx = 0;
 let iceScores = [];
@@ -237,7 +237,7 @@ function iceClearTimers() {
 }
 
 
-// ─── 미끄럼 이동 계산 ─────────────────────────────────────
+// --- 미끄럼 이동 계산 -------------------------------------
 function iceSlideTo(row, col, dr, dc) {
   let r = row + dr, c = col + dc;
   while (r > 0 && r < ICE_GRID - 1 && c > 0 && c < ICE_GRID - 1 && !iceRockSet.has(r * ICE_GRID + c)) {
@@ -248,7 +248,7 @@ function iceSlideTo(row, col, dr, dc) {
   return { row: r, col: c };
 }
 
-// ─── 존 구성 ───────────────────────────────────────────────
+// --- 존 구성 -----------------------------------------------
 function iceBuildZones() {
   iceZonesWrap.innerHTML = '';
   iceZonesWrap.className = `zones-wrap p${icePlayerCount}`;
@@ -282,7 +282,7 @@ function iceBuildZones() {
 
 function iceGetZone(idx) { return iceZonesWrap.querySelector(`.zone[data-player="${idx}"]`); }
 
-// ─── 렌더링 ───────────────────────────────────────────────
+// --- 렌더링 -----------------------------------------------
 function iceRenderBoard(playerIdx) {
   const gridEl = document.getElementById(`ice-grid-${playerIdx}`);
   if (!gridEl) return;
@@ -368,7 +368,7 @@ function iceAnimatePenguin(playerIdx, toRow, toCol, onDone) {
   setTimeout(() => { if (onDone) onDone(); }, 200);
 }
 
-// ─── 이동 처리 ───────────────────────────────────────────────
+// --- 이동 처리 -----------------------------------------------
 function iceHandleMove(playerIdx, dr, dc) {
   if (icePhase !== 'active' || iceSolved[playerIdx]) return;
   const cur = icePenguinPos[playerIdx];
@@ -429,7 +429,7 @@ function iceHandleTimeout() {
   iceNextHandle = setTimeout(() => iceNextRound(), ICE_RESULT_PAUSE_MS);
 }
 
-// ─── 점수 바 ───────────────────────────────────────────────
+// --- 점수 바 -----------------------------------------------
 function iceBuildScoreBar() {
   iceScoreBar.innerHTML = '';
   for (let i = 0; i < icePlayerCount; i++) {
@@ -442,7 +442,7 @@ function iceBuildScoreBar() {
 }
 function iceUpdateBarScore(idx) { const el = document.getElementById(`ice-bar-score-${idx}`); if (el) el.textContent = iceScores[idx]; }
 
-// ─── 타이머 ───────────────────────────────────────────────
+// --- 타이머 -----------------------------------------------
 function iceStartCountdown() {
   iceTimeRemaining = ICE_ROUND_TIME;
   iceProblemTimer.textContent = iceTimeRemaining;
@@ -455,7 +455,7 @@ function iceStartCountdown() {
   }, 1000);
 }
 
-// ─── 게임 흐름 ───────────────────────────────────────────────
+// --- 게임 흐름 -----------------------------------------------
 function iceLoadRound() {
   icePhase = 'active';
   iceCurLevelDef = ICE_LEVEL_LIBRARY[ICE_ROUND_LEVELS[iceRoundIdx % ICE_ROUND_LEVELS.length]];
@@ -520,10 +520,10 @@ function iceShowResult() {
   iceShowScreen(iceResultScreen);
 }
 
-// ─── 인원 선택 ───────────────────────────────────────────────
+// --- 인원 선택 -----------------------------------------------
 setupPlayerSelect(function (n) { icePlayerCount = n; });
 
-// ─── 이벤트 바인딩 ───────────────────────────────────────────
+// --- 이벤트 바인딩 -------------------------------------------
 setupSoundToggle(iceSound, iceSoundToggleIntro);
 onTap(iceBackBtn, () => goHome());
 onTap(iceCloseBtn, () => { iceClearTimers(); goHome(); });

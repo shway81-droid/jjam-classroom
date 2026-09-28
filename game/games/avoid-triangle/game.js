@@ -2,7 +2,7 @@
 
 'use strict';
 
-// ─── 상수 ───────────────────────────────────────────────────────────────
+// --- 상수 ---------------------------------------------------------------
 // 6개의 점을 정육각형으로 배치하고, 모든 점 사이를 잇는 변 15개를 번갈아 칠한다.
 // 자기 색 변 세 개가 한 삼각형(세 점 모두 연결)을 이루면 그 사람이 진다.
 var NODE_COUNT = 6;
@@ -47,7 +47,7 @@ function findMonoTriangle(owner, p) {
   return null;
 }
 
-// ─── 타이머 관리 ─────────────────────────────────────────────────────────
+// --- 타이머 관리 ---------------------------------------------------------
 var timers = [];
 function later(fn, ms) { var id = setTimeout(fn, ms); timers.push(id); return id; }
 function clearAllTimers() {
@@ -56,7 +56,7 @@ function clearAllTimers() {
   timers = [];
 }
 
-// ─── 화면 전환 ────────────────────────────────────────────────────────────
+// --- 화면 전환 ------------------------------------------------------------
 var screens = {
   intro:     document.getElementById('introScreen'),
   countdown: document.getElementById('countdownScreen'),
@@ -76,7 +76,7 @@ function startCountdown(onDone) {
   countdownInterval = runCountdown(countdownNumber, onDone);
 }
 
-// ─── 사운드 ──────────────────────────────────────────────────────────────
+// --- 사운드 --------------------------------------------------------------
 var sounds = createSoundManager({
   drop: function (ctx) {
     var osc = ctx.createOscillator(); var gain = ctx.createGain();
@@ -134,7 +134,7 @@ var sounds = createSoundManager({
   }
 });
 
-// ─── 사운드 버튼 ──────────────────────────────────────────────────────────
+// --- 사운드 버튼 ----------------------------------------------------------
 var soundIconIds = ['soundIconIntro', 'soundIconGame'];
 var SVG_SOUND_ON  = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>';
 var SVG_SOUND_OFF = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
@@ -153,7 +153,7 @@ function updateSoundIcons() {
   });
 updateSoundIcons();
 
-// ─── 게임 상태 ────────────────────────────────────────────────────────────
+// --- 게임 상태 ------------------------------------------------------------
 var owner;          // { 'i-j': 0|1 }
 var currentPlayer;  // 0 or 1
 var gameOver;
@@ -161,7 +161,7 @@ var locked;
 var placedCount;
 var nodePos;        // [{x,y}] 6개
 
-// ─── DOM ─────────────────────────────────────────────────────────────────
+// --- DOM -----------------------------------------------------------------
 var boardWrap   = document.getElementById('boardGrid');
 var turnDot     = document.getElementById('turnDot');
 var turnText    = document.getElementById('turnText');
@@ -172,7 +172,7 @@ var turnBanner  = document.getElementById('turnBanner');
 
 var SVG_NS = 'http://www.w3.org/2000/svg';
 
-// ─── 게임 초기화 ──────────────────────────────────────────────────────────
+// --- 게임 초기화 ----------------------------------------------------------
 function initGame() {
   clearAllTimers();
   owner = {};
@@ -187,7 +187,7 @@ function initGame() {
   showScreen('game');
 }
 
-// ─── 점 좌표 계산 (정육각형, 위쪽 꼭짓점부터 시계방향) ─────────────────────
+// --- 점 좌표 계산 (정육각형, 위쪽 꼭짓점부터 시계방향) ---------------------
 function computeNodes() {
   var cx = 160, cy = 162, r = 130;
   var pos = [];
@@ -198,7 +198,7 @@ function computeNodes() {
   return pos;
 }
 
-// ─── 보드 빌드 (SVG) ──────────────────────────────────────────────────────
+// --- 보드 빌드 (SVG) ------------------------------------------------------
 function buildBoard() {
   nodePos = computeNodes();
   boardWrap.innerHTML = '';
@@ -208,7 +208,7 @@ function buildBoard() {
   svg.setAttribute('class', 'sim-svg');
   svg.id = 'simSvg';
 
-  // 변(線): 먼저 그려서 점 아래에 깔리게
+  // 변: 먼저 그려서 점 아래에 깔리게
   EDGES.forEach(function (e) {
     var a = nodePos[e[0]], b = nodePos[e[1]];
     var key = edgeKey(e[0], e[1]);
@@ -243,7 +243,7 @@ function buildBoard() {
   boardWrap.appendChild(svg);
 }
 
-// ─── 턴 UI ────────────────────────────────────────────────────────────────
+// --- 턴 UI ----------------------------------------------------------------
 function updateTurnUI(announce) {
   var color = PLAYER_COLORS[currentPlayer];
   var name  = PLAYER_NAMES[currentPlayer];
@@ -283,7 +283,7 @@ function updateLockState() {
   boardWrap.classList.toggle('locked', gameOver || locked);
 }
 
-// ─── 변 칠하기 ────────────────────────────────────────────────────────────
+// --- 변 칠하기 ------------------------------------------------------------
 function handlePlace(key) {
   if (gameOver || locked) return;
   if (owner[key] !== undefined) return; // 이미 칠한 변
@@ -330,7 +330,7 @@ function handlePlace(key) {
   }, 300);
 }
 
-// ─── 패배 삼각형 강조 ──────────────────────────────────────────────────────
+// --- 패배 삼각형 강조 ------------------------------------------------------
 function highlightTriangle(tri) {
   var pairs = [[tri[0], tri[1]], [tri[1], tri[2]], [tri[0], tri[2]]];
   pairs.forEach(function (pr) {
@@ -339,7 +339,7 @@ function highlightTriangle(tri) {
   });
 }
 
-// ─── 결과 화면 ───────────────────────────────────────────────────────────
+// --- 결과 화면 -----------------------------------------------------------
 var SVG_TROPHY =
   '<svg viewBox="0 0 80 80" width="80" height="80">' +
     '<rect x="28" y="62" width="24" height="6" rx="3" fill="#FFA726"/>' +
@@ -375,14 +375,14 @@ function showResult(winner, loser) {
   showScreen('result');
 }
 
-// ─── 버튼 이벤트 ──────────────────────────────────────────────────────────
+// --- 버튼 이벤트 ----------------------------------------------------------
 onTap(document.getElementById('playBtn'),  function () { startCountdown(function () { initGame(); }); });
 onTap(document.getElementById('retryBtn'), function () { startCountdown(function () { initGame(); }); });
 onTap(document.getElementById('homeBtn'),  function () { clearAllTimers(); goHome(); });
 onTap(document.getElementById('backBtn'),  function () { clearAllTimers(); goHome(); });
 onTap(document.getElementById('closeBtn'), function () { clearAllTimers(); showScreen('intro'); });
 
-// ─── 테스트 훅 (Node 환경에서만) ───────────────────────────────────────────
+// --- 테스트 훅 (Node 환경에서만) -------------------------------------------
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
     buildEdges: buildEdges, buildTriples: buildTriples, edgeKey: edgeKey,

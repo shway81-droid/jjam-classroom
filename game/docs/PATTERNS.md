@@ -111,7 +111,7 @@ engine.js가 제공하는 헬퍼를 재사용한다: `runCountdown`, `createTime
 # 3) 파생 메타 자동 생성
 npm run gen        # → index.html FALLBACK_GAMES + shared/engine.js _GAME_CATEGORY_MAP
 # 4) 검증
-node scripts/verify-game.js <폴더>   # 정적 21항목 전부 PASS
+node scripts/verify-game.js <폴더>   # 정적 23항목 전부 PASS
 npm test                              # 메타 동기화 + 전 게임 정합성 (CI와 동일)
 ```
 

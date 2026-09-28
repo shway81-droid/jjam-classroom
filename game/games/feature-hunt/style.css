@@ -1,13 +1,13 @@
 /* games/feature-hunt/style.css */
 
-/* ── Countdown screen ─────────────────────────────────────── */
+/* -- Countdown screen --------------------------------------- */
 .screen-countdown {
   justify-content: center;
   align-items: center;
   background: #FFF8E1;
 }
 
-/* ── Game header (intro) ──────────────────────────────────── */
+/* -- Game header (intro) ------------------------------------ */
 .game-header {
   display: flex;
   align-items: center;
@@ -25,7 +25,7 @@
   color: var(--text);
 }
 
-/* ── Intro screen ─────────────────────────────────────────── */
+/* -- Intro screen ------------------------------------------- */
 .screen-intro {
   background: linear-gradient(160deg, #E8EAF6 0%, #FFF3E0 100%);
   justify-content: space-between;
@@ -111,7 +111,7 @@
   box-shadow: 0 2px 8px rgba(124,77,255,0.35);
 }
 
-/* ── Game screen ──────────────────────────────────────────── */
+/* -- Game screen -------------------------------------------- */
 .screen-game {
   background: #FFF8E1;
   height: 100vh;
@@ -124,7 +124,7 @@
   align-items: stretch;
 }
 
-/* ── Top bar (condition panel) ────────────────────────────── */
+/* -- Top bar (condition panel) ------------------------------ */
 .top-bar {
   flex-shrink: 0;
   display: flex;
@@ -142,7 +142,7 @@
   gap: 10px;
 }
 
-/* ── Condition panel ─────────────────────────────────────── */
+/* -- Condition panel --------------------------------------- */
 .cond-panel {
   display: flex;
   align-items: center;
@@ -193,7 +193,7 @@
   flex-shrink: 0;
 }
 
-/* ── Shapes (CSS-only) ────────────────────────────────────── */
+/* -- Shapes (CSS-only) -------------------------------------- */
 .shape {
   display: block;
   width: 28px;
@@ -236,7 +236,7 @@
   border: none;
 }
 
-/* ── Zone grid ────────────────────────────────────────────── */
+/* -- Zone grid ---------------------------------------------- */
 .zones-wrap {
   flex: 1;
   min-height: 0;
@@ -261,7 +261,7 @@
   grid-template-rows: 1fr;
 }
 
-/* ── Individual zone ──────────────────────────────────────── */
+/* -- Individual zone ---------------------------------------- */
 .zone {
   position: relative;
   display: flex;
@@ -307,7 +307,7 @@
   flex-shrink: 0;
 }
 
-/* ── Feature grid (4×3 shape grid) ──────────────────────── */
+/* -- Feature grid (4×3 shape grid) ------------------------ */
 .feat-grid {
   margin-top: auto;
   align-self: center;
@@ -391,7 +391,7 @@
   filter: brightness(0.4) saturate(0.25);
 }
 
-/* ── Meta counters ────────────────────────────────────────── */
+/* -- Meta counters ------------------------------------------ */
 .question-counter {
   background: rgba(0,0,0,0.55);
   color: rgba(255,255,255,0.9);
@@ -440,7 +440,7 @@
 }
 .problem-status:empty { opacity: 0; }
 
-/* ── Close button ─────────────────────────────────────────── */
+/* -- Close button ------------------------------------------- */
 .close-btn {
   position: absolute;
   top: 6px;
@@ -451,7 +451,7 @@
   box-shadow: none;
 }
 
-/* ── Score bar ────────────────────────────────────────────── */
+/* -- Score bar ---------------------------------------------- */
 .score-bar {
   flex-shrink: 0;
   display: flex;
@@ -483,7 +483,7 @@
   text-align: center;
 }
 
-/* ── Icon btn ─────────────────────────────────────────────── */
+/* -- Icon btn ----------------------------------------------- */
 .icon-btn {
   width: 44px;
   height: 44px;
@@ -500,7 +500,7 @@
 }
 .icon-btn:active { background: rgba(0,0,0,0.14); }
 
-/* ── DQ flash ─────────────────────────────────────────────── */
+/* -- DQ flash ----------------------------------------------- */
 .penalty-flash {
   position: absolute;
   top: 50%;
@@ -521,7 +521,7 @@
   100% { opacity: 0; transform: translate(-50%, -120%) scale(0.8); }
 }
 
-/* ── Result screen ────────────────────────────────────────── */
+/* -- Result screen ------------------------------------------ */
 .screen-result {
   background: linear-gradient(160deg, #E8EAF6 0%, #FFF3E0 100%);
   align-items: center;

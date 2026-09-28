@@ -3,7 +3,7 @@
 (function () {
   'use strict';
 
-  // ─── 라운드 데이터 (풀에서 5개 선택) ───────────────────────────────────────
+  // --- 라운드 데이터 (풀에서 5개 선택) ---------------------------------------
   // 각 항목: target, p1Cards (4개), p2Cards (4개) — 적어도 한 쌍의 차가 정답
   var PROBLEM_POOL = [
     { target: 2, p1: [10, 16, 8, 2], p2: [10, 1, 20, 9] },
@@ -42,7 +42,7 @@
 
   var TOTAL_ROUNDS = 5;
 
-  // ─── 타이머 관리 ─────────────────────────────────────────────────────────
+  // --- 타이머 관리 ---------------------------------------------------------
   var timers = [];
 
   function later(fn, ms) {
@@ -57,7 +57,7 @@
     timers = [];
   }
 
-  // ─── 화면 전환 ────────────────────────────────────────────────────────────
+  // --- 화면 전환 ------------------------------------------------------------
   var screens = {
     intro:     document.getElementById('introScreen'),
     countdown: document.getElementById('countdownScreen'),
@@ -78,7 +78,7 @@
     countdownInterval = runCountdown(countdownNumber, onDone);
   }
 
-  // ─── 사운드 ──────────────────────────────────────────────────────────────
+  // --- 사운드 --------------------------------------------------------------
   var sounds = createSoundManager({
     pick: function (ctx) {
       var osc = ctx.createOscillator();
@@ -139,7 +139,7 @@
     }
   });
 
-  // ─── 사운드 버튼 ──────────────────────────────────────────────────────────
+  // --- 사운드 버튼 ----------------------------------------------------------
   var soundIconIds = ['soundIconIntro', 'soundIconGame'];
   var SVG_SOUND_ON  = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>';
   var SVG_SOUND_OFF = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
@@ -163,7 +163,7 @@
   });
   updateSoundIcons();
 
-  // ─── 게임 상태 ────────────────────────────────────────────────────────────
+  // --- 게임 상태 ------------------------------------------------------------
   var roundsLeft;
   var currentRound;
   var score;
@@ -172,7 +172,7 @@
   var p2Selected;
   var locked;         // 채점 중 잠금
 
-  // ─── DOM ─────────────────────────────────────────────────────────────────
+  // --- DOM -----------------------------------------------------------------
   var p1Grid       = document.getElementById('p1Cards');
   var p2Grid       = document.getElementById('p2Cards');
   var p1Pick       = document.getElementById('p1Pick');
@@ -186,7 +186,7 @@
   var resultSub    = document.getElementById('resultSub');
   var resultIconWrap = document.getElementById('resultIconWrap');
 
-  // ─── 셔플 ────────────────────────────────────────────────────────────────
+  // --- 셔플 ----------------------------------------------------------------
   function shuffleArr(arr) {
     var a = arr.slice();
     for (var i = a.length - 1; i > 0; i--) {
@@ -196,7 +196,7 @@
     return a;
   }
 
-  // ─── 카드 생성 ───────────────────────────────────────────────────────────
+  // --- 카드 생성 -----------------------------------------------------------
   function buildCards(grid, nums, player) {
     grid.innerHTML = '';
     nums.forEach(function (n, idx) {
@@ -214,7 +214,7 @@
     });
   }
 
-  // ─── 카드 선택 처리 ──────────────────────────────────────────────────────
+  // --- 카드 선택 처리 ------------------------------------------------------
   function handleCardPick(player, idx, val, grid) {
     sounds.play('pick');
 
@@ -238,7 +238,7 @@
     }
   }
 
-  // ─── 채점 ────────────────────────────────────────────────────────────────
+  // --- 채점 ----------------------------------------------------------------
   function checkAnswer() {
     var problem = problems[currentRound];
     var diff = Math.abs(p1Selected.val - p2Selected.val);
@@ -274,7 +274,7 @@
     }, 1500);
   }
 
-  // ─── 다음 라운드 ─────────────────────────────────────────────────────────
+  // --- 다음 라운드 ---------------------------------------------------------
   function nextRound() {
     locked = false;
     boardsEl.classList.remove('locked');
@@ -291,7 +291,7 @@
     updateRoundUI();
   }
 
-  // ─── UI 업데이트 ─────────────────────────────────────────────────────────
+  // --- UI 업데이트 ---------------------------------------------------------
   function updateRoundUI() {
     roundNumEl.textContent = (currentRound + 1) + '/' + TOTAL_ROUNDS;
   }
@@ -307,7 +307,7 @@
     bannerEl.textContent = '';
   }
 
-  // ─── 게임 초기화 ─────────────────────────────────────────────────────────
+  // --- 게임 초기화 ---------------------------------------------------------
   function initGame() {
     clearAllTimers();
     currentRound = 0;
@@ -321,7 +321,7 @@
     showScreen('game');
   }
 
-  // ─── 결과 화면 ───────────────────────────────────────────────────────────
+  // --- 결과 화면 -----------------------------------------------------------
   var SVG_TROPHY =
     '<svg viewBox="0 0 80 80" width="80" height="80">' +
       '<rect x="28" y="62" width="24" height="6" rx="3" fill="#FFA726"/>' +
@@ -367,7 +367,7 @@
     showScreen('result');
   }
 
-  // ─── 버튼 이벤트 ─────────────────────────────────────────────────────────
+  // --- 버튼 이벤트 ---------------------------------------------------------
   onTap(document.getElementById('playBtn'), function () {
     startCountdown(function() { initGame(); });
   });

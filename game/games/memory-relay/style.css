@@ -4,7 +4,7 @@
 
 body { overflow: hidden; }
 
-/* ── 인트로 ── */
+/* -- 인트로 -- */
 .screen-intro { justify-content: space-between; }
 .intro-body {
   padding: var(--space-md) var(--space-lg);
@@ -37,7 +37,7 @@ body { overflow: hidden; }
   font-weight: 900;
 }
 
-/* ── 게임 화면 ── */
+/* -- 게임 화면 -- */
 .screen-game {
   flex-direction: column;
   height: 100vh;
@@ -93,7 +93,7 @@ body { overflow: hidden; }
   text-align: right;
 }
 
-/* ── 배너 ── */
+/* -- 배너 -- */
 .banner {
   min-height: 38px;
   display: flex;
@@ -118,7 +118,7 @@ body { overflow: hidden; }
 .banner.ng   { color: #B71C1C; background: #FFCDD2; }
 .banner.info { color: #4527A0; background: #D1C4E9; }
 
-/* ── 플레이 영역 ── */
+/* -- 플레이 영역 -- */
 .play-area {
   flex: 1;
   min-height: 0;
@@ -196,7 +196,7 @@ body { overflow: hidden; }
   box-shadow: 5px 5px 0 #2C2C2C, 0 0 0 5px rgba(255,255,255,0.65) inset;
 }
 
-/* ── 결과 화면 (텍스트 색은 shared Level3가 보정) ── */
+/* -- 결과 화면 (텍스트 색은 shared Level3가 보정) -- */
 .result-headline.success { color: #2E7D32 !important; }
 .result-headline.fail { color: #6A1B9A !important; }
 .result-actions {
@@ -207,7 +207,7 @@ body { overflow: hidden; }
 }
 .btn-retry, .btn-home-res { flex: 1; }
 
-/* ── 낮은 화면(≤900px)에서 인트로가 PLAY 버튼을 밀어내지 않도록 압축 ── */
+/* -- 낮은 화면(≤900px)에서 인트로가 PLAY 버튼을 밀어내지 않도록 압축 -- */
 @media (max-height: 900px) {
   .intro-illustration svg { width: 120px; height: 92px; }
   .intro-body { gap: 4px; }

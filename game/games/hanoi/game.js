@@ -1,7 +1,7 @@
 /* games/hanoi/game.js — 패턴 D (퍼즐 병렬 경쟁) — 하노이탑 */
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const TOTAL_ROUNDS = 3;
 const ROUND_TIME = 60;        // seconds
 const RESULT_PAUSE_MS = getAutoplayPauseMs(2200);
@@ -19,7 +19,7 @@ const PLAYER_CONFIG = [
   { label: 'P4', dot: '#F57C00', cls: 'p4' },
 ];
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const sound = createSoundManager({
   ding(ctx) {
     [523, 659, 784].forEach((f, i) => {
@@ -88,7 +88,7 @@ const sound = createSoundManager({
   },
 });
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let playerCount = 2;
 let roundIdx = 0;
 let scores = [];                 // round wins per player
@@ -103,7 +103,7 @@ let timerHandle = null;
 let nextHandle = null;
 let timeRemaining = ROUND_TIME;
 
-// ── DOM refs ─────────────────────────────────────────────────
+// -- DOM refs -------------------------------------------------
 const introScreen = document.getElementById('introScreen');
 const countdownScreen = document.getElementById('countdownScreen');
 const countdownNumber = document.getElementById('countdownNumber');
@@ -128,7 +128,7 @@ const resultTitle = document.getElementById('resultTitle');
 const resultWinner = document.getElementById('resultWinner');
 const totalRow = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function showScreen(s) {
   [introScreen, countdownScreen, gameScreen, resultScreen].forEach(x => x.classList.remove('active'));
   s.classList.add('active');
@@ -147,7 +147,7 @@ function clearTimers() {
 }
 
 
-// ── Hanoi utilities ──────────────────────────────────────────
+// -- Hanoi utilities ------------------------------------------
 function makeInitialPegs(n) {
   const first = [];
   for (let s = n; s >= 1; s--) first.push(s); // bottom = largest
@@ -158,7 +158,7 @@ function isSolvedHanoi(pegs, n) {
   return pegs[TARGET_PEG].length === n;
 }
 
-// ── Build zones (each zone has its own hanoi board) ──────────
+// -- Build zones (each zone has its own hanoi board) ----------
 function buildZones() {
   zonesWrap.innerHTML = '';
   zonesWrap.className = `zones-wrap p${playerCount}`;
@@ -232,7 +232,7 @@ function updateMovesChip(playerIdx) {
   if (el) el.textContent = `${zoneMoves[playerIdx]}회`;
 }
 
-// ── Score bar ────────────────────────────────────────────────
+// -- Score bar ------------------------------------------------
 function buildScoreBar() {
   scoreBar.innerHTML = '';
   for (let i = 0; i < playerCount; i++) {
@@ -253,7 +253,7 @@ function updateBarScore(playerIdx) {
   if (el) el.textContent = scores[playerIdx];
 }
 
-// ── Peg tap handler ──────────────────────────────────────────
+// -- Peg tap handler ------------------------------------------
 function handlePegTap(playerIdx, pegIdx) {
   if (phase !== 'active') return;
   if (zoneSolved[playerIdx]) return;
@@ -332,7 +332,7 @@ function handleSolve(winnerIdx) {
   }
 }
 
-// ── Timer ────────────────────────────────────────────────────
+// -- Timer ----------------------------------------------------
 function startCountdown() {
   timeRemaining = ROUND_TIME;
   problemTimer.textContent = timeRemaining;
@@ -371,7 +371,7 @@ function handleTimeout() {
   nextHandle = setTimeout(() => nextRound(), RESULT_PAUSE_MS);
 }
 
-// ── Round flow ───────────────────────────────────────────────
+// -- Round flow -----------------------------------------------
 function loadRound() {
   phase = 'active';
   diskCount = DISK_COUNTS[roundIdx];
@@ -420,7 +420,7 @@ function startGame() {
   loadRound();
 }
 
-// ── Result ───────────────────────────────────────────────────
+// -- Result ---------------------------------------------------
 function showResult() {
   clearTimers();
   phase = 'idle';
@@ -462,13 +462,13 @@ function showResult() {
   showScreen(resultScreen);
 }
 
-// ── Player count selection ───────────────────────────────────
+// -- Player count selection -----------------------------------
 setupPlayerSelect(function (n) { playerCount = n; });
 
-// ── Sound toggle ─────────────────────────────────────────────
+// -- Sound toggle ---------------------------------------------
 setupSoundToggle(sound, soundToggleIntro);
 
-// ── Navigation ───────────────────────────────────────────────
+// -- Navigation -----------------------------------------------
 onTap(backBtn, () => goHome());
 onTap(closeBtn, () => { clearTimers(); goHome(); });
 onTap(homeBtn, () => goHome());

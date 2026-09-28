@@ -1,7 +1,7 @@
 /* games/more-or-less/game.js */
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const TOTAL_ROUNDS = 15;
 
 const PLAYER_CONFIG = [
@@ -23,7 +23,7 @@ const DOT_COLORS = [
   '#D4E157', '#C0CA33',
 ];
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const sound = createSoundManager({
   ding(ctx) {
     [523, 659, 784].forEach((freq, i) => {
@@ -69,7 +69,7 @@ const sound = createSoundManager({
   },
 });
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let playerCount  = 2;
 let currentRound = 0;
 let scores       = [];
@@ -82,7 +82,7 @@ let roundDQ      = new Set();
 // timers
 let nextRoundTimer = null;
 
-// ── DOM references ───────────────────────────────────────────
+// -- DOM references -------------------------------------------
 const introScreen     = document.getElementById('introScreen');
 const countdownScreen = document.getElementById('countdownScreen');
 const countdownNumber = document.getElementById('countdownNumber');
@@ -109,7 +109,7 @@ const resultTableHead  = document.getElementById('resultTableHead');
 const resultTableBody  = document.getElementById('resultTableBody');
 const totalRow         = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function showScreen(screen) {
   [introScreen, countdownScreen, gameScreen, resultScreen].forEach(s => s.classList.remove('active'));
   screen.classList.add('active');
@@ -134,7 +134,7 @@ function pickRandom(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-// ── Dot generation ─────────────────────────────────────────
+// -- Dot generation -----------------------------------------
 /**
  * Generate count for left/right groups.
  * Left: random 4~12
@@ -208,7 +208,7 @@ function darkenHex(hex, factor) {
   return `#${[r,g,b].map(v => v.toString(16).padStart(2,'0')).join('')}`;
 }
 
-// ── SVG Arrow builders ──────────────────────────────────────
+// -- SVG Arrow builders --------------------------------------
 function makeSvgArrowLeft(fill, stroke) {
   return `<svg viewBox="0 0 80 80" width="72" height="72" xmlns="http://www.w3.org/2000/svg">
     <circle cx="40" cy="40" r="36" fill="${fill}" stroke="${stroke}" stroke-width="3"/>
@@ -223,20 +223,20 @@ function makeSvgArrowRight(fill, stroke) {
   </svg>`;
 }
 
-// ── Sound Toggle ─────────────────────────────────────────────
+// -- Sound Toggle ---------------------------------------------
 setupSoundToggle(sound, soundToggleIntro);
 
-// ── Intro selectors ──────────────────────────────────────────
+// -- Intro selectors ------------------------------------------
 setupPlayerSelect(function (n) { playerCount = n; });
 
-// ── Nav ──────────────────────────────────────────────────────
+// -- Nav ------------------------------------------------------
 onTap(backBtn,  () => { clearAllTimers(); goHome(); });
 onTap(closeBtn, () => { clearAllTimers(); goHome(); });
 onTap(homeBtn,  () => { clearAllTimers(); goHome(); });
 onTap(retryBtn, () => startCountdown(() => startGame()));
 onTap(playBtn,  () => startCountdown(() => startGame()));
 
-// ── Timer cleanup ────────────────────────────────────────────
+// -- Timer cleanup --------------------------------------------
 function clearAllTimers() {
   if (countdownInterval) { clearInterval(countdownInterval); countdownInterval = null; }
   if (nextRoundTimer) {
@@ -245,7 +245,7 @@ function clearAllTimers() {
   }
 }
 
-// ── Build zones ──────────────────────────────────────────────
+// -- Build zones ----------------------------------------------
 function buildZones() {
   zonesWrap.innerHTML = '';
   zonesWrap.className = `zones-wrap p${playerCount}`;
@@ -282,7 +282,7 @@ function getZone(idx) {
   return zonesWrap.querySelector(`.zone[data-player="${idx}"]`);
 }
 
-// ── Ripple ───────────────────────────────────────────────────
+// -- Ripple ---------------------------------------------------
 function spawnRipple(btn, e) {
   const zone   = btn.closest('.zone');
   const rect   = zone.getBoundingClientRect();
@@ -300,7 +300,7 @@ function spawnRipple(btn, e) {
   ripple.addEventListener('animationend', () => ripple.remove());
 }
 
-// ── Arrow tap handler ────────────────────────────────────────
+// -- Arrow tap handler ----------------------------------------
 function handleArrowTap(playerIdx, side, zone, e) {
   if (!roundActive) return;
   if (roundDQ.has(playerIdx)) return;
@@ -319,7 +319,7 @@ function handleArrowTap(playerIdx, side, zone, e) {
   }
 }
 
-// ── Disqualify ───────────────────────────────────────────────
+// -- Disqualify -----------------------------------------------
 function disqualifyPlayer(idx, zone) {
   if (roundDQ.has(idx)) return;
   roundDQ.add(idx);
@@ -346,7 +346,7 @@ function disqualifyPlayer(idx, zone) {
   }
 }
 
-// ── Game flow ────────────────────────────────────────────────
+// -- Game flow ------------------------------------------------
 function startGame() {
   clearAllTimers();
   scores       = new Array(playerCount).fill(0);
@@ -436,7 +436,7 @@ function endRound(winnerIdx) {
   }, 1400);
 }
 
-// ── Zone state helpers ───────────────────────────────────────
+// -- Zone state helpers ---------------------------------------
 function setAllZoneState(stateClass) {
   for (let i = 0; i < playerCount; i++) {
     const z = getZone(i);
@@ -460,7 +460,7 @@ function updateScoreDisplay(idx) {
   if (el) el.textContent = `${scores[idx]}점`;
 }
 
-// ── Result screen ────────────────────────────────────────────
+// -- Result screen --------------------------------------------
 function showResult() {
   sound.play('fanfare');
 

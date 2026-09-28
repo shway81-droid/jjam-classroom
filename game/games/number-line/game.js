@@ -1,7 +1,7 @@
 /* games/number-line/game.js */
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const NL_TOTAL_ROUNDS    = 8;
 const NL_ROUND_TIME      = 12;
 const NL_RESULT_PAUSE_MS = getAutoplayPauseMs(2000);
@@ -23,7 +23,7 @@ const NL_PLAYER_CONFIG = [
  */
 const NL_LEVEL_PLAN = [1, 1, 2, 2, 3, 3, 4, 4];
 
-// ── Number line SVG renderer ─────────────────────────────────
+// -- Number line SVG renderer ---------------------------------
 const NL_SVG_W  = 280;
 const NL_SVG_H  = 80;
 const NL_PAD_X  = 20;
@@ -125,7 +125,7 @@ function nlRenderSvg(minVal, maxVal, step, labeledTicks, arrowAt) {
   return svg;
 }
 
-// ── Round generation ─────────────────────────────────────────
+// -- Round generation -----------------------------------------
 function nlRandInt(n) { return Math.floor(Math.random() * n); }
 
 function nlShuffleArray(arr) {
@@ -216,7 +216,7 @@ function nlGenerateRound(roundIdx) {
   };
 }
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const nlSound = createSoundManager({
   ding(ctx) {
     [523, 659, 784].forEach(function(freq, i) {
@@ -277,7 +277,7 @@ const nlSound = createSoundManager({
   },
 });
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let nlPlayerCount   = 2;
 let nlRoundIdx      = 0;
 let nlScores        = [];
@@ -291,7 +291,7 @@ let nlTimeRemaining = NL_ROUND_TIME;
 let nlGameRounds    = [];
 var nlCDInterval    = null;
 
-// ── DOM refs ─────────────────────────────────────────────────
+// -- DOM refs -------------------------------------------------
 const nlIntroScreen     = document.getElementById('introScreen');
 const nlCountdownScreen = document.getElementById('countdownScreen');
 const nlCountdownNumber = document.getElementById('countdownNumber');
@@ -316,7 +316,7 @@ const nlResultTableHead = document.getElementById('resultTableHead');
 const nlResultTableBody = document.getElementById('resultTableBody');
 const nlTotalRow        = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function nlShowScreen(s) {
   [nlIntroScreen, nlCountdownScreen, nlGameScreen, nlResultScreen]
     .forEach(function(x) { x.classList.remove('active'); });
@@ -335,14 +335,14 @@ function nlStartPreGameCountdown(onDone) {
   nlCDInterval = runCountdown(nlCountdownNumber, onDone);
 }
 
-// ── Intro illustration ───────────────────────────────────────
+// -- Intro illustration ---------------------------------------
 function nlRenderIntroIllust() {
   const svg = nlRenderSvg(0, 10, 1, [0, 5, 10], 7);
   nlIntroIllust.innerHTML = svg;
 }
 nlRenderIntroIllust();
 
-// ── Player count selection ───────────────────────────────────
+// -- Player count selection -----------------------------------
 setupPlayerSelect(function (n) { nlPlayerCount = n; });
 
 setupSoundToggle(nlSound, nlSoundToggle);
@@ -353,12 +353,12 @@ onTap(nlHomeBtn,  function() { goHome(); });
 onTap(nlRetryBtn, function() { nlStartPreGameCountdown(function() { nlStartGame(); }); });
 onTap(nlPlayBtn,  function() { nlStartPreGameCountdown(function() { nlStartGame(); }); });
 
-// ── Render problem panel ─────────────────────────────────────
+// -- Render problem panel -------------------------------------
 function nlRenderProblem() {
   nlSvgWrap.innerHTML = nlCurrentRound.svg;
 }
 
-// ── Build zones ──────────────────────────────────────────────
+// -- Build zones ----------------------------------------------
 function nlBuildZones() {
   nlZonesWrap.innerHTML = '';
   nlZonesWrap.className = 'zones-wrap p' + nlPlayerCount;
@@ -404,7 +404,7 @@ function nlUpdateScoreChip(playerIdx) {
   if (chip) chip.textContent = nlScores[playerIdx] + '점';
 }
 
-// ── Score bar ────────────────────────────────────────────────
+// -- Score bar ------------------------------------------------
 function nlBuildScoreBar() {
   nlScoreBar.innerHTML = '';
   for (let i = 0; i < nlPlayerCount; i++) {
@@ -424,7 +424,7 @@ function nlUpdateBarScore(playerIdx) {
   if (el) el.textContent = nlScores[playerIdx];
 }
 
-// ── Reset buttons for new round ──────────────────────────────
+// -- Reset buttons for new round ------------------------------
 function nlResetBtnsForRound() {
   const { choices, arrowAt } = nlCurrentRound;
 
@@ -457,7 +457,7 @@ function nlDisablePlayerBtns(playerIdx) {
   });
 }
 
-// ── Timer logic ──────────────────────────────────────────────
+// -- Timer logic ----------------------------------------------
 function nlStartCountdown() {
   nlTimeRemaining = NL_ROUND_TIME;
   nlProblemTimer.textContent = nlTimeRemaining;
@@ -477,7 +477,7 @@ function nlStartCountdown() {
   }, 1000);
 }
 
-// ── Choice tap handler ───────────────────────────────────────
+// -- Choice tap handler ---------------------------------------
 function nlHandleChoiceTap(playerIdx, choiceIdx, btn, isCorrect) {
   if (nlPhase !== 'active') return;
   if (nlDqSet.has(playerIdx)) return;
@@ -510,7 +510,7 @@ function nlHandleChoiceTap(playerIdx, choiceIdx, btn, isCorrect) {
   }
 }
 
-// ── Correct resolved ─────────────────────────────────────────
+// -- Correct resolved -----------------------------------------
 function nlResolveRound(winnerIdx) {
   nlPhase = 'done';
   nlClearTimers();
@@ -546,7 +546,7 @@ function nlResolveRound(winnerIdx) {
   nlNextHandle = setTimeout(function() { nlNextRound(); }, NL_RESULT_PAUSE_MS);
 }
 
-// ── Timeout ──────────────────────────────────────────────────
+// -- Timeout --------------------------------------------------
 function nlHandleTimeout() {
   nlPhase = 'done';
   nlClearTimers();
@@ -580,7 +580,7 @@ function nlHandleTimeout() {
   nlNextHandle = setTimeout(function() { nlNextRound(); }, NL_RESULT_PAUSE_MS);
 }
 
-// ── Load round ───────────────────────────────────────────────
+// -- Load round -----------------------------------------------
 function nlLoadRound() {
   nlPhase        = 'active';
   nlCurrentRound = nlGameRounds[nlRoundIdx];
@@ -595,7 +595,7 @@ function nlLoadRound() {
   nlStartCountdown();
 }
 
-// ── Next round ───────────────────────────────────────────────
+// -- Next round -----------------------------------------------
 function nlNextRound() {
   nlRoundIdx++;
   if (nlRoundIdx >= NL_TOTAL_ROUNDS) {
@@ -605,7 +605,7 @@ function nlNextRound() {
   }
 }
 
-// ── Start game ───────────────────────────────────────────────
+// -- Start game -----------------------------------------------
 function nlStartGame() {
   nlGameRounds = [];
   for (let i = 0; i < NL_TOTAL_ROUNDS; i++) {
@@ -625,7 +625,7 @@ function nlStartGame() {
   nlLoadRound();
 }
 
-// ── Show result ──────────────────────────────────────────────
+// -- Show result ----------------------------------------------
 function nlShowResult() {
   nlClearTimers();
   nlPhase = 'idle';

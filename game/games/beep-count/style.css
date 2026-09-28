@@ -1,13 +1,13 @@
 /* games/beep-count/style.css */
 
-/* ── Countdown screen ─────────────────────────────────────── */
+/* -- Countdown screen --------------------------------------- */
 .screen-countdown {
   justify-content: center;
   align-items: center;
   background: #FFF8E1;
 }
 
-/* ── Intro screen ─────────────────────────────────────────── */
+/* -- Intro screen ------------------------------------------- */
 .screen-intro {
   background: linear-gradient(160deg, #FFF8E1 0%, #FFE0B2 100%);
   justify-content: space-between;
@@ -85,7 +85,7 @@
   box-shadow: 0 2px 8px rgba(244,81,30,0.35);
 }
 
-/* ── Game screen ──────────────────────────────────────────── */
+/* -- Game screen -------------------------------------------- */
 .screen-game {
   background: #FFF8E1;
   height: 100vh;
@@ -98,7 +98,7 @@
   align-items: stretch;
 }
 
-/* ── Top bar ─────────────────────────────────────────────── */
+/* -- Top bar ----------------------------------------------- */
 .top-bar {
   flex-shrink: 0;
   display: flex;
@@ -151,7 +151,7 @@
   to   { transform: scale(1.15); }
 }
 
-/* ── Speaker panel ───────────────────────────────────────── */
+/* -- Speaker panel ----------------------------------------- */
 .speaker-panel {
   text-align: center;
   font-size: 3rem;
@@ -182,7 +182,7 @@
   color: #fff;
 }
 
-/* ── Close button ─────────────────────────────────────────── */
+/* -- Close button ------------------------------------------- */
 .close-btn {
   position: absolute;
   top: 6px;
@@ -193,7 +193,7 @@
   box-shadow: none;
 }
 
-/* ── Zone layout ──────────────────────────────────────────── */
+/* -- Zone layout -------------------------------------------- */
 .zones-wrap {
   flex: 1;
   min-height: 0;
@@ -280,7 +280,7 @@
   100% { opacity: 0; transform: translate(-50%, -120%) scale(0.8); }
 }
 
-/* ── Choice grid ──────────────────────────────────────────── */
+/* -- Choice grid -------------------------------------------- */
 .choice-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -338,7 +338,7 @@
   75%     { transform: translateX(8px); }
 }
 
-/* ── Score bar ────────────────────────────────────────────── */
+/* -- Score bar ---------------------------------------------- */
 .score-bar {
   flex-shrink: 0;
   display: flex;
@@ -369,7 +369,7 @@
   text-align: center;
 }
 
-/* ── Icon btn ─────────────────────────────────────────────── */
+/* -- Icon btn ----------------------------------------------- */
 .icon-btn {
   width: 44px;
   height: 44px;
@@ -386,7 +386,7 @@
 }
 .icon-btn:active { background: rgba(0,0,0,0.14); }
 
-/* ── Result screen ────────────────────────────────────────── */
+/* -- Result screen ------------------------------------------ */
 .screen-result {
   background: linear-gradient(160deg, #FFF8E1 0%, #FFE0B2 100%);
   align-items: center;

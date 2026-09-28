@@ -1,13 +1,13 @@
 /* games/simon-says/style.css */
 
-/* ── Countdown screen ─────────────────────────────────────── */
+/* -- Countdown screen --------------------------------------- */
 .screen-countdown {
   justify-content: center;
   align-items: center;
   background: #FFF8E1;
 }
 
-/* ── Shared header ────────────────────────────────────────── */
+/* -- Shared header ------------------------------------------ */
 .game-header {
   display: flex;
   align-items: center;
@@ -25,7 +25,7 @@
   color: var(--text);
 }
 
-/* ── Intro screen ─────────────────────────────────────────── */
+/* -- Intro screen ------------------------------------------- */
 .screen-intro {
   background: linear-gradient(160deg, #FFF3E0 0%, #FFF8E1 100%);
   justify-content: space-between;
@@ -93,7 +93,7 @@
   letter-spacing: 0.06em;
 }
 
-/* ── Game screen ──────────────────────────────────────────── */
+/* -- Game screen -------------------------------------------- */
 .screen-game {
   background: #FFF8E1;
   height: 100vh;
@@ -106,7 +106,7 @@
   align-items: stretch;
 }
 
-/* ── Top bar (command panel) ──────────────────────────────── */
+/* -- Top bar (command panel) -------------------------------- */
 .top-bar {
   flex-shrink: 0;
   display: flex;
@@ -181,7 +181,7 @@
 }
 .problem-status:empty { opacity: 0; }
 
-/* ── Zone grid ────────────────────────────────────────────── */
+/* -- Zone grid ---------------------------------------------- */
 .zones-wrap {
   flex: 1;
   min-height: 0;
@@ -206,7 +206,7 @@
   grid-template-rows: 1fr;
 }
 
-/* ── Individual zone ──────────────────────────────────────── */
+/* -- Individual zone ---------------------------------------- */
 /* 배경색은 shared/style.css 파스텔 규칙이 처리 (하드코딩 금지) */
 .zone {
   position: relative;
@@ -343,7 +343,7 @@
   100% { opacity: 0; transform: translate(-50%, -130%) scale(0.8); }
 }
 
-/* ── Close button ─────────────────────────────────────────── */
+/* -- Close button ------------------------------------------- */
 .close-btn {
   position: absolute;
   top: 6px;
@@ -351,7 +351,7 @@
   z-index: 30;
 }
 
-/* ── Score bar ────────────────────────────────────────────── */
+/* -- Score bar ---------------------------------------------- */
 .score-bar {
   flex-shrink: 0;
   display: flex;
@@ -379,7 +379,7 @@
   font-weight: 900;
 }
 
-/* ── Result screen ────────────────────────────────────────── */
+/* -- Result screen ------------------------------------------ */
 .screen-result {
   background: linear-gradient(160deg, #FFF3E0 0%, #FFF8E1 100%);
   align-items: center;
@@ -490,7 +490,7 @@
   box-shadow: var(--shadow-card);
 }
 
-/* ── 전자칠판 대형 화면: 동작 버튼/지시문 확대 ─────────────── */
+/* -- 전자칠판 대형 화면: 동작 버튼/지시문 확대 --------------- */
 @media (min-width: 1280px) {
   .action-btn { min-height: 130px; font-size: 2.4rem; }
   .command-display { font-size: 3.6rem; }

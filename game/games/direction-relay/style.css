@@ -1,6 +1,6 @@
 /* games/direction-relay/style.css */
 
-/* ── Countdown screen ───────────────────────────── */
+/* -- Countdown screen ----------------------------- */
 .screen-countdown {
   justify-content: center;
   align-items: center;
@@ -11,7 +11,7 @@
   text-shadow: 4px 4px 0 #2C2C2C;
 }
 
-/* ── Intro screen ───────────────────────────────── */
+/* -- Intro screen --------------------------------- */
 .screen-intro {
   background: linear-gradient(160deg, #FFF8E1 0%, #FFE0B2 100%);
   justify-content: space-between;
@@ -106,7 +106,7 @@
   box-shadow: 2px 2px 0 #2C2C2C;
 }
 
-/* ── Game header (intro) ──────────────────────────── */
+/* -- Game header (intro) ---------------------------- */
 .game-header {
   display: flex;
   align-items: center;
@@ -122,7 +122,7 @@
   color: #2C2C2C;
 }
 
-/* ── Game screen ────────────────────────────────── */
+/* -- Game screen ---------------------------------- */
 .screen-game {
   background: #FFF8E1;
   flex-direction: column;
@@ -347,7 +347,7 @@
 .banner.ng { color: #B71C1C; background: #FFCDD2; }
 .banner.info { color: #2C2C2C; background: #FFE0B2; }
 
-/* ── Icon btn (shared, intro) ─────────────────────── */
+/* -- Icon btn (shared, intro) ----------------------- */
 .icon-btn {
   width: 44px;
   height: 44px;
@@ -364,7 +364,7 @@
 }
 .icon-btn:active { background: rgba(0,0,0,0.14); }
 
-/* ── Result screen ──────────────────────────────── */
+/* -- Result screen -------------------------------- */
 .screen-result {
   background: linear-gradient(160deg, #FFF8E1 0%, #FFE0B2 100%);
   justify-content: center;

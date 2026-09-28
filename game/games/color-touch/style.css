@@ -1,13 +1,13 @@
 /* games/color-touch/style.css */
 
-/* ── Countdown screen ─────────────────────────────────────── */
+/* -- Countdown screen --------------------------------------- */
 .screen-countdown {
   justify-content: center;
   align-items: center;
   background: #FFF8E1;
 }
 
-/* ── Shared header ────────────────────────────────────────── */
+/* -- Shared header ------------------------------------------ */
 .game-header {
   display: flex;
   align-items: center;
@@ -25,7 +25,7 @@
   color: var(--text);
 }
 
-/* ── Intro screen ─────────────────────────────────────────── */
+/* -- Intro screen ------------------------------------------- */
 .screen-intro {
   background: linear-gradient(160deg, #F3E5F5 0%, #EDE7F6 100%);
   justify-content: space-between;
@@ -105,7 +105,7 @@
   box-shadow: 0 4px 14px rgba(156,39,176,0.35);
 }
 
-/* ── Game screen ──────────────────────────────────────────── */
+/* -- Game screen -------------------------------------------- */
 .screen-game {
   background: #FFF8E1;
   position: relative;
@@ -119,18 +119,18 @@
   display: grid;
 }
 
-/* ─ 2-player: left / right halves ─ */
+/* - 2-player: left / right halves - */
 .zones-wrap.p2 {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
 }
 
-/* ─ 3-player: top-left / top-right / bottom-center ─ */
+/* - 3-player: top-left / top-right / bottom-center - */
 .zones-wrap.p3 {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
 }
-/* ─ 4-player: quadrants ─ */
+/* - 4-player: quadrants - */
 .zones-wrap.p4 {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
@@ -170,7 +170,7 @@
   text-shadow: 0 1px 4px rgba(0,0,0,0.5);
 }
 
-/* ── Color button grid inside a zone ──────────────────────── */
+/* -- Color button grid inside a zone ------------------------ */
 .color-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -251,7 +251,7 @@
   to { transform: scale(4); opacity: 0; }
 }
 
-/* ── Stroop center panel ──────────────────────────────────── */
+/* -- Stroop center panel ------------------------------------ */
 .stroop-panel {
   position: absolute;
   top: 50%;
@@ -310,7 +310,7 @@
 .round-status.correct { background: rgba(56,142,60,0.85); }
 .round-status.wrong   { background: rgba(198,40,40,0.85); }
 
-/* ── Close button ─────────────────────────────────────────── */
+/* -- Close button ------------------------------------------- */
 .close-btn {
   position: absolute;
   top: var(--space-md);
@@ -321,7 +321,7 @@
   box-shadow: none;
 }
 
-/* ── Result screen ────────────────────────────────────────── */
+/* -- Result screen ------------------------------------------ */
 .screen-result {
   background: linear-gradient(160deg, #F3E5F5 0%, #EDE7F6 100%);
   align-items: center;
@@ -425,7 +425,7 @@
   box-shadow: var(--shadow-card);
 }
 
-/* ── Penalty flash ─────────────────────────────────────────── */
+/* -- Penalty flash ------------------------------------------- */
 .penalty-flash {
   position: absolute;
   color: #EF5350;
@@ -441,7 +441,7 @@
 }
 
 
-/* ── 3·4-player mode: move center panel to top so middle players aren't blocked ── */
+/* -- 3·4-player mode: move center panel to top so middle players aren't blocked -- */
 .screen-game:has(.zones-wrap.p4) .stroop-panel,
 .screen-game:has(.zones-wrap.p3) .stroop-panel {
   top: 8px !important;

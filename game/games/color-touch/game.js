@@ -2,7 +2,7 @@
 
 'use strict';
 
-// ── Color definitions ─────────────────────────────────────
+// -- Color definitions -------------------------------------
 const COLORS = [
   { id: 'red',    label: '빨강', fill: '#EF5350', stroke: '#B71C1C', dark: '#B71C1C' },
   { id: 'blue',   label: '파랑', fill: '#29B6F6', stroke: '#0277BD', dark: '#0277BD' },
@@ -28,7 +28,7 @@ const PLAYER_CONFIG = [
   { label: 'P4', hex: '#1B5E20', bgTint: 'rgba(27,94,32,0.18)' },
 ];
 
-// ── Sound Manager ─────────────────────────────────────────
+// -- Sound Manager -----------------------------------------
 const sound = createSoundManager({
   ding(ctx) {
     // Bright correct-answer chime
@@ -93,7 +93,7 @@ const sound = createSoundManager({
   },
 });
 
-// ── State ─────────────────────────────────────────────────
+// -- State -------------------------------------------------
 let playerCount   = 2;
 let currentRound  = 0;
 let scores        = [];   // points per player
@@ -105,7 +105,7 @@ let roundResolved = false;
 let nextRoundTimer   = null;
 let pendingTimers    = [];   // tracks all non-nextRound timeouts for cleanup
 
-// ── DOM ───────────────────────────────────────────────────
+// -- DOM ---------------------------------------------------
 const introScreen     = document.getElementById('introScreen');
 const countdownScreen = document.getElementById('countdownScreen');
 const countdownNumber = document.getElementById('countdownNumber');
@@ -131,7 +131,7 @@ const resultTableHead = document.getElementById('resultTableHead');
 const resultTableBody = document.getElementById('resultTableBody');
 const totalRow      = document.getElementById('totalRow');
 
-// ── Helpers ───────────────────────────────────────────────
+// -- Helpers -----------------------------------------------
 function showScreen(s) {
   [introScreen, countdownScreen, gameScreen, resultScreen].forEach(el => el.classList.remove('active'));
   s.classList.add('active');
@@ -148,20 +148,20 @@ function randItem(arr) {
 }
 
 
-// ── Sound toggle ──────────────────────────────────────────
+// -- Sound toggle ------------------------------------------
 setupSoundToggle(sound, soundToggleIntro);
 
-// ── Player count select ───────────────────────────────────
+// -- Player count select -----------------------------------
 setupPlayerSelect(function (n) { playerCount = n; });
 
-// ── Nav buttons ───────────────────────────────────────────
+// -- Nav buttons -------------------------------------------
 onTap(backBtn,  () => { clearAllTimers(); goHome(); });
 onTap(closeBtn, () => { clearAllTimers(); goHome(); });
 onTap(homeBtn,  () => { clearAllTimers(); goHome(); });
 onTap(retryBtn, () => startCountdown(() => startGame()));
 onTap(playBtn,  () => startCountdown(() => startGame()));
 
-// ── SVG color button builder ──────────────────────────────
+// -- SVG color button builder ------------------------------
 function buildColorSVG(color) {
   // Inline SVG circle button as per spec
   return `<svg viewBox="0 0 80 80" width="80" height="80" aria-hidden="true">
@@ -170,7 +170,7 @@ function buildColorSVG(color) {
   </svg>`;
 }
 
-// ── Build player zones ────────────────────────────────────
+// -- Build player zones ------------------------------------
 function buildZones() {
   zonesWrap.innerHTML = '';
   zonesWrap.className = `zones-wrap p${playerCount}`;
@@ -229,7 +229,7 @@ function updateZoneScore(idx) {
   if (el) el.textContent = scores[idx] + '점';
 }
 
-// ── Ripple ────────────────────────────────────────────────
+// -- Ripple ------------------------------------------------
 function spawnRipple(zone, e) {
   const rect  = zone.getBoundingClientRect();
   const touch = e.touches ? e.touches[0] : e;
@@ -248,7 +248,7 @@ function spawnRipple(zone, e) {
   r.addEventListener('animationend', () => r.remove());
 }
 
-// ── Round generation ──────────────────────────────────────
+// -- Round generation --------------------------------------
 function generateRound() {
   const correctColor  = randItem(COLORS);        // the meaning
   const useMismatch   = Math.random() < 0.5;     // ~50% mismatch
@@ -265,14 +265,14 @@ function generateRound() {
   return { correctId: correctColor.id, displayColor };
 }
 
-// ── Stroop word display ───────────────────────────────────
+// -- Stroop word display -----------------------------------
 function showStroopWord(roundData) {
   const correctColor = COLOR_BY_ID[roundData.correctId];
   stroopWord.textContent  = correctColor.label;
   stroopWord.style.color  = roundData.displayColor.fill;
 }
 
-// ── Color tap handler ─────────────────────────────────────
+// -- Color tap handler -------------------------------------
 function handleColorTap(playerIdx, colorId, zone, e) {
   if (phase !== 'active') return;
   if (roundDQ.has(playerIdx))  return;
@@ -358,7 +358,7 @@ function handleColorTap(playerIdx, colorId, zone, e) {
   }
 }
 
-// ── Set all zones to idle except winner ───────────────────
+// -- Set all zones to idle except winner -------------------
 function setAllZonesIdle(exceptIdx) {
   for (let i = 0; i < playerCount; i++) {
     if (i === exceptIdx) continue;
@@ -371,7 +371,7 @@ function setAllZonesIdle(exceptIdx) {
   }
 }
 
-// ── Game flow ─────────────────────────────────────────────
+// -- Game flow ---------------------------------------------
 function startGame() {
   clearAllTimers();
   scores       = new Array(playerCount).fill(0);
@@ -448,7 +448,7 @@ function scheduleNextOrEnd() {
   }, 1600);
 }
 
-// ── Result screen ─────────────────────────────────────────
+// -- Result screen -----------------------------------------
 function showResult() {
   sound.play('fanfare');
 

@@ -34,7 +34,7 @@ const BALL_LEVEL_LIBRARY = [
 // 4라운드 레벨 매핑 (점증 난이도)
 const BALL_ROUND_LEVELS = [0, 2, 4, 5];
 
-// ─── 풀이 가능 자가검증 (BFS, warn만) ───────────────────────────
+// --- 풀이 가능 자가검증 (BFS, warn만) ---------------------------
 function ballIsSolvedState(tubes) {
   for (const t of tubes) {
     if (t.length === 0) continue;
@@ -83,7 +83,7 @@ BALL_ROUND_LEVELS.forEach((li) => {
   }
 });
 
-// ─── Sound ───────────────────────────────────────────────────
+// --- Sound ---------------------------------------------------
 const ballSound = createSoundManager({
   pour(ctx) {
     const o = ctx.createOscillator(); const g = ctx.createGain();
@@ -150,7 +150,7 @@ const ballSound = createSoundManager({
   },
 });
 
-// ─── State ───────────────────────────────────────────────────
+// --- State ---------------------------------------------------
 let ballPlayerCount = 2;
 let ballRoundIdx = 0;
 let ballScores = [];
@@ -202,7 +202,7 @@ function ballClearTimers() {
   if (ballNextHandle) { clearTimeout(ballNextHandle); ballNextHandle = null; }
 }
 
-// ─── 존 구성 ───────────────────────────────────────────────
+// --- 존 구성 -----------------------------------------------
 function ballBuildZones() {
   ballZonesWrap.innerHTML = '';
   ballZonesWrap.className = `zones-wrap p${ballPlayerCount}`;
@@ -223,7 +223,7 @@ function ballBuildZones() {
 
 function ballGetZone(idx) { return ballZonesWrap.querySelector(`.zone[data-player="${idx}"]`); }
 
-// ─── 구슬 크기 계산 (가용 공간에 맞춤 — 시험관이 잘리지 않도록) ──────
+// --- 구슬 크기 계산 (가용 공간에 맞춤 — 시험관이 잘리지 않도록) ------
 // 시험관 = 구슬 너비보다 넓게(좌우 여백) + 위쪽 헤드룸(빈 공간)을 두어 실제 시험관처럼 보이게.
 const BALL_TUBE_EXTRA = 14;     // 시험관 너비 = 구슬 지름 + 14px (좌우 여백 4px + 테두리 6px)
 const BALL_TOP_RATIO = 0.45;    // 시험관 위쪽 헤드룸 / 구슬 지름
@@ -239,7 +239,7 @@ function ballComputeBallSize(wrap, nTubes) {
   return Math.max(10, Math.min(byW, byH, 40));
 }
 
-// ─── 렌더링 ───────────────────────────────────────────────
+// --- 렌더링 -----------------------------------------------
 function ballRenderBoard(playerIdx) {
   const wrap = document.getElementById(`ball-tubes-${playerIdx}`);
   if (!wrap) return;
@@ -280,7 +280,7 @@ function ballRenderBoard(playerIdx) {
   });
 }
 
-// ─── 탭 처리 ───────────────────────────────────────────────
+// --- 탭 처리 -----------------------------------------------
 function ballHandleTubeTap(playerIdx, tubeIdx) {
   if (ballPhase !== 'active' || ballSolved[playerIdx]) return;
   const tubes = ballTubes[playerIdx];
@@ -363,7 +363,7 @@ function ballHandleTimeout() {
   ballNextHandle = setTimeout(() => ballNextRound(), BALL_RESULT_PAUSE_MS);
 }
 
-// ─── 점수 바 ───────────────────────────────────────────────
+// --- 점수 바 -----------------------------------------------
 function ballBuildScoreBar() {
   ballScoreBar.innerHTML = '';
   for (let i = 0; i < ballPlayerCount; i++) {
@@ -376,7 +376,7 @@ function ballBuildScoreBar() {
 }
 function ballUpdateBarScore(idx) { const el = document.getElementById(`ball-bar-score-${idx}`); if (el) el.textContent = ballScores[idx]; }
 
-// ─── 타이머 ───────────────────────────────────────────────
+// --- 타이머 -----------------------------------------------
 function ballStartCountdown() {
   ballTimeRemaining = BALL_ROUND_TIME;
   ballProblemTimer.textContent = ballTimeRemaining;
@@ -389,7 +389,7 @@ function ballStartCountdown() {
   }, 1000);
 }
 
-// ─── 게임 흐름 ───────────────────────────────────────────────
+// --- 게임 흐름 -----------------------------------------------
 function ballLoadRound() {
   ballPhase = 'active';
   ballCurLevelDef = BALL_LEVEL_LIBRARY[BALL_ROUND_LEVELS[ballRoundIdx % BALL_ROUND_LEVELS.length]];
@@ -458,10 +458,10 @@ function ballShowResult() {
   ballShowScreen(ballResultScreen);
 }
 
-// ─── 인원 선택 ───────────────────────────────────────────────
+// --- 인원 선택 -----------------------------------------------
 setupPlayerSelect(function (n) { ballPlayerCount = n; });
 
-// ─── 이벤트 바인딩 ───────────────────────────────────────────
+// --- 이벤트 바인딩 -------------------------------------------
 setupSoundToggle(ballSound, ballSoundToggleIntro);
 onTap(ballBackBtn, () => goHome());
 onTap(ballCloseBtn, () => { ballClearTimers(); goHome(); });

@@ -2,7 +2,7 @@
 
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const TOTAL_ROUNDS    = 10;
 const ROUND_TIME      = 8;     // seconds per round
 const RESULT_PAUSE_MS = getAutoplayPauseMs(2000);
@@ -15,7 +15,7 @@ const PLAYER_CONFIG = [
   { label: 'P4', dot: '#F57C00', zoneBg: '#FFE0B2', cls: 'p4' },
 ];
 
-// ── Dice SVG ─────────────────────────────────────────────────
+// -- Dice SVG -------------------------------------------------
 // Pip centers within a 36×36 die (local coords)
 const PIP = {
   a: [9, 9],  b: [27, 9],
@@ -59,7 +59,7 @@ function singleDieSvg(n) {
   </svg>`;
 }
 
-// ── Item Data ────────────────────────────────────────────────
+// -- Item Data ------------------------------------------------
 // All 36 (a,b) dice combinations. name = String(a+b).
 const ALL_ITEMS = [];
 for (let a = 1; a <= 6; a++) {
@@ -72,10 +72,10 @@ for (let a = 1; a <= 6; a++) {
   }
 }
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const sound = createSoundManager();
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let playerCount   = 2;
 let roundIdx      = 0;
 let scores        = [];
@@ -89,7 +89,7 @@ let nextHandle    = null;
 let timeRemaining = ROUND_TIME;
 let gameRounds    = [];    // 10 selected items
 
-// ── DOM refs ─────────────────────────────────────────────────
+// -- DOM refs -------------------------------------------------
 const introScreen     = document.getElementById('introScreen');
 const countdownScreen = document.getElementById('countdownScreen');
 const countdownNumber = document.getElementById('countdownNumber');
@@ -118,7 +118,7 @@ const resultTableHead = document.getElementById('resultTableHead');
 const resultTableBody = document.getElementById('resultTableBody');
 const totalRow      = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function showScreen(s) {
   [introScreen, countdownScreen, gameScreen, resultScreen].forEach(x => x.classList.remove('active'));
   s.classList.add('active');
@@ -157,7 +157,7 @@ function makeChoices(correctName) {
   return shuffle([correctName, ...wrong]);
 }
 
-// ── Intro dice preview ───────────────────────────────────────
+// -- Intro dice preview ---------------------------------------
 function renderIntroFlags() {
   introFlagRow.innerHTML = '';
   const faces = shuffle([1, 2, 3, 4, 5, 6]).slice(0, 3);
@@ -170,20 +170,20 @@ function renderIntroFlags() {
 }
 renderIntroFlags();
 
-// ── Player count selection ───────────────────────────────────
+// -- Player count selection -----------------------------------
 setupPlayerSelect(function (n) { playerCount = n; });
 
-// ── Sound toggle ─────────────────────────────────────────────
+// -- Sound toggle ---------------------------------------------
 setupSoundToggle(sound, soundToggleIntro);
 
-// ── Navigation ───────────────────────────────────────────────
+// -- Navigation -----------------------------------------------
 onTap(backBtn,  () => goHome());
 onTap(closeBtn, () => { clearTimers(); goHome(); });
 onTap(homeBtn,  () => goHome());
 onTap(retryBtn, () => startPreGameCountdown(() => startGame()));
 onTap(playBtn,  () => startPreGameCountdown(() => startGame()));
 
-// ── Build zone grid ──────────────────────────────────────────
+// -- Build zone grid ------------------------------------------
 function buildZones() {
   zonesWrap.innerHTML = '';
   zonesWrap.className = `zones-wrap p${playerCount}`;
@@ -227,7 +227,7 @@ function updateScoreChip(playerIdx) {
   if (chip) chip.textContent = `${scores[playerIdx]}점`;
 }
 
-// ── Score bar ────────────────────────────────────────────────
+// -- Score bar ------------------------------------------------
 function buildScoreBar() {
   scoreBar.innerHTML = '';
   for (let i = 0; i < playerCount; i++) {
@@ -248,7 +248,7 @@ function updateBarScore(playerIdx) {
   if (el) el.textContent = scores[playerIdx];
 }
 
-// ── Populate answer buttons for a round ─────────────────────
+// -- Populate answer buttons for a round ---------------------
 function populateAnswerBtns() {
   for (let i = 0; i < playerCount; i++) {
     const grid = document.getElementById(`answer-grid-${i}`);
@@ -277,7 +277,7 @@ function populateAnswerBtns() {
   }
 }
 
-// ── Reset buttons for new round ──────────────────────────────
+// -- Reset buttons for new round ------------------------------
 function resetBtnsForRound() {
   for (let i = 0; i < playerCount; i++) {
     const btns = getAnswerBtns(i);
@@ -297,7 +297,7 @@ function resetBtnsForRound() {
   }
 }
 
-// ── Ripple effect ────────────────────────────────────────────
+// -- Ripple effect --------------------------------------------
 function spawnRipple(zone, e) {
   const rect  = zone.getBoundingClientRect();
   const touch = e && e.touches ? e.touches[0] : (e || null);
@@ -314,7 +314,7 @@ function spawnRipple(zone, e) {
   r.addEventListener('animationend', () => r.remove());
 }
 
-// ── Timer logic ──────────────────────────────────────────────
+// -- Timer logic ----------------------------------------------
 function startCountdown() {
   timeRemaining = ROUND_TIME;
   problemTimer.textContent = timeRemaining;
@@ -336,7 +336,7 @@ function startCountdown() {
   }, 1000);
 }
 
-// ── Disable / enable all answer buttons ─────────────────────
+// -- Disable / enable all answer buttons ---------------------
 function setAllBtnsDisabled(disabled) {
   zonesWrap.querySelectorAll('.answer-btn').forEach(btn => {
     btn.disabled = disabled;
@@ -345,7 +345,7 @@ function setAllBtnsDisabled(disabled) {
   });
 }
 
-// ── Answer tap handler ───────────────────────────────────────
+// -- Answer tap handler ---------------------------------------
 function handleAnswerTap(playerIdx, chosenName, btn) {
   if (phase !== 'active') return;
   if (dqSet.has(playerIdx)) return;
@@ -395,7 +395,7 @@ function handleAnswerTap(playerIdx, chosenName, btn) {
   }
 }
 
-// ── Correct answer resolved ──────────────────────────────────
+// -- Correct answer resolved ----------------------------------
 function resolveRound(winnerIdx) {
   phase = 'done';
   clearTimers();
@@ -435,7 +435,7 @@ function resolveRound(winnerIdx) {
   nextHandle = setTimeout(() => nextRound(), RESULT_PAUSE_MS);
 }
 
-// ── Timeout ──────────────────────────────────────────────────
+// -- Timeout --------------------------------------------------
 function handleTimeout() {
   phase = 'done';
   clearTimers();
@@ -467,7 +467,7 @@ function handleTimeout() {
   nextHandle = setTimeout(() => nextRound(), RESULT_PAUSE_MS);
 }
 
-// ── Load round ───────────────────────────────────────────────
+// -- Load round -----------------------------------------------
 function loadRound() {
   phase        = 'active';
   currentFlag  = gameRounds[roundIdx];
@@ -484,7 +484,7 @@ function loadRound() {
   startCountdown();
 }
 
-// ── Next round ───────────────────────────────────────────────
+// -- Next round -----------------------------------------------
 function nextRound() {
   roundIdx++;
   if (roundIdx >= TOTAL_ROUNDS) {
@@ -494,7 +494,7 @@ function nextRound() {
   }
 }
 
-// ── Start game ───────────────────────────────────────────────
+// -- Start game -----------------------------------------------
 function startGame() {
   gameRounds  = shuffle(ALL_ITEMS).slice(0, TOTAL_ROUNDS);
   roundIdx    = 0;
@@ -510,7 +510,7 @@ function startGame() {
   loadRound();
 }
 
-// ── Show result ──────────────────────────────────────────────
+// -- Show result ----------------------------------------------
 function showResult() {
   clearTimers();
   phase = 'idle';

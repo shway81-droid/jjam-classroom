@@ -1,5 +1,11 @@
 # 게임 선별 기록 (56 → 40)
 
+> **읽기 전에:** 이 문서는 시간순 기록이다. 아래 "삭제된 16개" 표 가운데 9종
+> (arrow-rotate·arrow-tap·coin-count·color-mix·direction-relay·mirror-match·missing-piece·
+> more-or-less·number-bond)은 곧이어 "✅ 사용자 요청 복원 (2026-06-12)"에서 되살아나 **지금 서비스 중**이다.
+> 지금 있는 게임은 `games/registry.json` 이 기준이고, 재추가 금지는 "🚫 사용자 삭제" 절들과
+> [GAME_ANTIPATTERNS.md](GAME_ANTIPATTERNS.md) 0절이 기준이다.
+
 원본 짬짬이 교실 56개 게임을 코드 분석(5개 그룹 병렬 분석)하여 메커니즘 중복 클러스터를 식별하고,
 각 클러스터에서 더 재미있는(시각 피드백·교실 왁자지껄함·교육 가치 우위) 게임만 남김.
 

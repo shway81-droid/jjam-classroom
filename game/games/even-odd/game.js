@@ -2,7 +2,7 @@
 
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const EO_TOTAL_ROUNDS    = 8;
 const EO_RESULT_PAUSE_MS = getAutoplayPauseMs(2000);
 
@@ -30,7 +30,7 @@ const EO_PLAYER_CONFIG = [
   { label: 'P4', dot: '#F57C00', cls: 'p4' },
 ];
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const eoSound = createSoundManager({
   ding(ctx) {
     [523, 659, 784].forEach(function(freq, i) {
@@ -91,7 +91,7 @@ const eoSound = createSoundManager({
   },
 });
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let eoPlayerCount   = 2;
 let eoRoundIdx      = 0;
 let eoScores        = [];
@@ -106,7 +106,7 @@ let eoItems         = [];
 let eoItemIdx       = 0;
 let eoRoundScores   = [];
 
-// ── DOM refs ─────────────────────────────────────────────────
+// -- DOM refs -------------------------------------------------
 const eoIntroScreen     = document.getElementById('introScreen');
 const eoCountdownScreen = document.getElementById('countdownScreen');
 const eoCountdownNumber = document.getElementById('countdownNumber');
@@ -134,7 +134,7 @@ const eoResultTableHead = document.getElementById('resultTableHead');
 const eoResultTableBody = document.getElementById('resultTableBody');
 const eoTotalRow        = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function eoShowScreen(s) {
   [eoIntroScreen, eoCountdownScreen, eoGameScreen, eoResultScreen]
     .forEach(function(x) { x.classList.remove('active'); });
@@ -187,7 +187,7 @@ function eoGenerateItems(phaseNum) {
   return items;
 }
 
-// ── Intro illustration ───────────────────────────────────────
+// -- Intro illustration ---------------------------------------
 (function() {
   var el = document.getElementById('introIllust');
   if (el) {
@@ -204,20 +204,20 @@ function eoGenerateItems(phaseNum) {
   }
 })();
 
-// ── Player count selection ───────────────────────────────────
+// -- Player count selection -----------------------------------
 setupPlayerSelect(function (n) { eoPlayerCount = n; });
 
-// ── Sound toggle ─────────────────────────────────────────────
+// -- Sound toggle ---------------------------------------------
 setupSoundToggle(eoSound, eoSoundToggle);
 
-// ── Navigation ───────────────────────────────────────────────
+// -- Navigation -----------------------------------------------
 onTap(eoBackBtn,  function() { goHome(); });
 onTap(eoCloseBtn, function() { eoClearTimers(); goHome(); });
 onTap(eoHomeBtn,  function() { goHome(); });
 onTap(eoRetryBtn, function() { eoStartPreCountdown(function() { eoStartGame(); }); });
 onTap(eoPlayBtn,  function() { eoStartPreCountdown(function() { eoStartGame(); }); });
 
-// ── Build zones ──────────────────────────────────────────────
+// -- Build zones ----------------------------------------------
 function eoBuildZones() {
   eoZonesWrap.innerHTML = '';
   eoZonesWrap.className = 'zones-wrap p' + eoPlayerCount;
@@ -276,7 +276,7 @@ function eoUpdateScoreChip(playerIdx) {
   if (chip) chip.textContent = eoScores[playerIdx] + '점';
 }
 
-// ── Score bar ────────────────────────────────────────────────
+// -- Score bar ------------------------------------------------
 function eoBuildScoreBar() {
   eoScoreBar.innerHTML = '';
   for (var i = 0; i < eoPlayerCount; i++) {
@@ -296,7 +296,7 @@ function eoUpdateBarScore(playerIdx) {
   if (el) el.textContent = eoScores[playerIdx];
 }
 
-// ── Reset buttons for new item ────────────────────────────────
+// -- Reset buttons for new item --------------------------------
 function eoResetItemBtns() {
   for (var i = 0; i < eoPlayerCount; i++) {
     eoGetBtns(i).forEach(function(btn) {
@@ -316,7 +316,7 @@ function eoDisablePlayerBtns(playerIdx) {
   });
 }
 
-// ── Timer ─────────────────────────────────────────────────────
+// -- Timer -----------------------------------------------------
 function eoStartItemTimer() {
   var plan = EO_ROUND_PLAN[eoRoundIdx];
   eoTimeRemaining = plan.timeLimit;
@@ -337,7 +337,7 @@ function eoStartItemTimer() {
   }, 1000);
 }
 
-// ── Tap handler ───────────────────────────────────────────────
+// -- Tap handler -----------------------------------------------
 function eoHandleTap(playerIdx, ans, btn) {
   if (eoPhase !== 'item-active') return;
   if (eoDqSet.has(playerIdx)) return;
@@ -396,7 +396,7 @@ function eoAllAnswered() {
   return true;
 }
 
-// ── Item timeout ─────────────────────────────────────────────
+// -- Item timeout ---------------------------------------------
 function eoHandleItemTimeout() {
   eoSound.play('timeout');
   var currentItem = eoItems[eoItemIdx];
@@ -417,7 +417,7 @@ function eoHandleItemTimeout() {
   eoNextHandle = setTimeout(function() { eoNextItem(); }, 1200);
 }
 
-// ── Load item ─────────────────────────────────────────────────
+// -- Load item -------------------------------------------------
 function eoLoadItem() {
   eoPhase = 'item-active';
   var currentItem = eoItems[eoItemIdx];
@@ -435,7 +435,7 @@ function eoLoadItem() {
   eoStartItemTimer();
 }
 
-// ── Next item ─────────────────────────────────────────────────
+// -- Next item -------------------------------------------------
 function eoNextItem() {
   eoItemIdx++;
   if (eoItemIdx >= EO_ITEMS_PER_ROUND) {
@@ -445,7 +445,7 @@ function eoNextItem() {
   }
 }
 
-// ── End round ─────────────────────────────────────────────────
+// -- End round -------------------------------------------------
 function eoEndRound() {
   eoPhase = 'done';
   eoRoundLog.push({
@@ -465,7 +465,7 @@ function eoNextRound() {
   }
 }
 
-// ── Start round ───────────────────────────────────────────────
+// -- Start round -----------------------------------------------
 function eoStartRound() {
   var plan = EO_ROUND_PLAN[eoRoundIdx];
   eoItems = eoGenerateItems(plan.phase);
@@ -475,7 +475,7 @@ function eoStartRound() {
   eoLoadItem();
 }
 
-// ── Start game ────────────────────────────────────────────────
+// -- Start game ------------------------------------------------
 function eoStartGame() {
   eoRoundIdx   = 0;
   eoScores     = new Array(eoPlayerCount).fill(0);
@@ -490,7 +490,7 @@ function eoStartGame() {
   eoStartRound();
 }
 
-// ── Show result ───────────────────────────────────────────────
+// -- Show result -----------------------------------------------
 function eoShowResult() {
   eoClearTimers();
   eoPhase = 'idle';

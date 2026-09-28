@@ -1,13 +1,13 @@
 /* games/word-scramble/style.css */
 
-/* ── Countdown screen ─────────────────────────────────────── */
+/* -- Countdown screen --------------------------------------- */
 .screen-countdown {
   justify-content: center;
   align-items: center;
   background: #FFF8E1;
 }
 
-/* ── Intro screen ─────────────────────────────────────────── */
+/* -- Intro screen ------------------------------------------- */
 .screen-intro {
   background: linear-gradient(160deg, #FCE4EC 0%, #FFF3E0 100%);
   justify-content: space-between;
@@ -100,7 +100,7 @@
   box-shadow: 0 2px 8px rgba(216,27,96,0.35);
 }
 
-/* ── Game screen ──────────────────────────────────────────── */
+/* -- Game screen -------------------------------------------- */
 .screen-game {
   background: #FFF8E1;
   height: 100vh;
@@ -113,7 +113,7 @@
   align-items: stretch;
 }
 
-/* ── Top bar ─────────────────────────────────────────────── */
+/* -- Top bar ----------------------------------------------- */
 .top-bar {
   flex-shrink: 0;
   display: flex;
@@ -175,7 +175,7 @@
 }
 .problem-status:empty { opacity: 0; }
 
-/* ── Hint row (초반 라운드 이모지 힌트) ────────────────────── */
+/* -- Hint row (초반 라운드 이모지 힌트) ---------------------- */
 .ws-hint-row {
   display: flex;
   align-items: center;
@@ -195,7 +195,7 @@
   color: #FFD54F;
 }
 
-/* ── Close button ─────────────────────────────────────────── */
+/* -- Close button ------------------------------------------- */
 .close-btn {
   position: absolute;
   top: 6px;
@@ -221,7 +221,7 @@
 }
 .icon-btn:active { background: rgba(0,0,0,0.14); }
 
-/* ── Zones ────────────────────────────────────────────────── */
+/* -- Zones -------------------------------------------------- */
 .zones-wrap {
   flex: 1;
   min-height: 0;
@@ -271,7 +271,7 @@
   padding: 2px 10px;
 }
 
-/* ── 조립 슬롯 (위쪽 — 진행 표시) ──────────────────────────── */
+/* -- 조립 슬롯 (위쪽 — 진행 표시) ---------------------------- */
 .assemble-slots {
   display: flex;
   justify-content: center;
@@ -311,7 +311,7 @@
   100% { transform: scale(1); }
 }
 
-/* ── 음절 카드 (아래쪽 — 클릭 영역) ──────────────────────────── */
+/* -- 음절 카드 (아래쪽 — 클릭 영역) ---------------------------- */
 .syllable-grid {
   margin-top: auto;
   display: flex;
@@ -368,7 +368,7 @@
   pointer-events: none;
 }
 
-/* ── Penalty flash ────────────────────────────────────────── */
+/* -- Penalty flash ------------------------------------------ */
 .penalty-flash {
   position: absolute;
   top: 50%;
@@ -408,7 +408,7 @@
   100% { opacity: 0; transform: translate(-50%, -140%) scale(0.9); }
 }
 
-/* ── Score bar ────────────────────────────────────────────── */
+/* -- Score bar ---------------------------------------------- */
 .score-bar {
   flex-shrink: 0;
   display: flex;
@@ -439,7 +439,7 @@
   text-align: center;
 }
 
-/* ── Result screen ────────────────────────────────────────── */
+/* -- Result screen ------------------------------------------ */
 .screen-result {
   background: linear-gradient(160deg, #FCE4EC 0%, #FFF3E0 100%);
   align-items: center;

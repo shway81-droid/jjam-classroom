@@ -154,7 +154,7 @@ function startPreGameCountdown(onDone) {
 }
 function clearTimers() { if (countdownInterval) { clearInterval(countdownInterval); countdownInterval = null; } if (timerHandle) { clearInterval(timerHandle); timerHandle = null; } if (nextHandle) { clearTimeout(nextHandle); nextHandle = null; } }
 
-// ═══ 레벨 파싱 ═══
+// === 레벨 파싱 ===
 function getLevel() { return LEVELS[roundIdx % LEVELS.length]; }
 function parseLevel(rows) {
   const walls = new Set(); const goals = new Set(); const boxes = new Set();
@@ -182,7 +182,7 @@ function goalCount(playerIdx) {
   return n;
 }
 
-// ═══ Zone 구성 ═══
+// === Zone 구성 ===
 function buildZones() {
   zonesWrap.innerHTML = '';
   zonesWrap.className = 'zones-wrap p2';
@@ -216,7 +216,7 @@ function buildZones() {
 }
 function getZone(idx) { return zonesWrap.querySelector(`.zone[data-player="${idx}"]`); }
 
-// ═══ 격자 렌더링 ═══
+// === 격자 렌더링 ===
 function renderBoard(playerIdx) {
   const board = $(`board-${playerIdx}`);
   if (!board) return;
@@ -251,7 +251,7 @@ function updateChips(playerIdx) {
   const b = $(`boxes-${playerIdx}`); if (b) b.textContent = `📦 ${goalCount(playerIdx)}/${levelStatic.goals.size}`;
 }
 
-// ═══ 조작 ═══
+// === 조작 ===
 function handleMove(playerIdx, dirName) {
   if (phase !== 'active' || zoneSolved[playerIdx]) return;
   const dir = DIRS[dirName];
@@ -291,7 +291,7 @@ function handleReset(playerIdx) {
   updateChips(playerIdx);
 }
 
-// ═══ 라운드 종료 ═══
+// === 라운드 종료 ===
 function handleSolve(winnerIdx) {
   if (zoneSolved[winnerIdx]) return;
   zoneSolved[winnerIdx] = true;
@@ -333,7 +333,7 @@ function handleTimeout() {
   nextHandle = setTimeout(() => nextRound(), RESULT_PAUSE_MS);
 }
 
-// ═══ 점수 바 ═══
+// === 점수 바 ===
 function buildScoreBar() {
   scoreBar.innerHTML = '';
   for (let i = 0; i < playerCount; i++) {
@@ -346,7 +346,7 @@ function buildScoreBar() {
 }
 function updateBarScore(idx) { const el = $(`bar-score-${idx}`); if (el) el.textContent = scores[idx]; }
 
-// ═══ 타이머 ═══
+// === 타이머 ===
 function startCountdown() {
   timeRemaining = ROUND_TIME;
   problemTimer.textContent = timeRemaining;
@@ -359,7 +359,7 @@ function startCountdown() {
   }, 1000);
 }
 
-// ═══ 게임 흐름 ═══
+// === 게임 흐름 ===
 function loadRound() {
   phase = 'active';
   const p = parseLevel(getLevel());

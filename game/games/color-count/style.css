@@ -1,13 +1,13 @@
 /* games/color-count/style.css */
 
-/* ── Countdown screen ─────────────────────────────────────── */
+/* -- Countdown screen --------------------------------------- */
 .screen-countdown {
   justify-content: center;
   align-items: center;
   background: #FFF8E1;
 }
 
-/* ── Shared header ──────────────────────────────────────────── */
+/* -- Shared header -------------------------------------------- */
 .game-header {
   display: flex;
   align-items: center;
@@ -25,7 +25,7 @@
   color: var(--text);
 }
 
-/* ── Intro screen ───────────────────────────────────────────── */
+/* -- Intro screen --------------------------------------------- */
 .screen-intro {
   background: linear-gradient(160deg, #E3F2FD 0%, #E8F5E9 100%);
   justify-content: space-between;
@@ -106,7 +106,7 @@
   box-shadow: 0 4px 14px rgba(21,101,192,0.35);
 }
 
-/* ── Game screen ────────────────────────────────────────────── */
+/* -- Game screen ---------------------------------------------- */
 .screen-game {
   background: #FFF8E1;
   position: relative;
@@ -169,7 +169,7 @@
   text-shadow: 0 1px 4px rgba(0,0,0,0.5);
 }
 
-/* ── Number button grid ─────────────────────────────────────── */
+/* -- Number button grid --------------------------------------- */
 .num-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -251,7 +251,7 @@
   to { transform: scale(4); opacity: 0; }
 }
 
-/* ── Center panel ───────────────────────────────────────────── */
+/* -- Center panel --------------------------------------------- */
 .center-panel {
   position: absolute;
   top: 50%;
@@ -321,7 +321,7 @@
 .round-status.correct { background: rgba(46,125,50,0.88); }
 .round-status.wrong   { background: rgba(183,28,28,0.88); }
 
-/* ── Close button ───────────────────────────────────────────── */
+/* -- Close button --------------------------------------------- */
 .close-btn {
   position: absolute;
   top: var(--space-md);
@@ -332,7 +332,7 @@
   box-shadow: none;
 }
 
-/* ── Result screen ──────────────────────────────────────────── */
+/* -- Result screen -------------------------------------------- */
 .screen-result {
   background: linear-gradient(160deg, #E3F2FD 0%, #E8F5E9 100%);
   align-items: center;
@@ -427,7 +427,7 @@
   box-shadow: var(--shadow-card);
 }
 
-/* ── Penalty flash ─────────────────────────────────────────── */
+/* -- Penalty flash ------------------------------------------- */
 .penalty-flash {
   position: absolute;
   color: #EF5350;
@@ -443,7 +443,7 @@
 }
 
 
-/* ── 3·4-player mode: move center panel to top so middle players aren't blocked ── */
+/* -- 3·4-player mode: move center panel to top so middle players aren't blocked -- */
 .screen-game:has(.zones-wrap.p4) .center-panel,
 .screen-game:has(.zones-wrap.p3) .center-panel {
   top: 8px !important;

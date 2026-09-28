@@ -3,14 +3,14 @@
 (function () {
   'use strict';
 
-  // ─── 상수 ───────────────────────────────────────────────────────────────
+  // --- 상수 ---------------------------------------------------------------
   var COLS = 7;
   var ROWS = 6;
   var PLAYER_COLORS = ['#29B6F6', '#EF5350'];
   var PLAYER_NAMES  = ['P1', 'P2'];
   var RESULT_PAUSE_MS = getAutoplayPauseMs(900);
 
-  // ─── 타이머 관리 ─────────────────────────────────────────────────────────
+  // --- 타이머 관리 ---------------------------------------------------------
   var timers = [];
 
   function later(fn, ms) {
@@ -25,7 +25,7 @@
     timers = [];
   }
 
-  // ─── 화면 전환 ────────────────────────────────────────────────────────────
+  // --- 화면 전환 ------------------------------------------------------------
   var screens = {
     intro:     document.getElementById('introScreen'),
     countdown: document.getElementById('countdownScreen'),
@@ -46,7 +46,7 @@
     countdownInterval = runCountdown(countdownNumber, onDone);
   }
 
-  // ─── 사운드 ──────────────────────────────────────────────────────────────
+  // --- 사운드 --------------------------------------------------------------
   var sounds = createSoundManager({
     // 디스크 떨어지는 소리: 짧고 단단하게 하강
     drop: function (ctx) {
@@ -131,7 +131,7 @@
     }
   });
 
-  // ─── 사운드 버튼 ──────────────────────────────────────────────────────────
+  // --- 사운드 버튼 ----------------------------------------------------------
   var soundBtns = [
     document.getElementById('soundToggleIntro'),
     document.getElementById('soundToggleGame')
@@ -158,7 +158,7 @@
 
   updateSoundIcons();
 
-  // ─── 게임 상태 ────────────────────────────────────────────────────────────
+  // --- 게임 상태 ------------------------------------------------------------
   var board;          // board[r][c] = -1(빈칸) | 0 | 1
   var currentPlayer;  // 0 or 1
   var gameOver;
@@ -166,7 +166,7 @@
   var discCount;      // 놓인 디스크 수
   var cellEls;        // cellEls[r][c] = DOM element
 
-  // ─── DOM ─────────────────────────────────────────────────────────────────
+  // --- DOM -----------------------------------------------------------------
   var boardGrid   = document.getElementById('boardGrid');
   var dropRow     = document.getElementById('dropRow');
   var turnBanner  = document.getElementById('turnBanner');
@@ -185,7 +185,7 @@
       '<polyline points="6 12 12 18 18 12"/>' +
     '</svg>';
 
-  // ─── 게임 초기화 ──────────────────────────────────────────────────────────
+  // --- 게임 초기화 ----------------------------------------------------------
   function initGame() {
     clearAllTimers();
 
@@ -207,7 +207,7 @@
     showScreen('game');
   }
 
-  // ─── 보드 빌드 ────────────────────────────────────────────────────────────
+  // --- 보드 빌드 ------------------------------------------------------------
   function buildBoard() {
     // 드롭 버튼 (7열)
     dropRow.innerHTML = '';
@@ -245,7 +245,7 @@
     }
   }
 
-  // ─── 턴 UI 업데이트 ──────────────────────────────────────────────────────
+  // --- 턴 UI 업데이트 ------------------------------------------------------
   function updateTurnUI(announce) {
     var color = PLAYER_COLORS[currentPlayer];
     var name  = PLAYER_NAMES[currentPlayer];
@@ -272,7 +272,7 @@
     }
   }
 
-  // ─── 풀스크린 턴 변경 오버레이 ──────────────────────────────────────────
+  // --- 풀스크린 턴 변경 오버레이 ------------------------------------------
   function showTurnOverlay(name, color, pCls) {
     var overlay = document.getElementById('turnOverlay');
     if (!overlay) {
@@ -290,7 +290,7 @@
     }, 600);
   }
 
-  // ─── 드롭 버튼 활성/비활성 ────────────────────────────────────────────────
+  // --- 드롭 버튼 활성/비활성 ------------------------------------------------
   function updateDropButtons() {
     for (var c = 0; c < COLS; c++) {
       var full = board[0][c] !== -1; // 맨 위 칸이 차면 열이 가득 참
@@ -299,7 +299,7 @@
     dropRow.classList.toggle('locked', gameOver || locked);
   }
 
-  // ─── 가장 낮은 빈 행 찾기 ─────────────────────────────────────────────────
+  // --- 가장 낮은 빈 행 찾기 -------------------------------------------------
   function lowestEmptyRow(col) {
     for (var r = ROWS - 1; r >= 0; r--) {
       if (board[r][col] === -1) return r;
@@ -307,7 +307,7 @@
     return -1; // 열이 가득 참
   }
 
-  // ─── 드롭 처리 ────────────────────────────────────────────────────────────
+  // --- 드롭 처리 ------------------------------------------------------------
   function handleDrop(col) {
     if (gameOver || locked) return;
     var row = lowestEmptyRow(col);
@@ -360,7 +360,7 @@
     }, 340);
   }
 
-  // ─── 승리 판정: 방금 놓은 디스크 기준 4방향 스캔 ──────────────────────────
+  // --- 승리 판정: 방금 놓은 디스크 기준 4방향 스캔 --------------------------
   // 반환: 4칸 좌표 배열 [[r,c],...] 또는 null
   function findWinLine(row, col, p) {
     var dirs = [
@@ -406,7 +406,7 @@
     return r >= 0 && r < ROWS && c >= 0 && c < COLS;
   }
 
-  // ─── 결과 화면 ───────────────────────────────────────────────────────────
+  // --- 결과 화면 -----------------------------------------------------------
   var SVG_TROPHY =
     '<svg viewBox="0 0 80 80" width="80" height="80">' +
       '<rect x="28" y="62" width="24" height="6" rx="3" fill="#FFA726"/>' +
@@ -443,7 +443,7 @@
     showScreen('result');
   }
 
-  // ─── 버튼 이벤트 바인딩 ──────────────────────────────────────────────────
+  // --- 버튼 이벤트 바인딩 --------------------------------------------------
   // PLAY
   onTap(document.getElementById('playBtn'), function () {
     startCountdown(function () { initGame(); });

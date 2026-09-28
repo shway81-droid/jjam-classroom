@@ -2,7 +2,7 @@
 
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const TOTAL_ROUNDS    = 5;
 const SPEED_STEPS     = [1.0, 1.2, 1.4, 1.6, 1.8]; // 라운드별 마커 속도 배율
 const BASE_PERIOD_MS  = 2600;   // 1.0x에서 좌→우→좌 한 사이클 시간
@@ -20,7 +20,7 @@ const PLAYER_CONFIG = [
   { label: 'P4', icon: '🟠', colorClass: 'p-orange', hex: '#E65100' },
 ];
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const sound = createSoundManager({
   start(ctx) {
     // 라운드 시작 — 짧은 두 음 신호
@@ -102,7 +102,7 @@ const sound = createSoundManager({
   },
 });
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let playerCount  = 2;
 let currentRound = 0;            // 1-based
 let totals       = [];           // 플레이어별 누적 점수
@@ -116,7 +116,7 @@ let roundTimeoutTimer = null;
 let nextRoundTimer    = null;
 let startDelayTimer   = null;
 
-// ── DOM references ───────────────────────────────────────────
+// -- DOM references -------------------------------------------
 const introScreen     = document.getElementById('introScreen');
 const countdownScreen = document.getElementById('countdownScreen');
 const countdownNumber = document.getElementById('countdownNumber');
@@ -144,7 +144,7 @@ const totalRow        = document.getElementById('totalRow');
 // per-zone DOM refs (buildZones에서 채움)
 let zoneEls   = [];  // { zone, marker, track, msg, btn, scoreChip }
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function showScreen(screen) {
   [introScreen, countdownScreen, gameScreen, resultScreen].forEach(s => s.classList.remove('active'));
   screen.classList.add('active');
@@ -160,7 +160,7 @@ function updateSoundToggle(btn) {
   btn.textContent = sound.isMuted() ? '🔇' : '🔊';
 }
 
-// ── Sound Toggle ─────────────────────────────────────────────
+// -- Sound Toggle ---------------------------------------------
 [soundToggleIntro].forEach(btn => {
   onTap(btn, () => {
     sound.toggleMute();
@@ -169,10 +169,10 @@ function updateSoundToggle(btn) {
   updateSoundToggle(btn);
 });
 
-// ── Player count selection ───────────────────────────────────
+// -- Player count selection -----------------------------------
 setupPlayerSelect(function (n) { playerCount = n; });
 
-// ── Back / Home / Retry ──────────────────────────────────────
+// -- Back / Home / Retry --------------------------------------
 onTap(backBtn, () => goHome());
 onTap(closeBtn, () => {
   stopAllTimers();
@@ -181,10 +181,10 @@ onTap(closeBtn, () => {
 onTap(homeBtn, () => goHome());
 onTap(retryBtn, () => startGame());
 
-// ── PLAY button ──────────────────────────────────────────────
+// -- PLAY button ----------------------------------------------
 onTap(playBtn, () => startCountdown(() => startGame()));
 
-// ── Build zone grid ──────────────────────────────────────────
+// -- Build zone grid ------------------------------------------
 function buildZones() {
   zonesWrap.innerHTML = '';
   zonesWrap.className = `zones-wrap p${playerCount}`;
@@ -227,7 +227,7 @@ function buildZones() {
   }
 }
 
-// ── Marker math ──────────────────────────────────────────────
+// -- Marker math ----------------------------------------------
 // sin 곡선 왕복: 0(좌) → 1(우) → 0(좌) 부드럽게
 function markerPos(elapsedMs) {
   const period = BASE_PERIOD_MS / speedMult;
@@ -240,7 +240,7 @@ function setMarkerTransform(i, pos) {
   refs.marker.style.transform = `translateX(${(pos * w).toFixed(1)}px)`;
 }
 
-// ── Animation loop (멈추지 않은 마커만 갱신) ─────────────────
+// -- Animation loop (멈추지 않은 마커만 갱신) -----------------
 function animLoop(now) {
   if (!roundRunning) return;
   const pos = markerPos(now - roundStartTime);
@@ -250,7 +250,7 @@ function animLoop(now) {
   rafId = requestAnimationFrame(animLoop);
 }
 
-// ── Stop handler ─────────────────────────────────────────────
+// -- Stop handler ---------------------------------------------
 function handleStop(playerIdx) {
   if (!roundRunning || stoppedFlags[playerIdx]) return;
 
@@ -317,7 +317,7 @@ function applyStopResult(playerIdx, pts, tier, pos) {
   }
 }
 
-// ── Game flow ────────────────────────────────────────────────
+// -- Game flow ------------------------------------------------
 function startGame() {
   stopAllTimers();
   totals      = new Array(playerCount).fill(0);
@@ -400,7 +400,7 @@ function stopAllTimers() {
   if (startDelayTimer)   { clearTimeout(startDelayTimer); startDelayTimer = null; }
 }
 
-// ── Result screen ────────────────────────────────────────────
+// -- Result screen --------------------------------------------
 function showResult() {
   sound.play('fanfare');
 

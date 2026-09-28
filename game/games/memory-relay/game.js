@@ -43,7 +43,7 @@ function clearAll(){allTimeouts.forEach(clearTimeout);allTimeouts=[];}
 function colorByKey(k){for(var i=0;i<COLORS.length;i++)if(COLORS[i].key===k)return COLORS[i];return COLORS[0];}
 function randItem(a){return a[Math.floor(Math.random()*a.length)];}
 
-// ── 인원 선택 ──
+// -- 인원 선택 --
 document.querySelectorAll('.player-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{
     document.querySelectorAll('.player-btn').forEach(b=>b.classList.remove('active'));
@@ -52,7 +52,7 @@ document.querySelectorAll('.player-btn').forEach(btn=>{
   });
 });
 
-// ── 사운드 토글 ──
+// -- 사운드 토글 --
 $('backBtn').addEventListener('click',()=>{stopAll();goHome();});
 var stI=$('soundToggleIntro');
 stI.addEventListener('click',()=>{stI.textContent=sfx.toggleMute()?'🔇':'🔊';});

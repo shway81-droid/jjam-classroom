@@ -3,7 +3,7 @@
 (function () {
   'use strict';
 
-  // ─── 주제 풀 (24개) — 라운드마다 7개 무작위 선택 ─────────────────────────
+  // --- 주제 풀 (24개) — 라운드마다 7개 무작위 선택 -------------------------
   // 각 항목: q (질문), choices (이모지 + 이름 4개)
   var TOPIC_POOL = [
     { q: '🍎 과일 하면 떠오르는 것은?', choices: [
@@ -83,7 +83,7 @@
   var TOTAL_ROUNDS = 7;
   var SUCCESS_MATCHES = 4;
 
-  // ─── 타이머 관리 ─────────────────────────────────────────────────────────
+  // --- 타이머 관리 ---------------------------------------------------------
   var timers = [];
 
   function later(fn, ms) {
@@ -98,7 +98,7 @@
     timers = [];
   }
 
-  // ─── 화면 전환 ────────────────────────────────────────────────────────────
+  // --- 화면 전환 ------------------------------------------------------------
   var screens = {
     intro:     document.getElementById('introScreen'),
     countdown: document.getElementById('countdownScreen'),
@@ -119,7 +119,7 @@
     countdownInterval = runCountdown(countdownNumber, onDone);
   }
 
-  // ─── 사운드 ──────────────────────────────────────────────────────────────
+  // --- 사운드 --------------------------------------------------------------
   var sounds = createSoundManager({
     pick: function (ctx) {
       var osc = ctx.createOscillator();
@@ -194,7 +194,7 @@
     }
   });
 
-  // ─── 사운드 버튼 ──────────────────────────────────────────────────────────
+  // --- 사운드 버튼 ----------------------------------------------------------
   var soundIconIds = ['soundIconIntro', 'soundIconGame'];
   var SVG_SOUND_ON  = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>';
   var SVG_SOUND_OFF = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
@@ -218,7 +218,7 @@
   });
   updateSoundIcons();
 
-  // ─── 게임 상태 ────────────────────────────────────────────────────────────
+  // --- 게임 상태 ------------------------------------------------------------
   var currentRound;   // 0부터
   var matches;        // 일치 횟수
   var topics;         // 이번 게임 7개 주제
@@ -227,7 +227,7 @@
   var p1Choice;       // { idx, e, n }
   var p2Choice;
 
-  // ─── DOM ─────────────────────────────────────────────────────────────────
+  // --- DOM -----------------------------------------------------------------
   var topicText     = document.getElementById('topicText');
   var choiceGrid    = document.getElementById('choiceGrid');
   var telepathyRow  = document.getElementById('telepathyRow');
@@ -249,7 +249,7 @@
   var overlaySub    = document.getElementById('overlaySub');
   var overlayBtn    = document.getElementById('overlayBtn');
 
-  // ─── 차례 안내 오버레이 ──────────────────────────────────────────────────
+  // --- 차례 안내 오버레이 --------------------------------------------------
   var overlayCallback = null;
 
   function showOverlay(emoji, title, sub, btnText, onGo) {
@@ -274,7 +274,7 @@
     if (cb) cb();
   });
 
-  // ─── 셔플 ────────────────────────────────────────────────────────────────
+  // --- 셔플 ----------------------------------------------------------------
   function shuffleArr(arr) {
     var a = arr.slice();
     for (var i = a.length - 1; i > 0; i--) {
@@ -284,7 +284,7 @@
     return a;
   }
 
-  // ─── 선택 카드 생성 (하단, 크게) ─────────────────────────────────────────
+  // --- 선택 카드 생성 (하단, 크게) -----------------------------------------
   function buildChoices(topic) {
     choiceGrid.innerHTML = '';
     topic.choices.forEach(function (ch, idx) {
@@ -317,7 +317,7 @@
     cards.forEach(function (c) { c.classList.remove('picked'); });
   }
 
-  // ─── 카드 선택 처리 ──────────────────────────────────────────────────────
+  // --- 카드 선택 처리 ------------------------------------------------------
   function handleChoice(idx) {
     if (locked) return;
     if (phase !== 'p1' && phase !== 'p2') return;
@@ -357,7 +357,7 @@
     }
   }
 
-  // ─── 공개 연출: 두 카드 동시에 뒤집기 ────────────────────────────────────
+  // --- 공개 연출: 두 카드 동시에 뒤집기 ------------------------------------
   function reveal() {
     phase = 'reveal';
 
@@ -394,7 +394,7 @@
     }, 750);
   }
 
-  // ─── 다음 라운드 ─────────────────────────────────────────────────────────
+  // --- 다음 라운드 ---------------------------------------------------------
   function nextRound() {
     phase = 'idle';
     locked = false;
@@ -416,7 +416,7 @@
     });
   }
 
-  // ─── UI 업데이트 ─────────────────────────────────────────────────────────
+  // --- UI 업데이트 ---------------------------------------------------------
   function updateRoundUI() {
     roundNumEl.textContent = (currentRound + 1) + '/' + TOTAL_ROUNDS;
   }
@@ -432,7 +432,7 @@
     bannerEl.textContent = '';
   }
 
-  // ─── 게임 초기화 ─────────────────────────────────────────────────────────
+  // --- 게임 초기화 ---------------------------------------------------------
   function initGame() {
     clearAllTimers();
     hideOverlay();
@@ -444,7 +444,7 @@
     showScreen('game');
   }
 
-  // ─── 결과 화면 ───────────────────────────────────────────────────────────
+  // --- 결과 화면 -----------------------------------------------------------
   function emojiIcon(emoji, bg) {
     return '<svg viewBox="0 0 80 80" width="80" height="80">' +
       '<circle cx="40" cy="40" r="32" fill="' + bg + '" stroke="#2C2C2C" stroke-width="3"/>' +
@@ -477,7 +477,7 @@
     showScreen('result');
   }
 
-  // ─── 버튼 이벤트 ─────────────────────────────────────────────────────────
+  // --- 버튼 이벤트 ---------------------------------------------------------
   onTap(document.getElementById('playBtn'), function () {
     startCountdown(function() { initGame(); });
   });

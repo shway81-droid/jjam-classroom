@@ -119,7 +119,7 @@ npm run gen   # → index.html FALLBACK_GAMES + shared/engine.js _GAME_CATEGORY_
 ## 3. 검증 (게임마다, 모두 통과해야 함)
 
 ```bash
-node scripts/verify-game.js <폴더>   # 정적 21항목 전부 PASS
+node scripts/verify-game.js <폴더>   # 정적 23항목 전부 PASS
 npm test                              # gen --check 동기화 + 전 게임 정합성 (CI와 동일 게이트)
 node scripts/browser-verify.js <폴더> # 실브라우저 자동 플레이 → 결과화면 도달 + 실 JS에러 0
 ```

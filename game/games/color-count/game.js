@@ -1,7 +1,7 @@
 /* games/color-count/game.js */
 'use strict';
 
-// ── Color definitions ──────────────────────────────────────────
+// -- Color definitions ------------------------------------------
 const COLORS = [
   { id: 'red',    label: '빨간', fill: '#EF5350', stroke: '#B71C1C', btnFill: '#E53935', btnStroke: '#B71C1C' },
   { id: 'blue',   label: '파란', fill: '#29B6F6', stroke: '#0277BD', btnFill: '#039BE5', btnStroke: '#0277BD' },
@@ -29,7 +29,7 @@ const PLAYER_CONFIG = [
   { label: 'P4', hex: '#1B5E20', bgTint: 'rgba(27,94,32,0.18)' },
 ];
 
-// ── Sound Manager ──────────────────────────────────────────────
+// -- Sound Manager ----------------------------------------------
 const sound = createSoundManager({
   ding(ctx) {
     [523, 659, 784].forEach((freq, i) => {
@@ -87,7 +87,7 @@ const sound = createSoundManager({
   },
 });
 
-// ── State ──────────────────────────────────────────────────────
+// -- State ------------------------------------------------------
 let playerCount      = 2;
 let currentRound     = 0;
 let scores           = [];
@@ -99,7 +99,7 @@ let roundResolved    = false;
 let nextRoundTimer   = null;
 let pendingTimers    = [];
 
-// ── DOM ────────────────────────────────────────────────────────
+// -- DOM --------------------------------------------------------
 const introScreen      = document.getElementById('introScreen');
 const countdownScreen  = document.getElementById('countdownScreen');
 const countdownNumber  = document.getElementById('countdownNumber');
@@ -126,7 +126,7 @@ const resultTableHead  = document.getElementById('resultTableHead');
 const resultTableBody  = document.getElementById('resultTableBody');
 const totalRow         = document.getElementById('totalRow');
 
-// ── Helpers ────────────────────────────────────────────────────
+// -- Helpers ----------------------------------------------------
 function showScreen(s) {
   [introScreen, countdownScreen, gameScreen, resultScreen].forEach(el => el.classList.remove('active'));
   s.classList.add('active');
@@ -155,7 +155,7 @@ function shuffle(arr) {
   return a;
 }
 
-// ── Sound toggle ───────────────────────────────────────────────
+// -- Sound toggle -----------------------------------------------
 function updateSoundIcon() {
   const muted = sound.isMuted();
   soundIconIntro.innerHTML = muted
@@ -170,17 +170,17 @@ onTap(soundToggleIntro, () => {
 });
 updateSoundIcon();
 
-// ── Player count select ────────────────────────────────────────
+// -- Player count select ----------------------------------------
 setupPlayerSelect(function (n) { playerCount = n; });
 
-// ── Nav ────────────────────────────────────────────────────────
+// -- Nav --------------------------------------------------------
 onTap(backBtn,  () => { clearAllTimers(); goHome(); });
 onTap(closeBtn, () => { clearAllTimers(); goHome(); });
 onTap(homeBtn,  () => { clearAllTimers(); goHome(); });
 onTap(retryBtn, () => startCountdown(() => startGame()));
 onTap(playBtn,  () => startCountdown(() => startGame()));
 
-// ── Circle placement with collision detection ──────────────────
+// -- Circle placement with collision detection ------------------
 function placeCircles(total) {
   const placed = [];   // { x, y, r, colorId }
   const colorIds = COLORS.map(c => c.id);
@@ -225,7 +225,7 @@ function placeCircles(total) {
   return placed;
 }
 
-// ── Round generation ───────────────────────────────────────────
+// -- Round generation -------------------------------------------
 function generateRound() {
   const totalCircles = randInt(MIN_CIRCLES, MAX_CIRCLES);
   const circles = placeCircles(totalCircles);
@@ -258,7 +258,7 @@ function generateOptions(correct) {
   return shuffle([...opts]);
 }
 
-// ── SVG circle rendering ───────────────────────────────────────
+// -- SVG circle rendering ---------------------------------------
 function renderCircles(circles) {
   const parts = circles.map(c => {
     const col = COLOR_BY_ID[c.colorId];
@@ -273,7 +273,7 @@ function renderCircles(circles) {
   circlesSvg.innerHTML = parts.join('');
 }
 
-// ── Number button SVG ──────────────────────────────────────────
+// -- Number button SVG ------------------------------------------
 function buildNumBtnSVG(num, color) {
   // Rounded rect button with player's number
   return `
@@ -290,7 +290,7 @@ function buildNumBtnSVG(num, color) {
     </svg>`;
 }
 
-// ── Zone builder ───────────────────────────────────────────────
+// -- Zone builder -----------------------------------------------
 function buildZones() {
   zonesWrap.innerHTML = '';
   zonesWrap.className = `zones-wrap p${playerCount}`;
@@ -368,7 +368,7 @@ function updateNumButtons() {
   }
 }
 
-// ── Ripple ─────────────────────────────────────────────────────
+// -- Ripple -----------------------------------------------------
 function spawnRipple(zone, e) {
   const rect  = zone.getBoundingClientRect();
   const touch = e.touches ? e.touches[0] : e;
@@ -387,7 +387,7 @@ function spawnRipple(zone, e) {
   r.addEventListener('animationend', () => r.remove());
 }
 
-// ── Tap handler ─────────────────────────────────────────────────
+// -- Tap handler -------------------------------------------------
 function handleNumTap(playerIdx, num, zone, e) {
   if (phase !== 'active')       return;
   if (roundDQ.has(playerIdx))   return;
@@ -478,7 +478,7 @@ function handleNumTap(playerIdx, num, zone, e) {
   }
 }
 
-// ── Game flow ───────────────────────────────────────────────────
+// -- Game flow ---------------------------------------------------
 function startGame() {
   clearAllTimers();
   scores       = new Array(playerCount).fill(0);
@@ -571,7 +571,7 @@ function scheduleNextOrEnd() {
   }, 1800);
 }
 
-// ── Result screen ───────────────────────────────────────────────
+// -- Result screen -----------------------------------------------
 function showResult() {
   sound.play('fanfare');
 

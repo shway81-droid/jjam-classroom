@@ -1,7 +1,7 @@
 /* games/block-pop/game.js — 패턴 C (퍼즐 병렬 경쟁) — 뭉치 터트리기 (SameGame형) */
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const GAME_TIME = 45;         // seconds
 const RESULT_PAUSE_MS = (typeof getAutoplayPauseMs === 'function') ? getAutoplayPauseMs(1800) : 1800;
 const NUM_COLORS = 3;
@@ -26,7 +26,7 @@ function boardDims(pc) {
   return { cols: 4, rows: 9 };
 }
 
-// ── Pure SameGame logic (DOM 비의존 — Node 테스트 가능) ─────────
+// -- Pure SameGame logic (DOM 비의존 — Node 테스트 가능) ---------
 function randInt(n) { return Math.floor(Math.random() * n); }
 
 function makeGrid(rows, cols) {
@@ -105,7 +105,7 @@ function countRemaining(grid) {
   return n;
 }
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const sound = createSoundManager({
   pop(ctx) {
     const o = ctx.createOscillator(); const g = ctx.createGain();
@@ -165,7 +165,7 @@ const sound = createSoundManager({
   },
 });
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let playerCount = 2;
 let dims = { cols: 6, rows: 9 };
 let scores = [];            // 없앤 블록 수
@@ -177,7 +177,7 @@ let timeRemaining = GAME_TIME;
 let gameOver = false;
 let clearedBy = -1;
 
-// ── DOM refs ─────────────────────────────────────────────────
+// -- DOM refs -------------------------------------------------
 const introScreen = document.getElementById('introScreen');
 const countdownScreen = document.getElementById('countdownScreen');
 const countdownNumber = document.getElementById('countdownNumber');
@@ -201,7 +201,7 @@ const resultTitle = document.getElementById('resultTitle');
 const resultWinner = document.getElementById('resultWinner');
 const totalRow = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function showScreen(s) {
   [introScreen, countdownScreen, gameScreen, resultScreen].forEach(x => x.classList.remove('active'));
   s.classList.add('active');
@@ -219,7 +219,7 @@ function clearTimers() {
   if (nextHandle) { clearTimeout(nextHandle); nextHandle = null; }
 }
 
-// ── Build zones ──────────────────────────────────────────────
+// -- Build zones ----------------------------------------------
 function buildZones() {
   zonesWrap.innerHTML = '';
   zonesWrap.className = `zones-wrap p${playerCount}`;
@@ -283,7 +283,7 @@ function updateRemovedChip(playerIdx) {
   if (el) el.textContent = `없앤 ${scores[playerIdx]}`;
 }
 
-// ── Score bar ────────────────────────────────────────────────
+// -- Score bar ------------------------------------------------
 function buildScoreBar() {
   scoreBar.innerHTML = '';
   for (let i = 0; i < playerCount; i++) {
@@ -304,7 +304,7 @@ function updateBarScore(playerIdx) {
   if (el) el.textContent = scores[playerIdx];
 }
 
-// ── Cell tap handler ─────────────────────────────────────────
+// -- Cell tap handler -----------------------------------------
 function handleCellTap(playerIdx, r, c) {
   if (phase !== 'active' || gameOver) return;
 
@@ -343,7 +343,7 @@ function handleClear(winnerIdx) {
   nextHandle = setTimeout(() => showResult(), RESULT_PAUSE_MS);
 }
 
-// ── Timer ────────────────────────────────────────────────────
+// -- Timer ----------------------------------------------------
 function startCountdown() {
   timeRemaining = GAME_TIME;
   problemTimer.textContent = timeRemaining;
@@ -374,7 +374,7 @@ function handleTimeout() {
   nextHandle = setTimeout(() => showResult(), RESULT_PAUSE_MS);
 }
 
-// ── Game flow ────────────────────────────────────────────────
+// -- Game flow ------------------------------------------------
 function startGame() {
   dims = boardDims(playerCount);
   scores = new Array(playerCount).fill(0);
@@ -398,7 +398,7 @@ function startGame() {
   startCountdown();
 }
 
-// ── Result ───────────────────────────────────────────────────
+// -- Result ---------------------------------------------------
 function showResult() {
   clearTimers();
   phase = 'idle';
@@ -444,20 +444,20 @@ function showResult() {
   showScreen(resultScreen);
 }
 
-// ── Player count selection ───────────────────────────────────
+// -- Player count selection -----------------------------------
 setupPlayerSelect(function (n) { playerCount = n; });
 
-// ── Sound toggle ─────────────────────────────────────────────
+// -- Sound toggle ---------------------------------------------
 setupSoundToggle(sound, soundToggleIntro);
 
-// ── Navigation ───────────────────────────────────────────────
+// -- Navigation -----------------------------------------------
 onTap(backBtn, () => goHome());
 onTap(closeBtn, () => { clearTimers(); goHome(); });
 onTap(homeBtn, () => goHome());
 onTap(retryBtn, () => startPreGameCountdown(() => startGame()));
 onTap(playBtn, () => startPreGameCountdown(() => startGame()));
 
-// ── Test hook (Node 환경에서만 export; 브라우저 무영향) ─────────
+// -- Test hook (Node 환경에서만 export; 브라우저 무영향) ---------
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { floodGroup, applyGravity, collapseColumns, popAt, countRemaining, makeGrid };
 }

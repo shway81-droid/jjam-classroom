@@ -3,14 +3,14 @@
 (function () {
   'use strict';
 
-  // ── Player color palette ─────────────────────────────────────────────────
+  // -- Player color palette -------------------------------------------------
   var PLAYER_COLORS = ['#AB47BC', '#29B6F6', '#EF5350', '#66BB6A'];
   var PLAYER_NAMES  = ['플레이어 1', '플레이어 2', '플레이어 3', '플레이어 4'];
 
-  // ── Emoji pool — 8 random picked each game ───────────────────────────────
+  // -- Emoji pool — 8 random picked each game -------------------------------
   var EMOJI_POOL = ['🐶','🐱','🐸','🦊','🐼','🐨','🦁','🐯','🐷','🐮','🐵','🐔','🦄','🐙','🦋','🐝'];
 
-  // ── Screen refs ──────────────────────────────────────────────────────────
+  // -- Screen refs ----------------------------------------------------------
   var screens = {
     intro:     document.getElementById('introScreen'),
     countdown: document.getElementById('countdownScreen'),
@@ -31,7 +31,7 @@
     countdownInterval = runCountdown(countdownNumber, onDone);
   }
 
-  // ── Sound ────────────────────────────────────────────────────────────────
+  // -- Sound ----------------------------------------------------------------
   var sounds = createSoundManager({
     // Card flip: soft click
     flip: function (ctx) {
@@ -116,7 +116,7 @@
 
   updateSoundBtns();
 
-  // ── Intro: player count selection ────────────────────────────────────────
+  // -- Intro: player count selection ----------------------------------------
   var playerCount = 2;
   var playerBtns  = document.querySelectorAll('.player-btn');
 
@@ -128,7 +128,7 @@
     });
   });
 
-  // ── Game state ───────────────────────────────────────────────────────────
+  // -- Game state -----------------------------------------------------------
   var cards        = [];   // array of { emoji, index, el, frontEl, matched }
   var flippedCards = [];   // at most 2 cards currently face-up & unmatched
   var locked       = false; // blocks taps during flip-back animation
@@ -141,7 +141,7 @@
   var turnDotEl    = document.getElementById('turnDot');
   var turnTextEl   = document.getElementById('turnText');
 
-  // ── Shuffle helper ───────────────────────────────────────────────────────
+  // -- Shuffle helper -------------------------------------------------------
   function shuffle(arr) {
     var a = arr.slice();
     for (var i = a.length - 1; i > 0; i--) {
@@ -151,7 +151,7 @@
     return a;
   }
 
-  // ── Build card grid ──────────────────────────────────────────────────────
+  // -- Build card grid ------------------------------------------------------
   function buildGrid() {
     // Pick 8 random emojis
     var chosen = shuffle(EMOJI_POOL).slice(0, 8);
@@ -194,7 +194,7 @@
     });
   }
 
-  // ── Scoreboard UI ────────────────────────────────────────────────────────
+  // -- Scoreboard UI --------------------------------------------------------
   function buildScoreboard() {
     scoreboardEl.innerHTML = '';
     for (var p = 0; p < playerCount; p++) {
@@ -239,7 +239,7 @@
     }
   }
 
-  // ── Card tap handler ─────────────────────────────────────────────────────
+  // -- Card tap handler -----------------------------------------------------
   function handleCardTap(cardData) {
     if (locked) return;
     if (cardData.matched) return;
@@ -315,7 +315,7 @@
     return cards.every(function (c) { return c.matched; });
   }
 
-  // ── Result screen ────────────────────────────────────────────────────────
+  // -- Result screen --------------------------------------------------------
   function showResult() {
     sounds.play('win');
 
@@ -381,7 +381,7 @@
     showScreen('result');
   }
 
-  // ── Init game ────────────────────────────────────────────────────────────
+  // -- Init game ------------------------------------------------------------
   function initGame() {
     currentPlayer = 0;
     scores = [];
@@ -398,7 +398,7 @@
     showScreen('game');
   }
 
-  // ── Button wiring ────────────────────────────────────────────────────────
+  // -- Button wiring --------------------------------------------------------
   document.getElementById('playBtn').addEventListener('click', function () {
     startCountdown(function() { initGame(); });
   });

@@ -2,7 +2,7 @@
 
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const TOTAL_ROUNDS    = 10;
 const ROUND_TIME      = 8;     // seconds per round
 const RESULT_PAUSE_MS = 2000;  // pause before next round
@@ -15,7 +15,7 @@ const PLAYER_CONFIG = [
   { label: 'P4', dot: '#F57C00', zoneBg: '#FFE0B2', cls: 'p4', btnFill: '#E65100' },
 ];
 
-// ── Emoji pool (모두 서로 구별되는 그림) ─────────────────────
+// -- Emoji pool (모두 서로 구별되는 그림) ---------------------
 const EMOJI_POOL = [
   "🍎","🍌","🍇","🍓","🍊","🍉","🍑","🍒","🥝","🍍",
   "🥕","🌽","🍄","🌰","🍅","🥑",
@@ -26,10 +26,10 @@ const EMOJI_POOL = [
 // 서수 이름 (1~6째)
 const ORDINALS = ['첫째', '둘째', '셋째', '넷째', '다섯째', '여섯째'];
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const sound = createSoundManager();
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let playerCount   = 2;
 let roundIdx      = 0;
 let scores        = [];
@@ -43,7 +43,7 @@ let nextHandle    = null;
 let timeRemaining = ROUND_TIME;
 let gameRounds    = [];    // 10 generated rounds
 
-// ── DOM refs ─────────────────────────────────────────────────
+// -- DOM refs -------------------------------------------------
 const introScreen     = document.getElementById('introScreen');
 const countdownScreen = document.getElementById('countdownScreen');
 const countdownNumber = document.getElementById('countdownNumber');
@@ -70,7 +70,7 @@ const resultTableHead  = document.getElementById('resultTableHead');
 const resultTableBody  = document.getElementById('resultTableBody');
 const totalRow         = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function showScreen(s) {
   [introScreen, countdownScreen, gameScreen, resultScreen].forEach(x => x.classList.remove('active'));
   s.classList.add('active');
@@ -114,7 +114,7 @@ function updateSoundIcon() {
   }
 }
 
-// ── Round generation ─────────────────────────────────────────
+// -- Round generation -----------------------------------------
 function makeRound() {
   const rowLen = 4 + Math.floor(Math.random() * 3);   // 4~6
   const row    = shuffle(EMOJI_POOL).slice(0, rowLen);
@@ -126,24 +126,24 @@ function makeRound() {
   return { row, n, answer, wrongs };
 }
 
-// ── Player count selection ───────────────────────────────────
+// -- Player count selection -----------------------------------
 setupPlayerSelect(function (n) { playerCount = n; });
 
-// ── Sound toggle ─────────────────────────────────────────────
+// -- Sound toggle ---------------------------------------------
 onTap(soundToggleIntro, () => {
   sound.toggleMute();
   updateSoundIcon();
 });
 updateSoundIcon();
 
-// ── Navigation ───────────────────────────────────────────────
+// -- Navigation -----------------------------------------------
 onTap(backBtn,  () => goHome());
 onTap(closeBtn, () => { clearTimers(); goHome(); });
 onTap(homeBtn,  () => goHome());
 onTap(retryBtn, () => startPreGameCountdown(() => startGame()));
 onTap(playBtn,  () => startPreGameCountdown(() => startGame()));
 
-// ── SVG button builder (emoji label) ─────────────────────────
+// -- SVG button builder (emoji label) -------------------------
 function buildAnswerSvgBtn(text, fill, playerIdx, answerIdx) {
   const btn = document.createElement('button');
   btn.className = 'answer-btn';
@@ -183,7 +183,7 @@ function buildAnswerSvgBtn(text, fill, playerIdx, answerIdx) {
   return btn;
 }
 
-// ── Build zone grid ──────────────────────────────────────────
+// -- Build zone grid ------------------------------------------
 function buildZones() {
   zonesWrap.innerHTML = '';
   zonesWrap.className = `zones-wrap p${playerCount}`;
@@ -220,7 +220,7 @@ function updateScoreChip(playerIdx) {
   if (chip) chip.textContent = `${scores[playerIdx]}점`;
 }
 
-// ── Score bar ────────────────────────────────────────────────
+// -- Score bar ------------------------------------------------
 function buildScoreBar() {
   scoreBar.innerHTML = '';
   for (let i = 0; i < playerCount; i++) {
@@ -241,7 +241,7 @@ function updateBarScore(playerIdx) {
   if (el) el.textContent = scores[playerIdx];
 }
 
-// ── Ripple effect ────────────────────────────────────────────
+// -- Ripple effect --------------------------------------------
 function spawnRipple(zone, e) {
   const rect  = zone.getBoundingClientRect();
   const touch = e && e.touches ? e.touches[0] : (e || null);
@@ -258,7 +258,7 @@ function spawnRipple(zone, e) {
   r.addEventListener('animationend', () => r.remove());
 }
 
-// ── Question display (emoji row + 서수 질문) ─────────────────
+// -- Question display (emoji row + 서수 질문) -----------------
 function renderQuestion(round) {
   const cells = round.row.map((e) =>
     `<span class="ord-cell">${e}</span>`
@@ -272,7 +272,7 @@ function renderQuestion(round) {
   `;
 }
 
-// ── Populate answer buttons for a round ─────────────────────
+// -- Populate answer buttons for a round ---------------------
 function populateAnswerButtons() {
   for (let i = 0; i < playerCount; i++) {
     const list = document.getElementById(`answer-list-${i}`);
@@ -294,7 +294,7 @@ function getAnswerBtns(playerIdx) {
   return list ? list.querySelectorAll('.answer-btn') : [];
 }
 
-// ── Timer logic ──────────────────────────────────────────────
+// -- Timer logic ----------------------------------------------
 function startCountdown() {
   timeRemaining = ROUND_TIME;
   problemTimer.textContent = timeRemaining;
@@ -315,7 +315,7 @@ function startCountdown() {
   }, 1000);
 }
 
-// ── Disable / enable answer buttons ─────────────────────────
+// -- Disable / enable answer buttons -------------------------
 function setPlayerBtnsDisabled(playerIdx, disabled) {
   const btns = getAnswerBtns(playerIdx);
   btns.forEach(btn => {
@@ -342,7 +342,7 @@ function resetBtnsForRound() {
   }
 }
 
-// ── Answer tap handler ───────────────────────────────────────
+// -- Answer tap handler ---------------------------------------
 function handleAnswerTap(playerIdx, answerIdx, btn, e) {
   if (phase !== 'active') return;
   if (dqSet.has(playerIdx)) return;
@@ -385,7 +385,7 @@ function handleAnswerTap(playerIdx, answerIdx, btn, e) {
   }
 }
 
-// ── Correct answer ───────────────────────────────────────────
+// -- Correct answer -------------------------------------------
 function resolveRound(winnerIdx, correctAnsIdx) {
   phase = 'done';
   clearTimers();
@@ -424,7 +424,7 @@ function resolveRound(winnerIdx, correctAnsIdx) {
   nextHandle = setTimeout(() => nextRound(), RESULT_PAUSE_MS);
 }
 
-// ── Timeout ──────────────────────────────────────────────────
+// -- Timeout --------------------------------------------------
 function handleTimeout() {
   phase = 'done';
   clearTimers();
@@ -455,7 +455,7 @@ function handleTimeout() {
   nextHandle = setTimeout(() => nextRound(), RESULT_PAUSE_MS);
 }
 
-// ── Load round ───────────────────────────────────────────────
+// -- Load round -----------------------------------------------
 function loadRound() {
   phase    = 'active';
   currentR = gameRounds[roundIdx];
@@ -478,7 +478,7 @@ function loadRound() {
   startCountdown();
 }
 
-// ── Next round ────────────────────────────────────────────────
+// -- Next round ------------------------------------------------
 function nextRound() {
   roundIdx++;
   if (roundIdx >= TOTAL_ROUNDS) {
@@ -488,7 +488,7 @@ function nextRound() {
   }
 }
 
-// ── Start game ───────────────────────────────────────────────
+// -- Start game -----------------------------------------------
 function startGame() {
   gameRounds = Array.from({ length: TOTAL_ROUNDS }, () => makeRound());
   roundIdx   = 0;
@@ -506,7 +506,7 @@ function startGame() {
   loadRound();
 }
 
-// ── Show result ──────────────────────────────────────────────
+// -- Show result ----------------------------------------------
 function showResult() {
   clearTimers();
   phase = 'idle';

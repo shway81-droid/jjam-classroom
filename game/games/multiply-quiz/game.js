@@ -2,7 +2,7 @@
 
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────
+// -- Constants ------------------------------------------------
 const TOTAL_QUESTIONS  = 10;
 const TIMEOUT_MS       = 6000;   // per question
 const RESULT_PAUSE_MS  = 1900;   // pause before next question
@@ -15,7 +15,7 @@ const PLAYER_CONFIG = [
   { label: 'P4', dot: '#F57C00', cls: 'p4' },
 ];
 
-// ── Question pool ────────────────────────────────────────────
+// -- Question pool --------------------------------------------
 // { q: 문제, a: 정답, o: [오답 3개] } — 정답이 하나로 확정되도록 구성
 const QUESTION_POOL = [
   { q: "12 × 3 = ?", a: "36", o: ["32", "39", "42"] },
@@ -34,10 +34,10 @@ const QUESTION_POOL = [
   { q: "25 × 2 = ?", a: "50", o: ["45", "52", "55"] },
 ]
 
-// ── Sound Manager ────────────────────────────────────────────
+// -- Sound Manager --------------------------------------------
 const sound = createSoundManager();
 
-// ── State ────────────────────────────────────────────────────
+// -- State ----------------------------------------------------
 let playerCount   = 2;
 let questionIdx   = 0;
 let scores        = [];
@@ -49,7 +49,7 @@ let timeoutHandle = null;
 let nextHandle    = null;
 let gameQuestions = [];
 
-// ── DOM refs ─────────────────────────────────────────────────
+// -- DOM refs -------------------------------------------------
 const introScreen     = document.getElementById('introScreen');
 const countdownScreen = document.getElementById('countdownScreen');
 const countdownNumber = document.getElementById('countdownNumber');
@@ -76,7 +76,7 @@ const resultTableHead  = document.getElementById('resultTableHead');
 const resultTableBody  = document.getElementById('resultTableBody');
 const totalRow         = document.getElementById('totalRow');
 
-// ── Helpers ──────────────────────────────────────────────────
+// -- Helpers --------------------------------------------------
 function showScreen(s) {
   [introScreen, countdownScreen, gameScreen, resultScreen].forEach(x => x.classList.remove('active'));
   s.classList.add('active');
@@ -107,20 +107,20 @@ function buildQuestion(item) {
   return { q: item.q, choices: choices, answerIdx: answerIdx };
 }
 
-// ── Sound toggle ─────────────────────────────────────────────
+// -- Sound toggle ---------------------------------------------
 setupSoundToggle(sound, soundToggleIntro);
 
-// ── Player count selection ───────────────────────────────────
+// -- Player count selection -----------------------------------
 setupPlayerSelect(function (n) { playerCount = n; });
 
-// ── Navigation ───────────────────────────────────────────────
+// -- Navigation -----------------------------------------------
 onTap(backBtn,  () => goHome());
 onTap(closeBtn, () => { clearTimers(); goHome(); });
 onTap(homeBtn,  () => goHome());
 onTap(retryBtn, () => startCountdown(() => startGame()));
 onTap(playBtn,  () => startCountdown(() => startGame()));
 
-// ── Build zone grid ──────────────────────────────────────────
+// -- Build zone grid ------------------------------------------
 function buildZones() {
   zonesWrap.innerHTML = '';
   zonesWrap.className = `zones-wrap p${playerCount}`;
@@ -171,7 +171,7 @@ function updateScoreChip(playerIdx) {
   if (chip) chip.textContent = `${scores[playerIdx]}점`;
 }
 
-// ── Build score bar ──────────────────────────────────────────
+// -- Build score bar ------------------------------------------
 function buildScoreBar() {
   scoreBar.innerHTML = '';
   for (let i = 0; i < playerCount; i++) {
@@ -192,7 +192,7 @@ function updateBarScore(playerIdx) {
   if (el) el.textContent = scores[playerIdx];
 }
 
-// ── Populate answer buttons for a question ───────────────────
+// -- Populate answer buttons for a question -------------------
 function populateAnswers(question) {
   for (let i = 0; i < playerCount; i++) {
     const btns = getAnswerBtns(i);
@@ -208,7 +208,7 @@ function populateAnswers(question) {
   }
 }
 
-// ── Ripple effect ────────────────────────────────────────────
+// -- Ripple effect --------------------------------------------
 function spawnRipple(zone, e) {
   const rect  = zone.getBoundingClientRect();
   const touch = e && e.touches ? e.touches[0] : e;
@@ -224,7 +224,7 @@ function spawnRipple(zone, e) {
   r.addEventListener('animationend', () => r.remove());
 }
 
-// ── Answer tap handler ───────────────────────────────────────
+// -- Answer tap handler ---------------------------------------
 function handleAnswerTap(playerIdx, slotIdx, btn) {
   if (phase !== 'active') return;
   if (dqSet.has(playerIdx)) return;
@@ -272,7 +272,7 @@ function disqualifyPlayer(playerIdx) {
   }
 }
 
-// ── Resolve a question ───────────────────────────────────────
+// -- Resolve a question ---------------------------------------
 function resolveQuestion(winnerIdx, winBtn) {
   if (phase !== 'active') return;
   clearTimers();
@@ -335,7 +335,7 @@ function revealAnswer() {
   }
 }
 
-// ── Question flow ─────────────────────────────────────────────
+// -- Question flow ---------------------------------------------
 function startGame() {
   gameQuestions = shuffle(QUESTION_POOL).slice(0, TOTAL_QUESTIONS);
   scores      = new Array(playerCount).fill(0);
@@ -393,7 +393,7 @@ function clearTimers() {
   if (nextHandle)    { clearTimeout(nextHandle);    nextHandle    = null; }
 }
 
-// ── Result screen ─────────────────────────────────────────────
+// -- Result screen ---------------------------------------------
 function showResult() {
   sound.play('fanfare');
 

@@ -3,14 +3,14 @@
 (function () {
   'use strict';
 
-  // ─── 상수 ───────────────────────────────────────────────────────────────
+  // --- 상수 ---------------------------------------------------------------
   var SIZE = 9;                 // 9x9 판
   var WIN_LEN = 5;              // 다섯 개를 이으면 승리
   var PLAYER_COLORS = ['#37474F', '#B0BEC5']; // P1 어두운 돌 / P2 밝은 돌(배너용)
   var PLAYER_NAMES  = ['P1', 'P2'];
   var RESULT_PAUSE_MS = getAutoplayPauseMs(900);
 
-  // ─── 타이머 관리 ─────────────────────────────────────────────────────────
+  // --- 타이머 관리 ---------------------------------------------------------
   var timers = [];
 
   function later(fn, ms) {
@@ -25,7 +25,7 @@
     timers = [];
   }
 
-  // ─── 화면 전환 ────────────────────────────────────────────────────────────
+  // --- 화면 전환 ------------------------------------------------------------
   var screens = {
     intro:     document.getElementById('introScreen'),
     countdown: document.getElementById('countdownScreen'),
@@ -46,7 +46,7 @@
     countdownInterval = runCountdown(countdownNumber, onDone);
   }
 
-  // ─── 사운드 ──────────────────────────────────────────────────────────────
+  // --- 사운드 --------------------------------------------------------------
   var sounds = createSoundManager({
     // 돌 놓는 소리: 짧고 단단한 "딱"
     place: function (ctx) {
@@ -145,7 +145,7 @@
     }
   });
 
-  // ─── 사운드 버튼 ──────────────────────────────────────────────────────────
+  // --- 사운드 버튼 ----------------------------------------------------------
   var soundIconIds = ['soundIconIntro', 'soundIconGame'];
 
   var SVG_SOUND_ON  = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>';
@@ -169,7 +169,7 @@
 
   updateSoundIcons();
 
-  // ─── 게임 상태 ────────────────────────────────────────────────────────────
+  // --- 게임 상태 ------------------------------------------------------------
   var board;          // board[r][c] = -1(빈칸) | 0 | 1
   var currentPlayer;  // 0 or 1
   var gameOver;
@@ -177,7 +177,7 @@
   var stoneCount;     // 놓인 돌 수
   var cellEls;        // cellEls[r][c] = DOM element
 
-  // ─── DOM ─────────────────────────────────────────────────────────────────
+  // --- DOM -----------------------------------------------------------------
   var boardGrid   = document.getElementById('boardGrid');
   var turnBanner  = document.getElementById('turnBanner');
   var turnDot     = document.getElementById('turnDot');
@@ -186,7 +186,7 @@
   var resultSub      = document.getElementById('resultSub');
   var resultIconWrap = document.getElementById('resultIconWrap');
 
-  // ─── 게임 초기화 ──────────────────────────────────────────────────────────
+  // --- 게임 초기화 ----------------------------------------------------------
   function initGame() {
     clearAllTimers();
 
@@ -208,7 +208,7 @@
     showScreen('game');
   }
 
-  // ─── 보드 빌드 (9x9 빈 칸 그리드) ─────────────────────────────────────────
+  // --- 보드 빌드 (9x9 빈 칸 그리드) -----------------------------------------
   function buildBoard() {
     boardGrid.innerHTML = '';
     cellEls = [];
@@ -230,7 +230,7 @@
     }
   }
 
-  // ─── 턴 UI 업데이트 ──────────────────────────────────────────────────────
+  // --- 턴 UI 업데이트 ------------------------------------------------------
   function updateTurnUI(announce) {
     var color = PLAYER_COLORS[currentPlayer];
     var name  = PLAYER_NAMES[currentPlayer];
@@ -254,7 +254,7 @@
     }
   }
 
-  // ─── 풀스크린 턴 변경 오버레이 ──────────────────────────────────────────
+  // --- 풀스크린 턴 변경 오버레이 ------------------------------------------
   function showTurnOverlay(name, pCls) {
     var overlay = document.getElementById('turnOverlay');
     if (!overlay) {
@@ -272,12 +272,12 @@
     }, 600);
   }
 
-  // ─── 입력 잠금 갱신 ───────────────────────────────────────────────────────
+  // --- 입력 잠금 갱신 -------------------------------------------------------
   function updateLock() {
     boardGrid.classList.toggle('locked', gameOver || locked);
   }
 
-  // ─── 돌 놓기 처리 (자유 배치 — 중력 없음) ───────────────────────────────────
+  // --- 돌 놓기 처리 (자유 배치 — 중력 없음) -----------------------------------
   function handlePlace(row, col) {
     if (gameOver || locked) return;
 
@@ -337,7 +337,7 @@
     }, 240);
   }
 
-  // ─── 승리 판정: 방금 놓은 돌 기준 4방향 스캔 (5목 이상) ──────────────────────
+  // --- 승리 판정: 방금 놓은 돌 기준 4방향 스캔 (5목 이상) ----------------------
   // 순수 함수: (board, row, col, p) → 승리한 연속 칸 좌표 배열 또는 null
   function findWinLine(bd, row, col, p) {
     var size = bd.length;
@@ -375,7 +375,7 @@
     return r >= 0 && r < size && c >= 0 && c < size;
   }
 
-  // ─── 결과 화면 ───────────────────────────────────────────────────────────
+  // --- 결과 화면 -----------------------------------------------------------
   var SVG_TROPHY =
     '<svg viewBox="0 0 80 80" width="80" height="80">' +
       '<rect x="28" y="62" width="24" height="6" rx="3" fill="#FFA726"/>' +
@@ -411,7 +411,7 @@
     showScreen('result');
   }
 
-  // ─── 버튼 이벤트 바인딩 ──────────────────────────────────────────────────
+  // --- 버튼 이벤트 바인딩 --------------------------------------------------
   onTap(document.getElementById('playBtn'), function () {
     startCountdown(function () { initGame(); });
   });

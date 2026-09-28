@@ -1,6 +1,6 @@
 /* shared/style.css */
 
-/* ── 웹폰트: Pretendard(가변) 자가 호스팅 ──────────────────────────
+/* -- 웹폰트: Pretendard(가변) 자가 호스팅 --------------------------
    외부 CDN을 쓰지 않는다. 오프라인(PWA)에서도 같은 글씨로 보이고,
    교사 PC에 Pretendard가 깔려 있든 아니든 화면이 동일해진다.
 
@@ -10,7 +10,7 @@
    새 글자가 들어왔는지는 `node scripts/check-font-coverage.mjs` 가 확인한다.
 
    라이선스: SIL Open Font License 1.1 — assets/fonts/LICENSE.txt
-   ────────────────────────────────────────────────────────────── */
+   -------------------------------------------------------------- */
 @font-face {
   font-family: 'Pretendard Variable';
   font-style: normal;
@@ -433,12 +433,12 @@ html {
 }
 
 
-/* ═══════════════════════════════════════════════════════════════
+/* ===============================================================
    LEVEL 3 DESIGN — 전체 게임 공통 적용 (코믹/스티커 풍)
    특징: 두꺼운 검정 테두리, 오프셋 그림자, 굵은 타이포
-   ═══════════════════════════════════════════════════════════════ */
+   =============================================================== */
 
-/* ── 인트로 화면 ── */
+/* -- 인트로 화면 -- */
 .screen-intro {
   background:
     radial-gradient(circle at 18% 12%, rgba(255,193,7,0.12) 0, transparent 35%),
@@ -571,7 +571,7 @@ html {
   font-weight: 900 !important;
 }
 
-/* ── 카운트다운 화면 ── */
+/* -- 카운트다운 화면 -- */
 .screen-countdown {
   background: #FFB703 !important;
 }
@@ -583,7 +583,7 @@ html {
   -webkit-text-fill-color: #1C2333 !important;
 }
 
-/* ── 게임 화면 (top-bar + score-bar) ── */
+/* -- 게임 화면 (top-bar + score-bar) -- */
 .top-bar {
   background: #1C2333 !important;
   border-bottom: 3px solid #1C2333 !important;
@@ -651,7 +651,7 @@ html {
   box-shadow: 0 2px 0 rgba(0,0,0,0.35) !important;
 }
 
-/* ── 결과 화면 ── */
+/* -- 결과 화면 -- */
 .screen-result {
   background:
     radial-gradient(circle at 20% 10%, rgba(255,213,79,0.25) 0, transparent 40%),
@@ -709,11 +709,11 @@ html {
 }
 
 
-/* ═══════════════════════════════════════════════════════════
+/* ===========================================================
    LEVEL 3 — 게임 진행 화면 공통 (HUD, 타이머, 존 테두리)
    다크/라이트 테마 무관하게 적용
    배경색은 각 게임 CSS에 위임 (테마 보존)
-   ═══════════════════════════════════════════════════════════ */
+   =========================================================== */
 
 /* HUD 바 (top-bar 외 패턴 사용 게임용) */
 .game-hud {
@@ -781,7 +781,7 @@ html {
 }
 
 
-/* ── Level 3 별칭: 게임별 다른 클래스명 통합 ── */
+/* -- Level 3 별칭: 게임별 다른 클래스명 통합 -- */
 .hud-time {
   color: #fff !important;
   font-weight: 900 !important;
@@ -808,7 +808,7 @@ html {
 }
 
 
-/* ── Level 3: 결과 화면 텍스트 색상 보정 (크림 배경에 맞게) ── */
+/* -- Level 3: 결과 화면 텍스트 색상 보정 (크림 배경에 맞게) -- */
 .screen-result .result-sub {
   color: #555 !important;
   font-weight: 700 !important;
@@ -832,7 +832,7 @@ html {
 }
 
 
-/* ── Level 3: 난이도/옵션 선택 버튼 (diff-btn, option-btn) ── */
+/* -- Level 3: 난이도/옵션 선택 버튼 (diff-btn, option-btn) -- */
 .diff-btn,
 .option-btn {
   border: 3px solid #1C2333 !important;
@@ -867,7 +867,7 @@ html {
 }
 
 
-/* ── Level 3: 결과 화면 버튼 너비 정리 (래핑 방지) ── */
+/* -- Level 3: 결과 화면 버튼 너비 정리 (래핑 방지) -- */
 .screen-result .result-actions {
   flex-wrap: nowrap !important;
   gap: 12px !important;
@@ -891,7 +891,7 @@ html {
 }
 
 
-/* ── Level 3: zone-header가 우상단 X 닫기 버튼과 겹치는 문제 해결 ── */
+/* -- Level 3: zone-header가 우상단 X 닫기 버튼과 겹치는 문제 해결 -- */
 /* X 닫기 버튼은 absolute 우상단(top:16, right:16)에 위치
    가장 오른쪽 존의 zone-score-chip도 그 위치라 겹침
    해결: 마지막 존의 zone-header 우측에 패딩, 첫 존의 좌측에 패딩 추가 */
@@ -905,7 +905,7 @@ html {
 }
 
 
-/* ── Level 3: 4P/3P 모드에서 중앙 패널이 zone 상단을 가리지 않도록 좁게 ── */
+/* -- Level 3: 4P/3P 모드에서 중앙 패널이 zone 상단을 가리지 않도록 좁게 -- */
 .screen-game:has(.zones-wrap.p4) .problem-panel,
 .screen-game:has(.zones-wrap.p3) .problem-panel,
 .screen-game:has(.zones-wrap.p4) .target-panel,
@@ -923,13 +923,13 @@ html {
 }
 
 
-/* ═══════════════════════════════════════════════════════════════
+/* ===============================================================
    LEVEL 3: 게임 진행 화면 존 배경색 통일 (OX/국기 퀴즈 패스텔 톤)
    - P1: 연한 하늘색
    - P2: 연한 분홍
    - P3: 연한 초록
    - P4: 연한 주황
-   ═══════════════════════════════════════════════════════════════ */
+   =============================================================== */
 
 /* Pattern 1: .zone.p-blue/p-red/p-orange/p-purple (color-themed) */
 .zone.p-blue   { background: #B3E5FC !important; color: #1C2333 !important; }
@@ -979,13 +979,13 @@ html {
 }
 
 
-/* ═══════════════════════════════════════════════════════════════
+/* ===============================================================
    LEVEL 4 — CLEAN CLASSROOM THEME (클린 클래스룸)
    Coolmath Games풍 클린 리스킨: 네이비 헤더/배경 + 화이트 보드
    + 앰버 포인트. 변수 이름(felt/wood/cream/gold)은 하위 게임 CSS
    호환을 위해 유지하고 값만 교체. Level 3 위에 덮는 오버라이드 레이어.
    전자칠판(65~86" 터치스크린) 가로 화면 + 원거리 가시성 최적화.
-   ═══════════════════════════════════════════════════════════════ */
+   =============================================================== */
 
 :root {
   --felt: #152447;
@@ -1003,7 +1003,7 @@ html {
   --font-family: 'Pretendard Variable', -apple-system, 'Noto Sans KR', sans-serif;
 }
 
-/* ── 인트로: 펠트 그린 테이블 ── */
+/* -- 인트로: 펠트 그린 테이블 -- */
 .screen-intro {
   background:
     radial-gradient(ellipse at 50% -20%, rgba(255,255,255,0.14) 0, transparent 55%),
@@ -1093,7 +1093,7 @@ html {
   box-shadow: 0 3px 0 rgba(0,0,0,0.4) !important;
 }
 
-/* ── 카운트다운: 펠트 + 골드 넘버 ── */
+/* -- 카운트다운: 펠트 + 골드 넘버 -- */
 .screen-countdown {
   background:
     radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.1) 0, transparent 60%),
@@ -1105,7 +1105,7 @@ html {
   text-shadow: 0 8px 0 var(--gold-dark), 0 14px 24px rgba(0,0,0,0.45) !important;
 }
 
-/* ── 게임 화면: 밝은 보드 (가독성 유지) ── */
+/* -- 게임 화면: 밝은 보드 (가독성 유지) -- */
 .screen-game {
   background: var(--board-cream) !important;
 }
@@ -1121,7 +1121,7 @@ html {
   background: linear-gradient(90deg, var(--gold), #FF9800) !important;
 }
 
-/* ── 결과: 펠트 위 시상식 ── */
+/* -- 결과: 펠트 위 시상식 -- */
 .screen-result {
   background:
     radial-gradient(ellipse at 50% -10%, rgba(255,200,61,0.25) 0, transparent 50%),
@@ -1158,10 +1158,10 @@ html {
   box-shadow: 0 6px 0 rgba(0,0,0,0.4) !important;
 }
 
-/* ═══════════════════════════════════════════════════════════════
+/* ===============================================================
    전자칠판 스케일링 — 원거리 가시성
    65~86인치 1920px+ 화면: 교실 뒤에서도 읽히도록 핵심 요소 확대
-   ═══════════════════════════════════════════════════════════════ */
+   =============================================================== */
 @media (min-width: 1280px) {
   html { font-size: 19px; }
   .intro-text, .intro-title-text { font-size: 2.2rem !important; }
@@ -1183,7 +1183,7 @@ html {
 /* 터치 영역 하단 배치 보강: 인트로 PLAY 버튼은 항상 화면 하단 고정 영역 */
 .btn-play { margin-top: auto !important; }
 
-/* ── 닫기(X) 버튼 가시성 복원 ──
+/* -- 닫기(X) 버튼 가시성 복원 --
    Level 4의 .icon-btn 크림 배경이 .close-btn의 빨간 배경을 덮어
    흰 X가 크림 위에 떠서 안 보이던 문제. 닫기 버튼은 항상 빨강+흰 X. */
 .close-btn,
