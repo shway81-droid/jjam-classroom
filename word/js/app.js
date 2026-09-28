@@ -9,7 +9,7 @@
 import { candidates, pickNext } from './pick.js';
 import { store } from './store.js';
 import { sound } from './sound.js';
-import { createRound, advance, expire } from './chain.js';
+import { createRound, advance, expire, checkWord, currentWord, nextHeads } from './chain.js';
 import * as clock from './clock.js';
 
 const TYPES = {
@@ -118,6 +118,7 @@ const state = {
   paused: false,
   remainMs: 0,        // 멈춰 둔 동안 들고 있는 남은 시간
   lastTick: 0,        // 초읽기를 초당 한 번만 울리기 위한 마지막 정수 초
+  chainWarn: null,    // 끝말잇기 — 적은 낱말에 걸리는 점 { text, reason }
   cardCount: 0,       // 몸으로 말해요 — 이번에 넘긴 카드 수
   clock: clock.createClock(),   // 수업 타이머 — 놀이를 바꿔도 이어서 흐른다
   clockId: null,
@@ -446,8 +447,16 @@ function nextCard() {
 }
 
 /* —— 끝말잇기 도우미 ——
-   화면은 아이들이 말한 단어를 모른다(교사가 타이핑하지 않으므로).
-   차례와 남은 시간만 맡고, 성공·탈락은 교사의 딸깍으로 기록한다. */
+   차례와 남은 시간을 맡고, 성공·탈락은 교사의 딸깍으로 기록한다.
+   교사가 아이가 말한 낱말을 적으면(선택) 그 낱말과 다음 글자가 화면에 뜬다. */
+
+// 적은 낱말에 걸리는 점 — 알려 주기만 한다. 같은 낱말로 Enter 를 한 번 더 누르면 인정한다.
+const CHAIN_WARN = {
+  hangul: '한글 낱말이 아니에요',
+  short: '한 글자 낱말이에요',
+  head: '첫 글자가 달라요',
+  used: '이미 나온 말이에요',
+};
 
 function startChain() {
   const type = state.type;
@@ -455,21 +464,32 @@ function startChain() {
   if (!got) { show('HOME'); return; }
   if (got.exhausted) store.clearRecent(type);
   store.pushRecent(type, got.item.id);
-  $('chain-label').textContent = ROUND_LABEL[type];
-
-  state.round = createRound({ word: got.item.word, groups: state.groups, seconds: state.seconds });
+  state.round = createRound({
+    word: got.item.word, groups: state.groups, seconds: state.seconds,
+    mode: type === 'relay' ? 'relay' : 'chain',
+  });
+  state.chainWarn = null;
+  $('chain-input').value = '';
   state.paused = false;   // 지난 판을 멈춰 둔 채 나갔을 수 있다
   renderChain();
   show('CHAIN');
   startChainTimer();
 }
 
+const LOG_SHOWN = 6;
+
 function renderChain() {
   const r = state.round;
   // 시간이 다 됐지만 아직 교사가 판정하지 않은 상태. 판은 살아 있다.
   const expired = r.expired && !r.done;
 
-  $('chain-word').textContent = r.word;
+  const said = r.mode === 'chain' && r.words.length > 1;
+  $('chain-label').textContent = said ? '방금 나온 말' : ROUND_LABEL[state.type];
+  $('chain-word').textContent = currentWord(r);
+  // 다음 글자 — 끝말잇기만. 줄줄이는 제시 글자가 곧 다음 글자다.
+  const next = $('chain-next');
+  next.hidden = r.mode !== 'chain' || r.done;
+  next.textContent = `다음 글자: ${nextHeads(r).join(' · ')}`;
   $('chain-turn').textContent = r.done
     ? '판이 끝났어요'
     : expired ? `${r.turn}번 모둠 — 시간 초과` : `${r.turn}번 모둠 차례`;
@@ -477,11 +497,12 @@ function renderChain() {
 
   const log = $('chain-log');
   log.textContent = '';
-  for (const e of r.log) {
+  // 최근 것만 — 기록은 한 줄로 둔다(css .chain-log). 낱말이 길면 여덟 개는 넘친다.
+  for (const e of r.log.slice(-LOG_SHOWN)) {
     const chip = document.createElement('span');
     chip.className = 'chain-log-item' + (e.result === 'ok' ? '' : ' is-out');
     const mark = e.result === 'ok' ? '✓' : e.result === 'timeout' ? '초과' : '✗';
-    chip.textContent = `${e.turn}번 ${mark}`;
+    chip.textContent = e.word ? `${e.turn}번 ${e.word}` : `${e.turn}번 ${mark}`;
     log.appendChild(chip);
   }
 
@@ -493,6 +514,13 @@ function renderChain() {
   $('btn-chain-ok').hidden = r.done;
   $('btn-chain-out').hidden = r.done;
   $('btn-chain-again').hidden = !r.done;
+
+  $('chain-entry').hidden = r.done;
+  const warn = $('chain-warn');
+  const w = state.chainWarn;
+  warn.hidden = !w;
+  warn.textContent = !w ? ''
+    : `${CHAIN_WARN[w.reason]}${w.reason === 'head' ? ` (다음 글자: ${nextHeads(r).join(' · ')})` : ''} — 그래도 인정하려면 Enter`;
 
   const pause = $('btn-chain-pause');
   pause.hidden = r.done || expired;
@@ -575,9 +603,27 @@ function paintTimer(leftMs) {
   clock.classList.toggle('is-over', leftMs === 0);
 }
 
-function chainAdvance(result) {
+/* [성공]·Space·Enter 가 모두 여기로 온다. 적어 둔 낱말이 있으면 함께 기록한다.
+   걸리는 점이 있으면 한 번은 멈춰 알려 주고, 같은 낱말로 다시 오면 인정한다. */
+function chainOk() {
+  const r = state.round;
+  const input = $('chain-input');
+  const text = input.value.trim();
+  if (!text) { chainAdvance(r.expired ? 'timeout' : 'ok'); return; }
+  const reason = checkWord(r, text);
+  if (reason && !(state.chainWarn && state.chainWarn.text === text)) {
+    state.chainWarn = { text, reason };
+    renderChain();
+    return;
+  }
+  input.value = '';
+  chainAdvance('ok', text);
+}
+
+function chainAdvance(result, word) {
   stopChainTimer();
-  state.round = advance(state.round, result);
+  state.chainWarn = null;
+  state.round = advance(state.round, result, word);
   renderChain();
   if (!state.round.done) startChainTimer();
 }
@@ -766,7 +812,27 @@ function wire() {
   $('btn-home').addEventListener('click', () => show('HOME'));
 
   // 시간 초과 뒤의 [탈락] 자리는 '시간 초과'다 — 기록에 '초과' 로 남는다.
-  $('btn-chain-ok').addEventListener('click', () => chainAdvance('ok'));
+  // 적어 둔 낱말이 있으면 [성공]도 그 낱말을 함께 기록한다. 시간이 지났어도 '그래도 성공'이다.
+  $('btn-chain-ok').addEventListener('click', () => {
+    if ($('chain-input').value.trim()) chainOk();
+    else chainAdvance('ok');
+  });
+  // 입력칸 안에서는 Enter 만 우리 것이다. 한글 조합 중의 Enter 는 글자를 확정할 뿐이다.
+  $('chain-input').addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') { e.target.blur(); return; }
+    if (e.key !== 'Enter' || e.isComposing || e.keyCode === 229) return;
+    e.preventDefault();
+    if (!state.round) return;
+    if (state.round.done) startChain();
+    else chainOk();
+  });
+  $('chain-input').addEventListener('input', () => {
+    // 고쳐 쓰면 경고를 거둔다 — 지난 낱말에 대한 경고가 새 낱말에 붙어 있으면 헷갈린다.
+    if (state.chainWarn && state.chainWarn.text !== $('chain-input').value.trim()) {
+      state.chainWarn = null;
+      renderChain();
+    }
+  });
   $('btn-chain-out').addEventListener('click', () => chainAdvance(state.round.expired ? 'timeout' : 'out'));
   $('btn-chain-pause').addEventListener('click', togglePauseAll);
   $('btn-chain-again').addEventListener('click', startChain);
@@ -801,6 +867,8 @@ function wire() {
 
   document.addEventListener('keydown', (e) => {
     if (e.metaKey || e.ctrlKey || e.altKey) return;
+    // 글자를 적는 중에는 단축키를 쓰지 않는다 — 'ㅔ'(P)·Space 가 잠깐·성공으로 새면 안 된다.
+    if (e.target instanceof HTMLInputElement) return;
     const onQuiz = state.screen === 'PROMPT' || state.screen === 'HINT' || state.screen === 'ANSWER';
     const onChain = state.screen === 'CHAIN';
     const onGesture = state.screen === 'GESTURE';
@@ -831,8 +899,7 @@ function wire() {
         if (!state.round) return;
         // 시간이 다 됐으면 Space 의 뜻이 '시간 초과'로 옮겨 간다 — 화면의 버튼과 같다.
         if (state.round.done) startChain();
-        else if (state.round.expired) chainAdvance('timeout');
-        else chainAdvance('ok');
+        else chainOk();
       }
       return;
     }

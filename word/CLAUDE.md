@@ -12,7 +12,9 @@
 - `js/pick.js` — [순수] 후보 필터 + 출제 선택 (최근 50개 제외, 소진 시 초기화, 주제 3연속 회피)
 - `js/store.js` — localStorage (`jjam-word:recent:<type>`, `jjam-word:muted`, `jjam-word:today`)
 - `js/sound.js` — Web Audio 합성 (음원 파일 0개). 음소거는 master gain 한 곳
-- `js/chain.js` — [순수] 끝말잇기 차례 진행 규칙 (불변 객체)
+- `js/chain.js` — [순수] 끝말잇기 차례 진행 규칙 (불변 객체). 교사가 낱말을 적는 것은 선택이고,
+  적으면 다음 글자(두음법칙)·이미 나온 말을 알려 주기만 한다 — Enter 한 번 더면 인정. 입력칸 안에서는
+  단축키(Space·P)를 쓰지 않는다(한글 ㅔ 가 잠깐으로 새지 않게)
 - `js/clock.js` — [순수] 수업 타이머(상단바, 1~5분). 놀이에 속하지 않아 화면을 바꿔도
   이어서 흐른다. 끝말잇기 차례 타이머(`chain.js`)와는 다른 물건이다
 - `data/words.json` — 단일 소스 1779개: 문항 1399(인물 135 포함) + 끝말잇기 시작단어 120
