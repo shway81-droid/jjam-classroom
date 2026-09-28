@@ -8,6 +8,7 @@
 // - 그 외 게임·공통 파일들 (game.js, shared/style.css 등) → Stale-While-Revalidate
 //   → 캐시로 즉시 응답해 로딩 속도·오프라인 동작을 유지하되, 백그라운드로 네트워크를
 //     다시 받아 캐시를 갱신한다. 기존 방문자에게도 다음 접속 때 최신 파일이 반영된다.
+// - 설치 때 registry.json 의 전 게임을 미리 받아 둔다 → 안 열어 본 게임도 오프라인에서 뜬다.
 //
 // 이 저장소는 main 브랜치를 그대로 GitHub Pages로 서빙하므로, 배포 시 CACHE_NAME을
 // 커밋 SHA로 치환해 주는 빌드 단계가 없다. 따라서 캐시 무효화를 배포 파이프라인에
@@ -18,7 +19,15 @@ const CACHE_NAME = 'jjamquiz-v3';
 // 느린 회선에서 network-first가 첫 화면을 오래 막지 않도록 캐시로 폴백하는 대기 시간
 const NETWORK_TIMEOUT_MS = 3000;
 
-// Install: pre-cache the launcher
+// 게임 한 개를 띄우는 데 필요한 게임 폴더 안 파일 (scripts/sw.test.mjs 가 index.html 참조와 대조)
+const GAME_FILES = ['index.html', 'style.css', 'game.js'];
+
+// 게임 파일을 받을 때 동시에 여는 요청 수 — 학교 와이파이를 한꺼번에 막지 않도록
+const GAME_PRECACHE_CONCURRENCY = 6;
+
+// Install: 런처·공통 파일은 반드시, 전 게임은 할 수 있는 만큼 미리 받는다.
+// 예전에는 런처만 받아서, 온라인일 때 한 번도 안 열어 본 게임은 오프라인에서
+// (룰렛으로 뽑혀도) 뜨지 않았다.
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME).then(function(cache) {
@@ -35,11 +44,37 @@ self.addEventListener('install', function(event) {
         './og-image.png',
         './manifest.json',
         './assets/fonts/PretendardVariable.subset.woff2'
-      ]);
+      ]).then(function() { return precacheGames(cache); });
     })
   );
   self.skipWaiting();
 });
+
+// 전 게임 파일을 미리 받는다. 하나가 실패해도 설치는 막지 않는다(best-effort) —
+// 그 게임은 예전처럼 처음 열 때 캐시된다. 이미 캐시에 있는 파일은 다시 받지 않는다
+// (갱신은 게임을 열 때 Stale-While-Revalidate 가 맡는다).
+function precacheGames(cache) {
+  return cache.match('./games/registry.json').then(function(res) {
+    return res ? res.json() : [];
+  }).then(function(folders) {
+    var urls = [];
+    folders.forEach(function(folder) {
+      GAME_FILES.forEach(function(f) { urls.push('./games/' + folder + '/' + f); });
+    });
+    var next = 0;
+    function worker() {
+      if (next >= urls.length) return Promise.resolve();
+      var url = urls[next++];
+      return cache.match(url).then(function(hit) {
+        if (hit) return;
+        return cache.add(url);
+      }).then(null, function() {}).then(worker);
+    }
+    var workers = [];
+    for (var i = 0; i < GAME_PRECACHE_CONCURRENCY; i++) workers.push(worker());
+    return Promise.all(workers);
+  }).then(null, function() {});
+}
 
 // Activate: clean up old caches
 self.addEventListener('activate', function(event) {
@@ -145,7 +180,11 @@ self.addEventListener('fetch', function(event) {
     caches.match(event.request).then(function(cached) {
       if (cached) return cached;
       return revalidate.catch(function() {
-        return new Response('Offline', { status: 503 });
+        // 오프라인: 게임 화면은 공통 파일을 '?v=12' 처럼 버전을 붙여 부르는데 미리 받은 건
+        // 버전 없는 주소다. 쿼리를 떼고 한 번 더 찾아, 안 열어 본 게임도 뜨게 한다.
+        return caches.match(event.request, { ignoreSearch: true }).then(function(loose) {
+          return loose || new Response('Offline', { status: 503 });
+        });
       });
     })
   );
