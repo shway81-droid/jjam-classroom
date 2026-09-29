@@ -49,9 +49,14 @@ const SECONDS = [5, 10, 15, 20];
 // 문제 길이에 따라 글자 크기를 세 단계로 (CSS .quiz-prompt[data-len])
 const LEN_MID = 8;
 const LEN_LONG = 18;
+const LEN_WORDS = 5;
 function lenClass(text) {
   if (text.length > LEN_LONG) return 'long';
   if (text.length > LEN_MID) return 'mid';
+  // 띄어 쓴 여러 낱말(맞춤법 '틈틈히 연습해요')은 8자 이하여도 가장 큰 글자로는 두 줄로 접혀
+  // 1920×950 칠판에서 [다음 문제] 를 밀어냈다. 한 글자씩 띄운 글자 뒤섞기('스 크 레 파')는
+  // 한 줄에 들어가므로 그대로 둔다.
+  if (text.length > LEN_WORDS && text.split(' ').filter((w) => w.length > 1).length > 1) return 'mid';
   return 'short';
 }
 
@@ -329,6 +334,7 @@ function renderItem() {
   renderPhoto(it);
   $('quiz-hint').textContent = it.hint;
   $('answer-text').textContent = it.answer;
+  $('answer-text').dataset.len = lenClass(it.answer);   // 긴 이름(크리스티아누 호날두)은 한 줄에 담기게 줄인다
   $('answer-text').hidden = false;   // 빈칸에 채운 문항에서는 정답을 아래에 또 띄우지 않는다
 
   const also = $('answer-also');
@@ -394,6 +400,8 @@ function setStage(stage) {
     const filledIn = fillBlank($('quiz-prompt'), state.item.prompt, state.item.answer);
     $('answer-text').hidden = filledIn;
   }
+  // 빈칸에 채운 문항은 문제 줄이 곧 정답이다 — css 가 그 줄을 줄이지 않도록 알린다.
+  $('screen-quiz').toggleAttribute('data-filled', showAnswer && $('answer-text').hidden);
 
   if (showAnswer && !state.counted) {
     // 오늘 푼 수는 정답을 처음 열 때만 센다. 힌트를 여러 번 눌러도 늘지 않는다.
@@ -683,6 +691,33 @@ function chainAdvance(result, word) {
   if (!state.round.done) startChainTimer();
 }
 
+/* —— 전체화면 ——————————————————————————————————————————————————
+   전자칠판에서 주소창·탭 높이만큼 문제를 더 크게 쓴다. 게임·퀴즈의 헤더 버튼과 같은 동작이다.
+   API 가 없는 브라우저(아이폰 사파리 등)에서는 버튼을 숨긴다 — 눌러도 아무 일이 없는 버튼보다 낫다. */
+function bindFullscreen() {
+  const btn = $('btn-fs');
+  const root = document.documentElement;
+  const request = root.requestFullscreen || root.webkitRequestFullscreen;
+  const exit = document.exitFullscreen || document.webkitExitFullscreen;
+  if (!request || !exit) { btn.hidden = true; return; }
+  const current = () => document.fullscreenElement || document.webkitFullscreenElement || null;
+  const paint = () => {
+    const on = !!current();
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    btn.setAttribute('aria-label', on ? '전체화면 끄기' : '전체화면');
+    btn.title = on ? '전체화면 끄기' : '전체화면';
+  };
+  btn.addEventListener('click', () => {
+    try {
+      const p = current() ? exit.call(document) : request.call(root);
+      if (p && p.catch) p.catch(() => {});
+    } catch (e) { /* 막힌 환경에서는 조용히 넘어간다 */ }
+  });
+  document.addEventListener('fullscreenchange', paint);
+  document.addEventListener('webkitfullscreenchange', paint);
+  paint();
+}
+
 /* —— 수업 타이머 ———————————————————————————————————————————————
    규칙(js/clock.js)은 DOM 을 모른다. 여기서는 그리고 듣기만 한다.
    화면을 옮겨도 끊지 않는다 — show() 가 이 시계를 건드리지 않는 것이 핵심이다.
@@ -917,6 +952,8 @@ function wire() {
     sound.setMuted(store.isMuted());
     paintMute();
   });
+
+  bindFullscreen();
 
   // 버튼에 포커스가 남으면 Space 가 두 번 먹는다(클릭 + 키보드). 눌린 뒤 포커스를 뗀다.
   document.addEventListener('click', (e) => {
