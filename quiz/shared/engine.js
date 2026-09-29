@@ -1117,14 +1117,44 @@ function _initAutoFx() {
   }, 1000);
 }
 
+/**
+ * 정답 공개 — 누가 맞히면 그 학생 칸의 버튼만 초록이 되고, 구경하는 학생들은 무엇이 정답이었는지
+ * 알 수 없었다. 한 칸의 .answer-btn 에 state-correct 가 붙는 순간, 다른 칸에서 글자가 같은 버튼에도
+ * state-reveal(게임마다 이미 있는 노란 '정답' 표시)을 붙여 모두가 함께 본다.
+ * 보기 번호(data-slot)가 아니라 글자로 찾는다 — 칸마다 보기 순서가 다른 게임에서도 엉뚱한 버튼이
+ * 켜지지 않는다. 다음 문항에서 게임이 버튼을 새로 그리거나 className 을 되돌리면 저절로 지워진다.
+ */
+function _initAnswerReveal() {
+  if (!window.MutationObserver) return;
+  var zones = document.querySelector('.zones-wrap');
+  if (!zones) return;
+  new MutationObserver(function (records) {
+    records.forEach(function (r) {
+      var btn = r.target;
+      if (!btn.classList || !btn.classList.contains('answer-btn') || !btn.classList.contains('state-correct')) return;
+      if (r.oldValue && r.oldValue.indexOf('state-correct') !== -1) return;
+      var text = (btn.textContent || '').trim();
+      if (!text) return;
+      zones.querySelectorAll('.answer-btn').forEach(function (other) {
+        if (other === btn || other.classList.contains('state-correct')) return;
+        if ((other.textContent || '').trim() !== text) return;
+        other.classList.remove('state-disabled');
+        other.classList.add('state-reveal');
+      });
+    });
+  }).observe(zones, { subtree: true, attributes: true, attributeFilter: ['class'], attributeOldValue: true });
+}
+
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', function () {
     _injectBgmToggle();
     _initAutoFx();
+    _initAnswerReveal();
   });
 } else {
   _injectBgmToggle();
   _initAutoFx();
+  _initAnswerReveal();
 }
 
 /**
@@ -1135,10 +1165,20 @@ if (document.readyState === 'loading') {
  */
 function onTap(element, callback) {
   let touched = false;
+  let touchResetTimer = null;
 
   element.addEventListener('touchstart', function(e) {
     touched = true;
     e.preventDefault();
+    // preventDefault 로 뒤따르는 click 이 오지 않으므로, 플래그를 그대로 두면
+    // 다음 마우스 클릭 한 번이 무시된다(터치·마우스를 섞어 쓰는 전자칠판).
+    clearTimeout(touchResetTimer);
+    touchResetTimer = setTimeout(function() { touched = false; }, 600);
+    // disabled 버튼도 touchstart 는 받는다(click 만 막힘) — 터치에서도 막는다.
+    // 부모에 onTap 을 건 경우도 있으므로, 누른 곳이 disabled 컨트롤 안이면 무시한다
+    // (마우스로 disabled 버튼을 누르면 click 이 부모까지 가지 않는 것과 같게).
+    var t = e.target;
+    if (t && t.closest && t.closest(':disabled')) return;
     callback(e);
   }, { passive: false });
 

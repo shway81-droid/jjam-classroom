@@ -1180,6 +1180,24 @@ html {
   .countdown-number { font-size: 18rem !important; }
 }
 
+/* ── 문제판 — 전자칠판에서 교실 뒤까지 읽히게 ──
+   예전에는 1920px 칠판에서도 문제가 폭 360px 카드에 25px 글자라, 선생님이 매 문제를 소리 내어
+   읽어 줘야 했다. 게다가 카드가 화면 맨 위(12px)에 붙어 '1 / 10' 이 P1 점수 칩·P2 이름표를 덮었다.
+   큰 화면에서는 카드를 이름표 줄 아래로 내리고, 그 아래 보기 버튼까지의 빈자리를 쓴다.
+   게임 CSS 가 같은 선택자에 !important 를 쓰고 뒤에 로드되므로 body 를 붙여 한 단계 높인다.
+   3·4인은 가운데 두 칸의 버튼을 가리지 않도록 폭 제한(45%)을 그대로 둔다. */
+@media (min-width: 1280px) {
+  body .screen-game:has(.zones-wrap.p2) .problem-panel {
+    top: 3.1rem !important;
+    width: 56vw !important;
+    max-width: 880px !important;
+  }
+  body .screen-game:has(.zones-wrap.p3) .problem-panel,
+  body .screen-game:has(.zones-wrap.p4) .problem-panel { top: 3.1rem !important; }
+  body .screen-game .problem-panel .problem-expr { font-size: clamp(1.4rem, min(2vw, 3.4vh), 2.3rem); }
+  body .screen-game .problem-panel .question-counter { font-size: 0.9rem; }
+}
+
 /* 터치 영역 하단 배치 보강: 인트로 PLAY 버튼은 항상 화면 하단 고정 영역 */
 .btn-play { margin-top: auto !important; }
 
