@@ -120,6 +120,11 @@ kbd {
 .icon-btn .spk-x { display: none; }
 .icon-btn[aria-pressed="true"] .spk-x { display: inline; }
 .icon-btn[aria-pressed="true"] .spk-wave { display: none; }
+/* 전체화면 — 켜져 있으면 모서리가 안쪽을 향한다(끄기). API 가 없으면 숨긴다(inline-flex 가 hidden 을 이기지 않게). */
+.icon-btn[hidden] { display: none; }
+.icon-btn .fs-out { display: none; }
+.icon-btn[aria-pressed="true"] .fs-in { display: none; }
+.icon-btn[aria-pressed="true"] .fs-out { display: inline; }
 
 /* —— 수업 타이머 — 오른쪽 위에 따로 사는 패널 ——
    화면(.screen)이 아니라 그 밖에 있다. 여섯 화면을 토글해도 이 패널은 그대로다.
@@ -377,6 +382,10 @@ body.is-over .topbar { background: var(--accent-deep); }
 }
 .quiz-topic:empty, .gesture-topic:empty { display: none; }
 
+/* 글자 크기는 폭(vw)만이 아니라 높이(vh)도 본다. 배율 125~150% 전자칠판을 창 모드로 쓰면
+   폭은 넓은데 높이가 740px 안팎이라, 폭만 보고 키운 글자가 [다음 문제] 를 화면 밖으로 밀었다
+   (1536×740 에서 초성·반대말·인물 40문항 중 40). 크기는 --prompt-fs 한 곳에 두고,
+   낮은 화면의 정답 단계에서 줄일 때 같은 값에 배율만 곱한다(아래 max-height 900px). */
 .quiz-prompt {
   font-weight: 900;
   line-height: 1.15;
@@ -385,14 +394,15 @@ body.is-over .topbar { background: var(--accent-deep); }
   word-break: keep-all;
   color: var(--ink);
   /* 초성 몇 자짜리 짧은 문제 — 화면 폭을 최대한 쓴다 */
-  font-size: clamp(3rem, 13vw, 11rem);
+  --prompt-fs: clamp(3rem, min(13vw, 22vh), 11rem);
+  font-size: var(--prompt-fs);
 }
 /* 긴 문제(속담·수수께끼)는 한 화면에 담기도록 단계적으로 줄인다 */
-.quiz-prompt[data-len="mid"]  { font-size: clamp(2.4rem, 8vw, 7rem); letter-spacing: 0; }
-.quiz-prompt[data-len="long"] { font-size: clamp(2rem, 5.5vw, 4.6rem); letter-spacing: 0; line-height: 1.28; }
+.quiz-prompt[data-len="mid"]  { --prompt-fs: clamp(2.4rem, min(8vw, 14vh), 7rem); letter-spacing: 0; }
+.quiz-prompt[data-len="long"] { --prompt-fs: clamp(2rem, min(5.5vw, 9vh), 4.6rem); letter-spacing: 0; line-height: 1.28; }
 
 .quiz-hint {
-  font-size: clamp(1.3rem, 2.6vw, 2rem);
+  font-size: clamp(1.2rem, min(2.6vw, 4.2vh), 2rem);
   font-weight: 700;
   color: var(--ink-soft);
   text-align: center;
@@ -422,11 +432,12 @@ body.is-over .topbar { background: var(--accent-deep); }
 
 .quiz-answer { text-align: center; }
 .answer-text {
-  font-size: clamp(2.6rem, 8vw, 6.4rem);
+  font-size: clamp(2.4rem, min(8vw, 13vh), 6.4rem);
   font-weight: 900;
   color: var(--accent-deep);
   line-height: 1.15;
 }
+.answer-text[data-len="mid"], .answer-text[data-len="long"] { font-size: clamp(2rem, min(5.5vw, 9vh), 4.6rem); }
 .answer-also { font-size: clamp(1rem, 1.9vw, 1.4rem); font-weight: 700; color: var(--ink-soft); margin-top: 0.4rem; }
 .answer-note { font-size: clamp(0.95rem, 1.7vw, 1.25rem); color: var(--ink-soft); margin-top: 0.5rem; }
 /* 사진 출처 — 라이선스가 요구하는 표시. 읽히되 정답을 가리지 않을 만큼 작게. */
@@ -448,7 +459,7 @@ body.is-over .topbar { background: var(--accent-deep); }
 /* 힌트·정답이 열리면 사진이 물러난다. 안 그러면 좁은 화면에서 [다음 문제] 가 화면 밖으로 밀린다.
    정답 단계에서는 "누구일까요?" 도 할 일을 다 했으니 접는다. */
 .quiz[data-stage="HINT"] .quiz-photo { max-height: 30vh; }
-.quiz[data-stage="ANSWER"] .quiz-photo { max-height: 22vh; }
+.quiz[data-stage="ANSWER"] .quiz-photo { max-height: 20vh; }
 .quiz[data-stage="ANSWER"] .quiz-photo:not([hidden]) + .quiz-prompt { display: none; }
 
 @keyframes answer-pop {
@@ -651,6 +662,20 @@ body.is-over .topbar { background: var(--accent-deep); }
 /* 넘칠 때는 위에서부터 쌓는다 — 가운데 맞춤이 넘치면 맨 위 낱말이 머리띠 밑으로 잘린다. */
 .chain { justify-content: safe center; }
 
+/* 출제 화면도 낮은 화면에서는 간격을 내준다 — 문제·힌트·정답이 한꺼번에 쌓이는 정답 단계에서
+   [다음 문제] 가 화면 안에 남아야 교사가 칠판을 손으로 스크롤하지 않는다.
+   끝말잇기(860px)보다 기준이 높다 — 1536×864 에서 인물퀴즈의 두 줄 힌트·긴 이름이 넘쳤다. */
+@media (max-height: 900px) {
+  .quiz { gap: 0.6rem; padding-top: 3rem; }
+  /* 정답이 문제 아래에 따로 뜨는 단계 — 문제는 할 일을 다 했으니 한 걸음 물러나 정답에 자리를 준다.
+     속담처럼 빈칸에 정답이 채워지는 문항(data-filled)은 문제 줄이 곧 정답이라 줄이지 않는다.
+     높이가 넉넉한 칠판(1920×1080)에서는 줄이지 않는다 — 거기서는 원래 다 들어갔다. */
+  .quiz[data-stage="ANSWER"]:not([data-filled]) .quiz-prompt { font-size: calc(var(--prompt-fs) * 0.62); }
+  .quiz-hint { padding: 0.45rem 1.2rem; }
+  .quiz-actions { margin-top: 0.2rem; }
+}
+.quiz { justify-content: safe center; }
+
 /* —— 몸으로 말해요 — 한 명만 화면을 등지고 맞힌다. 단어가 화면의 절반이다. —— */
 .gesture-word {
   font-size: clamp(4rem, 18vw, 14rem);
@@ -688,6 +713,28 @@ body.is-over .topbar { background: var(--accent-deep); }
     width: min(100%, 340px);
     margin: 0.9rem auto 0;
   }
+}
+/* 세로로 쌓인 패널은 260px 넘게 차지해, 1024×768 칠판에서는 출제 화면의 버튼이 모든 단계에서
+   화면 밖으로 밀렸다. 폭이 좁고 높이도 낮으면 숫자·시간 고르기·조작을 한 줄로 접는다.
+   숫자는 여전히 가장 크다 — 한 줄 안에서의 주인공이다. */
+@media (max-width: 1100px) and (min-width: 721px) {
+  .clock {
+    width: min(100%, 760px);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.4rem 0.8rem;
+    margin-top: 0.6rem;
+  }
+  .clock-time { font-size: 2.6rem; flex: 0 0 auto; }
+  .clock-picks { flex: 1 1 auto; margin-top: 0; }
+  .clock-controls { flex: 0 0 auto; margin-top: 0; }
+  .clock-controls .clock-btn:first-child { padding: 0.42rem 0.7rem; }
+  .clock-tickbtn { width: auto; flex: 0 0 auto; margin-top: 0; padding: 0.42rem 0.7rem; }
+  /* 패널이 본문 위에 얹히므로, 출제 화면은 창 높이 전부가 아니라 남은 높이만큼만 채운다. */
+  .quiz, .chain, .gesture { min-height: 0; padding-top: 3rem; }
+  /* 본문이 창 폭을 다 쓰는 구간 — 모서리 버튼이 창 끝에 붙지 않게 여백만큼 들인다. */
+  .quiz-corner, .gesture-corner, .chain-corner { left: var(--gutter); }
 }
 
 /* —— 좁은 화면 —— */
