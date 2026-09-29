@@ -23,6 +23,11 @@ on:
   schedule:
     - cron: '43 18 1 * *'     # 매달 2일 03:43 KST (60일 기한 안에 두 번 돈다)
   workflow_dispatch:
+  # 이 파일을 고쳐 머지하면 그 자리에서 한 번 돈다 — 고친 것이 실제로 되는지 바로 보려고.
+  # (머지 뒤 손으로 Run workflow 를 누르지 않아도 된다.)
+  push:
+    branches: [main]
+    paths: ['.github/workflows/publish-keepalive.yml']
 
 permissions:
   contents: read
