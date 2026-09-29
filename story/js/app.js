@@ -110,6 +110,9 @@
     // (게임·퀴즈는 게임이 별도 페이지라 저절로 안 보인다.)
     var sw = $('site-switch');
     if (sw) sw.hidden = (screenId === 'screen-play');
+    // 진행 화면은 창 높이에 맞춰 고정한다(css body.is-playing) — 타이머와 [다음 단계]가
+    // 늘 화면 안에 있고, 넘치는 본문만 제 칸 안에서 스크롤된다.
+    document.body.classList.toggle('is-playing', screenId === 'screen-play');
     window.scrollTo(0, 0);
   }
 
@@ -266,6 +269,8 @@
 
     var body = $('stage-body');
     body.innerHTML = renderStageBody(name, st);
+    body.scrollTop = 0;   // 앞 단계에서 내려 둔 스크롤이 새 단계의 질문을 가리지 않게
+    window.scrollTo(0, 0);
     bindStageEvents(name);
 
     // 다음 버튼 라벨
