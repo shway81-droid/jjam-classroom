@@ -559,3 +559,11 @@
 .net-cell.face { background: #EDE7F6; border: 3px solid #2C2C2C; border-radius: 9px; color: #4527A0; }
 .net-cell.blankface { background: #FFF176; color: #F57F17; }
 .net-cell.empty { background: transparent; }
+
+/* 낮은 큰 화면(1280×720 등) — 공통 CSS 가 문제판을 이름표 아래로 내리면서, 44px 고정 전개도가
+   보기 버튼에 닿았다. 칸 크기를 화면 높이에 맞춰 줄인다. */
+@media (min-width: 1280px) and (max-height: 900px) {
+  .net-grid { grid-template-columns: repeat(3, min(44px, 4.6vh)); grid-template-rows: repeat(4, min(44px, 4.6vh)); gap: 4px; }
+  .net-cell { font-size: 1.1rem; }
+  .net-cell.face { border-width: 2px; }
+}
