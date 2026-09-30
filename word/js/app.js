@@ -220,6 +220,8 @@ function openSetup(type) {
   $('group-level').hidden = !hasLevel;
   $('group-topic').hidden = !t.topics;
   $('group-groups').hidden = !isRound;
+  // 인물퀴즈만 — 선생님이 정답 판정을 하려면 누가 나오는지 미리 알아야 한다(2026-09-30 요청).
+  $('group-people').hidden = type !== 'person';
   $('group-seconds').hidden = !isRound;
 
   if (hasLevel) {
@@ -893,6 +895,8 @@ function wire() {
   $('brand-home').addEventListener('click', (e) => { e.preventDefault(); show('HOME'); });
   $('btn-setup-back').addEventListener('click', () => show('HOME'));
   $('btn-start').addEventListener('click', start);
+  // 새 창 — 출제 화면을 그대로 둔 채 정답 리스트를 옆에 띄워 놓고 쓸 수 있게.
+  $('btn-people-list').addEventListener('click', () => window.open('people.html', '_blank', 'noopener'));
   $('btn-hint').addEventListener('click', () => setStage('HINT'));
   $('btn-reveal').addEventListener('click', () => setStage('ANSWER'));
   $('btn-next').addEventListener('click', nextItem);

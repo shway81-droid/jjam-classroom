@@ -327,6 +327,15 @@ body.is-over .topbar { background: var(--accent-deep); }
 
 .setup-count { font-size: 0.94rem; color: var(--ink-soft); }
 .setup-count.is-empty { color: var(--accent-deep); font-weight: 700; }
+.setup-people {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--outline-variant);
+}
+.setup-people span { font-size: 0.9rem; color: var(--ink-soft); }
 
 .setup-actions { display: flex; justify-content: space-between; gap: 0.8rem; margin-top: 1.3rem; }
 
@@ -444,22 +453,25 @@ body.is-over .topbar { background: var(--accent-deep); }
 .answer-credit { font-size: 0.8rem; color: var(--ink-soft); margin-top: 0.7rem; }
 .answer-credit a { color: inherit; }
 
-/* 인물퀴즈 사진 — 뒷자리에서도 얼굴이 보이도록 화면 높이의 40% 가까이 쓴다. */
+/* 인물퀴즈 사진 — 뒷자리에서도 얼굴이 보이도록 화면 높이의 절반 넘게 쓴다(2026-09-30 선생님 요청으로
+   38vh → 56vh). 높이를 max 가 아니라 height 로 준다 — max-height 만 주면 사진이 제 크기(720px)보다
+   커지지 않아 큰 칠판에서 도로 작아진다. 가로로 긴 사진은 max-width 에 걸리고 object-fit 이 비율을 지킨다. */
 .quiz-photo {
   display: block;
-  max-height: 38vh;
-  max-width: min(90vw, 36rem);
+  height: 56vh;
+  width: auto;
+  max-width: min(92vw, 60rem);
   object-fit: contain;
   border-radius: var(--radius);
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
 }
 .quiz-photo[hidden] { display: none; }
 /* 사진이 주인공일 때는 "누구일까요?" 가 사진을 밀어내지 않게 줄인다. */
-.quiz-photo:not([hidden]) + .quiz-prompt { font-size: clamp(2rem, 5vw, 3.6rem); }
+.quiz-photo:not([hidden]) + .quiz-prompt { font-size: clamp(1.8rem, min(4.6vw, 6.4vh), 3.2rem); }
 /* 힌트·정답이 열리면 사진이 물러난다. 안 그러면 좁은 화면에서 [다음 문제] 가 화면 밖으로 밀린다.
    정답 단계에서는 "누구일까요?" 도 할 일을 다 했으니 접는다. */
-.quiz[data-stage="HINT"] .quiz-photo { max-height: 30vh; }
-.quiz[data-stage="ANSWER"] .quiz-photo { max-height: 20vh; }
+.quiz[data-stage="HINT"] .quiz-photo { height: 44vh; }
+.quiz[data-stage="ANSWER"] .quiz-photo { height: 32vh; }
 .quiz[data-stage="ANSWER"] .quiz-photo:not([hidden]) + .quiz-prompt { display: none; }
 
 @keyframes answer-pop {
@@ -673,6 +685,10 @@ body.is-over .topbar { background: var(--accent-deep); }
   .quiz[data-stage="ANSWER"]:not([data-filled]) .quiz-prompt { font-size: calc(var(--prompt-fs) * 0.62); }
   .quiz-hint { padding: 0.45rem 1.2rem; }
   .quiz-actions { margin-top: 0.2rem; }
+  /* 인물 사진도 낮은 화면에서는 한 걸음씩 덜 쓴다 — 1280×720 에서 [다음 문제] 를 지킨다. */
+  .quiz-photo { height: 48vh; }
+  .quiz[data-stage="HINT"] .quiz-photo { height: 36vh; }
+  .quiz[data-stage="ANSWER"] .quiz-photo { height: 22vh; }
 }
 .quiz { justify-content: safe center; }
 

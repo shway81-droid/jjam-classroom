@@ -1,0 +1,96 @@
+/* 인물퀴즈 정답 리스트 (people.html) — 색·버튼은 style.css 를 그대로 쓰고 배치만 더한다. */
+
+.people-page { padding: 1.4rem var(--gutter) 2.4rem; max-width: var(--maxw); margin: 0 auto; }
+
+.people-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.people-head h1 { font-size: 1.9rem; font-weight: 900; }
+.people-sub { color: var(--ink-soft); font-size: 0.95rem; margin-top: 0.2rem; }
+.people-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.people-actions .btn:disabled { opacity: 0.5; cursor: default; }
+
+.people-filter { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem; }
+.people-filter .option-btn[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); }
+
+.people-group { margin-bottom: 1.8rem; }
+.people-group h2 {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--accent-deep);
+  border-bottom: 2px solid var(--outline-variant);
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.people-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 0.7rem;
+}
+
+.person-card {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  background: var(--card);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem;
+  break-inside: avoid;
+}
+.person-photo {
+  width: 4.4rem;
+  height: 5.4rem;
+  object-fit: cover;
+  object-position: center 20%;
+  border-radius: 8px;
+  background: var(--surface);
+  flex: 0 0 auto;
+}
+.person-body { min-width: 0; }
+.person-name { font-size: 1.12rem; font-weight: 900; line-height: 1.25; }
+.person-level {
+  display: inline-block;
+  margin-left: 0.4rem;
+  padding: 0.05rem 0.45rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--ink-soft);
+  vertical-align: 0.15em;
+}
+.person-level.lv-hard { background: var(--accent-soft); color: var(--accent-deep); }
+.person-also { font-size: 0.8rem; font-weight: 700; color: var(--ink-soft); margin-top: 0.15rem; }
+.person-hint { font-size: 0.84rem; color: var(--ink-soft); margin-top: 0.2rem; line-height: 1.4; }
+
+.people-foot { margin-top: 1rem; font-size: 0.8rem; color: var(--ink-soft); }
+
+@media (max-width: 560px) {
+  .people-page { padding: 1rem 16px 2rem; }
+  .people-head h1 { font-size: 1.5rem; }
+  .people-actions, .people-actions .btn { width: 100%; }
+}
+
+/* 인쇄 · PDF 저장 — 버튼과 분야 고르기는 빼고, 한 장에 많이 들어가게 줄인다. */
+@media print {
+  @page { margin: 12mm; }
+  body { background: #fff; }
+  .people-page { padding: 0; max-width: none; }
+  .people-actions, .people-filter { display: none; }
+  .people-head h1 { font-size: 1.4rem; }
+  .people-grid { grid-template-columns: repeat(3, 1fr); gap: 0.35rem; }
+  .person-card { padding: 0.35rem; border-color: #ccc; }
+  .person-photo { width: 3rem; height: 3.7rem; }
+  .person-name { font-size: 0.95rem; }
+  .person-hint { font-size: 0.72rem; }
+  .people-group { break-inside: auto; margin-bottom: 1rem; }
+  .people-group h2 { font-size: 1.05rem; break-after: avoid; }
+}
