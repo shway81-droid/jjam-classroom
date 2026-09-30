@@ -7,6 +7,7 @@
    (안 고치면 검증이 통과하는 대신 실패한다 — 조용히 무력화되지 않도록). */
 
 import { candidates, pickNext } from './pick.js';
+import { numberPeople, setsOf, nextInOrder, LIVE_CHANNEL } from './roster.js';
 import { store } from './store.js';
 import { sound } from './sound.js';
 import { createRound, advance, expire, checkWord, currentWord, nextHeads, okCount, hasWords } from './chain.js';
@@ -117,6 +118,11 @@ const state = {
   counted: false,
   recentTopics: [],
   items: [],
+  // 인물퀴즈 — 출제 순서. 'sheet' 면 정답지(번호) 순서대로 세트를 낸다.
+  order: 'random',
+  setStart: 0,        // 고른 세트의 첫 자리(후보 안에서)
+  seqPos: -1,         // 정답지 순서 출제에서 지금 자리
+  numbers: new Map(), // 인물 id → 번호(No.)
   round: null,        // 끝말잇기 한 판
   timerId: null,
   deadline: 0,
@@ -149,7 +155,9 @@ function show(screen) {
   // 끝말잇기 화면을 떠나면 타이머를 끊는다. 안 끊으면 다른 화면에서
   // 시간이 다 되어 판이 끝나 버린다.
   if (state.screen === 'CHAIN' && screen !== 'CHAIN') stopChainTimer();
+  const wasQuiz = SCREENS[state.screen] === 'screen-quiz';
   state.screen = screen;
+  if (wasQuiz || SCREENS[screen] === 'screen-quiz') liveSend();
   const wanted = SCREENS[screen];
   for (const id of new Set(Object.values(SCREENS))) {
     $(id).hidden = id !== wanted;
@@ -222,6 +230,15 @@ function openSetup(type) {
   $('group-groups').hidden = !isRound;
   // 인물퀴즈만 — 선생님이 정답 판정을 하려면 누가 나오는지 미리 알아야 한다(2026-09-30 요청).
   $('group-people').hidden = type !== 'person';
+  $('group-order').hidden = type !== 'person';
+  state.order = 'random';
+  state.setStart = 0;
+  if (type === 'person') {
+    const orderRow = $('opt-order');
+    orderRow.textContent = '';
+    optionButton(orderRow, '무작위', true, () => { state.order = 'random'; updateCount(); });
+    optionButton(orderRow, '정답지 순서대로', false, () => { state.order = 'sheet'; updateCount(); });
+  }
   $('group-seconds').hidden = !isRound;
 
   if (hasLevel) {
@@ -287,8 +304,26 @@ function updateCount() {
   el.textContent = n === 0
     ? '이 조건에 맞는 문제가 없어요. 난이도나 주제를 바꿔 주세요.'
     : `고른 조건에 맞는 문제 ${n}개`;
+  if (state.type === 'person') renderSets();
   el.classList.toggle('is-empty', n === 0);
   $('btn-start').disabled = n === 0;
+}
+
+/* 인물퀴즈 '정답지 순서대로' — 고른 조건의 인물을 번호 순서대로 10명씩 끊어 세트로 고르게 한다.
+   선생님은 정답 리스트(인쇄물)를 들고 번호를 따라가기만 하면 된다. 조건을 바꾸면 세트도 다시 짠다. */
+function renderSets() {
+  const group = $('group-set');
+  const sheet = state.order === 'sheet';
+  group.hidden = !sheet;
+  if (!sheet) return;
+  const sets = setsOf(poolNow(), state.numbers);
+  if (!sets.some((x) => x.start === state.setStart)) state.setStart = 0;
+  const row = $('opt-set');
+  row.textContent = '';
+  sets.forEach((x, i) => {
+    const label = x.from === x.to ? `${i + 1}세트 · No.${x.from}` : `${i + 1}세트 · No.${x.from}~${x.to}`;
+    optionButton(row, label, x.start === state.setStart, () => { state.setStart = x.start; });
+  });
 }
 
 /* —— 출제 ———————————————————————————————————————————————————— */
@@ -302,15 +337,20 @@ function start() {
     return;
   }
   if (state.pool.length === 0) return;
+  state.seqPos = state.setStart - 1;
   nextItem();
 }
 
 function nextItem() {
-  const got = pickNext(state.pool, {
-    recentIds: store.recentIds(state.type),
-    recentTopics: state.recentTopics,
-  });
+  const sheet = state.type === 'person' && state.order === 'sheet';
+  const got = sheet
+    ? nextInOrder(state.pool, state.seqPos)
+    : pickNext(state.pool, {
+      recentIds: store.recentIds(state.type),
+      recentTopics: state.recentTopics,
+    });
   if (!got) { show('HOME'); return; }
+  if (sheet) state.seqPos = got.pos;
 
   // 후보를 다 돌았으면 기록을 접는다. 접지 않으면 다음 문항부터 계속 exhausted 다.
   if (got.exhausted) store.clearRecent(state.type);
@@ -328,7 +368,10 @@ function nextItem() {
 
 function renderItem() {
   const it = state.item;
-  $('quiz-topic').textContent = [it.topic, TYPES[it.type].cue].filter(Boolean).join(' · ');
+  // 인물은 번호(No.)를 함께 띄운다 — 선생님이 정답 리스트에서 바로 찾는다(아이들이 봐도 정답은 아니다).
+  const no = it.type === 'person' ? `No.${state.numbers.get(it.id)}` : null;
+  $('quiz-topic').textContent = [no, it.topic, TYPES[it.type].cue].filter(Boolean).join(' · ');
+  $('btn-people-live').hidden = it.type !== 'person';
   const prompt = $('quiz-prompt');
   prompt.textContent = it.prompt;
   if (it.type === 'fourword') slotBlank(prompt, it.prompt, [...it.answer].length);
@@ -384,6 +427,8 @@ function setStage(stage) {
   const showAnswer = stage === 'ANSWER';
   // 단계에 따라 사진 크기가 바뀐다(css .quiz[data-stage]) — 힌트·정답이 쌓여도 한 화면에 든다.
   $('screen-quiz').dataset.stage = stage;
+  // 첫 문항은 아직 설정 화면에서 여기로 온다 — 그때는 show() 가 알린다.
+  if (SCREENS[state.screen] === 'screen-quiz') liveSend();
 
   if (entering && stage === 'HINT') sound.hint();
   if (entering && stage === 'ANSWER') sound.reveal();
@@ -891,12 +936,19 @@ function buildClockPicks() {
 
 /* —— 부팅 ———————————————————————————————————————————————————— */
 
+// 정답 리스트 새 창. 창 이름을 고정해 두면 여러 번 눌러도 창이 하나만 뜬다
+// ('noopener' 를 주면 브라우저가 이름으로 찾지 않고 매번 새 창을 띄운다 — 우리 사이트 창이라 필요 없다).
+function openPeopleWindow() {
+  window.open('people.html', 'jjam-word-people');
+}
+
 function wire() {
   $('brand-home').addEventListener('click', (e) => { e.preventDefault(); show('HOME'); });
   $('btn-setup-back').addEventListener('click', () => show('HOME'));
   $('btn-start').addEventListener('click', start);
   // 새 창 — 출제 화면을 그대로 둔 채 정답 리스트를 옆에 띄워 놓고 쓸 수 있게.
-  $('btn-people-list').addEventListener('click', () => window.open('people.html', '_blank', 'noopener'));
+  $('btn-people-list').addEventListener('click', openPeopleWindow);
+  $('btn-people-live').addEventListener('click', openPeopleWindow);
   $('btn-hint').addEventListener('click', () => setStage('HINT'));
   $('btn-reveal').addEventListener('click', () => setStage('ANSWER'));
   $('btn-next').addEventListener('click', nextItem);
@@ -1016,6 +1068,28 @@ function wire() {
   });
 }
 
+/* —— 선생님 창 (정답 리스트 새 창과 실시간 연결) ——
+   칠판(확장 화면)에는 문제만, 선생님 노트북 화면의 정답 리스트 창에는 "지금 문제의 정답"이 뜬다.
+   같은 브라우저의 두 창끼리 BroadcastChannel 로 알린다 — 서버 없이, 인터넷 없이 된다.
+   지원하지 않는 브라우저에서는 조용히 빠진다(정답 리스트는 그대로 쓸 수 있다). */
+const live = typeof BroadcastChannel === 'function' ? new BroadcastChannel(LIVE_CHANNEL) : null;
+
+function liveSend() {
+  if (!live) return;
+  const onQuiz = SCREENS[state.screen] === 'screen-quiz';
+  const it = state.item;
+  if (onQuiz && it && it.type === 'person') {
+    live.postMessage({ kind: 'item', id: it.id, no: state.numbers.get(it.id), stage: state.stage });
+  } else {
+    live.postMessage({ kind: 'idle' });
+  }
+}
+
+if (live) {
+  // 선생님 창을 문제 도중에 열면 "지금 무엇이 나와 있나"를 물어 온다.
+  live.onmessage = (e) => { if (e.data && e.data.kind === 'hello') liveSend(); };
+}
+
 async function boot() {
   wire();
   try {
@@ -1024,6 +1098,7 @@ async function boot() {
     const data = await res.json();
     state.items = Array.isArray(data.items) ? data.items : [];
     if (state.items.length === 0) throw new Error('빈 데이터');
+    state.numbers = numberPeople(state.items);
   } catch {
     show('ERROR');
     return;

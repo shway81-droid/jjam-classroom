@@ -104,11 +104,20 @@
           <h2 id="label-seconds">제한 시간</h2>
           <div class="option-row" id="opt-seconds" role="radiogroup" aria-labelledby="label-seconds"></div>
         </div>
+        <!-- 인물퀴즈 전용 — 정답지(번호) 순서대로 10명씩 내면 선생님이 인쇄한 정답 리스트를 따라가며 판정한다. -->
+        <div class="setup-group" id="group-order" hidden>
+          <h2 id="label-order">출제 순서</h2>
+          <div class="option-row" id="opt-order" role="radiogroup" aria-labelledby="label-order"></div>
+        </div>
+        <div class="setup-group" id="group-set" hidden>
+          <h2 id="label-set">세트 (정답 리스트의 번호)</h2>
+          <div class="option-row" id="opt-set" role="radiogroup" aria-labelledby="label-set"></div>
+        </div>
         <p class="setup-count" id="setup-count" role="status"></p>
         <!-- 인물퀴즈 전용 — 나올 인물과 정답을 새 창에서 미리 보고 엑셀(CSV)로 내려받는다. -->
         <div class="setup-people" id="group-people" hidden>
           <button class="btn btn-ghost" id="btn-people-list" type="button">📋 전체 정답 리스트 (새 창)</button>
-          <span>나올 인물과 정답을 미리 보고, 엑셀로 내려받거나 인쇄할 수 있어요.</span>
+          <span>번호 달린 정답지를 인쇄하거나, 칠판과 다른 화면에 띄워 두면 지금 문제의 정답이 떠요.</span>
         </div>
       </div>
       <div class="setup-actions">
@@ -139,6 +148,8 @@
         <span class="quiz-count" id="quiz-count" aria-label="오늘 푼 문항 수"></span>
         <button class="btn btn-ghost btn-sm" id="btn-skip" type="button">건너뛰기</button>
         <button class="btn btn-ghost btn-sm" id="btn-quit" type="button">마치기</button>
+        <!-- 인물퀴즈만 — 선생님 창(정답 리스트)을 연다. 칠판과 다른 화면에 두면 지금 문제의 정답이 뜬다. -->
+        <button class="btn btn-ghost btn-sm" id="btn-people-live" type="button" hidden>📋 정답 창</button>
       </div>
     </section>
 

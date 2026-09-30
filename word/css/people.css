@@ -94,3 +94,47 @@
   .people-group { break-inside: auto; margin-bottom: 1rem; }
   .people-group h2 { font-size: 1.05rem; break-after: avoid; }
 }
+
+/* 번호(No.) — 출제 화면의 번호와 같다. 인쇄물에서 따라가기 쉽게 사진 위 왼쪽 위에 붙인다. */
+.person-card { position: relative; }
+.person-no {
+  position: absolute;
+  top: 0.3rem;
+  left: 0.3rem;
+  padding: 0.05rem 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: var(--on-accent);
+  background: var(--accent-deep);
+  border-radius: var(--radius-pill);
+}
+.person-card.is-live { border: 3px solid var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+
+/* 선생님 창 — 지금 칠판 문제의 정답. 목록을 내려도 맨 위에 붙어 있다. */
+.live {
+  position: sticky;
+  top: 0.5rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.9rem 1.1rem;
+  background: var(--card);
+  border: 3px solid var(--accent);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+.live[data-state="idle"] { border-style: dashed; border-color: var(--outline-variant); box-shadow: none; }
+.live-photo { width: 6rem; height: 7.4rem; object-fit: cover; object-position: center 20%; border-radius: 10px; flex: 0 0 auto; }
+.live-label { font-size: 0.85rem; font-weight: 800; color: var(--accent-deep); }
+.live-name { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; line-height: 1.1; }
+.live[data-state="idle"] .live-name { font-size: 1.3rem; color: var(--ink-soft); }
+.live-also { font-size: 1rem; font-weight: 700; color: var(--ink-soft); }
+.live-meta { font-size: 0.9rem; color: var(--ink-soft); margin-top: 0.15rem; }
+
+@media print {
+  .live { display: none; }
+  .person-no { font-size: 0.65rem; }
+  .person-card.is-live { border: 1px solid #ccc; box-shadow: none; }
+}
