@@ -98,10 +98,25 @@ lessons.forEach((L, i) => {
     else seenYt.set(L.youtubeId, i);
   }
 
-  const slot = `${L.publisher}/${L.subject}/${L.grade}-${L.semester}/${L.unit}/${L.lesson}`;
-  if (seenSlot.has(slot))
-    errors.push(`${at}: ${slot} 차시가 lessons[${seenSlot.get(slot)}] 에 이미 있습니다.`);
-  else seenSlot.set(slot, i);
+  // 연차시(두 차시 이상을 한 번에 하는 수업)는 lessonEnd 로 끝 차시를 적는다(선택). 범위의 모든 차시 칸을 차지한다.
+  let lessonEnd = L.lesson;
+  if (L.lessonEnd !== undefined) {
+    if (typeof L.lessonEnd !== 'number' || !Number.isInteger(L.lessonEnd)) {
+      errors.push(`${at}: 'lessonEnd' 는 정수여야 합니다 (지금 ${JSON.stringify(L.lessonEnd)}).`);
+    } else if (L.lessonEnd <= L.lesson) {
+      errors.push(`${at}: 'lessonEnd'(${L.lessonEnd}) 는 lesson(${L.lesson}) 보다 커야 합니다 — 한 차시면 lessonEnd 를 빼세요.`);
+    } else if (L.lessonEnd - L.lesson > 3) {
+      errors.push(`${at}: 연차시 ${L.lesson}~${L.lessonEnd} 가 너무 깁니다(4차시 넘음). 값을 확인해 주세요.`);
+    } else {
+      lessonEnd = L.lessonEnd;
+    }
+  }
+  for (let n = L.lesson; n <= lessonEnd; n++) {
+    const slot = `${L.publisher}/${L.subject}/${L.grade}-${L.semester}/${L.unit}/${n}`;
+    if (seenSlot.has(slot))
+      errors.push(`${at}: ${slot} 차시가 lessons[${seenSlot.get(slot)}] 에 이미 있습니다(연차시 범위가 겹치는지 확인).`);
+    else seenSlot.set(slot, i);
+  }
 
   // 같은 단원인데 단원 제목이 다르면 화면에 단원이 두 번 나온다.
   const uk = `${L.publisher}/${L.subject}/${L.grade}-${L.semester}/${L.unit}`;

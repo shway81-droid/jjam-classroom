@@ -38,6 +38,18 @@
     return m + ':' + (s < 10 ? '0' + s : s);
   }
 
+  /* 차시 번호 — 연차시(두 차시를 한 번에 하는 수업)는 '6~7' 처럼 범위로 보인다.
+     lessonEnd 가 없으면 한 차시다. */
+  function lessonNo(L) {
+    return L.lessonEnd && L.lessonEnd > L.lesson ? L.lesson + '~' + L.lessonEnd : String(L.lesson);
+  }
+  // 검색용: 범위 안의 차시 번호마다 'N차시' 를 만든다('7차시' 로 찾아도 6~7차시가 나오게)
+  function lessonWords(L) {
+    var w = [], end = L.lessonEnd && L.lessonEnd > L.lesson ? L.lessonEnd : L.lesson;
+    for (var n = L.lesson; n <= end; n++) w.push(L.unit + '단원 ' + n + '차시');
+    return w.join(' ') + ' ' + lessonNo(L) + '차시';
+  }
+
   /* 유튜브 썸네일 — Shorts 는 oardefault 가 원본 비율(9:16)이다.
      없으면 hqdefault(16:9)로 떨어뜨린다. */
   function thumbUrl(id) { return 'https://i.ytimg.com/vi/' + id + '/oardefault.jpg'; }
@@ -50,7 +62,7 @@
       L.topic + ' ' + L.lessonTitle + ' ' + L.unitTitle + ' ' +
       L.summary + ' ' + (L.keywords || []).join(' ') + ' ' +
       L.subject + ' ' + L.grade + '-' + L.semester + ' ' +
-      L.unit + '단원 ' + L.lesson + '차시'
+      lessonWords(L)
     ).toLowerCase();
     return q.toLowerCase().split(/\s+/).every(function (t) { return hay.indexOf(t) >= 0; });
   }
@@ -271,12 +283,12 @@
     var b = document.createElement('button');
     b.type = 'button';
     b.className = 'card';
-    b.setAttribute('aria-label', L.lesson + '차시 ' + L.topic + ' 재생');
+    b.setAttribute('aria-label', lessonNo(L) + '차시 ' + L.topic + ' 재생');
     b.innerHTML =
       '<div class="thumb-wrap">' +
         '<img loading="lazy" decoding="async" alt="" src="' + thumbUrl(L.youtubeId) + '" ' +
           'data-fb="' + thumbFallback(L.youtubeId) + '" />' +
-        '<span class="thumb-badge">' + L.lesson + '차시</span>' +
+        '<span class="thumb-badge">' + lessonNo(L) + '차시</span>' +
         '<span class="thumb-time">' + fmtTime(L.seconds) + '</span>' +
         '<span class="thumb-play"><svg aria-hidden="true"><use href="#i-play"/></svg></span>' +
       '</div>' +
@@ -312,7 +324,7 @@
       '" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe></div>';
 
     el.mBook.textContent = bookLabel(L);
-    el.mUnit.textContent = L.unit + '단원 ' + L.lesson + '차시';
+    el.mUnit.textContent = L.unit + '단원 ' + lessonNo(L) + '차시';
     el.mTime.textContent = fmtTime(L.seconds);
     el.mTitle.textContent = L.topic;
     el.mDesc.textContent = L.summary;
@@ -328,7 +340,7 @@
 
     el.mShareBtn.onclick = function () {
       var url = 'https://youtube.com/shorts/' + L.youtubeId;
-      var text = bookLabel(L) + ' ' + L.unit + '단원 ' + L.lesson + '차시 ' + L.topic;
+      var text = bookLabel(L) + ' ' + L.unit + '단원 ' + lessonNo(L) + '차시 ' + L.topic;
       if (navigator.share) { navigator.share({ title: text, url: url }).catch(function () {}); return; }
       if (navigator.clipboard) {
         navigator.clipboard.writeText(text + '\n' + url).then(function () {

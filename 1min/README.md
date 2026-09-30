@@ -51,6 +51,7 @@ favicon.svg
   "unit": 1,
   "unitTitle": "유적과 유물로 살펴본 옛 사람들의 생활",
   "lesson": 4,
+  "lessonEnd": 5,                      // (선택) 연차시일 때 끝 차시 — 화면에 "4~5차시" 로 보임
   "lessonTitle": "청동기 시대에 사람들의 생활은 어떻게 달라졌을까요",
   "topic": "청동기 시대",              // 카드에 크게 보이는 짧은 이름
   "youtubeId": "Lp0WCji5NjA",          // 유튜브 URL 의 11자리
@@ -63,6 +64,7 @@ favicon.svg
 - **youtubeId**: `https://youtube.com/shorts/Lp0WCji5NjA` → `Lp0WCji5NjA`. 썸네일·재생이 자동 연결됩니다
 - **unitTitle 은 같은 단원에서 글자 하나까지 같아야 합니다.** 엇갈리면 화면에 단원이 두 번 나오고, 검증이 실패시킵니다
 - **topic 은 카드에 보이는 이름**입니다. `lessonTitle`(교과서 그대로)은 그 아래 작게 붙습니다
+- **연차시**(두 차시 이상을 한 번에 하는 수업)는 `lesson` 에 시작 차시, `lessonEnd` 에 끝 차시를 적습니다. 카드·재생 화면에 `6~7차시` 로 보이고, `7차시` 로 검색해도 나옵니다. 한 차시면 `lessonEnd` 를 넣지 않습니다
 
 ### 데이터 검증
 
