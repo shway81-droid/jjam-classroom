@@ -43,11 +43,11 @@ word/   입으로 외치는 말놀이          1min/   교과서 차시를 1분 
 | 사이트 | 발행 중인 저장소 | 발행 방식 |
 |---|---|---|
 | `game/` | `shway81-droid/jjam` | `gh-pages` 브랜치 (`pages.yml`), 배포 시 `sw.js` 캐시 이름을 커밋 SHA 로 치환 |
-| `quiz/` | `shway81-droid/jjam-quiz` | 레포 설정에서 main 루트 직접 발행 |
-| `video/` | `shway81-droid/jjam-video` | Actions 소스 (`actions/deploy-pages`) |
-| `story/` | `shway81-droid/jjam-story` | 레포 설정에서 main 루트 직접 발행 |
-| `word/` | `shway81-droid/jjam-word` | 레포 설정에서 main 루트 직접 발행 |
-| `1min/` | `shway81-droid/jjam-1min` | 레포 설정에서 main 루트 직접 발행 |
+| `quiz/` | `shway81-droid/jjam-quiz` | Pages Source = **GitHub Actions** (`publish.yml` → `actions/deploy-pages`) |
+| `video/` | `shway81-droid/jjam-video` | Pages Source = **GitHub Actions** (`publish.yml` → `actions/deploy-pages`) |
+| `story/` | `shway81-droid/jjam-story` | Pages Source = **GitHub Actions** (`publish.yml` → `actions/deploy-pages`) |
+| `word/` | `shway81-droid/jjam-word` | Pages Source = **GitHub Actions** (`publish.yml` → `actions/deploy-pages`) |
+| `1min/` | `shway81-droid/jjam-1min` | Pages Source = **GitHub Actions** (`publish.yml` → `actions/deploy-pages`) |
 
 주소가 저장소 이름에서 나오기 때문에(`github.io/<레포>/`) 여기서 발행하면
 선생님들의 즐겨찾기가 전부 깨진다. 그래서 배포는 아직 저쪽에 있다.
@@ -80,12 +80,12 @@ word/   입으로 외치는 말놀이          1min/   교과서 차시를 1분 
 활동 중으로 만든다(`[skip ci]` 라 거기서 검증이 돌지 않는다). "곧 꺼진다"는 메일이 오면
 이 워크플로가 실패했는지부터 본다.
 
-**함정 — 발행 저장소 main 에 커밋하면 옛 사이트가 다시 올라간다.** jjam-quiz · jjam-story ·
-jjam-word 는 Pages 설정이 아직 "main 브랜치에서 발행"이라, main 에 무엇이든 커밋되면 GitHub 가
-main 에 얼어 있는 옛 내용을 발행한다(2026-09-30 깨워 두기 첫 실행 때 세 사이트가 실제로 돌아갔다).
-그래서 깨워 두기는 커밋 뒤 여섯 곳에 발행 신호를 다시 보내고 sw.js 의 커밋 번호로 확인한다.
-근본 해결은 세 저장소의 Settings → Pages → Source 를 **GitHub Actions** 로 바꾸는 것이다.
-발행 저장소 main 에 손으로 커밋할 일이 생기면 이 점을 기억한다.
+**함정(해결됨) — 발행 저장소 main 커밋이 옛 사이트를 올리던 문제.** 2026-09-30 깨워 두기 첫 실행 때
+jjam-quiz · jjam-story · jjam-word 가 Pages Source "main 브랜치에서 발행"이어서, keepalive 커밋 하나에
+main 에 얼어 있던 옛 내용이 발행됐다. 같은 날 세 저장소의 Source 를 **GitHub Actions** 로 바꿨고
+(jjam-1min · jjam-video 는 원래 Actions, jjam 은 `gh-pages` 브랜치), 이제 발행 저장소 main 에 커밋해도
+사이트는 바뀌지 않는다. 깨워 두기의 "다시 발행하고 확인" 단계는 안전망으로 남겨 두었다.
+**발행 저장소를 새로 만들거나 설정을 건드릴 때는 Source 가 GitHub Actions 인지 꼭 확인한다.**
 
 급하면 각 저장소 Actions 탭의 **Run workflow** 로 직접 발행할 수도 있고,
 이 저장소의 `발행 신호 보내기` 를 손으로 돌리면 여섯 곳이 모두 발행된다.
