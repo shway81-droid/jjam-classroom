@@ -93,7 +93,8 @@ const TARGET = {
   // 지구오락실 말놀이 (2026-09-28)
   fourword: { easy: 60, normal: 60, hard: 30 },   // 150
   // 인물 수는 자유 라이선스 사진이 있는 사람으로 정해진다 — 사진을 못 구하면 넣지 않는다.
-  person:   { easy: 47, normal: 45, hard: 43 },   // 135
+  // 2026-09-30 가수·배우·예능인을 최근 인물로 2배(30→60·18→36·10→20)로 늘렸다.
+  person:   { easy: 56, normal: 71, hard: 66 },   // 193
 };
 const TOOL_TARGET = { chain: 120, gesture: 200, relay: 60 };
 const TOLERANCE = 0.15;   // 목표 대비 ±15%까지는 통과
