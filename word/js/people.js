@@ -89,11 +89,12 @@ function downloadCsv() {
   const url = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
   const a = el('a');
   a.href = url;
-  a.download = '짬짬이낱말_인물퀴즈_정답리스트.csv';
+  // 영문 이름 — 한글 이름은 브라우저에 따라 'download'(확장자 없음)로 저장돼 엑셀이 못 연다.
+  a.download = 'jjam-word-person-answers.csv';
   document.body.append(a);
   a.click();
-  a.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  // 바로 지우면 몇몇 브라우저가 파일 이름(download 속성)을 잃고 'download' 로 저장한다.
+  setTimeout(() => { a.remove(); URL.revokeObjectURL(url); }, 1000);
 }
 
 async function boot() {
