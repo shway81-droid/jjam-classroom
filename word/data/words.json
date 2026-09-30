@@ -14127,6 +14127,584 @@
       }
     },
     {
+      "id": "person-197",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅋㅇ · 엑소(EXO)의 메인 댄서",
+      "answer": "카이",
+      "also": [
+        "김종인"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-197.webp",
+        "author": "티비텐",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:210205_%EC%B9%B4%EC%9D%B4.png"
+      }
+    },
+    {
+      "id": "person-198",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅅㅈ · 비투비 멤버, 드라마 \"도깨비\"의 유덕화",
+      "answer": "육성재",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-198.webp",
+        "author": "티비텐",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Yook_Sung-jae_in_September_2025.png"
+      }
+    },
+    {
+      "id": "person-199",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅇㄹ · 드라마 \"도깨비\" 노래 \"첫눈처럼 너에게 가겠다\"를 부른 가수",
+      "answer": "에일리",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-199.webp",
+        "author": "티비텐 TV10",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Ailee_in_March_2023_3.jpg"
+      }
+    },
+    {
+      "id": "person-200",
+      "type": "person",
+      "level": "normal",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅂㅈ · \"벚꽃 엔딩\"을 부른 가수",
+      "answer": "장범준",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-200.webp",
+        "author": "livingocean",
+        "license": "CC BY 2.0 kr",
+        "source": "https://commons.wikimedia.org/wiki/File:Jang_Beom-june_of_Busker_Busker_at_the_Expo_2012_Yeosu.jpg"
+      }
+    },
+    {
+      "id": "person-201",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅎㅇ · 엔믹스(NMIXX)의 리더",
+      "answer": "해원",
+      "also": [
+        "오해원"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-201.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:221013_Haewon_(NMIXX)_Airport_Departure.jpg"
+      }
+    },
+    {
+      "id": "person-202",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㅎㅂ · 제로베이스원(ZEROBASEONE)의 리더",
+      "answer": "성한빈",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-202.webp",
+        "author": "Marie Claire Korea",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Sung_Han_Bin_June_10_2025.png"
+      }
+    },
+    {
+      "id": "person-203",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅇ · 샤이니의 리더",
+      "answer": "온유",
+      "also": [
+        "이진기"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-203.webp",
+        "author": "Marie Claire Korea",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Onew_for_Marie_Claire_Magazine_August_Issue_2021_03.png"
+      }
+    },
+    {
+      "id": "person-204",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅇ · 오마이걸 멤버, 솔로곡 \"숲의 아이\"",
+      "answer": "유아",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-204.webp",
+        "author": "f2.8",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:160805_%EC%98%A4%EB%A7%88%EC%9D%B4%EA%B1%B8_%EB%AE%A4%EC%A7%81%EB%B1%85%ED%81%AC_%EC%A4%91%EA%B0%84%ED%87%B4%EA%B7%BC%EA%B8%B8_6.jpg"
+      }
+    },
+    {
+      "id": "person-205",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅈㅅ · \"좋니\"를 부른 가수 겸 방송인",
+      "answer": "윤종신",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-205.webp",
+        "author": "디스패치 / Dispatch",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Yoon_Jong-shin_at_%22Persona%22_press_conference,_27_March_2019.jpg"
+      }
+    },
+    {
+      "id": "person-206",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅊㄹ · 있지(ITZY) 멤버",
+      "answer": "채령",
+      "also": [
+        "이채령"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-206.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:241023_ITZY_Chaeryeong.jpg"
+      }
+    },
+    {
+      "id": "person-207",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅇ · 레드벨벳 멤버, \"안녕\"을 다시 불러 사랑받았어요",
+      "answer": "조이",
+      "also": [
+        "박수영"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-207.webp",
+        "author": "Hey Day",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Joy_Park_at_INK_Concert_in_September_01,_2018_(8).jpg"
+      }
+    },
+    {
+      "id": "person-208",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㄹ · 레드벨벳의 막내",
+      "answer": "예리",
+      "also": [
+        "김예림"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-208.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:240511_Red_Velvet_Yeri.jpg"
+      }
+    },
+    {
+      "id": "person-209",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅎㅈ · 오마이걸의 리더",
+      "answer": "효정",
+      "also": [
+        "최효정"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-209.webp",
+        "author": "티비텐",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:220618_%EC%98%A4%EB%A7%88%EC%9D%B4%EA%B1%B8_%ED%9A%A8%EC%A0%95.jpg"
+      }
+    },
+    {
+      "id": "person-210",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅁㅋ · NCT 멤버, 캐나다에서 자랐어요",
+      "answer": "마크",
+      "also": [
+        "마크 리"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-210.webp",
+        "author": "뉴스인스타 (News In Star)",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:181012_Mark_KBS_%27%EB%AE%A4%EC%A7%81%EB%B1%85%ED%81%AC%27_%EB%A6%AC%ED%97%88%EC%84%A4_%EC%B6%9C%EA%B7%BC%EA%B8%B8_%EC%A7%81%EC%BA%A0_%EC%98%81%EC%83%81.png"
+      }
+    },
+    {
+      "id": "person-211",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅌㅇ · NCT 127의 리더",
+      "answer": "태용",
+      "also": [
+        "이태용"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-211.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:20231006_Taeyong_(NCT).jpg"
+      }
+    },
+    {
+      "id": "person-212",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅁㄴ · 태국에서 온 아이들(i-dle) 멤버",
+      "answer": "민니",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-212.webp",
+        "author": "Robert Sim",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Minnie_at_Owndays_popup_in_Plaza_Singapura_01_-_RSKY_-_20260611.jpg"
+      }
+    },
+    {
+      "id": "person-213",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㄱ · 중국에서 온 아이들(i-dle) 멤버",
+      "answer": "우기",
+      "also": [
+        "송우기"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-213.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:20230630_Song_Yu-qi.jpg"
+      }
+    },
+    {
+      "id": "person-214",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㄹㅈ · 아이브(IVE) 멤버",
+      "answer": "리즈",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-214.webp",
+        "author": "Upload: K-POPIT 케이팝잇",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:260719_LIZ_(Kim_Jiwon).png"
+      }
+    },
+    {
+      "id": "person-215",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅂㅎㅅ · \"야생화\"를 부른 가수",
+      "answer": "박효신",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-215.webp",
+        "author": "달덩이",
+        "license": "CC BY 2.0 kr",
+        "source": "https://commons.wikimedia.org/wiki/File:Park_Hyo-Shin18.jpg"
+      }
+    },
+    {
+      "id": "person-216",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅂㅈㅇ · \"총 맞은 것처럼\"을 부른 가수",
+      "answer": "백지영",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-216.webp",
+        "author": "디스패치",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:190328_%EB%B0%B1%EC%A7%80%EC%98%81.jpg"
+      }
+    },
+    {
+      "id": "person-217",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅌ · \"니가 왜 거기서 나와\"를 부른 트로트 가수",
+      "answer": "영탁",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-217.webp",
+        "author": "SBS Radio 에라오",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:%EC%98%81%ED%83%81_SBS_%EB%9D%BC%EB%94%94%EC%98%A4.jpg"
+      }
+    },
+    {
+      "id": "person-218",
+      "type": "person",
+      "level": "normal",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅉㅇ · 대만에서 온 트와이스 멤버",
+      "answer": "쯔위",
+      "also": [
+        "저우쯔위"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-218.webp",
+        "author": "티비텐",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:20240305_Chou_Tzuyu_%E5%91%A8%E5%AD%90%E7%91%9C_02.jpg"
+      }
+    },
+    {
+      "id": "person-219",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㄱ · 레드벨벳 멤버",
+      "answer": "슬기",
+      "also": [
+        "강슬기"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-219.webp",
+        "author": "SeulRene 'IS' LOVE❤️",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Kang_Seul-gi_at_Coca-Cola_Event_on_January_18,_2020_03.jpg"
+      }
+    },
+    {
+      "id": "person-220",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅂㄴ · 세븐틴의 래퍼",
+      "answer": "버논",
+      "also": [
+        "최한솔"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-220.webp",
+        "author": "Seventeen",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Vernon_Follow_240330_2.jpg"
+      }
+    },
+    {
+      "id": "person-221",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅎ · 세븐틴 멤버",
+      "answer": "정한",
+      "also": [
+        "윤정한"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-221.webp",
+        "author": "Seventeen",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Jeonghan_Follow_240330.jpg"
+      }
+    },
+    {
+      "id": "person-222",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㅎ · 슈퍼주니어 멤버, \"광화문에서\"",
+      "answer": "규현",
+      "also": [
+        "조규현"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-222.webp",
+        "author": "디스패치",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:190919_%EA%B7%9C%ED%98%84_(2)_(cropped).jpg"
+      }
+    },
+    {
+      "id": "person-223",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅋㄹㅅ · 드라마 \"도깨비\" 노래 \"뷰티풀\"을 부른 가수",
+      "answer": "크러쉬",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-223.webp",
+        "author": "NewsInStar",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:190706_%EC%A7%9D%EA%BF%8D_%ED%8A%B9%EC%A7%91%21_%EB%B9%84%EC%99%80%EC%9D%B4X%ED%81%AC%EB%9F%AC%EC%89%AC,_%EC%8A%A4%EC%9B%A9%EB%84%98%EC%B9%98%EB%8A%94_%EB%B8%8C%EC%9D%B4_(KBS_%ED%95%B4%ED%94%BC%ED%88%AC%EA%B2%8C%EB%8D%944_%EC%B6%9C%EA%B7%BC%EA%B8%B8)_1m_31s.jpg"
+      }
+    },
+    {
+      "id": "person-224",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅎㅇㅈ · \"비도 오고 그래서\"를 부른 가수",
+      "answer": "헤이즈",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-224.webp",
+        "author": "seono의 BOL4 story",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Heize_at_Zion.T_X_Heize_Concert_on_April_21,_2018_(4)_(cropped).jpg"
+      }
+    },
+    {
+      "id": "person-225",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㅅㅈ · 드라마 \"사내맞선\"의 신하리, 구구단 출신",
+      "answer": "김세정",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-225.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Kim_Sejeong_in_June_2025.png"
+      }
+    },
+    {
+      "id": "person-226",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅅㅊ · \"말리꽃\"을 부른 가수, \"슈퍼스타K\" 심사위원",
+      "answer": "이승철",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-226.webp",
+        "author": "acrofan.com",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Lee_Seung-cheol_from_acrofan.jpg"
+      }
+    },
+    {
+      "id": "person-227",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅊㅇㄴ · \"스마일리\"를 부른 가수, 아이즈원 출신",
+      "answer": "최예나",
+      "also": [
+        "예나"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-227.webp",
+        "author": "티비텐 (TV10)",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:CHOI_YENA_(%EC%B5%9C%EC%98%88%EB%82%98)_%E2%80%93_2024.09.30_%E2%80%93_P1.jpg"
+      }
+    },
+    {
+      "id": "person-228",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅁㅎ · 샤이니 멤버, 드라마 배우로도 활동해요",
+      "answer": "민호",
+      "also": [
+        "최민호"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-228.webp",
+        "author": "Marie Claire Korea",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Minho_for_Marie_Claire_Magazine_August_Issue_2021_05.png"
+      }
+    },
+    {
       "id": "person-032",
       "type": "person",
       "level": "normal",
@@ -14747,6 +15325,367 @@
       }
     },
     {
+      "id": "person-229",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅎㄴ · 영화 \"극한직업\"의 마약반 형사",
+      "answer": "이하늬",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-229.webp",
+        "author": "티비텐",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:%EC%9D%B4%ED%95%98%EB%8A%AC_%EC%97%98%EB%A5%B4_%EC%8A%A4%ED%83%80%EC%9D%BC_%EC%96%B4%EC%9B%8C%EC%A6%88_2024_(1).jpg"
+      }
+    },
+    {
+      "id": "person-230",
+      "type": "person",
+      "level": "hard",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㄴㄱ · 드라마 \"열혈사제\"의 김해일 신부",
+      "answer": "김남길",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-230.webp",
+        "author": "K-POPIT 케이팝잇 TV10",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Kim_Nam-gil_at_Island_Press_Conference_2022.png"
+      }
+    },
+    {
+      "id": "person-231",
+      "type": "person",
+      "level": "hard",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㄱ · 드라마 \"스위트홈\"의 차현수",
+      "answer": "송강",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-231.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Song_Kang_in_March_2026.png"
+      }
+    },
+    {
+      "id": "person-232",
+      "type": "person",
+      "level": "hard",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅂㄷㄴ · 드라마 \"비밀의 숲\"의 한여진 형사",
+      "answer": "배두나",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-232.webp",
+        "author": "Elena Ternovaja",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Bae_Doona_at_Berlinale_2026.jpg"
+      }
+    },
+    {
+      "id": "person-233",
+      "type": "person",
+      "level": "hard",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㄷㅁ · 드라마 \"그 해 우리는\"의 국연수",
+      "answer": "김다미",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-233.webp",
+        "author": "디스패치",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:191028_%EA%B9%80%EB%8B%A4%EB%AF%B8_(1).jpg"
+      }
+    },
+    {
+      "id": "person-234",
+      "type": "person",
+      "level": "hard",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅊㅇ · 드라마 \"힐러\"의 서정후",
+      "answer": "지창욱",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-234.webp",
+        "author": "Republic of Korea",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Ji_Chang-wook.jpg"
+      }
+    },
+    {
+      "id": "person-235",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㅋㄹㅇㅎㅅ · 영화 \"어벤져스\"의 블랙 위도우",
+      "answer": "스칼렛 요한슨",
+      "also": [
+        "스칼렛 조핸슨"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-235.webp",
+        "author": "Harald Krichel",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Scarlett_Johansson-8588.jpg"
+      }
+    },
+    {
+      "id": "person-236",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㄹㅇㅇㄹㅇㄴㅈ · 영화 \"데드풀\"의 데드풀",
+      "answer": "라이언 레이놀즈",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-236.webp",
+        "author": "Dick Thomas Johnson from Tokyo, Japan",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Deadpool_2_Japan_Premiere_Red_Carpet_Ryan_Reynolds_(cropped).jpg"
+      }
+    },
+    {
+      "id": "person-237",
+      "type": "person",
+      "level": "hard",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅍㄷㄹㅍㅅㅋ · 드라마 \"만달로리안\"의 주인공",
+      "answer": "페드로 파스칼",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-237.webp",
+        "author": "Gage Skidmore",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Pedro_Pascal_by_Gage_Skidmore.jpg"
+      }
+    },
+    {
+      "id": "person-238",
+      "type": "person",
+      "level": "hard",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅇㅅ · 드라마 \"슬기로운 의사생활\"의 안정원",
+      "answer": "유연석",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-238.webp",
+        "author": "三立娛樂星聞",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:20260303_Yoo_Yeon-seok.png"
+      }
+    },
+    {
+      "id": "person-239",
+      "type": "person",
+      "level": "hard",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㄷㅎ · 드라마 \"더 글로리\"의 주여정",
+      "answer": "이도현",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-239.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:230315_Lee_Do-hyun_(%EC%9D%B4%EB%8F%84%ED%98%84).jpg"
+      }
+    },
+    {
+      "id": "person-240",
+      "type": "person",
+      "level": "hard",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅎㅅㅎ · 드라마 \"경성크리처\"의 윤채옥",
+      "answer": "한소희",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-240.webp",
+        "author": "티비텐 (TV10)",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:HAN_SO_HEE_(%ED%95%9C%EC%86%8C%ED%9D%AC)_-_2025.07.11_-_P2.jpg"
+      }
+    },
+    {
+      "id": "person-241",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅎㅇ · 드라마 \"엄마친구아들\"의 최승효",
+      "answer": "정해인",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-241.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Jung_Hae-in_20260827.png"
+      }
+    },
+    {
+      "id": "person-242",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅈㅅ · 드라마 \"빅마우스\"의 박창호",
+      "answer": "이종석",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-242.webp",
+        "author": "K-POPit 티비텐",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Lee_Jong-suk_20251023.png"
+      }
+    },
+    {
+      "id": "person-243",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅅㅇ · \"오징어 게임 2\"의 이명기",
+      "answer": "임시완",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-243.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:241209_Yim_Siwan_(%EC%9E%84%EC%8B%9C%EC%99%84).png"
+      }
+    },
+    {
+      "id": "person-244",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㅇㅈ · 드라마 \"구르미 그린 달빛\"의 홍라온",
+      "answer": "김유정",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-244.webp",
+        "author": "TV10",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Kim_Yoo-jung_in_October_2025_02.png"
+      }
+    },
+    {
+      "id": "person-245",
+      "type": "person",
+      "level": "hard",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅁㄱㅇ · 드라마 \"여신강림\"의 임주경",
+      "answer": "문가영",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-245.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Moon_Ga-young_in_July_2026.png"
+      }
+    },
+    {
+      "id": "person-246",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅈㅎ · 드라마 \"모범택시\"의 김도기",
+      "answer": "이제훈",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-246.webp",
+        "author": "TV10",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Lee_Je-hoon_in_November_2025.png"
+      }
+    },
+    {
+      "id": "person-247",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅌㅋㄹㅈ · 영화 \"미션 임파서블\"의 이단 헌트",
+      "answer": "톰 크루즈",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-247.webp",
+        "author": "Kevin Paul",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Tom_Cruise_at_53rd_Saturn_Awards_2026-01.jpg"
+      }
+    },
+    {
+      "id": "person-248",
+      "type": "person",
+      "level": "hard",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㄷㅇㅇ · 영화 \"스파이더맨\"의 MJ",
+      "answer": "젠데이아",
+      "also": [
+        "젠데이야"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-248.webp",
+        "author": "PhilipRomano",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Zendaya-byPhilipRomano.jpg"
+      }
+    },
+    {
+      "id": "person-249",
+      "type": "person",
+      "level": "hard",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅋㅇㄴㄹㅂㅅ · 영화 \"매트릭스\"의 네오",
+      "answer": "키아누 리브스",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-249.webp",
+        "author": "Gabriel Hutchinson",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Keanu_Reeves_at_TIFF_2025_02_(Cropped).jpg"
+      }
+    },
+    {
       "id": "person-050",
       "type": "person",
       "level": "easy",
@@ -15086,6 +16025,193 @@
         "author": "NewsInStar",
         "license": "CC BY 3.0",
         "source": "https://commons.wikimedia.org/wiki/File:Leeyongjin2019.png"
+      }
+    },
+    {
+      "id": "person-265",
+      "type": "person",
+      "level": "normal",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅈㅎ · \"무한도전\"의 식신",
+      "answer": "정준하",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-265.webp",
+        "author": "Park Dae ung",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:140807_%EC%A0%95%EC%A4%80%ED%95%98.jpg"
+      }
+    },
+    {
+      "id": "person-266",
+      "type": "person",
+      "level": "normal",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㅎㅊ · 슈퍼주니어 멤버, \"아는 형님\"",
+      "answer": "김희철",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-266.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:11%EC%9B%94_9%EC%9D%BC_%EC%B1%84%EB%84%90A_%27%EC%8B%B1%EB%8D%B0%EB%A0%90%EB%9D%BC%27_%EC%A0%9C%EC%9E%91%EB%B0%9C%ED%91%9C%ED%9A%8C_%ED%98%84%EC%9E%A5.jpg"
+      }
+    },
+    {
+      "id": "person-267",
+      "type": "person",
+      "level": "normal",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㅁㄱㅎ · 버즈의 보컬, \"아는 형님\"",
+      "answer": "민경훈",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-267.webp",
+        "author": "Korea.net / Korean Culture and Information Service (Jeon H …",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Min_Kyung-Hoon.jpg"
+      }
+    },
+    {
+      "id": "person-268",
+      "type": "person",
+      "level": "normal",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅎㄷ · \"무한도전\"의 개그맨, 별명은 도니",
+      "answer": "정형돈",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-268.webp",
+        "author": "acrofan.com",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Jeong_Hyeong-don_from_acrofan.jpg"
+      }
+    },
+    {
+      "id": "person-269",
+      "type": "person",
+      "level": "normal",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㄷㅍㅋ · 래퍼 겸 방송인, \"나는 솔로\" 진행자",
+      "answer": "데프콘",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-269.webp",
+        "author": "zzal TV 고다쿠",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:(GO%EB%8B%A4%EC%BF%A0)_%EA%B3%A0%EB%8B%A4%EC%BF%A0%EC%97%90_%EB%B0%94%EB%9D%BC%EB%8A%94_%EA%B2%83%EC%9D%80_(%EC%8B%9C%EC%A6%8C2_%EC%B5%9C%EC%A2%85%ED%9A%8C)_1m48s.jpg"
+      }
+    },
+    {
+      "id": "person-270",
+      "type": "person",
+      "level": "hard",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅂㅈ · 방송 작가 출신 개그맨",
+      "answer": "유병재",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-270.webp",
+        "author": "SJUN",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:20171028_%EC%B2%AD%EC%B6%98%EC%95%84%EB%A0%88%EB%82%98_%EC%9C%A0%EB%B3%91%EC%9E%AC_%EB%B0%80%EC%B0%A9_%EA%B3%A0%EB%AF%BC%EC%83%81%EB%8B%B4_44s.png"
+      }
+    },
+    {
+      "id": "person-271",
+      "type": "person",
+      "level": "normal",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅅㅊ · \"런닝맨\"의 개그맨, 양세형의 동생",
+      "answer": "양세찬",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-271.webp",
+        "author": "acrofan.com",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:%ED%95%9C%EA%B5%AD%EB%8B%8C%ED%85%90%EB%8F%84_%EC%8A%88%ED%8D%BC_%EB%A7%88%EB%A6%AC%EC%98%A4_%EC%BA%A0%ED%8E%98%EC%9D%B8_%EC%9D%B4%EB%B2%A4%ED%8A%B8_%ED%98%84%EC%9E%A5_(%EC%96%91%EC%84%B8%EC%B0%AC).jpg"
+      }
+    },
+    {
+      "id": "person-272",
+      "type": "person",
+      "level": "hard",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅎㅈ · 영화 감독 겸 방송인, 김은희 작가의 남편",
+      "answer": "장항준",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-272.webp",
+        "author": "한국문화예술위원회(ARKO)",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:(%EC%A0%84%EC%B2%B4)_%EC%95%84%EB%A5%B4%EC%BD%94_%EC%98%88%EC%88%A0-%EC%9D%B8%EB%AC%B8%EC%BD%98%EC%84%9C%ED%8A%B8_%EC%98%A4%EB%8A%98_%EC%9E%A5%ED%95%AD%EC%A4%80(140515)_24m57s.png"
+      }
+    },
+    {
+      "id": "person-273",
+      "type": "person",
+      "level": "hard",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅅㅁ · \"런닝맨\"에 나왔던 배우",
+      "answer": "전소민",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-273.webp",
+        "author": "SJ",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:2017_%EC%95%84%EC%8B%9C%EC%95%84_%EB%AA%A8%EB%8D%B8_%ED%8E%98%EC%8A%A4%ED%8B%B0%EB%B2%8C_%EB%A0%88%EB%93%9C%EC%B9%B4%ED%8E%AB_(69).jpg"
+      }
+    },
+    {
+      "id": "person-274",
+      "type": "person",
+      "level": "normal",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅅㅎ · 개그맨, \"집사부일체\"",
+      "answer": "양세형",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-274.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Yangsehyungin2020.png"
+      }
+    },
+    {
+      "id": "person-275",
+      "type": "person",
+      "level": "hard",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㅎㄱㅎ · \"궁금하면 500원\" 유행어의 개그맨",
+      "answer": "허경환",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-275.webp",
+        "author": "LG전자",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Heo_Gyeong_Hwan_(Korean_Comedian).jpg"
       }
     },
     {
@@ -15562,6 +16688,274 @@
       }
     },
     {
+      "id": "person-250",
+      "type": "person",
+      "level": "normal",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅂㅅㄹ · 맨발 투혼으로 유명한 골프 선수",
+      "answer": "박세리",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-250.webp",
+        "author": "Keith Allison",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:2009_LPGA_Championship_-_Se-ri_Pak_(2).jpg"
+      }
+    },
+    {
+      "id": "person-251",
+      "type": "person",
+      "level": "hard",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅂㅇㅂ · 올림픽 금메달을 딴 골프 선수",
+      "answer": "박인비",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-251.webp",
+        "author": "Keith Allison",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:2009_LPGA_Championship_-_Inbee_Park_(2).jpg"
+      }
+    },
+    {
+      "id": "person-252",
+      "type": "person",
+      "level": "normal",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㄹㅎㄹ · 맨체스터 시티의 골잡이, 노르웨이 축구 선수",
+      "answer": "엘링 홀란",
+      "also": [
+        "홀란",
+        "홀란드"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-252.webp",
+        "author": "Bryan Berlin",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Erling_Haaland_France_v_Norway_26_June_26-008.jpg"
+      }
+    },
+    {
+      "id": "person-253",
+      "type": "person",
+      "level": "normal",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㄹㅂㄹㅈㅇㅅ · 미국 프로농구(NBA)의 \"킹\"",
+      "answer": "르브론 제임스",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-253.webp",
+        "author": "Erik Drost",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:LeBron_James_(51959977144)_(cropped2).jpg"
+      }
+    },
+    {
+      "id": "person-254",
+      "type": "person",
+      "level": "hard",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㄹㅈㅍㄷㄹ · 스위스의 테니스 선수",
+      "answer": "로저 페더러",
+      "also": [
+        "페더러"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-254.webp",
+        "author": "si.robi",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Federer_WM16_(37)_(28136155830).jpg"
+      }
+    },
+    {
+      "id": "person-255",
+      "type": "person",
+      "level": "hard",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㄹㅍㅇㄴㄷ · \"흙신\"이라 불린 스페인 테니스 선수",
+      "answer": "라파엘 나달",
+      "also": [
+        "나달"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-255.webp",
+        "author": "Barcex",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Rafael_Nadal_en_2024_(cropped).jpg"
+      }
+    },
+    {
+      "id": "person-256",
+      "type": "person",
+      "level": "normal",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅊㅅㅅ · 미국 메이저리그에서 뛴 야구 선수, SSG 랜더스",
+      "answer": "추신수",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-256.webp",
+        "author": "Keith Allison",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Choo_Shin-Soo.jpg"
+      }
+    },
+    {
+      "id": "person-257",
+      "type": "person",
+      "level": "normal",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅋㄹㅇㅇㅂㅍ · 프랑스 축구 국가대표 골잡이",
+      "answer": "킬리안 음바페",
+      "also": [
+        "음바페"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-257.webp",
+        "author": "Bryan Berlin",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Kylian_Mbappe_France_v_Senegal_16_June_2026-391_(cropped).jpg"
+      }
+    },
+    {
+      "id": "person-258",
+      "type": "person",
+      "level": "hard",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅊㅈㅎ · 피겨스케이팅 남자 선수",
+      "answer": "차준환",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-258.webp",
+        "author": "Trainholic",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Cha_Jun-hwan_at_2025_Winter_Asian_Games_(cropped).jpg"
+      }
+    },
+    {
+      "id": "person-259",
+      "type": "person",
+      "level": "hard",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㄱㅅ · 월드컵에서 헤딩으로 두 골을 넣은 축구 선수",
+      "answer": "조규성",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-259.webp",
+        "author": "Nori Picture",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:191130_%EB%B6%80%EC%82%B0%EC%95%84%EC%9D%B4%ED%8C%8C%ED%81%AC_VS_FC%EC%95%88%EC%96%91_%ED%94%8C%EB%A0%88%EC%9D%B4%EC%98%A4%ED%94%84,_%EC%A1%B0%EA%B7%9C%EC%84%B1_2.jpg"
+      }
+    },
+    {
+      "id": "person-260",
+      "type": "person",
+      "level": "normal",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅁㅇㅋㅍㅍㅅ · 올림픽 금메달을 가장 많이 딴 수영 선수",
+      "answer": "마이클 펠프스",
+      "also": [
+        "펠프스"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-260.webp",
+        "author": "Agência Brasil Fotografias",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Michael_Phelps_August_2016.jpg"
+      }
+    },
+    {
+      "id": "person-261",
+      "type": "person",
+      "level": "hard",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㅁㅂㅇㅅ · 미국의 체조 선수",
+      "answer": "시몬 바일스",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-261.webp",
+        "author": "Ocoudis",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Simone_Biles_National_Team_2024.jpg"
+      }
+    },
+    {
+      "id": "person-262",
+      "type": "person",
+      "level": "normal",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅍㄹ · 브라질의 \"축구 황제\"",
+      "answer": "펠레",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-262.webp",
+        "author": "작자 미상",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Pele_con_brasil_(cropped).jpg"
+      }
+    },
+    {
+      "id": "person-263",
+      "type": "person",
+      "level": "normal",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅁㅎㅁㄷㅇㄹ · \"나비처럼 날아서 벌처럼 쏜다\"는 권투 선수",
+      "answer": "무하마드 알리",
+      "also": [
+        "알리"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-263.webp",
+        "author": "Ira Rosenberg",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Muhammad_Ali_NYWTS.jpg"
+      }
+    },
+    {
+      "id": "person-264",
+      "type": "person",
+      "level": "hard",
+      "topic": "운동선수",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㅇㅈ · 리듬체조 선수",
+      "answer": "손연재",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-264.webp",
+        "author": "Korea.net / Korean Culture and Information Service (Jeon H …",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Incheon_AsianGames_Gymnastics_Rhythmic_15.jpg"
+      }
+    },
+    {
       "id": "person-088",
       "type": "person",
       "level": "easy",
@@ -15903,6 +17297,197 @@
       }
     },
     {
+      "id": "person-276",
+      "type": "person",
+      "level": "easy",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅅㅅ · 거북선으로 나라를 지킨 조선의 장군",
+      "answer": "이순신",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-276.webp",
+        "author": "Unknown, War Memorial of Korea",
+        "license": "KOGL Type 1",
+        "source": "https://commons.wikimedia.org/wiki/File:Bust_of_Yi_Sun-sin_01.jpg"
+      }
+    },
+    {
+      "id": "person-277",
+      "type": "person",
+      "level": "normal",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅇㅇ · 수원 화성을 설계한 조선의 실학자",
+      "answer": "정약용",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-277.webp",
+        "author": "작자 미상",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Jeong_Yak-yong.jpg"
+      }
+    },
+    {
+      "id": "person-278",
+      "type": "person",
+      "level": "hard",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㅎㅂㄷ · 봉오동 전투를 이끈 독립군 장군",
+      "answer": "홍범도",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-278.webp",
+        "author": "작자 미상",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Hong_Beom-do_1921.jpg"
+      }
+    },
+    {
+      "id": "person-279",
+      "type": "person",
+      "level": "hard",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㅈㅈ · 청산리 전투를 이끈 독립군 장군",
+      "answer": "김좌진",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-279.webp",
+        "author": "작자 미상",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:KimJwaJin.gif"
+      }
+    },
+    {
+      "id": "person-280",
+      "type": "person",
+      "level": "hard",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅇㅅ · \"광야\"·\"청포도\"를 쓴 독립운동가 시인",
+      "answer": "이육사",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-280.webp",
+        "author": "http://www.264.or.kr",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Yiyuksa_264.jpg"
+      }
+    },
+    {
+      "id": "person-281",
+      "type": "person",
+      "level": "hard",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㅎㅇㅇ · \"님의 침묵\"을 쓴 시인이자 스님",
+      "answer": "한용운",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-281.webp",
+        "author": "작자 미상",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Han_Yongun.jpg"
+      }
+    },
+    {
+      "id": "person-282",
+      "type": "person",
+      "level": "hard",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㅈㅍ · \"독립신문\"을 만든 독립운동가",
+      "answer": "서재필",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-282.webp",
+        "author": "작자 미상",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Seo_Jae-pil_1947.jpg"
+      }
+    },
+    {
+      "id": "person-283",
+      "type": "person",
+      "level": "normal",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅈㅇㅅㅌ · 미국 독립 전쟁을 이끈 장군, 미국의 첫 번째 지도자",
+      "answer": "조지 워싱턴",
+      "also": [
+        "워싱턴"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-283.webp",
+        "author": "Gilbert Stuart",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Gilbert_Stuart_Williamstown_Portrait_of_George_Washington.jpg"
+      }
+    },
+    {
+      "id": "person-284",
+      "type": "person",
+      "level": "hard",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅁㅅ · 처음으로 남극점에 도착한 탐험가",
+      "answer": "아문센",
+      "also": [
+        "로알 아문센"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-284.webp",
+        "author": "작자 미상",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Amundsen_in_fur_skins.jpg"
+      }
+    },
+    {
+      "id": "person-285",
+      "type": "person",
+      "level": "hard",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㅊㅎ · \"조선상고사\"를 쓴 역사학자이자 독립운동가",
+      "answer": "신채호",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-285.webp",
+        "author": "작자 미상",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:%EB%8B%A8%EC%9E%AC%EC%8B%A0%EC%B1%84%ED%98%B8.jpg"
+      }
+    },
+    {
+      "id": "person-286",
+      "type": "person",
+      "level": "hard",
+      "topic": "역사 인물",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㅂㅎ · 3·1 운동 민족 대표 33인의 대표",
+      "answer": "손병희",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-286.webp",
+        "author": "작자 미상",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:SonByeongHui.jpg"
+      }
+    },
+    {
       "id": "person-107",
       "type": "person",
       "level": "easy",
@@ -16172,6 +17757,156 @@
         "author": "MetalGearLiquid, based on File:Steve_Jobs_Headshot_2010-C…",
         "license": "CC BY-SA 3.0",
         "source": "https://commons.wikimedia.org/wiki/File:Steve_Jobs_Headshot_2010-CROP2.jpg"
+      }
+    },
+    {
+      "id": "person-296",
+      "type": "person",
+      "level": "normal",
+      "topic": "과학자",
+      "prompt": "누구일까요?",
+      "hint": "ㅋㅍㄹㄴㅋㅅ · 지구가 태양을 돈다는 지동설을 주장한 천문학자",
+      "answer": "코페르니쿠스",
+      "also": [
+        "니콜라우스 코페르니쿠스"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-296.webp",
+        "author": "작자 미상",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Nikolaus_Kopernikus_MOT.jpg"
+      }
+    },
+    {
+      "id": "person-297",
+      "type": "person",
+      "level": "normal",
+      "topic": "과학자",
+      "prompt": "누구일까요?",
+      "hint": "ㅍㅂㄹ · \"곤충기\"를 쓴 곤충학자",
+      "answer": "파브르",
+      "also": [
+        "장앙리 파브르"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-297.webp",
+        "author": "작자 미상",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Jean-henri_fabre.jpg"
+      }
+    },
+    {
+      "id": "person-298",
+      "type": "person",
+      "level": "hard",
+      "topic": "과학자",
+      "prompt": "누구일까요?",
+      "hint": "ㅋㅅㅇㄱ · \"코스모스\"를 쓴 천문학자",
+      "answer": "칼 세이건",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-298.webp",
+        "author": "NASA/JPL",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Carl_Sagan_Planetary_Society.JPG"
+      }
+    },
+    {
+      "id": "person-299",
+      "type": "person",
+      "level": "hard",
+      "topic": "과학자",
+      "prompt": "누구일까요?",
+      "hint": "ㄹㅌㄱ · 엑스선(X선)을 발견한 과학자",
+      "answer": "뢴트겐",
+      "also": [
+        "빌헬름 뢴트겐"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-299.webp",
+        "author": "Erwin Hanfstaengl",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Wilhelm_Conrad_R%C3%B6ntgen_(1888-1900),_88374_p.jpg"
+      }
+    },
+    {
+      "id": "person-300",
+      "type": "person",
+      "level": "normal",
+      "topic": "과학자",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅇㅅㅇㅌ · 증기 기관을 크게 고친 발명가",
+      "answer": "제임스 와트",
+      "also": [
+        "와트"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-300.webp",
+        "author": "Henry Howard",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:James_Watt_by_Henry_Howard.jpg"
+      }
+    },
+    {
+      "id": "person-301",
+      "type": "person",
+      "level": "normal",
+      "topic": "과학자",
+      "prompt": "누구일까요?",
+      "hint": "ㅁㄷ · 완두콩으로 유전 법칙을 밝힌 과학자",
+      "answer": "멘델",
+      "also": [
+        "그레고어 멘델"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-301.webp",
+        "author": "작자 미상",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Gregor_Mendel_with_cross.jpg"
+      }
+    },
+    {
+      "id": "person-302",
+      "type": "person",
+      "level": "hard",
+      "topic": "과학자",
+      "prompt": "누구일까요?",
+      "hint": "ㅍㄹㄷㅇ · 전자기 유도를 발견한 과학자",
+      "answer": "패러데이",
+      "also": [
+        "마이클 패러데이"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-302.webp",
+        "author": "Thomas Phillips",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:M_Faraday_Th_Phillips_oil_1842.jpg"
+      }
+    },
+    {
+      "id": "person-303",
+      "type": "person",
+      "level": "hard",
+      "topic": "과학자",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㄹㅌㄹ · 암호를 풀어 낸 컴퓨터 과학의 아버지",
+      "answer": "앨런 튜링",
+      "also": [
+        "튜링"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-303.webp",
+        "author": "Elliott & Fry",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Alan_Turing_(1951)_(crop).jpg"
       }
     },
     {
@@ -16460,6 +18195,174 @@
         "author": "John Sears",
         "license": "CC BY-SA 4.0",
         "source": "https://commons.wikimedia.org/wiki/File:Han_Kang%2C_2024_Nobel_Prize_Laureate_in_Literature_%28cropped%29.jpg"
+      }
+    },
+    {
+      "id": "person-287",
+      "type": "person",
+      "level": "normal",
+      "topic": "예술가",
+      "prompt": "누구일까요?",
+      "hint": "ㅍㅋㅅ · \"게르니카\"를 그린 스페인 화가",
+      "answer": "피카소",
+      "also": [
+        "파블로 피카소"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-287.webp",
+        "author": "Argentina. Revista Vea y Lea",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Pablo_picasso_1.jpg"
+      }
+    },
+    {
+      "id": "person-288",
+      "type": "person",
+      "level": "hard",
+      "topic": "예술가",
+      "prompt": "누구일까요?",
+      "hint": "ㅂㅂㄷ · \"사계\"를 작곡한 이탈리아 작곡가",
+      "answer": "비발디",
+      "also": [
+        "안토니오 비발디"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-288.webp",
+        "author": "작자 미상",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Onbekend_-_Antonio_Vivaldi_-_Bologna_Museo_Internationale_e_biblioteca_della_musica_di_bologna_28-04-2012_9-21-050.jpg"
+      }
+    },
+    {
+      "id": "person-289",
+      "type": "person",
+      "level": "hard",
+      "topic": "예술가",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㅂㄹㅌ · \"송어\"·\"마왕\"을 작곡한 \"가곡의 왕\"",
+      "answer": "슈베르트",
+      "also": [
+        "프란츠 슈베르트"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-289.webp",
+        "author": "Wilhelm August Rieder",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Franz_Schubert_by_Wilhelm_August_Rieder_1875_larger_version.png"
+      }
+    },
+    {
+      "id": "person-290",
+      "type": "person",
+      "level": "hard",
+      "topic": "예술가",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅈㅅ · \"황소\"를 그린 화가",
+      "answer": "이중섭",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-290.webp",
+        "author": "동아일보",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:%EC%9D%B4%EC%A4%91%EC%84%AD_%ED%99%94%EB%B0%B1.jpg"
+      }
+    },
+    {
+      "id": "person-291",
+      "type": "person",
+      "level": "normal",
+      "topic": "예술가",
+      "prompt": "누구일까요?",
+      "hint": "ㅁㅇㅈㅋㅎㅇㅇ · \"이웃집 토토로\"를 만든 애니메이션 감독",
+      "answer": "미야자키 하야오",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-291.webp",
+        "author": "Natasha Baucas at https://www.flickr.com/photos/sdnatasha/",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:HayaoMiyazakiCCJuly09.jpg"
+      }
+    },
+    {
+      "id": "person-292",
+      "type": "person",
+      "level": "normal",
+      "topic": "예술가",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㅌㅈㅍㄹ · \"어린 왕자\"를 쓴 작가",
+      "answer": "생텍쥐페리",
+      "also": [
+        "앙투안 드 생텍쥐페리"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-292.webp",
+        "author": "작자 미상",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Antoine_de_Saint-Euxpery_(1920).jpg"
+      }
+    },
+    {
+      "id": "person-293",
+      "type": "person",
+      "level": "normal",
+      "topic": "예술가",
+      "prompt": "누구일까요?",
+      "hint": "ㅁㄴ · \"수련\"을 그린 프랑스 화가",
+      "answer": "모네",
+      "also": [
+        "클로드 모네"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-293.webp",
+        "author": "Nadar",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Claude_Monet_1899_Nadar_crop.jpg"
+      }
+    },
+    {
+      "id": "person-294",
+      "type": "person",
+      "level": "normal",
+      "topic": "예술가",
+      "prompt": "누구일까요?",
+      "hint": "ㅊㅇㅋㅅㅋ · \"호두까기 인형\"을 작곡한 러시아 작곡가",
+      "answer": "차이콥스키",
+      "also": [
+        "차이코프스키",
+        "표트르 차이콥스키"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-294.webp",
+        "author": "Nikolai Kuznetsov",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Portr%C3%A4t_des_Komponisten_Pjotr_I._Tschaikowski_(1840-1893).jpg"
+      }
+    },
+    {
+      "id": "person-295",
+      "type": "person",
+      "level": "normal",
+      "topic": "예술가",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㅌㅂㅅㅍㅂㄱ · 영화 \"E.T.\"·\"쥬라기 공원\"의 감독",
+      "answer": "스티븐 스필버그",
+      "also": [
+        "스필버그"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-295.webp",
+        "author": "Raph_PH",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Steven_Spielberg_2025.jpg"
       }
     },
     {
