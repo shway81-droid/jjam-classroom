@@ -13585,6 +13585,548 @@
       }
     },
     {
+      "id": "person-139",
+      "type": "person",
+      "level": "easy",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅊㅇㅇ · 아스트로 멤버, 드라마 \"여신강림\"의 이수호",
+      "answer": "차은우",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-139.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Cha_Eun-woo,_March_31,_2025.png"
+      }
+    },
+    {
+      "id": "person-140",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅋㅈㅎ · 발레를 전공한 르세라핌 멤버",
+      "answer": "카즈하",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-140.webp",
+        "author": "David Lee from Redmond, WA, USA",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_(54797069863).jpg"
+      }
+    },
+    {
+      "id": "person-141",
+      "type": "person",
+      "level": "normal",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㅊㅇ · 르세라핌의 리더, 아이즈원 출신",
+      "answer": "김채원",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-141.webp",
+        "author": "David Lee from Redmond, WA, USA",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_(54797154470).jpg"
+      }
+    },
+    {
+      "id": "person-142",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅎㅇㅈ · 미국에서 자란 르세라핌 멤버",
+      "answer": "허윤진",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-142.webp",
+        "author": "티비텐",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:260110_Le_Sserafim%27s_Huh_Yunjin_at_GDA_2026_01.jpg"
+      }
+    },
+    {
+      "id": "person-143",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㅋㄹ · 일본에서 온 르세라핌 멤버, 아이즈원 출신",
+      "answer": "사쿠라",
+      "also": [
+        "미야와키 사쿠라"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-143.webp",
+        "author": "티비텐",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:20241018_Le_Sserafim%27s_Sakura_Miyawaki_03.jpg"
+      }
+    },
+    {
+      "id": "person-144",
+      "type": "person",
+      "level": "normal",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㄴㄴ · 중국에서 온 에스파 멤버",
+      "answer": "닝닝",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-144.webp",
+        "author": "티비텐 TV10",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Ningning_at_Seoul_Discovery_Expedition_event_on_March_11,_2026_02.jpg"
+      }
+    },
+    {
+      "id": "person-145",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅈ · 에스파의 래퍼",
+      "answer": "지젤",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-145.webp",
+        "author": "티비텐 TV10",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Giselle_at_Incheon_Airport_on_March_4,_2026.jpg"
+      }
+    },
+    {
+      "id": "person-146",
+      "type": "person",
+      "level": "normal",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅈ · 있지(ITZY)의 리더",
+      "answer": "예지",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-146.webp",
+        "author": "티비텐 TV10",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Yeji_at_Tommy_Hilfiger_PhotoCall_on_October_28,_2025.png"
+      }
+    },
+    {
+      "id": "person-147",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅇ · 트와이스 멤버, 배우 공승연의 동생",
+      "answer": "정연",
+      "also": [
+        "유정연"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-147.webp",
+        "author": "티비텐",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:TWICE_Jeongyeon_VETERAN_2_September_2024.jpg"
+      }
+    },
+    {
+      "id": "person-148",
+      "type": "person",
+      "level": "normal",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅁㅁ · 춤을 잘 추는 트와이스의 일본인 멤버",
+      "answer": "모모",
+      "also": [
+        "히라이 모모"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-148.webp",
+        "author": "티비텐",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:TWICE_MOMO_April_2024.jpg"
+      }
+    },
+    {
+      "id": "person-149",
+      "type": "person",
+      "level": "easy",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅎ · 트와이스의 리더",
+      "answer": "지효",
+      "also": [
+        "박지효"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-149.webp",
+        "author": "https://www.youtube.com/@_TV10",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Jihyo_at_Gucci_Ancora_on_05032024_(cropped).png"
+      }
+    },
+    {
+      "id": "person-150",
+      "type": "person",
+      "level": "normal",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅎㅅ · 마마무 멤버, \"마리아\"를 부른 솔로 가수",
+      "answer": "화사",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-150.webp",
+        "author": "TV10",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Hwasa_in_January_2026.png"
+      }
+    },
+    {
+      "id": "person-151",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅊㅎ · \"벌써 12시\"를 부른 솔로 가수",
+      "answer": "청하",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-151.webp",
+        "author": "Marie Claire Korea",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Chung_Ha_in_March_2025.png"
+      }
+    },
+    {
+      "id": "person-152",
+      "type": "person",
+      "level": "normal",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㄱㅇ · \"미스트롯\" 1등을 한 트로트 가수",
+      "answer": "송가인",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-152.webp",
+        "author": "NewsInStar",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:200116_%EC%86%A1%EA%B0%80%EC%9D%B8.png"
+      }
+    },
+    {
+      "id": "person-153",
+      "type": "person",
+      "level": "easy",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅂㅂ · \"밤양갱\"을 부른 가수",
+      "answer": "비비",
+      "also": [
+        "BIBI"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-153.webp",
+        "author": "David Lee",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:BIBI_in_June_2025_(cropped).jpg"
+      }
+    },
+    {
+      "id": "person-154",
+      "type": "person",
+      "level": "normal",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅁㅈ · \"신호등\"을 부른 가수",
+      "answer": "이무진",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-154.webp",
+        "author": "Marie Claire Korea",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:20210427%E2%80%94Lee_Mu-jin_%EC%9D%B4%EB%AC%B4%EC%A7%84,_interview,_Marie_Claire_Korea_screenshot_(05m55s).jpg"
+      }
+    },
+    {
+      "id": "person-155",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅅㅋㅅ · 세븐틴의 리더",
+      "answer": "에스쿱스",
+      "also": [
+        "최승철"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-155.webp",
+        "author": "Raph_PH",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Glasto24_28_300624_(72_of_545)_(53838093145)_(cropped).jpg"
+      }
+    },
+    {
+      "id": "person-156",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅎㅅ · 세븐틴 퍼포먼스 팀의 리더, 별명은 \"호랑이\"",
+      "answer": "호시",
+      "also": [
+        "권순영"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-156.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:240415_Hoshi.jpg"
+      }
+    },
+    {
+      "id": "person-157",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅈ · 투모로우바이투게더(TXT)의 메인 댄서",
+      "answer": "연준",
+      "also": [
+        "최연준"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-157.webp",
+        "author": "티비텐 TV10",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Yeonjun_250625.jpg"
+      }
+    },
+    {
+      "id": "person-158",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅂㄱ · 투모로우바이투게더(TXT) 멤버, 대구 출신",
+      "answer": "범규",
+      "also": [
+        "최범규"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-158.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Choi_Beom-gyu_at_a_Dior_event_in_2025_02.jpg"
+      }
+    },
+    {
+      "id": "person-159",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅂㅊ · 스트레이 키즈의 리더, 호주에서 자랐어요",
+      "answer": "방찬",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-159.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Bang_Chan_of_Stray_Kids,_February_23,_2026_(1).png"
+      }
+    },
+    {
+      "id": "person-160",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅎㅈ · 스트레이 키즈의 메인 댄서",
+      "answer": "현진",
+      "also": [
+        "황현진"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-160.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Hyunjin_of_Stray_Kids,_September_24,_2025.png"
+      }
+    },
+    {
+      "id": "person-161",
+      "type": "person",
+      "level": "normal",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅍㄹㅅ · 호주에서 온 스트레이 키즈 멤버, 아주 낮은 목소리",
+      "answer": "필릭스",
+      "also": [
+        "이용복"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-161.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Felix_of_Stray_Kids_at_a_Louis_Vuitton_event,_August_22,_2025.png"
+      }
+    },
+    {
+      "id": "person-162",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㅎ · 피겨스케이팅 선수 출신 엔하이픈 멤버",
+      "answer": "성훈",
+      "also": [
+        "박성훈"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-162.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:240408_Park_Sung-hoon_(2)_(cropped).jpg"
+      }
+    },
+    {
+      "id": "person-163",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㅇ · 아이브의 메인 댄서",
+      "answer": "가을",
+      "also": [
+        "김가을"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-163.webp",
+        "author": "티비텐 TV10",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Ive_Gaeul_at_Seoul_Fashion_Week,_1_September_2025_03_(cropped).png"
+      }
+    },
+    {
+      "id": "person-164",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㅇㅂ · 아이즈원 출신 솔로 가수, \"언더워터\"",
+      "answer": "권은비",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-164.webp",
+        "author": "TV10",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Kwon_Eun-bi_in_May_2026.png"
+      }
+    },
+    {
+      "id": "person-165",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㄷㅎ · 트와이스 멤버, \"독수리 춤\"으로 유명해요",
+      "answer": "다현",
+      "also": [
+        "김다현"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-165.webp",
+        "author": "https://www.youtube.com/@_TV10/videos",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Dahyun_at_press_conference_for_You_Are_the_Apple_of_My_Eye_02_(cropped).png"
+      }
+    },
+    {
+      "id": "person-166",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅁㅇ · 아이들(i-dle) 멤버",
+      "answer": "미연",
+      "also": [
+        "조미연"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-166.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:(G)I-DLE_Airport_Departure_2024_Miyeon_waving_hands.png"
+      }
+    },
+    {
+      "id": "person-167",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅇㄹ · 아이즈원 출신, \"오징어 게임 2\"의 준희",
+      "answer": "조유리",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-167.webp",
+        "author": "TV10 / Ten Asia",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:082125_Jo_Yuri_for_Maradi_Mercredi_photo_call_01.png"
+      }
+    },
+    {
+      "id": "person-168",
+      "type": "person",
+      "level": "hard",
+      "topic": "가수",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㄷ · 레드벨벳의 메인 보컬",
+      "answer": "웬디",
+      "also": [
+        "손승완"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-168.webp",
+        "author": "오늘의 소녀",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Wendy_Son_at_Dream_Concert_on_May_12,_2018.jpg"
+      }
+    },
+    {
       "id": "person-032",
       "type": "person",
       "level": "normal",
@@ -13897,6 +14439,314 @@
       }
     },
     {
+      "id": "person-169",
+      "type": "person",
+      "level": "easy",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅂㅇㅅ · 드라마 \"선재 업고 튀어\"의 류선재",
+      "answer": "변우석",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-169.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:20260731_Byeon_Woo-seok.png"
+      }
+    },
+    {
+      "id": "person-170",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㅎㅇ · 드라마 \"선재 업고 튀어\"의 임솔",
+      "answer": "김혜윤",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-170.webp",
+        "author": "TV10",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Kim_Hye-yoon_in_January_2026.png"
+      }
+    },
+    {
+      "id": "person-171",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㅈㅇ · 드라마 \"눈물의 여왕\"의 홍해인",
+      "answer": "김지원",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-171.webp",
+        "author": "K-POPIT 케이팝잇 TV10",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Kim_Jiwon_%EA%B9%80%EC%A7%80%EC%9B%90_Airport_Departure_May_2025.png"
+      }
+    },
+    {
+      "id": "person-172",
+      "type": "person",
+      "level": "easy",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅂㅇㅂ · 드라마 \"이상한 변호사 우영우\"의 우영우",
+      "answer": "박은빈",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-172.webp",
+        "author": "티비텐",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Park_Eun-bin_in_July_2025.png"
+      }
+    },
+    {
+      "id": "person-173",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㅎㄱ · 드라마 \"더 글로리\"의 문동은",
+      "answer": "송혜교",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-173.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Song_Hye_Kyo_2025_%EC%86%A1%ED%98%9C%EA%B5%90_02.jpg"
+      }
+    },
+    {
+      "id": "person-174",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㅌㄹ · 드라마 \"정년이\"의 윤정년",
+      "answer": "김태리",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-174.webp",
+        "author": "티비텐 (TV10)",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:KIM_TAERI_(%EA%B9%80%ED%83%9C%EB%A6%AC)_-_PRADA_-_2025.04.21_-_P3.jpg"
+      }
+    },
+    {
+      "id": "person-175",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅂㅂㅇ · 드라마 \"미지의 서울\"에서 쌍둥이 자매를 혼자 연기한 배우",
+      "answer": "박보영",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-175.webp",
+        "author": "티비텐 TV10",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:2026-05-08_Baeksang_Arts_Awards_red_carpet_02_(cropped).jpg"
+      }
+    },
+    {
+      "id": "person-176",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㅇㅂ · 드라마 \"다 이루어질지니\"의 램프 요정 지니",
+      "answer": "김우빈",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-176.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Kim_Woo-bin_in_2026.png"
+      }
+    },
+    {
+      "id": "person-177",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅎㅅ · \"케이팝 데몬 헌터스\" 진우의 목소리를 맡은 배우",
+      "answer": "안효섭",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-177.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:20240514_Ahn_Hyo-seop_%EC%95%88%ED%9A%A8%EC%84%AD_03.jpg"
+      }
+    },
+    {
+      "id": "person-178",
+      "type": "person",
+      "level": "hard",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㅇㅈ · 드라마 \"무빙\"의 장희수",
+      "answer": "고윤정",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-178.webp",
+        "author": "K-POPit 티비텐",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Go_Youn-jung_in_May_2026.png"
+      }
+    },
+    {
+      "id": "person-179",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅈㅅ · 드라마 \"슬기로운 의사생활\"의 이익준",
+      "answer": "조정석",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-179.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Jo_Jung-suk_in_June_2026.png"
+      }
+    },
+    {
+      "id": "person-180",
+      "type": "person",
+      "level": "easy",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅎㅂ · 드라마 \"사랑의 불시착\"의 리정혁",
+      "answer": "현빈",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-180.webp",
+        "author": "John Sears",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Hyun_Bin_at_the_2024_Toronto_International_Film_Festival_2_(cropped).jpg"
+      }
+    },
+    {
+      "id": "person-181",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㅇㅈ · 드라마 \"사랑의 불시착\"의 윤세리",
+      "answer": "손예진",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-181.webp",
+        "author": "티비텐 TV10",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Son_Ye-jin_at_the_2025_Blue_Dragon_Film_Awards_3.png"
+      }
+    },
+    {
+      "id": "person-182",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅊㅇㅅ · 영화 \"기생충\"의 기우",
+      "answer": "최우식",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-182.webp",
+        "author": "프레쉬 코리아",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:211227_%EC%B5%9C%EC%9A%B0%EC%8B%9D.png"
+      }
+    },
+    {
+      "id": "person-183",
+      "type": "person",
+      "level": "hard",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅊㅇㅇ · 드라마 \"중증외상센터\"의 양재원",
+      "answer": "추영우",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-183.webp",
+        "author": "K-POPIT 케이팝잇 TV10",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:250509_Choo_Young-Woo_(%EC%B6%94%EC%98%81%EC%9A%B0).png"
+      }
+    },
+    {
+      "id": "person-184",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㄹㅅㄹ · 영화 \"극한직업\"의 고반장",
+      "answer": "류승룡",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-184.webp",
+        "author": "티비텐 TV10",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Ryu_Seung-ryong_in_2025.png"
+      }
+    },
+    {
+      "id": "person-185",
+      "type": "person",
+      "level": "easy",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅋㄹㅅㅎㅅㅇㅅ · 영화 \"어벤져스\"의 토르",
+      "answer": "크리스 헴스워스",
+      "also": [
+        "크리스 햄스워스"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-185.webp",
+        "author": "Kevin Paul",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Chris_Hemsworth_-_Crime_101.jpg"
+      }
+    },
+    {
+      "id": "person-186",
+      "type": "person",
+      "level": "normal",
+      "topic": "배우",
+      "prompt": "누구일까요?",
+      "hint": "ㅌㅁㅅㅅㄹㅁ · 영화 \"웡카\"의 윌리 웡카",
+      "answer": "티모시 샬라메",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-186.webp",
+        "author": "Harald Krichel",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Timoth%C3%A9e_Chalamet-63541_(cropped).jpg"
+      }
+    },
+    {
       "id": "person-050",
       "type": "person",
       "level": "easy",
@@ -14064,6 +14914,178 @@
         "author": "밥상위의 국가대표 우리돼지 한돈",
         "license": "CC BY 3.0",
         "source": "https://commons.wikimedia.org/wiki/File:%EB%B0%B1%EC%A2%85%EC%9B%90_%ED%95%9C%EB%8F%88_%EC%B6%94%EC%B6%9C.png"
+      }
+    },
+    {
+      "id": "person-187",
+      "type": "person",
+      "level": "easy",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㅈㅎ · \"런닝맨\"의 멍지효, 배우",
+      "answer": "송지효",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-187.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Song_Ji-hyo_in_December_2024.png"
+      }
+    },
+    {
+      "id": "person-188",
+      "type": "person",
+      "level": "normal",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㄷㅅ · 해군 특수부대 출신 방송인, \"피지컬: 100\"",
+      "answer": "덱스",
+      "also": [
+        "김진영"
+      ],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-188.webp",
+        "author": "K-POPIT 케이팝잇",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Dex_at_Valentino_Fall_2025_Collection,_Seongsu-dong,_Seoul,_June_20,_2025,_TV10_2.jpg"
+      }
+    },
+    {
+      "id": "person-189",
+      "type": "person",
+      "level": "normal",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㅎㅈㄱ · 모델 출신 방송인, 유튜브 \"공부왕찐천재\"",
+      "answer": "홍진경",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-189.webp",
+        "author": "TV10",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Hong_Jin-kyung_in_January_2026.png"
+      }
+    },
+    {
+      "id": "person-190",
+      "type": "person",
+      "level": "normal",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㅈㅁ · \"1박 2일\"의 원년 멤버, 코요태 가수",
+      "answer": "김종민",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-190.webp",
+        "author": "뉴스인스타",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:180430_%EA%B9%80%EC%A2%85%EB%AF%BC.jpg"
+      }
+    },
+    {
+      "id": "person-191",
+      "type": "person",
+      "level": "easy",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㅅㅈㅎ · 농구 선수 출신, \"아는 형님\"",
+      "answer": "서장훈",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-191.webp",
+        "author": "LG전자",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Seo_Jang-Hoon.jpg"
+      }
+    },
+    {
+      "id": "person-192",
+      "type": "person",
+      "level": "normal",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅇㅈ · \"전지적 참견 시점\"에서 맛집을 소개하는 개그우먼",
+      "answer": "이영자",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-192.webp",
+        "author": "NewsInStar",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:191025_%EC%9D%B4%EC%98%81%EC%9E%90.jpg"
+      }
+    },
+    {
+      "id": "person-193",
+      "type": "person",
+      "level": "normal",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㄱㅅㅇ · 개그우먼, 둘째 이모 \"김다비\"",
+      "answer": "김신영",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-193.webp",
+        "author": "Official Youtube account of 식신로드 (Gourmet Road), its twitt …",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:%EC%A3%BC%EC%98%81%ED%9B%88,_%EC%B2%9C%EC%9D%B4%EC%8A%AC_%EC%B6%9C%EC%97%B0_%ED%93%A8%EC%A0%84_%ED%96%84%EB%B2%84%EA%B7%B8_%EC%8A%A4%ED%85%8C%EC%9D%B4%ED%81%AC_%EA%B0%95%EB%82%A8%EA%B5%AC_%EC%97%AD%EC%82%BC%EB%8F%99_%EB%AF%BC%EB%B0%95_(%EC%8B%9D%EC%8B%A0%EB%A1%9C%EB%93%9C_Gourmet_Road)_eps_176-1_(%EA%B9%80%EC%8B%A0%EC%98%81).jpg"
+      }
+    },
+    {
+      "id": "person-194",
+      "type": "person",
+      "level": "hard",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㅈㅅㄱ · 아나운서 출신 방송인",
+      "answer": "장성규",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-194.webp",
+        "author": "뉴스페이스",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:2019_%EB%89%B4%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4_5%ED%99%94_%EC%9E%A5%EC%84%B1%EA%B7%9C_01.jpg"
+      }
+    },
+    {
+      "id": "person-195",
+      "type": "person",
+      "level": "normal",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㄷㄷ · \"1박 2일\"에 나온 래퍼",
+      "answer": "딘딘",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-195.webp",
+        "author": "Korean Newspaper Newspaper \"NewsInstar\"",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:20190608_DinDin_%EB%94%98%EB%94%98_(2).jpg"
+      }
+    },
+    {
+      "id": "person-196",
+      "type": "person",
+      "level": "hard",
+      "topic": "예능인",
+      "prompt": "누구일까요?",
+      "hint": "ㅇㅇㅈ · \"용진호\"로 활동한 개그맨",
+      "answer": "이용진",
+      "also": [],
+      "note": "",
+      "photo": {
+        "file": "assets/people/person-196.webp",
+        "author": "NewsInStar",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Leeyongjin2019.png"
       }
     },
     {
