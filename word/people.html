@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>인물퀴즈 정답 리스트 — 짬짬이 낱말</title>
+  <title>선생님용 실시간 정답 창 — 짬짬이 낱말 인물퀴즈</title>
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#E4576E">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -12,37 +12,43 @@
   <link rel="stylesheet" href="css/people.css">
 </head>
 <body class="people-page">
-  <!-- 인물퀴즈 정답 리스트 — 설정 화면의 [전체 정답 리스트] 가 새 창으로 연다.
-       선생님이 아이들 외침을 판정하려면 누가 나오는지 미리 알아야 한다.
-       출제 화면과 같은 data/words.json 을 읽으므로 인물을 더하면 여기도 저절로 따라온다. -->
+  <!-- 선생님용 실시간 정답 창 — 인물퀴즈 설정 화면·출제 화면의 [실시간 정답] 버튼이 새 창으로 연다.
+       이 창의 주인공은 "지금 칠판에 나온 문제의 정답"이다(출제 창이 BroadcastChannel 로 알려 준다).
+       칠판과 같은 화면을 복제해 쓰면 아이들에게도 보이니, 노트북 화면(확장 화면)에 둔다.
+       아래의 전체 명단은 보조 — 화면이 하나뿐인 교실은 이것을 인쇄해 '정답지 순서대로' 출제와 함께 쓴다. -->
   <header class="people-head">
-    <div>
-      <h1>🧑 인물퀴즈 정답 리스트</h1>
-      <p class="people-sub" id="people-sub">불러오는 중…</p>
-    </div>
-    <div class="people-actions">
-      <button class="btn btn-primary" id="btn-csv" type="button" disabled>↓ 엑셀(CSV) 내려받기</button>
-      <button class="btn btn-ghost" id="btn-print" type="button">🖨 인쇄 · PDF 저장</button>
-    </div>
+    <h1>👀 선생님용 실시간 정답 창</h1>
+    <p class="people-lead">칠판에 나온 인물퀴즈 문제의 정답이 여기에 바로 떠요. 아이들에게 보이지 않게 <strong>노트북 화면</strong>에 띄워 두세요.</p>
   </header>
 
-  <!-- 선생님 창 — 칠판에 인물퀴즈가 나오면 지금 문제의 정답이 여기 뜬다(출제 창이 알려 준다).
-       칠판과 같은 화면을 복제해 쓰면 아이들에게도 보이니, 노트북 화면(확장 화면)에 둔다. -->
-  <section class="live" id="live" hidden aria-live="polite">
+  <section class="live" id="live" data-state="idle" aria-live="polite">
     <img class="live-photo" id="live-photo" alt="" hidden>
     <div class="live-body">
       <p class="live-label">지금 칠판 문제의 정답</p>
-      <p class="live-name" id="live-name"></p>
+      <p class="live-name" id="live-name">문제를 기다리는 중</p>
       <p class="live-also" id="live-also"></p>
-      <p class="live-meta" id="live-meta"></p>
+      <p class="live-meta" id="live-meta">칠판에서 인물퀴즈를 시작하면 여기에 정답이 떠요.</p>
     </div>
   </section>
 
-  <nav class="people-filter" id="people-filter" aria-label="분야 고르기"></nav>
+  <section class="roster" aria-labelledby="roster-title">
+    <div class="roster-head">
+      <div>
+        <h2 class="roster-title" id="roster-title">전체 명단 <span class="roster-note">인쇄·엑셀용</span></h2>
+        <p class="people-sub" id="people-sub">불러오는 중…</p>
+      </div>
+      <div class="people-actions">
+        <button class="btn btn-primary" id="btn-csv" type="button" disabled>↓ 엑셀(CSV) 내려받기</button>
+        <button class="btn btn-ghost" id="btn-print" type="button">🖨 인쇄 · PDF 저장</button>
+      </div>
+    </div>
 
-  <main id="people-list"></main>
+    <nav class="people-filter" id="people-filter" aria-label="분야 고르기"></nav>
 
-  <p class="people-foot">번호(No.)는 출제 화면과 같아요 — 설정에서 "정답지 순서대로"를 고르면 이 순서대로 10명씩 나옵니다. 칠판과 다른 화면(확장 화면)에 이 창을 띄워 두면 맨 위에 지금 문제의 정답이 떠요.<br>사진: 위키미디어 공용의 자유 라이선스 사진(크기 조정). 사진마다 저작자·라이선스는 CSV 에 함께 들어 있습니다.</p>
+    <div id="people-list"></div>
+
+    <p class="people-foot">화면이 하나뿐인 교실(일체형 전자칠판·복제 화면)에서는 이 명단을 인쇄하고, 설정에서 출제 순서를 "정답지 순서대로"로 고르세요. 칠판 위쪽 띠의 번호(No.)가 이 명단의 번호와 같아요.<br>사진: 위키미디어 공용의 자유 라이선스 사진(크기 조정). 사진마다 저작자·라이선스는 CSV 에 함께 들어 있습니다.</p>
+  </section>
 
   <script type="module" src="js/people.js"></script>
 </body>
