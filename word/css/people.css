@@ -1,8 +1,16 @@
-/* 인물퀴즈 정답 리스트 (people.html) — 색·버튼은 style.css 를 그대로 쓰고 배치만 더한다. */
+/* 선생님용 실시간 정답 창 (people.html) — 색·버튼은 style.css 를 그대로 쓰고 배치만 더한다.
+   맨 위 실시간 정답 칸이 주인공, 그 아래 전체 명단은 보조다. */
 
 .people-page { padding: 1.4rem var(--gutter) 2.4rem; max-width: var(--maxw); margin: 0 auto; }
 
-.people-head {
+.people-head { margin-bottom: 1rem; }
+.people-head h1 { font-size: 1.9rem; font-weight: 900; }
+.people-lead { color: var(--ink-soft); font-size: 1rem; margin-top: 0.25rem; }
+.people-lead strong { color: var(--accent-deep); }
+
+/* 전체 명단 — 실시간 정답 칸 아래의 보조 영역 */
+.roster { margin-top: 2rem; }
+.roster-head {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -10,7 +18,17 @@
   flex-wrap: wrap;
   margin-bottom: 1rem;
 }
-.people-head h1 { font-size: 1.9rem; font-weight: 900; }
+.roster-title { font-size: 1.45rem; font-weight: 900; }
+.roster-note {
+  margin-left: 0.4rem;
+  padding: 0.1rem 0.55rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  vertical-align: 0.2em;
+  color: var(--ink-soft);
+  background: var(--surface);
+  border-radius: var(--radius-pill);
+}
 .people-sub { color: var(--ink-soft); font-size: 0.95rem; margin-top: 0.2rem; }
 .people-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
 .people-actions .btn:disabled { opacity: 0.5; cursor: default; }
@@ -19,7 +37,7 @@
 .people-filter .option-btn[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); }
 
 .people-group { margin-bottom: 1.8rem; }
-.people-group h2 {
+.people-group h3 {
   font-size: 1.3rem;
   font-weight: 900;
   color: var(--accent-deep);
@@ -76,6 +94,7 @@
 @media (max-width: 560px) {
   .people-page { padding: 1rem 16px 2rem; }
   .people-head h1 { font-size: 1.5rem; }
+  .live { flex-direction: column; align-items: flex-start; }
   .people-actions, .people-actions .btn { width: 100%; }
 }
 
@@ -84,15 +103,17 @@
   @page { margin: 12mm; }
   body { background: #fff; }
   .people-page { padding: 0; max-width: none; }
-  .people-actions, .people-filter { display: none; }
-  .people-head h1 { font-size: 1.4rem; }
+  .people-head, .live, .people-actions, .people-filter { display: none; }
+  .roster { margin-top: 0; }
+  .roster-note { display: none; }
+  .roster-title { font-size: 1.4rem; }
   .people-grid { grid-template-columns: repeat(3, 1fr); gap: 0.35rem; }
   .person-card { padding: 0.35rem; border-color: #ccc; }
   .person-photo { width: 3rem; height: 3.7rem; }
   .person-name { font-size: 0.95rem; }
   .person-hint { font-size: 0.72rem; }
   .people-group { break-inside: auto; margin-bottom: 1rem; }
-  .people-group h2 { font-size: 1.05rem; break-after: avoid; }
+  .people-group h3 { font-size: 1.05rem; break-after: avoid; }
 }
 
 /* 번호(No.) — 출제 화면의 번호와 같다. 인쇄물에서 따라가기 쉽게 사진 위 왼쪽 위에 붙인다. */
@@ -119,19 +140,20 @@
   align-items: center;
   gap: 1rem;
   margin-bottom: 1rem;
-  padding: 0.9rem 1.1rem;
+  min-height: 11rem;
+  padding: 1.1rem 1.4rem;
   background: var(--card);
   border: 3px solid var(--accent);
   border-radius: var(--radius);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 .live[data-state="idle"] { border-style: dashed; border-color: var(--outline-variant); box-shadow: none; }
-.live-photo { width: 6rem; height: 7.4rem; object-fit: cover; object-position: center 20%; border-radius: 10px; flex: 0 0 auto; }
-.live-label { font-size: 0.85rem; font-weight: 800; color: var(--accent-deep); }
-.live-name { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; line-height: 1.1; }
-.live[data-state="idle"] .live-name { font-size: 1.3rem; color: var(--ink-soft); }
-.live-also { font-size: 1rem; font-weight: 700; color: var(--ink-soft); }
-.live-meta { font-size: 0.9rem; color: var(--ink-soft); margin-top: 0.15rem; }
+.live-photo { width: 9rem; height: 11rem; object-fit: cover; object-position: center 20%; border-radius: 10px; flex: 0 0 auto; }
+.live-label { font-size: 1rem; font-weight: 800; color: var(--accent-deep); }
+.live-name { font-size: clamp(2.6rem, 7vw, 4.6rem); font-weight: 900; line-height: 1.1; }
+.live[data-state="idle"] .live-name { font-size: 1.6rem; color: var(--ink-soft); }
+.live-also { font-size: 1.15rem; font-weight: 700; color: var(--ink-soft); }
+.live-meta { font-size: 1rem; color: var(--ink-soft); margin-top: 0.15rem; }
 
 @media print {
   .live { display: none; }

@@ -1,4 +1,6 @@
-/* 인물퀴즈 정답 리스트 (people.html) — 선생님용.
+/* 선생님용 실시간 정답 창 (people.html) — 인물퀴즈.
+
+   주인공은 맨 위의 "지금 칠판 문제의 정답" 칸이다(아래 listenLive). 그 아래 전체 명단은 보조.
 
    출제 화면은 정답을 마지막에야 보여 주므로, 선생님이 "그 이름이 맞나?"를 판정하려면
    누가 나오는지 미리 알아야 한다. 분야별로 사진·이름·같이 맞는 이름·힌트를 한눈에
@@ -56,7 +58,7 @@ function renderList() {
     const group = state.people.filter((p) => p.topic === tp);
     if (!group.length) continue;
     const sec = el('section', 'people-group');
-    sec.append(el('h2', null, `${tp} (${group.length}명)`));
+    sec.append(el('h3', null, `${tp} (${group.length}명)`));
     const grid = el('ol', 'people-grid');
     for (const p of group) {
       const li = el('li', 'person-card');
@@ -106,6 +108,16 @@ function downloadCsv() {
   setTimeout(() => { a.remove(); URL.revokeObjectURL(url); }, 1000);
 }
 
+/* 인쇄 — 사진은 화면에 보일 때만 불러오므로(loading=lazy) 그대로 인쇄하면 아래쪽 사진이 빈칸으로 나온다.
+   인쇄 전에 전부 불러온다(오래 걸려도 5초에서 끊고 인쇄한다). */
+async function printRoster() {
+  const imgs = [...document.querySelectorAll('.person-photo')];
+  for (const img of imgs) img.loading = 'eager';
+  const loaded = Promise.all(imgs.map((img) => (img.complete ? null : img.decode().catch(() => null))));
+  await Promise.race([loaded, new Promise((r) => setTimeout(r, 5000))]);
+  window.print();
+}
+
 /* —— 선생님 창 ——————————————————————————————————————————————— */
 
 function renderLive(msg) {
@@ -117,7 +129,7 @@ function renderLive(msg) {
   if (!p) {
     box.dataset.state = 'idle';
     $('live-name').textContent = '문제를 기다리는 중';
-    $('live-meta').textContent = '칠판에서 인물퀴즈를 시작하면 여기에 지금 문제의 정답이 떠요.';
+    $('live-meta').textContent = '칠판에서 인물퀴즈를 시작하면 여기에 정답이 떠요.';
     $('live-also').textContent = '';
     $('live-photo').hidden = true;
     return;
@@ -135,7 +147,10 @@ function renderLive(msg) {
 }
 
 function listenLive() {
-  if (typeof BroadcastChannel !== 'function') return;
+  if (typeof BroadcastChannel !== 'function') {
+    $('live-meta').textContent = '이 브라우저에서는 실시간 정답이 뜨지 않아요. 아래 전체 명단을 인쇄해 쓰세요.';
+    return;
+  }
   renderLive(null);   // 연결 전에는 "문제를 기다리는 중" — 이 칸이 무엇인지 먼저 보여 준다
   const ch = new BroadcastChannel(LIVE_CHANNEL);
   ch.onmessage = (e) => renderLive(e.data);
@@ -144,7 +159,7 @@ function listenLive() {
 }
 
 async function boot() {
-  $('btn-print').addEventListener('click', () => window.print());
+  $('btn-print').addEventListener('click', printRoster);
   $('btn-csv').addEventListener('click', downloadCsv);
   try {
     const res = await fetch('data/words.json', { cache: 'no-cache' });
@@ -152,12 +167,12 @@ async function boot() {
     state.people = data.items.filter((it) => it.type === 'person' && it.photo);
     state.numbers = numberPeople(data.items);
   } catch {
-    $('people-sub').textContent = '정답 리스트를 불러오지 못했어요. 인터넷 연결을 확인하고 새로 고쳐 주세요.';
+    $('people-sub').textContent = '명단을 불러오지 못했어요. 인터넷 연결을 확인하고 새로 고쳐 주세요.';
     return;
   }
   // 분야 순서는 데이터에 처음 나온 순서 그대로 (가수 → 배우 → …)
   state.topics = [...new Set(state.people.map((p) => p.topic))];
-  $('people-sub').textContent = `모두 ${state.people.length}명 · 분야 ${state.topics.length}개 — 문제를 내기 전에 미리 보시면 정답 판정이 쉬워요.`;
+  $('people-sub').textContent = `모두 ${state.people.length}명 · 분야 ${state.topics.length}개 — 번호(No.)는 칠판 위쪽 띠의 번호와 같아요.`;
   $('btn-csv').disabled = false;
   renderFilter();
   renderList();

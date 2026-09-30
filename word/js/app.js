@@ -310,7 +310,7 @@ function updateCount() {
 }
 
 /* 인물퀴즈 '정답지 순서대로' — 고른 조건의 인물을 번호 순서대로 10명씩 끊어 세트로 고르게 한다.
-   선생님은 정답 리스트(인쇄물)를 들고 번호를 따라가기만 하면 된다. 조건을 바꾸면 세트도 다시 짠다. */
+   선생님은 전체 명단(인쇄물)을 들고 번호를 따라가기만 하면 된다. 조건을 바꾸면 세트도 다시 짠다. */
 function renderSets() {
   const group = $('group-set');
   const sheet = state.order === 'sheet';
@@ -368,7 +368,7 @@ function nextItem() {
 
 function renderItem() {
   const it = state.item;
-  // 인물은 번호(No.)를 함께 띄운다 — 선생님이 정답 리스트에서 바로 찾는다(아이들이 봐도 정답은 아니다).
+  // 인물은 번호(No.)를 함께 띄운다 — 선생님이 전체 명단에서 바로 찾는다(아이들이 봐도 정답은 아니다).
   const no = it.type === 'person' ? `No.${state.numbers.get(it.id)}` : null;
   $('quiz-topic').textContent = [no, it.topic, TYPES[it.type].cue].filter(Boolean).join(' · ');
   $('btn-people-live').hidden = it.type !== 'person';
@@ -936,7 +936,7 @@ function buildClockPicks() {
 
 /* —— 부팅 ———————————————————————————————————————————————————— */
 
-// 정답 리스트 새 창. 창 이름을 고정해 두면 여러 번 눌러도 창이 하나만 뜬다
+// 선생님용 실시간 정답 창(새 창). 창 이름을 고정해 두면 여러 번 눌러도 창이 하나만 뜬다
 // ('noopener' 를 주면 브라우저가 이름으로 찾지 않고 매번 새 창을 띄운다 — 우리 사이트 창이라 필요 없다).
 function openPeopleWindow() {
   window.open('people.html', 'jjam-word-people');
@@ -946,7 +946,7 @@ function wire() {
   $('brand-home').addEventListener('click', (e) => { e.preventDefault(); show('HOME'); });
   $('btn-setup-back').addEventListener('click', () => show('HOME'));
   $('btn-start').addEventListener('click', start);
-  // 새 창 — 출제 화면을 그대로 둔 채 정답 리스트를 옆에 띄워 놓고 쓸 수 있게.
+  // 새 창 — 출제 화면을 그대로 둔 채 실시간 정답 창을 옆에 띄워 놓고 쓸 수 있게.
   $('btn-people-list').addEventListener('click', openPeopleWindow);
   $('btn-people-live').addEventListener('click', openPeopleWindow);
   $('btn-hint').addEventListener('click', () => setStage('HINT'));
@@ -1068,10 +1068,10 @@ function wire() {
   });
 }
 
-/* —— 선생님 창 (정답 리스트 새 창과 실시간 연결) ——
-   칠판(확장 화면)에는 문제만, 선생님 노트북 화면의 정답 리스트 창에는 "지금 문제의 정답"이 뜬다.
+/* —— 선생님용 실시간 정답 창과 연결 ——
+   칠판(확장 화면)에는 문제만, 선생님 노트북 화면의 실시간 정답 창에는 "지금 문제의 정답"이 뜬다.
    같은 브라우저의 두 창끼리 BroadcastChannel 로 알린다 — 서버 없이, 인터넷 없이 된다.
-   지원하지 않는 브라우저에서는 조용히 빠진다(정답 리스트는 그대로 쓸 수 있다). */
+   지원하지 않는 브라우저에서는 조용히 빠진다(창의 전체 명단은 그대로 쓸 수 있다). */
 const live = typeof BroadcastChannel === 'function' ? new BroadcastChannel(LIVE_CHANNEL) : null;
 
 function liveSend() {
