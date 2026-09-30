@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>인물퀴즈 정답 리스트 — 짬짬이 낱말</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#E4576E">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/PretendardVariable.subset.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/people.css">
+</head>
+<body class="people-page">
+  <!-- 인물퀴즈 정답 리스트 — 설정 화면의 [전체 정답 리스트] 가 새 창으로 연다.
+       선생님이 아이들 외침을 판정하려면 누가 나오는지 미리 알아야 한다.
+       출제 화면과 같은 data/words.json 을 읽으므로 인물을 더하면 여기도 저절로 따라온다. -->
+  <header class="people-head">
+    <div>
+      <h1>🧑 인물퀴즈 정답 리스트</h1>
+      <p class="people-sub" id="people-sub">불러오는 중…</p>
+    </div>
+    <div class="people-actions">
+      <button class="btn btn-primary" id="btn-csv" type="button" disabled>↓ 엑셀(CSV) 내려받기</button>
+      <button class="btn btn-ghost" id="btn-print" type="button">🖨 인쇄 · PDF 저장</button>
+    </div>
+  </header>
+
+  <nav class="people-filter" id="people-filter" aria-label="분야 고르기"></nav>
+
+  <main id="people-list"></main>
+
+  <p class="people-foot">사진: 위키미디어 공용의 자유 라이선스 사진(크기 조정). 사진마다 저작자·라이선스는 CSV 에 함께 들어 있습니다.</p>
+
+  <script type="module" src="js/people.js"></script>
+</body>
+</html>
