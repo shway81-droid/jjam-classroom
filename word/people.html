@@ -26,11 +26,23 @@
     </div>
   </header>
 
+  <!-- 선생님 창 — 칠판에 인물퀴즈가 나오면 지금 문제의 정답이 여기 뜬다(출제 창이 알려 준다).
+       칠판과 같은 화면을 복제해 쓰면 아이들에게도 보이니, 노트북 화면(확장 화면)에 둔다. -->
+  <section class="live" id="live" hidden aria-live="polite">
+    <img class="live-photo" id="live-photo" alt="" hidden>
+    <div class="live-body">
+      <p class="live-label">지금 칠판 문제의 정답</p>
+      <p class="live-name" id="live-name"></p>
+      <p class="live-also" id="live-also"></p>
+      <p class="live-meta" id="live-meta"></p>
+    </div>
+  </section>
+
   <nav class="people-filter" id="people-filter" aria-label="분야 고르기"></nav>
 
   <main id="people-list"></main>
 
-  <p class="people-foot">사진: 위키미디어 공용의 자유 라이선스 사진(크기 조정). 사진마다 저작자·라이선스는 CSV 에 함께 들어 있습니다.</p>
+  <p class="people-foot">번호(No.)는 출제 화면과 같아요 — 설정에서 "정답지 순서대로"를 고르면 이 순서대로 10명씩 나옵니다. 칠판과 다른 화면(확장 화면)에 이 창을 띄워 두면 맨 위에 지금 문제의 정답이 떠요.<br>사진: 위키미디어 공용의 자유 라이선스 사진(크기 조정). 사진마다 저작자·라이선스는 CSV 에 함께 들어 있습니다.</p>
 
   <script type="module" src="js/people.js"></script>
 </body>
