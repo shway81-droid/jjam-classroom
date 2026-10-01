@@ -16,18 +16,18 @@ draw/   한 획씩 따라 그리기 (2026-10-01 합류)
 커밋 하나가 옛 내용 전체를 다시 발행시켰다. 이 표(아래 "지금 배포는…")에 이미 적혀 있던 사실을
 확인하지 않은 것이 원인이다. 선생님들이 수업 중에 쓰는 사이트다 — 다음 규칙은 예외 없다.
 
-1. **발행 대상 저장소(jjam · jjam-quiz · jjam-video · jjam-story · jjam-word · jjam-1min)에
+1. **발행 대상 저장소(jjam · jjam-quiz · jjam-video · jjam-story · jjam-word · jjam-1min · jjam-draw)에
    무엇이든 쓰기 전에** 그 저장소가 어떻게 발행되는지(Pages Source, 워크플로) 먼저 확인한다.
    "이 파일은 사이트와 무관하다"고 단정하지 않는다 — **커밋이 생기는 것 자체가 발행을 일으킬 수 있다.**
 2. **여러 저장소·여러 사이트에 한꺼번에 적용하지 않는다.** 한 곳에 먼저 적용하고, 실제 사이트
    (`https://shway81-droid.github.io/<저장소>/sw.js` 의 커밋 번호, 화면)를 확인한 뒤 나머지로 넓힌다.
 3. **발행에 닿는 PR 은 확인을 끝낸 뒤 머지한다.** 가짜 API·문법 검사만으로 "된다"고 하지 않는다.
    확인할 방법이 없으면 머지하지 말고 선생님께 무엇을 확인 못 했는지 말하고 멈춘다.
-4. **사고가 나면 먼저 되돌린다.** 여섯 곳에 발행 신호를 다시 보내 최신으로 덮어쓰고
+4. **사고가 나면 먼저 되돌린다.** 일곱 곳에 발행 신호를 다시 보내 최신으로 덮어쓰고
    (jjam-classroom `발행 신호 보내기` 수동 실행, 또는 각 저장소 발행 워크플로 Run workflow),
-   여섯 사이트 sw.js 의 커밋 번호가 jjam-classroom main 과 같은지 확인한 다음 원인을 고친다.
-5. 확인 명령(여섯 사이트의 발행 버전):
-   `for r in jjam jjam-quiz jjam-video jjam-story jjam-word jjam-1min; do curl -s https://shway81-droid.github.io/$r/sw.js | grep -oE "CACHE(_NAME)? = '[^']*'"; done`
+   일곱 사이트 sw.js 의 커밋 번호가 jjam-classroom main 과 같은지 확인한 다음 원인을 고친다.
+5. 확인 명령(일곱 사이트의 발행 버전):
+   `for r in jjam jjam-quiz jjam-video jjam-story jjam-word jjam-1min jjam-draw; do curl -s https://shway81-droid.github.io/$r/sw.js | grep -oE "(CACHE(_NAME)?|VERSION) = '[^']*'"; done`
    — 커밋 번호 없이 `jjamquiz-v3` 같은 이름이 나오면 옛 내용이 발행된 것이다.
 
 ## 폴더 안의 규칙이 우선이다
@@ -49,12 +49,12 @@ draw/   한 획씩 따라 그리기 (2026-10-01 합류)
 | `story/` | `shway81-droid/jjam-story` | Pages Source = **GitHub Actions** (`publish.yml` → `actions/deploy-pages`) |
 | `word/` | `shway81-droid/jjam-word` | Pages Source = **GitHub Actions** (`publish.yml` → `actions/deploy-pages`) |
 | `1min/` | `shway81-droid/jjam-1min` | Pages Source = **GitHub Actions** (`publish.yml` → `actions/deploy-pages`) |
-| `draw/` | `shway81-droid/jjam-draw` | Pages Source = **GitHub Actions**. 2026-10-01 합류 — 처음엔 jjam-draw 자체 `pages.yml` 이 자기 main 을 발행했다. 이곳 `draw/` 로 소스를 옮기고 jjam-draw 에 `publish.yml` 을 두는 전환을 단계별로 한다 |
+| `draw/` | `shway81-droid/jjam-draw` | Pages Source = **GitHub Actions** (`publish.yml` → `actions/deploy-pages`). 2026-10-01 합류 — 예전 `pages.yml`(자기 main 발행)은 지웠다. 배포 목록은 `publish.yml` 에 적혀 있다(`tools/`·`drawings/`·`refs/`·`scripts/` 는 배포하지 않는다), sw.js 의 `VERSION` 을 커밋 번호로 |
 
 주소가 저장소 이름에서 나오기 때문에(`github.io/<레포>/`) 여기서 발행하면
 선생님들의 즐겨찾기가 전부 깨진다. 그래서 배포는 아직 저쪽에 있다.
 
-**소스는 이 저장소 하나다.** 기존 여섯 곳은 사람이 손대지 않는 발행 대상이다.
+**소스는 이 저장소 하나다.** 기존 일곱 곳은 사람이 손대지 않는 발행 대상이다.
 거기서 고쳐 봐야 발행이 이곳 내용으로 덮어쓴다.
 
 ## 반영은 자동이다
@@ -63,8 +63,10 @@ draw/   한 획씩 따라 그리기 (2026-10-01 합류)
 저장소에만** `repository_dispatch`(`classroom-published`)를 보내고, 각 저장소의
 `publish.yml` 이 받아 몇 분 안에 발행한다.
 
-신호를 보내려면 다른 저장소를 두드려야 하므로 `PUBLISH_TOKEN` 시크릿(저 여섯
+신호를 보내려면 다른 저장소를 두드려야 하므로 `PUBLISH_TOKEN` 시크릿(저 일곱
 저장소에 대한 Contents 쓰기 권한만 가진 fine-grained PAT)이 필요하다.
+
+`PUBLISH_TOKEN` 에는 일곱 발행 저장소(jjam-draw 포함)가 모두 들어 있어야 한다.
 
 **토큰이 만료돼도 사이트는 죽지 않는다.** `publish-dispatch.yml` 만 빨간불이 되고,
 각 저장소의 하루 한 번 크론(KST 새벽 4시대)이 안전망으로 남아 반영이 최대 하루
@@ -76,7 +78,7 @@ draw/   한 획씩 따라 그리기 (2026-10-01 합류)
 갱신해 여유가 생기면 그 이슈를 자동으로 닫는다. 이슈 본문 틀은
 `.github/token-expiry-issue.md` 에 있다.
 
-**발행 저장소가 잠들지 않게 한다.** 여섯 발행 저장소는 사람이 커밋하지 않으므로, 60일이
+**발행 저장소가 잠들지 않게 한다.** 일곱 발행 저장소는 사람이 커밋하지 않으므로, 60일이
 지나면 GitHub 가 크론 달린 `publish.yml` 을 통째로 끈다 — 그러면 발행 신호도 받지 못한다.
 `publish-keepalive.yml` 이 **매달 2일** 각 저장소에 `.github/keepalive.txt` 를 커밋해
 활동 중으로 만든다(`[skip ci]` 라 거기서 검증이 돌지 않는다). "곧 꺼진다"는 메일이 오면
@@ -90,7 +92,7 @@ main 에 얼어 있던 옛 내용이 발행됐다. 같은 날 세 저장소의 S
 **발행 저장소를 새로 만들거나 설정을 건드릴 때는 Source 가 GitHub Actions 인지 꼭 확인한다.**
 
 급하면 각 저장소 Actions 탭의 **Run workflow** 로 직접 발행할 수도 있고,
-이 저장소의 `발행 신호 보내기` 를 손으로 돌리면 여섯 곳이 모두 발행된다.
+이 저장소의 `발행 신호 보내기` 를 손으로 돌리면 일곱 곳이 모두 발행된다.
 
 ## 검증
 
@@ -165,7 +167,7 @@ node scripts/sync-shared.mjs --check   # 어긋난 곳만 알려 준다 (CI 가 
 갖고 있어야 한다. 저장소 루트에 한 벌만 두면 `game/index.html` 의
 `shared/jjam-switcher.js` 경로가 안 맞고, `../shared/` 로 바꾸면 배포된 사이트에서
 사이트 루트를 벗어나 404 가 난다. 심링크나 빌드 단계를 쓰면 되지만 이 프로젝트는
-**빌드 단계 없음**이 원칙이다. 그래서 파일은 여섯 벌로 두되 손대는 곳을 하나로 줄였다.
+**빌드 단계 없음**이 원칙이다. 그래서 파일은 일곱 벌로 두되 손대는 곳을 하나로 줄였다.
 
 `game/shared/style.css` 와 `game/shared/engine.js` 는 **공통이 아니다** — 게임 전용이고
 `SHARED` 목록에 없다.

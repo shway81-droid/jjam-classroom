@@ -1,6 +1,6 @@
 name: 발행 저장소 깨워 두기
 
-# 발행을 맡은 여섯 저장소(jjam · jjam-quiz · jjam-video · jjam-story · jjam-word · jjam-1min)는
+# 발행을 맡은 일곱 저장소(jjam · jjam-quiz · jjam-video · jjam-story · jjam-word · jjam-1min · jjam-draw)는
 # 소스를 이 저장소로 옮긴 뒤로 사람이 커밋하지 않는다. GitHub 는 커밋이 60일 없으면
 # 크론이 걸린 워크플로를 통째로 꺼 버린다. 그러면 하루 한 번 크론만이 아니라
 # `publish-dispatch.yml` 이 보내는 발행 신호(repository_dispatch)도 받지 못해 **발행이 멈춘다.**
@@ -69,7 +69,7 @@ jobs:
           BODY=$(printf '발행 워크플로가 60일 비활동으로 꺼지지 않도록 %s/%s 의 publish-keepalive.yml 이 매달 갱신한다.\n마지막 갱신: %s\n' "$OWNER" "jjam-classroom" "$NOW" | base64 -w0)
 
           FAILED=0
-          for REPO in jjam jjam-quiz jjam-video jjam-story jjam-word jjam-1min; do
+          for REPO in jjam jjam-quiz jjam-video jjam-story jjam-word jjam-1min jjam-draw; do
             # 파일이 이미 있으면 그 sha 를 줘야 덮어쓸 수 있다
             SHA=$(api "https://api.github.com/repos/$OWNER/$REPO/contents/$FILE" | jq -r '.sha // empty')
             if [ -n "$SHA" ]; then
@@ -99,7 +99,7 @@ jobs:
           TOKEN: ${{ secrets.PUBLISH_TOKEN }}
           OWNER: ${{ github.repository_owner }}
         run: |
-          REPOS="jjam jjam-quiz jjam-video jjam-story jjam-word jjam-1min"
+          REPOS="jjam jjam-quiz jjam-video jjam-story jjam-word jjam-1min jjam-draw"
 
           dispatch() {
             for REPO in $1; do
@@ -132,7 +132,7 @@ jobs:
             sleep 150
             LEFT=$(stale)
             if [ -z "$LEFT" ]; then
-              echo "✓ 여섯 사이트 모두 최신 내용이다 ($(upstream))"
+              echo "✓ 일곱 사이트 모두 최신 내용이다 ($(upstream))"
               exit 0
             fi
             echo "아직 최신이 아닌 곳:$LEFT — 다시 신호를 보낸다 ($ROUND/3)"
@@ -145,5 +145,5 @@ jobs:
             echo "::error::최신 내용으로 돌아오지 않은 사이트:$LEFT — 그 저장소 Actions 탭에서 발행 워크플로를 Run workflow 로 돌려야 한다."
             exit 1
           fi
-          echo "✓ 여섯 사이트 모두 최신 내용이다 ($(upstream))"
+          echo "✓ 일곱 사이트 모두 최신 내용이다 ($(upstream))"
 
