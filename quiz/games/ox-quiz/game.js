@@ -841,3 +841,6 @@ function showResult() {
 // ── Verify question count (dev sanity check) ─────────────────
 if (ALL_QUESTIONS.length !== 300) {
 }
+
+// 컴퓨터와 1:1 — 컴퓨터(2번 칸)에게 지금 문제의 정답을 알려 준다(shared/engine.js 의 jjamBot 참고).
+window.jjamBot = { answer: function () { return String(currentQ.a); } };
