@@ -1236,7 +1236,7 @@ html {
 .jjam-bot-text { font-size: 0.85rem; }
 .jjam-bot-levels { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.5rem; margin-top: 0.8rem; }
 .jjam-bot-levels[hidden] { display: none; }
-.jjam-bot-hint { width: 100%; text-align: center; font-size: 0.95rem; font-weight: 700; color: #555; margin: 0; }
+.jjam-bot-hint { width: 100%; text-align: center; font-size: 0.95rem; font-weight: 700; color: inherit; opacity: 0.85; margin: 0; }
 .jjam-bot-level {
   padding: 0.45rem 0.9rem;
   font: inherit;

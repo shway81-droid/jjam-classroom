@@ -205,6 +205,8 @@ function _jjamBotCandidates() {
   return Array.prototype.filter.call(els, function (el) {
     if (el.disabled || el.closest('[hidden]')) return false;
     if (/state-disabled|state-correct|state-wrong|disabled-wait/.test(el.className)) return false;
+    // 문제 사이에 '?' 로 비워 둔 보기 — 누를 것이 아니다
+    if ((el.textContent || '').trim() === '?') return false;
     return el.offsetParent !== null;
   });
 }
@@ -265,7 +267,7 @@ function _jjamBotRelabel() {
 function _jjamBotTick() {
   if (!_jjamBot.active) return;
   var cands = _jjamBotCandidates();
-  _jjamBotRelabel();   // 결과 화면의 'P2' 도 바꿔야 해서 늘 돈다(글자 몇 개 훑는 정도라 가볍다)
+  _jjamBotRelabel();   // 결과 화면의 'P2' 도 바꿔야 해서 늘 돈다(글자 몇 개 살피는 정도라 가볍다)
   var on = cands.length > 0;
   // 문제의 얼굴 — 2번 칸의 모든 보기 글자(눌러서 꺼진 것 포함)와 문제 번호.
   // 누를 수 있는 것만 세면 컴퓨터가 정답을 누른 순간 목록이 줄어 "새 문제"로 착각하고 또 누른다.
