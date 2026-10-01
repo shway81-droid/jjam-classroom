@@ -1,0 +1,66 @@
+name: 모아보기 검증·발행
+
+# 짬짬이 교실 모아보기(home/)는 다른 일곱 사이트와 달리 **이 저장소가 직접 발행한다.**
+#   주소: https://shway81-droid.github.io/jjam-classroom/
+#   Pages Source = GitHub Actions (2026-10-01 설정). 저장소 전체가 아니라
+#   home/ 에서 고른 파일만 올린다 — 나머지 폴더(게임·퀴즈 …)가 이 주소 아래에
+#   한 벌 더 공개되면 선생님들이 옛 주소와 헷갈린다.
+#
+# PR 에서는 검증만, main 에 들어오면 검증 뒤 발행한다.
+
+on:
+  pull_request:
+    paths: ['home/**', '.github/workflows/home.yml']
+  push:
+    branches: [main]
+    paths: ['home/**', '.github/workflows/home.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-home
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: 웹폰트 커버리지
+        working-directory: home
+        run: node scripts/check-font-coverage.mjs
+      # 발행할 파일을 고른다. 여기 없는 것(scripts/·shared/·og-image.svg)은 올리지 않는다.
+      - name: 발행할 파일 모으기
+        run: |
+          mkdir -p site
+          cp home/index.html home/favicon.svg home/og-image.png site/
+          cp -r home/assets site/
+          test -s site/index.html
+          ls -R site
+      - name: Pages 설정 확인
+        if: github.event_name != 'pull_request'
+        uses: actions/configure-pages@v5
+      - name: 발행 묶음 올리기
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: verify
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 발행
+        id: deployment
+        uses: actions/deploy-pages@v4

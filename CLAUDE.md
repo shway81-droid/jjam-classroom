@@ -7,6 +7,7 @@ game/   퀴즈 아닌 미니게임 105종      quiz/   문답형만 모은 자�
 video/  짧은 교육 영상                story/  생각하고 말하기
 word/   입으로 외치는 말놀이          1min/   교과서 차시를 1분 영상으로
 draw/   한 획씩 따라 그리기 (2026-10-01 합류)
+home/   짬짬이 교실 모아보기 — 일곱 사이트를 모은 첫 화면 (2026-10-01)
 ```
 
 ## ⛔ 배포·발행에 닿는 변경 — 반드시 지킨다 (2026-09-30 사고)
@@ -50,6 +51,12 @@ draw/   한 획씩 따라 그리기 (2026-10-01 합류)
 | `word/` | `shway81-droid/jjam-word` | Pages Source = **GitHub Actions** (`publish.yml` → `actions/deploy-pages`) |
 | `1min/` | `shway81-droid/jjam-1min` | Pages Source = **GitHub Actions** (`publish.yml` → `actions/deploy-pages`) |
 | `draw/` | `shway81-droid/jjam-draw` | Pages Source = **GitHub Actions** (`publish.yml` → `actions/deploy-pages`). 2026-10-01 합류 — 예전 `pages.yml`(자기 main 발행)은 지웠다. 배포 목록은 `publish.yml` 에 적혀 있다(`tools/`·`drawings/`·`refs/`·`scripts/` 는 배포하지 않는다), sw.js 의 `VERSION` 을 커밋 번호로 |
+
+**`home/` 만 예외다 — 이 저장소가 직접 발행한다.** 주소 `https://shway81-droid.github.io/jjam-classroom/`,
+Pages Source = **GitHub Actions**, 워크플로 `.github/workflows/home.yml`. 저장소 전체가 아니라 `home/` 의
+`index.html`·`favicon.svg`·`og-image.png`·`assets/` 만 올린다(다른 폴더가 이 주소 아래 한 벌 더 공개되지 않게).
+`publish-dispatch.yml`·`publish-keepalive.yml` 과 무관하고 `PUBLISH_TOKEN` 도 쓰지 않는다. 서비스워커가 없어
+고치면 새로 고침 없이 바로 보인다. 확인: `curl -s https://shway81-droid.github.io/jjam-classroom/ | grep -o '<title>[^<]*'`.
 
 주소가 저장소 이름에서 나오기 때문에(`github.io/<레포>/`) 여기서 발행하면
 선생님들의 즐겨찾기가 전부 깨진다. 그래서 배포는 아직 저쪽에 있다.
@@ -160,7 +167,7 @@ node scripts/sync-shared.mjs           # game/ 내용으로 맞춘다
 node scripts/sync-shared.mjs --check   # 어긋난 곳만 알려 준다 (CI 가 이걸 돌린다)
 ```
 
-`quiz/`·`video/`·`story/`·`word/`·`1min/`·`draw/` 안의 이 다섯 파일은 **생성물이다. 손으로 고치지
+`quiz/`·`video/`·`story/`·`word/`·`1min/`·`draw/`·`home/` 안의 이 다섯 파일은 **생성물이다. 손으로 고치지
 마라.** 고쳐도 CI(`공통 파일 일치 확인`)가 막고, 다음 동기화 때 덮어써진다.
 
 왜 한 벌로 줄이지 않았나 — 폰트와 스위처는 각 사이트가 **배포될 때 자기 루트에**
