@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>짬짬이 가족 아이콘 나란히 보기</title>
+<style>
+  :root { --line:#DCD6C8; }
+  body { margin:0; padding:24px; font-family:"Malgun Gothic", system-ui, sans-serif; color:#1D3557;
+         background:#F4F1EA; }
+  h1 { font-size:22px; margin:0 0 6px; }
+  p.lead { margin:0 0 20px; color:#6B7A8F; font-size:14px; line-height:1.6; max-width:62em; }
+  section { margin-bottom:26px; padding:18px; border-radius:16px; border:2px solid var(--line); }
+  section.light { background:#FFFFFF; }
+  section.dark { background:#151B26; color:#E8ECF2; border-color:#2A3444; }
+  section h2 { font-size:15px; margin:0 0 14px; }
+  .row { display:flex; gap:18px; flex-wrap:wrap; align-items:flex-end; }
+  .item { text-align:center; font-size:12px; line-height:1.5; }
+  .item .name { font-weight:700; font-size:13px; margin-top:6px; }
+  .item .hue { opacity:.7; }
+  .sizes { display:flex; gap:8px; align-items:flex-end; justify-content:center; }
+  .tabsim { display:flex; gap:2px; align-items:center; margin-top:14px; padding:6px 8px;
+            border-radius:8px; background:rgba(125,125,125,.15); width:max-content; }
+  .tabsim .t { display:flex; align-items:center; gap:5px; padding:5px 10px; border-radius:6px;
+               background:rgba(255,255,255,.55); font-size:12px; white-space:nowrap; }
+  section.dark .tabsim .t { background:rgba(255,255,255,.10); }
+  .todo { opacity:.55; }
+</style>
+</head>
+<body>
+<h1>짬짬이 가족 아이콘 나란히 보기</h1>
+<p class="lead">
+  PRD 12장의 색상각 계산이 <b>실제 렌더링에서도 갈리는지</b> 확인하는 페이지입니다(개발 순서 9번).
+  #46에서 영상의 네이비가 어두운 테마에서 묻히는 것을 렌더링해 보고서야 발견한 전례가 있어,
+  값만 정해 두고 넘어가지 않습니다. 보는 법 — <b>16px 줄에서 여섯 개가 서로 다른 타일로 보이는가</b>,
+  그리고 <b>탭 줄 시뮬레이션에서 그리기를 한눈에 찾을 수 있는가</b>.
+  낱말은 아직 바탕색이 정해지지 않아 회색으로 둡니다.
+</p>
+
+<section class="light" id="light"><h2>밝은 테마</h2></section>
+<section class="dark" id="dark"><h2>어두운 테마</h2></section>
+
+<script>
+const FAMILY = [
+  { key:'game',  name:'게임',  color:'#FFB703', hue:'43°',  symbol:'game' },
+  { key:'quiz',  name:'퀴즈',  color:'#12A57C', hue:'165°', symbol:'quiz' },
+  { key:'rest',  name:'쉼',    color:'#0E7C86', hue:'185°', symbol:'rest' },
+  { key:'video', name:'영상',  color:'#4FA8E8', hue:'208°', symbol:'video' },
+  { key:'story', name:'이야기', color:'#6145B5', hue:'254°', symbol:'story' },
+  { key:'draw',  name:'그리기', color:'#E4572E', hue:'14°',  symbol:'pencil' },
+  { key:'word',  name:'낱말',  color:'#9AA3AE', hue:'미정',  symbol:'word', todo:true },
+];
+
+const SYMBOL = {
+  // 그리기만 확정된 심볼입니다(연필). 나머지는 자리표시 도형으로, 여기서 볼 것은 바탕색 구분입니다.
+  pencil: `<polygon points="71.6,86.4 32.1,46.9 44.9,34.1 84.4,73.6" fill="#fff"/>
+           <polygon points="32.1,46.9 24,26 44.9,34.1" fill="#1D3557"/>
+           <polygon points="71.6,86.4 65.4,80.2 78.2,67.4 84.4,73.6" fill="#1D3557"/>`,
+  game:  `<circle cx="42" cy="62" r="20" fill="#fff"/><rect x="20" y="56" width="44" height="12" rx="6" fill="#fff"/>`,
+  quiz:  `<path d="M 30 44 C 30 26, 62 26, 58 46 C 55 58, 46 58, 46 68" stroke="#fff" stroke-width="11" fill="none" stroke-linecap="round"/><circle cx="46" cy="82" r="6.5" fill="#fff"/>`,
+  rest:  `<rect x="22" y="34" width="46" height="34" rx="10" fill="#fff"/><path d="M 22 76 L 68 76" stroke="#fff" stroke-width="8" stroke-linecap="round"/>`,
+  video: `<polygon points="32,30 32,84 76,57" fill="#fff"/>`,
+  story: `<rect x="22" y="30" width="46" height="54" rx="6" fill="#fff"/><path d="M 45 30 L 45 84" stroke="#6145B5" stroke-width="3"/>`,
+  word:  `<rect x="20" y="42" width="52" height="14" rx="4" fill="#fff"/><rect x="20" y="64" width="34" height="14" rx="4" fill="#fff"/>`,
+};
+
+function tile(site, px) {
+  return `<svg width="${px}" height="${px}" viewBox="0 0 100 100" aria-label="${site.name}">
+    <rect width="100" height="100" rx="24" fill="${site.color}"/>
+    ${SYMBOL[site.symbol]}
+    <circle cx="76" cy="24" r="19" fill="#fff"/>
+    <circle cx="76" cy="24" r="14.5" fill="none" stroke="#1D3557" stroke-width="3.5"/>
+    <path d="M 76 24 L 76 15 M 76 24 L 83 24" stroke="#1D3557" stroke-width="3.5"
+          stroke-linecap="round" fill="none"/>
+  </svg>`;
+}
+
+for (const id of ['light', 'dark']) {
+  const host = document.getElementById(id);
+  const row = document.createElement('div');
+  row.className = 'row';
+  for (const s of FAMILY) {
+    const div = document.createElement('div');
+    div.className = 'item' + (s.todo ? ' todo' : '');
+    div.innerHTML = `<div class="sizes">${tile(s, 64)}${tile(s, 32)}${tile(s, 16)}</div>`
+      + `<div class="name">${s.name}</div><div class="hue">${s.hue}</div>`;
+    row.appendChild(div);
+  }
+  host.appendChild(row);
+
+  const tabs = document.createElement('div');
+  tabs.className = 'tabsim';
+  tabs.innerHTML = FAMILY.map(s => `<span class="t${s.todo ? ' todo' : ''}">${tile(s, 16)} 짬짬이 ${s.name}</span>`).join('');
+  host.appendChild(tabs);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+/* 짬짬이 그리기 — 전자칠판 8~9m 거리 기준.
+   PRD 10장: 짧은 말 최소 48px, 교사 멘트 최소 32px.
+   PRD 3.4: 선 굵기·색은 여기서 한 번만 정하고 전 그림이 같은 값을 씁니다. */
+
+:root {
+  --ink: #1D3557;          /* 네이비 — 글자와 지난 획 */
+  --now: #B85C00;          /* 진한 앰버 — 이번 획. 흰 배경 대비 4.6:1 */
+  --coral: #E4572E;        /* 가족 색 */
+  --bg: #F4F1EA;
+  --card: #FFFFFF;
+  --line: #DCD6C8;
+  --dim: #6B7A8F;
+
+  --stroke-now: 7;         /* viewBox 단위 */
+  --stroke-past: 4;
+}
+
+@font-face {
+  font-family: 'Pretendard Variable';
+  font-style: normal;
+  font-weight: 45 920;
+  font-display: swap;
+  src: url('../assets/fonts/PretendardVariable.subset.woff2') format('woff2-variations');
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Pretendard Variable", "Pretendard", "Malgun Gothic", -apple-system, system-ui, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+button { font: inherit; color: inherit; cursor: pointer; }
+[hidden] { display: none !important; }
+
+.screen { min-height: 100vh; }
+
+/* ---------------------------------------------------------------- 상단바
+   짬짬이 가족(게임·퀴즈·영상·이야기·낱말·1분사회)과 같은 구조 — 짬짬이 이야기의 css/style.css 를 따릅니다.
+   색을 채운 띠 위에 [로고 46px + 제목 + 부제], 오른쪽에 [처음으로] + 자매 사이트 바로가기.
+   띠 색만 그리기의 가족 색(코랄)을 씁니다. 폭과 좌우 여백은 홈 본문과 같게 맞춰
+   로고와 첫 카드의 왼쪽 선이 어긋나지 않게 합니다. */
+:root { --wrap: 1180px; --gutter: 32px; --coral-deep: #C8441F; }
+.topbar {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  max-width: var(--wrap); margin: 0 auto; padding: 0.9rem var(--gutter);
+  background: var(--coral);
+  box-shadow: 0 10px 24px rgba(140, 45, 18, 0.22);
+  position: sticky; top: 0; z-index: 10;
+}
+.brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: #fff; letter-spacing: -0.01em; }
+.brand-icon { width: 46px; height: 46px; display: inline-flex; flex: none; }
+.brand-icon img { width: 46px; height: 46px; display: block; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.2; }
+.brand-name { font-size: 1.45rem; font-weight: 900; color: #fff; }
+.brand-sub { font-size: 0.8rem; font-weight: 600; color: #FFE2D6; }
+.topbar-actions { display: flex; align-items: center; gap: 0.75rem; flex: none; }
+.topbar .icon-btn {
+  width: 3rem; height: 3rem; display: inline-flex; align-items: center; justify-content: center;
+  background: #FFE9E1; border: 2px solid rgba(255, 255, 255, 0.55); border-radius: 12px;
+  transition: transform 0.1s ease, background 0.1s ease;
+}
+.topbar .icon-btn img { width: 1.7rem; height: 1.7rem; }
+.topbar .icon-btn:hover { background: #FFF3EE; transform: translateY(-1px); }
+.topbar .icon-btn:active { transform: translateY(1px); }
+.topbar .icon-btn:focus-visible { outline: 3px solid #FFD34D; outline-offset: 2px; }
+
+/* ---------------------------------------------------------------- 홈 */
+.home { padding: 0 var(--gutter) 8vh; max-width: var(--wrap); margin: 0 auto; }
+/* 안내 문구 — 상단바 바로 아래 흰 띠. 음수 마진으로 본문 여백을 되돌려 띠 끝을 상단바 끝과 맞춥니다. */
+.cta-strip {
+  background: var(--card); border-bottom: 1px solid var(--line);
+  margin: 0 calc(-1 * var(--gutter)) 0; padding: 0.85rem var(--gutter);
+  display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+}
+.cta-copy { margin: 0; font-size: 0.95rem; font-weight: 600; color: #4A5568; }
+.cta-copy b { color: var(--coral-deep); font-weight: 900; }
+.cta-strip .hint { margin: 0; font-size: 0.8rem; color: var(--dim); }
+.site-footer { margin-top: 6vh; padding-top: 2vh; border-top: 1px solid var(--line); color: var(--dim); font-size: 0.9rem; }
+.site-footer p { margin: 0.3em 0; }
+.site-footer .credit { font-size: 0.75rem; }
+.site-footer a { color: inherit; }
+
+/* 좁은 화면 — 바로가기 스타일은 공통 파일 안에 있어 줄일 수 없으므로 상단바를 두 줄로 접습니다(자매 사이트와 같은 방식). */
+@media (max-width: 720px) {
+  .topbar { flex-wrap: wrap; row-gap: 0.5rem; }
+  .topbar-actions { width: 100%; justify-content: flex-end; flex-wrap: wrap; row-gap: 0.5rem; }
+}
+@media (max-width: 640px) {
+  :root { --gutter: 20px; }
+}
+/* 전자칠판(대형 화면) — 자매 사이트와 같이 1560px 상자, 글자를 키웁니다. */
+@media (min-width: 1600px) {
+  html { font-size: 23px; }
+  :root { --wrap: 1560px; --gutter: 40px; }
+}
+
+.filters { margin: 3vh 0 2vh; display: flex; flex-direction: column; gap: 12px; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip {
+  border: 2px solid var(--line); background: var(--card); border-radius: 999px;
+  padding: .5em 1.1em; font-size: clamp(16px, 1.2vw, 21px); font-weight: 600;
+  color: var(--dim);
+}
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+.chip:focus-visible, .btn:focus-visible, .card:focus-visible {
+  outline: 4px solid var(--coral); outline-offset: 3px;
+}
+
+.grid {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+.card {
+  width: 100%; display: block; text-align: left;
+  background: var(--card); border: 2px solid var(--line); border-radius: 20px;
+  padding: 14px; position: relative;
+}
+.card:hover { border-color: var(--coral); }
+.card .thumb { width: 100%; aspect-ratio: 4 / 5; display: block; }
+.card .thumb path { fill: none; stroke: var(--ink); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+.card .name { font-size: clamp(19px, 1.5vw, 26px); font-weight: 700; margin: 10px 0 4px; }
+.card .facts { font-size: clamp(15px, 1.2vw, 20px); color: var(--dim); font-weight: 600; }
+.card .star {
+  position: absolute; top: 10px; right: 10px; border: 0; background: transparent;
+  font-size: 26px; line-height: 1; padding: 6px; border-radius: 12px;
+}
+.card .badge {
+  position: absolute; top: 14px; left: 14px; background: var(--coral); color: #fff;
+  font-size: 13px; font-weight: 700; padding: .25em .7em; border-radius: 999px;
+}
+.empty { font-size: 22px; color: var(--dim); }
+
+/* ---------------------------------------------------------------- 2단 배치 (PRD 5.1) */
+/* 캔버스는 높이가 고정이라 stretch 여도 커지지 않고, 오른쪽 단만 꽉 차서
+   조작 막대가 맨 아래로 갑니다(PRD 5.1의 배치 순서). */
+.draw, .ready {
+  display: grid; grid-template-columns: min-content 1fr;
+  gap: 2.5vw; padding: 2vh 2.5vw; height: 100vh; align-items: stretch;
+}
+.stage { align-self: center; }
+.stage { height: 92vh; position: relative; }
+.stage-sm { height: 82vh; }
+.canvas {
+  height: 100%; width: auto; display: block;
+  background: #fff; border-radius: 22px; box-shadow: 0 2px 0 var(--line);
+}
+.canvas.peek { position: absolute; inset: 0; }
+
+.side { display: flex; flex-direction: column; gap: 1.6vh; min-width: 0; }
+
+.meta { display: flex; align-items: baseline; gap: 1.2em; }
+.meta b { font-size: clamp(30px, 2.6vw, 48px); letter-spacing: .02em; }
+.meta .time { font-size: clamp(24px, 2vw, 38px); color: var(--dim); font-weight: 700; }
+
+/* 짧은 말 — 최소 48px */
+.label {
+  font-size: clamp(48px, 4.8vw, 108px); font-weight: 800; line-height: 1.1;
+  margin: 0; letter-spacing: -.02em; word-break: keep-all;
+}
+/* 교사 멘트 — 최소 32px */
+.say {
+  font-size: clamp(32px, 2.5vw, 56px); font-weight: 600; line-height: 1.35;
+  margin: 0; color: var(--dim); word-break: keep-all;
+}
+.resume {
+  font-size: clamp(20px, 1.5vw, 28px); font-weight: 700; margin: 0;
+  color: var(--coral);
+}
+.kicker { font-size: clamp(18px, 1.4vw, 24px); font-weight: 700; color: var(--coral); margin: 0; }
+.side h2 { font-size: clamp(34px, 3.2vw, 60px); margin: 0; letter-spacing: -.02em; }
+.setup {
+  font-size: clamp(24px, 2vw, 40px); font-weight: 600; line-height: 1.35; margin: 0;
+  color: var(--dim); word-break: keep-all;
+}
+.color-time { font-size: clamp(40px, 4vw, 84px); font-weight: 800; margin: 0; }
+
+/* ---------------------------------------------------------------- 조작 막대 */
+.bar { margin-top: auto; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.btn {
+  border: 2px solid var(--line); background: var(--card); border-radius: 14px;
+  padding: .6em .9em; font-size: clamp(17px, 1.3vw, 23px); font-weight: 700;
+  display: inline-flex; align-items: center; gap: .5em;
+}
+.btn:hover { border-color: var(--ink); }
+.btn-go { background: var(--ink); border-color: var(--ink); color: #fff; }
+.btn-go:hover { background: #16283f; }
+.btn-quiet { color: var(--dim); }
+.btn-big { padding: .8em 1.6em; font-size: clamp(22px, 1.8vw, 32px); }
+kbd {
+  font: inherit; font-size: .78em; font-weight: 700; opacity: .65;
+  border: 1.5px solid currentColor; border-radius: 6px; padding: 0 .35em;
+}
+
+.seg { display: inline-flex; border: 2px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--card); }
+.seg button {
+  border: 0; background: transparent; padding: .6em .9em;
+  font-size: clamp(17px, 1.3vw, 23px); font-weight: 700; color: var(--dim);
+}
+.seg button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+.seg-speed { margin-left: auto; }
+
+.options { display: flex; flex-direction: column; gap: 10px; margin: 1vh 0; }
+.opt { display: flex; align-items: center; gap: 14px; }
+.opt[hidden] { display: none; }
+.credit { font-size: clamp(13px, 1vw, 16px); color: var(--dim); margin: 0 0 1vh; }
+.opt-name { font-size: clamp(18px, 1.4vw, 26px); font-weight: 700; min-width: 5.5em; }
+
+/* 나가기 확인 — 8m 에서 읽히고 리모컨으로 답할 수 있어야 합니다 */
+.confirm {
+  border: 3px solid var(--coral); background: var(--card); border-radius: 18px;
+  padding: 1.2em 1.4em; display: flex; flex-direction: column; gap: 14px;
+}
+.confirm p {
+  margin: 0; font-size: clamp(26px, 2.2vw, 44px); font-weight: 800; word-break: keep-all;
+}
+.confirm .bar { margin-top: 0; }
+
+.tap-hint {
+  position: absolute; left: 0; right: 0; bottom: 14px; text-align: center;
+  font-size: clamp(16px, 1.2vw, 22px); font-weight: 700; color: var(--dim);
+  margin: 0; pointer-events: none;
+}
+
+/* ---------------------------------------------------------------- 획 (PRD 3.4) */
+.canvas path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.canvas path.past { stroke: var(--ink); stroke-width: var(--stroke-past); opacity: .6; }
+.canvas path.now  { stroke: var(--now);  stroke-width: var(--stroke-now); }
+.canvas circle.dot { fill: var(--now); }
+
+/* ---------------------------------------------------------------- 마무리 */
+.finish {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 2vh; text-align: center; padding: 6vh 6vw;
+}
+.finish h2 { font-size: clamp(44px, 5vw, 96px); margin: 0; }
+.finish .lead { font-size: clamp(20px, 1.8vw, 32px); color: var(--dim); margin: 0; max-width: 22em; }
+.finish .bar { margin-top: 2vh; justify-content: center; }
+
+/* ---------------------------------------------------------------- 좁은 화면 */
+@media (max-width: 900px) {
+  .draw, .ready { grid-template-columns: 1fr; height: auto; min-height: 100vh; }
+  .stage, .stage-sm { height: auto; }
+  .canvas { height: auto; width: 100%; }
+  .bar { margin-top: 2vh; }
+}

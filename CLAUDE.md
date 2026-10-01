@@ -1,11 +1,12 @@
 # 짬짬이 교실 — 작업 규칙 (Claude용)
 
-여섯 사이트를 한 저장소에 모은 곳이다. **폴더 하나가 사이트 하나다.**
+일곱 사이트를 한 저장소에 모은 곳이다. **폴더 하나가 사이트 하나다.**
 
 ```
 game/   퀴즈 아닌 미니게임 105종      quiz/   문답형만 모은 자매 버전
 video/  짧은 교육 영상                story/  생각하고 말하기
 word/   입으로 외치는 말놀이          1min/   교과서 차시를 1분 영상으로
+draw/   한 획씩 따라 그리기 (2026-10-01 합류)
 ```
 
 ## ⛔ 배포·발행에 닿는 변경 — 반드시 지킨다 (2026-09-30 사고)
@@ -48,6 +49,7 @@ word/   입으로 외치는 말놀이          1min/   교과서 차시를 1분 
 | `story/` | `shway81-droid/jjam-story` | Pages Source = **GitHub Actions** (`publish.yml` → `actions/deploy-pages`) |
 | `word/` | `shway81-droid/jjam-word` | Pages Source = **GitHub Actions** (`publish.yml` → `actions/deploy-pages`) |
 | `1min/` | `shway81-droid/jjam-1min` | Pages Source = **GitHub Actions** (`publish.yml` → `actions/deploy-pages`) |
+| `draw/` | `shway81-droid/jjam-draw` | Pages Source = **GitHub Actions**. 2026-10-01 합류 — 처음엔 jjam-draw 자체 `pages.yml` 이 자기 main 을 발행했다. 이곳 `draw/` 로 소스를 옮기고 jjam-draw 에 `publish.yml` 을 두는 전환을 단계별로 한다 |
 
 주소가 저장소 이름에서 나오기 때문에(`github.io/<레포>/`) 여기서 발행하면
 선생님들의 즐겨찾기가 전부 깨진다. 그래서 배포는 아직 저쪽에 있다.
@@ -103,9 +105,10 @@ cd video && node scripts/check-sources.mjs   # 출처 검증 — 인터넷 필�
 cd story && node scripts/validate-data.mjs && node scripts/check-font-coverage.mjs
 cd 1min  && node scripts/validate-data.mjs && node scripts/gen-data.mjs --check && node scripts/check-font-coverage.mjs
 cd 1min  && node scripts/check-sources.mjs   # 출처 검증 — 인터넷 필요
+cd draw  && npm test && node scripts/check-font-coverage.mjs
 ```
 
-CI 는 `.github/workflows/{game,quiz,video,story,word,1min}.yml` 여섯 벌이고 각각
+CI 는 `.github/workflows/{game,quiz,video,story,word,1min,draw}.yml` 일곱 벌이고 각각
 **경로 필터**가 걸려 있다. 필터를 지우지 마라 — 지우면 낱말 문항 하나를 고쳐도
 게임 105종 검증이 따라 돌아 커밋 하나에 수십 분이 걸린다.
 
@@ -138,7 +141,7 @@ cd game && npm run verify:browser -- --all      # 십수 분
 
 ## 공통 파일 — `game/` 한 곳에서만 고친다
 
-여섯 폴더에서 글자 하나까지 같아야 하는 파일이 다섯 개 있다.
+일곱 폴더에서 글자 하나까지 같아야 하는 파일이 다섯 개 있다.
 
 ```
 shared/jjam-switcher.js          헤더의 자매 사이트 바로가기
@@ -148,14 +151,14 @@ assets/fonts/coverage.txt
 assets/fonts/LICENSE.txt
 ```
 
-**상류는 `game/` 이다.** 여기서 고치고 아래를 돌리면 나머지 다섯이 따라온다.
+**상류는 `game/` 이다.** 여기서 고치고 아래를 돌리면 나머지 여섯이 따라온다.
 
 ```bash
 node scripts/sync-shared.mjs           # game/ 내용으로 맞춘다
 node scripts/sync-shared.mjs --check   # 어긋난 곳만 알려 준다 (CI 가 이걸 돌린다)
 ```
 
-`quiz/`·`video/`·`story/`·`word/`·`1min/` 안의 이 다섯 파일은 **생성물이다. 손으로 고치지
+`quiz/`·`video/`·`story/`·`word/`·`1min/`·`draw/` 안의 이 다섯 파일은 **생성물이다. 손으로 고치지
 마라.** 고쳐도 CI(`공통 파일 일치 확인`)가 막고, 다음 동기화 때 덮어써진다.
 
 왜 한 벌로 줄이지 않았나 — 폰트와 스위처는 각 사이트가 **배포될 때 자기 루트에**
@@ -167,8 +170,8 @@ node scripts/sync-shared.mjs --check   # 어긋난 곳만 알려 준다 (CI 가 
 `game/shared/style.css` 와 `game/shared/engine.js` 는 **공통이 아니다** — 게임 전용이고
 `SHARED` 목록에 없다.
 
-바로가기에 걸린 곳은 완성된 여섯뿐이다 — 게임·퀴즈·영상·이야기·낱말·1분사회.
-쉼·스트레칭·그리기는 작업 중이라 넣지 않는다. 사이트를 더 걸 때는
+바로가기에 걸린 곳은 완성된 일곱이다 — 게임·퀴즈·영상·이야기·낱말·1분사회·그리기(2026-10-01).
+쉼·스트레칭은 작업 중이라 넣지 않는다. 사이트를 더 걸 때는
 `game/shared/jjam-switcher.js` 의 `SITES`·`ART` 에 한 벌 더하고 `sync-shared` 를 돌린다.
 
 ## 공유 카드 — `favicon.svg` 에서 나온다
@@ -176,7 +179,7 @@ node scripts/sync-shared.mjs --check   # 어긋난 곳만 알려 준다 (CI 가 
 주소를 카카오톡·슬랙에 붙이면 뜨는 미리보기 그림(`<사이트>/og-image.png`)이다.
 
 ```bash
-node scripts/gen-og.mjs           # favicon.svg 에서 여섯 벌을 다시 만든다
+node scripts/gen-og.mjs           # favicon.svg 에서 일곱 벌을 다시 만든다
 node scripts/gen-og.mjs --check   # 어긋났는지만 본다 (CI 가 이걸 돌린다)
 ```
 

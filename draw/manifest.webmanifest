@@ -1,0 +1,17 @@
+{
+  "name": "짬짬이 그리기",
+  "short_name": "그리기",
+  "description": "화면이 한 획씩 보여 주고, 학생은 종이에 따라 그립니다. 교사는 시작만 누릅니다.",
+  "lang": "ko",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "display_override": ["fullscreen", "standalone"],
+  "orientation": "landscape",
+  "background_color": "#F4F1EA",
+  "theme_color": "#E4572E",
+  "icons": [
+    { "src": "favicon.svg", "type": "image/svg+xml", "sizes": "any" },
+    { "src": "favicon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "maskable" }
+  ]
+}
