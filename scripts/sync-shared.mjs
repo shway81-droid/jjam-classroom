@@ -31,9 +31,9 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const CHECK = process.argv.includes('--check');
 
 const SOURCE = 'game';
-const TARGETS = ['quiz', 'video', 'story', 'word', '1min', 'draw'];
+const TARGETS = ['quiz', 'video', 'story', 'word', '1min', 'draw', 'home'];
 
-// 일곱 폴더에서 동일해야 하는 파일 (폴더 기준 상대경로).
+// 여덟 폴더(일곱 사이트 + 모아보기 home)에서 동일해야 하는 파일 (폴더 기준 상대경로).
 // 여기 없는 파일은 사이트마다 다른 것이 정상 — index.html·sw.js·데이터가 그렇다.
 // game/shared/style.css 와 game/shared/engine.js 는 게임 전용이라 들어가지 않는다.
 const SHARED = [
@@ -90,7 +90,7 @@ if (CHECK) {
     );
     process.exit(1);
   }
-  console.log(`✅ 공통 파일 ${SHARED.length}종이 일곱 폴더에서 모두 일치 (${same}건 확인)`);
+  console.log(`✅ 공통 파일 ${SHARED.length}종이 여덟 폴더에서 모두 일치 (${same}건 확인)`);
 } else {
   console.log(
     copied
