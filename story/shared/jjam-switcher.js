@@ -15,7 +15,7 @@
      <script src="shared/jjam-switcher.js" defer></script>
 
    data-site 는 "지금 있는 곳"이다(game | quiz | video | story | word | 1min | draw).
-   그 항목은 빠지고 SITES 의 나머지만 그려진다.
+   그 항목은 빠지고 SITES 의 나머지가 그려진 뒤, 맨 끝에 '전체 보기'(모아보기)가 붙는다.
 
    이 파일은 여섯 저장소에서 글자 하나까지 같아야 한다.
    고칠 때는 jjam(상류)에서 고친 뒤 나머지 넷에서 `sync:shared` 를 돌린다.
@@ -53,6 +53,11 @@
     { key: 'draw',  label: '짬짬이그리기', go: '짬짬이 그리기로 가기',
       url: 'https://shway81-droid.github.io/jjam-draw/' }
   ];
+
+  // 맨 끝의 '전체 보기' — 일곱 사이트를 모은 모아보기(짬짬이 교실, 2026-10-01).
+  // 사이트가 더 늘어 헤더에 다 걸 수 없게 되어도 여기로 가면 전부 있다.
+  var HOME = { key: 'home', label: '전체보기', go: '짬짬이 교실 전체 보기',
+    url: 'https://shway81-droid.github.io/jjam-classroom/' };
 
   // 각 사이트의 favicon.svg 와 같은 그림 — 둥근 타일 + 우상단 "자투리 시간" 시계 배지.
   // 다른 사이트의 파일을 가져올 수는 없으므로(오프라인·교차 출처) 여기에 넣는다.
@@ -101,6 +106,12 @@
       '<polygon points="32.1,46.9 24,26 44.9,34.1" fill="#152447"/>' +
       '<polygon points="71.6,86.4 65.4,80.2 78.2,67.4 84.4,73.6" fill="#152447"/>' +
       '<line x1="38.5" y1="40.5" x2="78" y2="80" stroke="#E4572E" stroke-width="2.4" stroke-opacity=".55"/>' + BADGE,
+    // 모아보기(짬짬이 교실) 로고 — home/favicon.svg 와 같은 그림. 흰 타일이라 네이비 헤더 위에서 구분된다.
+    home:
+      '<rect width="100" height="100" rx="24" fill="#FFFFFF"/>' +
+      '<circle cx="50" cy="52" r="28" fill="none" stroke="#152447" stroke-width="9"/>' +
+      '<path d="M50 35 V53 L62 61" fill="none" stroke="#FFB703" stroke-width="9" ' +
+      'stroke-linecap="round" stroke-linejoin="round"/>',
     // rest 는 SITES 에 아직 없어서 지금은 그려지지 않는다. 링크를 거는 순간
     // 바로 쓰도록 그림만 남겨 둔다 (jjam-rest 의 favicon.svg 와 같은 그림).
     rest:
@@ -113,11 +124,11 @@
 
   var CSS = [
     /* host 는 헤더 버튼 줄의 flex 자식 하나다. 안쪽 배치는 스스로 책임진다. */
-    '.jjam-switch{position:relative;display:flex;align-items:center;gap:8px;flex:none}',
+    '.jjam-switch{position:relative;display:flex;align-items:center;gap:4px;flex:none}',
     '.jjam-switch[hidden]{display:none}',
     '.jjam-switch-sep{width:1px;height:30px;background:rgba(255,255,255,.28);margin:0 3px;flex:none}',
     '.jjam-switch-btn{display:inline-flex;flex-direction:column;align-items:center;gap:4px;',
-    'padding:6px 8px 5px;border-radius:12px;background:transparent;border:1px solid transparent;',
+    'padding:6px 6px 5px;border-radius:12px;background:transparent;border:1px solid transparent;',
     'text-decoration:none;cursor:pointer;font:inherit;transition:background .12s,transform .1s}',
     '.jjam-switch-btn svg{width:34px;height:34px;display:block;flex:none}',
     '.jjam-switch-btn span{font-size:11px;font-weight:700;line-height:1;white-space:nowrap;color:#fff}',
@@ -132,13 +143,15 @@
     'padding:8px 13px;border-radius:9px;white-space:nowrap;box-shadow:0 6px 16px rgba(8,14,32,.32)}',
     '.jjam-switch-note[hidden]{display:none}',
     '@media (prefers-reduced-motion:reduce){.jjam-switch-btn{transition:none}}',
-    /* 좁은 화면에서는 이름을 줄이지 않고 아이콘만 남긴다 — 잘린 글자보다 낫다.
-       그리기가 더해져 일곱이 되면서 768px(영상)에서 넘쳐 기준을 720 → 820 으로 넓혔다. */
-    '@media (max-width:820px){.jjam-switch-btn span{display:none}',
-    '.jjam-switch-btn{padding:6px}.jjam-switch-sep{height:26px}}',
-    /* 휴대폰 — 아이콘도 조금 줄여 헤더 한 줄에 담는다(1분사회 390px 에서 넘쳤다). */
-    '@media (max-width:420px){.jjam-switch{gap:2px}.jjam-switch-btn{padding:4px}',
-    '.jjam-switch-btn svg{width:26px;height:26px}.jjam-switch-sep{display:none}}'
+    /* 좁은 화면(태블릿·휴대폰) — 자매 사이트 아이콘은 접고 '전체 보기' 하나만 남긴다.
+       예전에는 이름만 숨기고 아이콘 줄을 남겼는데(720 → 820px), 그 줄이 헤더를 밀어
+       영상(768~1024px)·1분사회(390px)의 제목과 버튼 글자가 세로로 눌려 있었다.
+       모아보기에서 한 번 더 누르면 어디든 갈 수 있으니 여기서는 한 칸으로 줄인다(2026-10-01). */
+    '@media (max-width:1100px){.jjam-switch-btn:not(.is-home),.jjam-switch-sep{display:none}}',
+    /* 중간 폭 — 아이콘은 두고 이름만 숨긴다(영상 960~1280px 에서 이름까지 두면 헤더가 눌렸다).
+       '전체 보기'는 어느 폭에서나 이름을 단다 — 그림만으로는 무엇인지 모른다. */
+    '@media (max-width:1280px){.jjam-switch-btn:not(.is-home) span{display:none}',
+    '.jjam-switch-btn:not(.is-home){padding:6px}}'
   ].join('');
 
   function injectStyle() {
@@ -162,6 +175,10 @@
       html += '<a class="jjam-switch-btn" href="' + s.url + '" aria-label="' + s.go + '">' +
               iconSvg(s.key) + '<span>' + s.label + '</span></a>';
     });
+
+    html += '<span class="jjam-switch-sep" aria-hidden="true"></span>' +
+            '<a class="jjam-switch-btn is-home" href="' + HOME.url + '" aria-label="' + HOME.go + '">' +
+            iconSvg(HOME.key) + '<span>' + HOME.label + '</span></a>';
 
     html += '<p class="jjam-switch-note" role="status" hidden></p>';
     host.innerHTML = html;
