@@ -540,3 +540,6 @@ function showResult() {
 
   showScreen(resultScreen);
 }
+
+// 컴퓨터와 1:1 — 컴퓨터(2번 칸)에게 지금 문제의 정답을 알려 준다(shared/engine.js 의 jjamBot 참고).
+window.jjamBot = { answer: function () { return currentWord.honorific; } };

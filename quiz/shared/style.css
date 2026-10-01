@@ -1229,3 +1229,25 @@ html {
   transform: translateY(3px) !important;
   box-shadow: 0 1px 0 rgba(0,0,0,0.4) !important;
 }
+
+/* —— 컴퓨터와 1:1 (shared/engine.js 의 jjamBot) —— */
+.player-btn.jjam-bot-btn { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.05; }
+.jjam-bot-face { font-size: 1.5rem; }
+.jjam-bot-text { font-size: 0.85rem; }
+.jjam-bot-levels { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.5rem; margin-top: 0.8rem; }
+.jjam-bot-levels[hidden] { display: none; }
+.jjam-bot-hint { width: 100%; text-align: center; font-size: 0.95rem; font-weight: 700; color: inherit; opacity: 0.85; margin: 0; }
+.jjam-bot-level {
+  padding: 0.45rem 0.9rem;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 800;
+  border: 2px solid #1C2333;
+  border-radius: 999px;
+  background: #fff;
+  color: #1C2333;
+  cursor: pointer;
+}
+.jjam-bot-level.active { background: #1C2333; color: #fff; }
+/* 컴퓨터 칸은 사람이 누르지 못하게 — 컴퓨터는 btn.click() 으로 누르므로 상관없다 */
+.jjam-bot-on .jjam-bot-zone { pointer-events: none; }

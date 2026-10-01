@@ -108,14 +108,199 @@ function setupSoundToggle(sound, buttons, iconEls) {
  * @param {function} onSelect - (count:number) => void. 보통 playerCount 변수에 대입.
  */
 function setupPlayerSelect(onSelect) {
+  _jjamBotAddButton();
   var btns = document.querySelectorAll('.player-btn');
   btns.forEach(function (btn) {
     onTap(btn, function () {
       btns.forEach(function (b) { b.classList.remove('active'); });
       btn.classList.add('active');
+      _jjamBotSetActive(btn.dataset.bot === '1');
       onSelect(parseInt(btn.dataset.count, 10));
     });
   });
+}
+
+/* ===================================================================
+   컴퓨터와 1:1 (2026-10-01 선생님 요청 — "시간 남는 학생이 한 명일 때 혼자 할 수 있게")
+   ===================================================================
+   인원 선택 줄에 [🤖 혼자] 를 더한다. 고르면 게임은 평소처럼 2명으로 시작하고,
+   2번 칸(P2)은 컴퓨터가 맡는다. 게임 코드는 거의 모른다 — 2번 칸의 버튼을 찾아
+   사람처럼 누를 뿐이다(btn.click()). 그래서 판정·점수·결과 화면은 게임 것 그대로다.
+
+   컴퓨터가 정답을 아는 방법(이 순서로 찾는다):
+     1) 게임이 알려 준 것 — game.js 의 `window.jjamBot = { answer: () => … }`
+        값(글자·숫자) 또는 판정 함수(btn => true/false)를 돌려준다. 글자는 버튼 글자·
+        aria-label·data-* 값과, 숫자는 data-slot·data-answer-idx 와 맞춘다.
+     2) 표준 구조 — `currentQuestion.answerIdx`(보기 번호) 또는
+        `currentQuestion.choices` 안의 `currentQuestion.answer`
+     3) 버튼에 붙은 `data-correct="1"`
+   셋 다 못 찾으면 컴퓨터는 아무 보기나 누른다(틀릴 수 있다 — 그래도 게임은 멈추지 않는다).
+
+   난이도는 "얼마나 빨리, 얼마나 자주 맞히나" 두 가지다. 컴퓨터가 틀리면 사람처럼
+   그 문제에서 빠지므로 학생이 이길 기회가 생긴다.
+   ?botTest=1 은 검증용 — 0.3초 만에 늘 정답을 누른다. */
+
+var JJAM_BOT_LEVELS = {
+  easy:   { label: '🐢 느긋한 로봇', min: 3000, max: 6000, acc: 0.6 },
+  normal: { label: '🙂 보통 로봇',   min: 2000, max: 4000, acc: 0.75 },
+  hard:   { label: '⚡ 번개 로봇',   min: 1000, max: 2500, acc: 0.9 },
+};
+var _jjamBot = { active: false, level: 'normal', timer: null, lastSig: '', wasOn: false, poll: null };
+
+function _jjamBotTest() {
+  try { return new URLSearchParams(location.search).get('botTest') === '1'; } catch (e) { return false; }
+}
+
+function _jjamBotAddButton() {
+  var first = document.querySelector('.player-btn');
+  if (!first || document.querySelector('.player-btn[data-bot]')) return;
+  var row = first.parentElement;
+  var bot = document.createElement('button');
+  bot.className = 'player-btn jjam-bot-btn';
+  bot.type = 'button';
+  bot.dataset.count = '2';
+  bot.dataset.bot = '1';
+  bot.setAttribute('aria-label', '혼자 — 컴퓨터와 1대1');
+  bot.innerHTML = '<span class="jjam-bot-face">🤖</span><span class="jjam-bot-text">혼자</span>';
+  row.appendChild(bot);
+
+  // 로봇 난이도 — [🤖 혼자] 를 골랐을 때만 보인다
+  var levels = document.createElement('div');
+  levels.className = 'jjam-bot-levels';
+  levels.hidden = true;
+  var hint = document.createElement('p');
+  hint.className = 'jjam-bot-hint';
+  hint.textContent = '컴퓨터가 오른쪽 칸을 맡아요. 로봇을 골라 주세요';
+  levels.appendChild(hint);
+  Object.keys(JJAM_BOT_LEVELS).forEach(function (key) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'jjam-bot-level' + (key === _jjamBot.level ? ' active' : '');
+    b.dataset.level = key;
+    b.textContent = JJAM_BOT_LEVELS[key].label;
+    onTap(b, function () {
+      _jjamBot.level = key;
+      levels.querySelectorAll('.jjam-bot-level').forEach(function (x) { x.classList.toggle('active', x === b); });
+    });
+    levels.appendChild(b);
+  });
+  row.insertAdjacentElement('afterend', levels);
+}
+
+function _jjamBotSetActive(on) {
+  _jjamBot.active = on;
+  var levels = document.querySelector('.jjam-bot-levels');
+  if (levels) levels.hidden = !on;
+  document.documentElement.classList.toggle('jjam-bot-on', on);
+  clearTimeout(_jjamBot.timer);
+  _jjamBot.lastSig = '';
+  if (on && !_jjamBot.poll) _jjamBot.poll = setInterval(_jjamBotTick, 200);
+}
+
+/** 2번 칸에서 누를 수 있는 것들(버튼, 또는 버튼처럼 쓰는 칸) */
+function _jjamBotCandidates() {
+  var zone = document.querySelector('.zone[data-player="1"]');
+  if (!zone || !zone.offsetParent) return [];
+  var els = zone.querySelectorAll('button, .answer-btn-wrap, [role="button"]');
+  return Array.prototype.filter.call(els, function (el) {
+    if (el.disabled || el.closest('[hidden]')) return false;
+    if (/state-disabled|state-correct|state-wrong|disabled-wait/.test(el.className)) return false;
+    // 문제 사이에 '?' 로 비워 둔 보기 — 누를 것이 아니다
+    if ((el.textContent || '').trim() === '?') return false;
+    return el.offsetParent !== null;
+  });
+}
+
+function _jjamBotMatches(el, val) {
+  if (typeof val === 'number') {
+    var d = el.dataset;
+    return String(val) === d.slot || String(val) === d.answerIdx || String(val) === d.idx || String(val) === d.index;
+  }
+  var v = String(val).trim();
+  if (!v) return false;
+  if ((el.textContent || '').trim() === v) return true;
+  if ((el.getAttribute('aria-label') || '').trim() === v) return true;
+  for (var k in el.dataset) { if (String(el.dataset[k]).trim() === v) return true; }
+  return false;
+}
+
+/** 정답 버튼. 모르면 null. */
+function _jjamBotCorrect(cands) {
+  try {
+    if (window.jjamBot && typeof window.jjamBot.answer === 'function') {
+      var a = window.jjamBot.answer();
+      if (typeof a === 'function') return cands.find(function (el) { return a(el); }) || null;
+      if (a !== undefined && a !== null) return cands.find(function (el) { return _jjamBotMatches(el, a); }) || null;
+    }
+    /* global currentQuestion */
+    if (typeof currentQuestion !== 'undefined' && currentQuestion) {
+      var q = currentQuestion;
+      if (typeof q.answerIdx === 'number') {
+        var bySlot = cands.find(function (el) { return el.dataset.slot === String(q.answerIdx); });
+        if (bySlot) return bySlot;
+      }
+      if (q.answer !== undefined && Array.isArray(q.choices)) {
+        var i = q.choices.indexOf(q.answer);
+        if (i >= 0) {
+          var byIdx = cands.find(function (el) { return el.dataset.slot === String(i); });
+          if (byIdx) return byIdx;
+        }
+        var byText = cands.find(function (el) { return _jjamBotMatches(el, q.answer); });
+        if (byText) return byText;
+      }
+    }
+  } catch (e) { /* 게임 상태가 바뀌는 틈 — 이번엔 모르는 것으로 */ }
+  return cands.find(function (el) { return el.dataset.correct === '1'; }) || null;
+}
+
+/** 2번 칸·점수판·결과의 'P2' 를 '🤖 컴퓨터' 로 — 누가 컴퓨터인지 보이게 */
+function _jjamBotRelabel() {
+  var zone = document.querySelector('.zone[data-player="1"]');
+  if (zone) zone.classList.add('jjam-bot-zone');
+  var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  var n;
+  while ((n = walker.nextNode())) {
+    if (n.nodeValue.trim() === 'P2' && !n.parentElement.closest('.player-select-row')) n.nodeValue = n.nodeValue.replace('P2', '🤖 컴퓨터');
+  }
+}
+
+function _jjamBotTick() {
+  if (!_jjamBot.active) return;
+  var cands = _jjamBotCandidates();
+  _jjamBotRelabel();   // 결과 화면의 'P2' 도 바꿔야 해서 늘 돈다(글자 몇 개 살피는 정도라 가볍다)
+  var on = cands.length > 0;
+  // 문제의 얼굴 — 2번 칸의 모든 보기 글자(눌러서 꺼진 것 포함)와 문제 번호.
+  // 누를 수 있는 것만 세면 컴퓨터가 정답을 누른 순간 목록이 줄어 "새 문제"로 착각하고 또 누른다.
+  var zone = document.querySelector('.zone[data-player="1"]');
+  var counter = document.querySelector('#questionCounter, .question-counter, [id$="Counter"]');
+  var sig = (zone ? Array.prototype.map.call(zone.querySelectorAll('button, .answer-btn-wrap, [role="button"]'), function (el) {
+    return (el.textContent || '').trim() + (el.dataset.slot || '');
+  }).join('|') : '') + '#' + (counter ? counter.textContent : '');
+  // 새 문제 = 누를 것이 생겼고(꺼져 있다 켜졌거나) 보기·문제 번호가 바뀌었을 때
+  var fresh = on && (!_jjamBot.wasOn || sig !== _jjamBot.lastSig);
+  _jjamBot.wasOn = on;
+  if (!on) { clearTimeout(_jjamBot.timer); _jjamBot.timer = null; return; }
+  if (!fresh) return;
+  _jjamBot.lastSig = sig;
+  clearTimeout(_jjamBot.timer);
+  var lv = JJAM_BOT_LEVELS[_jjamBot.level] || JJAM_BOT_LEVELS.normal;
+  var test = _jjamBotTest();
+  var delay = test ? 300 : lv.min + Math.random() * (lv.max - lv.min);
+  _jjamBot.timer = setTimeout(function () {
+    _jjamBot.timer = null;
+    var now = _jjamBotCandidates();
+    if (!now.length) return;
+    var right = _jjamBotCorrect(now);
+    var wantRight = test || Math.random() < lv.acc;
+    var pick = null;
+    if (wantRight && right) pick = right;
+    else {
+      var wrong = now.filter(function (el) { return el !== right; });
+      pick = (wrong.length ? wrong : now)[Math.floor(Math.random() * (wrong.length || now.length))];
+    }
+    if (test) (window.__jjamBotLog = window.__jjamBotLog || []).push({ known: !!right, picked: pick === right });
+    pick.click();
+  }, delay);
 }
 
 /**
