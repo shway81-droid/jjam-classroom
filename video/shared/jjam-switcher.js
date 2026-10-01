@@ -1,7 +1,7 @@
 /* ===================================================================
    짬짬이 사이트 전환 — 헤더에 자매 사이트를 바로 놓는다
    ===================================================================
-   짬짬이 게임·퀴즈·영상·이야기·낱말·1분사회는 저장소가 여섯으로 갈라져 있지만
+   짬짬이 게임·퀴즈·영상·이야기·낱말·1분사회·그리기는 발행 저장소가 일곱으로 갈라져 있지만
    선생님에게는 "자투리 시간에 쓰는 짬짬이" 하나다. 지금은 한 곳에 들어오면 나머지가
    있다는 걸 알 방법이 없어서, 헤더에서 곧바로 건너갈 수 있게 한다.
 
@@ -14,7 +14,7 @@
      <div class="jjam-switch" data-site="game"></div>
      <script src="shared/jjam-switcher.js" defer></script>
 
-   data-site 는 "지금 있는 곳"이다(game | quiz | video | story | word | 1min).
+   data-site 는 "지금 있는 곳"이다(game | quiz | video | story | word | 1min | draw).
    그 항목은 빠지고 SITES 의 나머지만 그려진다.
 
    이 파일은 여섯 저장소에서 글자 하나까지 같아야 한다.
@@ -30,8 +30,8 @@
   // label — 화면에 보이는 이름. 폭을 맞추려고 띄어쓰기를 넣지 않았다.
   // go    — 화면 낭독기가 읽는 문장. 조사(으로/로)가 이름마다 달라 통째로 적는다.
   //
-  // 헤더에 거는 것은 **완성된 여섯**뿐이다 — 게임·퀴즈·영상·이야기·낱말·1분사회.
-  // 쉼·스트레칭·그리기는 저장소는 있지만 아직 작업 중이라 넣지 않는다.
+  // 헤더에 거는 것은 **완성된 일곱**뿐이다 — 게임·퀴즈·영상·이야기·낱말·1분사회·그리기.
+  // (그리기는 2026-10-01 완성되어 더했다.) 쉼·스트레칭은 저장소는 있지만 아직 작업 중이라 넣지 않는다.
   // (완성되면 여기에 한 벌씩 더하면 된다.)
   //
   // 나중에 쉼을 걸 때는 아래 한 벌만 되살리면 된다(아이콘은 ART.rest 에 그대로 있다).
@@ -49,7 +49,9 @@
     { key: 'word',  label: '짬짬이낱말',   go: '짬짬이 낱말로 가기',
       url: 'https://shway81-droid.github.io/jjam-word/' },
     { key: '1min',  label: '짬짬이1분사회', go: '짬짬이 1분사회로 가기',
-      url: 'https://shway81-droid.github.io/jjam-1min/' }
+      url: 'https://shway81-droid.github.io/jjam-1min/' },
+    { key: 'draw',  label: '짬짬이그리기', go: '짬짬이 그리기로 가기',
+      url: 'https://shway81-droid.github.io/jjam-draw/' }
   ];
 
   // 각 사이트의 favicon.svg 와 같은 그림 — 둥근 타일 + 우상단 "자투리 시간" 시계 배지.
@@ -92,6 +94,13 @@
       '<circle cx="44" cy="59" r="10.5" fill="none" stroke="#FFFFFF" stroke-width="3"/>' +
       '<ellipse cx="44" cy="59" rx="4.6" ry="10.5" fill="none" stroke="#FFFFFF" stroke-width="2.6"/>' +
       '<path d="M33.5 59 H54.5" fill="none" stroke="#FFFFFF" stroke-width="2.6"/>' + BADGE,
+    // jjam-draw 의 favicon.svg 와 같은 연필(배지는 가족 공통 BADGE 로 맞췄다)
+    draw:
+      '<rect width="100" height="100" rx="24" fill="#E4572E"/>' +
+      '<polygon points="71.6,86.4 32.1,46.9 44.9,34.1 84.4,73.6" fill="#FFFFFF"/>' +
+      '<polygon points="32.1,46.9 24,26 44.9,34.1" fill="#152447"/>' +
+      '<polygon points="71.6,86.4 65.4,80.2 78.2,67.4 84.4,73.6" fill="#152447"/>' +
+      '<line x1="38.5" y1="40.5" x2="78" y2="80" stroke="#E4572E" stroke-width="2.4" stroke-opacity=".55"/>' + BADGE,
     // rest 는 SITES 에 아직 없어서 지금은 그려지지 않는다. 링크를 거는 순간
     // 바로 쓰도록 그림만 남겨 둔다 (jjam-rest 의 favicon.svg 와 같은 그림).
     rest:
@@ -123,9 +132,13 @@
     'padding:8px 13px;border-radius:9px;white-space:nowrap;box-shadow:0 6px 16px rgba(8,14,32,.32)}',
     '.jjam-switch-note[hidden]{display:none}',
     '@media (prefers-reduced-motion:reduce){.jjam-switch-btn{transition:none}}',
-    /* 좁은 화면에서는 이름을 줄이지 않고 아이콘만 남긴다 — 잘린 글자보다 낫다. */
-    '@media (max-width:720px){.jjam-switch-btn span{display:none}',
-    '.jjam-switch-btn{padding:6px}.jjam-switch-sep{height:26px}}'
+    /* 좁은 화면에서는 이름을 줄이지 않고 아이콘만 남긴다 — 잘린 글자보다 낫다.
+       그리기가 더해져 일곱이 되면서 768px(영상)에서 넘쳐 기준을 720 → 820 으로 넓혔다. */
+    '@media (max-width:820px){.jjam-switch-btn span{display:none}',
+    '.jjam-switch-btn{padding:6px}.jjam-switch-sep{height:26px}}',
+    /* 휴대폰 — 아이콘도 조금 줄여 헤더 한 줄에 담는다(1분사회 390px 에서 넘쳤다). */
+    '@media (max-width:420px){.jjam-switch{gap:2px}.jjam-switch-btn{padding:4px}',
+    '.jjam-switch-btn svg{width:26px;height:26px}.jjam-switch-sep{display:none}}'
   ].join('');
 
   function injectStyle() {

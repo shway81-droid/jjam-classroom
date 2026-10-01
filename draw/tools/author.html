@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>획 저작 도구 — 짬짬이 그리기</title>
+<style>
+  :root { --ink:#1D3557; --now:#B85C00; --line:#DCD6C8; --dim:#6B7A8F; --bad:#B00020; --ok:#12A57C; }
+  * { box-sizing:border-box; }
+  body { margin:0; display:grid; grid-template-columns:1fr 380px; height:100vh;
+         background:#F4F1EA; color:var(--ink); font-family:"Malgun Gothic", system-ui, sans-serif; }
+  .left { padding:16px; display:flex; flex-direction:column; gap:10px; min-width:0; }
+  .right { padding:16px; background:#fff; border-left:2px solid var(--line); overflow:auto; }
+  h1 { font-size:17px; margin:0; }
+  .hint { font-size:12px; color:var(--dim); margin:0; line-height:1.5; }
+  .board { flex:1; display:flex; align-items:center; justify-content:center; min-height:0; }
+  svg.canvas { background:#fff; border:2px solid var(--line); border-radius:12px; max-height:100%; cursor:crosshair; }
+  .bar { display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+  button, select, input[type=text], input[type=number] {
+    font:inherit; font-size:13px; padding:6px 10px; border:1.5px solid var(--line);
+    border-radius:8px; background:#fff; color:inherit; }
+  button { cursor:pointer; font-weight:700; }
+  button.on { background:var(--ink); color:#fff; border-color:var(--ink); }
+  button.go { background:var(--ink); color:#fff; border-color:var(--ink); }
+  .grid line { stroke:#EFEBE1; stroke-width:1; }
+  .grid line.mid { stroke:#E0DACB; }
+  path.past { fill:none; stroke:var(--ink); stroke-width:4; opacity:.55; stroke-linecap:round; stroke-linejoin:round; }
+  path.now { fill:none; stroke:var(--now); stroke-width:7; stroke-linecap:round; stroke-linejoin:round; }
+  path.draft { fill:none; stroke:var(--now); stroke-width:5; stroke-dasharray:8 6; opacity:.8; }
+  circle.pt { fill:var(--now); }
+  h2 { font-size:14px; margin:14px 0 6px; text-transform:none; }
+  .field { display:flex; flex-direction:column; gap:4px; margin-bottom:8px; }
+  .field label { font-size:12px; font-weight:700; }
+  .lint { font-size:12px; line-height:1.5; }
+  .lint .bad { color:var(--bad); font-weight:700; }
+  .lint .ok { color:var(--ok); font-weight:700; }
+  ol.steps { padding-left:20px; margin:6px 0; font-size:13px; }
+  ol.steps li { margin-bottom:3px; }
+  ol.steps i { color:var(--dim); font-style:normal; }
+  textarea { width:100%; height:150px; font:12px/1.5 Consolas, monospace; border:1.5px solid var(--line);
+             border-radius:8px; padding:8px; resize:vertical; }
+  .ratio { font-size:13px; font-weight:700; }
+</style>
+</head>
+<body>
+<div class="left">
+  <h1>획 저작 도구</h1>
+  <p class="hint">
+    획을 그으면 <b>steps[].d</b> 배열이 나옵니다. 오른쪽에 누적 형태가 함께 보이므로 PRD 4.1의 4번
+    (누적 형태가 매 단계 그럴듯함)을 만들면서 확인합니다. 좌표는 소수 한 자리로 반올림하고
+    호(<b>A</b>)는 쓰지 않습니다 — 원과 곡선은 3차 베지어입니다(PRD 7.1).
+  </p>
+  <div class="bar">
+    <span class="hint">종이</span>
+    <select id="paper">
+      <option value="portrait">세로 400×500</option>
+      <option value="landscape">가로 500×400</option>
+    </select>
+    <span class="hint">획 모양</span>
+    <button data-mode="poly" class="on">이어진 줄</button>
+    <button data-mode="circle">동그라미</button>
+    <button data-mode="curve">곡선</button>
+    <button id="undoPt">점 취소</button>
+    <button id="addStroke" class="go">획 담기</button>
+    <button id="clearStroke">획 비우기</button>
+  </div>
+  <p class="hint" id="modeHint"></p>
+  <div class="board"><svg id="canvas" class="canvas"></svg></div>
+</div>
+
+<div class="right">
+  <h2>이번 단계 (획 <span id="nStroke">0</span> / 6)</h2>
+  <div class="field">
+    <label for="label">화면의 짧은 말 — 1~8자</label>
+    <input type="text" id="label" placeholder="큰 동그라미">
+    <div class="lint" id="lintLabel"></div>
+  </div>
+  <div class="field">
+    <label for="say">교사 멘트 — 한 문장 15~40자, ~요.</label>
+    <input type="text" id="say" placeholder="종이 가운데에 주먹만큼 큰 동그라미를 그려 보세요.">
+    <div class="lint" id="lintSay"></div>
+  </div>
+  <button id="addStep" class="go">단계 확정</button>
+  <button id="popStep">마지막 단계 지우기</button>
+
+  <h2>단계 <span id="nStep">0</span>개 · 첫 획 <span class="ratio" id="ratio">—</span></h2>
+  <ol class="steps" id="stepList"></ol>
+
+  <h2>drawing.json</h2>
+  <div class="field">
+    <label for="meta">id · 제목 · 주제 · 난이도</label>
+    <input type="text" id="meta" value="new-id|새 그림|animal|easy">
+  </div>
+  <button id="make" class="go">만들기</button>
+  <button id="copy">복사</button>
+  <textarea id="out" spellcheck="false"></textarea>
+</div>
+
+<script>
+const NS = 'http://www.w3.org/2000/svg';
+const K = 0.5523;
+const BOX = { portrait: [400, 500], landscape: [500, 400] };
+const SETUP = {
+  portrait: '종이를 세로로 놓고, 가운데에 주먹만큼 크게 그릴 거예요.',
+  landscape: '종이를 가로로 놓고, 가운데에 손바닥만큼 크게 그릴 거예요.',
+};
+const BANNED = ['cm','mm','삼각형','사각형','타원','반원','윤곽선','명암','비율','원근','데생','똑바로','정확히','비뚤어지지','예쁘게'];
+const BAD_RE = [[/\d\s*(처럼|자로|배)/,'숫자 모양 비유·배수'],[/\d\s*\/\s*\d/,'분수'],[/%/,'백분율']];
+const MODE_HINT = {
+  poly: '점을 차례로 클릭하면 이어진 줄이 됩니다. 두 점이면 직선입니다.',
+  circle: '가운데를 클릭하고, 테두리를 한 번 더 클릭합니다. 세 번째 클릭은 가로·세로를 다르게 만듭니다.',
+  curve: '시작점 → 당김점 두 개 → 끝점 순서로 네 번 클릭합니다. 네 점마다 곡선 한 구간이 이어집니다.',
+};
+
+const n = v => String(Math.round(v * 10) / 10);
+const chars = s => [...s].length;
+let paper = 'portrait';
+let mode = 'poly';
+let pts = [];          // 지금 그리는 획의 점
+let stroke = [];       // 이번 단계에 담은 획
+let steps = [];        // 확정한 단계
+
+const svg = document.getElementById('canvas');
+
+function pathFromPts() {
+  if (mode === 'poly') {
+    if (pts.length < 2) return null;
+    return 'M ' + pts.map(([x,y],i) => i ? `L ${n(x)} ${n(y)}` : `${n(x)} ${n(y)}`).join(' ');
+  }
+  if (mode === 'circle') {
+    if (pts.length < 2) return null;
+    const [c, e] = pts;
+    let rx = Math.abs(e[0]-c[0]) || Math.hypot(e[0]-c[0], e[1]-c[1]);
+    let ry = Math.abs(e[1]-c[1]) || rx;
+    if (pts.length === 2) { const r = Math.hypot(e[0]-c[0], e[1]-c[1]); rx = r; ry = r; }
+    if (pts.length >= 3) { rx = Math.abs(pts[1][0]-c[0]); ry = Math.abs(pts[2][1]-c[1]); }
+    const kx = rx*K, ky = ry*K, [cx,cy] = c;
+    return `M ${n(cx)} ${n(cy-ry)}`
+      + ` C ${n(cx+kx)} ${n(cy-ry)}, ${n(cx+rx)} ${n(cy-ky)}, ${n(cx+rx)} ${n(cy)}`
+      + ` C ${n(cx+rx)} ${n(cy+ky)}, ${n(cx+kx)} ${n(cy+ry)}, ${n(cx)} ${n(cy+ry)}`
+      + ` C ${n(cx-kx)} ${n(cy+ry)}, ${n(cx-rx)} ${n(cy+ky)}, ${n(cx-rx)} ${n(cy)}`
+      + ` C ${n(cx-rx)} ${n(cy-ky)}, ${n(cx-kx)} ${n(cy-ry)}, ${n(cx)} ${n(cy-ry)}`;
+  }
+  // curve: 1 + 3k 개
+  if (pts.length < 4) return null;
+  const segs = Math.floor((pts.length - 1) / 3);
+  let d = `M ${n(pts[0][0])} ${n(pts[0][1])}`;
+  for (let s = 0; s < segs; s++) {
+    const [c1,c2,e] = [pts[1+s*3], pts[2+s*3], pts[3+s*3]];
+    d += ` C ${n(c1[0])} ${n(c1[1])}, ${n(c2[0])} ${n(c2[1])}, ${n(e[0])} ${n(e[1])}`;
+  }
+  return d;
+}
+
+function bboxY(list) {
+  const nums = list.join(' ').match(/-?\d*\.?\d+/g) || [];
+  const ys = [];
+  // M/L 은 2개씩, C 는 6개씩 — 여기서는 짝수 인덱스가 x, 홀수가 y
+  for (let i = 1; i < nums.length; i += 2) ys.push(Number(nums[i]));
+  return ys.length ? [Math.min(...ys), Math.max(...ys)] : null;
+}
+
+function render() {
+  const [w, h] = BOX[paper];
+  svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+  svg.setAttribute('width', w);
+  svg.setAttribute('height', h);
+  svg.replaceChildren();
+
+  const g = document.createElementNS(NS, 'g');
+  g.setAttribute('class', 'grid');
+  for (let x = 0; x <= w; x += 50) {
+    const l = document.createElementNS(NS,'line');
+    l.setAttribute('x1',x); l.setAttribute('y1',0); l.setAttribute('x2',x); l.setAttribute('y2',h);
+    if (x === w/2) l.setAttribute('class','mid');
+    g.appendChild(l);
+  }
+  for (let y = 0; y <= h; y += 50) {
+    const l = document.createElementNS(NS,'line');
+    l.setAttribute('x1',0); l.setAttribute('y1',y); l.setAttribute('x2',w); l.setAttribute('y2',y);
+    if (y === h/2) l.setAttribute('class','mid');
+    g.appendChild(l);
+  }
+  svg.appendChild(g);
+
+  const add = (d, cls) => {
+    const p = document.createElementNS(NS,'path');
+    p.setAttribute('d', d); p.setAttribute('class', cls); svg.appendChild(p);
+  };
+  for (const st of steps) for (const d of st.d) add(d, 'past');
+  for (const d of stroke) add(d, 'now');
+  const draft = pathFromPts();
+  if (draft) add(draft, 'draft');
+  for (const [x,y] of pts) {
+    const c = document.createElementNS(NS,'circle');
+    c.setAttribute('cx',x); c.setAttribute('cy',y); c.setAttribute('r',5);
+    c.setAttribute('class','pt'); svg.appendChild(c);
+  }
+
+  document.getElementById('nStroke').textContent = stroke.length;
+  document.getElementById('nStep').textContent = steps.length;
+  document.getElementById('modeHint').textContent = MODE_HINT[mode];
+
+  // 첫 획 40% (PRD 4.1의 2번)
+  const all = steps.flatMap(s => s.d);
+  const r = document.getElementById('ratio');
+  if (steps.length && all.length) {
+    const first = bboxY(steps[0].d);
+    const full = bboxY(all);
+    const ratio = (first[1]-first[0]) / (full[1]-full[0]);
+    r.textContent = Math.round(ratio*100) + '%';
+    r.style.color = ratio >= 0.4 ? 'var(--ok)' : 'var(--bad)';
+  } else { r.textContent = '—'; r.style.color = 'inherit'; }
+
+  const ol = document.getElementById('stepList');
+  ol.replaceChildren();
+  steps.forEach(s => {
+    const li = document.createElement('li');
+    li.innerHTML = `<b>${s.label}</b> (획 ${s.d.length}) <br><i>${s.teacherSay}</i>`;
+    ol.appendChild(li);
+  });
+  lint();
+}
+
+function lintText(text, min, max, needEnd, host) {
+  const el = document.getElementById(host);
+  if (!text) { el.innerHTML = ''; return false; }
+  const msgs = [];
+  const c = chars(text);
+  if (c < min || c > max) msgs.push(`<span class="bad">${c}자 — ${min}~${max}자여야 합니다</span>`);
+  if (needEnd) {
+    if (!text.endsWith('.')) msgs.push('<span class="bad">마침표로 끝나야 합니다</span>');
+    else if (!text.endsWith('요.')) msgs.push('<span class="bad">~요. 로 끝나야 합니다</span>');
+    if (/[.!?]/.test(text.slice(0,-1))) msgs.push('<span class="bad">한 문장이어야 합니다</span>');
+  } else if (/[.!?]/.test(text)) msgs.push('<span class="bad">마침표를 넣지 않습니다</span>');
+  for (const w of BANNED) if (text.includes(w)) msgs.push(`<span class="bad">쓰지 않는 말 "${w}"</span>`);
+  for (const [re, name] of BAD_RE) if (re.test(text)) msgs.push(`<span class="bad">${name}</span>`);
+  if (needEnd && steps.length === 0 && !text.includes('종이')) {
+    msgs.push('<span class="bad">첫 단계에는 종이의 어디인지를 넣습니다</span>');
+  }
+  el.innerHTML = msgs.length ? msgs.join('<br>') : `<span class="ok">좋습니다 (${c}자)</span>`;
+  return msgs.length === 0;
+}
+
+function lint() {
+  lintText(document.getElementById('label').value.trim(), 1, 8, false, 'lintLabel');
+  lintText(document.getElementById('say').value.trim(), 15, 40, true, 'lintSay');
+}
+
+svg.addEventListener('click', (e) => {
+  const r = svg.getBoundingClientRect();
+  const [w, h] = BOX[paper];
+  const x = (e.clientX - r.left) / r.width * w;
+  const y = (e.clientY - r.top) / r.height * h;
+  pts.push([Math.round(x), Math.round(y)]);
+  render();
+});
+
+document.querySelectorAll('[data-mode]').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('[data-mode]').forEach(x => x.classList.remove('on'));
+  b.classList.add('on');
+  mode = b.dataset.mode; pts = []; render();
+}));
+document.getElementById('paper').addEventListener('change', (e) => {
+  paper = e.target.value; render();
+});
+document.getElementById('undoPt').addEventListener('click', () => { pts.pop(); render(); });
+document.getElementById('clearStroke').addEventListener('click', () => { pts = []; stroke = []; render(); });
+document.getElementById('addStroke').addEventListener('click', () => {
+  const d = pathFromPts();
+  if (!d) { alert('점이 부족합니다.'); return; }
+  if (stroke.length >= 6) { alert('한 단계는 획 6개까지입니다(PRD 4.1).'); return; }
+  stroke.push(d); pts = []; render();
+});
+document.getElementById('addStep').addEventListener('click', () => {
+  if (!stroke.length) { alert('담은 획이 없습니다.'); return; }
+  const label = document.getElementById('label').value.trim();
+  const say = document.getElementById('say').value.trim();
+  if (!label || !say) { alert('짧은 말과 교사 멘트를 채워 주세요.'); return; }
+  steps.push({ d: stroke.slice(), label, teacherSay: say });
+  stroke = []; pts = [];
+  document.getElementById('label').value = '';
+  document.getElementById('say').value = '';
+  render();
+});
+document.getElementById('popStep').addEventListener('click', () => { steps.pop(); render(); });
+['label','say'].forEach(id => document.getElementById(id).addEventListener('input', lint));
+
+document.getElementById('make').addEventListener('click', () => {
+  const [id, title, theme, difficulty] = document.getElementById('meta').value.split('|').map(s => s.trim());
+  const grades = { easy:['lower'], normal:['middle'], hard:['upper'] }[difficulty] || ['lower'];
+  const [w, h] = BOX[paper];
+  const out = {
+    id, title, theme, difficulty, grades, paper,
+    viewBox: `0 0 ${w} ${h}`,
+    setupSay: SETUP[paper],
+    coloringSeconds: difficulty === 'hard' ? 150 : 120,
+    steps,
+    keywords: [title],
+  };
+  document.getElementById('out').value = JSON.stringify(out, null, 2) + '\n';
+});
+document.getElementById('copy').addEventListener('click', async () => {
+  const t = document.getElementById('out');
+  t.select();
+  try { await navigator.clipboard.writeText(t.value); } catch { document.execCommand('copy'); }
+});
+
+render();
+</script>
+</body>
+</html>

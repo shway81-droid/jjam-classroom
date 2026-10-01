@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>그림 비교 — 짬짬이 그리기</title>
+<style>
+  :root { --ink:#1D3557; --now:#B85C00; --line:#DCD6C8; --muted:#6B7A8F; --bg:#F4F1EA; --card:#fff; }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:24px; background:var(--bg); color:var(--ink);
+         font-family:"Malgun Gothic", system-ui, sans-serif; }
+  h1 { font-size:24px; margin:0 0 6px; }
+  h2 { font-size:20px; margin:28px 0 10px; }
+  .lead { margin:0 0 18px; color:var(--muted); font-size:15px; max-width:62em; line-height:1.6; }
+  .pairs { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:16px; }
+  .noref { aspect-ratio:4/5; display:grid; place-items:center; border:1px dashed var(--line); border-radius:10px; color:var(--muted); font-size:13px; }
+  @media (max-width: 1100px) { .pairs { grid-template-columns:1fr; } }
+  .pair { background:var(--card); border:2px solid var(--line); border-radius:16px; padding:12px; }
+  .pair .two { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; }
+  .pair img { width:100%; aspect-ratio:4/5; object-fit:contain; display:block; border:1px solid var(--line); border-radius:10px; background:#fff; }
+  .ref .tag { background:#DDE8F5; color:#1D3557; }
+  .pair figure { margin:0; }
+  .pair svg { width:100%; display:block; border:1px solid var(--line); border-radius:10px; background:#fff; }
+  .pair figcaption { font-size:13px; margin-top:6px; line-height:1.45; }
+  .pair figcaption b { font-size:14px; }
+  .tag { display:inline-block; font-size:12px; padding:1px 7px; border-radius:99px; margin-right:4px; }
+  .old .tag { background:#E8E4DA; }
+  .new .tag { background:#FBE3CC; color:#7A3D00; }
+  .new svg { border-color:var(--now); border-width:2px; }
+  path.full { fill:none; stroke:var(--ink); stroke-width:6; stroke-linecap:round; stroke-linejoin:round; }
+  .row { background:var(--card); border:2px solid var(--line); border-radius:16px; padding:14px 16px; margin-bottom:18px; }
+  .head { display:flex; align-items:baseline; gap:12px; margin-bottom:10px; flex-wrap:wrap; }
+  .head b { font-size:19px; }
+  .head span { font-size:14px; color:var(--muted); }
+  .strip { display:flex; flex-wrap:wrap; gap:10px; }
+  .cell { width:132px; }
+  .cell svg { width:100%; background:#fff; border:1px solid var(--line); border-radius:8px; display:block; }
+  .cap { font-size:12px; margin-top:4px; line-height:1.35; }
+  .cap b { display:block; font-size:13px; }
+  .cap i { color:var(--muted); font-style:normal; }
+  path.past { fill:none; stroke:var(--ink); stroke-width:4; opacity:.6; stroke-linecap:round; stroke-linejoin:round; }
+  path.now { fill:none; stroke:var(--now); stroke-width:7; stroke-linecap:round; stroke-linejoin:round; }
+  .final svg { border-color:var(--now); border-width:2px; }
+  .bad { color:#B00020; font-weight:700; }
+  @media (max-width: 820px) { .pairs { grid-template-columns:1fr; } body { padding:16px; } }
+</style>
+</head>
+<body>
+<h1>그림 비교 — 지금 그림과 새 그림 18개</h1>
+<p class="lead">
+  지금 그림(main)과 새 그림을 나란히 봅니다. 그림마다 지금 그림, 새 그림이 따라 그린 AI 참조 선화(FLUX.1 schnell 생성),
+  새 그림의 완성본이 한 줄이고, 아래는 새 그림의 단계별 누적 형태(앰버가 그 단계에서 새로 긋는 획)입니다.
+  <b>떠 있는 획</b>은 맨 첫 획을 뺀 열린 획 가운데 양 끝 중 하나라도 앞서 그린 획 위에 없는 것의 비율입니다
+  (닫힌 획 — 눈·창·별 — 은 끝이 없어 떠 있는 획이 아닙니다).
+</p>
+
+<h2>완성본 — 지금 그림 · AI 참조 선화 · 새 그림</h2>
+<div class="pairs" id="pairs">읽는 중…</div>
+
+<h2>새 그림 단계별 누적 형태</h2>
+<div id="steps"></div>
+
+<script type="module">
+import { floatingReport } from '../scripts/path-geom.mjs';
+
+const NS = 'http://www.w3.org/2000/svg';
+const DIFF = { easy: '쉬움', normal: '보통', hard: '도전' };
+// 지금 그림은 main 의 통합본을 그대로 떠 둔 compare-old.json, 새 그림은 data/drawings.json 입니다.
+const [oldSet, newSet] = await Promise.all(['compare-old.json', '../data/drawings.json']
+  .map((u) => fetch(u).then((r) => r.json()).then((j) => Object.fromEntries(j.drawings.map((d) => [d.id, d])))));
+const IDS = Object.keys(newSet);
+
+function svgOf(drawing, upto, mode) {
+  const svg = document.createElementNS(NS, 'svg');
+  svg.setAttribute('viewBox', drawing.viewBox);
+  for (let i = 0; i <= upto; i++) {
+    for (const d of drawing.steps[i].d) {
+      const p = document.createElementNS(NS, 'path');
+      p.setAttribute('d', d);
+      p.setAttribute('class', mode === 'full' ? 'full' : (i === upto ? 'now' : 'past'));
+      svg.appendChild(p);
+    }
+  }
+  return svg;
+}
+
+function summary(d) {
+  const r = floatingReport(d);
+  const pct = Math.round(r.ratio * 100);
+  return `${DIFF[d.difficulty]} · ${d.steps.length}단계 · 획 ${r.total}개 · 떠 있는 획 `
+    + `<span class="${r.floating.length ? 'bad' : ''}">${r.floating.length}개(${pct}%)</span>`;
+}
+
+const pairs = document.getElementById('pairs');
+pairs.replaceChildren();
+for (const id of IDS) {
+  const box = document.createElement('div');
+  box.className = 'pair';
+  const two = document.createElement('div');
+  two.className = 'two';
+  for (const [set, kind, tag] of [[oldSet, 'old', '지금'], [null, 'ref', 'AI 참조'], [newSet, 'new', '새 그림']]) {
+    if (kind === 'ref') {
+      const fig = document.createElement('figure');
+      fig.className = kind;
+      const img = document.createElement('img');
+      img.src = `../refs/${id}.png`;
+      img.alt = `${id} 참조 선화`;
+      img.onerror = () => { img.replaceWith(Object.assign(document.createElement('div'), { className: 'noref', textContent: '참조 선화 없음' })); };
+      fig.appendChild(img);
+      const cap = document.createElement('figcaption');
+      cap.innerHTML = `<span class="tag">${tag}</span><b>refs/${id}.png</b><br>새 그림은 이 선화를 따라 그었습니다`;
+      fig.appendChild(cap);
+      two.appendChild(fig);
+      continue;
+    }
+    const d = set[id];
+    if (!d) {
+      const fig = document.createElement('figure');
+      fig.className = kind;
+      fig.innerHTML = `<div class="noref">새 소재 — 지금 그림 없음</div><figcaption><span class="tag">${tag}</span></figcaption>`;
+      two.appendChild(fig);
+      continue;
+    }
+    const fig = document.createElement('figure');
+    fig.className = kind;
+    fig.appendChild(svgOf(d, d.steps.length - 1, 'full'));
+    const cap = document.createElement('figcaption');
+    cap.innerHTML = `<span class="tag">${tag}</span><b>${d.title}</b><br>${summary(d)}`;
+    fig.appendChild(cap);
+    two.appendChild(fig);
+  }
+  box.appendChild(two);
+  pairs.appendChild(box);
+}
+
+const steps = document.getElementById('steps');
+for (const id of IDS) {
+  const d = newSet[id];
+  const row = document.createElement('div');
+  row.className = 'row';
+  row.innerHTML = `<div class="head"><b>${d.title}</b><span>${summary(d)}</span></div>`;
+  const strip = document.createElement('div');
+  strip.className = 'strip';
+  d.steps.forEach((step, i) => {
+    const cell = document.createElement('div');
+    cell.className = 'cell' + (i === d.steps.length - 1 ? ' final' : '');
+    cell.appendChild(svgOf(d, i, 'step'));
+    const cap = document.createElement('div');
+    cap.className = 'cap';
+    cap.innerHTML = `<b>${i + 1}. ${step.label}</b><i>${step.teacherSay}</i>`;
+    cell.appendChild(cap);
+    strip.appendChild(cell);
+  });
+  row.appendChild(strip);
+  steps.appendChild(row);
+}
+document.title = '그림 비교 — 준비됨';
+</script>
+</body>
+</html>

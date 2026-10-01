@@ -1,0 +1,25 @@
+name: 그리기 검증
+
+on:
+  pull_request:
+    paths: ['draw/**', '.github/workflows/draw.yml']
+  push:
+    branches: [main]
+    paths: ['draw/**', '.github/workflows/draw.yml']
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: draw
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      # 그림 데이터 전수 검증(PRD 9장) — 의존성이 없어 npm ci 가 필요 없다
+      - run: npm test
+      - run: node scripts/check-font-coverage.mjs

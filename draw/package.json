@@ -1,0 +1,14 @@
+{
+  "name": "jjam-draw",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "짬짬이 그리기 — 전자칠판용 따라 그리기 웹서비스",
+  "scripts": {
+    "test": "node scripts/validate.mjs",
+    "bundle": "node scripts/bundle.mjs",
+    "dev": "node scripts/serve.mjs",
+    "draw": "node scripts/draw/build.mjs",
+    "voice": "python3 scripts/voice/build.py"
+  }
+}

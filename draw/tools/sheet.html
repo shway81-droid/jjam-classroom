@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>단계 검토 시트 — 짬짬이 그리기</title>
+<style>
+  :root { --ink:#1D3557; --now:#B85C00; --line:#DCD6C8; }
+  body { margin:0; padding:24px; background:#F4F1EA; color:var(--ink);
+         font-family:"Malgun Gothic", system-ui, sans-serif; }
+  h1 { font-size:24px; margin:0 0 6px; }
+  .lead { margin:0 0 20px; color:#6B7A8F; font-size:15px; max-width:60em; line-height:1.6; }
+  .row { background:#fff; border:2px solid var(--line); border-radius:16px; padding:14px 16px; margin-bottom:18px; }
+  .head { display:flex; align-items:baseline; gap:12px; margin-bottom:10px; }
+  .head b { font-size:19px; }
+  .head span { font-size:14px; color:#6B7A8F; }
+  .strip { display:flex; flex-wrap:wrap; gap:10px; }
+  .cell { width:132px; }
+  .cell svg { width:100%; background:#fff; border:1px solid var(--line); border-radius:8px; display:block; }
+  .cap { font-size:12px; margin-top:4px; line-height:1.35; }
+  .cap b { display:block; font-size:13px; }
+  .cap i { color:#6B7A8F; font-style:normal; }
+  .warn { color:#B00020; font-weight:700; }
+  path.past { fill:none; stroke:var(--ink); stroke-width:4; opacity:.6; stroke-linecap:round; stroke-linejoin:round; }
+  path.now { fill:none; stroke:var(--now); stroke-width:7; stroke-linecap:round; stroke-linejoin:round; }
+  .final svg { border-color:var(--now); border-width:2px; }
+  .toolbar { margin-bottom:16px; font-size:15px; }
+  label { margin-right:16px; }
+</style>
+</head>
+<body>
+<h1>단계 검토 시트</h1>
+<p class="lead">
+  PRD 4.1의 4번(<b>누적 형태가 매 단계 그럴듯한가</b>)은 기계로 판정할 수 없어 사람이 봐야 합니다.
+  그림을 하나씩 열어 단계를 넘겨 가며 보는 방식으로는 실제로 하지 않게 되므로, 전 그림의 전 단계를
+  한 페이지에 펼칩니다. 앰버가 그 단계에서 새로 생기는 획입니다.
+  <br>보는 법 — ① 중간 단계만 봐도 무엇을 그리는지 알 수 있는가 ② 새 획이 앞 획에 제대로 붙는가
+  ③ 마지막 칸이 완성본으로 보이는가.
+</p>
+<div class="toolbar">
+  <label><input type="checkbox" id="onlyHard"> 도전 난이도만</label>
+  <label><input type="checkbox" id="hideCap"> 글자 숨기기</label>
+</div>
+<div id="out">읽는 중…</div>
+
+<script>
+const NS = 'http://www.w3.org/2000/svg';
+const DIFF = { easy: '쉬움', normal: '보통', hard: '도전' };
+
+function cell(drawing, upto) {
+  const wrap = document.createElement('div');
+  wrap.className = 'cell' + (upto === drawing.steps.length - 1 ? ' final' : '');
+  const svg = document.createElementNS(NS, 'svg');
+  svg.setAttribute('viewBox', drawing.viewBox);
+  for (let i = 0; i <= upto; i++) {
+    for (const d of drawing.steps[i].d) {
+      const p = document.createElementNS(NS, 'path');
+      p.setAttribute('d', d);
+      p.setAttribute('class', i === upto ? 'now' : 'past');
+      svg.appendChild(p);
+    }
+  }
+  wrap.appendChild(svg);
+  const step = drawing.steps[upto];
+  const cap = document.createElement('div');
+  cap.className = 'cap';
+  cap.innerHTML = `<b>${upto + 1}. ${step.label}</b><i>${step.teacherSay}</i>`;
+  wrap.appendChild(cap);
+  return wrap;
+}
+
+fetch('../data/drawings.json').then(r => r.json()).then(({ drawings }) => {
+  const out = document.getElementById('out');
+  const render = () => {
+    const onlyHard = document.getElementById('onlyHard').checked;
+    const hideCap = document.getElementById('hideCap').checked;
+    out.replaceChildren();
+    let steps = 0;
+    for (const d of drawings) {
+      if (onlyHard && d.difficulty !== 'hard') continue;
+      const row = document.createElement('div');
+      row.className = 'row';
+      const head = document.createElement('div');
+      head.className = 'head';
+      head.innerHTML = `<b>${d.title}</b><span>${DIFF[d.difficulty]} · ${d.steps.length}단계 · ${d.paper}</span>`;
+      row.appendChild(head);
+      const strip = document.createElement('div');
+      strip.className = 'strip';
+      for (let i = 0; i < d.steps.length; i++) strip.appendChild(cell(d, i));
+      row.appendChild(strip);
+      out.appendChild(row);
+      steps += d.steps.length;
+    }
+    out.querySelectorAll('.cap').forEach(c => { c.style.display = hideCap ? 'none' : 'block'; });
+    document.title = `단계 검토 시트 — ${steps}장`;
+  };
+  document.getElementById('onlyHard').addEventListener('change', render);
+  document.getElementById('hideCap').addEventListener('change', render);
+  render();
+});
+</script>
+</body>
+</html>
