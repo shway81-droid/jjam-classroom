@@ -20,12 +20,14 @@
 // 치환이 안 되면 워크플로가 실패하므로, 이 값이 그대로 올라가는 일은 없다.
 const VERSION = 'jjam-classroom-dev';
 
-// 이 화면이 쓰는 전부다. 스크립트가 없고 링크만 있는 페이지라 목록이 짧다.
+// 이 화면이 쓰는 전부다. 거의 링크뿐인 페이지라 목록이 짧다(스크립트는 아래 등록 한 줄뿐).
 // 일곱 칸의 링크는 각자 다른 주소(/jjam/, /jjam-quiz/ …)이고 그쪽은 그쪽 캐시가 맡는다.
+// 아이콘 PNG 는 담지 않는다 — 홈 화면에 추가하면 기기가 따로 갖고 있다.
 const ASSETS = [
   './',
   'index.html',
   'favicon.svg',
+  'manifest.json',
   'assets/fonts/PretendardVariable.subset.woff2',
 ];
 
