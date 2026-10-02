@@ -20,6 +20,10 @@ home/   짬짬이 교실 모아보기 — 일곱 사이트를 모은 첫 화면 
 1. **발행 대상 저장소(jjam · jjam-quiz · jjam-video · jjam-story · jjam-word · jjam-1min · jjam-draw)에
    무엇이든 쓰기 전에** 그 저장소가 어떻게 발행되는지(Pages Source, 워크플로) 먼저 확인한다.
    "이 파일은 사이트와 무관하다"고 단정하지 않는다 — **커밋이 생기는 것 자체가 발행을 일으킬 수 있다.**
+   **이 저장소(jjam-classroom)도 2026-10-01 부터 발행처다** — `home/`(모아보기 첫 화면)을
+   `home.yml` 이 직접 올린다. 다만 그 워크플로는 `home/**` 와 자기 자신만 보도록 `paths` 가
+   걸려 있어, 문서·다른 폴더만 고친 커밋은 발행을 일으키지 않는다. **`home/` 을 건드리는 순간
+   그 커밋이 곧 배포다.**
 2. **여러 저장소·여러 사이트에 한꺼번에 적용하지 않는다.** 한 곳에 먼저 적용하고, 실제 사이트
    (`https://shway81-droid.github.io/<저장소>/sw.js` 의 커밋 번호, 화면)를 확인한 뒤 나머지로 넓힌다.
 3. **발행에 닿는 PR 은 확인을 끝낸 뒤 머지한다.** 가짜 API·문법 검사만으로 "된다"고 하지 않는다.
@@ -30,6 +34,18 @@ home/   짬짬이 교실 모아보기 — 일곱 사이트를 모은 첫 화면 
 5. 확인 명령(일곱 사이트의 발행 버전):
    `for r in jjam jjam-quiz jjam-video jjam-story jjam-word jjam-1min jjam-draw; do curl -s https://shway81-droid.github.io/$r/sw.js | grep -oE "(CACHE(_NAME)?|VERSION) = '[^']*'"; done`
    — 커밋 번호 없이 `jjamquiz-v3` 같은 이름이 나오면 옛 내용이 발행된 것이다.
+   **줄 수를 세라. 일곱 줄이 나와야 한다.** 어느 사이트가 `sw.js` 를 안 돌려주면 그 자리는
+   **빈 줄이 아니라 아예 빠진 채** 결과가 짧아진다. `grep` 은 못 찾아도 0 으로 끝나기 때문에
+   **"조용하다"가 "정상이다"로 보인다** — 9/30 사고와 같은 종류의 함정이다.
+   줄이 모자라면 그 사이트는 "정상"도 "고장"도 아니라 **판정 불가**이니 따로 열어 봐야 한다.
+6. **여덟 번째 발행처인 `home/`(모아보기)은 이 명령으로 판정할 수 없다.** 서비스워커를 일부러
+   두지 않아 `https://shway81-droid.github.io/jjam-classroom/sw.js` 가 404 다
+   (이유는 `home/index.html` 맨 위 주석 참고 — 링크만 모은 화면이고, 고치면 새로 고침 없이
+   바로 보이게 하려는 것이다). 그래서 **첫 화면이 열리는지와 머리띠의 일곱 칸이 다 뜨는지**를
+   눈으로 본다 — 아래가 `200` 과 `7` 이면 정상이다(프록시 뒤에서는 `-I` 의 첫 줄이
+   프록시 응답이라 못 믿는다. `-w '%{http_code}'` 를 쓴다):
+   `curl -s -o /dev/null -w '%{http_code}\n' https://shway81-droid.github.io/jjam-classroom/`
+   `curl -s https://shway81-droid.github.io/jjam-classroom/ | grep -c 'class="card"'`
 
 ## 폴더 안의 규칙이 우선이다
 
