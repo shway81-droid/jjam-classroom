@@ -31,19 +31,18 @@ home/   짬짬이 교실 모아보기 — 일곱 사이트를 모은 첫 화면 
 4. **사고가 나면 먼저 되돌린다.** 일곱 곳에 발행 신호를 다시 보내 최신으로 덮어쓰고
    (jjam-classroom `발행 신호 보내기` 수동 실행, 또는 각 저장소 발행 워크플로 Run workflow),
    일곱 사이트 sw.js 의 커밋 번호가 jjam-classroom main 과 같은지 확인한 다음 원인을 고친다.
-5. 확인 명령(일곱 사이트의 발행 버전):
-   `for r in jjam jjam-quiz jjam-video jjam-story jjam-word jjam-1min jjam-draw; do curl -s https://shway81-droid.github.io/$r/sw.js | grep -oE "(CACHE(_NAME)?|VERSION) = '[^']*'"; done`
+5. 확인 명령(여덟 사이트의 발행 버전):
+   `for r in jjam jjam-quiz jjam-video jjam-story jjam-word jjam-1min jjam-draw jjam-classroom; do curl -s https://shway81-droid.github.io/$r/sw.js | grep -oE "(CACHE(_NAME)?|VERSION) = '[^']*'"; done`
    — 커밋 번호 없이 `jjamquiz-v3` 같은 이름이 나오면 옛 내용이 발행된 것이다.
-   **줄 수를 세라. 일곱 줄이 나와야 한다.** 어느 사이트가 `sw.js` 를 안 돌려주면 그 자리는
+   **줄 수를 세라. 여덟 줄이 나와야 한다.** 어느 사이트가 `sw.js` 를 안 돌려주면 그 자리는
    **빈 줄이 아니라 아예 빠진 채** 결과가 짧아진다. `grep` 은 못 찾아도 0 으로 끝나기 때문에
    **"조용하다"가 "정상이다"로 보인다** — 9/30 사고와 같은 종류의 함정이다.
    줄이 모자라면 그 사이트는 "정상"도 "고장"도 아니라 **판정 불가**이니 따로 열어 봐야 한다.
-6. **여덟 번째 발행처인 `home/`(모아보기)은 이 명령으로 판정할 수 없다.** 서비스워커를 일부러
-   두지 않아 `https://shway81-droid.github.io/jjam-classroom/sw.js` 가 404 다
-   (이유는 `home/index.html` 맨 위 주석 참고 — 링크만 모은 화면이고, 고치면 새로 고침 없이
-   바로 보이게 하려는 것이다). 그래서 **첫 화면이 열리는지와 머리띠의 일곱 칸이 다 뜨는지**를
-   눈으로 본다 — 아래가 `200` 과 `7` 이면 정상이다(프록시 뒤에서는 `-I` 의 첫 줄이
-   프록시 응답이라 못 믿는다. `-w '%{http_code}'` 를 쓴다):
+6. **여덟 번째인 `home/`(모아보기)은 서비스워커의 성격이 다르다.** 일곱 곳은 캐시 우선인데
+   `home/sw.js` 는 **네트워크 우선**이다 — 원래 서비스워커를 두지 않은 이유가 "고치면 새로
+   고침 없이 바로 보이게"였기 때문이다(`home/sw.js` 머리말 참고). 그래서 캐시 이름이
+   최신이어도 **화면이 실제로 뜨는지는 따로 본다.** 아래가 `200` 과 `7` 이면 정상이다
+   (프록시 뒤에서는 `-I` 의 첫 줄이 프록시 응답이라 못 믿는다. `-w '%{http_code}'` 를 쓴다):
    `curl -s -o /dev/null -w '%{http_code}\n' https://shway81-droid.github.io/jjam-classroom/`
    `curl -s https://shway81-droid.github.io/jjam-classroom/ | grep -c 'class="card"'`
 
