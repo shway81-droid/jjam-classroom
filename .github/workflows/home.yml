@@ -2,6 +2,8 @@ name: 모아보기 검증·발행
 
 # 짬짬이 교실 모아보기(home/)는 다른 일곱 사이트와 달리 **이 저장소가 직접 발행한다.**
 #   주소: https://shway81-droid.github.io/jjam-classroom/
+#   sw.js 도 함께 올리고 캐시 이름에 커밋 번호를 박는다(2026-10-02) — 그래야
+#   CLAUDE.md 5절 확인 명령이 이 여덟 번째 사이트도 같이 판정한다.
 #   Pages Source = GitHub Actions (2026-10-01 설정). 저장소 전체가 아니라
 #   home/ 에서 고른 파일만 올린다 — 나머지 폴더(게임·퀴즈 …)가 이 주소 아래에
 #   한 벌 더 공개되면 선생님들이 옛 주소와 헷갈린다.
@@ -40,9 +42,18 @@ jobs:
       - name: 발행할 파일 모으기
         run: |
           mkdir -p site
-          cp home/index.html home/favicon.svg home/og-image.png site/
+          cp home/index.html home/favicon.svg home/og-image.png home/sw.js site/
           cp -r home/assets site/
           test -s site/index.html
+          # 캐시 이름에 커밋 번호를 박는다. 다른 일곱 사이트와 같은 규칙이라
+          # CLAUDE.md 5절 확인 명령이 이 사이트도 같이 판정할 수 있게 된다.
+          # sed 는 아무것도 못 바꿔도 0 으로 끝난다 — 그래서 바뀌었는지 반드시 되본다.
+          # (9/30 사고와 같은 종류의 함정이다. 조용히 지나가면 커밋 번호 없는
+          #  'jjam-classroom-dev' 가 그대로 올라가 점검이 오히려 "옛 내용"으로 읽는다.)
+          SHORT="${GITHUB_SHA:0:7}"
+          sed -i "s/jjam-classroom-dev/jjam-classroom-${SHORT}/" site/sw.js
+          grep -q "VERSION = 'jjam-classroom-${SHORT}'" site/sw.js \
+            || { echo "::error::sw.js 캐시 이름 치환 실패 — 커밋 번호 없이 발행될 뻔했다"; exit 1; }
           ls -R site
       - name: Pages 설정 확인
         if: github.event_name != 'pull_request'

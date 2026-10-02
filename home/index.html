@@ -33,8 +33,11 @@
   font-display: swap;
 }
 /* 짬짬이 교실 — 일곱 사이트를 모은 첫 화면(2026-10-01, 시안 B '앱 서랍').
-   네이비 머리띠 위에 카드가 걸쳐 올라오는 배치. 서비스워커를 두지 않는다 —
-   링크만 모은 화면이라 오프라인이 필요 없고, 고쳤을 때 새로 고침 없이 바로 보이게 하려는 것이다. */
+   네이비 머리띠 위에 카드가 걸쳐 올라오는 배치.
+   2026-10-02: 서비스워커를 두되 **네트워크 우선**으로 둔다(sw.js 머리말 참고).
+   원래 두지 않은 이유가 "고쳤을 때 새로 고침 없이 바로 보이게"였는데, 네트워크 우선이면
+   그 성질은 그대로이고 인터넷이 끊겼을 때만 캐시가 일한다. 일곱 칸은 각자 캐시가 있는데
+   그리로 들어가는 이 문만 없어서 더했다. */
 :root {
   --ink: #152447;
   --ink-soft: #55607A;
@@ -217,5 +220,14 @@ p { margin: 0; }
     <a class="ask" href="https://docs.google.com/forms/d/e/1FAIpQLSe9cCApkL_zSe5jELdn7_O7pDCC-Qyt5KrbAir_2laHUEG3NA/viewform" target="_blank" rel="noopener">의견·문의 보내기 →</a>
   </div>
 </main>
+<script>
+/* 오프라인 대비. 네트워크 우선이라 고친 내용은 전과 똑같이 바로 보인다(sw.js 참고).
+   이 화면의 유일한 스크립트다 — 실패해도 화면은 그대로 동작한다. */
+if ('serviceWorker' in navigator) {
+  addEventListener('load', function () {
+    navigator.serviceWorker.register('sw.js').catch(function () {});
+  });
+}
+</script>
 </body>
 </html>
