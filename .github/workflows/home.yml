@@ -4,18 +4,46 @@ name: 모아보기 검증·발행
 #   주소: https://shway81-droid.github.io/jjam-classroom/
 #   sw.js 도 함께 올리고 캐시 이름에 커밋 번호를 박는다(2026-10-02) — 그래야
 #   CLAUDE.md 5절 확인 명령이 이 여덟 번째 사이트도 같이 판정한다.
+#
+# 카드의 개수("차시 영상 192")는 **발행 직전에 데이터에서 다시 뽑는다**
+# (scripts/sync-counts.mjs). 그래서 일곱 사이트의 데이터 파일도 아래 paths 에
+# 들어 있다 — 1분사회에 차시를 더하면 모아보기가 알아서 다시 발행돼 숫자가 따라온다.
+# 손으로 적어 두었더니 1분사회는 열 시간 만에, 낱말은 처음부터 틀려 있었다.
 #   Pages Source = GitHub Actions (2026-10-01 설정). 저장소 전체가 아니라
 #   home/ 에서 고른 파일만 올린다 — 나머지 폴더(게임·퀴즈 …)가 이 주소 아래에
 #   한 벌 더 공개되면 선생님들이 옛 주소와 헷갈린다.
 #
 # PR 에서는 검증만, main 에 들어오면 검증 뒤 발행한다.
 
+# GitHub Actions 는 YAML 앵커(&·*)를 지원하지 않는다. 두 벌을 똑같이 적는다.
 on:
   pull_request:
-    paths: ['home/**', '.github/workflows/home.yml']
+    paths:
+      - 'home/**'
+      - '.github/workflows/home.yml'
+      - 'scripts/sync-counts.mjs'
+      # 카드의 개수가 여기서 나온다. 바뀌면 모아보기도 다시 발행해야 숫자가 맞는다.
+      - 'game/games/**/game.json'
+      - 'quiz/games/**/game.json'
+      - 'word/data/words.json'
+      - 'story/data/stories.json'
+      - 'video/data/videos.json'
+      - '1min/data/lessons.json'
+      - 'draw/data/drawings.json'
   push:
     branches: [main]
-    paths: ['home/**', '.github/workflows/home.yml']
+    paths:
+      - 'home/**'
+      - '.github/workflows/home.yml'
+      - 'scripts/sync-counts.mjs'
+      # 카드의 개수가 여기서 나온다. 바뀌면 모아보기도 다시 발행해야 숫자가 맞는다.
+      - 'game/games/**/game.json'
+      - 'quiz/games/**/game.json'
+      - 'word/data/words.json'
+      - 'story/data/stories.json'
+      - 'video/data/videos.json'
+      - '1min/data/lessons.json'
+      - 'draw/data/drawings.json'
   workflow_dispatch:
 
 permissions:
@@ -45,6 +73,10 @@ jobs:
           cp home/index.html home/favicon.svg home/og-image.png home/sw.js site/
           cp -r home/assets site/
           test -s site/index.html
+          # 카드의 개수를 데이터에서 다시 뽑아 넣는다. 저장소의 index.html 이
+          # 낡아 있어도 올라가는 화면은 맞게 된다. 짝이 어긋나거나 데이터 구조가
+          # 바뀌면 이 스크립트가 0 이 아닌 값으로 끝나 발행이 멈춘다.
+          node scripts/sync-counts.mjs --target site/index.html
           # 캐시 이름에 커밋 번호를 박는다. 다른 일곱 사이트와 같은 규칙이라
           # CLAUDE.md 5절 확인 명령이 이 사이트도 같이 판정할 수 있게 된다.
           # sed 는 아무것도 못 바꿔도 0 으로 끝난다 — 그래서 바뀌었는지 반드시 되본다.
