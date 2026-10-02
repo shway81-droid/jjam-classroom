@@ -70,9 +70,15 @@ jobs:
       - name: 발행할 파일 모으기
         run: |
           mkdir -p site
-          cp home/index.html home/favicon.svg home/og-image.png home/sw.js site/
+          cp home/index.html home/favicon.svg home/og-image.png home/sw.js home/manifest.json site/
           cp -r home/assets site/
           test -s site/index.html
+          # 홈 화면에 추가가 되려면 manifest 와 아이콘이 둘 다 올라가야 한다.
+          # (아이콘은 assets/ 에 들어 있어 위 cp -r 로 따라온다.)
+          test -s site/manifest.json
+          for f in icon-192 icon-512 icon-maskable-512 apple-touch-icon; do
+            test -s "site/assets/icons/$f.png" || { echo "::error::아이콘 $f.png 이 빠졌습니다"; exit 1; }
+          done
           # 카드의 개수를 데이터에서 다시 뽑아 넣는다. 저장소의 index.html 이
           # 낡아 있어도 올라가는 화면은 맞게 된다. 짝이 어긋나거나 데이터 구조가
           # 바뀌면 이 스크립트가 0 이 아닌 값으로 끝나 발행이 멈춘다.
