@@ -1,5 +1,53 @@
 [
   {
+    "id": "vs-sa4-2-1-01",
+    "publisher": "비상교육",
+    "subject": "사회",
+    "grade": 4,
+    "semester": 2,
+    "unit": 1,
+    "unitTitle": "민주주의와 자치",
+    "lesson": 1,
+    "lessonTitle": "민주주의와 자치",
+    "topic": "단원 도입",
+    "youtubeId": "9TFHFkZg2UQ",
+    "seconds": 82,
+    "summary": "교과서 마을 그림에서 의견을 말하고 참여하는 사람들을 찾아보고, 학교 속의 민주주의와 주민 자치·주민 참여를 배우는 1단원을 소개합니다.",
+    "keywords": [
+      "민주주의",
+      "자치",
+      "학교 자치",
+      "주민 자치",
+      "주민 참여",
+      "단원 도입"
+    ]
+  },
+  {
+    "id": "vs-sa4-2-1-02",
+    "publisher": "비상교육",
+    "subject": "사회",
+    "grade": 4,
+    "semester": 2,
+    "unit": 1,
+    "unitTitle": "민주주의와 자치",
+    "lesson": 2,
+    "lessonEnd": 3,
+    "lessonTitle": "민주주의의 의미를 알아볼까요",
+    "topic": "민주주의의 의미",
+    "youtubeId": "HseuDZak2Ao",
+    "seconds": 80,
+    "summary": "학교 자치와 민주주의의 뜻, 자율 동아리·주민 회의·주민 투표 같은 민주주의의 다양한 모습, 학생 자치회가 하는 일을 봅니다.",
+    "keywords": [
+      "민주주의",
+      "자치",
+      "학교 자치",
+      "공동체",
+      "대화와 타협",
+      "학생 자치회",
+      "투표"
+    ]
+  },
+  {
     "id": "vs-sa5-2-1-01",
     "publisher": "비상교육",
     "subject": "사회",
