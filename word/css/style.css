@@ -327,7 +327,7 @@ body.is-over .topbar { background: var(--accent-deep); }
 
 .setup-count { font-size: 0.94rem; color: var(--ink-soft); }
 .setup-count.is-empty { color: var(--accent-deep); font-weight: 700; }
-.setup-people {
+.setup-live {
   display: flex;
   align-items: center;
   gap: 0.8rem;
@@ -335,7 +335,7 @@ body.is-over .topbar { background: var(--accent-deep); }
   padding-top: 1rem;
   border-top: 1px dashed var(--outline-variant);
 }
-.setup-people span { font-size: 0.9rem; color: var(--ink-soft); }
+.setup-live span { font-size: 0.9rem; color: var(--ink-soft); }
 
 .setup-actions { display: flex; justify-content: space-between; gap: 0.8rem; margin-top: 1.3rem; }
 
