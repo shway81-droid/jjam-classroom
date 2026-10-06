@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>선생님용 실시간 정답 창 — 짬짬이 낱말 인물퀴즈</title>
+  <title>선생님용 실시간 정답 창 — 짬짬이 낱말</title>
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#E4576E">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -12,31 +12,33 @@
   <link rel="stylesheet" href="css/people.css">
 </head>
 <body class="people-page">
-  <!-- 선생님용 실시간 정답 창 — 인물퀴즈 설정 화면·출제 화면의 [실시간 정답] 버튼이 새 창으로 연다.
+  <!-- 선생님용 실시간 정답 창 — 문답형 말놀이의 설정 화면·출제 화면 [실시간 정답] 버튼이 새 창으로 연다.
+       인물퀴즈 전용으로 시작해(2026-09-30) 문답형 10종으로 넓혔다(2026-10-06). 파일 이름은 그때 그대로다.
        이 창의 주인공은 "지금 칠판에 나온 문제의 정답"이다(출제 창이 BroadcastChannel 로 알려 준다).
        칠판과 같은 화면을 복제해 쓰면 아이들에게도 보이니, 노트북 화면(확장 화면)에 둔다.
-       아래의 전체 명단은 보조 — 화면이 하나뿐인 교실은 이것을 인쇄해 '정답지 순서대로' 출제와 함께 쓴다. -->
+       아래의 인물퀴즈 전체 명단은 보조 — 화면이 하나뿐인 교실은 이것을 인쇄해 '정답지 순서대로' 출제와 함께 쓴다.
+       인물퀴즈가 아닌 놀이에서 열면 명단은 접혀 있다(people.js 의 boot). -->
   <header class="people-head">
     <h1>👀 선생님용 실시간 정답 창</h1>
-    <p class="people-lead">칠판에 나온 인물퀴즈 문제의 정답이 여기에 바로 떠요. 아이들에게 보이지 않게 <strong>노트북 화면</strong>에 띄워 두세요.</p>
+    <p class="people-lead">칠판에 나온 문제의 정답이 여기에 바로 떠요. 아이들에게 보이지 않게 <strong>노트북 화면</strong>에 띄워 두세요.</p>
   </header>
 
   <section class="live" id="live" data-state="idle" aria-live="polite">
     <img class="live-photo" id="live-photo" alt="" hidden>
     <div class="live-body">
       <p class="live-label">지금 칠판 문제의 정답</p>
-      <p class="live-name" id="live-name">문제를 기다리는 중</p>
+      <p class="live-prompt" id="live-prompt" hidden></p>
+      <p class="live-answer" id="live-answer">문제를 기다리는 중</p>
       <p class="live-also" id="live-also"></p>
-      <p class="live-meta" id="live-meta">칠판에서 인물퀴즈를 시작하면 여기에 정답이 떠요.</p>
+      <p class="live-note" id="live-note" hidden></p>
+      <p class="live-meta" id="live-meta"></p>
     </div>
   </section>
 
-  <section class="roster" aria-labelledby="roster-title">
+  <details class="roster" id="roster" open>
+    <summary class="roster-title">인물퀴즈 전체 명단 <span class="roster-note">인쇄·엑셀용</span></summary>
     <div class="roster-head">
-      <div>
-        <h2 class="roster-title" id="roster-title">전체 명단 <span class="roster-note">인쇄·엑셀용</span></h2>
-        <p class="people-sub" id="people-sub">불러오는 중…</p>
-      </div>
+      <p class="people-sub" id="people-sub">불러오는 중…</p>
       <div class="people-actions">
         <button class="btn btn-primary" id="btn-csv" type="button" disabled>↓ 엑셀(CSV) 내려받기</button>
         <button class="btn btn-ghost" id="btn-print" type="button">🖨 인쇄 · PDF 저장</button>
@@ -47,8 +49,8 @@
 
     <div id="people-list"></div>
 
-    <p class="people-foot">화면이 하나뿐인 교실(일체형 전자칠판·복제 화면)에서는 이 명단을 인쇄하고, 설정에서 출제 순서를 "정답지 순서대로"로 고르세요. 칠판 위쪽 띠의 번호(No.)가 이 명단의 번호와 같아요.<br>사진: 위키미디어 공용의 자유 라이선스 사진(크기 조정). 사진마다 저작자·라이선스는 CSV 에 함께 들어 있습니다.</p>
-  </section>
+    <p class="people-foot">화면이 하나뿐인 교실(일체형 전자칠판·복제 화면)에서는 이 명단을 인쇄하고, 인물퀴즈 설정에서 출제 순서를 "정답지 순서대로"로 고르세요. 칠판 위쪽 띠의 번호(No.)가 이 명단의 번호와 같아요.<br>사진: 위키미디어 공용의 자유 라이선스 사진(크기 조정). 사진마다 저작자·라이선스는 CSV 에 함께 들어 있습니다.</p>
+  </details>
 
   <script type="module" src="js/people.js"></script>
 </body>

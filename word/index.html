@@ -114,9 +114,9 @@
           <div class="option-row" id="opt-set" role="radiogroup" aria-labelledby="label-set"></div>
         </div>
         <p class="setup-count" id="setup-count" role="status"></p>
-        <!-- 인물퀴즈 전용 — 나올 인물과 정답을 새 창에서 미리 보고 엑셀(CSV)로 내려받는다. -->
-        <div class="setup-people" id="group-people" hidden>
-          <button class="btn btn-ghost" id="btn-people-list" type="button">👀 실시간 정답 창 열기</button>
+        <!-- 문답형 놀이 모두 — 선생님용 실시간 정답 창(새 창)을 연다. 끝말잇기·몸으로 말해요 같은 도구형은 정답이 없어 숨긴다. -->
+        <div class="setup-live" id="group-live" hidden>
+          <button class="btn btn-ghost" id="btn-live-setup" type="button">👀 실시간 정답 창 열기</button>
           <span>칠판에 나온 문제의 정답이 새 창에 바로 떠요. 노트북 화면에 띄워 두세요.</span>
         </div>
       </div>
@@ -148,8 +148,8 @@
         <span class="quiz-count" id="quiz-count" aria-label="오늘 푼 문항 수"></span>
         <button class="btn btn-ghost btn-sm" id="btn-skip" type="button">건너뛰기</button>
         <button class="btn btn-ghost btn-sm" id="btn-quit" type="button">마치기</button>
-        <!-- 인물퀴즈만 — 선생님용 실시간 정답 창을 연다. 칠판과 다른 화면(노트북)에 두면 지금 문제의 정답이 뜬다. -->
-        <button class="btn btn-ghost btn-sm" id="btn-people-live" type="button" hidden>👀 실시간 정답</button>
+        <!-- 선생님용 실시간 정답 창을 연다. 칠판과 다른 화면(노트북)에 두면 지금 문제의 정답이 뜬다. -->
+        <button class="btn btn-ghost btn-sm" id="btn-live-quiz" type="button">👀 실시간 정답</button>
       </div>
     </section>
 

@@ -228,8 +228,9 @@ function openSetup(type) {
   $('group-level').hidden = !hasLevel;
   $('group-topic').hidden = !t.topics;
   $('group-groups').hidden = !isRound;
-  // 인물퀴즈만 — 선생님이 정답 판정을 하려면 누가 나오는지 미리 알아야 한다(2026-09-30 요청).
-  $('group-people').hidden = type !== 'person';
+  // 문답형 놀이 모두 — 선생님이 정답 판정을 하려면 지금 문제의 정답을 미리 알아야 한다.
+  // 인물퀴즈에서 시작해(2026-09-30 요청) 나머지 문답형으로 넓혔다(2026-10-06). 도구형은 정해진 정답이 없다.
+  $('group-live').hidden = t.kind !== 'quiz';
   $('group-order').hidden = type !== 'person';
   state.order = 'random';
   state.setStart = 0;
@@ -371,7 +372,6 @@ function renderItem() {
   // 인물은 번호(No.)를 함께 띄운다 — 선생님이 전체 명단에서 바로 찾는다(아이들이 봐도 정답은 아니다).
   const no = it.type === 'person' ? `No.${state.numbers.get(it.id)}` : null;
   $('quiz-topic').textContent = [no, it.topic, TYPES[it.type].cue].filter(Boolean).join(' · ');
-  $('btn-people-live').hidden = it.type !== 'person';
   const prompt = $('quiz-prompt');
   prompt.textContent = it.prompt;
   if (it.type === 'fourword') slotBlank(prompt, it.prompt, [...it.answer].length);
@@ -938,8 +938,10 @@ function buildClockPicks() {
 
 // 선생님용 실시간 정답 창(새 창). 창 이름을 고정해 두면 여러 번 눌러도 창이 하나만 뜬다
 // ('noopener' 를 주면 브라우저가 이름으로 찾지 않고 매번 새 창을 띄운다 — 우리 사이트 창이라 필요 없다).
-function openPeopleWindow() {
-  window.open('people.html', 'jjam-word-people');
+// 파일 이름 people.html 은 인물퀴즈 전용이던 시절 그대로다 — 즐겨찾기가 깨지지 않게 두었다.
+// ?type= 은 어느 놀이에서 열었는지 — 인물퀴즈가 아니면 창 아래쪽 인물 명단을 접어 둔다.
+function openLiveWindow() {
+  window.open(`people.html?type=${encodeURIComponent(state.type || '')}`, 'jjam-word-people');
 }
 
 function wire() {
@@ -947,8 +949,8 @@ function wire() {
   $('btn-setup-back').addEventListener('click', () => show('HOME'));
   $('btn-start').addEventListener('click', start);
   // 새 창 — 출제 화면을 그대로 둔 채 실시간 정답 창을 옆에 띄워 놓고 쓸 수 있게.
-  $('btn-people-list').addEventListener('click', openPeopleWindow);
-  $('btn-people-live').addEventListener('click', openPeopleWindow);
+  $('btn-live-setup').addEventListener('click', openLiveWindow);
+  $('btn-live-quiz').addEventListener('click', openLiveWindow);
   $('btn-hint').addEventListener('click', () => setStage('HINT'));
   $('btn-reveal').addEventListener('click', () => setStage('ANSWER'));
   $('btn-next').addEventListener('click', nextItem);
@@ -1070,16 +1072,22 @@ function wire() {
 
 /* —— 선생님용 실시간 정답 창과 연결 ——
    칠판(확장 화면)에는 문제만, 선생님 노트북 화면의 실시간 정답 창에는 "지금 문제의 정답"이 뜬다.
+   문답형 놀이(kind: 'quiz') 모두가 알린다 — 출제 화면에 오는 것은 문답형뿐이다.
    같은 브라우저의 두 창끼리 BroadcastChannel 로 알린다 — 서버 없이, 인터넷 없이 된다.
-   지원하지 않는 브라우저에서는 조용히 빠진다(창의 전체 명단은 그대로 쓸 수 있다). */
+   지원하지 않는 브라우저에서는 조용히 빠진다(창의 인물 명단은 그대로 쓸 수 있다). */
 const live = typeof BroadcastChannel === 'function' ? new BroadcastChannel(LIVE_CHANNEL) : null;
 
 function liveSend() {
   if (!live) return;
   const onQuiz = SCREENS[state.screen] === 'screen-quiz';
   const it = state.item;
-  if (onQuiz && it && it.type === 'person') {
-    live.postMessage({ kind: 'item', id: it.id, no: state.numbers.get(it.id), stage: state.stage });
+  if (onQuiz && it) {
+    // 문항 내용은 보내지 않는다 — 정답 창도 words.json 을 읽어 id 로 찾는다(소스는 한 곳).
+    // 놀이 이름은 TYPES 가 여기에만 있으므로 함께 보낸다.
+    live.postMessage({
+      kind: 'item', id: it.id, label: TYPES[it.type].label,
+      no: state.numbers.get(it.id), stage: state.stage,
+    });
   } else {
     live.postMessage({ kind: 'idle' });
   }

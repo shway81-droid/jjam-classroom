@@ -1,5 +1,5 @@
 /* 선생님용 실시간 정답 창 (people.html) — 색·버튼은 style.css 를 그대로 쓰고 배치만 더한다.
-   맨 위 실시간 정답 칸이 주인공, 그 아래 전체 명단은 보조다. */
+   맨 위 실시간 정답 칸이 주인공, 그 아래 인물퀴즈 전체 명단(접을 수 있다)은 보조다. */
 
 .people-page { padding: 1.4rem var(--gutter) 2.4rem; max-width: var(--maxw); margin: 0 auto; }
 
@@ -8,8 +8,10 @@
 .people-lead { color: var(--ink-soft); font-size: 1rem; margin-top: 0.25rem; }
 .people-lead strong { color: var(--accent-deep); }
 
-/* 전체 명단 — 실시간 정답 칸 아래의 보조 영역 */
+/* 인물퀴즈 전체 명단 — 실시간 정답 칸 아래의 보조 영역. 인물퀴즈가 아닌 놀이에서 열면 접혀 있다. */
 .roster { margin-top: 2rem; }
+.roster > summary { cursor: pointer; margin-bottom: 0.6rem; }
+.roster:not([open]) > summary { color: var(--ink-soft); }
 .roster-head {
   display: flex;
   justify-content: space-between;
@@ -105,6 +107,8 @@
   .people-page { padding: 0; max-width: none; }
   .people-head, .live, .people-actions, .people-filter { display: none; }
   .roster { margin-top: 0; }
+  .roster > summary { list-style: none; }
+  .roster > summary::-webkit-details-marker { display: none; }
   .roster-note { display: none; }
   .roster-title { font-size: 1.4rem; }
   .people-grid { grid-template-columns: repeat(3, 1fr); gap: 0.35rem; }
@@ -150,9 +154,13 @@
 .live[data-state="idle"] { border-style: dashed; border-color: var(--outline-variant); box-shadow: none; }
 .live-photo { width: 9rem; height: 11rem; object-fit: cover; object-position: center 20%; border-radius: 10px; flex: 0 0 auto; }
 .live-label { font-size: 1rem; font-weight: 800; color: var(--accent-deep); }
-.live-name { font-size: clamp(2.6rem, 7vw, 4.6rem); font-weight: 900; line-height: 1.1; }
-.live[data-state="idle"] .live-name { font-size: 1.6rem; color: var(--ink-soft); }
+/* 칠판에 뜬 문제 그대로 — 어느 문제의 정답인지 맞춰 보는 줄이다(인물은 사진이 대신한다). */
+.live-prompt { font-size: 1.3rem; font-weight: 700; line-height: 1.35; margin-top: 0.2rem; }
+.live-answer { font-size: clamp(2.6rem, 7vw, 4.6rem); font-weight: 900; line-height: 1.1; }
+.live-answer[data-len="long"] { font-size: clamp(2rem, 4.6vw, 3.2rem); }
+.live[data-state="idle"] .live-answer { font-size: 1.6rem; color: var(--ink-soft); }
 .live-also { font-size: 1.15rem; font-weight: 700; color: var(--ink-soft); }
+.live-note { font-size: 1rem; color: var(--ink); margin-top: 0.15rem; }
 .live-meta { font-size: 1rem; color: var(--ink-soft); margin-top: 0.15rem; }
 
 @media print {
