@@ -1,0 +1,39 @@
+{
+ "key": "예능인_문세윤",
+ "ko": "문세윤",
+ "n_titles": 11,
+ "n_ok": 7,
+ "cands": [
+  {
+   "title": "File:Moon Se-yoon, 2026.jpg",
+   "w": 1093,
+   "h": 1458,
+   "mime": "image/jpeg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/6/61/Moon_Se-yoon%2C_2026.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Moon_Se-yoon%2C_2026.jpg/960px-Moon_Se-yoon%2C_2026.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Moon_Se-yoon,_2026.jpg",
+   "license": "CC BY 4.0",
+   "artist": "Ten Asia",
+   "credit": "조나단·김원훈·장윤주·문세윤, 웃음 가득한 포토월 | 2026 대한민국 퍼스트브랜드 대상 포토월",
+   "date": "2026-01-05",
+   "desc": "South Korean comedian and actress Moon Se-yoon at the 2026 Korea First Brand Awards.",
+   "nlicense": "CC BY 4.0",
+   "idx": 0,
+   "score": 71.0,
+   "why": "face=334 others=0",
+   "size": [
+    960,
+    1281
+   ],
+   "faces": [
+    [
+     373,
+     197,
+     334,
+     334
+    ]
+   ],
+   "dl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Moon_Se-yoon%2C_2026.jpg/960px-Moon_Se-yoon%2C_2026.jpg"
+  }
+ ]
+}

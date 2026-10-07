@@ -1,0 +1,39 @@
+{
+ "key": "예능인_김나영",
+ "ko": "김나영",
+ "n_titles": 5,
+ "n_ok": 3,
+ "cands": [
+  {
+   "title": "File:Kim Na-young in July 2024.png",
+   "w": 2448,
+   "h": 3356,
+   "mime": "image/png",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Kim_Na-young_in_July_2024.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Kim_Na-young_in_July_2024.png/960px-Kim_Na-young_in_July_2024.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Kim_Na-young_in_July_2024.png",
+   "license": "CC BY 3.0",
+   "artist": "K-POPIT 케이팝잇",
+   "credit": "YouTube: https://www.youtube.com/watch?v=zo-i-fk9B_8 – View/save archived versions on archive.org",
+   "date": "2024-07-26",
+   "desc": "김나영(Kim Na-Young) 매혹적인 분위기 | Kim NaYoung LOUIS VUITTON [4K]",
+   "nlicense": "CC BY 3.0",
+   "idx": 0,
+   "score": 68.0,
+   "why": "face=764 others=0",
+   "size": [
+    1920,
+    2632
+   ],
+   "faces": [
+    [
+     506,
+     231,
+     764,
+     764
+    ]
+   ],
+   "dl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Kim_Na-young_in_July_2024.png/1920px-Kim_Na-young_in_July_2024.png"
+  }
+ ]
+}

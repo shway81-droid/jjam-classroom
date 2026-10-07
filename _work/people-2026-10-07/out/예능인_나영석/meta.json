@@ -1,0 +1,39 @@
+{
+ "key": "예능인_나영석",
+ "ko": "나영석",
+ "n_titles": 3,
+ "n_ok": 3,
+ "cands": [
+  {
+   "title": "File:160415 나영석.png",
+   "w": 623,
+   "h": 935,
+   "mime": "image/png",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/3/38/160415_%EB%82%98%EC%98%81%EC%84%9D.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/3/38/160415_%EB%82%98%EC%98%81%EC%84%9D.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "page": "https://commons.wikimedia.org/wiki/File:160415_%EB%82%98%EC%98%81%EC%84%9D.png",
+   "license": "CC BY 3.0",
+   "artist": "K-POPIT 케이팝잇",
+   "credit": "YouTube: https://www.youtube.com/watch?v=fIj9akp95cg – View/save archived versions on archive.org",
+   "date": "2016-04-05",
+   "desc": "tvN go '신서유기2' 제작발표회",
+   "nlicense": "CC BY 3.0",
+   "idx": 1,
+   "score": 36.38461538461539,
+   "why": "face=158 others=0",
+   "size": [
+    500,
+    750
+   ],
+   "faces": [
+    [
+     226,
+     75,
+     158,
+     158
+    ]
+   ],
+   "dl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/160415_%EB%82%98%EC%98%81%EC%84%9D.png/500px-160415_%EB%82%98%EC%98%81%EC%84%9D.png"
+  }
+ ]
+}

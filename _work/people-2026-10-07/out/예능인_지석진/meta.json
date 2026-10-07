@@ -1,0 +1,42 @@
+{
+ "key": "예능인_지석진",
+ "ko": "지석진",
+ "n_titles": 12,
+ "n_ok": 10,
+ "cands": [
+  {
+   "title": "File:Ji Suk Jin at Malaysia for Running Man Fan Meeting Asian Tour 2014.jpg",
+   "w": 742,
+   "h": 962,
+   "mime": "image/jpeg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Ji_Suk_Jin_at_Malaysia_for_Running_Man_Fan_Meeting_Asian_Tour_2014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/3/33/Ji_Suk_Jin_at_Malaysia_for_Running_Man_Fan_Meeting_Asian_Tour_2014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "tw": 1280,
+   "th": 1660,
+   "page": "https://commons.wikimedia.org/wiki/File:Ji_Suk_Jin_at_Malaysia_for_Running_Man_Fan_Meeting_Asian_Tour_2014.jpg",
+   "license": "CC BY 2.0",
+   "artist": "Vernon Chan from Kuala Lumpur, Malaysia",
+   "credit": "Race Start! Running Man Fan Meeting Asia Tour 2014 Season 2",
+   "date": "2014-11-01 10:46",
+   "desc": "Ji Suk Jin at Malaysia for Running Man Fan Meeting Asian Tour 2014",
+   "cats": "Ji Suk-jin|Extracted images|Flickr images reviewed by trusted users",
+   "restrict": "",
+   "nlicense": "CC BY 2.0",
+   "idx": 0,
+   "score": 53.0,
+   "why": "face=263 others=0",
+   "size": [
+    742,
+    962
+   ],
+   "faces": [
+    [
+     185,
+     165,
+     263,
+     263
+    ]
+   ]
+  }
+ ]
+}
