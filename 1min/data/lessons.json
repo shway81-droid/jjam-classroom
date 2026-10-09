@@ -23,6 +23,52 @@
     ]
   },
   {
+    "id": "vs-sa3-2-1-02",
+    "publisher": "비상교육",
+    "subject": "사회",
+    "grade": 3,
+    "semester": 2,
+    "unit": 1,
+    "unitTitle": "사회 변화와 다양한 문화",
+    "lesson": 2,
+    "lessonTitle": "저출산·고령화란 무엇일까요",
+    "topic": "저출산·고령화의 뜻",
+    "youtubeId": "Oc2Q7vD-GW4",
+    "seconds": 81,
+    "summary": "태어나는 아이의 수가 줄어드는 저출산과 전체 인구에서 노인 인구 비율이 높아지는 고령화의 뜻을 교과서 그래프로 알아봅니다.",
+    "keywords": [
+      "저출산",
+      "고령화",
+      "출생아 수",
+      "노인 인구",
+      "인구 비율"
+    ]
+  },
+  {
+    "id": "vs-sa3-2-1-03",
+    "publisher": "비상교육",
+    "subject": "사회",
+    "grade": 3,
+    "semester": 2,
+    "unit": 1,
+    "unitTitle": "사회 변화와 다양한 문화",
+    "lesson": 3,
+    "lessonEnd": 4,
+    "lessonTitle": "저출산·고령화는 우리 생활에 어떤 영향을 주고 있을까요",
+    "topic": "저출산·고령화가 생활에 미친 영향",
+    "youtubeId": "aL77T4hXmfA",
+    "seconds": 75,
+    "summary": "학생 수와 가족 구성원 수가 줄고 노인을 위한 시설과 산업이 늘어나는 등 저출산·고령화로 달라진 생활 모습과 가족계획 포스터의 변화를 알아봅니다.",
+    "keywords": [
+      "저출산",
+      "고령화",
+      "노인 복지관",
+      "노인 대학",
+      "가족계획",
+      "생활 모습 변화"
+    ]
+  },
+  {
     "id": "vs-sa4-2-1-01",
     "publisher": "비상교육",
     "subject": "사회",
