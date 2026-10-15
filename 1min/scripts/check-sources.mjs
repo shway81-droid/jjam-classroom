@@ -47,7 +47,22 @@ const SINCE = sinceIdx >= 0 ? process.argv[sinceIdx + 1] : null;
 
 const lessons = JSON.parse(fs.readFileSync(SOURCE, 'utf-8'));
 
-let targets = lessons;
+// 차시 영상과 핵심 낱말 영상을 한 목록으로 본다. 낱말 영상은 여러 차시가 같이 쓰므로 한 번만 확인한다.
+function videosOf(list) {
+  const out = [];
+  const seen = new Set();
+  for (const L of list) {
+    out.push({ id: L.id, topic: L.topic, youtubeId: L.youtubeId });
+    for (const w of L.wordVideos || []) {
+      if (seen.has(w.youtubeId)) continue;
+      seen.add(w.youtubeId);
+      out.push({ id: `${L.id}#${w.word}`, topic: `낱말 ${w.word}`, youtubeId: w.youtubeId });
+    }
+  }
+  return out;
+}
+
+let targets = videosOf(lessons);
 
 if (SINCE) {
   // 바뀐 영상만 고른다. 데이터 파일이 안 바뀌었으면 볼 것이 없다.
@@ -58,8 +73,8 @@ if (SINCE) {
     console.log(`(${SINCE} 에 데이터 파일이 없어 전수로 돌립니다)`);
   }
   if (before) {
-    const old = new Map(before.map((L) => [L.id, L.youtubeId]));
-    targets = lessons.filter((L) => old.get(L.id) !== L.youtubeId);
+    const old = new Map(videosOf(before).map((v) => [v.id, v.youtubeId]));
+    targets = videosOf(lessons).filter((v) => old.get(v.id) !== v.youtubeId);
     console.log(`바뀐 영상 ${targets.length}편만 확인합니다 (전체 ${lessons.length}편).`);
   }
 }

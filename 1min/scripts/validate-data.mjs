@@ -61,6 +61,8 @@ const REQUIRED = {
 };
 
 const seenId = new Map();
+// 핵심 낱말 영상: 같은 영상을 여러 차시가 같이 쓸 수 있다(출판사 공통 낱말). 대신 같은 영상이면 낱말도 같아야 한다.
+const wordYt = new Map();
 const seenYt = new Map();
 const seenSlot = new Map();
 const unitTitles = new Map();
@@ -98,6 +100,28 @@ lessons.forEach((L, i) => {
     else seenYt.set(L.youtubeId, i);
   }
 
+  if (L.wordVideos !== undefined) {
+    if (!Array.isArray(L.wordVideos)) errors.push(`${at}: 'wordVideos' 는 배열이어야 합니다.`);
+    else {
+      if (L.wordVideos.length > 3) errors.push(`${at}: 핵심 낱말 영상은 3개까지입니다 (지금 ${L.wordVideos.length}개).`);
+      const seenWord = new Set();
+      L.wordVideos.forEach((w, j) => {
+        const wat = `${at} wordVideos[${j}]`;
+        if (!w || typeof w.word !== 'string' || !w.word.trim()) errors.push(`${wat}: 'word' 가 없습니다.`);
+        if (typeof w.youtubeId !== 'string' || !YT_ID.test(w.youtubeId)) errors.push(`${wat}: youtubeId 가 유튜브 11자리 형식이 아닙니다.`);
+        if (typeof w.seconds !== 'number') errors.push(`${wat}: 'seconds' 는 number 여야 합니다.`);
+        if (w.meaning !== undefined && typeof w.meaning !== 'string') errors.push(`${wat}: 'meaning' 은 글자여야 합니다.`);
+        if (w.word && seenWord.has(w.word)) errors.push(`${wat}: 낱말 '${w.word}' 가 이 차시에 두 번 있습니다.`);
+        seenWord.add(w.word);
+        if (w.youtubeId) {
+          const prev = wordYt.get(w.youtubeId);
+          if (prev && prev !== w.word) errors.push(`${wat}: 같은 영상(${w.youtubeId})이 다른 낱말 '${prev}' 에도 걸려 있습니다.`);
+          else wordYt.set(w.youtubeId, w.word);
+        }
+      });
+    }
+  }
+
   // 연차시(두 차시 이상을 한 번에 하는 수업)는 lessonEnd 로 끝 차시를 적는다(선택). 범위의 모든 차시 칸을 차지한다.
   let lessonEnd = L.lesson;
   if (L.lessonEnd !== undefined) {
@@ -129,6 +153,10 @@ lessons.forEach((L, i) => {
     unitTitles.set(uk, L.unitTitle);
   }
 });
+
+for (const [id, word] of wordYt) {
+  if (seenYt.has(id)) errors.push(`핵심 낱말 '${word}' 영상(${id})이 차시 영상(lessons[${seenYt.get(id)}])과 같습니다.`);
+}
 
 for (const w of warns) console.log(`⚠ ${w}`);
 
