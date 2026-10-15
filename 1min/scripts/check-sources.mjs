@@ -53,6 +53,7 @@ function videosOf(list) {
   const seen = new Set();
   for (const L of list) {
     out.push({ id: L.id, topic: L.topic, youtubeId: L.youtubeId });
+    if (L.explainVideo) out.push({ id: `${L.id}#설명`, topic: `${L.topic} 설명 영상`, youtubeId: L.explainVideo.youtubeId });
     for (const w of L.wordVideos || []) {
       if (seen.has(w.youtubeId)) continue;
       seen.add(w.youtubeId);

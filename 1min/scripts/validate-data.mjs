@@ -63,6 +63,8 @@ const REQUIRED = {
 const seenId = new Map();
 // 핵심 낱말 영상: 같은 영상을 여러 차시가 같이 쓸 수 있다(출판사 공통 낱말). 대신 같은 영상이면 낱말도 같아야 한다.
 const wordYt = new Map();
+// 설명 영상: 차시마다 한 편(가로 16:9). 다른 차시·차시 영상·낱말 영상과 겹치면 안 된다.
+const explainYt = new Map();
 const seenYt = new Map();
 const seenSlot = new Map();
 const unitTitles = new Map();
@@ -98,6 +100,17 @@ lessons.forEach((L, i) => {
     if (seenYt.has(L.youtubeId))
       errors.push(`${at}: youtubeId 가 lessons[${seenYt.get(L.youtubeId)}] 와 중복입니다 — 같은 영상을 두 번 등록했습니다.`);
     else seenYt.set(L.youtubeId, i);
+  }
+
+  if (L.explainVideo !== undefined) {
+    const x = L.explainVideo;
+    if (!x || typeof x.youtubeId !== 'string' || !YT_ID.test(x.youtubeId)) errors.push(`${at}: explainVideo.youtubeId 가 유튜브 11자리 형식이 아닙니다.`);
+    else {
+      if (explainYt.has(x.youtubeId)) errors.push(`${at}: 설명 영상(${x.youtubeId})이 lessons[${explainYt.get(x.youtubeId)}] 와 중복입니다.`);
+      else explainYt.set(x.youtubeId, i);
+    }
+    if (!x || typeof x.seconds !== 'number') errors.push(`${at}: explainVideo.seconds 는 number 여야 합니다.`);
+    else if (x.seconds < 60 || x.seconds > 1200) warns.push(`${at}: 설명 영상 길이 ${x.seconds}초 — 확인해 주세요.`);
   }
 
   if (L.wordVideos !== undefined) {
@@ -154,6 +167,10 @@ lessons.forEach((L, i) => {
   }
 });
 
+for (const [id, i] of explainYt) {
+  if (seenYt.has(id)) errors.push(`lessons[${i}] 설명 영상(${id})이 차시 영상(lessons[${seenYt.get(id)}])과 같습니다.`);
+  if (wordYt.has(id)) errors.push(`lessons[${i}] 설명 영상(${id})이 낱말 영상 '${wordYt.get(id)}' 과 같습니다.`);
+}
 for (const [id, word] of wordYt) {
   if (seenYt.has(id)) errors.push(`핵심 낱말 '${word}' 영상(${id})이 차시 영상(lessons[${seenYt.get(id)}])과 같습니다.`);
 }
