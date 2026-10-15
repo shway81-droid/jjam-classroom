@@ -8415,6 +8415,30 @@
       "움집",
       "서울 암사동 유적",
       "농사"
+    ],
+    "explainVideo": {
+      "youtubeId": "l7xKWhWhL4A",
+      "seconds": 346
+    },
+    "wordVideos": [
+      {
+        "word": "움집",
+        "youtubeId": "eS8_kH-9Nrc",
+        "seconds": 75,
+        "meaning": "땅을 파고 단단한 바닥에 기둥을 세운 뒤 풀이나 짚을 덮어 만든 신석기 시대의 집입니다."
+      },
+      {
+        "word": "간석기",
+        "youtubeId": "7LohmwfOFdc",
+        "seconds": 75,
+        "meaning": "돌을 정교하게 갈아서 만든 신석기 시대의 도구입니다."
+      },
+      {
+        "word": "빗살무늬 토기",
+        "youtubeId": "tBTfu-JG0iE",
+        "seconds": 76,
+        "meaning": "바닥이 뾰족하고 빗살무늬가 새겨진 신석기 시대의 그릇입니다. 흙으로 빚어 불에 구워 만들었습니다."
+      }
     ]
   },
   {
@@ -8438,6 +8462,14 @@
       "지배자",
       "반달 돌칼",
       "민무늬 토기"
+    ],
+    "wordVideos": [
+      {
+        "word": "고인돌",
+        "youtubeId": "pZyX-REn6C8",
+        "seconds": 76,
+        "meaning": "청동기 시대에 만든 무덤입니다. 받침돌을 세우고 그 위에 커다란 덮개돌을 올렸습니다."
+      }
     ]
   },
   {
