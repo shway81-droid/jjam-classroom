@@ -6,6 +6,7 @@
 
    한 차시에는 영상이 여러 편 있다.
      · 차시 영상   — 차시 전체를 1분으로 (youtubeId)
+     · 설명 영상   — 차시 전체를 가로 화면으로 자세히 (explainVideo, 16:9)
      · 핵심 낱말 영상 — 그 차시의 핵심 낱말 3개를 1분씩 (wordVideos)
    그래서 목록은 차시마다 한 줄로 그리고, 카드를 열지 않아도 낱말이 보이게 한다.
    재생 창은 이 영상들을 한 재생목록으로 묶어 끝나면 다음 편으로 넘어간다(이어 보기).
@@ -62,6 +63,12 @@
   }
 
   function words(L) { return L.wordVideos || []; }
+  function explain(L) { return L.explainVideo || null; }
+  // 차시 영상 + 설명 영상 + 낱말 영상의 편수·길이
+  function extraCount(L) { return (explain(L) ? 1 : 0) + words(L).length; }
+  function totalSec(L) {
+    return L.seconds + (explain(L) ? explain(L).seconds : 0) + words(L).reduce(function (n, w) { return n + w.seconds; }, 0);
+  }
 
   /* 유튜브 썸네일 — Shorts 는 oardefault 가 원본 비율(9:16)이다. 없으면 hqdefault. */
   function thumbUrl(id) { return 'https://i.ytimg.com/vi/' + id + '/oardefault.jpg'; }
@@ -245,6 +252,7 @@
     var total = state.lessons.length;
     el.ctaCount.textContent = total;
     el.ctaWords.textContent = allWordVideos().length;
+    el.ctaExplain.textContent = state.lessons.filter(explain).length;
   }
 
   /* ── 차시별: 단원 → 차시 한 줄씩 ─────────────────────── */
@@ -270,12 +278,13 @@
       var sec = document.createElement('section');
       sec.className = 'unit';
       var nWords = g.items.reduce(function (n, L) { return n + words(L).length; }, 0);
+      var nEx = g.items.filter(explain).length;
       var head = document.createElement('div');
       head.className = 'unit-head';
       head.innerHTML =
         '<span class="unit-no">' + esc(g.book) + ' ' + g.unit + '단원</span>' +
         '<span class="unit-title">' + esc(g.unitTitle) + '</span>' +
-        '<span class="unit-count">' + g.items.length + '차시' + (nWords ? ' · 낱말 영상 ' + nWords + '편' : '') + '</span>';
+        '<span class="unit-count">' + g.items.length + '차시' + (nEx ? ' · 설명 영상 ' + nEx + '편' : '') + (nWords ? ' · 낱말 영상 ' + nWords + '편' : '') + '</span>';
       sec.appendChild(head);
 
       var rows = document.createElement('div');
@@ -289,7 +298,7 @@
   }
 
   function row(L) {
-    var W = words(L);
+    var W = words(L), X = explain(L);
     var r = document.createElement('article');
     r.className = 'row';
 
@@ -313,16 +322,25 @@
       '<p class="row-sum">' + esc(L.summary) + '</p>';
     body.querySelector('.row-title').addEventListener('click', function () { openPlayer(L, 0, false); });
 
-    if (W.length) {
+    if (W.length || X) {
       var chips = document.createElement('div');
       chips.className = 'wchips';
+      if (X) {
+        var xc = document.createElement('button');
+        xc.type = 'button';
+        xc.className = 'wchip xchip';
+        xc.title = '차시 전체를 가로 화면으로 자세히 설명하는 영상';
+        xc.innerHTML = '<span class="w">설명 영상</span><span class="t">' + fmtTime(X.seconds) + '</span>';
+        xc.addEventListener('click', function () { openPlayer(L, 1, false); });
+        chips.appendChild(xc);
+      }
       W.forEach(function (w, i) {
         var c = document.createElement('button');
         c.type = 'button';
         c.className = 'wchip';
         c.title = w.meaning || w.word;
         c.innerHTML = '<span class="w">' + esc(w.word) + '</span><span class="t">' + fmtTime(w.seconds) + '</span>';
-        c.addEventListener('click', function () { openPlayer(L, i + 1, false); });
+        c.addEventListener('click', function () { openPlayer(L, i + 1 + (X ? 1 : 0), false); });
         chips.appendChild(c);
       });
       body.appendChild(chips);
@@ -333,9 +351,8 @@
     var go = document.createElement('button');
     go.type = 'button';
     go.className = 'go-btn';
-    if (W.length) {
-      var tot = L.seconds + W.reduce(function (n, w) { return n + w.seconds; }, 0);
-      go.innerHTML = '<svg aria-hidden="true"><use href="#i-play"/></svg>' + (W.length + 1) + '편 이어 보기<span class="t">' + fmtTotal(tot) + '</span>';
+    if (W.length || X) {
+      go.innerHTML = '<svg aria-hidden="true"><use href="#i-play"/></svg>' + (extraCount(L) + 1) + '편 이어 보기<span class="t">' + fmtTotal(totalSec(L)) + '</span>';
       go.addEventListener('click', function () { openPlayer(L, 0, true); });
     } else {
       go.className += ' plain';
@@ -402,7 +419,7 @@
       c.querySelector('.wcard-play').addEventListener('click', function () {
         var L = e.lessons.find(function (x) { return x.publisher === state.publisher; }) || e.lessons[0];
         var idx = words(L).findIndex(function (w) { return w.youtubeId === e.youtubeId; });
-        openPlayer(L, idx + 1, false);
+        openPlayer(L, idx + 1 + (explain(L) ? 1 : 0), false);
       });
       Array.prototype.forEach.call(c.querySelectorAll('.ref'), function (b) {
         b.addEventListener('click', function () {
@@ -444,7 +461,9 @@
   }
 
   function playlistOf(L) {
+    var X = explain(L);
     return [{ kind: 'lesson', id: L.youtubeId, sec: L.seconds, title: '차시 영상', sub: '차시 전체를 1분으로', meaning: L.summary }]
+      .concat(X ? [{ kind: 'explain', id: X.youtubeId, sec: X.seconds, title: '설명 영상', sub: '차시 전체를 가로 화면으로 자세히', wide: true }] : [])
       .concat(words(L).map(function (w) {
         return { kind: 'word', id: w.youtubeId, sec: w.seconds, title: w.word, sub: w.meaning || '', meaning: w.meaning || '' };
       }));
@@ -496,11 +515,12 @@
     el.mTotal.textContent = P.items.length > 1 ? P.items.length + '편 · 모두 ' + fmtTotal(tot) : '';
     var cur = P.items[P.i];
     el.mTime.textContent = fmtTime(cur.sec);
-    el.mDesc.textContent = cur.kind === 'lesson' ? P.L.summary : '';
+    el.mDesc.textContent = cur.kind !== 'word' ? P.L.summary : '';
+    el.mPanel.classList.toggle('is-wide', !!cur.wide);
     el.mWordMean.hidden = cur.kind !== 'word' || !cur.meaning;
     el.mWordMean.innerHTML = cur.kind === 'word' ? '<b>' + esc(cur.title) + '</b> ' + esc(cur.meaning) : '';
-    el.mDesc.hidden = cur.kind !== 'lesson';
-    el.mYtBtn.href = 'https://youtube.com/shorts/' + cur.id;
+    el.mDesc.hidden = cur.kind === 'word';
+    el.mYtBtn.href = cur.wide ? 'https://www.youtube.com/watch?v=' + cur.id : 'https://youtube.com/shorts/' + cur.id;
     el.mPrev.disabled = P.i === 0;
     el.mNext.disabled = P.i >= P.items.length - 1;
   }
@@ -551,6 +571,7 @@
 
   function closeModal() {
     el.modal.hidden = true;
+    el.mPanel.classList.remove('is-wide');
     if (P.yt && P.yt.destroy) { try { P.yt.destroy(); } catch (e) {} }
     P.yt = null; P.ready = false;
     el.mPlayer.innerHTML = '';
@@ -560,8 +581,8 @@
 
   function share() {
     var cur = P.items[P.i], L = P.L;
-    var url = 'https://youtube.com/shorts/' + cur.id;
-    var text = bookLabel(L) + ' ' + L.unit + '단원 ' + lessonNo(L) + '차시 ' + (cur.kind === 'word' ? '핵심 낱말 ' + cur.title : L.topic);
+    var url = cur.wide ? 'https://www.youtube.com/watch?v=' + cur.id : 'https://youtube.com/shorts/' + cur.id;
+    var text = bookLabel(L) + ' ' + L.unit + '단원 ' + lessonNo(L) + '차시 ' + (cur.kind === 'word' ? '핵심 낱말 ' + cur.title : cur.kind === 'explain' ? L.topic + ' 설명 영상' : L.topic);
     if (navigator.share) { navigator.share({ title: text, url: url }).catch(function () {}); return; }
     if (navigator.clipboard) {
       navigator.clipboard.writeText(text + '\n' + url).then(function () {
@@ -574,9 +595,10 @@
   /* ── 시작 ────────────────────────────────────────────── */
   function bind() {
     ['pubSlot', 'subjectSlot', 'gradeSlot', 'unitChips', 'units', 'dict', 'emptyMsg', 'ctaCount', 'ctaWords',
-     'footCount', 'modal', 'mPlayer', 'mBook', 'mUnit', 'mTime', 'mTitle', 'mDesc', 'mWordMean', 'mKeywords',
+     'footCount', 'ctaExplain', 'modal', 'mPlayer', 'mBook', 'mUnit', 'mTime', 'mTitle', 'mDesc', 'mWordMean', 'mKeywords',
      'mList', 'mListWrap', 'mTotal', 'mAuto', 'mAutoWrap', 'mNav', 'mPrev', 'mNext', 'mYtBtn', 'mShareBtn',
      'tabLessons', 'tabWords'].forEach(function (id) { el[id] = $(id); });
+    el.mPanel = el.modal.querySelector('.modal-panel');
     el.search = $('searchInput');
     el.searchClear = $('searchClear');
 

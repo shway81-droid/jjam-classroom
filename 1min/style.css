@@ -304,6 +304,8 @@ body.view-words .pick-units, body.view-words .pick-sep { display: none; }
 }
 .wchip .w { font-size: 0.9rem; font-weight: 800; }
 .wchip .t { font-size: 0.72rem; color: var(--sub); font-variant-numeric: tabular-nums; }
+.wchip.xchip { border-color: #C9D3EA; background: #F1F4FA; color: var(--navy); }
+.wchip.xchip::before { content: ''; width: 14px; height: 9px; border: 2px solid currentColor; border-radius: 2px; align-self: center; }
 .wchip:hover { border-color: var(--accent); background: var(--accent-lt); color: var(--accent-dk); }
 .row-act { grid-area: act; display: flex; justify-content: flex-end; align-items: center; }
 .go-btn {
@@ -448,6 +450,9 @@ body.view-words .pick-units, body.view-words .pick-sep { display: none; }
 .switch input:checked + .track { background: var(--accent); }
 .switch input:checked + .track::after { left: 19px; }
 .switch input:focus-visible + .track { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* 설명 영상(16:9)을 틀 때는 영상 칸을 넓히고 가로 비율로 */
+.modal-panel.is-wide { max-width: 1240px; grid-template-columns: minmax(0, 1.7fr) minmax(280px, 1fr); }
+.modal-panel.is-wide .modal-player .frame { aspect-ratio: 16 / 9; max-height: none; }
 .frame-wait { position: absolute; inset: 0; display: grid; place-items: center; color: #C3CEE6; font-size: 0.9rem; }
 .modal-player .frame > div:not(.frame-wait), .modal-player .frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
@@ -471,6 +476,7 @@ body.view-words .pick-units, body.view-words .pick-sep { display: none; }
   .unit-title { font-size: 1.22rem; }
   .card-topic { font-size: 1.04rem; }
   .modal-panel { max-width: 1120px; grid-template-columns: minmax(300px, 400px) 1fr; }
+  .modal-panel.is-wide { max-width: 1400px; grid-template-columns: minmax(0, 1.8fr) minmax(320px, 1fr); }
   .row-title { font-size: 1.1rem; }
   .wchip .w { font-size: 0.96rem; }
 }
@@ -489,6 +495,7 @@ body.view-words .pick-units, body.view-words .pick-sep { display: none; }
   }
   .modal-player { border-radius: 0; padding: 0; }
   .modal-player .frame { border-radius: 0; max-height: 62vh; }
+  .modal-panel.is-wide { grid-template-columns: 1fr; }
   .modal-side { padding: 16px 16px 24px; }
   .row { grid-template-columns: 64px 1fr; grid-template-areas: "th body" "th act"; padding: 10px; column-gap: 12px; align-items: start; }
   .row-thumb { width: 64px; }
