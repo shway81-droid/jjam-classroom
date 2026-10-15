@@ -90,13 +90,17 @@
   <div class="cta-strip">
     <p class="cta-copy">
       <b>수업 도입에도, 자투리 시간에도.</b>
-      교과서 차시를 1분으로 압축한 세로 영상 <b id="ctaCount">0</b>편 · 설치 없음 · 로그인 없음
+      차시 영상 <b id="ctaCount">0</b>편 · 핵심 낱말 영상 <b id="ctaWords">0</b>편 · 설치 없음 · 로그인 없음
     </p>
   </div>
 
   <main class="board">
     <!-- ── 검색이 맨 위, 그 아래로 출판사 → 교과 → 학년 → 단원 ── -->
     <section class="picker">
+      <div class="viewtabs" role="tablist" aria-label="보기">
+        <button id="tabLessons" class="vtab" type="button" role="tab" aria-selected="true">차시별</button>
+        <button id="tabWords" class="vtab" type="button" role="tab" aria-selected="false">낱말 사전</button>
+      </div>
       <div class="searchtop">
         <svg class="searchtop-ico" viewBox="0 0 24 24" aria-hidden="true" fill="none"
              stroke="currentColor" stroke-width="2.2">
@@ -131,6 +135,8 @@
 
     <!-- ── 단원 → 차시 (교과서 진도 순서) ── -->
     <section id="units" class="units"></section>
+    <!-- ── 낱말 사전 (교과·학년의 핵심 낱말을 가나다순으로) ── -->
+    <section id="dict" class="dict" hidden></section>
     <p id="emptyMsg" class="empty-msg" hidden>찾는 차시가 없어요. 검색어를 바꿔 보세요.</p>
   </main>
 
@@ -154,18 +160,32 @@
         </div>
         <h3 id="mTitle" class="modal-title"></h3>
         <p id="mDesc" class="modal-desc"></p>
-        <div id="mWords" class="words" hidden>
-          <h4 class="kw-head"><svg class="s3d s3d-18" aria-hidden="true"><use href="#i-play"/></svg>핵심 낱말 1분 영상</h4>
-          <div id="mWordBtns" class="word-btns"></div>
-          <p id="mWordMeaning" class="word-meaning" hidden></p>
+        <p id="mWordMean" class="word-meaning" hidden></p>
+
+        <!-- 차시 영상 + 핵심 낱말 영상 = 한 재생목록 -->
+        <div id="mListWrap" class="pl">
+          <div class="pl-head">
+            <h4 class="kw-head"><svg class="s3d s3d-18" aria-hidden="true"><use href="#i-play"/></svg>이 차시의 영상</h4>
+            <span id="mTotal" class="pl-total"></span>
+          </div>
+          <div id="mList" class="pl-list"></div>
+          <div class="pl-ctrl">
+            <label id="mAutoWrap" class="switch"><input id="mAuto" type="checkbox" checked /><span class="track" aria-hidden="true"></span>이어 보기</label>
+            <span id="mNav" class="pl-nav">
+              <button id="mPrev" class="gold-btn ghost" type="button" aria-label="이전 영상">◀ 이전</button>
+              <button id="mNext" class="gold-btn ghost" type="button" aria-label="다음 영상">다음 ▶</button>
+            </span>
+          </div>
+          <p class="pl-hint">끝나면 다음 편이 저절로 나와요 · 키보드 ← → 로도 넘깁니다</p>
         </div>
+
         <div class="kw">
-          <h4 class="kw-head"><svg class="s3d s3d-18" aria-hidden="true"><use href="#i-tag"/></svg>이 차시의 관련 낱말</h4>
+          <h4 class="kw-head"><svg class="s3d s3d-18" aria-hidden="true"><use href="#i-tag"/></svg>관련 낱말</h4>
           <ul id="mKeywords" class="kw-list"></ul>
         </div>
         <div class="modal-actions">
           <a id="mYtBtn" class="gold-btn ghost" target="_blank" rel="noopener">▶ 유튜브에서 보기</a>
-          <button id="mShareBtn" class="gold-btn ghost" type="button">🔗 공유</button>
+          <button id="mShareBtn" class="gold-btn ghost" type="button">공유</button>
         </div>
       </div>
     </div>
