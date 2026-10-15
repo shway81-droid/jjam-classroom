@@ -61,6 +61,7 @@
     var hay = (
       L.topic + ' ' + L.lessonTitle + ' ' + L.unitTitle + ' ' +
       L.summary + ' ' + (L.keywords || []).join(' ') + ' ' +
+      (L.wordVideos || []).map(function (w) { return w.word; }).join(' ') + ' ' +
       L.subject + ' ' + L.grade + '-' + L.semester + ' ' +
       lessonWords(L)
     ).toLowerCase();
@@ -290,6 +291,8 @@
           'data-fb="' + thumbFallback(L.youtubeId) + '" />' +
         '<span class="thumb-badge">' + lessonNo(L) + '차시</span>' +
         '<span class="thumb-time">' + fmtTime(L.seconds) + '</span>' +
+        (L.wordVideos && L.wordVideos.length
+          ? '<span class="thumb-words" title="핵심 낱말 영상">낱말 ' + L.wordVideos.length + '</span>' : '') +
         '<span class="thumb-play"><svg aria-hidden="true"><use href="#i-play"/></svg></span>' +
       '</div>' +
       '<div class="card-body">' +
@@ -315,13 +318,52 @@
   /* ── 모달 ────────────────────────────────────────────── */
   var lastFocus = null;
 
+  /* 재생 창에 영상 하나를 띄운다. 차시 영상과 핵심 낱말 영상이 같은 자리를 나눠 쓴다. */
+  function play(id, title) {
+    el.mPlayer.innerHTML =
+      '<div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/' + id +
+      '?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="' + esc(title) +
+      '" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe></div>';
+    el.mYtBtn.href = 'https://youtube.com/shorts/' + id;
+  }
+
+  /* 핵심 낱말 영상 — 차시마다 교과서의 핵심 낱말 3개를 1분씩 풀어 준 영상.
+     같은 낱말은 출판사가 달라도 영상 하나를 같이 쓴다(wordVideos 의 youtubeId 가 같다).
+     맨 앞 '차시 영상' 버튼으로 언제든 차시 영상으로 돌아온다. */
+  function drawWords(L) {
+    var words = L.wordVideos || [];
+    el.mWords.hidden = !words.length;
+    el.mWordBtns.innerHTML = '';
+    el.mWordMeaning.hidden = true;
+    if (!words.length) return;
+
+    var items = [{ main: true, label: '차시 영상', id: L.youtubeId, sec: L.seconds, title: L.topic }]
+      .concat(words.map(function (w) { return { label: w.word, id: w.youtubeId, sec: w.seconds, title: w.word, meaning: w.meaning }; }));
+
+    items.forEach(function (it, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'word-btn' + (it.main ? ' is-main' : '');
+      b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+      b.innerHTML = '<svg aria-hidden="true"><use href="#i-play"/></svg>' +
+        '<span class="w">' + esc(it.label) + '</span>' +
+        (it.sec ? '<span class="t">' + fmtTime(it.sec) + '</span>' : '');
+      b.addEventListener('click', function () {
+        Array.prototype.forEach.call(el.mWordBtns.children, function (x) { x.setAttribute('aria-pressed', 'false'); });
+        b.setAttribute('aria-pressed', 'true');
+        play(it.id, it.title);
+        el.mWordMeaning.hidden = !it.meaning;
+        el.mWordMeaning.innerHTML = it.meaning ? '<b>' + esc(it.label) + '</b> ' + esc(it.meaning) : '';
+      });
+      el.mWordBtns.appendChild(b);
+    });
+  }
+
   function openModal(L) {
     lastFocus = document.activeElement;
 
-    el.mPlayer.innerHTML =
-      '<div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/' + L.youtubeId +
-      '?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="' + esc(L.topic) +
-      '" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe></div>';
+    play(L.youtubeId, L.topic);
+    drawWords(L);
 
     el.mBook.textContent = bookLabel(L);
     el.mUnit.textContent = L.unit + '단원 ' + lessonNo(L) + '차시';
@@ -335,8 +377,6 @@
       li.textContent = k;
       el.mKeywords.appendChild(li);
     });
-
-    el.mYtBtn.href = 'https://youtube.com/shorts/' + L.youtubeId;
 
     el.mShareBtn.onclick = function () {
       var url = 'https://youtube.com/shorts/' + L.youtubeId;
@@ -380,6 +420,9 @@
     el.mTitle = $('mTitle');
     el.mDesc = $('mDesc');
     el.mKeywords = $('mKeywords');
+    el.mWords = $('mWords');
+    el.mWordBtns = $('mWordBtns');
+    el.mWordMeaning = $('mWordMeaning');
     el.mYtBtn = $('mYtBtn');
     el.mShareBtn = $('mShareBtn');
     el.search = $('searchInput');

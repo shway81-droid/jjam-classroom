@@ -335,6 +335,32 @@ body {
   font-size: 0.82rem; color: var(--ink);
 }
 
+/* 핵심 낱말 1분 영상 */
+.thumb-words {
+  position: absolute; top: 8px; right: 8px;
+  background: var(--grad-accent); color: #fff;
+  border-radius: 8px; padding: 2px 8px;
+  font-size: 0.74rem; font-weight: 800;
+}
+.words { background: var(--accent-lt); border: 1px solid #FFD8BF; border-radius: 12px; padding: 12px 14px; }
+.word-btns { display: flex; gap: 7px; flex-wrap: wrap; }
+.word-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #fff; color: var(--ink);
+  border: 1.5px solid #FFD8BF; border-radius: 999px;
+  padding: 6px 13px 6px 9px;
+  font-size: 0.92rem; font-weight: 800; font-family: inherit;
+  cursor: pointer;
+}
+.word-btn svg { width: 18px; height: 18px; flex: none; }
+.word-btn .t { font-size: 0.74rem; font-weight: 600; color: var(--sub); font-variant-numeric: tabular-nums; }
+.word-btn.is-main { border-color: var(--line); color: var(--navy); }
+.word-btn:hover { border-color: var(--accent); color: var(--accent-dk); }
+.word-btn[aria-pressed="true"] { background: var(--grad-accent); border-color: transparent; color: #fff; }
+.word-btn[aria-pressed="true"] .t { color: rgba(255,255,255,0.85); }
+.word-meaning { margin-top: 9px; font-size: 0.9rem; color: #3D465C; }
+.word-meaning b { color: var(--accent-dk); margin-right: 4px; }
+
 .modal-actions { display: flex; gap: 8px; flex-wrap: wrap; }
 .gold-btn {
   display: inline-flex; align-items: center; gap: 6px;
