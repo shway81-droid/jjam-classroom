@@ -8463,12 +8463,28 @@
       "반달 돌칼",
       "민무늬 토기"
     ],
+    "explainVideo": {
+      "youtubeId": "Z0qazZNAAos",
+      "seconds": 458
+    },
     "wordVideos": [
+      {
+        "word": "청동기",
+        "youtubeId": "6rAGHYvtj4I",
+        "seconds": 66,
+        "meaning": "구리와 주석을 섞은 금속(청동)으로 만든 도구입니다. 주로 제사에 쓰는 검·거울·방울이나 장신구, 무기를 만들었습니다."
+      },
       {
         "word": "고인돌",
         "youtubeId": "pZyX-REn6C8",
         "seconds": 76,
         "meaning": "청동기 시대에 만든 무덤입니다. 받침돌을 세우고 그 위에 커다란 덮개돌을 올렸습니다."
+      },
+      {
+        "word": "반달 돌칼",
+        "youtubeId": "yZ205R7zeZw",
+        "seconds": 72,
+        "meaning": "청동기 시대에 곡식을 거두는 데 쓴 반달 모양의 간석기입니다."
       }
     ]
   },
@@ -8493,6 +8509,30 @@
       "8조법",
       "단군왕검",
       "연맹"
+    ],
+    "explainVideo": {
+      "youtubeId": "e5YjremfbcQ",
+      "seconds": 381
+    },
+    "wordVideos": [
+      {
+        "word": "고조선",
+        "youtubeId": "dyRemaw71eY",
+        "seconds": 78,
+        "meaning": "청동기 문화가 발달하면서 만주와 한반도 서북부 지역을 중심으로 등장한 나라입니다. 《삼국유사》에는 단군왕검이 아사달에 도읍을 정하고 세웠다고 전해집니다."
+      },
+      {
+        "word": "8조법",
+        "youtubeId": "neYv89mKcn8",
+        "seconds": 77,
+        "meaning": "고조선의 지배층이 사회 질서를 유지하기 위해 만든 8개 조항의 법입니다. 그중 세 개 조항이 지금까지 전해집니다."
+      },
+      {
+        "word": "비파형 동검",
+        "youtubeId": "usv_LkkW27s",
+        "seconds": 79,
+        "meaning": "‘비파’라는 악기와 모양이 닮아 이름 붙여진 청동 검으로, 고조선의 유물입니다. 고조선에 비파형 동검을 사용하는 지배자가 있었음을 알려 줍니다."
+      }
     ]
   },
   {
