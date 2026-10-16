@@ -128,7 +128,8 @@ lessons.forEach((L, i) => {
         seenWord.add(w.word);
         if (w.youtubeId) {
           const prev = wordYt.get(w.youtubeId);
-          if (prev && prev !== w.word) errors.push(`${wat}: 같은 영상(${w.youtubeId})이 다른 낱말 '${prev}' 에도 걸려 있습니다.`);
+          // 출판사마다 표기가 다른 같은 낱말(예: 토막·토막집)은 영상 하나를 같이 쓸 수 있다 → 경고만
+          if (prev && prev !== w.word) warns.push(`${wat}: 같은 영상(${w.youtubeId})을 다른 표기 '${prev}' 와 같이 씁니다.`);
           else wordYt.set(w.youtubeId, w.word);
         }
       });
