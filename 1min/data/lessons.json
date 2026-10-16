@@ -9118,6 +9118,12 @@
         "youtubeId": "3VXHd0D7W2A",
         "seconds": 75,
         "meaning": "한양 도성에 둔 네 개의 큰 문으로, 이름에 유교에서 중요하게 여기는 덕목의 의미를 담았습니다."
+      },
+      {
+        "word": "위화도 회군",
+        "youtubeId": "vPC9cx_yzQs",
+        "seconds": 66,
+        "meaning": "고려 북쪽 땅 일부를 요구하는 명나라를 공격하러 요동으로 향하던 이성계가 위화도에서 군대를 돌려 개경으로 돌아와 권력을 잡은 사건입니다."
       }
     ]
   },
@@ -9290,6 +9296,10 @@
       "양복",
       "양초"
     ],
+    "explainVideo": {
+      "youtubeId": "8UvCAKmRAuw",
+      "seconds": 374
+    },
     "wordVideos": [
       {
         "word": "붕당",
@@ -9302,6 +9312,12 @@
         "youtubeId": "BiNQrpgwM1M",
         "seconds": 61,
         "meaning": "영조가 붕당 간의 대립을 줄이고 한 붕당이 권력을 독차지하는 것을 막으려고 실시한 정책입니다."
+      },
+      {
+        "word": "세도 정치",
+        "youtubeId": "B9wZ9GBMPaw",
+        "seconds": 62,
+        "meaning": "정조가 죽은 뒤 왕실과 혼인 관계를 맺은 몇몇 가문이 권력을 잡고 나랏일을 마음대로 한 정치입니다."
       }
     ]
   },
