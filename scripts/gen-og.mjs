@@ -66,9 +66,9 @@ const SITES = [
   },
   {
     dir: '1min', accent: '#E8590C',
-    title: '짬짬이 1분사회',
-    subtitle: '교과서 한 차시를 1분으로',
-    footer: '진도 순서대로 골라 바로 트는 1분 영상',
+    title: '짬짬이 수업영상',
+    subtitle: '교과서 차시마다, 수업에 바로 쓰는 영상',
+    footer: '차시 영상 · 설명 영상 · 핵심 낱말 영상을 한 묶음으로',
   },
   {
     dir: 'draw', accent: '#E4572E',

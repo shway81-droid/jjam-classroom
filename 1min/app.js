@@ -1,11 +1,11 @@
 /* ===================================================================
-   짬짬이 1분사회 — 런처
+   짬짬이 수업영상 — 런처 (예전 이름 짬짬이 1분사회, 주소는 jjam-1min 그대로)
    ===================================================================
    탐색축은 교과서 진도 순서다(단원 → 차시). 선생님이 찾는 것은 "내일 나가는
    그 차시" 하나이고, 그건 필터보다 목차가 빠르다.
 
    한 차시에는 영상이 여러 편 있다.
-     · 차시 영상   — 차시 전체를 1분으로 (youtubeId)
+     · 차시 영상   — 차시 내용을 1분으로 요약 (youtubeId)
      · 설명 영상   — 차시 전체를 가로 화면으로 자세히 (explainVideo, 16:9)
      · 핵심 낱말 영상 — 그 차시의 핵심 낱말 3개를 1분씩 (wordVideos)
    그래서 목록은 차시마다 한 줄로 그리고, 카드를 열지 않아도 낱말이 보이게 한다.
@@ -462,8 +462,8 @@
 
   function playlistOf(L) {
     var X = explain(L);
-    return [{ kind: 'lesson', id: L.youtubeId, sec: L.seconds, title: '차시 영상', sub: '차시 전체를 1분으로', meaning: L.summary }]
-      .concat(X ? [{ kind: 'explain', id: X.youtubeId, sec: X.seconds, title: '설명 영상', sub: '차시 전체를 가로 화면으로 자세히', wide: true }] : [])
+    return [{ kind: 'lesson', id: L.youtubeId, sec: L.seconds, title: '차시 영상', sub: '차시 내용을 1분으로 요약', meaning: L.summary }]
+      .concat(X ? [{ kind: 'explain', id: X.youtubeId, sec: X.seconds, title: '설명 영상', sub: '차시 내용을 가로 화면으로 자세히', wide: true }] : [])
       .concat(words(L).map(function (w) {
         return { kind: 'word', id: w.youtubeId, sec: w.seconds, title: w.word, sub: w.meaning || '', meaning: w.meaning || '' };
       }));
