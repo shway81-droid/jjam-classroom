@@ -1,4 +1,4 @@
-# <img src="docs/icons/timer.svg" width="30" height="30" alt="" align="top"> 짬짬이 수업영상
+# ⏱ 짬짬이 수업영상
 
 **교과서 차시마다, 수업에 바로 쓰는 영상.** — 차시를 고르면 그 차시 수업에 쓸 영상이 한 묶음으로 나오는 선생님 전용 모음.
 
@@ -8,7 +8,7 @@
 
 [짬짬이 영상](https://shway81-droid.github.io/jjam-video/)이 "남은 시간에 뭐 틀지"를 해결한다면, 이 사이트는 **"지금 가르치는 차시"**를 해결합니다. 그래서 필터를 늘어놓지 않고 **교과서 진도 순서**로 단원 → 차시를 그립니다. 선생님이 찾는 것은 차시 하나이고, 그건 필터보다 목차가 빠릅니다.
 
-## <img src="docs/icons/film.svg" width="24" height="24" alt="" align="top"> 한 차시에 들어 있는 영상
+## 🎞 한 차시에 들어 있는 영상
 
 차시를 열면 아래 영상이 **한 재생목록**으로 묶여 있고, 이어 보기를 켜 두면 끝날 때마다 다음 편으로 넘어갑니다.
 
@@ -22,18 +22,18 @@
 
 빌드 단계 없는 순수 정적 사이트입니다. 설치·로그인 없이 브라우저에서 바로 동작합니다.
 
-## <img src="docs/icons/sparkles.svg" width="24" height="24" alt="" align="top"> 기능
+## ✨ 기능
 
-- <img src="docs/icons/book-open.svg" width="18" height="18" alt="" align="top"> **교과서 진도 순서** — 출판사·교과·학년을 고르면 단원 아래 차시가 1번부터 한 줄씩. 차시마다 영상 길이가, 여러 편인 차시에는 편수와 전체 길이가 찍혀 있습니다
-- <img src="docs/icons/circle-play.svg" width="18" height="18" alt="" align="top"> **차시 재생목록** — 차시 영상 → 설명 영상 → 핵심 낱말 영상을 이어서. ← → 키로도 넘깁니다
-- <img src="docs/icons/book-a.svg" width="18" height="18" alt="" align="top"> **낱말 사전** — 학년·학기의 핵심 낱말을 가나다순으로 모으고, 어느 교과서 몇 차시에 나오는지 함께 보여 줍니다
-- <img src="docs/icons/search.svg" width="18" height="18" alt="" align="top"> **검색** — 차시명·주제·핵심 낱말·단원 제목으로 찾기 ("고인돌", "3단원", "7차시" 모두 됩니다)
-- <img src="docs/icons/smartphone.svg" width="18" height="18" alt="" align="top"> **화면 비율 그대로 재생** — 세로 영상은 잘라내거나 레터박스 없이 가운데에, 가로 영상은 넓게. 옆에 차시명·요약·관련 낱말이 붙습니다
-- <img src="docs/icons/monitor.svg" width="18" height="18" alt="" align="top"> **전자칠판 최적화** — 1280px 이상에서 글씨·카드 자동 확대, 전체화면 버튼
-- <img src="docs/icons/wifi-off.svg" width="18" height="18" alt="" align="top"> **오프라인 동작** — PWA + 서비스 워커. 목록·검색은 인터넷 없이도 동작합니다.
+- **📖 교과서 진도 순서** — 출판사·교과·학년을 고르면 단원 아래 차시가 1번부터 한 줄씩. 차시마다 영상 길이가, 여러 편인 차시에는 편수와 전체 길이가 찍혀 있습니다
+- **▶️ 차시 재생목록** — 차시 영상 → 설명 영상 → 핵심 낱말 영상을 이어서. ← → 키로도 넘깁니다
+- **🔤 낱말 사전** — 학년·학기의 핵심 낱말을 가나다순으로 모으고, 어느 교과서 몇 차시에 나오는지 함께 보여 줍니다
+- **🔍 검색** — 차시명·주제·핵심 낱말·단원 제목으로 찾기 ("고인돌", "3단원", "7차시" 모두 됩니다)
+- **📱 화면 비율 그대로 재생** — 세로 영상은 잘라내거나 레터박스 없이 가운데에, 가로 영상은 넓게. 옆에 차시명·요약·관련 낱말이 붙습니다
+- **📺 전자칠판 최적화** — 1280px 이상에서 글씨·카드 자동 확대, 전체화면 버튼
+- **📴 오프라인 동작** — PWA + 서비스 워커. 목록·검색은 인터넷 없이도 동작합니다.
   *영상 재생은 유튜브를 부르므로 인터넷이 필요합니다.*
 
-## <img src="docs/icons/clapperboard.svg" width="24" height="24" alt="" align="top"> 영상은 어떻게 만드나
+## 🎬 영상은 어떻게 만드나
 
 교과서 차시 PDF를 **NotebookLM** 에 넣어 영상을 만들고(차시·낱말 영상은 숏폼 9:16, 설명 영상은 가로 16:9),
 사람이 교과서와 대조한 뒤 유튜브([`짬짬이 1분사회` @jjam1min](https://www.youtube.com/@jjam1min))에 올립니다.
@@ -42,7 +42,7 @@
 생성 절차와 실측 기록은 이 저장소 밖(로컬 작업 폴더)에 있습니다.
 화면과 내레이션은 AI 생성물이라 유튜브에도 AI 라벨을 붙였습니다.
 
-## <img src="docs/icons/folder-tree.svg" width="24" height="24" alt="" align="top"> 구조
+## 🗂 구조
 
 ```
 index.html               런처 (헤더·교과서 칩·검색·단원 섹션·세로 재생 모달)
@@ -56,7 +56,7 @@ sw.js · manifest.json    오프라인 지원(PWA)
 favicon.svg
 ```
 
-## <img src="docs/icons/circle-plus.svg" width="24" height="24" alt="" align="top"> 차시 추가·수정 방법
+## ➕ 차시 추가·수정 방법
 
 `data/lessons.json` 배열에 항목을 추가한 뒤 `node scripts/gen-data.mjs` 한 줄이면 끝입니다.
 
@@ -95,7 +95,7 @@ node scripts/check-font-coverage.mjs # 자가 호스팅 폰트에 없는 글자�
 node scripts/check-sources.mjs       # 내 채널의 살아 있는 영상인지 (유튜브 조회)
 ```
 
-## <img src="docs/icons/shield-check.svg" width="24" height="24" alt="" align="top"> 무엇을 검증하고 무엇을 안 하나
+## 🛡 무엇을 검증하고 무엇을 안 하나
 
 짬짬이 영상은 **남의 영상**을 큐레이션하므로 승인 채널 목록·업로더 대조·썸네일 검토판까지 세 겹으로 막습니다. 이 사이트의 영상은 전부 **내가 교과서로 만들어 내 채널에 올린 것**이라 그 관문이 필요 없습니다. 그래서 두 가지만 봅니다.
 
@@ -126,7 +126,7 @@ node scripts/sync-shared.mjs           # game/ 내용으로 공통 파일 맞추
 node scripts/sync-shared.mjs --check   # 어긋난 게 있는지만 확인 (CI 게이트와 같은 명령)
 ```
 
-## <img src="docs/icons/terminal.svg" width="24" height="24" alt="" align="top"> 로컬 실행
+## ▶️ 로컬 실행
 
 `fetch`로 JSON을 읽으므로 파일을 직접 여는 대신 로컬 서버로 엽니다.
 
@@ -135,13 +135,9 @@ python -m http.server 8000
 # http://localhost:8000
 ```
 
-## <img src="docs/icons/rocket.svg" width="24" height="24" alt="" align="top"> 배포
+## 🚀 배포
 
 소스는 이 저장소(`jjam-classroom/1min/`)이고, 발행은 **`jjam-1min`** 저장소가 맡습니다.
 GitHub Pages 주소가 저장소 이름에서 나오기 때문입니다 (`github.io/jjam-1min/`).
 
 `main`에 머지되면 루트의 `발행 신호 보내기` 워크플로가 `jjam-1min`에 신호를 보내고 몇 분 안에 반영됩니다. 신호가 막히더라도 그쪽 저장소의 하루 한 번 크론이 안전망입니다.
-
----
-
-문서 아이콘은 [Lucide](https://lucide.dev)(ISC 라이선스, `docs/icons/LICENSE.txt`)입니다. 사이트 화면에는 쓰지 않습니다.
