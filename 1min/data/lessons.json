@@ -8998,6 +8998,12 @@
         "youtubeId": "14gzqJ3hpLw",
         "seconds": 74,
         "meaning": "표면의 무늬를 살짝 파내고 그 속에 다른 재료를 넣어 표현하는 기법입니다."
+      },
+      {
+        "word": "향도",
+        "youtubeId": "Qw1oSpa1xn4",
+        "seconds": 68,
+        "meaning": "공동으로 생산 활동과 종교 활동을 벌였던 마을 사람들의 조직입니다."
       }
     ]
   },
@@ -9095,6 +9101,24 @@
       "경복궁",
       "종묘",
       "사직단"
+    ],
+    "explainVideo": {
+      "youtubeId": "StriKn3rjlo",
+      "seconds": 335
+    },
+    "wordVideos": [
+      {
+        "word": "유교",
+        "youtubeId": "VI041jvL0_4",
+        "seconds": 79,
+        "meaning": "공자의 가르침을 근본으로 나라에 충성하고 부모에게 효도하는 것을 중요하게 여기는 학문과 사상입니다."
+      },
+      {
+        "word": "사대문",
+        "youtubeId": "3VXHd0D7W2A",
+        "seconds": 75,
+        "meaning": "한양 도성에 둔 네 개의 큰 문으로, 이름에 유교에서 중요하게 여기는 덕목의 의미를 담았습니다."
+      }
     ]
   },
   {
@@ -9118,6 +9142,30 @@
       "훈민정음",
       "과거",
       "세종"
+    ],
+    "explainVideo": {
+      "youtubeId": "oOmNQ4fGbo8",
+      "seconds": 507
+    },
+    "wordVideos": [
+      {
+        "word": "경국대전",
+        "youtubeId": "z70lDd6vbuo",
+        "seconds": 73,
+        "meaning": "‘나라를 다스리는 큰 법전’이라는 뜻으로, 정치 제도와 사회, 경제활동 등에 관한 규칙을 담은 책입니다."
+      },
+      {
+        "word": "삼강행실도",
+        "youtubeId": "ddbSpiJO7Pc",
+        "seconds": 74,
+        "meaning": "충신, 효자 등의 이야기를 모아 글과 그림으로 엮어 만든 책으로, 유교의 가르침을 담았습니다."
+      },
+      {
+        "word": "훈민정음",
+        "youtubeId": "I2hCE_epJv0",
+        "seconds": 67,
+        "meaning": "세종이 글자를 몰라 어려움을 겪는 백성을 위해 창제한 우리 글자입니다."
+      }
     ]
   },
   {
