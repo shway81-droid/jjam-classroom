@@ -9451,6 +9451,12 @@
     },
     "wordVideos": [
       {
+        "word": "개항",
+        "youtubeId": "1eqCh_YgJb8",
+        "seconds": 66,
+        "meaning": "항구를 열어 외국 배가 드나들 수 있도록 출입을 허가하는 것입니다."
+      },
+      {
         "word": "척화비",
         "youtubeId": "Gyp0oyK7eAg",
         "seconds": 75,
@@ -9696,6 +9702,30 @@
       "이상설",
       "이회영",
       "신흥 강습소"
+    ],
+    "explainVideo": {
+      "youtubeId": "ygFa6D-sY0E",
+      "seconds": 334
+    },
+    "wordVideos": [
+      {
+        "word": "조선 총독부",
+        "youtubeId": "0jBSWoEhbTg",
+        "seconds": 77,
+        "meaning": "일제가 식민 통치의 최고 기구로 설치한 곳으로, 일본 군인 출신을 총독으로 임명해 한국인들을 통치했습니다."
+      },
+      {
+        "word": "헌병",
+        "youtubeId": "vmbuyKX1Ph0",
+        "seconds": 91,
+        "meaning": "군대 안에서 경찰의 역할을 하는 군인입니다. 일제는 헌병에게 경찰의 임무를 주어 한국인의 일상생활을 감시했습니다."
+      },
+      {
+        "word": "독립운동 기지",
+        "youtubeId": "iSiR7ITQW6g",
+        "seconds": 85,
+        "meaning": "일제의 탄압을 피해 만주와 연해주 등 나라 밖에 마련한, 독립운동을 이어 가는 근거지입니다."
+      }
     ]
   },
   {
@@ -9719,6 +9749,30 @@
       "유관순",
       "제암리",
       "대한민국 임시 정부"
+    ],
+    "explainVideo": {
+      "youtubeId": "k6ziYo_nOKg",
+      "seconds": 343
+    },
+    "wordVideos": [
+      {
+        "word": "3·1 운동",
+        "youtubeId": "CpkJKME96Ck",
+        "seconds": 88,
+        "meaning": "1919년 3월 1일 서울에서 시작되어 전국 곳곳에서 몇 개월 동안 이어진 만세 시위입니다."
+      },
+      {
+        "word": "독립 선언서",
+        "youtubeId": "h3Usi5Z1vCo",
+        "seconds": 70,
+        "meaning": "1919년 3월 1일 민족 대표들이 서울에서 발표한 글로, 조선이 독립한 나라이며 조선인이 이 나라의 주인임을 선언했습니다."
+      },
+      {
+        "word": "민족 대표",
+        "youtubeId": "HPV5y4rzQYA",
+        "seconds": 79,
+        "meaning": "1919년 3월 1일 서울에서 독립 선언서를 발표한 종교 지도자들입니다."
+      }
     ]
   },
   {
@@ -9743,6 +9797,30 @@
       "김구",
       "이봉창",
       "윤봉길"
+    ],
+    "explainVideo": {
+      "youtubeId": "_s4L4yXMzP8",
+      "seconds": 478
+    },
+    "wordVideos": [
+      {
+        "word": "대한민국 임시 정부",
+        "youtubeId": "EGQVLD_a6k4",
+        "seconds": 76,
+        "meaning": "3·1 운동 이후 나라를 되찾기 위해 세워진 정부로, 김구는 이 임시 정부에서 한인 애국단을 만들었습니다."
+      },
+      {
+        "word": "광주 학생 항일 운동",
+        "youtubeId": "QEvZpWpMeaE",
+        "seconds": 69,
+        "meaning": "한국 학생과 일본 학생 사이의 다툼을 시작으로 일어나 전국으로 퍼진 학생들의 시위입니다."
+      },
+      {
+        "word": "한인 애국단",
+        "youtubeId": "pit125Z2lzY",
+        "seconds": 68,
+        "meaning": "김구가 일제의 주요 인물을 처단하고자 만든 단체로, 이봉창과 윤봉길의 의거로 한국인들의 독립 의지가 전 세계에 알려졌습니다."
+      }
     ]
   },
   {
@@ -9766,6 +9844,30 @@
       "신채호",
       "이육사",
       "한국광복군"
+    ],
+    "explainVideo": {
+      "youtubeId": "vS2OJwUtoFk",
+      "seconds": 408
+    },
+    "wordVideos": [
+      {
+        "word": "민족 말살 정책",
+        "youtubeId": "mucYDQab65Q",
+        "seconds": 58,
+        "meaning": "1930년대 후반 이후 일제가 한국인을 일본 왕의 충성스러운 신민으로 만들기 위해 한국인의 민족정신을 없애려고 추진한 정책입니다."
+      },
+      {
+        "word": "신사 참배",
+        "youtubeId": "mcgh-Dfcbvo",
+        "seconds": 75,
+        "meaning": "일본이 황실 조상이나 큰 공을 세운 사람을 신으로 모시는 신사에 가서 절하는 일로, 일제는 민족 말살 정책의 하나로 한국인에게 강제로 신사 참배를 하게 했습니다."
+      },
+      {
+        "word": "한국광복군",
+        "youtubeId": "qnsPBF4ot1g",
+        "seconds": 69,
+        "meaning": "일본의 침략 전쟁에 맞서 대한민국 임시 정부가 창설한 군대로, 연합군과 함께 활동하며 국내에 진입할 계획을 세웠습니다."
+      }
     ]
   },
   {
@@ -9788,6 +9890,30 @@
       "수탈",
       "경성",
       "토막"
+    ],
+    "explainVideo": {
+      "youtubeId": "4aTQXC3Fq2k",
+      "seconds": 427
+    },
+    "wordVideos": [
+      {
+        "word": "철도",
+        "youtubeId": "yOcG5AGHwLk",
+        "seconds": 96,
+        "meaning": "일제 식민 통치 시기에 한반도 곳곳에 건설된 교통 시설로, 사람과 물건을 빠르게 옮길 수 있게 했지만 쌀과 주요 자원을 일본으로 실어 나르고 침략 전쟁의 물자와 군대를 옮기는 수단이 되기도 했습니다."
+      },
+      {
+        "word": "수탈",
+        "youtubeId": "oB-36zFkUpU",
+        "seconds": 76,
+        "meaning": "강제로 빼앗는다는 뜻으로, 일제는 식민 통치 시기에 한반도에서 쌀과 주요 자원을 빼앗아 철도와 항구로 일본에 실어 날랐습니다."
+      },
+      {
+        "word": "토막",
+        "youtubeId": "d6VRyk0dY88",
+        "seconds": 80,
+        "meaning": "땅을 파고 그 위에 짚을 엮어서 얹고 흙을 덮어 추위와 비바람을 피할 수 있도록 임시로 만든 집으로, 토막집이라고도 합니다."
+      }
     ]
   },
   {
@@ -9812,6 +9938,26 @@
       "38도선",
       "미군",
       "소련군"
+    ],
+    "wordVideos": [
+      {
+        "word": "광복",
+        "youtubeId": "kscRPIN2Ngg",
+        "seconds": 84,
+        "meaning": "빛을 되찾았다는 뜻으로, 다른 나라에 빼앗긴 주권을 다시 찾은 것입니다. 우리나라는 1945년 8월 15일에 광복을 맞이했습니다."
+      },
+      {
+        "word": "제2차 세계 대전",
+        "youtubeId": "C8nUEvJpTrY",
+        "seconds": 73,
+        "meaning": "1939~1945년에 독일, 이탈리아, 일본을 중심으로 한 나라들과 미국, 프랑스, 영국, 중국, 소련 등 연합국 사이에 벌어진 대규모 세계 전쟁입니다."
+      },
+      {
+        "word": "38도선",
+        "youtubeId": "GWUSFrH0TQ4",
+        "seconds": 64,
+        "meaning": "광복 전후 미국과 소련의 군대가 한반도에 들어와 북위 38도선을 기준으로 남쪽에는 미군, 북쪽에는 소련군이 머무르면서 한반도가 남과 북으로 나뉘었습니다."
+      }
     ]
   },
   {
