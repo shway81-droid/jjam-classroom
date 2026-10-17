@@ -1844,6 +1844,10 @@
       "벽란도",
       "삼별초"
     ],
+    "explainVideo": {
+      "youtubeId": "6yXhSjp2kp8",
+      "seconds": 346
+    },
     "wordVideos": [
       {
         "word": "서희의 담판",
@@ -1856,6 +1860,12 @@
         "youtubeId": "qJ0nVYDsNzk",
         "seconds": 84,
         "meaning": "개경 가까이에 있던 송나라 상인들이 드나들던 대표적인 국제 무역항입니다."
+      },
+      {
+        "word": "귀주 대첩",
+        "youtubeId": "sqnZaO5O4NE",
+        "seconds": 77,
+        "meaning": "거란의 세 번째 침입 때 강감찬이 이끄는 고려군이 귀주에서 거란군을 크게 물리친 일입니다(1019년)."
       }
     ]
   },
@@ -1880,6 +1890,30 @@
       "고려청자",
       "신분 상승",
       "호적"
+    ],
+    "explainVideo": {
+      "youtubeId": "ESW3a1lnHaI",
+      "seconds": 343
+    },
+    "wordVideos": [
+      {
+        "word": "양인",
+        "youtubeId": "hrztlsXHimc",
+        "seconds": 70,
+        "meaning": "고려의 신분 가운데 천인을 뺀 지배층, 중간 계층, 피지배층을 가리키는 신분으로, 고려의 신분은 크게 양인과 천인으로 나뉘었습니다."
+      },
+      {
+        "word": "고려청자",
+        "youtubeId": "6_QTbU8986Y",
+        "seconds": 63,
+        "meaning": "푸른 빛깔의 도자기인 청자 가운데 고려 시대에 만든 것으로, 고려를 대표하는 공예품입니다. 고려의 지배층이 주로 생활용품으로 사용했습니다."
+      },
+      {
+        "word": "호적",
+        "youtubeId": "BuL-ZZsMMz8",
+        "seconds": 62,
+        "meaning": "집안의 주인을 기준으로 그 집에 속하는 사람의 신분에 관한 사항을 기록한 문서입니다. 고려에서는 호적에 아들과 딸을 구분하지 않고 태어난 순서대로 기록했습니다."
+      }
     ]
   },
   {
@@ -1905,6 +1939,10 @@
       "금속 활자",
       "직지심체요절"
     ],
+    "explainVideo": {
+      "youtubeId": "JumoAMcUNbY",
+      "seconds": 393
+    },
     "wordVideos": [
       {
         "word": "팔관회",
@@ -1917,6 +1955,12 @@
         "youtubeId": "agY6rStXXDk",
         "seconds": 73,
         "meaning": "몽골의 침입 때 부처의 힘에 의지하고자 만든 대장경으로, 경판의 수가 팔만여 장에 이릅니다."
+      },
+      {
+        "word": "직지심체요절",
+        "youtubeId": "Qs7kr_mRx-0",
+        "seconds": 64,
+        "meaning": "불교의 중요한 교리를 정리한 책으로, 1377년 청주 흥덕사에서 금속 활자로 인쇄되었습니다. 오늘날 남아 있는 금속 활자 인쇄본 가운데 세계에서 가장 오래되었습니다."
       }
     ]
   },
@@ -1990,6 +2034,10 @@
       "호패",
       "경국대전"
     ],
+    "explainVideo": {
+      "youtubeId": "72oFf4Zxxl4",
+      "seconds": 422
+    },
     "wordVideos": [
       {
         "word": "유교",
@@ -2002,6 +2050,12 @@
         "youtubeId": "vPC9cx_yzQs",
         "seconds": 66,
         "meaning": "고려 말 명이 북쪽 땅 일부를 요구하자 요동 정벌에 나섰던 이성계가 위화도에서 군대를 돌려 개경으로 돌아와 권력을 잡은 사건입니다."
+      },
+      {
+        "word": "신진 사대부",
+        "youtubeId": "-CcDszlxLIY",
+        "seconds": 64,
+        "meaning": "고려 말에 등장한 정치 세력입니다. 유교 가르침의 한 갈래인 성리학을 공부하고 과거를 보아 관리가 되었습니다."
       }
     ]
   },
@@ -2028,7 +2082,17 @@
       "삼강행실도",
       "관혼상제"
     ],
+    "explainVideo": {
+      "youtubeId": "OrLPpEJRTxU",
+      "seconds": 421
+    },
     "wordVideos": [
+      {
+        "word": "양반",
+        "youtubeId": "hiU4p2_r5sU",
+        "seconds": 69,
+        "meaning": "조선 시대 양인 가운데 유교의 가르침이 담긴 책을 공부하거나 관리가 되어 나랏일에 참여한 신분입니다. 국역을 면제받았고 다른 신분보다 많은 땅과 노비를 가지기도 했습니다."
+      },
       {
         "word": "삼강행실도",
         "youtubeId": "ddbSpiJO7Pc",
@@ -2066,12 +2130,28 @@
       "분청사기",
       "백자"
     ],
+    "explainVideo": {
+      "youtubeId": "mJEkyVDRYJA",
+      "seconds": 378
+    },
     "wordVideos": [
       {
         "word": "훈민정음",
         "youtubeId": "I2hCE_epJv0",
         "seconds": 67,
         "meaning": "세종이 백성이 쉽게 읽고 쓸 수 있는 글자가 필요하다고 여겨 만든 우리 글자입니다. 28자로 된 과학적이고 독창적인 문자입니다."
+      },
+      {
+        "word": "측우기",
+        "youtubeId": "w9GEiUfcCus",
+        "seconds": 85,
+        "meaning": "비가 내린 양을 측정하는 기구입니다. 세종이 만들도록 하여 각 고을에 보급했습니다."
+      },
+      {
+        "word": "역법",
+        "youtubeId": "AiSEheqkwHY",
+        "seconds": 59,
+        "meaning": "해와 달 등 하늘의 반복적인 움직임을 관측하여 시간을 연, 월, 일 등의 단위로 구분하여 정하는 방법입니다. 세종 때 이를 바탕으로 역법책인 『칠정산』을 펴냈습니다."
       }
     ]
   },
@@ -2097,6 +2177,30 @@
       "광해군",
       "병자호란",
       "남한산성"
+    ],
+    "explainVideo": {
+      "youtubeId": "dH3s0zkgFZ8",
+      "seconds": 471
+    },
+    "wordVideos": [
+      {
+        "word": "임진왜란",
+        "youtubeId": "Fl1k5aobbsM",
+        "seconds": 72,
+        "meaning": "도요토미 히데요시가 일본을 통일한 뒤 조선을 침략하며 1592년에 일어난 전쟁입니다. 수군과 의병의 활약으로 극복하여 7년 만에 끝났습니다."
+      },
+      {
+        "word": "이순신",
+        "youtubeId": "ILyMnsAbHR4",
+        "seconds": 74,
+        "meaning": "임진왜란 때 수군을 이끌고 거북선, 화포 등의 무기와 뛰어난 전술로 일본군에 승리한 인물입니다. 노량 앞바다에서 돌아가는 일본군을 무찔렀습니다."
+      },
+      {
+        "word": "병자호란",
+        "youtubeId": "dbFbRw-YqZo",
+        "seconds": 77,
+        "meaning": "청이 ‘임금과 신하의 관계’를 맺자는 요구를 조선이 거절하자 1636년에 조선에 쳐들어와 일어난 전쟁입니다. 인조가 남한산성에서 나와 청의 황제에게 항복했습니다."
+      }
     ]
   },
   {
@@ -2122,6 +2226,30 @@
       "실학",
       "대동여지도",
       "세도 정치"
+    ],
+    "explainVideo": {
+      "youtubeId": "sB_XYfcwSSE",
+      "seconds": 479
+    },
+    "wordVideos": [
+      {
+        "word": "모내기법",
+        "youtubeId": "II_JS8CnYu4",
+        "seconds": 72,
+        "meaning": "모판에 씨를 뿌려 싹이 난 모를 논에 옮겨 심는 농사법입니다. 조선 후기에 백성이 이런 농사법으로 생산량을 늘렸습니다."
+      },
+      {
+        "word": "장시",
+        "youtubeId": "z6ehFe3L2o8",
+        "seconds": 92,
+        "meaning": "조선 시대에 보통 5일마다 열리던 시장입니다. 농업이 발달하자 물자가 모여드는 장시가 상업의 중심지가 되었습니다."
+      },
+      {
+        "word": "상평통보",
+        "youtubeId": "hAyalayQc2c",
+        "seconds": 63,
+        "meaning": "조선 후기에 교환 수단으로 쓰이던 쌀이나 옷감을 대신해 널리 쓰인 화폐입니다."
+      }
     ]
   },
   {
@@ -2148,6 +2276,10 @@
       "김홍도",
       "민화"
     ],
+    "explainVideo": {
+      "youtubeId": "eOnuVAaGW7A",
+      "seconds": 330
+    },
     "wordVideos": [
       {
         "word": "서민 문화",
