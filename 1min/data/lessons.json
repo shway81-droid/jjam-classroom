@@ -6242,12 +6242,28 @@
       "자격루",
       "훈민정음"
     ],
+    "explainVideo": {
+      "youtubeId": "A7Son2T1YXA",
+      "seconds": 381
+    },
     "wordVideos": [
+      {
+        "word": "농사직설",
+        "youtubeId": "-la5Hd5Wtm4",
+        "seconds": 73,
+        "meaning": "세종이 조선의 환경에 맞는 농사법을 정리해 펴내 보급한 농업 책입니다. 각 도의 관찰사들에게 늙은 농부들의 경험담을 기록해 보고하게 한 뒤 내용을 다듬어 만들었습니다."
+      },
       {
         "word": "측우기",
         "youtubeId": "w9GEiUfcCus",
         "seconds": 85,
         "meaning": "세종 시기에 만들어진 과학 기구로, 비가 내린 양을 측정하는 기구입니다. 농사에 도움을 줬습니다."
+      },
+      {
+        "word": "앙부일구",
+        "youtubeId": "uVlFLD64J_s",
+        "seconds": 78,
+        "meaning": "해가 떴을 때 바늘에 비친 그림자를 보고 계절과 시각을 알 수 있는 해시계입니다. 한양 거리에 있어 백성이 오가며 시각을 알 수 있었고 농사일에도 도움을 줬습니다."
       }
     ]
   },
@@ -6325,6 +6341,10 @@
       "보부상",
       "상평통보"
     ],
+    "explainVideo": {
+      "youtubeId": "x3Tc904nEx8",
+      "seconds": 420
+    },
     "wordVideos": [
       {
         "word": "모내기법",
@@ -6369,6 +6389,30 @@
       "실학",
       "천주교",
       "동학"
+    ],
+    "explainVideo": {
+      "youtubeId": "ttKj2dTjrx4",
+      "seconds": 372
+    },
+    "wordVideos": [
+      {
+        "word": "실학",
+        "youtubeId": "0ZhBuaGLEPg",
+        "seconds": 60,
+        "meaning": "백성의 삶과 연관된 현실의 사회 문제를 해결하려는 학문입니다. 실학자들은 농업, 상업과 수공업, 우리 역사와 지리 등 다양한 분야를 연구했습니다."
+      },
+      {
+        "word": "신분제",
+        "youtubeId": "PyFP7mKSZ5I",
+        "seconds": 97,
+        "meaning": "양반, 상민, 천민 등 신분에 따라 나뉘던 조선의 신분 질서입니다. 조선 후기에는 돈을 주고 양반 신분을 사는 사람들이 나타나 양반은 늘고 상민과 천민은 줄어 신분제가 흔들리게 됐습니다."
+      },
+      {
+        "word": "동학",
+        "youtubeId": "XCPMM926uss",
+        "seconds": 68,
+        "meaning": "조선 후기에 널리 퍼진 새로운 종교입니다. 모든 사람이 평등하다는 것과 새로운 세상이 열릴 것이라는 생각을 백성에게 전했고, 천주교(서학)에 맞서 우리 것을 지킨다는 의미가 담겨 있습니다."
+      }
     ]
   },
   {
@@ -6446,6 +6490,10 @@
       "전화",
       "신문"
     ],
+    "explainVideo": {
+      "youtubeId": "kuvzSrYxVIU",
+      "seconds": 366
+    },
     "wordVideos": [
       {
         "word": "개항",
@@ -6560,6 +6608,10 @@
       "의병",
       "안중근"
     ],
+    "explainVideo": {
+      "youtubeId": "ML09lYNF_3I",
+      "seconds": 498
+    },
     "wordVideos": [
       {
         "word": "을사늑약",
@@ -6604,6 +6656,10 @@
       "안창호",
       "흥사단"
     ],
+    "explainVideo": {
+      "youtubeId": "oB5olypTRsQ",
+      "seconds": 371
+    },
     "wordVideos": [
       {
         "word": "조선 총독부",
@@ -6649,6 +6705,10 @@
       "한인 애국단",
       "윤봉길"
     ],
+    "explainVideo": {
+      "youtubeId": "knwfNby80w0",
+      "seconds": 451
+    },
     "wordVideos": [
       {
         "word": "3·1 운동",
@@ -6693,7 +6753,17 @@
       "봉오동 전투",
       "청산리 대첩"
     ],
+    "explainVideo": {
+      "youtubeId": "IU5uvs3cMII",
+      "seconds": 380
+    },
     "wordVideos": [
+      {
+        "word": "물산 장려 운동",
+        "youtubeId": "o4GbjfcXSrc",
+        "seconds": 73,
+        "meaning": "3·1 운동 이후 국내에서 일제로부터 경제적으로 독립하려면 토산품을 사용하고 절약해야 한다는 것을 강조하며 일어난 운동입니다. ‘우리가 만든 것 우리가 쓰자’라는 말이 광고에 쓰였습니다."
+      },
       {
         "word": "광주 학생 항일 운동",
         "youtubeId": "QEvZpWpMeaE",
@@ -6732,6 +6802,10 @@
       "신채호",
       "한국광복군"
     ],
+    "explainVideo": {
+      "youtubeId": "7zGbqQz-r0o",
+      "seconds": 386
+    },
     "wordVideos": [
       {
         "word": "철도",
@@ -6777,6 +6851,10 @@
       "헌법",
       "대한민국 정부 수립"
     ],
+    "explainVideo": {
+      "youtubeId": "8wb1MqNFziM",
+      "seconds": 444
+    },
     "wordVideos": [
       {
         "word": "광복",
@@ -6823,6 +6901,10 @@
       "피란민",
       "천막 학교"
     ],
+    "explainVideo": {
+      "youtubeId": "u9gQzZZ9Gcg",
+      "seconds": 431
+    },
     "wordVideos": [
       {
         "word": "6·25 전쟁",
