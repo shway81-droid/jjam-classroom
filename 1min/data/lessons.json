@@ -2325,6 +2325,10 @@
       "독립 협회",
       "대한 제국"
     ],
+    "explainVideo": {
+      "youtubeId": "-Wf6fU6g6b0",
+      "seconds": 341
+    },
     "wordVideos": [
       {
         "word": "개항",
@@ -2337,6 +2341,12 @@
         "youtubeId": "wbQvkqMJD-s",
         "seconds": 85,
         "meaning": "1876년 조선이 일본과 맺은 조약으로, 외국과 맺은 최초의 근대적 조약입니다. 조선에 불리한 내용을 담고 있었습니다."
+      },
+      {
+        "word": "갑신정변",
+        "youtubeId": "8OLFPTKBTAA",
+        "seconds": 80,
+        "meaning": "김옥균을 비롯한 개화 세력이 청에 의지하는 세력을 몰아내고 새로운 조선을 만들고자 1884년에 일으킨 정변입니다. 청이 군사를 동원해 억누르면서 3일 만에 끝났습니다."
       }
     ]
   },
@@ -2363,6 +2373,10 @@
       "명동 성당",
       "신문"
     ],
+    "explainVideo": {
+      "youtubeId": "pM1KALXavg8",
+      "seconds": 289
+    },
     "wordVideos": [
       {
         "word": "근대 문물",
@@ -2375,6 +2389,12 @@
         "youtubeId": "1PCpOrbu47M",
         "seconds": 80,
         "meaning": "전기의 힘으로 움직이는 탈것입니다. 1899년에 서대문에서 청량리까지 운행을 시작하여 거리의 모습을 크게 바꾸었습니다."
+      },
+      {
+        "word": "전신",
+        "youtubeId": "oreF6tNU88A",
+        "seconds": 74,
+        "meaning": "문자나 숫자를 전기 신호로 바꾸어 전파나 전류로 보내는 통신입니다. 한성과 인천 사이에 설치한 뒤 일본, 중국까지 연결하는 국제 통신망을 갖추었습니다."
       }
     ]
   },
@@ -2449,12 +2469,22 @@
       "애국 계몽 운동",
       "안중근"
     ],
+    "explainVideo": {
+      "youtubeId": "Y0oRKRElT8I",
+      "seconds": 501
+    },
     "wordVideos": [
       {
         "word": "을사늑약",
         "youtubeId": "Nq8s8E8po8Q",
         "seconds": 72,
         "meaning": "일본이 러시아와 벌인 전쟁에서 유리해지자 이토 히로부미를 대한 제국에 보내 맺은 조약으로, 이 조약으로 대한 제국의 외교권을 빼앗겼습니다(1905년)."
+      },
+      {
+        "word": "헤이그 특사",
+        "youtubeId": "pDfr8VmW2OE",
+        "seconds": 94,
+        "meaning": "나라를 대표하여 특별한 임무를 띠고 외국에 파견되는 사람입니다. 고종은 을사늑약이 부당하다는 것을 알리려고 네덜란드 헤이그 국제회의에 세 명의 특사를 보냈습니다."
       },
       {
         "word": "의병",
@@ -2488,6 +2518,10 @@
       "신사",
       "일본식 성과 이름"
     ],
+    "explainVideo": {
+      "youtubeId": "F9UwDAaXGBQ",
+      "seconds": 387
+    },
     "wordVideos": [
       {
         "word": "조선 총독부",
@@ -2500,6 +2534,12 @@
         "youtubeId": "vmbuyKX1Ph0",
         "seconds": 91,
         "meaning": "군대 안에서 경찰의 역할을 하는 군인입니다. 일제는 헌병에게 경찰의 임무를 주어 한국인들을 감시하고 독립운동을 탄압했습니다."
+      },
+      {
+        "word": "토지 조사 사업",
+        "youtubeId": "qpCoPSsl_pM",
+        "seconds": 82,
+        "meaning": "일제가 식민 통치에 필요한 돈을 마련하려고 벌인 사업입니다. 정해진 기간 안에 자신의 땅을 신고하게 했고, 주인이 확실하지 않은 땅은 조선 총독부의 소유로 만들었습니다."
       }
     ]
   },
@@ -2526,6 +2566,10 @@
       "대한민국 임시 정부",
       "독립신문"
     ],
+    "explainVideo": {
+      "youtubeId": "eNaa6fqBPo0",
+      "seconds": 395
+    },
     "wordVideos": [
       {
         "word": "3·1 운동",
@@ -2571,7 +2615,17 @@
       "한인 애국단",
       "한국광복군"
     ],
+    "explainVideo": {
+      "youtubeId": "QeApDOMT0Tw",
+      "seconds": 352
+    },
     "wordVideos": [
+      {
+        "word": "청산리 대첩",
+        "youtubeId": "p1VjL3z9gug",
+        "seconds": 60,
+        "meaning": "1920년 김좌진과 홍범도를 중심으로 한 독립군 부대가 만주 청산리의 지형을 이용한 전술로 일본군에 맞서 큰 승리를 거둔 전투입니다."
+      },
       {
         "word": "한인 애국단",
         "youtubeId": "pit125Z2lzY",
@@ -2609,6 +2663,10 @@
       "한글 교과서",
       "어린이날"
     ],
+    "explainVideo": {
+      "youtubeId": "xNLjS3x0jlA",
+      "seconds": 311
+    },
     "wordVideos": [
       {
         "word": "광복",
@@ -2621,6 +2679,12 @@
         "youtubeId": "C8nUEvJpTrY",
         "seconds": 73,
         "meaning": "일본이 미국, 영국 등의 연합국과 벌인 세계 규모의 전쟁입니다. 전쟁이 연합국에 유리해지자 독립운동가들은 새로운 나라를 세울 준비를 했습니다."
+      },
+      {
+        "word": "조선 성명 복구령",
+        "youtubeId": "3h_qycbXqu0",
+        "seconds": 72,
+        "meaning": "일제가 강제한 일본식 성과 이름을 한국식으로 복구하도록 제정한 법령입니다. 광복 이후 사람들은 한국식 성과 이름을 회복했습니다."
       }
     ]
   },
@@ -2647,7 +2711,17 @@
       "제헌헌법",
       "대한민국 정부 수립"
     ],
+    "explainVideo": {
+      "youtubeId": "YUD45l_29Z0",
+      "seconds": 416
+    },
     "wordVideos": [
+      {
+        "word": "신탁 통치",
+        "youtubeId": "_GN-k-lHEo8",
+        "seconds": 86,
+        "meaning": "한 지역을 그곳 사람들이 아닌 다른 나라 또는 국제기구가 대신 통치하는 제도입니다. 1945년 12월 모스크바 3국 외상 회의에서 한반도에 최대 5년 동안 실시하기로 결정했습니다."
+      },
       {
         "word": "5·10 총선거",
         "youtubeId": "BASq7Y17H70",
@@ -2687,12 +2761,22 @@
       "이산가족",
       "판잣집"
     ],
+    "explainVideo": {
+      "youtubeId": "X47d4u0RQIs",
+      "seconds": 351
+    },
     "wordVideos": [
       {
         "word": "6·25 전쟁",
         "youtubeId": "APT0hmYPxYc",
         "seconds": 79,
         "meaning": "1950년 6월 25일 새벽 북한이 한반도를 무력으로 통일하고자 남한을 침략하면서 시작된 전쟁입니다. 국제 연합군과 중국군이 참전했고 1953년 7월 정전 협정이 체결되었습니다."
+      },
+      {
+        "word": "인천 상륙 작전",
+        "youtubeId": "O1fsNwvd9z4",
+        "seconds": 63,
+        "meaning": "국군과 국제 연합군이 펼친 작전으로, 이 작전으로 서울을 되찾고 38도선을 넘어 압록강 주변까지 나아갔습니다."
       },
       {
         "word": "정전 협정",
