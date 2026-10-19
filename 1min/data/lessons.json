@@ -12974,6 +12974,10 @@
       "비정부 기구",
       "국경 없는 의사회"
     ],
+    "explainVideo": {
+      "youtubeId": "f5rP-nk0ICY",
+      "seconds": 362
+    },
     "wordVideos": [
       {
         "word": "난민",
@@ -12986,6 +12990,12 @@
         "youtubeId": "J8xxSDDtkHM",
         "seconds": 78,
         "meaning": "지구촌의 평화와 협력을 위해 두 개 이상의 나라가 합의하여 만든 국제 조직이에요. 유엔 난민 기구가 그 예예요."
+      },
+      {
+        "word": "비정부 기구",
+        "youtubeId": "KTAvGTf8xsk",
+        "seconds": 79,
+        "meaning": "뜻이 같은 개인들이 스스로 모여 인권, 환경, 보건, 빈곤 퇴치 등 지구촌의 여러 문제를 해결하려고 활동하는 조직이에요."
       }
     ]
   },
@@ -13010,6 +13020,30 @@
       "산호 백화",
       "친환경 제품",
       "국제 환경 협약"
+    ],
+    "explainVideo": {
+      "youtubeId": "bg9QdFflmWA",
+      "seconds": 307
+    },
+    "wordVideos": [
+      {
+        "word": "지구 온난화",
+        "youtubeId": "LLFKnEHd_Ok",
+        "seconds": 67,
+        "meaning": "지구의 기온이 올라가는 현상으로, 고산 지대의 빙하가 빠르게 녹는 등 세계 여러 나라에 영향을 주는 환경 문제예요."
+      },
+      {
+        "word": "생태계 파괴",
+        "youtubeId": "qg6IiuxR1xY",
+        "seconds": 78,
+        "meaning": "무분별한 개발과 오염으로 숲과 바다 같은 자연이 망가져 동식물이 살 곳을 잃는 문제예요."
+      },
+      {
+        "word": "미세 플라스틱",
+        "youtubeId": "GsSFM4geePc",
+        "seconds": 76,
+        "meaning": "플라스틱 쓰레기가 썩지 않고 작은 크기로 부서진 것으로, 물고기 몸속에 쌓여 그 물고기를 먹은 사람의 건강까지 위협해요."
+      }
     ]
   },
   {
