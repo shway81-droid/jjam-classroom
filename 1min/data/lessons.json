@@ -12389,12 +12389,28 @@
       "노사 갈등",
       "근로 환경"
     ],
+    "explainVideo": {
+      "youtubeId": "nl1Czzon2qo",
+      "seconds": 398
+    },
     "wordVideos": [
+      {
+        "word": "사회 공헌 활동",
+        "youtubeId": "_bqihg81W5U",
+        "seconds": 76,
+        "meaning": "기업이 기부, 자원봉사 등으로 사회를 돕는 활동이에요."
+      },
       {
         "word": "착한 소비",
         "youtubeId": "RiVCHBTVm7s",
         "seconds": 88,
         "meaning": "만드는 과정이 올바른 상품을 골라 정당한 대가가 돌아가게 하는 소비예요."
+      },
+      {
+        "word": "시민 단체",
+        "youtubeId": "j0KLmMVuPjA",
+        "seconds": 79,
+        "meaning": "시민들이 모여 봉사 같은 활동으로 사회문제를 해결하려는 단체예요."
       }
     ]
   },
