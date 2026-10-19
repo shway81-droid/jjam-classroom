@@ -2857,6 +2857,30 @@
       "사막",
       "초원",
       "빙하"
+    ],
+    "explainVideo": {
+      "youtubeId": "Q_SJKl7DRK8",
+      "seconds": 350
+    },
+    "wordVideos": [
+      {
+        "word": "지형",
+        "youtubeId": "y_kB1KE-9qo",
+        "seconds": 79,
+        "meaning": "산, 하천, 해안처럼 땅의 생김새예요."
+      },
+      {
+        "word": "사막",
+        "youtubeId": "kWqSfQJB_aM",
+        "seconds": 73,
+        "meaning": "비가 매우 적고 나무가 잘 자라지 않아 모래나 돌로 이루어진 지형이에요."
+      },
+      {
+        "word": "빙하",
+        "youtubeId": "qWUq1YzRfjA",
+        "seconds": 59,
+        "meaning": "극지방에서 볼 수 있는, 얼음덩어리로 뒤덮인 지형이에요."
+      }
     ]
   },
   {
@@ -2881,6 +2905,30 @@
       "목축업",
       "계단식 논밭",
       "셰르파"
+    ],
+    "explainVideo": {
+      "youtubeId": "hrqo8LruarA",
+      "seconds": 493
+    },
+    "wordVideos": [
+      {
+        "word": "해발 고도",
+        "youtubeId": "ETJ6_drwjcg",
+        "seconds": 59,
+        "meaning": "바닷물의 평균 수면을 기준으로 잰 어떤 곳의 높이예요."
+      },
+      {
+        "word": "산맥",
+        "youtubeId": "Z2kdbzp4P2w",
+        "seconds": 64,
+        "meaning": "지구 내부의 힘으로 솟아오른 산지가 길게 연속적으로 이어져 있는 곳이에요."
+      },
+      {
+        "word": "고원",
+        "youtubeId": "0bDE6uR6pAs",
+        "seconds": 88,
+        "meaning": "해발 고도는 높지만 지형의 높낮이 차이가 크지 않고 평탄한 지형이에요."
+      }
     ]
   },
   {
@@ -2905,6 +2953,30 @@
       "운하",
       "수상 가옥",
       "수상시장"
+    ],
+    "explainVideo": {
+      "youtubeId": "mUnRHYK2_9c",
+      "seconds": 469
+    },
+    "wordVideos": [
+      {
+        "word": "댐",
+        "youtubeId": "M474_3f-0zI",
+        "seconds": 72,
+        "meaning": "전기를 만들거나 홍수와 가뭄에 대비하려고 하천을 막아 쌓은 둑이에요."
+      },
+      {
+        "word": "운하",
+        "youtubeId": "y_Ij1NrVkq0",
+        "seconds": 78,
+        "meaning": "배가 드나들 수 있도록 육지에 파 놓은 물길이에요."
+      },
+      {
+        "word": "수상 가옥",
+        "youtubeId": "8KyyXHPosZo",
+        "seconds": 78,
+        "meaning": "물 위에 지은 집으로 더위와 해충을 피하는 효과가 있어요."
+      }
     ]
   },
   {
@@ -2929,6 +3001,26 @@
       "피오르",
       "항구",
       "양식업"
+    ],
+    "wordVideos": [
+      {
+        "word": "갯벌",
+        "youtubeId": "Zun2CB6Nkhc",
+        "seconds": 69,
+        "meaning": "밀물 때는 물에 잠기고 썰물 때는 드러나는 모래나 점토로 덮인 넓고 평탄한 땅이에요."
+      },
+      {
+        "word": "피오르",
+        "youtubeId": "frT9zGhjxyI",
+        "seconds": 78,
+        "meaning": "빙하가 깎은 골짜기에 바닷물이 들어와 생긴 좁고 깊은 만이에요."
+      },
+      {
+        "word": "산호초",
+        "youtubeId": "nH9QMB8p7EM",
+        "seconds": 72,
+        "meaning": "따뜻한 바다에서 산호와 산호충의 뼈 등이 쌓여 만들어진 암초예요."
+      }
     ]
   },
   {
@@ -2953,6 +3045,20 @@
       "그랜드 캐니언",
       "관광 산업",
       "생태 관광"
+    ],
+    "wordVideos": [
+      {
+        "word": "관광 산업",
+        "youtubeId": "mzkPprsUEKY",
+        "seconds": 82,
+        "meaning": "관광객을 대상으로 숙박, 음식, 안내 등을 제공하는 산업이에요."
+      },
+      {
+        "word": "지역 경제",
+        "youtubeId": "MJ1UBpI9WCE",
+        "seconds": 61,
+        "meaning": "지역 사람들의 일자리와 소득 등 그 지역의 경제 활동이에요."
+      }
     ]
   },
   {
@@ -2979,6 +3085,20 @@
       "냉대 기후",
       "한대 기후",
       "고산 기후"
+    ],
+    "wordVideos": [
+      {
+        "word": "기후",
+        "youtubeId": "-Po_PUwGvxA",
+        "seconds": 92,
+        "meaning": "한 지역에서 여러 해 동안 반복해 나타나는 평균적인 날씨 상태예요."
+      },
+      {
+        "word": "위도",
+        "youtubeId": "jl7M7-8GT3Y",
+        "seconds": 87,
+        "meaning": "적도를 기준으로 남북 위치를 나타내는 값으로, 기후에 큰 영향을 줘요."
+      }
     ]
   },
   {
@@ -3004,6 +3124,20 @@
       "오아시스",
       "유목",
       "게르"
+    ],
+    "wordVideos": [
+      {
+        "word": "화전 농업",
+        "youtubeId": "sOm8_B-P7uU",
+        "seconds": 72,
+        "meaning": "숲을 태우고 그 재를 거름으로 삼아 농작물을 기르는 농업 방식이에요."
+      },
+      {
+        "word": "고상 가옥",
+        "youtubeId": "wkUGLcZdq80",
+        "seconds": 79,
+        "meaning": "열기, 습기, 해충을 피하려고 기둥을 세워 바닥을 땅에서 띄워 지은 집이에요."
+      }
     ]
   },
   {
@@ -3079,6 +3213,26 @@
       "타코",
       "육포",
       "아롤"
+    ],
+    "wordVideos": [
+      {
+        "word": "기후 환경",
+        "youtubeId": "gQhezBCrkeg",
+        "seconds": 82,
+        "meaning": "사람들의 생활에 영향을 주는 기온과 강수량 등 기후의 조건이에요."
+      },
+      {
+        "word": "적응",
+        "youtubeId": "cD9oMeXdtEE",
+        "seconds": 90,
+        "meaning": "주어진 기후 환경에 맞추어 살아가는 것이에요."
+      },
+      {
+        "word": "극복",
+        "youtubeId": "ISgHmFjEpQU",
+        "seconds": 57,
+        "meaning": "기후 환경의 한계를 과학 기술 등으로 이겨 내며 살아가는 것이에요."
+      }
     ]
   },
   {
@@ -3150,6 +3304,26 @@
       "자유",
       "경쟁",
       "직업 선택"
+    ],
+    "wordVideos": [
+      {
+        "word": "시장경제",
+        "youtubeId": "oGFJSTf-FUM",
+        "seconds": 80,
+        "meaning": "개인과 기업이 자유롭게 경제활동을 하며 경쟁하는, 시장 중심의 경제 방식이에요."
+      },
+      {
+        "word": "경제활동의 자유",
+        "youtubeId": "XhykQVNoRvQ",
+        "seconds": 74,
+        "meaning": "개인은 직업과 소비를, 기업은 생산과 판매를 스스로 결정할 수 있는 자유예요."
+      },
+      {
+        "word": "경쟁",
+        "youtubeId": "HBTDpYIKNCI",
+        "seconds": 81,
+        "meaning": "더 많은 이익이나 좋은 결과를 얻으려고 서로 겨루는 것이에요."
+      }
     ]
   },
   {
@@ -3176,6 +3350,26 @@
       "이윤",
       "노동력",
       "소비자의 권리"
+    ],
+    "wordVideos": [
+      {
+        "word": "가계",
+        "youtubeId": "25RLrlVEGZA",
+        "seconds": 59,
+        "meaning": "한집안의 살림을 함께 꾸리며 소득으로 소비 활동을 하는 경제 주체예요."
+      },
+      {
+        "word": "기업",
+        "youtubeId": "7e-jxxXJxY0",
+        "seconds": 78,
+        "meaning": "이윤을 얻으려고 물건과 서비스를 생산하고 판매하는 경제 주체예요."
+      },
+      {
+        "word": "이윤",
+        "youtubeId": "w_-fcUxanq4",
+        "seconds": 80,
+        "meaning": "물건이나 서비스를 팔아 얻은 수입에서 생산에 든 비용을 뺀 순수한 이익이에요."
+      }
     ]
   },
   {
