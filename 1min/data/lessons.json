@@ -12434,6 +12434,30 @@
       "수입",
       "서비스 무역",
       "경제 교류"
+    ],
+    "explainVideo": {
+      "youtubeId": "VZTgwuZzXCA",
+      "seconds": 370
+    },
+    "wordVideos": [
+      {
+        "word": "무역",
+        "youtubeId": "1Ch17SG8X6c",
+        "seconds": 64,
+        "meaning": "나라 사이에 서로의 이익을 위해 물건이나 서비스를 사고파는 것이에요."
+      },
+      {
+        "word": "수출",
+        "youtubeId": "4c4Y6Q0CzRc",
+        "seconds": 71,
+        "meaning": "다른 나라에 물건이나 서비스를 파는 것이에요."
+      },
+      {
+        "word": "수입",
+        "youtubeId": "5cDX4zBnhaU",
+        "seconds": 72,
+        "meaning": "다른 나라에서 물건이나 서비스를 사 오는 것이에요."
+      }
     ]
   },
   {
@@ -12458,6 +12482,30 @@
       "기술 수준",
       "경제적 이익",
       "수출 경쟁력"
+    ],
+    "explainVideo": {
+      "youtubeId": "KKo14Ifu0Oc",
+      "seconds": 378
+    },
+    "wordVideos": [
+      {
+        "word": "수출 경쟁력",
+        "youtubeId": "7pkvt_PS6ao",
+        "seconds": 97,
+        "meaning": "다른 나라보다 좋은 물건을 싸게 만들어 많이 팔 수 있는 힘이에요."
+      },
+      {
+        "word": "경제 교류",
+        "youtubeId": "4zt7EhFlSug",
+        "seconds": 67,
+        "meaning": "나라와 나라 사이에 물건, 기술, 정보 등을 주고받는 것이에요."
+      },
+      {
+        "word": "산업 육성",
+        "youtubeId": "UTm-1yxu-e4",
+        "seconds": 76,
+        "meaning": "경쟁력 있는 산업에 집중해 키우는 것이에요."
+      }
     ]
   },
   {
@@ -12480,6 +12528,30 @@
       "문화 콘텐츠",
       "해외 취업",
       "해외 직접 구매"
+    ],
+    "explainVideo": {
+      "youtubeId": "l0DfL-ISqx8",
+      "seconds": 340
+    },
+    "wordVideos": [
+      {
+        "word": "문화 콘텐츠",
+        "youtubeId": "P8b0IUDNGZ4",
+        "seconds": 66,
+        "meaning": "영화, 드라마, 음악 같은 문화 상품으로, 수출되어 인기를 얻기도 해요."
+      },
+      {
+        "word": "해외 자원 개발",
+        "youtubeId": "PXCYGmQoROQ",
+        "seconds": 77,
+        "meaning": "우리나라에 부족한 자원을 외국에서 개발해 안정적으로 확보하는 일이에요."
+      },
+      {
+        "word": "해외 상품 직접 구매",
+        "youtubeId": "wWdNwlanNVA",
+        "seconds": 72,
+        "meaning": "온라인으로 외국 상품을 직접 사는 것이에요."
+      }
     ]
   },
   {
@@ -12503,6 +12575,30 @@
       "자유 무역 협정",
       "관세",
       "천연가스"
+    ],
+    "explainVideo": {
+      "youtubeId": "ttDP5tKRwnU",
+      "seconds": 342
+    },
+    "wordVideos": [
+      {
+        "word": "세계화",
+        "youtubeId": "Pq4LK7C8Yxk",
+        "seconds": 73,
+        "meaning": "나라 사이의 경계를 넘어 서로 교류하고 의존하며 협력하는 흐름이에요."
+      },
+      {
+        "word": "상호 의존",
+        "youtubeId": "sBrywfeYFvQ",
+        "seconds": 66,
+        "meaning": "서로 부족한 점을 채우며 도움을 주고받는 관계예요."
+      },
+      {
+        "word": "자유 무역 협정",
+        "youtubeId": "xIpcTtTl8gM",
+        "seconds": 81,
+        "meaning": "나라 사이에 무역 장벽을 낮추거나 없애기로 한 약속이에요(FTA)."
+      }
     ]
   },
   {
@@ -12594,6 +12690,26 @@
       "인구분포도",
       "북반구",
       "중위도"
+    ],
+    "wordVideos": [
+      {
+        "word": "인구 분포",
+        "youtubeId": "Q49rS2YGegI",
+        "seconds": 70,
+        "meaning": "인구가 지구 위 어디에 얼마나 모여 살고 있는지 나타낸 것이에요."
+      },
+      {
+        "word": "중위도",
+        "youtubeId": "pFgO8rVz6Mo",
+        "seconds": 73,
+        "meaning": "적도와 극 사이의 중간 지역으로, 기후가 온화해 사람이 많이 살아요."
+      },
+      {
+        "word": "산업화",
+        "youtubeId": "hi1At-qfu4I",
+        "seconds": 75,
+        "meaning": "공장과 기계로 물건을 많이 만드는 산업이 발달해 가는 것으로, 이후 의료 기술이 발달해 사망률이 낮아졌어요."
+      }
     ]
   },
   {
