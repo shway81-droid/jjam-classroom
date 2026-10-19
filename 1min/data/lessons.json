@@ -12057,6 +12057,30 @@
       "고용",
       "일자리",
       "상호 의존"
+    ],
+    "explainVideo": {
+      "youtubeId": "XTQ1DlN-sNI",
+      "seconds": 366
+    },
+    "wordVideos": [
+      {
+        "word": "기업",
+        "youtubeId": "7e-jxxXJxY0",
+        "seconds": 78,
+        "meaning": "이윤을 얻으려고 물건과 서비스를 생산하고 판매하는 경제 주체예요."
+      },
+      {
+        "word": "이윤",
+        "youtubeId": "w_-fcUxanq4",
+        "seconds": 80,
+        "meaning": "물건이나 서비스를 팔아 얻은 수입에서 생산에 든 비용을 뺀 순수한 이익이에요."
+      },
+      {
+        "word": "고용",
+        "youtubeId": "B6sDbXSPVXs",
+        "seconds": 70,
+        "meaning": "기업이 사람을 일하게 하고 일자리를 주는 것이에요."
+      }
     ]
   },
   {
@@ -12127,6 +12151,30 @@
       "근로 시간",
       "해고",
       "근로 조건"
+    ],
+    "explainVideo": {
+      "youtubeId": "YHZtP15kR-o",
+      "seconds": 288
+    },
+    "wordVideos": [
+      {
+        "word": "근로자",
+        "youtubeId": "golvzpFgsjc",
+        "seconds": 69,
+        "meaning": "대부분의 사회 구성원이 노동을 통해 생계를 유지하는데, 사용자에게 노동을 제공하고 그 대가로 임금을 받는 사람이에요."
+      },
+      {
+        "word": "사용자",
+        "youtubeId": "RdETSN50jt8",
+        "seconds": 69,
+        "meaning": "근로자를 고용하거나 해고하고, 근로에 대해 지휘·감독할 책임을 지는 사람이에요."
+      },
+      {
+        "word": "최저 임금",
+        "youtubeId": "nxK_rUqmHcY",
+        "seconds": 73,
+        "meaning": "근로자에게 그보다 적게 지급해서는 안 된다고 법으로 정한 임금의 액수예요."
+      }
     ]
   },
   {
@@ -12152,6 +12200,30 @@
       "근로자",
       "공정",
       "사회적 기업"
+    ],
+    "explainVideo": {
+      "youtubeId": "pCRAByOL3uQ",
+      "seconds": 348
+    },
+    "wordVideos": [
+      {
+        "word": "기업의 사회적 책임",
+        "youtubeId": "8nOhnkNGr3Q",
+        "seconds": 68,
+        "meaning": "기업이 이윤을 얻는 것 외에도 사회에 좋은 영향을 주는 책임 있는 활동을 하는 것이에요."
+      },
+      {
+        "word": "사회적 기업",
+        "youtubeId": "azh45ab00Bo",
+        "seconds": 72,
+        "meaning": "공익을 먼저 생각하면서 경제활동을 하는 기업이에요."
+      },
+      {
+        "word": "공익",
+        "youtubeId": "umSfSpBU5jI",
+        "seconds": 78,
+        "meaning": "특정 사람이 아니라 사회 전체의 이익이에요."
+      }
     ]
   },
   {
@@ -12174,6 +12246,30 @@
       "1인당 국민 총소득",
       "한강의 기적",
       "원조"
+    ],
+    "explainVideo": {
+      "youtubeId": "ZVqcnhrIykU",
+      "seconds": 430
+    },
+    "wordVideos": [
+      {
+        "word": "경제성장",
+        "youtubeId": "wKl10Lhe6ys",
+        "seconds": 73,
+        "meaning": "한 나라의 전체 생산 수준이나 국민 소득이 계속 늘어나는 것이에요."
+      },
+      {
+        "word": "국내 총생산",
+        "youtubeId": "9ZpYiFwk2MQ",
+        "seconds": 75,
+        "meaning": "일정 기간 한 나라 안에서 생산된 물건과 서비스의 양을 돈으로 계산해 합한 값이에요."
+      },
+      {
+        "word": "1인당 국민 총소득",
+        "youtubeId": "XpKl0ugIY1c",
+        "seconds": 72,
+        "meaning": "한 나라 국민이 번 소득을 그 나라 인구로 나눈 값으로, 평균 생활 수준을 보여 줘요."
+      }
     ]
   },
   {
@@ -12197,6 +12293,30 @@
       "기대 수명",
       "고속 철도",
       "여가 생활"
+    ],
+    "explainVideo": {
+      "youtubeId": "rCyHopcsyvk",
+      "seconds": 403
+    },
+    "wordVideos": [
+      {
+        "word": "기대 수명",
+        "youtubeId": "koW0Rkex3GQ",
+        "seconds": 70,
+        "meaning": "지금 태어난 사람이 앞으로 몇 세까지 살 것으로 예상되는 나이예요."
+      },
+      {
+        "word": "삶의 질",
+        "youtubeId": "agBwzjIIZCU",
+        "seconds": 70,
+        "meaning": "교육, 의료, 여가 등 생활이 얼마나 편안하고 만족스러운지를 나타내요."
+      },
+      {
+        "word": "생활 수준",
+        "youtubeId": "fQhrp24MUqk",
+        "seconds": 77,
+        "meaning": "소득과 소비를 통해 사람들이 누리는 생활의 풍족한 정도예요."
+      }
     ]
   },
   {
@@ -12220,6 +12340,30 @@
       "패스트패션",
       "노사 갈등",
       "비정규직"
+    ],
+    "explainVideo": {
+      "youtubeId": "jY83N1EgGrM",
+      "seconds": 351
+    },
+    "wordVideos": [
+      {
+        "word": "빈부 격차",
+        "youtubeId": "HHd1lQxB5_I",
+        "seconds": 58,
+        "meaning": "잘사는 사람과 그렇지 못한 사람의 소득 차이가 벌어지는 것이에요."
+      },
+      {
+        "word": "노사 갈등",
+        "youtubeId": "EZkLBnKVB6U",
+        "seconds": 77,
+        "meaning": "근로자와 기업(경영자)이 임금, 근무 환경을 두고 의견이 달라 부딪치는 것이에요."
+      },
+      {
+        "word": "환경 오염",
+        "youtubeId": "2-aTtAtpdqQ",
+        "seconds": 81,
+        "meaning": "급격한 경제성장으로 기업의 생산량과 사람들의 소비가 크게 늘어나 쓰레기와 오염 물질이 많아지면서 자연과 생활 환경이 나빠지는 것이에요."
+      }
     ]
   },
   {
@@ -12244,6 +12388,14 @@
       "친환경 기술",
       "노사 갈등",
       "근로 환경"
+    ],
+    "wordVideos": [
+      {
+        "word": "착한 소비",
+        "youtubeId": "RiVCHBTVm7s",
+        "seconds": 88,
+        "meaning": "만드는 과정이 올바른 상품을 골라 정당한 대가가 돌아가게 하는 소비예요."
+      }
     ]
   },
   {
