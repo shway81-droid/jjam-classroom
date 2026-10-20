@@ -3827,6 +3827,30 @@
       "반도체",
       "원유",
       "무역 규모"
+    ],
+    "explainVideo": {
+      "youtubeId": "SqZIAwkQPfU",
+      "seconds": 371
+    },
+    "wordVideos": [
+      {
+        "word": "수출액",
+        "youtubeId": "GUWq_ToPtw8",
+        "seconds": 69,
+        "meaning": "일정 기간 다른 나라에 판 물건과 서비스의 금액이에요."
+      },
+      {
+        "word": "수입액",
+        "youtubeId": "1zz6Oj37Xsc",
+        "seconds": 73,
+        "meaning": "일정 기간 다른 나라에서 사 온 물건과 서비스의 금액이에요."
+      },
+      {
+        "word": "주요 수출품",
+        "youtubeId": "4L9t2J9ErvI",
+        "seconds": 63,
+        "meaning": "한 나라가 가장 많이 수출하는 대표 상품이에요."
+      }
     ]
   },
   {
@@ -3851,6 +3875,10 @@
       "관세",
       "세계 무역 기구"
     ],
+    "explainVideo": {
+      "youtubeId": "NA27ZwKnkpo",
+      "seconds": 387
+    },
     "wordVideos": [
       {
         "word": "상호 의존",
@@ -3936,6 +3964,10 @@
       "방글라데시",
       "오스트레일리아"
     ],
+    "explainVideo": {
+      "youtubeId": "t3uGbnp5qtA",
+      "seconds": 375
+    },
     "wordVideos": [
       {
         "word": "인구 분포",
@@ -3980,12 +4012,28 @@
       "인도",
       "중국"
     ],
+    "explainVideo": {
+      "youtubeId": "3A7xlOJxupY",
+      "seconds": 324
+    },
     "wordVideos": [
       {
         "word": "출생률",
         "youtubeId": "qMDTRePG6O0",
         "seconds": 64,
         "meaning": "일정한 기간에 태어난 사람의 수가 전체 인구에서 차지하는 비율이에요."
+      },
+      {
+        "word": "사망률",
+        "youtubeId": "zicUq09CsT8",
+        "seconds": 60,
+        "meaning": "일정한 기간에 사망한 사람의 수가 전체 인구에서 차지하는 비율이에요. 산업 혁명 이후 사망률이 낮아지면서 세계 인구가 급격히 늘었어요."
+      },
+      {
+        "word": "산업 혁명",
+        "youtubeId": "KMq9mgf8to4",
+        "seconds": 67,
+        "meaning": "18세기 후반 유럽에서 일어난 생산 기술과 그에 따른 사회 조직의 큰 변화예요. 이후 생활 환경이 개선되고 의료 기술이 발달해 사망자 수가 줄면서 인구가 급격히 늘기 시작했어요."
       }
     ]
   },
@@ -4045,7 +4093,17 @@
       "인구 카드",
       "브라질"
     ],
+    "explainVideo": {
+      "youtubeId": "ZVAfJjAtbYc",
+      "seconds": 344
+    },
     "wordVideos": [
+      {
+        "word": "인구수",
+        "youtubeId": "pnbC6ORAS_4",
+        "seconds": 73,
+        "meaning": "한 나라나 지역에 사는 사람의 수예요."
+      },
       {
         "word": "유소년층",
         "youtubeId": "A0zZPmbPq2A",
