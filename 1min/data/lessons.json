@@ -3635,6 +3635,10 @@
       "자원 낭비",
       "친환경 상품"
     ],
+    "explainVideo": {
+      "youtubeId": "qcE0XhFE48E",
+      "seconds": 346
+    },
     "wordVideos": [
       {
         "word": "빈부 격차",
@@ -3647,6 +3651,12 @@
         "youtubeId": "EZkLBnKVB6U",
         "seconds": 77,
         "meaning": "근로자와 기업(경영자)이 임금, 근무 환경을 두고 의견이 달라 부딪치는 것이에요."
+      },
+      {
+        "word": "패스트 패션",
+        "youtubeId": "F1g6PMSwwn0",
+        "seconds": 80,
+        "meaning": "유행에 맞춰 소비자의 기호가 바로 반영되어 빨리 바뀌는 패션이에요. 기업은 유행하는 옷을 단기간에 대량으로 만들어 팔고, 소비자는 유행이 지나면 쉽게 옷을 버려요."
       }
     ]
   },
@@ -3673,12 +3683,28 @@
       "근로 감독관",
       "노무사"
     ],
+    "explainVideo": {
+      "youtubeId": "8RnMi0Zsfjc",
+      "seconds": 304
+    },
     "wordVideos": [
       {
         "word": "시민 단체",
         "youtubeId": "j0KLmMVuPjA",
         "seconds": 79,
         "meaning": "시민들이 모여 봉사 같은 활동으로 사회문제를 해결하려는 단체예요."
+      },
+      {
+        "word": "자원 낭비",
+        "youtubeId": "xw5pD21s1v8",
+        "seconds": 82,
+        "meaning": "꼭 필요하지 않은데 자원을 헛되이 쓰는 것이에요."
+      },
+      {
+        "word": "과소비",
+        "youtubeId": "RlQqbbRlxs0",
+        "seconds": 82,
+        "meaning": "필요한 것보다 지나치게 많이 소비하는 것이에요."
       }
     ]
   },
@@ -3705,6 +3731,10 @@
       "교통",
       "통신"
     ],
+    "explainVideo": {
+      "youtubeId": "xcM7NvGgv34",
+      "seconds": 399
+    },
     "wordVideos": [
       {
         "word": "무역",
@@ -3749,6 +3779,30 @@
       "공산품",
       "원료",
       "경제적 이익"
+    ],
+    "explainVideo": {
+      "youtubeId": "HWXHa71fRXM",
+      "seconds": 364
+    },
+    "wordVideos": [
+      {
+        "word": "공산품",
+        "youtubeId": "HAO_90OEpAY",
+        "seconds": 65,
+        "meaning": "원료를 사람이나 기계의 힘으로 가공해 만든 물품이에요."
+      },
+      {
+        "word": "천연자원",
+        "youtubeId": "yTToUmpd5io",
+        "seconds": 64,
+        "meaning": "자연에서 얻는 자원으로 원유, 철광석, 천연가스 등이 있어요."
+      },
+      {
+        "word": "기술 수준",
+        "youtubeId": "EBPvVOfHx7A",
+        "seconds": 84,
+        "meaning": "물건을 얼마나 잘 만들 수 있는지를 나타내는 기술의 정도예요."
+      }
     ]
   },
   {
@@ -3796,6 +3850,20 @@
       "자유 무역 협정",
       "관세",
       "세계 무역 기구"
+    ],
+    "wordVideos": [
+      {
+        "word": "상호 의존",
+        "youtubeId": "sBrywfeYFvQ",
+        "seconds": 66,
+        "meaning": "서로 부족한 점을 채우며 도움을 주고받는 관계예요."
+      },
+      {
+        "word": "자유 무역 협정",
+        "youtubeId": "xIpcTtTl8gM",
+        "seconds": 81,
+        "meaning": "나라 사이에 무역 장벽을 낮추거나 없애기로 한 약속이에요."
+      }
     ]
   },
   {
@@ -3867,6 +3935,26 @@
       "인문환경",
       "방글라데시",
       "오스트레일리아"
+    ],
+    "wordVideos": [
+      {
+        "word": "인구 분포",
+        "youtubeId": "Q49rS2YGegI",
+        "seconds": 70,
+        "meaning": "인구가 지구 위 어디에 얼마나 모여 살고 있는지 나타낸 것이에요."
+      },
+      {
+        "word": "인구 밀도",
+        "youtubeId": "AjvxCWPhuxc",
+        "seconds": 82,
+        "meaning": "일정한 면적(1km²) 안에 사는 인구수로, 사람이 얼마나 빽빽이 모여 있는지 나타내요."
+      },
+      {
+        "word": "중위도",
+        "youtubeId": "pFgO8rVz6Mo",
+        "seconds": 73,
+        "meaning": "적도와 극 사이의 중간 지역으로, 기후가 온화해 사람이 많이 살아요."
+      }
     ]
   },
   {
@@ -3891,6 +3979,14 @@
       "인구 증가율",
       "인도",
       "중국"
+    ],
+    "wordVideos": [
+      {
+        "word": "출생률",
+        "youtubeId": "qMDTRePG6O0",
+        "seconds": 64,
+        "meaning": "일정한 기간에 태어난 사람의 수가 전체 인구에서 차지하는 비율이에요."
+      }
     ]
   },
   {
@@ -3916,6 +4012,14 @@
       "저출산",
       "고령화",
       "일본"
+    ],
+    "wordVideos": [
+      {
+        "word": "인구 피라미드",
+        "youtubeId": "eM2Yp7WbRYA",
+        "seconds": 74,
+        "meaning": "나라나 지역의 연령별, 성별 인구를 피라미드 모양 그래프로 나타낸 거예요."
+      }
     ]
   },
   {
@@ -3940,6 +4044,20 @@
       "인구 구조",
       "인구 카드",
       "브라질"
+    ],
+    "wordVideos": [
+      {
+        "word": "유소년층",
+        "youtubeId": "A0zZPmbPq2A",
+        "seconds": 80,
+        "meaning": "0~14세의 어린 인구층이에요. 이 비율이 높으면 앞으로 인구가 늘어날 가능성이 커요."
+      },
+      {
+        "word": "노년층",
+        "youtubeId": "GvdtZTcN5vQ",
+        "seconds": 76,
+        "meaning": "65세 이상의 인구층이에요. 이 비율이 높으면 고령화된 나라예요."
+      }
     ]
   },
   {
@@ -3965,6 +4083,20 @@
       "기후변화",
       "투발루",
       "시리아"
+    ],
+    "wordVideos": [
+      {
+        "word": "지구촌",
+        "youtubeId": "AWEsQQkpMP0",
+        "seconds": 68,
+        "meaning": "지구 전체를 한 마을처럼 여겨 이르는 말이에요."
+      },
+      {
+        "word": "난민",
+        "youtubeId": "bEsMauCkkto",
+        "seconds": 76,
+        "meaning": "전쟁이나 재난 등을 겪어서 머물 곳을 찾으려고 자기 나라를 떠나 다른 나라로 가는 사람이에요."
+      }
     ]
   },
   {
@@ -3991,6 +4123,20 @@
       "국제 연합",
       "김순권",
       "코스타리카"
+    ],
+    "wordVideos": [
+      {
+        "word": "비정부 기구",
+        "youtubeId": "KTAvGTf8xsk",
+        "seconds": 79,
+        "meaning": "뜻이 같은 개인들이 스스로 모여 지구촌의 여러 문제를 해결하려고 활동하는 조직이에요."
+      },
+      {
+        "word": "국제기구",
+        "youtubeId": "J8xxSDDtkHM",
+        "seconds": 78,
+        "meaning": "주권을 가진 두 개 이상의 나라가 합의해 만든 국제 협력 단체예요. 국제 연합(UN)이 그 예예요."
+      }
     ]
   },
   {
@@ -4014,6 +4160,14 @@
       "파리 협정",
       "기후변화",
       "난민"
+    ],
+    "wordVideos": [
+      {
+        "word": "지속가능한 미래",
+        "youtubeId": "iSyH2o2rsNA",
+        "seconds": 74,
+        "meaning": "미래 세대의 환경과 발전 가능성을 해치지 않으면서 오늘날의 필요를 충족하는 발전으로 이룰 수 있는 미래예요."
+      }
     ]
   },
   {
@@ -4037,6 +4191,20 @@
       "실천",
       "카드 뉴스",
       "일회용품"
+    ],
+    "wordVideos": [
+      {
+        "word": "세계시민",
+        "youtubeId": "4BE7DTyLrN8",
+        "seconds": 62,
+        "meaning": "지구촌 문제가 우리 모두의 문제임을 알며 이를 해결하려고 협력하는 자세를 지닌 사람이에요."
+      },
+      {
+        "word": "지속가능한 미래",
+        "youtubeId": "iSyH2o2rsNA",
+        "seconds": 74,
+        "meaning": "미래 세대의 환경과 발전 가능성을 해치지 않으면서 오늘날의 필요를 충족하는 발전으로 이룰 수 있는 미래예요."
+      }
     ]
   },
   {
