@@ -3002,6 +3002,10 @@
       "항구",
       "양식업"
     ],
+    "explainVideo": {
+      "youtubeId": "uTn7Xy60Q-s",
+      "seconds": 296
+    },
     "wordVideos": [
       {
         "word": "갯벌",
@@ -3046,6 +3050,10 @@
       "관광 산업",
       "생태 관광"
     ],
+    "explainVideo": {
+      "youtubeId": "Er3-1Frzl6s",
+      "seconds": 408
+    },
     "wordVideos": [
       {
         "word": "관광 산업",
@@ -3058,6 +3066,12 @@
         "youtubeId": "MJ1UBpI9WCE",
         "seconds": 61,
         "meaning": "지역 사람들의 일자리와 소득 등 그 지역의 경제 활동이에요."
+      },
+      {
+        "word": "협곡",
+        "youtubeId": "ftNto1k0atU",
+        "seconds": 78,
+        "meaning": "험하고 좁은 골짜기예요."
       }
     ]
   },
@@ -3086,6 +3100,10 @@
       "한대 기후",
       "고산 기후"
     ],
+    "explainVideo": {
+      "youtubeId": "2kWhpDMJFPw",
+      "seconds": 386
+    },
     "wordVideos": [
       {
         "word": "기후",
@@ -3098,6 +3116,12 @@
         "youtubeId": "jl7M7-8GT3Y",
         "seconds": 87,
         "meaning": "적도를 기준으로 남북 위치를 나타내는 값으로, 기후에 큰 영향을 줘요."
+      },
+      {
+        "word": "해류",
+        "youtubeId": "UbuV5aecumA",
+        "seconds": 75,
+        "meaning": "바닷물이 일정하게 흐르는 흐름으로, 기후에 영향을 줘요."
       }
     ]
   },
@@ -3125,6 +3149,10 @@
       "유목",
       "게르"
     ],
+    "explainVideo": {
+      "youtubeId": "YpTfuA1bgLA",
+      "seconds": 451
+    },
     "wordVideos": [
       {
         "word": "화전 농업",
@@ -3137,6 +3165,12 @@
         "youtubeId": "wkUGLcZdq80",
         "seconds": 79,
         "meaning": "열기, 습기, 해충을 피하려고 기둥을 세워 바닥을 땅에서 띄워 지은 집이에요."
+      },
+      {
+        "word": "관개",
+        "youtubeId": "u0QC1qLiszA",
+        "seconds": 82,
+        "meaning": "농사를 짓는 데 필요한 물을 논밭에 대는 일이에요."
       }
     ]
   },
@@ -3214,6 +3248,10 @@
       "육포",
       "아롤"
     ],
+    "explainVideo": {
+      "youtubeId": "DWVDgYKvFHQ",
+      "seconds": 376
+    },
     "wordVideos": [
       {
         "word": "기후 환경",
@@ -3305,6 +3343,10 @@
       "경쟁",
       "직업 선택"
     ],
+    "explainVideo": {
+      "youtubeId": "AHxOsw6XTJg",
+      "seconds": 490
+    },
     "wordVideos": [
       {
         "word": "시장경제",
@@ -3351,6 +3393,10 @@
       "노동력",
       "소비자의 권리"
     ],
+    "explainVideo": {
+      "youtubeId": "oIxRZF02-iw",
+      "seconds": 431
+    },
     "wordVideos": [
       {
         "word": "가계",
