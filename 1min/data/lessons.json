@@ -7876,6 +7876,12 @@
         "meaning": "많은 물이 절벽 아래로 떨어지는 곳이에요."
       },
       {
+        "word": "평야",
+        "youtubeId": "OQSbmhH2jjg",
+        "seconds": 78,
+        "meaning": "하천이 운반한 흙이 쌓여 만들어진 넓고 평평한 땅이에요."
+      },
+      {
         "word": "수력 발전",
         "youtubeId": "h-4op6BVHoc",
         "seconds": 72,
@@ -8006,6 +8012,10 @@
       "한대 기후",
       "고산 기후"
     ],
+    "explainVideo": {
+      "youtubeId": "C8nNRYUHC8A",
+      "seconds": 447
+    },
     "wordVideos": [
       {
         "word": "기후",
@@ -8018,6 +8028,12 @@
         "youtubeId": "jl7M7-8GT3Y",
         "seconds": 87,
         "meaning": "적도를 기준으로 남북 위치를 나타내는 값으로, 기후에 큰 영향을 줘요."
+      },
+      {
+        "word": "적도",
+        "youtubeId": "_ctgYTjv3MQ",
+        "seconds": 74,
+        "meaning": "지구의 한가운데를 가로지르는 선으로 일 년 내내 햇볕을 많이 받는 곳이에요."
       }
     ]
   },
@@ -8046,7 +8062,17 @@
       "유목",
       "오아시스"
     ],
+    "explainVideo": {
+      "youtubeId": "6cerbhO41xk",
+      "seconds": 448
+    },
     "wordVideos": [
+      {
+        "word": "열대 우림",
+        "youtubeId": "imNIYsKTHVY",
+        "seconds": 83,
+        "meaning": "일 년 내내 덥고 비가 많이 내려 울창한 밀림을 이루는 곳이에요."
+      },
       {
         "word": "화전 농업",
         "youtubeId": "sOm8_B-P7uU",
@@ -8085,12 +8111,28 @@
       "침엽수림",
       "펄프"
     ],
+    "explainVideo": {
+      "youtubeId": "L2RQ5Njeyp4",
+      "seconds": 358
+    },
     "wordVideos": [
+      {
+        "word": "낙농업",
+        "youtubeId": "30_avpCp2Sk",
+        "seconds": 69,
+        "meaning": "젖소나 염소를 길러 우유, 치즈 등을 만드는 농업이에요."
+      },
       {
         "word": "침엽수림",
         "youtubeId": "pZARM2XHSys",
         "seconds": 62,
         "meaning": "잎이 뾰족한 나무가 모여 있는 숲으로 냉대 기후 지역에 넓게 있어요."
+      },
+      {
+        "word": "벼농사",
+        "youtubeId": "4iQsWwFxW5c",
+        "seconds": 81,
+        "meaning": "여름에 덥고 비가 많이 오는 곳에서 벼를 기르는 농사예요."
       }
     ]
   },
@@ -8119,7 +8161,17 @@
       "알파카",
       "키토"
     ],
+    "explainVideo": {
+      "youtubeId": "DLOYGkxJjsw",
+      "seconds": 313
+    },
     "wordVideos": [
+      {
+        "word": "오로라",
+        "youtubeId": "vhq4qbDvEjs",
+        "seconds": 81,
+        "meaning": "극지방 하늘에서 여러 색깔의 빛이 나타나는 자연 현상이에요."
+      },
       {
         "word": "순록 유목",
         "youtubeId": "WQ4EmMsN_ls",
@@ -8158,6 +8210,10 @@
       "축제",
       "전통 의상"
     ],
+    "explainVideo": {
+      "youtubeId": "ZWjnviVIYVI",
+      "seconds": 370
+    },
     "wordVideos": [
       {
         "word": "기후 환경",
@@ -8279,12 +8335,22 @@
       "시장경제",
       "가격"
     ],
+    "explainVideo": {
+      "youtubeId": "dX39iOb5j3k",
+      "seconds": 348
+    },
     "wordVideos": [
       {
         "word": "시장경제",
         "youtubeId": "oGFJSTf-FUM",
         "seconds": 80,
         "meaning": "개인과 기업이 자유롭게 경제활동을 하며 경쟁하는, 시장 중심의 경제 방식이에요."
+      },
+      {
+        "word": "시장",
+        "youtubeId": "Vl9Yo6X1MSA",
+        "seconds": 64,
+        "meaning": "물건과 서비스를 사고파는 거래가 이루어지는 곳이에요."
       },
       {
         "word": "경쟁",
