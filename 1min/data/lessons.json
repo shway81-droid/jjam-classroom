@@ -4067,12 +4067,28 @@
       "고령화",
       "일본"
     ],
+    "explainVideo": {
+      "youtubeId": "eVd9sN5WUiA",
+      "seconds": 387
+    },
     "wordVideos": [
+      {
+        "word": "인구 구조",
+        "youtubeId": "_aIbSRBiRcA",
+        "seconds": 87,
+        "meaning": "어느 인구 집단의 연령별, 성별 등의 구성 상태를 말해요."
+      },
       {
         "word": "인구 피라미드",
         "youtubeId": "eM2Yp7WbRYA",
         "seconds": 74,
         "meaning": "나라나 지역의 연령별, 성별 인구를 피라미드 모양 그래프로 나타낸 거예요."
+      },
+      {
+        "word": "저출산·고령화",
+        "youtubeId": "4geGC0r2uQU",
+        "seconds": 70,
+        "meaning": "합계 출산율이 낮아지고 노년층 인구 비율이 높아지는 현상이에요."
       }
     ]
   },
@@ -4148,6 +4164,10 @@
       "투발루",
       "시리아"
     ],
+    "explainVideo": {
+      "youtubeId": "qJ0tl98hBFM",
+      "seconds": 430
+    },
     "wordVideos": [
       {
         "word": "지구촌",
@@ -4160,6 +4180,12 @@
         "youtubeId": "bEsMauCkkto",
         "seconds": 76,
         "meaning": "전쟁이나 재난 등을 겪어서 머물 곳을 찾으려고 자기 나라를 떠나 다른 나라로 가는 사람이에요."
+      },
+      {
+        "word": "내전",
+        "youtubeId": "Vi-gS4e0RX8",
+        "seconds": 69,
+        "meaning": "한 나라 안에서 일어나는 전쟁이에요."
       }
     ]
   },
@@ -4188,6 +4214,10 @@
       "김순권",
       "코스타리카"
     ],
+    "explainVideo": {
+      "youtubeId": "47G53cH_U8c",
+      "seconds": 324
+    },
     "wordVideos": [
       {
         "word": "비정부 기구",
@@ -4200,6 +4230,12 @@
         "youtubeId": "J8xxSDDtkHM",
         "seconds": 78,
         "meaning": "주권을 가진 두 개 이상의 나라가 합의해 만든 국제 협력 단체예요. 국제 연합(UN)이 그 예예요."
+      },
+      {
+        "word": "국제 연합(UN)",
+        "youtubeId": "mmOxZTlqu5Y",
+        "seconds": 76,
+        "meaning": "전쟁을 막고 지구촌의 평화를 지키려고 1945년에 만든 국제기구예요."
       }
     ]
   },
@@ -4225,12 +4261,28 @@
       "기후변화",
       "난민"
     ],
+    "explainVideo": {
+      "youtubeId": "W6TNoxwHsZg",
+      "seconds": 289
+    },
     "wordVideos": [
       {
         "word": "지속가능한 미래",
         "youtubeId": "iSyH2o2rsNA",
         "seconds": 74,
         "meaning": "미래 세대의 환경과 발전 가능성을 해치지 않으면서 오늘날의 필요를 충족하는 발전으로 이룰 수 있는 미래예요."
+      },
+      {
+        "word": "지속가능 발전 목표",
+        "youtubeId": "votVsIcXsPw",
+        "seconds": 82,
+        "meaning": "유엔이 2030년까지 전 세계가 함께 실천하자고 정한 17개 목표예요."
+      },
+      {
+        "word": "파리 협정",
+        "youtubeId": "xLv4fVAKjWQ",
+        "seconds": 74,
+        "meaning": "2015년 기후변화에 대응하려고 온실가스를 줄이기로 약속한 국제 협정이에요."
       }
     ]
   },
@@ -4256,6 +4308,10 @@
       "카드 뉴스",
       "일회용품"
     ],
+    "explainVideo": {
+      "youtubeId": "_GSmHlrmbS8",
+      "seconds": 297
+    },
     "wordVideos": [
       {
         "word": "세계시민",
@@ -4268,6 +4324,12 @@
         "youtubeId": "iSyH2o2rsNA",
         "seconds": 74,
         "meaning": "미래 세대의 환경과 발전 가능성을 해치지 않으면서 오늘날의 필요를 충족하는 발전으로 이룰 수 있는 미래예요."
+      },
+      {
+        "word": "기후변화",
+        "youtubeId": "4SWYYDGMgbw",
+        "seconds": 65,
+        "meaning": "지구의 기온과 날씨가 오랜 기간 달라지는 현상으로, 가뭄과 해수면 상승 등을 일으켜요."
       }
     ]
   },
