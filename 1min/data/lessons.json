@@ -8577,6 +8577,30 @@
       "삶의 질",
       "기대 수명",
       "일자리"
+    ],
+    "explainVideo": {
+      "youtubeId": "oSUmF3dke_o",
+      "seconds": 397
+    },
+    "wordVideos": [
+      {
+        "word": "첨단 기술",
+        "youtubeId": "YRcFth8Oy8E",
+        "seconds": 73,
+        "meaning": "가장 앞선 수준의 새로운 기술이에요."
+      },
+      {
+        "word": "생성형 인공지능",
+        "youtubeId": "PfBK2PpMpbU",
+        "seconds": 64,
+        "meaning": "글, 영상, 음악 같은 새로운 콘텐츠를 만들어 내는 인공지능이에요."
+      },
+      {
+        "word": "콘텐츠 산업",
+        "youtubeId": "RKfIGu98aLk",
+        "seconds": 76,
+        "meaning": "게임, 영화, 방송, 음악 등 콘텐츠를 만들어 파는 산업이에요."
+      }
     ]
   },
   {
@@ -8651,6 +8675,10 @@
       "시민 단체",
       "정부"
     ],
+    "explainVideo": {
+      "youtubeId": "YBmhpNOd7nQ",
+      "seconds": 405
+    },
     "wordVideos": [
       {
         "word": "노사 갈등",
@@ -8663,6 +8691,12 @@
         "youtubeId": "RlQqbbRlxs0",
         "seconds": 82,
         "meaning": "필요한 것보다 지나치게 많이 소비하는 것이에요."
+      },
+      {
+        "word": "상대적 빈곤율",
+        "youtubeId": "YRWfXuXSCSI",
+        "seconds": 61,
+        "meaning": "소득 불평등 정도를 보여 주는, 상대적으로 가난한 사람의 비율이에요."
       }
     ]
   },
@@ -8738,7 +8772,17 @@
       "흑연",
       "전기차 배터리"
     ],
+    "explainVideo": {
+      "youtubeId": "OYD21MjkqMU",
+      "seconds": 302
+    },
     "wordVideos": [
+      {
+        "word": "천연가스",
+        "youtubeId": "J7fun8iQbZg",
+        "seconds": 76,
+        "meaning": "난방이나 차량 연료로 쓰이는 자원으로, 매장된 곳이 많지 않아요."
+      },
       {
         "word": "기술 수준",
         "youtubeId": "EBPvVOfHx7A",
@@ -8778,12 +8822,28 @@
       "무역항",
       "박람회"
     ],
+    "explainVideo": {
+      "youtubeId": "jc_BNLdrodw",
+      "seconds": 282
+    },
     "wordVideos": [
       {
         "word": "천연자원",
         "youtubeId": "yTToUmpd5io",
         "seconds": 64,
         "meaning": "자연에서 얻는 자원으로 원유, 철광석, 천연가스 등이 있어요."
+      },
+      {
+        "word": "원유",
+        "youtubeId": "N_2vlmuD2Yw",
+        "seconds": 67,
+        "meaning": "불순물을 없애지 않은 자연 상태의 석유예요."
+      },
+      {
+        "word": "반도체",
+        "youtubeId": "wIE1oACsYVQ",
+        "seconds": 72,
+        "meaning": "전자 제품에 꼭 들어가는 부품으로, 우리나라의 대표 수출품이에요."
       }
     ]
   },
@@ -8812,12 +8872,28 @@
       "생성형 인공지능",
       "베트남"
     ],
+    "explainVideo": {
+      "youtubeId": "rP-CuPh07Uk",
+      "seconds": 474
+    },
     "wordVideos": [
       {
         "word": "상호 의존",
         "youtubeId": "sBrywfeYFvQ",
         "seconds": 66,
         "meaning": "서로 부족한 점을 채우며 도움을 주고받는 관계예요."
+      },
+      {
+        "word": "경쟁 관계",
+        "youtubeId": "VYFU3_iy3do",
+        "seconds": 75,
+        "meaning": "같은 종류의 상품을 더 많이 팔려고 서로 겨루는 사이예요."
+      },
+      {
+        "word": "해외 자원 협력",
+        "youtubeId": "MhJliWC-3s0",
+        "seconds": 80,
+        "meaning": "다른 나라와 함께 자원을 개발하고 확보하는 협력이에요."
       }
     ]
   },
