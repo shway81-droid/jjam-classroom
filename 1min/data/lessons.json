@@ -10400,6 +10400,30 @@
       "춤추는 빗자루",
       "논 아트",
       "마을 기록관"
+    ],
+    "explainVideo": {
+      "youtubeId": "CHj9eP9DwtQ",
+      "seconds": 366
+    },
+    "wordVideos": [
+      {
+        "word": "주민 자치",
+        "youtubeId": "s72okYo1b6k",
+        "seconds": 88,
+        "meaning": "주민들이 지역의 주인으로서 지역의 일에 관심을 갖고 스스로 해결해 가는 것이에요."
+      },
+      {
+        "word": "자원봉사",
+        "youtubeId": "WXaKV-ucMs8",
+        "seconds": 63,
+        "meaning": "대가 없이 스스로 나서서 다른 사람이나 지역을 돕는 활동이에요."
+      },
+      {
+        "word": "분리배출",
+        "youtubeId": "ywxvHzuTwnc",
+        "seconds": 87,
+        "meaning": "쓰레기를 종류별로 나누어 버리는 일이에요."
+      }
     ]
   },
   {
