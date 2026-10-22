@@ -9236,6 +9236,10 @@
       "호박벌",
       "패스트 패션"
     ],
+    "explainVideo": {
+      "youtubeId": "ueEH0ad3cC8",
+      "seconds": 302
+    },
     "wordVideos": [
       {
         "word": "기후변화",
@@ -9248,6 +9252,12 @@
         "youtubeId": "vog-5mBURkE",
         "seconds": 72,
         "meaning": "화석 연료를 쓰면서 이산화 탄소가 공기 중으로 나오는 것으로 기후변화의 원인이에요."
+      },
+      {
+        "word": "온실 효과",
+        "youtubeId": "V7d-Pfl5rdQ",
+        "seconds": 68,
+        "meaning": "탄소 같은 기체가 열을 가둬 지구 온도가 올라가는 현상이에요."
       }
     ]
   },
@@ -9276,6 +9286,10 @@
       "국제 연합",
       "그린피스"
     ],
+    "explainVideo": {
+      "youtubeId": "rWlE-maRZzI",
+      "seconds": 347
+    },
     "wordVideos": [
       {
         "word": "국제기구",
@@ -9288,6 +9302,12 @@
         "youtubeId": "KTAvGTf8xsk",
         "seconds": 79,
         "meaning": "뜻이 같은 개인들이 스스로 모여 지구촌의 여러 문제를 해결하려고 활동하는 조직이에요."
+      },
+      {
+        "word": "녹색 제품",
+        "youtubeId": "L6A1rqV_58w",
+        "seconds": 78,
+        "meaning": "만들 때 자원과 에너지를 적게 쓰고 오염 물질을 최소화한 제품이에요."
       }
     ]
   },
@@ -9313,6 +9333,10 @@
       "다회용 컵",
       "지구촌 문제"
     ],
+    "explainVideo": {
+      "youtubeId": "OYKD1m7QsQg",
+      "seconds": 287
+    },
     "wordVideos": [
       {
         "word": "세계시민",
@@ -9325,6 +9349,12 @@
         "youtubeId": "iSyH2o2rsNA",
         "seconds": 74,
         "meaning": "미래 세대의 환경과 발전 가능성을 해치지 않으면서 오늘날의 필요를 채우는 미래예요."
+      },
+      {
+        "word": "재활용",
+        "youtubeId": "u4pjCeJz_3M",
+        "seconds": 95,
+        "meaning": "쓰고 난 물건이나 재료를 버리지 않고 다시 사용하거나 새 물건의 재료로 쓰는 것이에요."
       }
     ]
   },
