@@ -10542,6 +10542,30 @@
       "나몰라 마을",
       "함께해 마을",
       "꽃 축제"
+    ],
+    "explainVideo": {
+      "youtubeId": "eaavuyWbxUc",
+      "seconds": 481
+    },
+    "wordVideos": [
+      {
+        "word": "주민 참여",
+        "youtubeId": "reugSECrlPQ",
+        "seconds": 75,
+        "meaning": "지역문제를 해결하려고 주민들이 직접 나서는 것이에요."
+      },
+      {
+        "word": "지역문제",
+        "youtubeId": "MXbUYqmjbkM",
+        "seconds": 71,
+        "meaning": "지역에서 일어나 주민 생활에 영향을 주는 문제예요."
+      },
+      {
+        "word": "인구 감소",
+        "youtubeId": "1tC1Vko-YhI",
+        "seconds": 67,
+        "meaning": "지역에 사는 사람 수가 줄어드는 것이에요."
+      }
     ]
   },
   {
@@ -10566,6 +10590,30 @@
       "시민 단체",
       "주민 투표",
       "주민 참여 예산제"
+    ],
+    "explainVideo": {
+      "youtubeId": "UyrHRlbj_Dk",
+      "seconds": 441
+    },
+    "wordVideos": [
+      {
+        "word": "공청회",
+        "youtubeId": "-Le5lnJGOJ8",
+        "seconds": 68,
+        "meaning": "공공 기관이 정책을 정하기 전에 다양한 사람의 의견을 듣는 공개회의예요."
+      },
+      {
+        "word": "주민 참여 예산제",
+        "youtubeId": "hG6M1U2Hj9w",
+        "seconds": 67,
+        "meaning": "지역 예산을 쓰는 방법을 결정하는 데 주민이 직접 참여하는 제도예요."
+      },
+      {
+        "word": "시민 단체",
+        "youtubeId": "LR6yVIgmq3I",
+        "seconds": 77,
+        "meaning": "시민들이 스스로 모여 사회 전체의 이익을 위해 활동하는 단체예요."
+      }
     ]
   },
   {
@@ -10590,6 +10638,30 @@
       "대화와 타협",
       "전체의 이익",
       "어린이 도서관"
+    ],
+    "explainVideo": {
+      "youtubeId": "wHlVKC89poo",
+      "seconds": 358
+    },
+    "wordVideos": [
+      {
+        "word": "주민 투표",
+        "youtubeId": "s90sRgAgQ9k",
+        "seconds": 73,
+        "meaning": "지역의 일을 결정하려고 주민의 의견을 알아보려고 하는 투표예요."
+      },
+      {
+        "word": "서명 운동",
+        "youtubeId": "D71-ubcN7BY",
+        "seconds": 72,
+        "meaning": "어떤 일에 뜻을 모은 사람들의 이름을 받아 의견을 전하는 활동이에요."
+      },
+      {
+        "word": "시민 단체 활동가",
+        "youtubeId": "8h4fQo9pH7A",
+        "seconds": 77,
+        "meaning": "시민 단체에서 사회 전체의 이익을 위해 활동하는 일을 직업으로 하는 사람이에요."
+      }
     ]
   },
   {
@@ -10680,6 +10752,20 @@
       "환경 오염",
       "주차 문제",
       "시설 노후화"
+    ],
+    "wordVideos": [
+      {
+        "word": "지역문제",
+        "youtubeId": "MXbUYqmjbkM",
+        "seconds": 71,
+        "meaning": "지역 주민의 삶을 불편하게 하거나 주민들 사이에 갈등을 일으키는 문제예요."
+      },
+      {
+        "word": "갈등",
+        "youtubeId": "bOAjc9pElL4",
+        "seconds": 77,
+        "meaning": "서로 생각이 달라서 부딪히고 다투는 것이에요."
+      }
     ]
   },
   {
