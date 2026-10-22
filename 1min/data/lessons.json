@@ -10255,6 +10255,30 @@
       "후보자 토론회",
       "투표",
       "주인 의식"
+    ],
+    "explainVideo": {
+      "youtubeId": "gpOFJ3elncU",
+      "seconds": 370
+    },
+    "wordVideos": [
+      {
+        "word": "학교 자치",
+        "youtubeId": "OT8nNxOi90M",
+        "seconds": 67,
+        "meaning": "학교 구성원들이 학교의 일에 관심을 갖고 참여해 함께 문제를 해결하는 것이에요."
+      },
+      {
+        "word": "공약",
+        "youtubeId": "8I3uRqR900w",
+        "seconds": 78,
+        "meaning": "후보자가 어떤 일을 실천하겠다고 하는 약속이에요."
+      },
+      {
+        "word": "선거",
+        "youtubeId": "WqP5WXjN9_c",
+        "seconds": 97,
+        "meaning": "학급회장이나 학생회장 같은 대표를 투표로 뽑는 일이에요."
+      }
     ]
   },
   {
@@ -10279,6 +10303,30 @@
       "학생회장",
       "학년 대표",
       "대토론회"
+    ],
+    "explainVideo": {
+      "youtubeId": "YKAsqn5JYGQ",
+      "seconds": 419
+    },
+    "wordVideos": [
+      {
+        "word": "민주주의",
+        "youtubeId": "oi7bIkvBgdA",
+        "seconds": 77,
+        "meaning": "공동체 구성원이 함께 참여해 공동의 문제를 해결하는 것이에요."
+      },
+      {
+        "word": "공동체",
+        "youtubeId": "BrUY5zI5ofE",
+        "seconds": 69,
+        "meaning": "같은 목적으로 함께 생활하는 사람들의 모임이에요(가정, 학교, 지역 등)."
+      },
+      {
+        "word": "갈등",
+        "youtubeId": "bOAjc9pElL4",
+        "seconds": 77,
+        "meaning": "서로 의견이 달라 생기는 다툼이나 문제예요."
+      }
     ]
   },
   {
