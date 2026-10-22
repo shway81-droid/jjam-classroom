@@ -10753,6 +10753,10 @@
       "주차 문제",
       "시설 노후화"
     ],
+    "explainVideo": {
+      "youtubeId": "IxIHjI4xDwY",
+      "seconds": 413
+    },
     "wordVideos": [
       {
         "word": "지역문제",
@@ -10765,6 +10769,12 @@
         "youtubeId": "bOAjc9pElL4",
         "seconds": 77,
         "meaning": "서로 생각이 달라서 부딪히고 다투는 것이에요."
+      },
+      {
+        "word": "노후화",
+        "youtubeId": "7JvYo9a_Htk",
+        "seconds": 62,
+        "meaning": "오래되거나 낡아서 쓸모가 없게 되는 것이에요."
       }
     ]
   },
@@ -10790,6 +10800,30 @@
       "통계 자료",
       "신문 기사",
       "불법 주정차"
+    ],
+    "explainVideo": {
+      "youtubeId": "HczGFdkoaXc",
+      "seconds": 352
+    },
+    "wordVideos": [
+      {
+        "word": "통계 자료",
+        "youtubeId": "-DXyQLi5C7I",
+        "seconds": 69,
+        "meaning": "통계 자료는 어떤 현상에 대한 자료를 분석해 한눈에 알아보기 쉽게 나타낸 숫자나 그래프예요."
+      },
+      {
+        "word": "통행량",
+        "youtubeId": "cTkCKfnLpOQ",
+        "seconds": 71,
+        "meaning": "통행량은 사람이나 차가 일정한 곳을 통해 지나다니는 양이에요."
+      },
+      {
+        "word": "어린이 보호 구역",
+        "youtubeId": "fUoi7aBwOJo",
+        "seconds": 74,
+        "meaning": "어린이 보호 구역은 학교 주변에서 어린이의 안전을 위해 정해 둔 구역으로, 이곳의 교통 문제가 지역문제로 나와요."
+      }
     ]
   },
   {
@@ -10813,6 +10847,30 @@
       "대화와 토론",
       "신호등",
       "안전장치"
+    ],
+    "explainVideo": {
+      "youtubeId": "sqmBxEV2H7c",
+      "seconds": 321
+    },
+    "wordVideos": [
+      {
+        "word": "해결 방안",
+        "youtubeId": "s4x-FW-pbk4",
+        "seconds": 68,
+        "meaning": "해결 방안은 문제를 잘 처리할 수 있는 방법이나 계획이에요."
+      },
+      {
+        "word": "지역 대표자 회의",
+        "youtubeId": "c89AJl-luRU",
+        "seconds": 86,
+        "meaning": "지역 대표자 회의는 지역 대표들이 모여 지역문제의 해결 방안을 의논하고 결정하는 회의예요."
+      },
+      {
+        "word": "의견 조정",
+        "youtubeId": "kzhO65tj6iQ",
+        "seconds": 67,
+        "meaning": "의견 조정은 서로 다른 의견을 대화와 토론으로 맞추어 하나로 모으는 일이에요."
+      }
     ]
   },
   {
