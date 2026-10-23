@@ -812,12 +812,28 @@
       "민주주의 실천",
       "학급 회의"
     ],
+    "explainVideo": {
+      "youtubeId": "CfzZHXKuivg",
+      "seconds": 483
+    },
     "wordVideos": [
       {
         "word": "관용",
         "youtubeId": "ThwccOUi4us",
         "seconds": 60,
         "meaning": "나와 다른 생각이나 의견도 존중하고 포용하는 태도예요."
+      },
+      {
+        "word": "비판적 태도",
+        "youtubeId": "23IkKesNkV8",
+        "seconds": 63,
+        "meaning": "의견이나 주장이 옳은지 그른지 따져 보고 판단하는 태도예요."
+      },
+      {
+        "word": "포용",
+        "youtubeId": "sEBP8ytWPa8",
+        "seconds": 81,
+        "meaning": "넓은 마음으로 감싸 주거나 받아들이는 것이에요."
       }
     ]
   },
@@ -876,12 +892,22 @@
       "주민 자치 센터",
       "캠페인"
     ],
+    "explainVideo": {
+      "youtubeId": "YBMLK9OEIrM",
+      "seconds": 377
+    },
     "wordVideos": [
       {
         "word": "주민 자치",
         "youtubeId": "s72okYo1b6k",
         "seconds": 88,
         "meaning": "주민들이 지역의 주인으로서 지역의 일을 스스로 결정하고 처리하는 것이에요."
+      },
+      {
+        "word": "주민 총회",
+        "youtubeId": "YkryOME5nCw",
+        "seconds": 78,
+        "meaning": "주민들이 모여 지역의 일에 의견을 내고 결정을 내리는 회의예요. 주민 자치 활동이나 지역 문제를 의논해요."
       },
       {
         "word": "주민 자치회",
@@ -915,6 +941,10 @@
       "시민 단체",
       "주민 참여 예산 제도"
     ],
+    "explainVideo": {
+      "youtubeId": "QYqn3XshsGI",
+      "seconds": 441
+    },
     "wordVideos": [
       {
         "word": "주민 참여",
@@ -984,12 +1014,28 @@
       "안전 지도",
       "제안서"
     ],
+    "explainVideo": {
+      "youtubeId": "qQWsUIDW86U",
+      "seconds": 414
+    },
     "wordVideos": [
       {
         "word": "제안서",
         "youtubeId": "wDwy6-mIvrU",
         "seconds": 66,
         "meaning": "지역을 바꿀 생각을 이유와 함께 적어 공공 기관에 내는 글이에요."
+      },
+      {
+        "word": "배려",
+        "youtubeId": "7AIF8DkDsw0",
+        "seconds": 77,
+        "meaning": "주민 모두의 이익을 생각하며 다른 사람을 살피는 마음이에요."
+      },
+      {
+        "word": "책임감",
+        "youtubeId": "ULQ5O6yDb3Y",
+        "seconds": 72,
+        "meaning": "맡은 일을 끝까지 해내려는 마음이에요."
       }
     ]
   },
@@ -1531,6 +1577,12 @@
         "youtubeId": "9G0O1POB0Tg",
         "seconds": 69,
         "meaning": "시청, 경찰서, 소방서처럼 여러 사람을 위한 일을 하는 기관이에요."
+      },
+      {
+        "word": "교통수단",
+        "youtubeId": "ckv6TEIUbH4",
+        "seconds": 73,
+        "meaning": "버스, 지하철, 기차처럼 사람과 물건을 옮겨 주는 탈것이에요."
       }
     ]
   },
@@ -1594,6 +1646,14 @@
       "환경 문제",
       "안전 문제",
       "버스 전용 차로제"
+    ],
+    "wordVideos": [
+      {
+        "word": "공동 주택",
+        "youtubeId": "NoLZCJxpDi8",
+        "seconds": 66,
+        "meaning": "아파트, 빌라처럼 여러 가구가 함께 사는 집이에요."
+      }
     ]
   },
   {
