@@ -717,6 +717,20 @@
       "대화와 타협",
       "학생 자치회",
       "투표"
+    ],
+    "wordVideos": [
+      {
+        "word": "학교 자치",
+        "youtubeId": "OT8nNxOi90M",
+        "seconds": 67,
+        "meaning": "학생이 학교 구성원으로서 학교의 일에 적극적으로 의견을 내고, 공동의 일을 결정해 실천해 나가는 것이에요."
+      },
+      {
+        "word": "민주주의",
+        "youtubeId": "oi7bIkvBgdA",
+        "seconds": 77,
+        "meaning": "모든 사람이 공동체의 구성원으로서 공동의 일을 결정하는 데 자유롭고 평등하게 참여하는 것이에요."
+      }
     ]
   },
   {
@@ -740,6 +754,26 @@
       "타협",
       "다수결의 원칙",
       "소수의 의견"
+    ],
+    "wordVideos": [
+      {
+        "word": "의사 결정",
+        "youtubeId": "XqXSm_iRoQo",
+        "seconds": 81,
+        "meaning": "어떤 문제를 해결하려고 가장 알맞은 방법을 선택하는 일이에요."
+      },
+      {
+        "word": "다수결",
+        "youtubeId": "HuLxkQ6Nqas",
+        "seconds": 63,
+        "meaning": "의견을 하나로 모으기 어려울 때 많은 사람의 의견에 따라 결정하는 방법이에요."
+      },
+      {
+        "word": "양보와 타협",
+        "youtubeId": "PywMhfhSm20",
+        "seconds": 76,
+        "meaning": "서로 양보하고 협의하며 의견 차이를 좁혀 가는 태도예요."
+      }
     ]
   },
   {
