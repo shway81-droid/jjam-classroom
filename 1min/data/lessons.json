@@ -718,6 +718,10 @@
       "학생 자치회",
       "투표"
     ],
+    "explainVideo": {
+      "youtubeId": "7_2IxxiWX7I",
+      "seconds": 419
+    },
     "wordVideos": [
       {
         "word": "학교 자치",
@@ -730,6 +734,12 @@
         "youtubeId": "oi7bIkvBgdA",
         "seconds": 77,
         "meaning": "모든 사람이 공동체의 구성원으로서 공동의 일을 결정하는 데 자유롭고 평등하게 참여하는 것이에요."
+      },
+      {
+        "word": "투표",
+        "youtubeId": "DGCKa0IwVR4",
+        "seconds": 80,
+        "meaning": "정해진 용지에 의견을 표시해서 일정한 곳에 내는 일이에요. 선거를 하거나 어떤 일을 결정할 때 해요."
       }
     ]
   },
@@ -755,6 +765,10 @@
       "다수결의 원칙",
       "소수의 의견"
     ],
+    "explainVideo": {
+      "youtubeId": "vbAigUNQk0s",
+      "seconds": 377
+    },
     "wordVideos": [
       {
         "word": "의사 결정",
