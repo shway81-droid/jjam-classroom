@@ -1176,6 +1176,14 @@
       "소수의 의견",
       "실천",
       "지역문제 해결 플랫폼"
+    ],
+    "wordVideos": [
+      {
+        "word": "해결 방안",
+        "youtubeId": "s4x-FW-pbk4",
+        "seconds": 68,
+        "meaning": "문제를 잘 처리할 수 있는 방법이나 계획이에요."
+      }
     ]
   },
   {
@@ -1281,6 +1289,14 @@
       "통영",
       "충주",
       "남원"
+    ],
+    "wordVideos": [
+      {
+        "word": "홍보 영상",
+        "youtubeId": "uWfj23mqI_Q",
+        "seconds": 67,
+        "meaning": "우리 지역의 특징이 잘 드러나게 대본을 쓰고 촬영해 다른 사람에게 알리는 영상이에요."
+      }
     ]
   },
   {
@@ -1357,6 +1373,26 @@
       "논",
       "도로",
       "항구"
+    ],
+    "wordVideos": [
+      {
+        "word": "환경",
+        "youtubeId": "1XPkkRjzJyY",
+        "seconds": 77,
+        "meaning": "우리 주변을 둘러싸고 있는 모든 것이에요."
+      },
+      {
+        "word": "자연환경",
+        "youtubeId": "41U5_p9jkzk",
+        "seconds": 69,
+        "meaning": "산, 들, 하천, 바다, 비, 바람처럼 사람이 만들지 않은 자연 그대로의 환경이에요."
+      },
+      {
+        "word": "인문환경",
+        "youtubeId": "Js2EziJjOIo",
+        "seconds": 85,
+        "meaning": "논과 밭, 도로, 공원, 항구처럼 사람들이 만든 환경이에요."
+      }
     ]
   },
   {
@@ -1411,6 +1447,20 @@
       "반월 국가 산업 단지",
       "환경 오염",
       "지역의 변화"
+    ],
+    "wordVideos": [
+      {
+        "word": "산업 단지",
+        "youtubeId": "YOT7HYmGjRY",
+        "seconds": 80,
+        "meaning": "공장과 회사를 한곳에 모아 만든 넓은 지역이에요."
+      },
+      {
+        "word": "폐수",
+        "youtubeId": "f0eViSDhMTc",
+        "seconds": 65,
+        "meaning": "공장 등에서 사용하고 버리는 오염된 물이에요."
+      }
     ]
   },
   {
@@ -1435,6 +1485,14 @@
       "생태 관광",
       "생태 통로",
       "지속적 개발"
+    ],
+    "wordVideos": [
+      {
+        "word": "습지",
+        "youtubeId": "10HWH2n86vw",
+        "seconds": 64,
+        "meaning": "물기가 있는 축축한 땅으로, 다양한 동식물이 살아요."
+      }
     ]
   },
   {
@@ -1460,6 +1518,20 @@
       "문화 시설",
       "체육 시설",
       "공공 기관"
+    ],
+    "wordVideos": [
+      {
+        "word": "도시",
+        "youtubeId": "daXJHjPWrCw",
+        "seconds": 88,
+        "meaning": "많은 사람이 모여 살고 정치·경제·사회·문화 활동의 중심이 되는 곳이에요."
+      },
+      {
+        "word": "공공 기관",
+        "youtubeId": "9G0O1POB0Tg",
+        "seconds": 69,
+        "meaning": "시청, 경찰서, 소방서처럼 여러 사람을 위한 일을 하는 기관이에요."
+      }
     ]
   },
   {
@@ -1487,6 +1559,14 @@
       "관광 산업",
       "울산광역시",
       "공업"
+    ],
+    "wordVideos": [
+      {
+        "word": "산업",
+        "youtubeId": "G0LZ8tA7L7I",
+        "seconds": 81,
+        "meaning": "사람이 생활하는 데 필요한 것을 얻거나 만들어 내는 모든 활동이에요."
+      }
     ]
   },
   {
