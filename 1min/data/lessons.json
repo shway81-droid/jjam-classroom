@@ -11076,6 +11076,10 @@
       "고마곰",
       "공주시"
     ],
+    "explainVideo": {
+      "youtubeId": "dionLIOlk-A",
+      "seconds": 329
+    },
     "wordVideos": [
       {
         "word": "마스코트",
@@ -11088,6 +11092,12 @@
         "youtubeId": "fS_fxfoIgNQ",
         "seconds": 78,
         "meaning": "지역의 사진과 글을 담아 만든 안내용 책이에요."
+      },
+      {
+        "word": "홍보 영상",
+        "youtubeId": "uWfj23mqI_Q",
+        "seconds": 67,
+        "meaning": "지역을 널리 알리려고 만든 영상이에요."
       }
     ]
   },
@@ -11112,6 +11122,30 @@
       "마스코트",
       "고마곰",
       "느낀 점"
+    ],
+    "explainVideo": {
+      "youtubeId": "R3O2SCPKTM4",
+      "seconds": 464
+    },
+    "wordVideos": [
+      {
+        "word": "사회 관계망 서비스(SNS)",
+        "youtubeId": "iEE5YRnqzng",
+        "seconds": 72,
+        "meaning": "사람들이 인터넷에서 글·사진·영상을 올리고 소식을 나누는 서비스예요."
+      },
+      {
+        "word": "소개 자료",
+        "youtubeId": "xhnQ-JFSq2A",
+        "seconds": 66,
+        "meaning": "지역을 대표하는 것을 알리려고 만든 책자, 달력, 영상 등이에요."
+      },
+      {
+        "word": "전통문화",
+        "youtubeId": "TeZuIaAJFO8",
+        "seconds": 64,
+        "meaning": "옛날부터 이어져 내려오는 우리의 문화예요."
+      }
     ]
   },
   {
@@ -11204,6 +11238,30 @@
       "하천",
       "해안",
       "논과 밭"
+    ],
+    "explainVideo": {
+      "youtubeId": "iHzu6uyLGTo",
+      "seconds": 292
+    },
+    "wordVideos": [
+      {
+        "word": "환경",
+        "youtubeId": "1XPkkRjzJyY",
+        "seconds": 77,
+        "meaning": "우리 주변을 둘러싸고 있는 모든 것이에요."
+      },
+      {
+        "word": "자연환경",
+        "youtubeId": "41U5_p9jkzk",
+        "seconds": 69,
+        "meaning": "산, 들, 하천, 바다, 비, 바람처럼 사람이 만들지 않은 자연 그대로의 환경이에요."
+      },
+      {
+        "word": "인문환경",
+        "youtubeId": "Js2EziJjOIo",
+        "seconds": 85,
+        "meaning": "논과 밭, 도로, 공원, 항구처럼 사람들이 만든 환경이에요."
+      }
     ]
   },
   {
@@ -11228,6 +11286,30 @@
       "바다",
       "이용",
       "개발"
+    ],
+    "explainVideo": {
+      "youtubeId": "0Wi4I0sM3xg",
+      "seconds": 354
+    },
+    "wordVideos": [
+      {
+        "word": "환경의 이용",
+        "youtubeId": "WrmH4tfdGV8",
+        "seconds": 66,
+        "meaning": "사람들이 자연환경을 활용해 생활에 필요한 것을 얻거나 생산하는 것이에요."
+      },
+      {
+        "word": "환경의 개발",
+        "youtubeId": "T6rzyzSI7tw",
+        "seconds": 62,
+        "meaning": "자연환경을 바꾸어 생활에 필요한 시설을 만드는 것이에요."
+      },
+      {
+        "word": "평야",
+        "youtubeId": "knNEd9TJf8k",
+        "seconds": 75,
+        "meaning": "넓고 평평한 들로, 논이나 밭을 만들어 농사를 짓기 좋은 곳이에요."
+      }
     ]
   },
   {
