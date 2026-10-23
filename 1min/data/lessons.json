@@ -1341,6 +1341,30 @@
       "통영",
       "나전 칠기",
       "지역 홍보단"
+    ],
+    "explainVideo": {
+      "youtubeId": "hKyMH6x2A-0",
+      "seconds": 368
+    },
+    "wordVideos": [
+      {
+        "word": "지역 홍보단",
+        "youtubeId": "rATgxXyAlzY",
+        "seconds": 77,
+        "meaning": "우리 지역을 알리고 살기 좋은 지역을 함께 만들려고 활동하는 사람들의 모임이에요."
+      },
+      {
+        "word": "문화유산",
+        "youtubeId": "9xWjkGTW-pM",
+        "seconds": 75,
+        "meaning": "조상이 남긴 소중한 문화 가운데 후손에게 물려줄 만한 것이에요."
+      },
+      {
+        "word": "역사적 인물",
+        "youtubeId": "NehXYbnr-1M",
+        "seconds": 48,
+        "meaning": "이순신 장군처럼 지역의 역사와 관련해 널리 알려진 사람이에요."
+      }
     ]
   },
   {
@@ -1418,6 +1442,30 @@
       "태백",
       "태안",
       "보성 차"
+    ],
+    "explainVideo": {
+      "youtubeId": "F90UY0GiGLQ",
+      "seconds": 410
+    },
+    "wordVideos": [
+      {
+        "word": "대첩",
+        "youtubeId": "LIAJOG6NxDA",
+        "seconds": 87,
+        "meaning": "크게 승리한 싸움이에요. 이순신 장군이 한산도 앞바다에서 일본군을 크게 물리친 일처럼 큰 승리를 말해요."
+      },
+      {
+        "word": "화문석",
+        "youtubeId": "RURMOSBZT8A",
+        "seconds": 72,
+        "meaning": "왕골로 꽃무늬 등을 수놓아 만든 돗자리예요. 인천 강화도의 화문석은 무늬가 아름다워 유명해요."
+      },
+      {
+        "word": "하회 마을",
+        "youtubeId": "Lzgl6GqLJp0",
+        "seconds": 71,
+        "meaning": "경상북도 안동시에 약 600년 전부터 형성된 전통 마을이에요. 옛날 사람들의 생활 모습을 엿볼 수 있어요."
+      }
     ]
   },
   {
@@ -1446,12 +1494,28 @@
       "충주",
       "남원"
     ],
+    "explainVideo": {
+      "youtubeId": "leG8Zb7YwpQ",
+      "seconds": 426
+    },
     "wordVideos": [
       {
         "word": "홍보 영상",
         "youtubeId": "uWfj23mqI_Q",
         "seconds": 67,
         "meaning": "우리 지역의 특징이 잘 드러나게 대본을 쓰고 촬영해 다른 사람에게 알리는 영상이에요."
+      },
+      {
+        "word": "관광 상품",
+        "youtubeId": "7A4fUXY9IPc",
+        "seconds": 76,
+        "meaning": "지역을 찾아온 사람들이 즐기거나 사 갈 수 있도록 지역의 특징을 담아 만든 상품이에요."
+      },
+      {
+        "word": "지역 화폐",
+        "youtubeId": "f7SQhHY2tVY",
+        "seconds": 66,
+        "meaning": "특정 지역에서만 사용할 수 있게 만든 돈이에요. 지역의 상징물을 그려 넣을 수 있어요."
       }
     ]
   },
