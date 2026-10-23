@@ -1293,12 +1293,28 @@
       "실천",
       "지역문제 해결 플랫폼"
     ],
+    "explainVideo": {
+      "youtubeId": "n_RZ7Poy8yE",
+      "seconds": 376
+    },
     "wordVideos": [
       {
         "word": "해결 방안",
         "youtubeId": "s4x-FW-pbk4",
         "seconds": 68,
         "meaning": "문제를 잘 처리할 수 있는 방법이나 계획이에요."
+      },
+      {
+        "word": "다수결의 원칙",
+        "youtubeId": "v6syPRaPhLk",
+        "seconds": 78,
+        "meaning": "의견이 서로 다를 때 많은 사람이 원하는 의견으로 결정하는 원칙이에요. 소수의 의견도 존중해야 해요."
+      },
+      {
+        "word": "타협",
+        "youtubeId": "x1MO9ix_zqc",
+        "seconds": 66,
+        "meaning": "충분히 대화하며 서로 조금씩 양보해 의견 차이를 줄이는 것이에요."
       }
     ]
   },
@@ -1351,6 +1367,30 @@
       "지역 축제",
       "공동체 의식",
       "지역 경제"
+    ],
+    "explainVideo": {
+      "youtubeId": "al8ECYSBWyQ",
+      "seconds": 398
+    },
+    "wordVideos": [
+      {
+        "word": "상징물",
+        "youtubeId": "YtGk5OvDqdU",
+        "seconds": 91,
+        "meaning": "어떤 사실이나 뜻, 느낌을 구체적으로 나타낸 물체로, 지역을 알리는 캐릭터와 상징 마크가 있어요."
+      },
+      {
+        "word": "문화 관광 해설사",
+        "youtubeId": "HxCNDBuMRUo",
+        "seconds": 78,
+        "meaning": "관광지와 문화유산을 설명해 주는 사람이에요."
+      },
+      {
+        "word": "가상 현실(VR) 투어",
+        "youtubeId": "0RS6H_xSegI",
+        "seconds": 70,
+        "meaning": "가상 현실 기술로 온라인에서 지역의 관광지를 둘러보는 것이에요."
+      }
     ]
   },
   {
@@ -1490,6 +1530,10 @@
       "도로",
       "항구"
     ],
+    "explainVideo": {
+      "youtubeId": "cq6t7NGOeQ4",
+      "seconds": 316
+    },
     "wordVideos": [
       {
         "word": "환경",
@@ -1537,6 +1581,30 @@
       "양식장",
       "염전",
       "고랭지 채소"
+    ],
+    "explainVideo": {
+      "youtubeId": "gW1jKOgNd5Y",
+      "seconds": 445
+    },
+    "wordVideos": [
+      {
+        "word": "제철소",
+        "youtubeId": "5viBlbqH9t8",
+        "seconds": 72,
+        "meaning": "철광석을 높은 온도에 녹여 철을 뽑아내는 곳이에요. 바닷가 항구 가까이에 발달해 있어요."
+      },
+      {
+        "word": "고랭지 채소",
+        "youtubeId": "XA9ustoHqCE",
+        "seconds": 71,
+        "meaning": "해발 고도가 높고 서늘한 곳에서 심어 가꾸는 배추, 무, 감자 등의 채소예요."
+      },
+      {
+        "word": "계단식 논밭",
+        "youtubeId": "ahu6KExDzPY",
+        "seconds": 69,
+        "meaning": "산비탈에 계단처럼 만든 논과 밭이에요. 산이 많은 평창군에서 볼 수 있어요."
+      }
     ]
   },
   {
@@ -1635,6 +1703,10 @@
       "체육 시설",
       "공공 기관"
     ],
+    "explainVideo": {
+      "youtubeId": "9Wm6iApXH8I",
+      "seconds": 294
+    },
     "wordVideos": [
       {
         "word": "도시",
