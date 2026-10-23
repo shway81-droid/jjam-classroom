@@ -5733,6 +5733,20 @@
       "인간 존중",
       "평등",
       "자유"
+    ],
+    "wordVideos": [
+      {
+        "word": "민주주의",
+        "youtubeId": "oi7bIkvBgdA",
+        "seconds": 77,
+        "meaning": "구성원들의 다양한 의견을 반영해 공동의 문제를 결정하는 방식이에요."
+      },
+      {
+        "word": "공약",
+        "youtubeId": "8I3uRqR900w",
+        "seconds": 78,
+        "meaning": "후보자가 어떤 일을 실천하겠다고 하는 약속이에요."
+      }
     ]
   },
   {
@@ -5758,6 +5772,20 @@
       "존중",
       "양보",
       "타협"
+    ],
+    "wordVideos": [
+      {
+        "word": "양보와 타협",
+        "youtubeId": "PywMhfhSm20",
+        "seconds": 76,
+        "meaning": "서로 물러서며 의견 차이를 좁혀 가는 태도예요."
+      },
+      {
+        "word": "배려",
+        "youtubeId": "7AIF8DkDsw0",
+        "seconds": 77,
+        "meaning": "상대방을 생각해 마음을 써 주는 것이에요."
+      }
     ]
   },
   {
@@ -5782,6 +5810,20 @@
       "설문 조사",
       "우산 빗물 제거기",
       "민주주의 실천"
+    ],
+    "wordVideos": [
+      {
+        "word": "학생 자치회",
+        "youtubeId": "dxvgJBgl9rI",
+        "seconds": 80,
+        "meaning": "학생들이 대표를 뽑아 학교 일을 민주적으로 해결하려는 모임이에요."
+      },
+      {
+        "word": "의사 결정",
+        "youtubeId": "XqXSm_iRoQo",
+        "seconds": 81,
+        "meaning": "문제를 해결하려고 가장 알맞은 방법을 선택하는 일이에요."
+      }
     ]
   },
   {
@@ -5807,6 +5849,20 @@
       "놀이터 이용 규칙",
       "학생 자치회",
       "용암 초등학교"
+    ],
+    "wordVideos": [
+      {
+        "word": "서명 운동",
+        "youtubeId": "D71-ubcN7BY",
+        "seconds": 72,
+        "meaning": "어떤 일에 뜻을 모은 사람들의 이름을 받아 의견을 전하는 활동이에요."
+      },
+      {
+        "word": "해결 방안",
+        "youtubeId": "s4x-FW-pbk4",
+        "seconds": 68,
+        "meaning": "문제를 풀기 위해 찾아낸 방법이에요."
+      }
     ]
   },
   {
@@ -5857,6 +5913,26 @@
       "주민 회의",
       "지역 축제",
       "주민 참여"
+    ],
+    "wordVideos": [
+      {
+        "word": "주민 자치",
+        "youtubeId": "s72okYo1b6k",
+        "seconds": 88,
+        "meaning": "주민이 지역의 주인으로서 지역 일에 참여해 함께 문제를 해결하는 것이에요."
+      },
+      {
+        "word": "주민 자치회",
+        "youtubeId": "CiJjHeVrjiE",
+        "seconds": 56,
+        "meaning": "주민을 대표해 주민 자치 활동을 운영하는 기구예요."
+      },
+      {
+        "word": "행정 복지 센터",
+        "youtubeId": "OA9PdNyNp3w",
+        "seconds": 68,
+        "meaning": "주민이 이용하는 동네 공공 기관이에요."
+      }
     ]
   },
   {
@@ -5881,6 +5957,14 @@
       "세대 공감",
       "민주적 해결",
       "살기 좋은 지역"
+    ],
+    "wordVideos": [
+      {
+        "word": "주민 참여",
+        "youtubeId": "reugSECrlPQ",
+        "seconds": 75,
+        "meaning": "지역의 일에 주민이 직접 참여하는 것이에요."
+      }
     ]
   },
   {
@@ -5905,6 +5989,26 @@
       "주민 소모임",
       "주민 투표",
       "지역 구성원"
+    ],
+    "wordVideos": [
+      {
+        "word": "주민 투표",
+        "youtubeId": "s90sRgAgQ9k",
+        "seconds": 73,
+        "meaning": "지역의 일을 결정하려고 주민 의견을 묻는 투표예요."
+      },
+      {
+        "word": "공공 기관",
+        "youtubeId": "9G0O1POB0Tg",
+        "seconds": 69,
+        "meaning": "시청, 구청처럼 공공을 위한 일을 하는 기관이에요."
+      },
+      {
+        "word": "자원봉사",
+        "youtubeId": "WXaKV-ucMs8",
+        "seconds": 63,
+        "meaning": "대가 없이 스스로 나서서 지역을 돕는 활동이에요."
+      }
     ]
   },
   {
@@ -5930,6 +6034,26 @@
       "지역 게시판",
       "조사 보고서",
       "생활 실험실"
+    ],
+    "wordVideos": [
+      {
+        "word": "주민 자치",
+        "youtubeId": "s72okYo1b6k",
+        "seconds": 88,
+        "meaning": "지역 주민들이 스스로 지역의 일을 의논하고 결정해 해결해 나가는 것이에요."
+      },
+      {
+        "word": "공공 기관",
+        "youtubeId": "9G0O1POB0Tg",
+        "seconds": 69,
+        "meaning": "구청·행정 복지 센터처럼 모든 주민을 위해 나라나 지역의 일을 하는 곳이에요."
+      },
+      {
+        "word": "주민 투표",
+        "youtubeId": "s90sRgAgQ9k",
+        "seconds": 73,
+        "meaning": "지역의 중요한 일을 주민들이 직접 표를 던져 결정하는 방법이에요."
+      }
     ]
   },
   {
@@ -5953,6 +6077,26 @@
       "벽화 그리기",
       "공공 기관",
       "살기 좋은 지역"
+    ],
+    "wordVideos": [
+      {
+        "word": "주민 자치",
+        "youtubeId": "s72okYo1b6k",
+        "seconds": 88,
+        "meaning": "지역 주민들이 스스로 지역의 일을 의논하고 결정해 해결해 나가는 것이에요."
+      },
+      {
+        "word": "주민 참여",
+        "youtubeId": "reugSECrlPQ",
+        "seconds": 75,
+        "meaning": "주민이 회의·봉사·의견 내기 등으로 지역의 일에 직접 함께하는 것이에요."
+      },
+      {
+        "word": "공공 기관",
+        "youtubeId": "9G0O1POB0Tg",
+        "seconds": 69,
+        "meaning": "구청·행정 복지 센터처럼 모든 주민을 위해 나라나 지역의 일을 하는 곳이에요."
+      }
     ]
   },
   {
