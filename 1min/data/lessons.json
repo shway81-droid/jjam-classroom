@@ -861,12 +861,28 @@
       "소수의 의견",
       "학생 자치회"
     ],
+    "explainVideo": {
+      "youtubeId": "0wf2KN20sIs",
+      "seconds": 389
+    },
     "wordVideos": [
+      {
+        "word": "학생 자치회",
+        "youtubeId": "dxvgJBgl9rI",
+        "seconds": 80,
+        "meaning": "학생 스스로 학교의 일을 운영하려고 만든 학교 안의 모임이에요."
+      },
       {
         "word": "학급 회의",
         "youtubeId": "n64d68WcyPY",
         "seconds": 76,
         "meaning": "학급의 일을 함께 의논하고 결정하는 회의예요."
+      },
+      {
+        "word": "소수의 의견",
+        "youtubeId": "zQdG_uNK260",
+        "seconds": 63,
+        "meaning": "다수결로 정하더라도 존중하고 반영하려고 노력해야 하는, 적은 수 사람들의 생각이에요."
       }
     ]
   },
@@ -988,6 +1004,30 @@
       "존중",
       "대화와 타협",
       "협력"
+    ],
+    "explainVideo": {
+      "youtubeId": "HR80JZwEHF8",
+      "seconds": 341
+    },
+    "wordVideos": [
+      {
+        "word": "협력",
+        "youtubeId": "GyNvsemPAAo",
+        "seconds": 85,
+        "meaning": "여러 주민이 힘을 모아 함께 일하는 것이에요."
+      },
+      {
+        "word": "존중",
+        "youtubeId": "x5bqtn965T4",
+        "seconds": 74,
+        "meaning": "나와 의견이 다른 사람도 귀하게 여기며 대화하는 태도예요."
+      },
+      {
+        "word": "적극적인 참여",
+        "youtubeId": "_NC4JrhHDkU",
+        "seconds": 65,
+        "meaning": "지역의 일에 관심을 가지고 스스로 나서서 참여하는 태도예요."
+      }
     ]
   },
   {
@@ -1108,6 +1148,10 @@
       "노후화",
       "문화유산 훼손"
     ],
+    "explainVideo": {
+      "youtubeId": "zKqnebMBpa8",
+      "seconds": 390
+    },
     "wordVideos": [
       {
         "word": "지역문제",
@@ -1120,6 +1164,12 @@
         "youtubeId": "7JvYo9a_Htk",
         "seconds": 62,
         "meaning": "오래되거나 낡아서 쓸모가 없게 되는 것이에요."
+      },
+      {
+        "word": "소음",
+        "youtubeId": "88gRXdyKIsM",
+        "seconds": 68,
+        "meaning": "불쾌하고 시끄러운 소리예요."
       }
     ]
   },
@@ -1146,12 +1196,28 @@
       "민원 누리집",
       "공공 기관 애플리케이션"
     ],
+    "explainVideo": {
+      "youtubeId": "LXDpoxDZV8w",
+      "seconds": 345
+    },
     "wordVideos": [
+      {
+        "word": "민원",
+        "youtubeId": "tgHwn3D4mO8",
+        "seconds": 93,
+        "meaning": "주민이 시청·구청 등에 불편한 점을 알리고 해결을 요청하는 일이에요."
+      },
       {
         "word": "공공 기관",
         "youtubeId": "9G0O1POB0Tg",
         "seconds": 69,
         "meaning": "시청·구청처럼 지역 주민을 위한 일을 하는 기관이에요."
+      },
+      {
+        "word": "면담",
+        "youtubeId": "hXBiblw5PHs",
+        "seconds": 77,
+        "meaning": "직접 만나서 이야기를 나누며 의견을 묻는 일이에요."
       }
     ]
   },
@@ -1178,6 +1244,10 @@
       "통계 자료",
       "사실과 가치"
     ],
+    "explainVideo": {
+      "youtubeId": "XdB6ndtze3Y",
+      "seconds": 332
+    },
     "wordVideos": [
       {
         "word": "지역문제",
