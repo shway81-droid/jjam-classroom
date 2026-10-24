@@ -5816,12 +5816,22 @@
       "평등",
       "자유"
     ],
+    "explainVideo": {
+      "youtubeId": "AynzVVRUx9c",
+      "seconds": 250
+    },
     "wordVideos": [
       {
         "word": "민주주의",
         "youtubeId": "oi7bIkvBgdA",
         "seconds": 77,
         "meaning": "구성원들의 다양한 의견을 반영해 공동의 문제를 결정하는 방식이에요."
+      },
+      {
+        "word": "학교 구성원",
+        "youtubeId": "RCBqoGTk9sA",
+        "seconds": 65,
+        "meaning": "학생, 교사, 학부모처럼 학교에서 함께 생활하는 사람들이에요."
       },
       {
         "word": "공약",
@@ -5855,6 +5865,10 @@
       "양보",
       "타협"
     ],
+    "explainVideo": {
+      "youtubeId": "jvIQeIzRizE",
+      "seconds": 473
+    },
     "wordVideos": [
       {
         "word": "양보와 타협",
@@ -5867,6 +5881,12 @@
         "youtubeId": "7AIF8DkDsw0",
         "seconds": 77,
         "meaning": "상대방을 생각해 마음을 써 주는 것이에요."
+      },
+      {
+        "word": "여론",
+        "youtubeId": "lEsnDu2aCxo",
+        "seconds": 60,
+        "meaning": "많은 사람이 가지고 있는 생각이나 의견이에요."
       }
     ]
   },
@@ -5893,12 +5913,22 @@
       "우산 빗물 제거기",
       "민주주의 실천"
     ],
+    "explainVideo": {
+      "youtubeId": "Hy5j9OQcY8E",
+      "seconds": 385
+    },
     "wordVideos": [
       {
         "word": "학생 자치회",
         "youtubeId": "dxvgJBgl9rI",
         "seconds": 80,
         "meaning": "학생들이 대표를 뽑아 학교 일을 민주적으로 해결하려는 모임이에요."
+      },
+      {
+        "word": "학생 참여 예산제",
+        "youtubeId": "pMqSGNA6iXg",
+        "seconds": 79,
+        "meaning": "학생이 제안한 학교생활에 필요한 사업에 예산을 지원하고, 학생이 스스로 기획하여 운영하는 제도예요."
       },
       {
         "word": "의사 결정",
@@ -5932,12 +5962,22 @@
       "학생 자치회",
       "용암 초등학교"
     ],
+    "explainVideo": {
+      "youtubeId": "Bpkz894N7q8",
+      "seconds": 376
+    },
     "wordVideos": [
       {
         "word": "서명 운동",
         "youtubeId": "D71-ubcN7BY",
         "seconds": 72,
         "meaning": "어떤 일에 뜻을 모은 사람들의 이름을 받아 의견을 전하는 활동이에요."
+      },
+      {
+        "word": "민주적 절차",
+        "youtubeId": "LPk_F5apSG8",
+        "seconds": 72,
+        "meaning": "학교 일을 해결하려고 의견을 모으고 해결 방안을 찾아 민주적인 방법으로 결정하는 과정이에요."
       },
       {
         "word": "해결 방안",
@@ -5996,6 +6036,10 @@
       "지역 축제",
       "주민 참여"
     ],
+    "explainVideo": {
+      "youtubeId": "O6-oAIFkPdU",
+      "seconds": 259
+    },
     "wordVideos": [
       {
         "word": "주민 자치",
