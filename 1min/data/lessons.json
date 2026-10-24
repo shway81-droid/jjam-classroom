@@ -6531,6 +6531,10 @@
       "불법 주차 캠페인",
       "지능형 교통 시스템"
     ],
+    "explainVideo": {
+      "youtubeId": "9iwGwCukMwQ",
+      "seconds": 396
+    },
     "wordVideos": [
       {
         "word": "제안서",
@@ -6600,6 +6604,26 @@
       "무등산",
       "화순 고인돌",
       "순천만"
+    ],
+    "wordVideos": [
+      {
+        "word": "자랑거리",
+        "youtubeId": "gXV59g4X_Xw",
+        "seconds": 65,
+        "meaning": "지역의 자연환경, 역사, 문화, 생산물 중에서 내세울 만한 것이에요."
+      },
+      {
+        "word": "고인돌",
+        "youtubeId": "lsZhH4jfh6g",
+        "seconds": 63,
+        "meaning": "옛날 사람들이 만든 큰 돌무덤으로, 옛 생활 모습을 알 수 있어요."
+      },
+      {
+        "word": "의병",
+        "youtubeId": "r6IzROagMeU",
+        "seconds": 77,
+        "meaning": "백성이 나라나 자기 고장을 지키려고 스스로 만든 군대예요."
+      }
     ]
   },
   {
