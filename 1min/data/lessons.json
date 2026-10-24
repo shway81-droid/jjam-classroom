@@ -6358,6 +6358,12 @@
         "meaning": "지역 주민의 생활을 불편하게 하거나 지역 주민들 사이에 갈등을 일으키는 문제예요."
       },
       {
+        "word": "문화유산 훼손",
+        "youtubeId": "yLETigIaVYE",
+        "seconds": 67,
+        "meaning": "소중한 문화유산이 무너지거나 망가진 채 그대로 놓여 있는 문제예요."
+      },
+      {
         "word": "고립",
         "youtubeId": "USIWrP0cVeo",
         "seconds": 66,
@@ -6605,6 +6611,10 @@
       "화순 고인돌",
       "순천만"
     ],
+    "explainVideo": {
+      "youtubeId": "tRGEyJc9MjE",
+      "seconds": 382
+    },
     "wordVideos": [
       {
         "word": "자랑거리",
@@ -6651,12 +6661,28 @@
       "지역 축제",
       "퍼레이드 연기자"
     ],
+    "explainVideo": {
+      "youtubeId": "zul4PE8bZfM",
+      "seconds": 363
+    },
     "wordVideos": [
       {
         "word": "관광 상품",
         "youtubeId": "7A4fUXY9IPc",
         "seconds": 76,
         "meaning": "지역의 자랑거리를 이용해 관광객이 즐기도록 만든 상품이나 프로그램이에요."
+      },
+      {
+        "word": "임진왜란",
+        "youtubeId": "fmr9CJMcCT4",
+        "seconds": 57,
+        "meaning": "일본이 우리나라에 쳐들어와 일어난 전쟁이에요."
+      },
+      {
+        "word": "민속 축제",
+        "youtubeId": "hXL_s2C3X1I",
+        "seconds": 69,
+        "meaning": "옛날부터 이어 온 풍속을 바탕으로 하는 축제로, 당진 기지시 줄다리기가 있어요."
       }
     ]
   },
@@ -6791,6 +6817,10 @@
       "논과 밭",
       "항구"
     ],
+    "explainVideo": {
+      "youtubeId": "yG8oUzNSAWY",
+      "seconds": 337
+    },
     "wordVideos": [
       {
         "word": "환경",
@@ -6835,6 +6865,30 @@
       "스키장",
       "삼림욕장",
       "평창"
+    ],
+    "explainVideo": {
+      "youtubeId": "_VqN5CvKVTs",
+      "seconds": 355
+    },
+    "wordVideos": [
+      {
+        "word": "댐",
+        "youtubeId": "T5unwAvdCOo",
+        "seconds": 71,
+        "meaning": "강이나 바닷물을 막아 두려고 쌓은 둑으로, 물을 모으고 전기를 만들어요."
+      },
+      {
+        "word": "삼림욕장",
+        "youtubeId": "GpbmtoZPacU",
+        "seconds": 61,
+        "meaning": "숲속에서 상쾌한 공기를 마시며 머무를 수 있게 만든 곳이에요."
+      },
+      {
+        "word": "풍력 발전기",
+        "youtubeId": "p_XadDhbDK0",
+        "seconds": 61,
+        "meaning": "바람의 힘으로 전기를 만들어 내는 기계예요."
+      }
     ]
   },
   {
