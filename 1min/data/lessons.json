@@ -1696,7 +1696,17 @@
       "환경 오염",
       "지역의 변화"
     ],
+    "explainVideo": {
+      "youtubeId": "cepkz05tJkQ",
+      "seconds": 409
+    },
     "wordVideos": [
+      {
+        "word": "간척",
+        "youtubeId": "n04sXVpAPJM",
+        "seconds": 60,
+        "meaning": "바다나 호수 주위에 둑을 쌓고 그 안의 물을 빼내어 육지로 만드는 일이에요."
+      },
       {
         "word": "산업 단지",
         "youtubeId": "YOT7HYmGjRY",
@@ -1734,7 +1744,23 @@
       "생태 통로",
       "지속적 개발"
     ],
+    "explainVideo": {
+      "youtubeId": "lbFoqaPScjU",
+      "seconds": 365
+    },
     "wordVideos": [
+      {
+        "word": "환경 보전",
+        "youtubeId": "qY2_dhlSA6A",
+        "seconds": 58,
+        "meaning": "환경을 훼손하지 않고 지키면서 이용하고 개발하는 것이에요."
+      },
+      {
+        "word": "생태 통로",
+        "youtubeId": "mKyH9anqVIM",
+        "seconds": 68,
+        "meaning": "야생 동물이 자유롭게 이동할 수 있도록 도로 위에 다리를 놓거나 도로 아래로 굴을 파서 만든 길이에요."
+      },
       {
         "word": "습지",
         "youtubeId": "10HWH2n86vw",
@@ -1818,12 +1844,28 @@
       "울산광역시",
       "공업"
     ],
+    "explainVideo": {
+      "youtubeId": "hd6Pm92OkzM",
+      "seconds": 354
+    },
     "wordVideos": [
+      {
+        "word": "행정",
+        "youtubeId": "Ai0tkrs0GeY",
+        "seconds": 82,
+        "meaning": "법에 따라 나라의 발전과 국민의 행복을 위한 일을 하는 것이에요."
+      },
       {
         "word": "산업",
         "youtubeId": "G0LZ8tA7L7I",
         "seconds": 81,
         "meaning": "사람이 생활하는 데 필요한 것을 얻거나 만들어 내는 모든 활동이에요."
+      },
+      {
+        "word": "물류 산업",
+        "youtubeId": "dFdkwhaA_04",
+        "seconds": 76,
+        "meaning": "재료나 제품의 보관과 이동을 관리하는 산업이에요."
       }
     ]
   },
@@ -1853,12 +1895,28 @@
       "안전 문제",
       "버스 전용 차로제"
     ],
+    "explainVideo": {
+      "youtubeId": "UqfTzQ07k0M",
+      "seconds": 392
+    },
     "wordVideos": [
       {
         "word": "공동 주택",
         "youtubeId": "NoLZCJxpDi8",
         "seconds": 66,
         "meaning": "아파트, 빌라처럼 여러 가구가 함께 사는 집이에요."
+      },
+      {
+        "word": "문화 시설",
+        "youtubeId": "3nGSqRSe8WQ",
+        "seconds": 73,
+        "meaning": "도서관, 영화관, 공연장처럼 문화생활을 즐길 수 있는 시설이에요."
+      },
+      {
+        "word": "도시 문제",
+        "youtubeId": "LXfW_ecMicY",
+        "seconds": 62,
+        "meaning": "도시에 많은 사람이 모여 살기 때문에 주택, 교통, 환경, 안전 등에서 생기는 문제예요."
       }
     ]
   },
@@ -1885,6 +1943,30 @@
       "쿠리치바",
       "버스 전용 차로제",
       "녹색 교환"
+    ],
+    "explainVideo": {
+      "youtubeId": "z-zzjqVxuUw",
+      "seconds": 413
+    },
+    "wordVideos": [
+      {
+        "word": "삶의 질",
+        "youtubeId": "cL2As5R-Ilc",
+        "seconds": 82,
+        "meaning": "사람들이 느끼는 행복감, 만족감, 안정감 등의 정도예요."
+      },
+      {
+        "word": "생태 도시",
+        "youtubeId": "N9UhrS4Z0l4",
+        "seconds": 68,
+        "meaning": "인간과 환경이 조화를 이루어 함께 살아갈 수 있는 체계를 갖춘 도시예요."
+      },
+      {
+        "word": "버스 전용 차로제",
+        "youtubeId": "wYtlMdqby7c",
+        "seconds": 76,
+        "meaning": "도로에 버스만 다니는 차로를 만들어 대중교통 이용을 편리하게 하는 제도예요."
+      }
     ]
   },
   {
