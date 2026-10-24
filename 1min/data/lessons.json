@@ -6696,6 +6696,26 @@
       "날씨",
       "논과 밭",
       "항구"
+    ],
+    "wordVideos": [
+      {
+        "word": "환경",
+        "youtubeId": "1XPkkRjzJyY",
+        "seconds": 77,
+        "meaning": "우리 주변을 둘러싸고 있는 모든 것이에요."
+      },
+      {
+        "word": "자연환경",
+        "youtubeId": "41U5_p9jkzk",
+        "seconds": 69,
+        "meaning": "산, 들, 하천, 바다, 비, 바람처럼 사람이 만들지 않은 자연 그대로의 환경이에요."
+      },
+      {
+        "word": "인문환경",
+        "youtubeId": "Js2EziJjOIo",
+        "seconds": 85,
+        "meaning": "논과 밭, 도로, 공원, 항구처럼 사람들이 만든 환경이에요."
+      }
     ]
   },
   {
@@ -6797,6 +6817,20 @@
       "생태 통로",
       "생태 하천",
       "자연 휴식년제"
+    ],
+    "wordVideos": [
+      {
+        "word": "간척",
+        "youtubeId": "n04sXVpAPJM",
+        "seconds": 60,
+        "meaning": "바다나 갯벌을 땅으로 만드는 일이에요."
+      },
+      {
+        "word": "생태 통로",
+        "youtubeId": "mKyH9anqVIM",
+        "seconds": 68,
+        "meaning": "야생 동물이 자유롭게 이동하도록 도로나 철도 위에 다리를 놓거나 아래로 굴을 파서 마련한 길이에요."
+      }
     ]
   },
   {
@@ -6846,6 +6880,20 @@
       "속초시",
       "세종특별자치시",
       "밤하늘 사진"
+    ],
+    "wordVideos": [
+      {
+        "word": "도시",
+        "youtubeId": "daXJHjPWrCw",
+        "seconds": 88,
+        "meaning": "많은 사람이 모여 살고 정치·경제·사회·문화 활동의 중심이 되는 곳이에요."
+      },
+      {
+        "word": "공공 기관",
+        "youtubeId": "9G0O1POB0Tg",
+        "seconds": 69,
+        "meaning": "시청, 경찰서, 소방서처럼 여러 사람을 위한 일을 하는 기관이에요."
+      }
     ]
   },
   {
@@ -6874,6 +6922,14 @@
       "교통",
       "전주시",
       "부산광역시"
+    ],
+    "wordVideos": [
+      {
+        "word": "산업",
+        "youtubeId": "G0LZ8tA7L7I",
+        "seconds": 81,
+        "meaning": "사람이 생활하는 데 필요한 것을 얻거나 만들어 내는 모든 활동이에요."
+      }
     ]
   },
   {
@@ -6898,6 +6954,14 @@
       "일터",
       "여가 생활",
       "무언극"
+    ],
+    "wordVideos": [
+      {
+        "word": "여가 생활",
+        "youtubeId": "2VfDkd9S-f0",
+        "seconds": 87,
+        "meaning": "일이나 공부를 마치고 남는 시간에 즐기는 활동이에요."
+      }
     ]
   },
   {
@@ -6923,6 +6987,20 @@
       "바람길 숲",
       "미세 먼지",
       "플로깅"
+    ],
+    "wordVideos": [
+      {
+        "word": "일자리",
+        "youtubeId": "f8krhhBWYGY",
+        "seconds": 64,
+        "meaning": "사람들이 일해서 돈을 벌 수 있는 곳이에요."
+      },
+      {
+        "word": "교통 체증",
+        "youtubeId": "BphDX8JeMz0",
+        "seconds": 68,
+        "meaning": "자동차가 한꺼번에 몰려 도로가 막히는 현상이에요."
+      }
     ]
   },
   {
