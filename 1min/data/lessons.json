@@ -6090,6 +6090,18 @@
         "youtubeId": "reugSECrlPQ",
         "seconds": 75,
         "meaning": "지역의 일에 주민이 직접 참여하는 것이에요."
+      },
+      {
+        "word": "교육 공동체",
+        "youtubeId": "W7WSTyC-EFg",
+        "seconds": 72,
+        "meaning": "지역 주민과 학교가 협력해 함께 배우는 모임이에요. ‘온 마을이 학교다’ 프로그램이 그 예예요."
+      },
+      {
+        "word": "지역 발전",
+        "youtubeId": "Qj6LhmNfpUM",
+        "seconds": 70,
+        "meaning": "주민 참여로 지역이 더 살기 좋게 나아지는 것이에요."
       }
     ]
   },
@@ -6116,6 +6128,10 @@
       "주민 투표",
       "지역 구성원"
     ],
+    "explainVideo": {
+      "youtubeId": "8ffl1EELw8c",
+      "seconds": 318
+    },
     "wordVideos": [
       {
         "word": "주민 투표",
@@ -6161,6 +6177,10 @@
       "조사 보고서",
       "생활 실험실"
     ],
+    "explainVideo": {
+      "youtubeId": "pSj9WuPmAd8",
+      "seconds": 278
+    },
     "wordVideos": [
       {
         "word": "주민 자치",
@@ -6204,6 +6224,10 @@
       "공공 기관",
       "살기 좋은 지역"
     ],
+    "explainVideo": {
+      "youtubeId": "pp7VBWJD2N0",
+      "seconds": 442
+    },
     "wordVideos": [
       {
         "word": "주민 자치",
@@ -6322,12 +6346,22 @@
       "문화유산 훼손",
       "갈등"
     ],
+    "explainVideo": {
+      "youtubeId": "C0EOaaa7xQQ",
+      "seconds": 297
+    },
     "wordVideos": [
       {
         "word": "지역문제",
         "youtubeId": "MXbUYqmjbkM",
         "seconds": 71,
         "meaning": "지역 주민의 생활을 불편하게 하거나 지역 주민들 사이에 갈등을 일으키는 문제예요."
+      },
+      {
+        "word": "고립",
+        "youtubeId": "USIWrP0cVeo",
+        "seconds": 66,
+        "meaning": "큰비로 도로가 물에 잠겨 마을 밖으로 나갈 수 없게 되는 것처럼, 다른 곳과 이어지지 못하고 외따로 떨어지는 것이에요."
       }
     ]
   },
@@ -6354,6 +6388,10 @@
       "설문 조사",
       "주차 문제"
     ],
+    "explainVideo": {
+      "youtubeId": "P35aKyLAwR8",
+      "seconds": 286
+    },
     "wordVideos": [
       {
         "word": "갈등",
@@ -6366,6 +6404,12 @@
         "youtubeId": "hXBiblw5PHs",
         "seconds": 77,
         "meaning": "지역 주민을 직접 만나 이야기를 나누며 의견을 묻는 일이에요."
+      },
+      {
+        "word": "교통 혼잡 문제",
+        "youtubeId": "cF-JfSgUJek",
+        "seconds": 66,
+        "meaning": "도로에 차가 많아 막히고 복잡해지는 지역문제예요."
       }
     ]
   },
@@ -6391,7 +6435,17 @@
       "신문 기사",
       "설문 조사"
     ],
+    "explainVideo": {
+      "youtubeId": "jhfTh2dO_S8",
+      "seconds": 374
+    },
     "wordVideos": [
+      {
+        "word": "불법 주차",
+        "youtubeId": "gYr-awyuU4w",
+        "seconds": 61,
+        "meaning": "정해진 곳이 아닌 도로 등에 차를 세우는 일로, 소방차가 화재 현장에 늦게 도착하는 피해를 낳아요."
+      },
       {
         "word": "지역문제",
         "youtubeId": "MXbUYqmjbkM",
@@ -6430,7 +6484,17 @@
       "공유 주차장",
       "공공 자전거"
     ],
+    "explainVideo": {
+      "youtubeId": "BY62EiIeTRs",
+      "seconds": 356
+    },
     "wordVideos": [
+      {
+        "word": "공익 광고",
+        "youtubeId": "q6CStsFWXrQ",
+        "seconds": 69,
+        "meaning": "사회 모두에게 이로운 내용을 알리려고 만든 광고예요."
+      },
       {
         "word": "서명 운동",
         "youtubeId": "D71-ubcN7BY",
@@ -6479,6 +6543,12 @@
         "youtubeId": "9G0O1POB0Tg",
         "seconds": 69,
         "meaning": "시청·구청처럼 지역 주민을 위한 일을 하는 기관이에요."
+      },
+      {
+        "word": "지능형 교통 시스템",
+        "youtubeId": "hUOOcSJLB10",
+        "seconds": 98,
+        "meaning": "첨단 기술로 실시간 교통 정보를 모으고 관리하는 시스템이에요."
       }
     ]
   },
