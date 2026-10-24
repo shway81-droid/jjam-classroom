@@ -6084,6 +6084,10 @@
       "민주적 해결",
       "살기 좋은 지역"
     ],
+    "explainVideo": {
+      "youtubeId": "CW01SC4PpLk",
+      "seconds": 305
+    },
     "wordVideos": [
       {
         "word": "주민 참여",
@@ -6711,12 +6715,28 @@
       "사회 관계망 서비스",
       "해시태그"
     ],
+    "explainVideo": {
+      "youtubeId": "Bloepheih4s",
+      "seconds": 245
+    },
     "wordVideos": [
+      {
+        "word": "안내도",
+        "youtubeId": "B93Dbyg4K2k",
+        "seconds": 79,
+        "meaning": "지역의 백지도에 자랑거리 위치와 특징을 나타낸 그림 자료예요."
+      },
       {
         "word": "사회 관계망 서비스(SNS)",
         "youtubeId": "iEE5YRnqzng",
         "seconds": 72,
         "meaning": "사람들이 인터넷에서 글·사진·영상을 올리고 소식을 나누는 서비스예요."
+      },
+      {
+        "word": "해시태그",
+        "youtubeId": "9DiOgFnUERw",
+        "seconds": 68,
+        "meaning": "게시물에 # 표시와 함께 붙이는 관련 낱말이에요."
       }
     ]
   },
@@ -6914,6 +6934,30 @@
       "대전광역시",
       "지도 읽기",
       "지역의 변화"
+    ],
+    "explainVideo": {
+      "youtubeId": "RZ3iu5wQBYo",
+      "seconds": 292
+    },
+    "wordVideos": [
+      {
+        "word": "저수지",
+        "youtubeId": "F4c7AObn2Xs",
+        "seconds": 61,
+        "meaning": "물을 모아 두었다가 필요할 때 쓸 수 있게 만든 시설이에요."
+      },
+      {
+        "word": "비닐하우스",
+        "youtubeId": "lC-106_S4jY",
+        "seconds": 71,
+        "meaning": "비닐로 덮어 채소와 과일을 사시사철 기르는 시설이에요."
+      },
+      {
+        "word": "벼농사",
+        "youtubeId": "u262piAvBFo",
+        "seconds": 62,
+        "meaning": "논에 벼를 심어 쌀을 얻는 농사예요."
+      }
     ]
   },
   {
@@ -6939,6 +6983,30 @@
       "공업",
       "울산",
       "공업 단지"
+    ],
+    "explainVideo": {
+      "youtubeId": "8-rLB6DpSUs",
+      "seconds": 376
+    },
+    "wordVideos": [
+      {
+        "word": "양식장",
+        "youtubeId": "TpFMmrDKX4I",
+        "seconds": 79,
+        "meaning": "사람의 힘으로 물고기나 김 등을 기르는 곳이에요."
+      },
+      {
+        "word": "모래사장",
+        "youtubeId": "LaGwA_ql_u0",
+        "seconds": 66,
+        "meaning": "바닷가에 있는 넓고 큰 모래벌판이에요."
+      },
+      {
+        "word": "항구",
+        "youtubeId": "aZ4JgyMOft8",
+        "seconds": 77,
+        "meaning": "배가 안전하게 드나들며 짐을 싣고 내리는 곳이에요."
+      }
     ]
   },
   {
@@ -6966,6 +7034,10 @@
       "생태 하천",
       "자연 휴식년제"
     ],
+    "explainVideo": {
+      "youtubeId": "lfdFIrWIjNc",
+      "seconds": 353
+    },
     "wordVideos": [
       {
         "word": "간척",
@@ -6978,6 +7050,12 @@
         "youtubeId": "mKyH9anqVIM",
         "seconds": 68,
         "meaning": "야생 동물이 자유롭게 이동하도록 도로나 철도 위에 다리를 놓거나 아래로 굴을 파서 마련한 길이에요."
+      },
+      {
+        "word": "자연 휴식년제",
+        "youtubeId": "rNjqvwJELm8",
+        "seconds": 68,
+        "meaning": "자연환경이 원래 모습을 되찾을 수 있도록 일정 기간 사람의 출입을 막는 제도예요."
       }
     ]
   },
