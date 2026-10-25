@@ -10650,6 +10650,30 @@
       "인공지능",
       "학교생활 비교",
       "인구"
+    ],
+    "explainVideo": {
+      "youtubeId": "p1aRO3zNWIs",
+      "seconds": 385
+    },
+    "wordVideos": [
+      {
+        "word": "사회 변화",
+        "youtubeId": "_6-2g3RiWYE",
+        "seconds": 68,
+        "meaning": "시간이 흐르면서 사람 수, 과학 기술, 다른 나라와의 교류 등이 달라져 사회의 모습이 바뀌는 것이에요."
+      },
+      {
+        "word": "인구",
+        "youtubeId": "BwyWvSeqXIA",
+        "seconds": 84,
+        "meaning": "한 나라나 일정한 지역에 사는 사람 전체를 말해요."
+      },
+      {
+        "word": "과학 기술의 발달",
+        "youtubeId": "bIesZG3I9zw",
+        "seconds": 74,
+        "meaning": "과학과 기술이 더 좋아져서 생활 도구와 방법이 편리하게 바뀌는 것이에요."
+      }
     ]
   },
   {
@@ -10674,6 +10698,30 @@
       "자녀 수 변화",
       "노인 인구",
       "생산 연령 인구"
+    ],
+    "explainVideo": {
+      "youtubeId": "pAKc-I-Pw1k",
+      "seconds": 455
+    },
+    "wordVideos": [
+      {
+        "word": "저출산",
+        "youtubeId": "Y4fpacAf5cA",
+        "seconds": 57,
+        "meaning": "태어나는 아이의 수가 줄어드는 현상이에요."
+      },
+      {
+        "word": "고령화",
+        "youtubeId": "tuvFaDTmaX4",
+        "seconds": 72,
+        "meaning": "전체 인구에서 노인 인구가 차지하는 정도가 늘어나는 현상이에요."
+      },
+      {
+        "word": "생산 연령 인구",
+        "youtubeId": "KMXlNmQBAGg",
+        "seconds": 78,
+        "meaning": "15세부터 64세까지, 일을 해서 경제를 이끌 수 있는 나이의 사람들이에요."
+      }
     ]
   },
   {
@@ -10699,6 +10747,30 @@
       "미국",
       "육아 로봇",
       "돌봄 로봇"
+    ],
+    "explainVideo": {
+      "youtubeId": "U8ET3tubzZM",
+      "seconds": 362
+    },
+    "wordVideos": [
+      {
+        "word": "육아 휴직",
+        "youtubeId": "1SGqLwqQsBs",
+        "seconds": 70,
+        "meaning": "아이를 키우기 위해 직장에 다니는 부모가 일정 기간 쉴 수 있게 한 제도예요."
+      },
+      {
+        "word": "돌봄 로봇",
+        "youtubeId": "VekAHWwXQNE",
+        "seconds": 70,
+        "meaning": "혼자 생활하는 노인 등을 도와주고 돌보아 주는 로봇이에요."
+      },
+      {
+        "word": "세대",
+        "youtubeId": "0grmiG7Pul0",
+        "seconds": 64,
+        "meaning": "젊은 세대, 부모 세대처럼 비슷한 나이대의 사람 전체를 말해요."
+      }
     ]
   },
   {
@@ -10724,6 +10796,20 @@
       "로봇 청소기",
       "스마트 홈",
       "챗봇"
+    ],
+    "wordVideos": [
+      {
+        "word": "지능정보화",
+        "youtubeId": "Z4BqPqhn2OU",
+        "seconds": 65,
+        "meaning": "지능정보화는 지능정보 기술이 사회의 여러 분야에서 널리 쓰이는 것이에요."
+      },
+      {
+        "word": "인공지능",
+        "youtubeId": "1DTRDVsclGg",
+        "seconds": 74,
+        "meaning": "인공지능은 컴퓨터가 사람처럼 생각하고 배우고 상황을 판단하도록 만든 기술이에요."
+      }
     ]
   },
   {
