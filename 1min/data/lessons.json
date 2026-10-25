@@ -7107,6 +7107,10 @@
       "세종특별자치시",
       "밤하늘 사진"
     ],
+    "explainVideo": {
+      "youtubeId": "zqmlUrb1nP4",
+      "seconds": 377
+    },
     "wordVideos": [
       {
         "word": "도시",
@@ -7119,6 +7123,12 @@
         "youtubeId": "9G0O1POB0Tg",
         "seconds": 69,
         "meaning": "시청, 경찰서, 소방서처럼 여러 사람을 위한 일을 하는 기관이에요."
+      },
+      {
+        "word": "편의 시설",
+        "youtubeId": "M84OsdgolGk",
+        "seconds": 74,
+        "meaning": "병원, 상점처럼 사람들의 생활에 편리함을 주는 시설이에요."
       }
     ]
   },
@@ -7149,12 +7159,28 @@
       "전주시",
       "부산광역시"
     ],
+    "explainVideo": {
+      "youtubeId": "VXsG1IaZOzo",
+      "seconds": 288
+    },
     "wordVideos": [
       {
         "word": "산업",
         "youtubeId": "G0LZ8tA7L7I",
         "seconds": 81,
         "meaning": "사람이 생활하는 데 필요한 것을 얻거나 만들어 내는 모든 활동이에요."
+      },
+      {
+        "word": "제조업",
+        "youtubeId": "cjOErNiBC-I",
+        "seconds": 62,
+        "meaning": "사람들이 필요로 하는 물건을 한꺼번에 많이 만드는 산업이에요."
+      },
+      {
+        "word": "금융업",
+        "youtubeId": "W6uaqXxcBcQ",
+        "seconds": 73,
+        "meaning": "개인이나 회사의 돈을 맡아 주거나 빌려주는 산업이에요."
       }
     ]
   },
@@ -7181,12 +7207,28 @@
       "여가 생활",
       "무언극"
     ],
+    "explainVideo": {
+      "youtubeId": "n5-xh3ZM2jk",
+      "seconds": 418
+    },
     "wordVideos": [
       {
         "word": "여가 생활",
         "youtubeId": "2VfDkd9S-f0",
         "seconds": 87,
         "meaning": "일이나 공부를 마치고 남는 시간에 즐기는 활동이에요."
+      },
+      {
+        "word": "단독 주택",
+        "youtubeId": "zLvHMit2RDE",
+        "seconds": 65,
+        "meaning": "한 가구가 한 건물에서 따로 사는 집이에요."
+      },
+      {
+        "word": "아파트",
+        "youtubeId": "wjwpvu9IWkI",
+        "seconds": 78,
+        "meaning": "한 건물에 여러 가구가 층층이 모여 사는 집이에요."
       }
     ]
   },
@@ -7214,6 +7256,10 @@
       "미세 먼지",
       "플로깅"
     ],
+    "explainVideo": {
+      "youtubeId": "iMPbJAo1DPs",
+      "seconds": 417
+    },
     "wordVideos": [
       {
         "word": "일자리",
@@ -7226,6 +7272,12 @@
         "youtubeId": "BphDX8JeMz0",
         "seconds": 68,
         "meaning": "자동차가 한꺼번에 몰려 도로가 막히는 현상이에요."
+      },
+      {
+        "word": "미세 먼지",
+        "youtubeId": "R4aeDy_P57c",
+        "seconds": 62,
+        "meaning": "공기 중에 떠다니는, 눈에 보이지 않을 정도로 작은 먼지예요."
       }
     ]
   },
