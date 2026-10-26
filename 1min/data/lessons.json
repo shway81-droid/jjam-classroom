@@ -43,6 +43,10 @@
       "노인 인구",
       "인구 비율"
     ],
+    "explainVideo": {
+      "youtubeId": "m14rUuRwyeM",
+      "seconds": 335
+    },
     "wordVideos": [
       {
         "word": "저출산",
@@ -87,12 +91,28 @@
       "가족계획",
       "생활 모습 변화"
     ],
+    "explainVideo": {
+      "youtubeId": "okGqJJlE6Ng",
+      "seconds": 254
+    },
     "wordVideos": [
+      {
+        "word": "가족계획",
+        "youtubeId": "N_4eWZPyeSk",
+        "seconds": 71,
+        "meaning": "자녀의 수나 출산의 간격을 계획적으로 조절하는 일이에요."
+      },
       {
         "word": "생산 연령 인구",
         "youtubeId": "KMXlNmQBAGg",
         "seconds": 78,
         "meaning": "15세부터 64세까지, 일을 해서 경제를 이끌 수 있는 나이의 사람들이에요."
+      },
+      {
+        "word": "노인 복지관",
+        "youtubeId": "BhdVwCm0lZ8",
+        "seconds": 83,
+        "meaning": "노인들이 시간을 보내고 여러 활동을 할 수 있도록 만든 시설이에요."
       }
     ]
   },
@@ -118,12 +138,28 @@
       "가상 현실",
       "증강 현실"
     ],
+    "explainVideo": {
+      "youtubeId": "V7zQRm07W3E",
+      "seconds": 456
+    },
     "wordVideos": [
       {
         "word": "지능정보화",
         "youtubeId": "Z4BqPqhn2OU",
         "seconds": 65,
         "meaning": "인공지능 같은 지능정보 기술이 사회 여러 분야에서 널리 쓰이는 현상이에요."
+      },
+      {
+        "word": "사물 인터넷",
+        "youtubeId": "MPa2AT1jEEs",
+        "seconds": 71,
+        "meaning": "일상에서 사용하는 물건들이 인터넷으로 연결되어 멀리서도 작동할 수 있게 하는 기술이에요."
+      },
+      {
+        "word": "빅 데이터",
+        "youtubeId": "AwajIwmgkCQ",
+        "seconds": 73,
+        "meaning": "많은 양의 정보를 모으고 분석하여 새롭고 가치 있는 정보로 만드는 기술이에요."
       }
     ]
   },
@@ -150,12 +186,28 @@
       "개인 정보",
       "소외"
     ],
+    "explainVideo": {
+      "youtubeId": "NAGGan_DAQo",
+      "seconds": 343
+    },
     "wordVideos": [
       {
         "word": "인공지능",
         "youtubeId": "1DTRDVsclGg",
         "seconds": 74,
         "meaning": "컴퓨터가 사람처럼 생각하고 배우고 상황을 판단하도록 만든 기술이에요."
+      },
+      {
+        "word": "가상 현실",
+        "youtubeId": "ljSIQ859AxU",
+        "seconds": 61,
+        "meaning": "인터넷 공간에 실제처럼 보이는 가상의 세계를 만들어, 마치 현실인 것처럼 생생하게 보고 들을 수 있게 하는 기술이에요."
+      },
+      {
+        "word": "소외",
+        "youtubeId": "6KX2WwY44ko",
+        "seconds": 89,
+        "meaning": "어떤 무리에서 따돌리거나 멀리하는 것이에요."
       }
     ]
   },
@@ -182,6 +234,10 @@
       "지능정보화",
       "개인 정보"
     ],
+    "explainVideo": {
+      "youtubeId": "aatIbiw4d24",
+      "seconds": 313
+    },
     "wordVideos": [
       {
         "word": "대응",
@@ -225,6 +281,10 @@
       "옷차림",
       "집의 모양"
     ],
+    "explainVideo": {
+      "youtubeId": "MQ1fP0KZCuo",
+      "seconds": 264
+    },
     "wordVideos": [
       {
         "word": "문화",
@@ -237,6 +297,12 @@
         "youtubeId": "dP0kfE5FzBU",
         "seconds": 73,
         "meaning": "사람들이 살아가는 곳의 환경에 맞게 옷, 음식, 집을 만들며 살아가는 것이에요."
+      },
+      {
+        "word": "인사법",
+        "youtubeId": "XS6UaD8l1hc",
+        "seconds": 67,
+        "meaning": "사람을 만났을 때 인사하는 방법이에요. 인사법은 나라마다 달라요."
       }
     ]
   },
@@ -262,7 +328,17 @@
       "비혼",
       "반려동물"
     ],
+    "explainVideo": {
+      "youtubeId": "gth4r13jBXk",
+      "seconds": 348
+    },
     "wordVideos": [
+      {
+        "word": "확산",
+        "youtubeId": "DDHtqrgqEkk",
+        "seconds": 79,
+        "meaning": "널리 퍼지는 것을 말해요."
+      },
       {
         "word": "이주민",
         "youtubeId": "Xs6TjmZbTMQ",
@@ -300,6 +376,10 @@
       "1인 가구",
       "반려동물"
     ],
+    "explainVideo": {
+      "youtubeId": "j-BbTtxiM3w",
+      "seconds": 386
+    },
     "wordVideos": [
       {
         "word": "편견",
@@ -350,6 +430,12 @@
         "youtubeId": "U1one1yP_mI",
         "seconds": 69,
         "meaning": "서로 다른 문화를 가진 사람들이 어울려 함께 살아가는 모습이에요."
+      },
+      {
+        "word": "동물 보호 센터",
+        "youtubeId": "Xp9nVHj3dHo",
+        "seconds": 66,
+        "meaning": "버려지거나 보호가 필요한 동물들을 보살피는 곳이에요."
       }
     ]
   },
@@ -451,6 +537,10 @@
       "돌잔치",
       "김장"
     ],
+    "explainVideo": {
+      "youtubeId": "iCEBzJJ9Ptc",
+      "seconds": 509
+    },
     "wordVideos": [
       {
         "word": "풍습",
@@ -906,6 +996,12 @@
         "youtubeId": "ei1ThBDeLj4",
         "seconds": 74,
         "meaning": "전화를 건 사람과 받는 사람을 연결해 주던 사람이에요."
+      },
+      {
+        "word": "스마트폰",
+        "youtubeId": "6nNDbYsM5EU",
+        "seconds": 69,
+        "meaning": "얼굴을 보며 통화하고 인터넷도 쓸 수 있는 전화기예요."
       }
     ]
   },
