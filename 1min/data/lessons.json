@@ -424,6 +424,10 @@
       "한국어 학급",
       "편견과 차별"
     ],
+    "explainVideo": {
+      "youtubeId": "kdN3IVEEV0w",
+      "seconds": 325
+    },
     "wordVideos": [
       {
         "word": "조화",
@@ -436,6 +440,12 @@
         "youtubeId": "Xp9nVHj3dHo",
         "seconds": 66,
         "meaning": "버려지거나 보호가 필요한 동물들을 보살피는 곳이에요."
+      },
+      {
+        "word": "더불어 살기",
+        "youtubeId": "bVwCBGS-H74",
+        "seconds": 62,
+        "meaning": "나와 다른 사람들과 함께 어우러져 살아가는 것이에요."
       }
     ]
   },
@@ -460,12 +470,28 @@
       "손바닥책",
       "노랫말 바꾸기"
     ],
+    "explainVideo": {
+      "youtubeId": "jvgRR3xQ68s",
+      "seconds": 322
+    },
     "wordVideos": [
       {
         "word": "존중",
         "youtubeId": "kKzdn6zB_Wk",
         "seconds": 86,
         "meaning": "나와 다른 사람이나 문화를 소중하게 여기고 인정하는 것이에요."
+      },
+      {
+        "word": "공익 광고",
+        "youtubeId": "jaRyE79y1qk",
+        "seconds": 74,
+        "meaning": "다양한 문화를 존중하는 태도처럼 모두에게 도움이 되는 생각을 널리 알리려고 만든 광고예요."
+      },
+      {
+        "word": "문화 다양성",
+        "youtubeId": "Od5ArX06NN0",
+        "seconds": 65,
+        "meaning": "한 사회에 여러 가지 서로 다른 문화가 함께 있는 것이에요."
       }
     ]
   },
@@ -585,12 +611,28 @@
       "추석",
       "동지"
     ],
+    "explainVideo": {
+      "youtubeId": "jzixyKKWW4g",
+      "seconds": 407
+    },
     "wordVideos": [
       {
         "word": "세시 풍속",
         "youtubeId": "usS1GOeuIHA",
         "seconds": 65,
         "meaning": "해마다 일정한 시기에 되풀이하는 일, 놀이, 음식 등의 생활 모습이에요."
+      },
+      {
+        "word": "음력",
+        "youtubeId": "S6fEI1R5ob8",
+        "seconds": 74,
+        "meaning": "달의 모양 변화를 기준으로 날짜를 세는 방법이에요."
+      },
+      {
+        "word": "풍년",
+        "youtubeId": "JKNKmxvs24I",
+        "seconds": 78,
+        "meaning": "농사가 잘되어 수확이 많은 해예요."
       }
     ]
   },
@@ -615,6 +657,10 @@
       "단오",
       "부채"
     ],
+    "explainVideo": {
+      "youtubeId": "IiTZp6G4LeI",
+      "seconds": 261
+    },
     "wordVideos": [
       {
         "word": "복조리",
@@ -627,6 +673,12 @@
         "youtubeId": "u8z8n7DQfLY",
         "seconds": 74,
         "meaning": "음력 5월 5일로, 더운 여름이 시작되는 때예요."
+      },
+      {
+        "word": "부채",
+        "youtubeId": "PXiAxwU88v0",
+        "seconds": 59,
+        "meaning": "단오에 시원하게 지내라는 뜻으로 주고받던 물건이에요."
       }
     ]
   },
@@ -651,6 +703,30 @@
       "계절",
       "명절",
       "지역 축제"
+    ],
+    "explainVideo": {
+      "youtubeId": "qLgTSFx9QxU",
+      "seconds": 289
+    },
+    "wordVideos": [
+      {
+        "word": "설날",
+        "youtubeId": "Cddtxu76ifA",
+        "seconds": 81,
+        "meaning": "음력 1월 1일로 한 해가 시작되는 날이에요."
+      },
+      {
+        "word": "추석",
+        "youtubeId": "KzLZgtr8nY4",
+        "seconds": 78,
+        "meaning": "음력 8월 15일로 곡식과 과일을 수확하는 때의 명절이에요."
+      },
+      {
+        "word": "지역 축제",
+        "youtubeId": "qfGfVS9krjc",
+        "seconds": 75,
+        "meaning": "지역마다 열어 세시 풍속을 이어 가는 행사예요."
+      }
     ]
   },
   {
@@ -676,12 +752,28 @@
       "줄다리기",
       "차전놀이"
     ],
+    "explainVideo": {
+      "youtubeId": "cHRCiqS5iik",
+      "seconds": 380
+    },
     "wordVideos": [
+      {
+        "word": "고누 놀이",
+        "youtubeId": "7Dc-1hUOLqY",
+        "seconds": 68,
+        "meaning": "땅이나 나무에 말판을 새겨 상대의 말을 가두는 놀이예요."
+      },
       {
         "word": "줄다리기",
         "youtubeId": "RkYPeTd9mj0",
         "seconds": 67,
         "meaning": "두 편으로 나뉘어 밧줄을 마주 잡아당겨 승부를 겨루는 놀이예요."
+      },
+      {
+        "word": "차전놀이",
+        "youtubeId": "1FfPSfcrZGM",
+        "seconds": 77,
+        "meaning": "동채를 들고 밀어붙여 상대의 동채를 땅에 닿게 하는 놀이예요."
       }
     ]
   },
@@ -705,6 +797,30 @@
       "공기놀이",
       "제기차기",
       "호박고누"
+    ],
+    "explainVideo": {
+      "youtubeId": "iA45Hk7G1t0",
+      "seconds": 252
+    },
+    "wordVideos": [
+      {
+        "word": "공기놀이",
+        "youtubeId": "nA-6EaHJCcI",
+        "seconds": 66,
+        "meaning": "작은 돌 다섯 개를 던지고 집으며 노는 놀이예요."
+      },
+      {
+        "word": "제기차기",
+        "youtubeId": "d4HAluZOXCM",
+        "seconds": 62,
+        "meaning": "쇠붙이에 천을 싸서 만든 제기를 발로 차올리는 놀이예요."
+      },
+      {
+        "word": "호박고누",
+        "youtubeId": "ybHbvaYrWz4",
+        "seconds": 63,
+        "meaning": "둘이서 말을 움직여 상대의 말이 움직이지 못하게 하는 고누 놀이예요."
+      }
     ]
   },
   {
@@ -729,7 +845,17 @@
       "전자 기기",
       "협동심"
     ],
+    "explainVideo": {
+      "youtubeId": "ZNMHdRovji8",
+      "seconds": 288
+    },
     "wordVideos": [
+      {
+        "word": "놀이 도구",
+        "youtubeId": "F3INm7ztn5g",
+        "seconds": 84,
+        "meaning": "놀이할 때 쓰는 물건이에요. 옛날에는 자연이나 생활 주변에서 구하거나 직접 만들었어요."
+      },
       {
         "word": "전자 기기",
         "youtubeId": "_Ugjzs_av7E",
@@ -779,6 +905,12 @@
         "youtubeId": "PY8koNTbIZw",
         "seconds": 51,
         "meaning": "소나 말이 끄는 수레로 무거운 짐을 옮기는 도구예요."
+      },
+      {
+        "word": "나루",
+        "youtubeId": "Rre3IKZEfIs",
+        "seconds": 65,
+        "meaning": "강이나 좁은 바닷길을 건너는 배가 출발하고 도착하는 곳이에요."
       }
     ]
   },
