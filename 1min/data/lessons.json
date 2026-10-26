@@ -11439,6 +11439,10 @@
       "영상 통화",
       "민속촌"
     ],
+    "explainVideo": {
+      "youtubeId": "pjJ_Xu7tmkc",
+      "seconds": 296
+    },
     "wordVideos": [
       {
         "word": "복조리",
@@ -11451,6 +11455,12 @@
         "youtubeId": "zCU8Gz42fGY",
         "seconds": 73,
         "meaning": "옛날 사람들이 살던 모습을 그대로 되살려 놓은 곳이에요."
+      },
+      {
+        "word": "차례",
+        "youtubeId": "i90Z5EdIN-k",
+        "seconds": 66,
+        "meaning": "설날이나 추석 같은 명절에 지내는 제사예요."
       }
     ]
   },
@@ -11475,6 +11485,30 @@
       "자동차",
       "버스",
       "비행기"
+    ],
+    "explainVideo": {
+      "youtubeId": "ET3eEoq2lGE",
+      "seconds": 307
+    },
+    "wordVideos": [
+      {
+        "word": "교통",
+        "youtubeId": "k4xNMaoLfs0",
+        "seconds": 88,
+        "meaning": "사람이 이동하거나 물건을 옮기는 일이에요."
+      },
+      {
+        "word": "교통수단",
+        "youtubeId": "EK4YdUj_pfY",
+        "seconds": 68,
+        "meaning": "사람이 이동하거나 물건을 옮길 때 사용하는 도구예요."
+      },
+      {
+        "word": "교통로",
+        "youtubeId": "yJbtmLzQqMc",
+        "seconds": 71,
+        "meaning": "사람이나 물건이 오가는 길로, 땅의 길·물길(뱃길)·하늘길이 있어요."
+      }
     ]
   },
   {
@@ -11500,6 +11534,30 @@
       "뗏목",
       "돛단배",
       "증기선"
+    ],
+    "explainVideo": {
+      "youtubeId": "p4S8Bv-aLh8",
+      "seconds": 313
+    },
+    "wordVideos": [
+      {
+        "word": "교통로",
+        "youtubeId": "yJbtmLzQqMc",
+        "seconds": 71,
+        "meaning": "교통에 이용하는 길이에요."
+      },
+      {
+        "word": "달구지",
+        "youtubeId": "PY8koNTbIZw",
+        "seconds": 51,
+        "meaning": "소나 말이 끌어 무거운 짐을 싣고 옮기는 수레예요."
+      },
+      {
+        "word": "돛단배",
+        "youtubeId": "ub-U7moh5u0",
+        "seconds": 80,
+        "meaning": "배에 돛을 달아 바람의 힘으로 강을 건너는 배예요."
+      }
     ]
   },
   {
@@ -11524,6 +11582,30 @@
       "화물선",
       "드론",
       "교통로"
+    ],
+    "explainVideo": {
+      "youtubeId": "FQI9hy4ktYQ",
+      "seconds": 340
+    },
+    "wordVideos": [
+      {
+        "word": "여객선",
+        "youtubeId": "U-QLR5jDB2M",
+        "seconds": 84,
+        "meaning": "사람들을 태우고 바다를 건너 섬 같은 곳으로 가는 배예요."
+      },
+      {
+        "word": "화물선",
+        "youtubeId": "Tjdr6aJNCb4",
+        "seconds": 63,
+        "meaning": "많은 짐을 실어 나르는 배예요."
+      },
+      {
+        "word": "인공지능 무인기(드론)",
+        "youtubeId": "Cyyht0CCmRY",
+        "seconds": 80,
+        "meaning": "사람이 타지 않고 하늘을 날아 물건을 배송하는 기계예요."
+      }
     ]
   },
   {
@@ -11547,6 +11629,30 @@
       "비행기",
       "여객선",
       "전기 자전거"
+    ],
+    "explainVideo": {
+      "youtubeId": "vOKsy2yKp2I",
+      "seconds": 320
+    },
+    "wordVideos": [
+      {
+        "word": "국제공항",
+        "youtubeId": "8O-xNnRGC0I",
+        "seconds": 84,
+        "meaning": "비행기를 타고 내리는 큰 공항으로, 다른 지역이나 다른 나라로 갈 수 있어요."
+      },
+      {
+        "word": "여객 터미널",
+        "youtubeId": "pydVxWtrb6U",
+        "seconds": 69,
+        "meaning": "배를 타려는 사람들이 모여 배를 타고 내리는 건물이에요."
+      },
+      {
+        "word": "정류장",
+        "youtubeId": "Rzhh59Ju-Sg",
+        "seconds": 60,
+        "meaning": "버스가 멈춰 서서 사람들이 타고 내리는 곳이에요."
+      }
     ]
   },
   {
@@ -11571,6 +11677,14 @@
       "기차역",
       "공항",
       "관제사"
+    ],
+    "wordVideos": [
+      {
+        "word": "생활공간",
+        "youtubeId": "EOc7jeOaeoc",
+        "seconds": 68,
+        "meaning": "사람들이 일하고 쉬며 생활하는 범위예요. 교통이 발달하면 넓어져요."
+      }
     ]
   },
   {
