@@ -11806,12 +11806,28 @@
       "공항",
       "관제사"
     ],
+    "explainVideo": {
+      "youtubeId": "0GxeTCPOmOc",
+      "seconds": 331
+    },
     "wordVideos": [
       {
         "word": "생활공간",
         "youtubeId": "EOc7jeOaeoc",
         "seconds": 68,
         "meaning": "사람들이 일하고 쉬며 생활하는 범위예요. 교통이 발달하면 넓어져요."
+      },
+      {
+        "word": "항공 교통 관제사",
+        "youtubeId": "M6ukqJk6jLc",
+        "seconds": 64,
+        "meaning": "비행기가 안전하게 이동할 수 있도록 길을 안내하는 사람이에요."
+      },
+      {
+        "word": "기관사",
+        "youtubeId": "TktayKbTt_I",
+        "seconds": 67,
+        "meaning": "기차를 운전하는 사람이에요."
       }
     ]
   },
@@ -11836,6 +11852,30 @@
       "친환경 자동차",
       "자율 주행 자동차",
       "드론 택시"
+    ],
+    "explainVideo": {
+      "youtubeId": "mOhZjtwnn60",
+      "seconds": 432
+    },
+    "wordVideos": [
+      {
+        "word": "배기가스",
+        "youtubeId": "avBND8u1fwM",
+        "seconds": 60,
+        "meaning": "자동차에서 나오는 가스로, 공기를 오염시켜요."
+      },
+      {
+        "word": "친환경 자동차",
+        "youtubeId": "pVLB8GfufPQ",
+        "seconds": 77,
+        "meaning": "배기가스를 내보내지 않는 자동차예요."
+      },
+      {
+        "word": "완전 자율 주행 자동차",
+        "youtubeId": "f_0nLzkHWnA",
+        "seconds": 81,
+        "meaning": "스스로 판단하고 움직이는 자동차예요."
+      }
     ]
   },
   {
@@ -11859,6 +11899,30 @@
       "휴대 전화",
       "공중전화",
       "텔레비전"
+    ],
+    "explainVideo": {
+      "youtubeId": "MWLCwGCuWNk",
+      "seconds": 346
+    },
+    "wordVideos": [
+      {
+        "word": "통신수단",
+        "youtubeId": "Kmh9z8FKs08",
+        "seconds": 77,
+        "meaning": "정보나 소식을 주고받을 때 이용하는 방법이나 도구예요."
+      },
+      {
+        "word": "의사소통",
+        "youtubeId": "RAijbsvEnkQ",
+        "seconds": 66,
+        "meaning": "서로 생각이나 뜻을 주고받는 것이에요."
+      },
+      {
+        "word": "공중전화",
+        "youtubeId": "ZLpwexay5f4",
+        "seconds": 72,
+        "meaning": "길가 같은 곳에 놓아 두고 여러 사람이 함께 쓰던 전화예요."
+      }
     ]
   },
   {
@@ -11884,6 +11948,30 @@
       "봉수",
       "신호 연",
       "북"
+    ],
+    "explainVideo": {
+      "youtubeId": "NqUscU3R-eA",
+      "seconds": 448
+    },
+    "wordVideos": [
+      {
+        "word": "파발",
+        "youtubeId": "KoCusZaRo5E",
+        "seconds": 56,
+        "meaning": "나라의 중요한 일을 적은 문서를 파발꾼이 직접 가서 전달하던 방법이에요."
+      },
+      {
+        "word": "봉수",
+        "youtubeId": "238W5zKlxk0",
+        "seconds": 80,
+        "meaning": "봉수대에 낮에는 연기, 밤에는 횃불을 피워 먼 곳에 위급한 상황을 알리던 방법이에요."
+      },
+      {
+        "word": "서찰",
+        "youtubeId": "o9R2HuOdvHA",
+        "seconds": 68,
+        "meaning": "안부나 소식을 글로 적어 사람이 직접 전달하던 편지예요."
+      }
     ]
   },
   {
@@ -11908,6 +11996,30 @@
       "휴대 전화",
       "스마트폰",
       "무선 호출기"
+    ],
+    "explainVideo": {
+      "youtubeId": "FZy1eGqcXMk",
+      "seconds": 291
+    },
+    "wordVideos": [
+      {
+        "word": "전화 교환원",
+        "youtubeId": "ei1ThBDeLj4",
+        "seconds": 74,
+        "meaning": "전화를 거는 사람과 받는 사람을 연결해 주던 사람이에요."
+      },
+      {
+        "word": "무선 호출기",
+        "youtubeId": "pILsHzJ-1_8",
+        "seconds": 69,
+        "meaning": "연락받을 전화번호나 음성 메시지 등을 남기는 통신수단으로, 삐삐라고도 불렀어요."
+      },
+      {
+        "word": "자동식 전화기",
+        "youtubeId": "mmbicjOj2x8",
+        "seconds": 55,
+        "meaning": "전화 교환원 없이 상대방과 바로 통화할 수 있게 된 전화기예요."
+      }
     ]
   },
   {
@@ -11933,6 +12045,30 @@
       "화상 회의",
       "길 도우미",
       "긴급 재난 문자"
+    ],
+    "explainVideo": {
+      "youtubeId": "Yu9WUU7HqRE",
+      "seconds": 307
+    },
+    "wordVideos": [
+      {
+        "word": "전자 우편",
+        "youtubeId": "701KOeOTT_4",
+        "seconds": 65,
+        "meaning": "인터넷으로 편지나 자료를 주고받는 방법이에요."
+      },
+      {
+        "word": "화상 회의",
+        "youtubeId": "YLtFkJNykNI",
+        "seconds": 63,
+        "meaning": "인터넷을 이용해 화면으로 얼굴을 보며 멀리 있는 사람들과 하는 회의예요."
+      },
+      {
+        "word": "길 도우미",
+        "youtubeId": "k1b8kPoZ0cI",
+        "seconds": 66,
+        "meaning": "목적지에 가는 길을 쉽게 찾도록 알려 주는 통신수단이에요."
+      }
     ]
   },
   {
@@ -11956,6 +12092,14 @@
       "스마트폰",
       "지도 애플리케이션",
       "의사소통"
+    ],
+    "wordVideos": [
+      {
+        "word": "실시간",
+        "youtubeId": "GQNDDOz1KSk",
+        "seconds": 77,
+        "meaning": "즉시와 같은 정도로 아주 빠른 시간이에요."
+      }
     ]
   },
   {
