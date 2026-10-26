@@ -12247,12 +12247,28 @@
       "지도 애플리케이션",
       "의사소통"
     ],
+    "explainVideo": {
+      "youtubeId": "9k_m0xNk-pI",
+      "seconds": 294
+    },
     "wordVideos": [
       {
         "word": "실시간",
         "youtubeId": "GQNDDOz1KSk",
         "seconds": 77,
         "meaning": "즉시와 같은 정도로 아주 빠른 시간이에요."
+      },
+      {
+        "word": "애플리케이션",
+        "youtubeId": "w6smqMsINIc",
+        "seconds": 67,
+        "meaning": "스마트폰이나 컴퓨터에서 어떤 일을 할 때 사용하는 프로그램이에요."
+      },
+      {
+        "word": "스마트폰",
+        "youtubeId": "6nNDbYsM5EU",
+        "seconds": 69,
+        "meaning": "전화를 하거나 문자 메시지, 사진, 문서 등을 주고받을 수 있는 통신수단이에요."
       }
     ]
   },
@@ -12276,6 +12292,30 @@
       "개인 정보",
       "예의",
       "스마트 기기"
+    ],
+    "explainVideo": {
+      "youtubeId": "QmUX32n6xkU",
+      "seconds": 266
+    },
+    "wordVideos": [
+      {
+        "word": "개인 정보",
+        "youtubeId": "ynlM1ZXCQto",
+        "seconds": 77,
+        "meaning": "이름, 주소, 전화번호처럼 나를 알 수 있는 정보예요."
+      },
+      {
+        "word": "악성 댓글",
+        "youtubeId": "fP-KGdXMMqw",
+        "seconds": 86,
+        "meaning": "인터넷에서 상대방을 기분 나쁘게 하거나 욕설이 들어 있는 나쁜 댓글이에요."
+      },
+      {
+        "word": "통신 예절",
+        "youtubeId": "TLZvWC8r2cs",
+        "seconds": 68,
+        "meaning": "인터넷이나 스마트폰으로 대화하고 글을 쓸 때 상대방을 존중하며 지켜야 할 바른 태도예요."
+      }
     ]
   },
   {
