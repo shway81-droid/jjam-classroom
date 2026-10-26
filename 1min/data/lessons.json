@@ -5803,6 +5803,12 @@
         "youtubeId": "kKzdn6zB_Wk",
         "seconds": 86,
         "meaning": "나와 다른 사람이나 문화를 소중하게 여기고 인정하는 것이에요."
+      },
+      {
+        "word": "문화 다양성",
+        "youtubeId": "Od5ArX06NN0",
+        "seconds": 65,
+        "meaning": "한 사회에 여러 가지 서로 다른 문화가 함께 있는 것이에요."
       }
     ]
   },
@@ -5900,6 +5906,26 @@
       "차례",
       "돌잔치",
       "김장"
+    ],
+    "wordVideos": [
+      {
+        "word": "풍습",
+        "youtubeId": "DMAFpMHzl_Q",
+        "seconds": 70,
+        "meaning": "옛날부터 되풀이되어 전해 오는 생활 습관과 모습이에요."
+      },
+      {
+        "word": "세시 풍속",
+        "youtubeId": "usS1GOeuIHA",
+        "seconds": 65,
+        "meaning": "해마다 일정한 때에 되풀이하는 풍습이에요."
+      },
+      {
+        "word": "김장",
+        "youtubeId": "HPjIXWTmQXE",
+        "seconds": 72,
+        "meaning": "겨울이 되기 전에 김치를 많이 담그는 일이에요."
+      }
     ]
   },
   {
@@ -5976,6 +6002,14 @@
       "동지",
       "부럼",
       "팥죽"
+    ],
+    "wordVideos": [
+      {
+        "word": "음력",
+        "youtubeId": "S6fEI1R5ob8",
+        "seconds": 74,
+        "meaning": "달이 지구를 한 바퀴 도는 시간으로 날짜를 세는 방법이에요."
+      }
     ]
   },
   {
@@ -5999,6 +6033,26 @@
       "명절",
       "축제",
       "설날"
+    ],
+    "wordVideos": [
+      {
+        "word": "명절",
+        "youtubeId": "1tI5TseFbY4",
+        "seconds": 78,
+        "meaning": "설날, 추석처럼 해마다 즐기는 큰 날이에요."
+      },
+      {
+        "word": "풍년",
+        "youtubeId": "JKNKmxvs24I",
+        "seconds": 78,
+        "meaning": "농사가 잘되어 곡식이 많이 나는 해예요."
+      },
+      {
+        "word": "지역 축제",
+        "youtubeId": "qfGfVS9krjc",
+        "seconds": 75,
+        "meaning": "지역마다 열어 세시 풍속을 즐기게 하는 행사예요."
+      }
     ]
   },
   {
@@ -6024,6 +6078,14 @@
       "제기차기",
       "투호",
       "고누"
+    ],
+    "wordVideos": [
+      {
+        "word": "제기차기",
+        "youtubeId": "d4HAluZOXCM",
+        "seconds": 62,
+        "meaning": "제기를 발로 차올리는 전통 놀이예요."
+      }
     ]
   },
   {
@@ -6071,6 +6133,26 @@
       "철도",
       "수로",
       "항공로"
+    ],
+    "wordVideos": [
+      {
+        "word": "교통",
+        "youtubeId": "k4xNMaoLfs0",
+        "seconds": 88,
+        "meaning": "어떤 장소에서 다른 장소로 사람이 이동하거나 물건을 옮기는 것이에요."
+      },
+      {
+        "word": "교통수단",
+        "youtubeId": "EK4YdUj_pfY",
+        "seconds": 68,
+        "meaning": "사람이 이동하거나 물건을 옮길 때 사용하는 도구예요."
+      },
+      {
+        "word": "교통로",
+        "youtubeId": "yJbtmLzQqMc",
+        "seconds": 71,
+        "meaning": "교통에 이용하는 길이에요."
+      }
     ]
   },
   {
@@ -6096,6 +6178,20 @@
       "돛단배",
       "나룻배",
       "증기 기차"
+    ],
+    "wordVideos": [
+      {
+        "word": "달구지",
+        "youtubeId": "PY8koNTbIZw",
+        "seconds": 51,
+        "meaning": "소가 끄는 수레로 무거운 짐을 옮기는 도구예요."
+      },
+      {
+        "word": "돛단배",
+        "youtubeId": "ub-U7moh5u0",
+        "seconds": 80,
+        "meaning": "바람의 힘으로 가는 돛 달린 배예요."
+      }
     ]
   },
   {
@@ -6146,6 +6242,20 @@
       "고속 열차",
       "교통 약자",
       "교통 관련 직업"
+    ],
+    "wordVideos": [
+      {
+        "word": "생활공간",
+        "youtubeId": "EOc7jeOaeoc",
+        "seconds": 68,
+        "meaning": "사람들이 생활하는 범위예요. 교통이 발달하면 넓어져요."
+      },
+      {
+        "word": "항공 교통 관제사",
+        "youtubeId": "M6ukqJk6jLc",
+        "seconds": 64,
+        "meaning": "비행기가 안전하게 다니도록 안내하는 사람이에요."
+      }
     ]
   },
   {
@@ -6193,6 +6303,14 @@
       "초고속 자기 부상 열차",
       "도심 항공 교통",
       "친환경"
+    ],
+    "wordVideos": [
+      {
+        "word": "완전 자율 주행 자동차",
+        "youtubeId": "f_0nLzkHWnA",
+        "seconds": 81,
+        "meaning": "사람이 운전하지 않아도 스스로 움직이는 자동차예요."
+      }
     ]
   },
   {
@@ -6239,6 +6357,20 @@
       "스마트폰",
       "길 도우미",
       "일기 예보"
+    ],
+    "wordVideos": [
+      {
+        "word": "통신수단",
+        "youtubeId": "Kmh9z8FKs08",
+        "seconds": 77,
+        "meaning": "소식이나 정보를 주고받을 때 쓰는 방법이나 도구예요."
+      },
+      {
+        "word": "길 도우미",
+        "youtubeId": "k1b8kPoZ0cI",
+        "seconds": 66,
+        "meaning": "자동차에서 목적지까지 가는 길을 알려 주는 장치예요."
+      }
     ]
   },
   {
@@ -6264,6 +6396,20 @@
       "나발",
       "파발",
       "봉수"
+    ],
+    "wordVideos": [
+      {
+        "word": "서찰",
+        "youtubeId": "o9R2HuOdvHA",
+        "seconds": 68,
+        "meaning": "안부나 소식을 글로 적어 사람이 직접 전달하던 편지예요."
+      },
+      {
+        "word": "봉수",
+        "youtubeId": "238W5zKlxk0",
+        "seconds": 80,
+        "meaning": "낮에는 연기, 밤에는 불로 위급한 상황을 알리던 방법이에요."
+      }
     ]
   },
   {
@@ -6288,6 +6434,14 @@
       "재난 경보기",
       "전자 칠판",
       "실시간 정보"
+    ],
+    "wordVideos": [
+      {
+        "word": "화상 회의",
+        "youtubeId": "YLtFkJNykNI",
+        "seconds": 63,
+        "meaning": "인터넷으로 얼굴을 보며 하는 회의예요."
+      }
     ]
   },
   {
@@ -6313,6 +6467,20 @@
       "교환원",
       "전화기의 변화",
       "키오스크"
+    ],
+    "wordVideos": [
+      {
+        "word": "전화 교환원",
+        "youtubeId": "ei1ThBDeLj4",
+        "seconds": 74,
+        "meaning": "전화를 연결해 주던 사람이에요."
+      },
+      {
+        "word": "무선 호출기",
+        "youtubeId": "pILsHzJ-1_8",
+        "seconds": 69,
+        "meaning": "삐삐라고도 불렀던 통신수단이에요."
+      }
     ]
   },
   {
@@ -6335,6 +6503,20 @@
       "통신 예절",
       "공공장소 예절",
       "사용 규칙"
+    ],
+    "wordVideos": [
+      {
+        "word": "통신 예절",
+        "youtubeId": "TLZvWC8r2cs",
+        "seconds": 68,
+        "meaning": "통신수단을 쓸 때 지켜야 하는 예의예요."
+      },
+      {
+        "word": "통신수단",
+        "youtubeId": "Kmh9z8FKs08",
+        "seconds": 77,
+        "meaning": "전화·스마트폰·컴퓨터처럼 멀리 있는 사람과 소식이나 생각을 주고받게 해 주는 도구예요."
+      }
     ]
   },
   {
