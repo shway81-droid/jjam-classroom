@@ -42,6 +42,26 @@
       "출생아 수",
       "노인 인구",
       "인구 비율"
+    ],
+    "wordVideos": [
+      {
+        "word": "저출산",
+        "youtubeId": "Y4fpacAf5cA",
+        "seconds": 57,
+        "meaning": "태어나는 아이의 수가 줄어드는 현상이에요."
+      },
+      {
+        "word": "고령화",
+        "youtubeId": "tuvFaDTmaX4",
+        "seconds": 72,
+        "meaning": "전체 인구에서 노인 인구가 차지하는 정도가 늘어나는 현상이에요."
+      },
+      {
+        "word": "인구",
+        "youtubeId": "BwyWvSeqXIA",
+        "seconds": 84,
+        "meaning": "한 나라나 일정한 지역에 사는 사람 전체를 말해요."
+      }
     ]
   },
   {
@@ -66,6 +86,14 @@
       "노인 대학",
       "가족계획",
       "생활 모습 변화"
+    ],
+    "wordVideos": [
+      {
+        "word": "생산 연령 인구",
+        "youtubeId": "KMXlNmQBAGg",
+        "seconds": 78,
+        "meaning": "15세부터 64세까지, 일을 해서 경제를 이끌 수 있는 나이의 사람들이에요."
+      }
     ]
   },
   {
@@ -89,6 +117,14 @@
       "빅 데이터",
       "가상 현실",
       "증강 현실"
+    ],
+    "wordVideos": [
+      {
+        "word": "지능정보화",
+        "youtubeId": "Z4BqPqhn2OU",
+        "seconds": 65,
+        "meaning": "인공지능 같은 지능정보 기술이 사회 여러 분야에서 널리 쓰이는 현상이에요."
+      }
     ]
   },
   {
@@ -113,6 +149,14 @@
       "자율 주행",
       "개인 정보",
       "소외"
+    ],
+    "wordVideos": [
+      {
+        "word": "인공지능",
+        "youtubeId": "1DTRDVsclGg",
+        "seconds": 74,
+        "meaning": "컴퓨터가 사람처럼 생각하고 배우고 상황을 판단하도록 만든 기술이에요."
+      }
     ]
   },
   {
@@ -137,6 +181,26 @@
       "복지 제도",
       "지능정보화",
       "개인 정보"
+    ],
+    "wordVideos": [
+      {
+        "word": "대응",
+        "youtubeId": "BdWJcRIG0JA",
+        "seconds": 84,
+        "meaning": "어떤 상황에 맞추어 태도나 행동을 취하는 것이에요."
+      },
+      {
+        "word": "법과 제도",
+        "youtubeId": "0jXltv4Ymmo",
+        "seconds": 93,
+        "meaning": "문제를 막고 해결하기 위해 사회가 만든 규칙과 방법이에요."
+      },
+      {
+        "word": "개인 정보",
+        "youtubeId": "ynlM1ZXCQto",
+        "seconds": 77,
+        "meaning": "이름, 주소, 전화번호처럼 그 사람이 누구인지 알 수 있는 정보예요."
+      }
     ]
   },
   {
@@ -160,6 +224,20 @@
       "생일 음식",
       "옷차림",
       "집의 모양"
+    ],
+    "wordVideos": [
+      {
+        "word": "문화",
+        "youtubeId": "XGAwhS5wGcw",
+        "seconds": 63,
+        "meaning": "한 사회의 사람들이 가지고 있는 공통의 생활 방식이에요."
+      },
+      {
+        "word": "환경 적응",
+        "youtubeId": "dP0kfE5FzBU",
+        "seconds": 73,
+        "meaning": "사람들이 살아가는 곳의 환경에 맞게 옷, 음식, 집을 만들며 살아가는 것이에요."
+      }
     ]
   },
   {
@@ -183,6 +261,20 @@
       "1인 가구",
       "비혼",
       "반려동물"
+    ],
+    "wordVideos": [
+      {
+        "word": "이주민",
+        "youtubeId": "Xs6TjmZbTMQ",
+        "seconds": 56,
+        "meaning": "다른 곳으로 옮겨 가서 사는 사람이에요."
+      },
+      {
+        "word": "1인 가구",
+        "youtubeId": "GsY_9BMwyj0",
+        "seconds": 64,
+        "meaning": "혼자 사는 가구를 말해요."
+      }
     ]
   },
   {
@@ -207,6 +299,26 @@
       "차별",
       "1인 가구",
       "반려동물"
+    ],
+    "wordVideos": [
+      {
+        "word": "편견",
+        "youtubeId": "wwRUTQ7DxC4",
+        "seconds": 71,
+        "meaning": "공정하지 못하고 한쪽으로 치우친 생각이에요."
+      },
+      {
+        "word": "차별",
+        "youtubeId": "uap93edzR68",
+        "seconds": 71,
+        "meaning": "어떤 기준으로 대상을 구별하고 부당하게 다르게 대우하는 것이에요."
+      },
+      {
+        "word": "비혼",
+        "youtubeId": "xK-f4OYutJo",
+        "seconds": 66,
+        "meaning": "결혼하지 않는 것을 말해요."
+      }
     ]
   },
   {
@@ -231,6 +343,14 @@
       "동물 보호 센터",
       "한국어 학급",
       "편견과 차별"
+    ],
+    "wordVideos": [
+      {
+        "word": "조화",
+        "youtubeId": "U1one1yP_mI",
+        "seconds": 69,
+        "meaning": "서로 다른 문화를 가진 사람들이 어울려 함께 살아가는 모습이에요."
+      }
     ]
   },
   {
@@ -253,6 +373,14 @@
       "공익 광고",
       "손바닥책",
       "노랫말 바꾸기"
+    ],
+    "wordVideos": [
+      {
+        "word": "존중",
+        "youtubeId": "kKzdn6zB_Wk",
+        "seconds": 86,
+        "meaning": "나와 다른 사람이나 문화를 소중하게 여기고 인정하는 것이에요."
+      }
     ]
   },
   {
