@@ -6195,12 +6195,28 @@
       "금줄",
       "관례"
     ],
+    "explainVideo": {
+      "youtubeId": "rTwjfsu-iHA",
+      "seconds": 517
+    },
     "wordVideos": [
       {
         "word": "혼례",
         "youtubeId": "E_o8ytDF2R8",
         "seconds": 84,
         "meaning": "남자와 여자가 결혼하는 예식이에요."
+      },
+      {
+        "word": "폐백",
+        "youtubeId": "ttFcAKfNMNk",
+        "seconds": 64,
+        "meaning": "신부가 처음으로 시부모나 시댁 어른들께 드리는 큰절과 선물이에요."
+      },
+      {
+        "word": "백일잔치",
+        "youtubeId": "xqTz1socwIk",
+        "seconds": 78,
+        "meaning": "아기가 태어난 지 100일이 되는 날 하는 잔치예요."
       }
     ]
   },
@@ -6229,12 +6245,28 @@
       "부럼",
       "팥죽"
     ],
+    "explainVideo": {
+      "youtubeId": "dh6wxDk9hZc",
+      "seconds": 448
+    },
     "wordVideos": [
       {
         "word": "음력",
         "youtubeId": "S6fEI1R5ob8",
         "seconds": 74,
         "meaning": "달이 지구를 한 바퀴 도는 시간으로 날짜를 세는 방법이에요."
+      },
+      {
+        "word": "정월 대보름",
+        "youtubeId": "A2HkzYdO7Rg",
+        "seconds": 81,
+        "meaning": "음력 1월 15일로 새해 처음 보름달이 뜨는 날이에요."
+      },
+      {
+        "word": "동지",
+        "youtubeId": "e890riajDLA",
+        "seconds": 65,
+        "meaning": "1년 중 밤이 가장 긴 날로, 팥죽을 먹었어요."
       }
     ]
   },
@@ -6260,6 +6292,10 @@
       "축제",
       "설날"
     ],
+    "explainVideo": {
+      "youtubeId": "i83GLzxNFUA",
+      "seconds": 338
+    },
     "wordVideos": [
       {
         "word": "명절",
@@ -6305,7 +6341,23 @@
       "투호",
       "고누"
     ],
+    "explainVideo": {
+      "youtubeId": "BH3DCsdhmrs",
+      "seconds": 395
+    },
     "wordVideos": [
+      {
+        "word": "복주머니",
+        "youtubeId": "5Xk86yaHPz8",
+        "seconds": 65,
+        "meaning": "새해에 복이 들어오기를 바라며 차던 주머니예요."
+      },
+      {
+        "word": "투호",
+        "youtubeId": "2D-xlef39EI",
+        "seconds": 74,
+        "meaning": "항아리에 화살을 던져 넣는 전통 놀이예요."
+      },
       {
         "word": "제기차기",
         "youtubeId": "d4HAluZOXCM",
@@ -6360,6 +6412,10 @@
       "수로",
       "항공로"
     ],
+    "explainVideo": {
+      "youtubeId": "vpBkQVVQ8SY",
+      "seconds": 404
+    },
     "wordVideos": [
       {
         "word": "교통",
@@ -6405,6 +6461,10 @@
       "나룻배",
       "증기 기차"
     ],
+    "explainVideo": {
+      "youtubeId": "i7k51cgn1zA",
+      "seconds": 386
+    },
     "wordVideos": [
       {
         "word": "달구지",
@@ -6417,6 +6477,12 @@
         "youtubeId": "ub-U7moh5u0",
         "seconds": 80,
         "meaning": "바람의 힘으로 가는 돛 달린 배예요."
+      },
+      {
+        "word": "뗏목",
+        "youtubeId": "RxWzwlC3sJo",
+        "seconds": 80,
+        "meaning": "통나무를 엮어 만든 배로 강을 건널 때 썼어요."
       }
     ]
   },
@@ -6444,6 +6510,30 @@
       "신호등",
       "철도 건널목",
       "등대"
+    ],
+    "explainVideo": {
+      "youtubeId": "QhmcBhGE1Ws",
+      "seconds": 544
+    },
+    "wordVideos": [
+      {
+        "word": "교통 시설",
+        "youtubeId": "X0wqGx5tTqI",
+        "seconds": 68,
+        "meaning": "교통수단을 편하게 이용하도록 만든 공항, 역, 터미널 등이에요."
+      },
+      {
+        "word": "케이블카",
+        "youtubeId": "1GOGbeAY334",
+        "seconds": 83,
+        "meaning": "높은 곳으로 이동하거나 경치를 볼 때 타는 교통수단이에요."
+      },
+      {
+        "word": "지게차",
+        "youtubeId": "sXhNl-oUvTo",
+        "seconds": 64,
+        "meaning": "많은 짐을 들어 옮기는 교통수단이에요."
+      }
     ]
   },
   {
@@ -6469,6 +6559,10 @@
       "교통 약자",
       "교통 관련 직업"
     ],
+    "explainVideo": {
+      "youtubeId": "Nc4PMdSVwEA",
+      "seconds": 367
+    },
     "wordVideos": [
       {
         "word": "생활공간",
@@ -6481,6 +6575,12 @@
         "youtubeId": "M6ukqJk6jLc",
         "seconds": 64,
         "meaning": "비행기가 안전하게 다니도록 안내하는 사람이에요."
+      },
+      {
+        "word": "도선사",
+        "youtubeId": "gnSnkLSPNws",
+        "seconds": 60,
+        "meaning": "큰 배가 항구에 안전하게 들어오도록 길을 안내하는 사람이에요."
       }
     ]
   },
@@ -6506,6 +6606,30 @@
       "친환경 에너지",
       "공유 자전거",
       "교통안전 수칙"
+    ],
+    "explainVideo": {
+      "youtubeId": "ALK6izEF0UU",
+      "seconds": 439
+    },
+    "wordVideos": [
+      {
+        "word": "안전 수칙",
+        "youtubeId": "0slKXZ5cpH0",
+        "seconds": 68,
+        "meaning": "교통사고를 막으려고 지켜야 하는 규칙이에요."
+      },
+      {
+        "word": "보행자",
+        "youtubeId": "UujFZfzDFg8",
+        "seconds": 88,
+        "meaning": "길을 걸어 다니는 사람이에요."
+      },
+      {
+        "word": "친환경 에너지",
+        "youtubeId": "20h7Yf0mQJc",
+        "seconds": 84,
+        "meaning": "환경을 덜 오염시키는 에너지예요."
+      }
     ]
   },
   {
@@ -6536,6 +6660,12 @@
         "youtubeId": "f_0nLzkHWnA",
         "seconds": 81,
         "meaning": "사람이 운전하지 않아도 스스로 움직이는 자동차예요."
+      },
+      {
+        "word": "자기 부상 열차",
+        "youtubeId": "vWcRuGsmAP8",
+        "seconds": 56,
+        "meaning": "전기의 힘으로 공중에 떠서 달리는 열차예요."
       }
     ]
   },
