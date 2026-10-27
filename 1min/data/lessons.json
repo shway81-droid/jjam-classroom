@@ -1224,6 +1224,10 @@
       "홀로그램 통신",
       "의료 기기"
     ],
+    "explainVideo": {
+      "youtubeId": "u8p6IkFyMP0",
+      "seconds": 333
+    },
     "wordVideos": [
       {
         "word": "뇌파 통신",
