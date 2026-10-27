@@ -6654,6 +6654,10 @@
       "도심 항공 교통",
       "친환경"
     ],
+    "explainVideo": {
+      "youtubeId": "_m83Wy52okw",
+      "seconds": 321
+    },
     "wordVideos": [
       {
         "word": "완전 자율 주행 자동차",
@@ -6666,6 +6670,12 @@
         "youtubeId": "vWcRuGsmAP8",
         "seconds": 56,
         "meaning": "전기의 힘으로 공중에 떠서 달리는 열차예요."
+      },
+      {
+        "word": "도심 항공 교통",
+        "youtubeId": "Gp5K2vqoIys",
+        "seconds": 55,
+        "meaning": "도시 하늘 길로 이동하는 미래 교통이에요."
       }
     ]
   },
@@ -6714,7 +6724,17 @@
       "길 도우미",
       "일기 예보"
     ],
+    "explainVideo": {
+      "youtubeId": "1H-x2HZCfP4",
+      "seconds": 266
+    },
     "wordVideos": [
+      {
+        "word": "통신",
+        "youtubeId": "TNKRlfGZNcI",
+        "seconds": 81,
+        "meaning": "소식이나 정보를 주고받는 것이에요."
+      },
       {
         "word": "통신수단",
         "youtubeId": "Kmh9z8FKs08",
@@ -6753,12 +6773,22 @@
       "파발",
       "봉수"
     ],
+    "explainVideo": {
+      "youtubeId": "964JxQznTME",
+      "seconds": 419
+    },
     "wordVideos": [
       {
         "word": "서찰",
         "youtubeId": "o9R2HuOdvHA",
         "seconds": 68,
         "meaning": "안부나 소식을 글로 적어 사람이 직접 전달하던 편지예요."
+      },
+      {
+        "word": "나발",
+        "youtubeId": "63rrM35_PFs",
+        "seconds": 89,
+        "meaning": "군대에서 소리로 신호를 보내던 악기예요."
       },
       {
         "word": "봉수",
@@ -6791,7 +6821,23 @@
       "전자 칠판",
       "실시간 정보"
     ],
+    "explainVideo": {
+      "youtubeId": "oM_QSV6DNOU",
+      "seconds": 280
+    },
     "wordVideos": [
+      {
+        "word": "모바일 메신저",
+        "youtubeId": "E4YAMnAV_WU",
+        "seconds": 76,
+        "meaning": "스마트폰으로 대화하고 정보를 주고받는 프로그램이에요."
+      },
+      {
+        "word": "재난 경보",
+        "youtubeId": "n8KL8WvvT-0",
+        "seconds": 56,
+        "meaning": "위험한 일이 생길 때 사람들에게 알려 주는 소식이에요."
+      },
       {
         "word": "화상 회의",
         "youtubeId": "YLtFkJNykNI",
@@ -6824,6 +6870,10 @@
       "전화기의 변화",
       "키오스크"
     ],
+    "explainVideo": {
+      "youtubeId": "ZogNwgJpTvI",
+      "seconds": 330
+    },
     "wordVideos": [
       {
         "word": "전화 교환원",
@@ -6836,6 +6886,12 @@
         "youtubeId": "pILsHzJ-1_8",
         "seconds": 69,
         "meaning": "삐삐라고도 불렀던 통신수단이에요."
+      },
+      {
+        "word": "인공위성",
+        "youtubeId": "p5j_1sfhtck",
+        "seconds": 78,
+        "meaning": "우주에서 정보를 모으는 기계예요."
       }
     ]
   },
@@ -6860,6 +6916,10 @@
       "공공장소 예절",
       "사용 규칙"
     ],
+    "explainVideo": {
+      "youtubeId": "_G8ThEHeA5g",
+      "seconds": 295
+    },
     "wordVideos": [
       {
         "word": "스마트폰 과의존",
