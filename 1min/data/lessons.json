@@ -893,6 +893,10 @@
       "뗏목",
       "증기선"
     ],
+    "explainVideo": {
+      "youtubeId": "4PvLMBg4I9k",
+      "seconds": 320
+    },
     "wordVideos": [
       {
         "word": "교통수단",
@@ -937,6 +941,10 @@
       "항구",
       "교통 시설"
     ],
+    "explainVideo": {
+      "youtubeId": "UbCv7lF0n24",
+      "seconds": 398
+    },
     "wordVideos": [
       {
         "word": "여객선",
@@ -949,6 +957,12 @@
         "youtubeId": "Tjdr6aJNCb4",
         "seconds": 63,
         "meaning": "큰 짐을 실어 나르는 배예요."
+      },
+      {
+        "word": "철도",
+        "youtubeId": "z_NPaHlxz50",
+        "seconds": 63,
+        "meaning": "기차가 다니도록 만든 길이에요."
       }
     ]
   },
@@ -973,6 +987,30 @@
       "특별교통수단",
       "교통약자",
       "새로 생긴 직업"
+    ],
+    "explainVideo": {
+      "youtubeId": "K-nsxnX7WCs",
+      "seconds": 393
+    },
+    "wordVideos": [
+      {
+        "word": "교통약자",
+        "youtubeId": "px30g12SHfY",
+        "seconds": 84,
+        "meaning": "이동에 불편을 느끼는 사람이에요."
+      },
+      {
+        "word": "특별교통수단",
+        "youtubeId": "5k-xm2TvkVk",
+        "seconds": 84,
+        "meaning": "교통약자의 이동을 지원하는 교통수단이에요."
+      },
+      {
+        "word": "개인형 이동 수단",
+        "youtubeId": "OCbc7wyHqkg",
+        "seconds": 68,
+        "meaning": "킥보드처럼 혼자 타고 가까운 곳을 이동하는 작은 교통수단이에요."
+      }
     ]
   },
   {
@@ -998,12 +1036,22 @@
       "친환경 자동차",
       "미래 교통수단"
     ],
+    "explainVideo": {
+      "youtubeId": "XZHRB5-x54A",
+      "seconds": 374
+    },
     "wordVideos": [
       {
         "word": "배기가스",
         "youtubeId": "avBND8u1fwM",
         "seconds": 60,
         "meaning": "자동차에서 나오는 가스로 공기를 나쁘게 해요."
+      },
+      {
+        "word": "생태 통로",
+        "youtubeId": "IZdSxpRvO2g",
+        "seconds": 71,
+        "meaning": "야생 동물이 자유롭게 이동할 수 있도록 도로 위로 산과 연결하거나 땅굴을 파서 마련해 놓은 길이에요."
       },
       {
         "word": "친환경 자동차",
@@ -1036,6 +1084,10 @@
       "신호 연",
       "봉수"
     ],
+    "explainVideo": {
+      "youtubeId": "oah6ywnQndw",
+      "seconds": 401
+    },
     "wordVideos": [
       {
         "word": "통신수단",
@@ -1079,6 +1131,10 @@
       "통신수단 특징",
       "사이버 폭력"
     ],
+    "explainVideo": {
+      "youtubeId": "bQAv4EMut4s",
+      "seconds": 493
+    },
     "wordVideos": [
       {
         "word": "전자 우편",
@@ -1091,6 +1147,12 @@
         "youtubeId": "k1b8kPoZ0cI",
         "seconds": 66,
         "meaning": "목적지까지 가는 길을 알려 주는 장치예요."
+      },
+      {
+        "word": "사이버 폭력",
+        "youtubeId": "RM3SLyBhAtw",
+        "seconds": 64,
+        "meaning": "온라인에서 다른 사람을 괴롭히거나 상처 주는 행동이에요."
       }
     ]
   },
@@ -1116,6 +1178,10 @@
       "스마트폰",
       "의사소통"
     ],
+    "explainVideo": {
+      "youtubeId": "u0k02Yr3t0A",
+      "seconds": 366
+    },
     "wordVideos": [
       {
         "word": "의사소통",
@@ -1157,6 +1223,26 @@
       "뇌파 통신",
       "홀로그램 통신",
       "의료 기기"
+    ],
+    "wordVideos": [
+      {
+        "word": "뇌파 통신",
+        "youtubeId": "ksPDdxAEjFU",
+        "seconds": 85,
+        "meaning": "생각만으로 컴퓨터나 로봇을 조작해 소통하는 미래 통신수단이에요."
+      },
+      {
+        "word": "홀로그램 통신",
+        "youtubeId": "1l4-gJOcoLU",
+        "seconds": 56,
+        "meaning": "빛으로 입체 이미지를 만들어 먼 곳 사람과 한 공간에 있는 듯 대화하는 통신이에요."
+      },
+      {
+        "word": "의료 기기",
+        "youtubeId": "7TwsH4n-edI",
+        "seconds": 56,
+        "meaning": "몸에 차거나 붙여 건강 상태를 실시간으로 알려 주는 기기예요."
+      }
     ]
   },
   {
