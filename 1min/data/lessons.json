@@ -5575,6 +5575,10 @@
       "평균 수명",
       "폐교"
     ],
+    "explainVideo": {
+      "youtubeId": "rjDaexhElFY",
+      "seconds": 436
+    },
     "wordVideos": [
       {
         "word": "사회 변화",
@@ -5587,6 +5591,12 @@
         "youtubeId": "BwyWvSeqXIA",
         "seconds": 84,
         "meaning": "한 나라나 일정한 지역에 사는 사람 전체를 말해요."
+      },
+      {
+        "word": "평균 수명",
+        "youtubeId": "77N8JaWVFdg",
+        "seconds": 66,
+        "meaning": "사람이 태어나서 평균적으로 얼마나 오래 사는지를 나타내는 햇수예요."
       }
     ]
   },
