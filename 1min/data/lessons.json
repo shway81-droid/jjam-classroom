@@ -5622,6 +5622,10 @@
       "보육 시설",
       "저출산 해결 노력"
     ],
+    "explainVideo": {
+      "youtubeId": "l7sfTsc_njU",
+      "seconds": 419
+    },
     "wordVideos": [
       {
         "word": "저출산",
@@ -5634,6 +5638,12 @@
         "youtubeId": "KMXlNmQBAGg",
         "seconds": 78,
         "meaning": "15세부터 64세까지, 일을 해서 경제를 이끌 수 있는 나이의 사람들이에요."
+      },
+      {
+        "word": "출산율",
+        "youtubeId": "dUMRBHa0nzE",
+        "seconds": 60,
+        "meaning": "여성 한 명이 15세부터 49세 사이에 낳을 것으로 예상되는 평균적인 아이의 수로 알 수 있어요."
       }
     ]
   },
@@ -5659,6 +5669,10 @@
       "복지 제도",
       "노인 일자리"
     ],
+    "explainVideo": {
+      "youtubeId": "5QGTN1IOBrI",
+      "seconds": 343
+    },
     "wordVideos": [
       {
         "word": "고령화",
@@ -5671,6 +5685,12 @@
         "youtubeId": "BhdVwCm0lZ8",
         "seconds": 83,
         "meaning": "노인들이 시간을 보내고 여러 활동을 할 수 있도록 만든 시설이에요."
+      },
+      {
+        "word": "노인 일자리",
+        "youtubeId": "9RRSIGNBAM8",
+        "seconds": 69,
+        "meaning": "일하고 싶은 노인이 할 수 있는 일을 말해요. 노인들이 학교나 회사 등에서 일하며 사람들에게 도움을 줘요."
       }
     ]
   },
@@ -5697,6 +5717,10 @@
       "개인 정보",
       "사이버 범죄"
     ],
+    "explainVideo": {
+      "youtubeId": "2_J_ua7-Ysc",
+      "seconds": 359
+    },
     "wordVideos": [
       {
         "word": "지능정보화",
@@ -5709,6 +5733,12 @@
         "youtubeId": "1DTRDVsclGg",
         "seconds": 74,
         "meaning": "컴퓨터가 사람처럼 생각하고 배우고 상황을 판단하도록 만든 기술이에요."
+      },
+      {
+        "word": "스마트폰 과의존",
+        "youtubeId": "L2aC3BlsxdY",
+        "seconds": 67,
+        "meaning": "스마트폰을 지나치게 이용하여 문제가 되는 상태예요."
       }
     ]
   },
@@ -5733,6 +5763,30 @@
       "세종 학당",
       "생활 양식",
       "감염병"
+    ],
+    "explainVideo": {
+      "youtubeId": "3RcK7Yhox1w",
+      "seconds": 320
+    },
+    "wordVideos": [
+      {
+        "word": "세계화",
+        "youtubeId": "woAQcKXp1dQ",
+        "seconds": 60,
+        "meaning": "여러 나라가 다양한 분야에서 교류하면서 전 세계가 하나로 연결되는 현상이에요."
+      },
+      {
+        "word": "한류",
+        "youtubeId": "ePfiVIl3L2o",
+        "seconds": 67,
+        "meaning": "우리나라와 관련 있는 것들이 다른 나라에서 인기를 얻는 현상이에요."
+      },
+      {
+        "word": "세종 학당",
+        "youtubeId": "udn8ckv6hlQ",
+        "seconds": 70,
+        "meaning": "다른 나라에서 한국어를 배우려는 사람들에게 한국어를 중심으로 한국에 관한 내용을 가르치는 곳이에요."
+      }
     ]
   },
   {
@@ -5780,12 +5834,28 @@
       "다양한 문화",
       "주제 도입"
     ],
+    "explainVideo": {
+      "youtubeId": "Mk0jEeME_ms",
+      "seconds": 315
+    },
     "wordVideos": [
       {
         "word": "문화",
         "youtubeId": "XGAwhS5wGcw",
         "seconds": 63,
         "meaning": "한 사회의 사람들이 가지고 있는 공통의 생활 방식이에요."
+      },
+      {
+        "word": "의식주",
+        "youtubeId": "xpTbEJvvmFU",
+        "seconds": 82,
+        "meaning": "옷, 음식, 집처럼 사람이 살아가는 데 꼭 필요한 생활 모습이에요."
+      },
+      {
+        "word": "축제",
+        "youtubeId": "HWr_d6BNtf0",
+        "seconds": 80,
+        "meaning": "지역이나 나라의 문화를 즐기려고 사람들이 모여 여는 행사예요."
       }
     ]
   },
@@ -5811,6 +5881,10 @@
       "반려동물",
       "세계화"
     ],
+    "explainVideo": {
+      "youtubeId": "VEeYCrbsFTQ",
+      "seconds": 428
+    },
     "wordVideos": [
       {
         "word": "이주민",
@@ -5855,6 +5929,10 @@
       "편견",
       "차별"
     ],
+    "explainVideo": {
+      "youtubeId": "9tOMZjdCvc4",
+      "seconds": 367
+    },
     "wordVideos": [
       {
         "word": "편견",
@@ -5867,6 +5945,12 @@
         "youtubeId": "uap93edzR68",
         "seconds": 71,
         "meaning": "어떤 기준으로 대상을 구별하고 부당하게 다르게 대우하는 것이에요."
+      },
+      {
+        "word": "반려동물 산업",
+        "youtubeId": "Q27isNYmXm0",
+        "seconds": 68,
+        "meaning": "반려동물에게 필요한 물건과 서비스를 만들고 파는 일이에요."
       }
     ]
   },
@@ -5893,6 +5977,10 @@
       "동물 보호 센터",
       "1인 가구 지원"
     ],
+    "explainVideo": {
+      "youtubeId": "ofjANjGvIjo",
+      "seconds": 392
+    },
     "wordVideos": [
       {
         "word": "존중",
@@ -5905,6 +5993,12 @@
         "youtubeId": "Od5ArX06NN0",
         "seconds": 65,
         "meaning": "한 사회에 여러 가지 서로 다른 문화가 함께 있는 것이에요."
+      },
+      {
+        "word": "유니버설 디자인",
+        "youtubeId": "19PK7dJTU2o",
+        "seconds": 65,
+        "meaning": "나이, 장애, 언어와 상관없이 누구나 쉽게 쓸 수 있게 만드는 디자인이에요."
       }
     ]
   },
@@ -6003,6 +6097,10 @@
       "돌잔치",
       "김장"
     ],
+    "explainVideo": {
+      "youtubeId": "rCIyFm3ROY0",
+      "seconds": 308
+    },
     "wordVideos": [
       {
         "word": "풍습",
@@ -6047,6 +6145,30 @@
       "혼례",
       "회갑",
       "장례"
+    ],
+    "explainVideo": {
+      "youtubeId": "EuZCQsUlxrw",
+      "seconds": 425
+    },
+    "wordVideos": [
+      {
+        "word": "두레",
+        "youtubeId": "qbLfest_H_I",
+        "seconds": 71,
+        "meaning": "농사일을 함께하려고 마을 사람들이 만든 공동 조직이에요."
+      },
+      {
+        "word": "품앗이",
+        "youtubeId": "UfdfuKFbX8A",
+        "seconds": 66,
+        "meaning": "서로 일을 도와주며 갚아 주는 풍습이에요."
+      },
+      {
+        "word": "관례",
+        "youtubeId": "t5QNsX5IovE",
+        "seconds": 72,
+        "meaning": "성인이 되는 것을 알리는 옛날 예식이에요."
+      }
     ]
   },
   {
@@ -6072,6 +6194,14 @@
       "회갑잔치",
       "금줄",
       "관례"
+    ],
+    "wordVideos": [
+      {
+        "word": "혼례",
+        "youtubeId": "E_o8ytDF2R8",
+        "seconds": 84,
+        "meaning": "남자와 여자가 결혼하는 예식이에요."
+      }
     ]
   },
   {
@@ -6601,6 +6731,12 @@
       "사용 규칙"
     ],
     "wordVideos": [
+      {
+        "word": "스마트폰 과의존",
+        "youtubeId": "L2aC3BlsxdY",
+        "seconds": 67,
+        "meaning": "스마트폰을 지나치게 써서 일상생활에 문제가 생기는 상태예요."
+      },
       {
         "word": "통신 예절",
         "youtubeId": "TLZvWC8r2cs",
