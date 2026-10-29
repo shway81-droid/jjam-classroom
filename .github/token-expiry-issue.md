@@ -6,11 +6,13 @@
 
 1. GitHub → Settings → Developer settings → **Personal access tokens (fine-grained)**
 2. Resource owner: `__OWNER__`
-3. Repository access: **Only select repositories** →
-   `jjam` · `jjam-quiz` · `jjam-video` · `jjam-story` · `jjam-word`
+3. Repository access: **Only select repositories** → 일곱 곳 모두
+   `jjam` · `jjam-quiz` · `jjam-video` · `jjam-story` · `jjam-word` · `jjam-1min` · `jjam-draw`
+   (하나라도 빠지면 그 사이트만 신호를 못 받아 하루씩 늦게 반영됩니다)
    (`jjam-classroom` 은 넣지 않습니다 — 여기서 나가 저기를 두드리는 용도입니다)
 4. Repository permissions → **Contents: Read and write** (나머지는 No access)
-5. Generate token → 문자열 복사
+5. Generate token → 문자열 복사 (메일의 **Regenerate your token** 으로 다시 만들어도 됩니다 —
+   이때 **옛 토큰은 바로 못 쓰게 되니** 6번까지 이어서 하세요)
 6. 이 저장소 → Settings → Secrets and variables → Actions →
    `PUBLISH_TOKEN` → **Update secret** 에 붙여넣기
 
