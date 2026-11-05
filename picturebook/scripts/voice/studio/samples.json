@@ -1,0 +1,10 @@
+[
+ {"name": "VS1_OmniVoice_설계_여자", "engine": "omnivoice", "instruct": "female, young adult, moderate pitch", "seed": 7},
+ {"name": "VS2_OmniVoice_설계_남자", "engine": "omnivoice", "instruct": "male, middle-aged, low pitch", "seed": 7},
+ {"name": "VS3_MOSS-Nano_F5본뜸_여자", "engine": "moss-tts-nano", "ref": "F5", "seed": 7},
+ {"name": "VS4_MOSS-Nano_M2본뜸_남자", "engine": "moss-tts-nano", "ref": "M2", "seed": 7},
+ {"name": "VS5_VoxCPM2_설계_여자", "engine": "voxcpm2", "instruct": "A warm, kind young woman reading a picture book aloud to young children, soft and clear voice, gentle storytelling tone, unhurried pace", "seed": 7},
+ {"name": "VS6_VoxCPM2_설계_남자", "engine": "voxcpm2", "instruct": "A warm, friendly middle-aged man telling a fairy tale to young children, calm low voice, clear and unhurried storytelling", "seed": 7},
+ {"name": "VS7_VoxCPM2_F5본뜸_여자", "engine": "voxcpm2", "ref": "F5", "seed": 7},
+ {"name": "VS8_VoxCPM2_M2본뜸_남자", "engine": "voxcpm2", "ref": "M2", "seed": 7}
+]
