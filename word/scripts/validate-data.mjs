@@ -18,6 +18,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 // 금칙어 표는 banned.mjs 에 있다 — 오탐/탐지를 banned.test.mjs 로 고정해 두었다.
 import { violations, CHOSEONG_BANNED } from './banned.mjs';
+// 우리말 퀴즈의 문제 글자·힌트 규칙 — 화면이 쓰는 모듈을 그대로 불러 같은 규칙으로 본다.
+import { maskProblem, hintsOf, POINTS } from '../js/urimal.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const errors = [];
@@ -90,6 +92,9 @@ const TARGET = {
   mimetic:  { easy: 25, normal: 21, hard: 16 },   // 62
   spelling: { easy: 22, normal: 24, hard: 22 },   // 68
   scramble: { easy: 32, normal: 65, hard: 27 },   // 124
+  // 우리말 퀴즈 (2026-11-09) — 선생님이 주신 목록 그대로라 난이도가 없다. 화면도 난이도를 묻지 않는다
+  // (app.js 의 hasLevel). 전부 normal 로 두었다.
+  urimal:   { easy: 0, normal: 101, hard: 0 },    // 101
   // 지구오락실 말놀이 (2026-09-28)
   fourword: { easy: 60, normal: 60, hard: 30 },   // 150
   // 인물 수는 자유 라이선스 사진이 있는 사람으로 정해진다 — 사진을 못 구하면 넣지 않는다.
@@ -309,6 +314,18 @@ data.items.forEach((it, i) => {
       const cho = choseongOf(it.answer);
       if (cho && !it.hint.startsWith(`${cho} · `)) {
         err(`${where}: 인물 힌트는 '${cho} · 설명' 으로 시작해야 합니다 — '${it.hint}'`);
+      }
+    }
+    // 우리말 퀴즈 — 문제는 정답의 한 글자 초성만 남긴 것(○ㄴ), 힌트는 점수 단계만큼(30·20·10점).
+    if (it.type === 'urimal' && nonEmpty(it.prompt) && nonEmpty(it.answer)) {
+      const bad = maskProblem(it.prompt, it.answer);
+      if (bad) err(`${where}: ${bad}`);
+      if (nonEmpty(it.hint)) {
+        const hints = hintsOf(it.hint);
+        if (hints.length !== POINTS.length || hints.some((h) => h === '')) {
+          err(`${where}: 우리말 퀴즈 힌트는 ' · ' 로 이은 ${POINTS.length}개여야 합니다 — '${it.hint}'`);
+        }
+        if (new Set(hints).size !== hints.length) err(`${where}: 같은 힌트가 두 번 나옵니다 — '${it.hint}'`);
       }
     }
     // 속담 이어말하기는 빈칸이 있어야 문제가 성립한다.

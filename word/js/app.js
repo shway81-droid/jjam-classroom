@@ -12,6 +12,7 @@ import { store } from './store.js';
 import { sound } from './sound.js';
 import { createRound, advance, expire, checkWord, currentWord, nextHeads, okCount, hasWords } from './chain.js';
 import * as clock from './clock.js';
+import { POINTS, hintsOf, tilesOf } from './urimal.js';
 
 const TYPES = {
   choseong: { label: 'ㄱㄴㄷ 초성퀴즈', emoji: '🔤', kind: 'quiz', topics: true, blurb: '초성을 보고 낱말을 외쳐요' },
@@ -24,6 +25,8 @@ const TYPES = {
   mimetic: { label: '흉내 내는 말', emoji: '🐸', kind: 'quiz', topics: false, blurb: '빈칸에 어울리는 소리·모양을 외쳐요' },
   spelling: { label: '맞춤법 고치기', emoji: '📝', kind: 'quiz', topics: false, cue: '바르게 고치면?', blurb: '틀린 말을 바르게 고쳐 외쳐요' },
   scramble: { label: '글자 뒤섞기', emoji: '🔀', kind: 'quiz', topics: true, cue: '글자를 바로 놓으면?', blurb: '뒤섞인 글자를 바로 놓아 외쳐요' },
+  // 우리말 퀴즈 (2026-11-09) — 한 글자 초성(○ㄴ)과 힌트 셋(30·20·10점). 규칙은 urimal.js.
+  urimal: { label: '우리말 퀴즈', emoji: '🧩', kind: 'quiz', topics: false, cue: '숨은 낱말은?', blurb: '힌트를 보고 숨은 낱말을 외쳐요' },
   chain: { label: '끝말잇기 도우미', emoji: '🔗', kind: 'tool', topics: false, blurb: '차례와 시간을 화면이 맡아요' },
   gesture: { label: '몸으로 말해요', emoji: '🎭', kind: 'tool', topics: true, blurb: '단어 카드를 크게 띄워요' },
   // 지구오락실 말놀이 — 예능에서 본 놀이를 교실로. 홈에서 두 번째 묶음에 선다(arcade).
@@ -104,6 +107,59 @@ function slotBlank(el, prompt, count) {
   return true;
 }
 
+/* —— 우리말 퀴즈 —— 문제는 글자 수만큼의 칸이다. 빈칸은 비워 두고 한 칸에만 초성이 든다
+   (○ㄴ → [ ][ㄴ]). '○' 를 글자로 그리면 동그라미가 글자처럼 읽혀 "○ㄴ 이 뭐지?"가 된다. */
+function renderTiles(el, prompt) {
+  el.textContent = '';
+  for (const t of tilesOf(prompt)) {
+    const tile = document.createElement('span');
+    tile.className = t.blank ? 'tile is-blank' : 'tile';
+    tile.textContent = t.blank ? '' : t.text;
+    el.appendChild(tile);
+  }
+}
+
+/* 정답을 열면 칸을 채운다 — 초성 칸도 온 글자로 바뀐다(ㄴ → 난). */
+function fillTiles(el, answer) {
+  const chars = [...answer];
+  const tiles = el.querySelectorAll('.tile');
+  if (tiles.length !== chars.length) return false;
+  tiles.forEach((tile, i) => {
+    tile.textContent = chars[i];
+    tile.classList.remove('is-blank');
+    tile.classList.add('is-filled');
+  });
+  return true;
+}
+
+/* 힌트 카드 셋 — 처음부터 셋을 깔아 둔다. 닫힌 카드는 점수만 보인다(몇 번 남았는지 아이들이 안다).
+   지금 맞히면 받는 점수의 카드에 테를 두른다. 정답이 열리면 테를 거둔다 — 점수 셈은 끝났다. */
+function renderHints() {
+  const list = $('quiz-hints');
+  const it = state.item;
+  list.textContent = '';
+  list.hidden = !it || it.type !== 'urimal';
+  if (list.hidden) return;
+  const answered = state.stage === 'ANSWER';
+  hintsOf(it.hint).forEach((word, i) => {
+    const open = i < state.hintStep;
+    const now = open && !answered && i === state.hintStep - 1;
+    const card = document.createElement('li');
+    card.className = `hint-card${open ? ' is-open' : ''}${now ? ' is-now' : ''}`;
+    const pts = document.createElement('span');
+    pts.className = 'hint-points';
+    pts.textContent = `${POINTS[i]}점`;
+    const text = document.createElement('span');
+    text.className = 'hint-word';
+    text.textContent = open ? word : '?';
+    card.append(pts, text);
+    list.appendChild(card);
+  });
+}
+
+// [힌트] 버튼의 원래 글자 — 우리말 퀴즈가 '다음 힌트 (20점)' 으로 바꿨다가 다른 놀이에서 되돌린다.
+let hintLabel = null;
+
 const state = {
   screen: 'HOME',
   type: null,
@@ -115,6 +171,7 @@ const state = {
   item: null,
   stage: 'PROMPT',
   hintOpened: false,
+  hintStep: 1,        // 우리말 퀴즈 — 열린 힌트 수(1~3). 첫 힌트는 문제와 함께 열린다.
   counted: false,
   recentTopics: [],
   items: [],
@@ -223,8 +280,9 @@ function openSetup(type) {
   $('setup-title').textContent = `${t.emoji} ${t.label}`;
 
   // 끝말잇기 시작 단어는 난이도가 없다. 줄줄이 말해요는 글자에 따라 쉽고 어렵다.
+  // 우리말 퀴즈는 선생님이 주신 목록 그대로라 난이도를 매기지 않았다(전부 normal).
   const isRound = ROUND_TYPES.includes(type);
-  const hasLevel = type !== 'chain';
+  const hasLevel = type !== 'chain' && type !== 'urimal';
   $('group-level').hidden = !hasLevel;
   $('group-topic').hidden = !t.topics;
   $('group-groups').hidden = !isRound;
@@ -360,6 +418,7 @@ function nextItem() {
   store.pushRecent(state.type, got.item.id);
   state.recentTopics = [...state.recentTopics, got.item.topic].slice(-TOPIC_MEMORY);
   state.hintOpened = false;
+  state.hintStep = 1;
   state.counted = false;
 
   renderItem();
@@ -375,6 +434,8 @@ function renderItem() {
   const prompt = $('quiz-prompt');
   prompt.textContent = it.prompt;
   if (it.type === 'fourword') slotBlank(prompt, it.prompt, [...it.answer].length);
+  if (it.type === 'urimal') renderTiles(prompt, it.prompt);
+  prompt.classList.toggle('is-tiles', it.type === 'urimal');
   prompt.dataset.len = lenClass(it.prompt);
   renderPhoto(it);
   $('quiz-hint').textContent = it.hint;
@@ -435,16 +496,28 @@ function setStage(stage) {
 
   // 건너뛴 힌트는 정답과 함께 나타나지 않는다. 안 그러면 정답 버튼 한 번에
   // 힌트와 정답이 동시에 튀어나와, 아이들 눈이 어디를 봐야 할지 모른다.
-  $('quiz-hint').hidden = !state.hintOpened;
+  // 우리말 퀴즈는 힌트 한 줄 대신 카드 셋을 쓴다(renderHints) — 닫힌 카드는 정답 때도 닫혀 있다.
+  const urimal = state.item.type === 'urimal';
+  $('quiz-hint').hidden = urimal || !state.hintOpened;
   $('quiz-answer').hidden = !showAnswer;
-  $('btn-hint').hidden = state.hintOpened || showAnswer;   // 힌트는 한 번만
+  // 힌트는 한 번만 — 우리말 퀴즈는 셋째 힌트가 열릴 때까지 남는다.
+  $('btn-hint').hidden = showAnswer || (urimal ? state.hintStep >= POINTS.length : state.hintOpened);
+  if (hintLabel === null) hintLabel = $('btn-hint').innerHTML;
+  // 다음 힌트가 몇 점짜리인지 버튼에 적는다 — 누르기 전에 아이들에게 "이제 20점이야" 하고 말할 수 있게.
+  $('btn-hint').innerHTML = urimal
+    ? `💡 다음 힌트 (${POINTS[state.hintStep] ?? ''}점) <kbd>H</kbd>`
+    : hintLabel;
   $('btn-reveal').hidden = showAnswer;
   $('btn-next').hidden = !showAnswer;
+  renderHints();
 
   if (showAnswer) {
     // 빈칸이 있는 유형(속담)은 그 자리를 채운다. 채웠으면 같은 답을 아래에
     // 한 번 더 띄우지 않는다 — 화면에 답이 두 번 나오면 어디를 읽어야 할지 흐려진다.
-    const filledIn = fillBlank($('quiz-prompt'), state.item.prompt, state.item.answer);
+    // 우리말 퀴즈는 글자 칸을 채운다 — 칸이 곧 정답 자리다.
+    const filledIn = urimal
+      ? fillTiles($('quiz-prompt'), state.item.answer)
+      : fillBlank($('quiz-prompt'), state.item.prompt, state.item.answer);
     $('answer-text').hidden = filledIn;
   }
   // 빈칸에 채운 문항은 문제 줄이 곧 정답이다 — css 가 그 줄을 줄이지 않도록 알린다.
@@ -455,6 +528,23 @@ function setStage(stage) {
     state.counted = true;
     $('quiz-count').textContent = `오늘 ${store.bumpToday(todayStr())}문항`;
   }
+}
+
+/* [힌트]·H 한 번의 뜻. 대부분은 힌트가 하나라 문제 단계에서만 열린다.
+   우리말 퀴즈는 힌트가 셋이다 — 누를 때마다 하나씩 더 열리고, 맞히면 받는 점수가 내려간다.
+   Space 는 어느 놀이에서나 정답이다(문제→힌트→힌트→정답, 조작은 문항당 세 번을 넘지 않는다). */
+function openHint() {
+  if (!state.item || state.stage === 'ANSWER') return;
+  if (state.item.type !== 'urimal') {
+    if (state.stage === 'PROMPT') setStage('HINT');
+    return;
+  }
+  if (state.hintStep >= POINTS.length) return;
+  state.hintStep += 1;
+  const again = state.stage === 'HINT';
+  setStage('HINT');
+  // 둘째에서 셋째 힌트로 — 단계 이름은 그대로라 setStage 가 소리를 내지 않는다.
+  if (again) sound.hint();
 }
 
 /* Space 한 번의 뜻 — 지금 단계에서 "다음"에 해당하는 하나 */
@@ -951,7 +1041,7 @@ function wire() {
   // 새 창 — 출제 화면을 그대로 둔 채 실시간 정답 창을 옆에 띄워 놓고 쓸 수 있게.
   $('btn-live-setup').addEventListener('click', openLiveWindow);
   $('btn-live-quiz').addEventListener('click', openLiveWindow);
-  $('btn-hint').addEventListener('click', () => setStage('HINT'));
+  $('btn-hint').addEventListener('click', openHint);
   $('btn-reveal').addEventListener('click', () => setStage('ANSWER'));
   $('btn-next').addEventListener('click', nextItem);
   $('btn-skip').addEventListener('click', nextItem);
@@ -1065,7 +1155,7 @@ function wire() {
     } else if (e.key === 'h' || e.key === 'H' || e.key === 'ㅗ') {
       // 한글 자판이 켜져 있으면 H 자리에서 'ㅗ' 가 온다 — 교실에서 흔한 상황이다.
       e.preventDefault();
-      if (state.stage === 'PROMPT') setStage('HINT');
+      openHint();
     }
   });
 }
@@ -1087,6 +1177,8 @@ function liveSend() {
     live.postMessage({
       kind: 'item', id: it.id, label: TYPES[it.type].label,
       no: state.numbers.get(it.id), stage: state.stage,
+      // 우리말 퀴즈 — 열린 힌트 수. 정답 창이 "지금 맞히면 몇 점"을 띄운다.
+      step: it.type === 'urimal' ? state.hintStep : undefined,
     });
   } else {
     live.postMessage({ kind: 'idle' });

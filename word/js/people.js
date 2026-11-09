@@ -1,4 +1,4 @@
-/* 선생님용 실시간 정답 창 (people.html) — 문답형 말놀이 10종.
+/* 선생님용 실시간 정답 창 (people.html) — 문답형 말놀이 11종(2026-11-09 우리말 퀴즈 합류).
 
    주인공은 맨 위의 "지금 칠판 문제의 정답" 칸이다(아래 listenLive). 출제 화면은 정답을
    마지막에야 보여 주므로, 선생님이 "그 답이 맞나?"를 판정하려면 정답을 미리 알아야 한다.
@@ -16,6 +16,7 @@
    화면의 No. 와 이 리스트의 No. 가 같은 사람이다. */
 
 import { numberPeople, LIVE_CHANNEL } from './roster.js';
+import { pointsAt } from './urimal.js';
 
 const LEVEL_LABEL = { easy: '쉬움', normal: '보통', hard: '어려움' };
 
@@ -159,7 +160,8 @@ function renderLive(msg) {
   if (it.photo) photo.src = it.photo.file;
   else photo.removeAttribute('src');
   prompt.hidden = Boolean(it.photo);
-  prompt.textContent = it.photo ? '' : it.prompt;
+  // 우리말 퀴즈는 힌트 셋까지 함께 — 칠판에서 다음에 무엇이 열릴지 미리 본다.
+  prompt.textContent = it.photo ? '' : it.type === 'urimal' ? `${it.prompt}  —  ${it.hint}` : it.prompt;
   $('live-answer').textContent = it.answer;
   $('live-answer').dataset.len = [...it.answer].length > ANSWER_LONG ? 'long' : 'short';
   const also = (it.also || []).filter(Boolean);
@@ -167,7 +169,10 @@ function renderLive(msg) {
   note.hidden = !it.note;
   note.textContent = it.note || '';
   const no = state.numbers.get(it.id);
-  const stage = STAGE_LABEL[msg.stage];
+  // 우리말 퀴즈 — 몇 번째 힌트까지 열렸는지, 지금 맞히면 몇 점인지. 점수 셈은 선생님이 한다.
+  const stage = msg.step && msg.stage !== 'ANSWER'
+    ? `힌트 ${msg.step}개 열림 (지금 맞히면 ${pointsAt(msg.step)}점)`
+    : STAGE_LABEL[msg.stage];
   $('live-meta').textContent = [
     msg.label, no ? `No.${no}` : null, it.topic, stage ? `칠판: ${stage}` : null,
   ].filter(Boolean).join(' · ');

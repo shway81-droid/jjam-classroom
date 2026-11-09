@@ -17,6 +17,7 @@ var ASSETS = [
   './js/clock.js',
   './js/people.js',
   './js/roster.js',
+  './js/urimal.js',
   './people.html',
   './css/people.css',
   './shared/jjam-switcher.js',
