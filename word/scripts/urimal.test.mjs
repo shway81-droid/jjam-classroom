@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { POINTS, leadOf, hintsOf, pointsAt, tilesOf, maskOf, maskProblem } from '../js/urimal.js';
+import { POINTS, EXPLAIN_MAX, leadOf, hintsOf, pointsAt, tilesOf, maskOf, maskProblem, explainProblem } from '../js/urimal.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const { items } = JSON.parse(readFileSync(join(root, 'data', 'words.json'), 'utf8'));
@@ -59,10 +59,19 @@ test('maskProblem: 틀린 문제를 잡는다', () => {
   assert.match(maskProblem('○A', '장A'), /두세 글자/);
 });
 
+test('explainProblem: 힌트 수만큼, 짧게', () => {
+  assert.equal(explainProblem(['손장난', '말장난', '불장난']), null);
+  assert.match(explainProblem(['손장난', '말장난']), /3개/);
+  assert.match(explainProblem(['손장난', '', '불장난']), /빈/);
+  assert.match(explainProblem('손장난 · 말장난 · 불장난'), /배열/);
+  assert.match(explainProblem(['손장난', '말장난', '가'.repeat(EXPLAIN_MAX + 1)]), /줄여/);
+});
+
 test('데이터: 우리말 퀴즈 101문항이 모두 규칙에 맞는다', () => {
   assert.equal(urimal.length, 101);
   for (const it of urimal) {
     assert.equal(maskProblem(it.prompt, it.answer), null, it.id);
     assert.equal(hintsOf(it.hint).length, POINTS.length, it.id);
+    assert.equal(explainProblem(it.explain), null, it.id);
   }
 });

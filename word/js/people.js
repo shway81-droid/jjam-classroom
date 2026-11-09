@@ -16,7 +16,7 @@
    화면의 No. 와 이 리스트의 No. 가 같은 사람이다. */
 
 import { numberPeople, LIVE_CHANNEL } from './roster.js';
-import { pointsAt } from './urimal.js';
+import { pointsAt, hintsOf } from './urimal.js';
 
 const LEVEL_LABEL = { easy: '쉬움', normal: '보통', hard: '어려움' };
 
@@ -166,8 +166,13 @@ function renderLive(msg) {
   $('live-answer').dataset.len = [...it.answer].length > ANSWER_LONG ? 'long' : 'short';
   const also = (it.also || []).filter(Boolean);
   $('live-also').textContent = also.length ? `이것도 정답: ${also.join(' · ')}` : '';
-  note.hidden = !it.note;
-  note.textContent = it.note || '';
+  // 우리말 퀴즈는 덧붙임 자리에 힌트 설명을 — 정답을 연 뒤 아이들에게 풀어 줄 말이다.
+  const why = Array.isArray(it.explain)
+    ? hintsOf(it.hint).map((h, i) => `${h}: ${it.explain[i] ?? ''}`).join('  /  ')
+    : '';
+  const noteText = why || it.note || '';
+  note.hidden = !noteText;
+  note.textContent = noteText;
   const no = state.numbers.get(it.id);
   // 우리말 퀴즈 — 몇 번째 힌트까지 열렸는지, 지금 맞히면 몇 점인지. 점수 셈은 선생님이 한다.
   const stage = msg.step && msg.stage !== 'ANSWER'

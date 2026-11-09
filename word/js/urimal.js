@@ -22,6 +22,22 @@ export const BLANK_MARK = '○';
 const LEAD = ['ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ',
               'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'];
 
+/** 힌트 설명 한 줄의 최대 글자 수 — 정답 때 힌트 카드 아래에 두 줄 안으로 들어가는 길이 */
+export const EXPLAIN_MAX = 22;
+
+/** 힌트 설명(explain)이 맞는가. 맞으면 null.
+   정답을 열면 카드마다 "이 힌트가 정답과 어떻게 이어지는지"를 한 줄로 보여 준다
+   (손 → 손장난, 율곡 → 오천 원권 속 율곡 이이). 힌트 수만큼, 짧게. */
+export function explainProblem(explain) {
+  if (!Array.isArray(explain)) return 'explain 은 힌트 설명의 배열이어야 합니다';
+  if (explain.length !== POINTS.length) return `힌트 설명은 ${POINTS.length}개여야 합니다 — ${explain.length}개`;
+  for (const e of explain) {
+    if (typeof e !== 'string' || e.trim() === '') return '빈 힌트 설명이 있습니다';
+    if ([...e].length > EXPLAIN_MAX) return `힌트 설명이 ${[...e].length}자 — ${EXPLAIN_MAX}자 안으로 줄여 주세요: '${e}'`;
+  }
+  return null;
+}
+
 /** 한글 음절 하나의 초성. 음절이 아니면 null. 겹자음은 그대로(꼬 → ㄲ). */
 export function leadOf(syllable) {
   const at = syllable.charCodeAt(0) - 0xac00;

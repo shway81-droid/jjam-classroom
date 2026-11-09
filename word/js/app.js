@@ -133,7 +133,10 @@ function fillTiles(el, answer) {
 }
 
 /* 힌트 카드 셋 — 처음부터 셋을 깔아 둔다. 닫힌 카드는 점수만 보인다(몇 번 남았는지 아이들이 안다).
-   지금 맞히면 받는 점수의 카드에 테를 두른다. 정답이 열리면 테를 거둔다 — 점수 셈은 끝났다. */
+   지금 맞히면 받는 점수의 카드에 테를 두른다. 정답이 열리면 테를 거둔다 — 점수 셈은 끝났다.
+   정답이 열리면 닫혀 있던 카드도 열고, 카드마다 그 힌트가 정답과 어떻게 이어지는지 한 줄을 붙인다
+   (손 → 손장난). 세 힌트가 한 낱말로 모이는 것을 보는 것이 이 놀이의 배움이다(2026-11-09 선생님 요청).
+   다른 놀이의 "건너뛴 힌트는 정답과 함께 나타나지 않는다"와 다르게 가는 이유다. */
 function renderHints() {
   const list = $('quiz-hints');
   const it = state.item;
@@ -141,11 +144,13 @@ function renderHints() {
   list.hidden = !it || it.type !== 'urimal';
   if (list.hidden) return;
   const answered = state.stage === 'ANSWER';
+  const why = Array.isArray(it.explain) ? it.explain : [];
   hintsOf(it.hint).forEach((word, i) => {
-    const open = i < state.hintStep;
-    const now = open && !answered && i === state.hintStep - 1;
+    const late = answered && i >= state.hintStep;   // 열기 전에 맞혔다 — 점수 없이 정답과 함께 열린다
+    const open = answered || i < state.hintStep;
+    const now = !answered && i === state.hintStep - 1;
     const card = document.createElement('li');
-    card.className = `hint-card${open ? ' is-open' : ''}${now ? ' is-now' : ''}`;
+    card.className = `hint-card${open ? ' is-open' : ''}${now ? ' is-now' : ''}${late ? ' is-late' : ''}`;
     const pts = document.createElement('span');
     pts.className = 'hint-points';
     pts.textContent = `${POINTS[i]}점`;
@@ -153,6 +158,12 @@ function renderHints() {
     text.className = 'hint-word';
     text.textContent = open ? word : '?';
     card.append(pts, text);
+    if (answered && why[i]) {
+      const ex = document.createElement('span');
+      ex.className = 'hint-why';
+      ex.textContent = why[i];
+      card.appendChild(ex);
+    }
     list.appendChild(card);
   });
 }
@@ -496,7 +507,7 @@ function setStage(stage) {
 
   // 건너뛴 힌트는 정답과 함께 나타나지 않는다. 안 그러면 정답 버튼 한 번에
   // 힌트와 정답이 동시에 튀어나와, 아이들 눈이 어디를 봐야 할지 모른다.
-  // 우리말 퀴즈는 힌트 한 줄 대신 카드 셋을 쓴다(renderHints) — 닫힌 카드는 정답 때도 닫혀 있다.
+  // 우리말 퀴즈는 힌트 한 줄 대신 카드 셋을 쓴다(renderHints) — 정답 때 셋 다 열고 설명을 붙인다.
   const urimal = state.item.type === 'urimal';
   $('quiz-hint').hidden = urimal || !state.hintOpened;
   $('quiz-answer').hidden = !showAnswer;

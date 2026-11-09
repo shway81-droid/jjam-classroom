@@ -19,7 +19,7 @@ import { fileURLToPath } from 'node:url';
 // 금칙어 표는 banned.mjs 에 있다 — 오탐/탐지를 banned.test.mjs 로 고정해 두었다.
 import { violations, CHOSEONG_BANNED } from './banned.mjs';
 // 우리말 퀴즈의 문제 글자·힌트 규칙 — 화면이 쓰는 모듈을 그대로 불러 같은 규칙으로 본다.
-import { maskProblem, hintsOf, POINTS } from '../js/urimal.js';
+import { maskProblem, explainProblem, hintsOf, POINTS } from '../js/urimal.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const errors = [];
@@ -219,6 +219,11 @@ data.items.forEach((it, i) => {
   const required = isQuiz ? QUIZ_REQUIRED : TOOL_REQUIRED;
   const allowed = new Set(isQuiz ? QUIZ_REQUIRED : [...TOOL_REQUIRED, 'topic']);
   if (it.type === 'person') allowed.add('photo');
+  // 우리말 퀴즈 — 정답 때 힌트 카드마다 붙는 설명(손 → 손장난). 빠지면 빈 카드가 된다.
+  if (it.type === 'urimal') {
+    allowed.add('explain');
+    if (it.explain === undefined) err(`${where}: 필수 필드 'explain'(힌트 설명) 누락`);
+  }
 
   for (const k of required) {
     if (it[k] === undefined) err(`${where}: 필수 필드 '${k}' 누락`);
@@ -326,6 +331,11 @@ data.items.forEach((it, i) => {
           err(`${where}: 우리말 퀴즈 힌트는 ' · ' 로 이은 ${POINTS.length}개여야 합니다 — '${it.hint}'`);
         }
         if (new Set(hints).size !== hints.length) err(`${where}: 같은 힌트가 두 번 나옵니다 — '${it.hint}'`);
+      }
+      if (it.explain !== undefined) {
+        const bad = explainProblem(it.explain);
+        if (bad) err(`${where}: ${bad}`);
+        else for (const e of it.explain) checkSafety(`${where} explain`, e);
       }
     }
     // 속담 이어말하기는 빈칸이 있어야 문제가 성립한다.
