@@ -92,9 +92,9 @@ const TARGET = {
   mimetic:  { easy: 25, normal: 21, hard: 16 },   // 62
   spelling: { easy: 22, normal: 24, hard: 22 },   // 68
   scramble: { easy: 32, normal: 65, hard: 27 },   // 124
-  // 우리말 퀴즈 (2026-11-09) — 선생님이 주신 목록 그대로라 난이도가 없다. 화면도 난이도를 묻지 않는다
-  // (app.js 의 hasLevel). 전부 normal 로 두었다.
-  urimal:   { easy: 0, normal: 101, hard: 0 },    // 101
+  // 우리말 퀴즈 (2026-11-09) — 선생님이 주신 목록 101 은 normal, 낱말이 어렵다고 하셔서 같은 날 더한
+  // 쉬운 낱말 100 은 easy. 어려움은 없다 — 설정 화면은 문항이 있는 난이도만 보여 준다.
+  urimal:   { easy: 100, normal: 101, hard: 0 },  // 201
   // 지구오락실 말놀이 (2026-09-28)
   fourword: { easy: 60, normal: 60, hard: 30 },   // 150
   // 인물 수는 자유 라이선스 사진이 있는 사람으로 정해진다 — 사진을 못 구하면 넣지 않는다.

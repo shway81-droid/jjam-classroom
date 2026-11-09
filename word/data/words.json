@@ -25083,6 +25083,1606 @@
         "상아는 코끼리 엄니",
         "대학을 이르는 말"
       ]
+    },
+    {
+      "id": "urimal-102",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄱ",
+      "hint": "미안해 · 주스 · 백설공주",
+      "answer": "사과",
+      "also": [],
+      "note": "",
+      "explain": [
+        "미안할 때 하는 말도 사과",
+        "사과 주스",
+        "백설공주가 먹은 빨간 과일"
+      ]
+    },
+    {
+      "id": "urimal-103",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅅ",
+      "hint": "꽂이 · 접이식 · 비",
+      "answer": "우산",
+      "also": [],
+      "note": "",
+      "explain": [
+        "우산꽂이",
+        "접이식 우산",
+        "비 오는 날 펴서 써요"
+      ]
+    },
+    {
+      "id": "urimal-104",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅍ",
+      "hint": "깎이 · 심 · 지우개",
+      "answer": "연필",
+      "also": [],
+      "note": "",
+      "explain": [
+        "연필깎이",
+        "연필심",
+        "지우개와 짝꿍"
+      ]
+    },
+    {
+      "id": "urimal-105",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅇ○",
+      "hint": "칠판 · 고무 · 연필",
+      "answer": "지우개",
+      "also": [],
+      "note": "",
+      "explain": [
+        "칠판지우개",
+        "고무로 만든 지우개",
+        "연필 글씨를 지워요"
+      ]
+    },
+    {
+      "id": "urimal-106",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅂ",
+      "hint": "손 · 여행 · 책",
+      "answer": "가방",
+      "also": [],
+      "note": "",
+      "explain": [
+        "손가방",
+        "여행 가방",
+        "책가방"
+      ]
+    },
+    {
+      "id": "urimal-107",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅂ",
+      "hint": "장 · 끈 · 실내화",
+      "answer": "신발",
+      "also": [],
+      "note": "",
+      "explain": [
+        "신발장",
+        "신발 끈",
+        "실내화도 신발이에요"
+      ]
+    },
+    {
+      "id": "urimal-108",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅅ",
+      "hint": "치약 · 양치 · 이",
+      "answer": "칫솔",
+      "also": [],
+      "note": "",
+      "explain": [
+        "칫솔에 치약을 짜요",
+        "양치할 때 써요",
+        "이를 닦는 솔"
+      ]
+    },
+    {
+      "id": "urimal-109",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄱ",
+      "hint": "모래 · 손목 · 벽",
+      "answer": "시계",
+      "also": [],
+      "note": "",
+      "explain": [
+        "모래시계",
+        "손목시계",
+        "벽시계"
+      ]
+    },
+    {
+      "id": "urimal-110",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄱ",
+      "hint": "노른자 · 삶은 · 닭",
+      "answer": "달걀",
+      "also": [],
+      "note": "",
+      "explain": [
+        "흰자와 노른자",
+        "삶은 달걀",
+        "닭이 낳아요"
+      ]
+    },
+    {
+      "id": "urimal-111",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄷ",
+      "hint": "동해 · 파도 · 해수욕",
+      "answer": "바다",
+      "also": [],
+      "note": "",
+      "explain": [
+        "동해·서해·남해",
+        "파도가 밀려와요",
+        "바다에서 해수욕해요"
+      ]
+    },
+    {
+      "id": "urimal-112",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄹ",
+      "hint": "뭉게 · 먹 · 솜사탕",
+      "answer": "구름",
+      "also": [],
+      "note": "",
+      "explain": [
+        "뭉게구름",
+        "먹구름이 끼면 비가 와요",
+        "솜사탕을 닮았어요"
+      ]
+    },
+    {
+      "id": "urimal-113",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅌ",
+      "hint": "박하 · 막대 · 솜",
+      "answer": "사탕",
+      "also": [],
+      "note": "",
+      "explain": [
+        "박하사탕",
+        "막대사탕",
+        "솜사탕"
+      ]
+    },
+    {
+      "id": "urimal-114",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅂ",
+      "hint": "꼬마 · 김 · 소풍",
+      "answer": "김밥",
+      "also": [],
+      "note": "",
+      "explain": [
+        "꼬마김밥",
+        "김으로 둘둘 말아요",
+        "소풍 도시락"
+      ]
+    },
+    {
+      "id": "urimal-115",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅂ○",
+      "hint": "분식 · 고추장 · 떡",
+      "answer": "떡볶이",
+      "also": [],
+      "note": "",
+      "explain": [
+        "분식집 대표 음식",
+        "고추장으로 빨갛게",
+        "떡을 볶아 만들어요"
+      ]
+    },
+    {
+      "id": "urimal-116",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅇ",
+      "hint": "촛불 · 케이크 · 잔치",
+      "answer": "생일",
+      "also": [],
+      "note": "",
+      "explain": [
+        "나이만큼 촛불을 켜요",
+        "생일 케이크",
+        "생일잔치"
+      ]
+    },
+    {
+      "id": "urimal-117",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅁ",
+      "hint": "포장 · 상자 · 산타",
+      "answer": "선물",
+      "also": [],
+      "note": "",
+      "explain": [
+        "예쁘게 포장해요",
+        "선물 상자",
+        "산타 할아버지가 줘요"
+      ]
+    },
+    {
+      "id": "urimal-118",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄱ",
+      "hint": "동무 · 소꿉 · 단짝",
+      "answer": "친구",
+      "also": [],
+      "note": "",
+      "explain": [
+        "친구를 동무라고도 해요",
+        "소꿉친구",
+        "단짝 친구"
+      ]
+    },
+    {
+      "id": "urimal-119",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄱ",
+      "hint": "초등 · 교실 · 선생님",
+      "answer": "학교",
+      "also": [],
+      "note": "",
+      "explain": [
+        "초등학교",
+        "교실에서 공부해요",
+        "선생님께 배워요"
+      ]
+    },
+    {
+      "id": "urimal-120",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅍ",
+      "hint": "전자 · 분필 · 교실",
+      "answer": "칠판",
+      "also": [],
+      "note": "",
+      "explain": [
+        "전자칠판",
+        "분필로 써요",
+        "교실 앞에 있어요"
+      ]
+    },
+    {
+      "id": "urimal-121",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅊ",
+      "hint": "줄 · 알림장 · 받아쓰기",
+      "answer": "공책",
+      "also": [],
+      "note": "",
+      "explain": [
+        "줄공책",
+        "알림장도 공책이에요",
+        "받아쓰기 공책"
+      ]
+    },
+    {
+      "id": "urimal-122",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅈ○",
+      "hint": "학 · 오리기 · 접기",
+      "answer": "색종이",
+      "also": [],
+      "note": "",
+      "explain": [
+        "색종이로 학을 접어요",
+        "색종이 오리기",
+        "색종이 접기"
+      ]
+    },
+    {
+      "id": "urimal-123",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄷ○",
+      "hint": "체육 · 달리기 · 학교",
+      "answer": "운동장",
+      "also": [],
+      "note": "",
+      "explain": [
+        "체육 시간에 나가요",
+        "운동장 달리기",
+        "학교 운동장"
+      ]
+    },
+    {
+      "id": "urimal-124",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄴ",
+      "hint": "단오 · 밀기 · 놀이터",
+      "answer": "그네",
+      "also": [],
+      "note": "",
+      "explain": [
+        "단오에 그네를 타요",
+        "뒤에서 밀어 줘요",
+        "놀이터에 있어요"
+      ]
+    },
+    {
+      "id": "urimal-125",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅅ○",
+      "hint": "당근 · 굴리기 · 겨울",
+      "answer": "눈사람",
+      "also": [],
+      "note": "",
+      "explain": [
+        "당근으로 코를 달아요",
+        "눈을 굴려 만들어요",
+        "겨울에 만들어요"
+      ]
+    },
+    {
+      "id": "urimal-126",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅁ",
+      "hint": "개 · 얼음 · 눈",
+      "answer": "썰매",
+      "also": [],
+      "note": "",
+      "explain": [
+        "개썰매",
+        "얼음썰매",
+        "눈썰매"
+      ]
+    },
+    {
+      "id": "urimal-127",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅇ",
+      "hint": "채 · 버섯 · 돌리기",
+      "answer": "팽이",
+      "also": [],
+      "note": "",
+      "explain": [
+        "팽이채로 쳐요",
+        "팽이버섯",
+        "팽이 돌리기"
+      ]
+    },
+    {
+      "id": "urimal-128",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄴ○",
+      "hint": "말 · 모 · 설날",
+      "answer": "윷놀이",
+      "also": [],
+      "note": "",
+      "explain": [
+        "말을 옮겨요",
+        "도·개·걸·윷·모",
+        "설날 민속놀이"
+      ]
+    },
+    {
+      "id": "urimal-129",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄱ",
+      "hint": "엽전 · 발 · 차기",
+      "answer": "제기",
+      "also": [],
+      "note": "",
+      "explain": [
+        "엽전에 종이를 달아 만들어요",
+        "발로 차요",
+        "제기차기"
+      ]
+    },
+    {
+      "id": "urimal-130",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅍ",
+      "hint": "솔잎 · 반달 · 추석",
+      "answer": "송편",
+      "also": [],
+      "note": "",
+      "explain": [
+        "솔잎을 깔고 쪄요",
+        "반달 모양 떡",
+        "추석에 빚어요"
+      ]
+    },
+    {
+      "id": "urimal-131",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄱ",
+      "hint": "나이 · 가래떡 · 설날",
+      "answer": "떡국",
+      "also": [],
+      "note": "",
+      "explain": [
+        "먹으면 한 살 더",
+        "가래떡을 썰어 끓여요",
+        "설날 아침에 먹어요"
+      ]
+    },
+    {
+      "id": "urimal-132",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅂ",
+      "hint": "고름 · 저고리 · 명절",
+      "answer": "한복",
+      "also": [],
+      "note": "",
+      "explain": [
+        "옷고름을 매요",
+        "한복 윗옷 저고리",
+        "명절에 입는 우리 옷"
+      ]
+    },
+    {
+      "id": "urimal-133",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅊ",
+      "hint": "물 · 배추 · 김장",
+      "answer": "김치",
+      "also": [],
+      "note": "",
+      "explain": [
+        "물김치",
+        "배추김치",
+        "김장할 때 담가요"
+      ]
+    },
+    {
+      "id": "urimal-134",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅂ",
+      "hint": "부침 · 된장찌개 · 콩",
+      "answer": "두부",
+      "also": [],
+      "note": "",
+      "explain": [
+        "두부부침",
+        "된장찌개에 넣어요",
+        "콩으로 만들어요"
+      ]
+    },
+    {
+      "id": "urimal-135",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅅ",
+      "hint": "칼 · 비빔 · 잔치",
+      "answer": "국수",
+      "also": [],
+      "note": "",
+      "explain": [
+        "칼국수",
+        "비빔국수",
+        "잔치국수"
+      ]
+    },
+    {
+      "id": "urimal-136",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄷ",
+      "hint": "찐 · 물 · 군",
+      "answer": "만두",
+      "also": [],
+      "note": "",
+      "explain": [
+        "찐만두",
+        "물만두",
+        "군만두"
+      ]
+    },
+    {
+      "id": "urimal-137",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄸ",
+      "hint": "꿀 · 납작 · 겨울",
+      "answer": "호떡",
+      "also": [],
+      "note": "",
+      "explain": [
+        "속에 꿀이 들어 있어요",
+        "납작하게 눌러 구워요",
+        "겨울 길거리 간식"
+      ]
+    },
+    {
+      "id": "urimal-138",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅇ",
+      "hint": "젖소 · 바나나 · 딸기",
+      "answer": "우유",
+      "also": [],
+      "note": "",
+      "explain": [
+        "젖소의 젖",
+        "바나나우유",
+        "딸기우유"
+      ]
+    },
+    {
+      "id": "urimal-139",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅂ",
+      "hint": "화채 · 줄무늬 · 여름",
+      "answer": "수박",
+      "also": [],
+      "note": "",
+      "explain": [
+        "수박화채",
+        "껍질에 줄무늬",
+        "여름 과일"
+      ]
+    },
+    {
+      "id": "urimal-140",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄷ",
+      "hint": "청 · 보라 · 송이",
+      "answer": "포도",
+      "also": [],
+      "note": "",
+      "explain": [
+        "청포도",
+        "보라색 과일",
+        "포도송이"
+      ]
+    },
+    {
+      "id": "urimal-141",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅇ",
+      "hint": "성주 · 노랑 · 여름",
+      "answer": "참외",
+      "also": [],
+      "note": "",
+      "explain": [
+        "경북 성주 참외가 유명해요",
+        "노란 과일",
+        "여름 과일"
+      ]
+    },
+    {
+      "id": "urimal-142",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅈ",
+      "hint": "캐기 · 튀김 · 찐",
+      "answer": "감자",
+      "also": [],
+      "note": "",
+      "explain": [
+        "감자 캐기 체험",
+        "감자튀김",
+        "찐감자"
+      ]
+    },
+    {
+      "id": "urimal-143",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅅ○",
+      "hint": "수염 · 강냉이 · 팝콘",
+      "answer": "옥수수",
+      "also": [],
+      "note": "",
+      "explain": [
+        "옥수수수염",
+        "옥수수를 강냉이라고도 해요",
+        "팝콘의 재료"
+      ]
+    },
+    {
+      "id": "urimal-144",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄱ",
+      "hint": "주황 · 채소 · 토끼",
+      "answer": "당근",
+      "also": [],
+      "note": "",
+      "explain": [
+        "주황색",
+        "뿌리를 먹는 채소",
+        "토끼가 좋아해요"
+      ]
+    },
+    {
+      "id": "urimal-145",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅇ",
+      "hint": "냉국 · 소박이 · 초록",
+      "answer": "오이",
+      "also": [],
+      "note": "",
+      "explain": [
+        "오이냉국",
+        "오이소박이",
+        "초록 채소"
+      ]
+    },
+    {
+      "id": "urimal-146",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅂ",
+      "hint": "죽 · 늙은 · 단",
+      "answer": "호박",
+      "also": [],
+      "note": "",
+      "explain": [
+        "호박죽",
+        "늙은 호박",
+        "단호박"
+      ]
+    },
+    {
+      "id": "urimal-147",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅅ",
+      "hint": "표고 · 송이 · 숲",
+      "answer": "버섯",
+      "also": [],
+      "note": "",
+      "explain": [
+        "표고버섯",
+        "송이버섯",
+        "숲에서 자라요"
+      ]
+    },
+    {
+      "id": "urimal-148",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅂ",
+      "hint": "애벌레 · 호랑 · 꽃",
+      "answer": "나비",
+      "also": [],
+      "note": "",
+      "explain": [
+        "애벌레가 자라 나비가 돼요",
+        "호랑나비",
+        "꽃을 찾아 날아요"
+      ]
+    },
+    {
+      "id": "urimal-149",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅈ○",
+      "hint": "고추 · 날개 · 가을",
+      "answer": "잠자리",
+      "also": [],
+      "note": "",
+      "explain": [
+        "고추잠자리",
+        "날개가 넷",
+        "가을 하늘을 날아요"
+      ]
+    },
+    {
+      "id": "urimal-150",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅁ",
+      "hint": "허물 · 맴맴 · 여름",
+      "answer": "매미",
+      "also": [],
+      "note": "",
+      "explain": [
+        "허물을 벗어요",
+        "맴맴 울어요",
+        "여름에 울어요"
+      ]
+    },
+    {
+      "id": "urimal-151",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅁ",
+      "hint": "다리 · 집 · 줄",
+      "answer": "거미",
+      "also": [],
+      "note": "",
+      "explain": [
+        "다리가 여덟 개",
+        "거미집",
+        "거미줄"
+      ]
+    },
+    {
+      "id": "urimal-152",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄲ",
+      "hint": "달 · 귀 · 거북이",
+      "answer": "토끼",
+      "also": [],
+      "note": "",
+      "explain": [
+        "달나라 토끼",
+        "귀가 길어요",
+        "토끼와 거북이"
+      ]
+    },
+    {
+      "id": "urimal-153",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄹ○",
+      "hint": "쳇바퀴 · 줄무늬 · 도토리",
+      "answer": "다람쥐",
+      "also": [],
+      "note": "",
+      "explain": [
+        "다람쥐 쳇바퀴 돌듯",
+        "등에 줄무늬",
+        "도토리를 모아요"
+      ]
+    },
+    {
+      "id": "urimal-154",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄲ○",
+      "hint": "상아 · 귀 · 코",
+      "answer": "코끼리",
+      "also": [],
+      "note": "",
+      "explain": [
+        "엄니가 상아예요",
+        "귀가 커다래요",
+        "코가 길어요"
+      ]
+    },
+    {
+      "id": "urimal-155",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄹ",
+      "hint": "얼룩 · 초원 · 목",
+      "answer": "기린",
+      "also": [],
+      "note": "",
+      "explain": [
+        "얼룩덜룩 무늬",
+        "아프리카 초원",
+        "목이 길어요"
+      ]
+    },
+    {
+      "id": "urimal-156",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅅ○",
+      "hint": "엉덩이 · 나무 · 바나나",
+      "answer": "원숭이",
+      "also": [],
+      "note": "",
+      "explain": [
+        "원숭이 엉덩이는 빨개",
+        "나무를 잘 타요",
+        "바나나를 좋아해요"
+      ]
+    },
+    {
+      "id": "urimal-157",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅇ○",
+      "hint": "풀 · 꼬리 · 멍멍",
+      "answer": "강아지",
+      "also": [],
+      "note": "",
+      "explain": [
+        "강아지풀",
+        "꼬리를 흔들어요",
+        "멍멍 짖어요"
+      ]
+    },
+    {
+      "id": "urimal-158",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅇ○",
+      "hint": "삐약 · 노랑 · 닭",
+      "answer": "병아리",
+      "also": [],
+      "note": "",
+      "explain": [
+        "삐약삐약",
+        "노란 솜털",
+        "자라면 닭이 돼요"
+      ]
+    },
+    {
+      "id": "urimal-159",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄹ",
+      "hint": "배 · 물갈퀴 · 꽥꽥",
+      "answer": "오리",
+      "also": [],
+      "note": "",
+      "explain": [
+        "오리배",
+        "발에 물갈퀴",
+        "꽥꽥 울어요"
+      ]
+    },
+    {
+      "id": "urimal-160",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅅ",
+      "hint": "방앗간 · 전깃줄 · 짹짹",
+      "answer": "참새",
+      "also": [],
+      "note": "",
+      "explain": [
+        "참새가 방앗간을 그냥 못 지나가요",
+        "전깃줄에 앉아요",
+        "짹짹 울어요"
+      ]
+    },
+    {
+      "id": "urimal-161",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅊ",
+      "hint": "오작교 · 손님 · 설날",
+      "answer": "까치",
+      "also": [],
+      "note": "",
+      "explain": [
+        "까치와 까마귀가 놓은 다리",
+        "까치가 울면 손님이 와요",
+        "까치설날은 설 전날"
+      ]
+    },
+    {
+      "id": "urimal-162",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅎ○",
+      "hint": "공항 · 날개 · 종이",
+      "answer": "비행기",
+      "also": [],
+      "note": "",
+      "explain": [
+        "공항에서 타요",
+        "날개로 날아요",
+        "종이비행기"
+      ]
+    },
+    {
+      "id": "urimal-163",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅊ",
+      "hint": "역 · 철길 · 칙칙폭폭",
+      "answer": "기차",
+      "also": [],
+      "note": "",
+      "explain": [
+        "기차역",
+        "철길을 달려요",
+        "칙칙폭폭"
+      ]
+    },
+    {
+      "id": "urimal-164",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅈ○",
+      "hint": "페달 · 두발 · 바퀴",
+      "answer": "자전거",
+      "also": [],
+      "note": "",
+      "explain": [
+        "페달을 밟아요",
+        "두발자전거",
+        "바퀴가 둘"
+      ]
+    },
+    {
+      "id": "urimal-165",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅂ○",
+      "hint": "사다리 · 119 · 불",
+      "answer": "소방차",
+      "also": [],
+      "note": "",
+      "explain": [
+        "긴 사다리",
+        "119에 전화해요",
+        "불을 끄러 가요"
+      ]
+    },
+    {
+      "id": "urimal-166",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅎ○",
+      "hint": "건널목 · 빨강 · 초록",
+      "answer": "신호등",
+      "also": [],
+      "note": "",
+      "explain": [
+        "건널목에 있어요",
+        "빨간불엔 멈춰요",
+        "초록불엔 건너요"
+      ]
+    },
+    {
+      "id": "urimal-167",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅈ",
+      "hint": "답장 · 우표 · 봉투",
+      "answer": "편지",
+      "also": [],
+      "note": "",
+      "explain": [
+        "편지에 답장해요",
+        "우표를 붙여요",
+        "편지 봉투"
+      ]
+    },
+    {
+      "id": "urimal-168",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄹ",
+      "hint": "자 · 일기 · 책",
+      "answer": "그림",
+      "also": [],
+      "note": "",
+      "explain": [
+        "그림자",
+        "그림일기",
+        "그림책"
+      ]
+    },
+    {
+      "id": "urimal-169",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅎ",
+      "hint": "옛날 · 흥부 · 책",
+      "answer": "동화",
+      "also": [],
+      "note": "",
+      "explain": [
+        "옛날이야기",
+        "흥부와 놀부",
+        "동화책"
+      ]
+    },
+    {
+      "id": "urimal-170",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄹ",
+      "hint": "자장 · 동요 · 가수",
+      "answer": "노래",
+      "also": [],
+      "note": "",
+      "explain": [
+        "자장노래",
+        "동요는 어린이 노래",
+        "가수가 불러요"
+      ]
+    },
+    {
+      "id": "urimal-171",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄱ○",
+      "hint": "반지 · 엄지 · 다섯",
+      "answer": "손가락",
+      "also": [],
+      "note": "",
+      "explain": [
+        "반지를 껴요",
+        "엄지손가락",
+        "한 손에 다섯 개"
+      ]
+    },
+    {
+      "id": "urimal-172",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅂ",
+      "hint": "솜 · 여름 · 덮다",
+      "answer": "이불",
+      "also": [],
+      "note": "",
+      "explain": [
+        "솜이불",
+        "여름 이불",
+        "덮고 자요"
+      ]
+    },
+    {
+      "id": "urimal-173",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅁ",
+      "hint": "짝 · 산타 · 발",
+      "answer": "양말",
+      "also": [],
+      "note": "",
+      "explain": [
+        "양말 한 짝",
+        "산타 선물을 넣는 양말",
+        "발에 신어요"
+      ]
+    },
+    {
+      "id": "urimal-174",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅊ",
+      "hint": "구멍 · 채우다 · 옷",
+      "answer": "단추",
+      "also": [],
+      "note": "",
+      "explain": [
+        "구멍에 끼워요",
+        "단추를 채워요",
+        "옷에 달려 있어요"
+      ]
+    },
+    {
+      "id": "urimal-175",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅁ○",
+      "hint": "캥거루 · 복 · 바지",
+      "answer": "주머니",
+      "also": [],
+      "note": "",
+      "explain": [
+        "캥거루 주머니",
+        "복주머니",
+        "바지 주머니"
+      ]
+    },
+    {
+      "id": "urimal-176",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄱ",
+      "hint": "색 · 물 · 눈",
+      "answer": "안경",
+      "also": [],
+      "note": "",
+      "explain": [
+        "색안경",
+        "물안경",
+        "눈이 잘 보이게 써요"
+      ]
+    },
+    {
+      "id": "urimal-177",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅅ",
+      "hint": "고리 · 자물쇠 · 문",
+      "answer": "열쇠",
+      "also": [],
+      "note": "",
+      "explain": [
+        "열쇠고리",
+        "자물쇠를 열어요",
+        "문을 열어요"
+      ]
+    },
+    {
+      "id": "urimal-178",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅇ",
+      "hint": "바위 · 미용실 · 종이",
+      "answer": "가위",
+      "also": [],
+      "note": "",
+      "explain": [
+        "가위바위보",
+        "미용실 가위",
+        "종이를 잘라요"
+      ]
+    },
+    {
+      "id": "urimal-179",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅇ",
+      "hint": "때 · 거품 · 탕",
+      "answer": "목욕",
+      "also": [],
+      "note": "",
+      "explain": [
+        "때를 밀어요",
+        "거품 목욕",
+        "목욕탕"
+      ]
+    },
+    {
+      "id": "urimal-180",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅈ",
+      "hint": "검사 · 방학 · 집",
+      "answer": "숙제",
+      "also": [],
+      "note": "",
+      "explain": [
+        "숙제 검사",
+        "방학 숙제",
+        "집에서 해 와요"
+      ]
+    },
+    {
+      "id": "urimal-181",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅎ",
+      "hint": "여름 · 겨울 · 개학",
+      "answer": "방학",
+      "also": [],
+      "note": "",
+      "explain": [
+        "여름 방학",
+        "겨울 방학",
+        "방학이 끝나면 개학"
+      ]
+    },
+    {
+      "id": "urimal-182",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅍ",
+      "hint": "봄 · 보물찾기 · 도시락",
+      "answer": "소풍",
+      "also": [],
+      "note": "",
+      "explain": [
+        "봄 소풍",
+        "소풍 가서 보물찾기",
+        "소풍 도시락"
+      ]
+    },
+    {
+      "id": "urimal-183",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅍ○",
+      "hint": "더듬이 · 느림보 · 집",
+      "answer": "달팽이",
+      "also": [],
+      "note": "",
+      "explain": [
+        "더듬이가 있어요",
+        "느릿느릿 기어요",
+        "집을 지고 다녀요"
+      ]
+    },
+    {
+      "id": "urimal-184",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄱ○",
+      "hint": "우물 · 올챙이 · 개굴",
+      "answer": "개구리",
+      "also": [],
+      "note": "",
+      "explain": [
+        "우물 안 개구리",
+        "올챙이가 자라서",
+        "개굴개굴"
+      ]
+    },
+    {
+      "id": "urimal-185",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅁ",
+      "hint": "가시 · 꽃다발 · 빨강",
+      "answer": "장미",
+      "also": [],
+      "note": "",
+      "explain": [
+        "줄기에 가시",
+        "꽃다발",
+        "빨간 장미"
+      ]
+    },
+    {
+      "id": "urimal-186",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄴ○",
+      "hint": "애국가 · 사철 · 솔방울",
+      "answer": "소나무",
+      "also": [],
+      "note": "",
+      "explain": [
+        "남산 위의 저 소나무",
+        "사철 푸른 나무",
+        "솔방울이 열려요"
+      ]
+    },
+    {
+      "id": "urimal-187",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅍ",
+      "hint": "잎 · 가을 · 빨강",
+      "answer": "단풍",
+      "also": [],
+      "note": "",
+      "explain": [
+        "단풍잎",
+        "가을에 물들어요",
+        "빨갛고 노랗게"
+      ]
+    },
+    {
+      "id": "urimal-188",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅁ",
+      "hint": "방울 · 콧물 · 슬픔",
+      "answer": "눈물",
+      "also": [],
+      "note": "",
+      "explain": [
+        "눈물방울",
+        "눈물 콧물",
+        "슬플 때 흘려요"
+      ]
+    },
+    {
+      "id": "urimal-189",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅇ",
+      "hint": "함박 · 꽃 · 소리",
+      "answer": "웃음",
+      "also": [],
+      "note": "",
+      "explain": [
+        "함박웃음",
+        "웃음꽃",
+        "웃음소리"
+      ]
+    },
+    {
+      "id": "urimal-190",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅍ",
+      "hint": "기지개 · 입 · 졸음",
+      "answer": "하품",
+      "also": [],
+      "note": "",
+      "explain": [
+        "하품하고 기지개",
+        "입을 크게 벌려요",
+        "졸릴 때 나와요"
+      ]
+    },
+    {
+      "id": "urimal-191",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄱ",
+      "hint": "뀌다 · 냄새 · 뿡",
+      "answer": "방귀",
+      "also": [],
+      "note": "",
+      "explain": [
+        "방귀를 뀌어요",
+        "냄새가 나요",
+        "뿡 소리"
+      ]
+    },
+    {
+      "id": "urimal-192",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅅ",
+      "hint": "껌 · 물 · 고무",
+      "answer": "풍선",
+      "also": [],
+      "note": "",
+      "explain": [
+        "풍선껌",
+        "물풍선",
+        "고무풍선"
+      ]
+    },
+    {
+      "id": "urimal-193",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅎ",
+      "hint": "뽑기 · 종이 · 곰",
+      "answer": "인형",
+      "also": [],
+      "note": "",
+      "explain": [
+        "인형 뽑기",
+        "종이 인형",
+        "곰 인형"
+      ]
+    },
+    {
+      "id": "urimal-194",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄴ○",
+      "hint": "2단 · 긴 · 줄",
+      "answer": "줄넘기",
+      "also": [],
+      "note": "",
+      "explain": [
+        "2단 뛰기",
+        "긴줄넘기",
+        "줄을 돌려 넘어요"
+      ]
+    },
+    {
+      "id": "urimal-195",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄹ",
+      "hint": "눈 감기 · 잡기 · 숨바꼭질",
+      "answer": "술래",
+      "also": [],
+      "note": "",
+      "explain": [
+        "눈 감고 열까지 세요",
+        "술래잡기",
+        "숨바꼭질 술래"
+      ]
+    },
+    {
+      "id": "urimal-196",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅁ",
+      "hint": "섬 · 상자 · 지도",
+      "answer": "보물",
+      "also": [],
+      "note": "",
+      "explain": [
+        "보물섬",
+        "보물 상자",
+        "보물 지도"
+      ]
+    },
+    {
+      "id": "urimal-197",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄹ",
+      "hint": "산들 · 회오리 · 선풍기",
+      "answer": "바람",
+      "also": [],
+      "note": "",
+      "explain": [
+        "산들바람",
+        "회오리바람",
+        "선풍기 바람"
+      ]
+    },
+    {
+      "id": "urimal-198",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄱ",
+      "hint": "번쩍 · 비 · 천둥",
+      "answer": "번개",
+      "also": [],
+      "note": "",
+      "explain": [
+        "번쩍번쩍",
+        "비 오는 날 쳐요",
+        "천둥 번개"
+      ]
+    },
+    {
+      "id": "urimal-199",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㅇ",
+      "hint": "땡 · 냉동실 · 물",
+      "answer": "얼음",
+      "also": [],
+      "note": "",
+      "explain": [
+        "얼음땡 놀이",
+        "냉동실에서 얼려요",
+        "물이 얼면 얼음"
+      ]
+    },
+    {
+      "id": "urimal-200",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄷ○",
+      "hint": "뾰족 · 처마 · 겨울",
+      "answer": "고드름",
+      "also": [],
+      "note": "",
+      "explain": [
+        "뾰족한 얼음",
+        "처마 끝에 달려요",
+        "겨울에 생겨요"
+      ]
+    },
+    {
+      "id": "urimal-201",
+      "type": "urimal",
+      "level": "easy",
+      "topic": null,
+      "prompt": "○ㄴ○",
+      "hint": "시루 · 국 · 비빔밥",
+      "answer": "콩나물",
+      "also": [],
+      "note": "",
+      "explain": [
+        "시루에서 길러요",
+        "콩나물국",
+        "콩나물비빔밥"
+      ]
     }
   ]
 }

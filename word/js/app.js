@@ -291,9 +291,9 @@ function openSetup(type) {
   $('setup-title').textContent = `${t.emoji} ${t.label}`;
 
   // 끝말잇기 시작 단어는 난이도가 없다. 줄줄이 말해요는 글자에 따라 쉽고 어렵다.
-  // 우리말 퀴즈는 선생님이 주신 목록 그대로라 난이도를 매기지 않았다(전부 normal).
+  // 우리말 퀴즈는 쉬움·보통 둘뿐이라 아래에서 문항이 있는 난이도만 보여 준다.
   const isRound = ROUND_TYPES.includes(type);
-  const hasLevel = type !== 'chain' && type !== 'urimal';
+  const hasLevel = type !== 'chain';
   $('group-level').hidden = !hasLevel;
   $('group-topic').hidden = !t.topics;
   $('group-groups').hidden = !isRound;
@@ -314,7 +314,9 @@ function openSetup(type) {
   if (hasLevel) {
     const levelRow = $('opt-level');
     levelRow.textContent = '';
-    for (const lv of ['all', ...LEVELS]) {
+    // 문항이 없는 난이도는 감춘다 — 주제와 같은 까닭(고르고 나서 "0개"가 되면 이유를 알 수 없다)
+    const present = LEVELS.filter((lv) => candidates(state.items, { type, level: lv }).length > 0);
+    for (const lv of ['all', ...present]) {
       optionButton(levelRow, LEVEL_LABEL[lv], lv === 'all', () => {
         state.level = lv;
         updateCount();
