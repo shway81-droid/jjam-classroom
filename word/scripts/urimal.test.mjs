@@ -67,8 +67,11 @@ test('explainProblem: 힌트 수만큼, 짧게', () => {
   assert.match(explainProblem(['손장난', '말장난', '가'.repeat(EXPLAIN_MAX + 1)]), /줄여/);
 });
 
-test('데이터: 우리말 퀴즈 101문항이 모두 규칙에 맞는다', () => {
-  assert.equal(urimal.length, 101);
+test('데이터: 우리말 퀴즈 201문항(쉬움 100·보통 101)이 모두 규칙에 맞는다', () => {
+  assert.equal(urimal.length, 201);
+  assert.equal(urimal.filter((it) => it.level === 'easy').length, 100);
+  assert.equal(urimal.filter((it) => it.level === 'normal').length, 101);
+  assert.equal(new Set(urimal.map((it) => it.answer)).size, urimal.length, '정답이 겹친다');
   for (const it of urimal) {
     assert.equal(maskProblem(it.prompt, it.answer), null, it.id);
     assert.equal(hintsOf(it.hint).length, POINTS.length, it.id);
