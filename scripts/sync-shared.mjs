@@ -31,7 +31,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const CHECK = process.argv.includes('--check');
 
 const SOURCE = 'game';
-const TARGETS = ['quiz', 'video', 'story', 'word', '1min', 'draw', 'home'];
+const TARGETS = ['quiz', 'video', 'story', 'word', '1min', 'draw', 'home', 'kinder'];
 
 // 여덟 폴더(일곱 사이트 + 모아보기 home)에서 동일해야 하는 파일 (폴더 기준 상대경로).
 // 여기 없는 파일은 사이트마다 다른 것이 정상 — index.html·sw.js·데이터가 그렇다.

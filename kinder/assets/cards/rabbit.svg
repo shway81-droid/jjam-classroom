@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+<g stroke="#3B2F2F" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+<ellipse cx="92" cy="62" rx="20" ry="50" fill="#fff"/>
+<ellipse cx="148" cy="62" rx="20" ry="50" fill="#fff"/>
+<ellipse cx="92" cy="66" rx="9" ry="34" fill="#FFB5C2" stroke="none"/>
+<ellipse cx="148" cy="66" rx="9" ry="34" fill="#FFB5C2" stroke="none"/>
+<ellipse cx="120" cy="155" rx="70" ry="62" fill="#fff"/>
+<circle cx="95" cy="145" r="7" fill="#3B2F2F" stroke="none"/><circle cx="97.5" cy="142.5" r="2.4" fill="#fff" stroke="none"/><circle cx="145" cy="145" r="7" fill="#3B2F2F" stroke="none"/><circle cx="147.5" cy="142.5" r="2.4" fill="#fff" stroke="none"/>
+<ellipse cx="80" cy="170" rx="11" ry="7" fill="#FF8FA3" opacity=".55" stroke="none"/><ellipse cx="160" cy="170" rx="11" ry="7" fill="#FF8FA3" opacity=".55" stroke="none"/>
+<path d="M112 162 L128 162 L120 172 Z" fill="#FF8FA3" stroke-width="4"/>
+<path d="M120 172 Q120 184 108 184 M120 172 Q120 184 132 184" fill="none" stroke-width="4"/>
+</g>
+</svg>

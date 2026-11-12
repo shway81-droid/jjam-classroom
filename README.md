@@ -14,6 +14,7 @@
 | `story/` | 짬짬이 이야기 | 생각하고 말하기 (3~7분) | https://shway81-droid.github.io/jjam-story/ |
 | `word/` | 짬짬이 낱말 | 반 전체가 입으로 외치는 말놀이 | https://shway81-droid.github.io/jjam-word/ |
 | `1min/` | 짬짬이 1분사회 | 교과서 차시를 1분 영상으로 | https://shway81-droid.github.io/jjam-1min/ |
+| `kinder/` | 짬짬이 유치원 | 글자를 몰라도 그림만 보면 아는 몸으로 말해요 (유치원용) | 발행 준비 중 — 발행 저장소 `jjam-kinder` 를 만들어야 함 |
 
 작업 중이라 여기 없는 것 — 짬짬이 쉼(`jjam-rest`) · 스트레칭(`jjam-stretch`) ·
 그리기(`jjam-draw`). 완성되면 이 저장소로 들어옵니다.

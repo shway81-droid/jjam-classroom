@@ -8,6 +8,7 @@ video/  짧은 교육 영상                story/  생각하고 말하기
 word/   입으로 외치는 말놀이          1min/   수업영상 — 차시 수업에 쓰는 영상 (옛 1분사회)
 draw/   한 획씩 따라 그리기 (2026-10-01 합류)
 home/   짬짬이 교실 모아보기 — 일곱 사이트를 모은 첫 화면 (2026-10-01)
+kinder/ 짬짬이 유치원 — 그림 카드로 하는 몸으로 말해요 (2026-11, 발행 전 — 아래 "유치원" 참고)
 ```
 
 ## ⛔ 배포·발행에 닿는 변경 — 반드시 지킨다 (2026-09-30 사고)
@@ -66,6 +67,12 @@ home/   짬짬이 교실 모아보기 — 일곱 사이트를 모은 첫 화면 
 | `word/` | `shway81-droid/jjam-word` | Pages Source = **GitHub Actions** (`publish.yml` → `actions/deploy-pages`) |
 | `1min/` | `shway81-droid/jjam-1min` | Pages Source = **GitHub Actions** (`publish.yml` → `actions/deploy-pages`) |
 | `draw/` | `shway81-droid/jjam-draw` | Pages Source = **GitHub Actions** (`publish.yml` → `actions/deploy-pages`). 2026-10-01 합류 — 예전 `pages.yml`(자기 main 발행)은 지웠다. 배포 목록은 `publish.yml` 에 적혀 있다(`tools/`·`drawings/`·`refs/`·`scripts/` 는 배포하지 않는다), sw.js 의 `VERSION` 을 커밋 번호로 |
+
+**`kinder/`(짬짬이 유치원)는 아직 발행되지 않는다.** 발행 저장소 `jjam-kinder` 가 없어서
+`publish-dispatch.yml` 의 `paths`·`repo_of` 에도, 헤더 바로가기(`jjam-switcher.js` 의 `SITES`)에도,
+모아보기(`home/`)에도 넣지 않았다 — 없는 저장소로 신호를 보내면 발행 신호가 빨간불이 되고,
+바로가기에 걸면 일곱 사이트가 한꺼번에 다시 발행된다. 발행 저장소를 만드는 순서는 `kinder/CLAUDE.md` 에 있다.
+`kinder/` 를 고쳐 main 에 머지해도 지금은 어디에도 발행되지 않는다(CI `유치원 검증` 만 돈다).
 
 **`home/` 만 예외다 — 이 저장소가 직접 발행한다.** 주소 `https://shway81-droid.github.io/jjam-classroom/`,
 Pages Source = **GitHub Actions**, 워크플로 `.github/workflows/home.yml`. 저장소 전체가 아니라 `home/` 의
@@ -130,6 +137,7 @@ cd story && node scripts/validate-data.mjs && node scripts/check-font-coverage.m
 cd 1min  && node scripts/validate-data.mjs && node scripts/gen-data.mjs --check && node scripts/check-font-coverage.mjs
 cd 1min  && node scripts/check-sources.mjs   # 출처 검증 — 인터넷 필요
 cd draw  && npm test && node scripts/check-font-coverage.mjs
+cd kinder && npm test
 ```
 
 CI 는 `.github/workflows/{game,quiz,video,story,word,1min,draw}.yml` 일곱 벌이고 각각

@@ -1,0 +1,13 @@
+{
+  "name": "짬짬이 유치원",
+  "short_name": "짬짬이 유치원",
+  "description": "글자를 몰라도 그림만 보면 아는 유치원 몸으로 말해요",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#FFFBEF",
+  "theme_color": "#3FA34D",
+  "lang": "ko",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

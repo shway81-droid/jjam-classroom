@@ -1,0 +1,309 @@
+/* —— 짬짬이 유치원 ——
+   자매 사이트와 같은 상단바 구조(색 띠 + 로고 46px + 제목 + 부제)에, 띠 색만 이 사이트의 초록을 쓴다.
+
+   카드 화면은 이 제품의 전부다. 유치원 아이들은 글자를 못 읽으므로 **그림이 주인공**이다 —
+   화면 높이의 절반 이상을 그림에 준다. 글자는 그 아래에 크게, 그러나 그림보다 작게. */
+
+@font-face {
+  font-family: 'Pretendard Variable';
+  font-style: normal;
+  font-weight: 45 920;
+  font-display: swap;
+  src: url('../assets/fonts/PretendardVariable.subset.woff2') format('woff2-variations');
+}
+
+:root {
+  /* 브랜드 색 — 원값은 여기 한 곳뿐이다. 나머지는 color-mix 로 파생된다. */
+  --accent: #3FA34D;
+
+  --accent-deep: color-mix(in srgb, var(--accent) 72%, #000);
+  --accent-soft: color-mix(in srgb, var(--accent) 16%, #fff);
+  --on-accent: #ffffff;
+
+  --bg: #FFFBEF;
+  --card: #ffffff;
+  --surface: color-mix(in srgb, var(--accent) 8%, #fff);
+  --outline-variant: color-mix(in srgb, var(--accent) 26%, #fff);
+  --sun: #FFD93D;
+
+  --ink: #2F2A26;
+  --ink-soft: #6B625B;
+
+  --radius: 28px;
+  --radius-sm: 14px;
+  --radius-pill: 9999px;
+
+  --gutter: 32px;
+  --maxw: 1180px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+[hidden] { display: none !important; }
+
+html { font-size: 18px; }
+
+body {
+  font-family: "Pretendard Variable", "Pretendard", "Noto Sans KR",
+               "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  word-break: keep-all;
+}
+
+button { font-family: inherit; cursor: pointer; color: inherit; }
+
+kbd {
+  font-family: inherit;
+  font-size: 0.7em;
+  font-weight: 700;
+  padding: 0.1em 0.42em;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.14);
+  vertical-align: 0.08em;
+  white-space: nowrap;
+}
+
+.ic { width: 1.5em; height: 1.5em; flex: 0 0 auto; vertical-align: -0.35em; user-select: none; }
+.brand-icon .ic { width: 46px; height: 46px; display: block; }
+
+/* —— 상단바 — 가족 공통 구조 —— */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0.9rem var(--gutter);
+  background: var(--accent);
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--accent) 30%, transparent);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--on-accent); }
+.brand-text { display: flex; flex-direction: column; line-height: 1.25; }
+.brand-name { font-size: 1.28rem; font-weight: 800; letter-spacing: -0.01em; }
+.brand-sub { font-size: 0.78rem; font-weight: 600; opacity: 0.9; }
+
+.topbar-actions { display: flex; align-items: center; gap: 0.4rem; }
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--on-accent);
+  transition: background 0.12s;
+}
+.icon-btn:hover { background: rgba(255, 255, 255, 0.16); }
+.icon-btn:focus-visible { outline: 3px solid var(--sun); outline-offset: 2px; }
+.icon-btn .ic-line { width: 26px; height: 26px; }
+.ic-line path { fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.ic-line .spk { fill: currentColor; stroke: none; }
+.icon-btn .spk-x { display: none; }
+.icon-btn[aria-pressed="true"] .spk-x { display: inline; }
+.icon-btn[aria-pressed="true"] .spk-wave { display: none; }
+.icon-btn[hidden] { display: none; }
+.icon-btn .fs-out { display: none; }
+.icon-btn[aria-pressed="true"] .fs-in { display: none; }
+.icon-btn[aria-pressed="true"] .fs-out { display: inline; }
+
+#app { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+
+/* —— 버튼 —— */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 3px solid transparent;
+  border-radius: var(--radius-pill);
+  padding: 0.75rem 1.5rem;
+  font-size: 1.15rem;
+  font-weight: 800;
+  transition: transform 0.1s, background 0.12s;
+}
+.btn:active { transform: scale(0.97); }
+.btn:focus-visible { outline: 4px solid var(--sun); outline-offset: 3px; }
+.btn-primary { background: var(--accent); color: var(--on-accent); box-shadow: 0 6px 0 var(--accent-deep); }
+.btn-primary:hover { background: color-mix(in srgb, var(--accent) 90%, #000); }
+.btn-big { font-size: 1.5rem; padding: 0.9rem 2.2rem; }
+.btn-soft { background: var(--card); border-color: var(--outline-variant); color: var(--ink); }
+.btn-soft:hover { background: var(--surface); }
+.btn-soft[aria-pressed="true"] { background: #FFF4C2; border-color: var(--sun); }
+.btn-ghost { background: transparent; border-color: var(--outline-variant); color: var(--ink-soft); }
+.btn-ghost:hover { background: var(--surface); }
+.btn-sm { font-size: 0.95rem; padding: 0.45rem 1rem; border-width: 2px; }
+
+/* —— 첫 화면 —— */
+.home { padding: 2rem 0 3rem; text-align: center; }
+.home-lead { font-size: 1.5rem; font-weight: 700; color: var(--ink-soft); }
+.home-lead b { color: var(--accent-deep); font-weight: 900; }
+
+.modes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin: 1.6rem auto 0;
+  max-width: 900px;
+}
+.mode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 1.6rem 1.2rem 1.5rem;
+  border: 4px solid var(--outline-variant);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: 0 8px 0 var(--outline-variant);
+  transition: transform 0.12s, border-color 0.12s;
+}
+.mode:hover { transform: translateY(-4px); border-color: var(--accent); }
+.mode:focus-visible { outline: 4px solid var(--sun); outline-offset: 4px; }
+.mode:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+.mode-art { width: 150px; height: 150px; }
+.mode-name { font-size: 2rem; font-weight: 900; color: var(--accent-deep); letter-spacing: -0.02em; }
+.mode-desc { font-size: 1.05rem; font-weight: 600; color: var(--ink-soft); line-height: 1.45; }
+
+.topics-wrap { margin-top: 2.2rem; }
+.topics-title { font-size: 1.15rem; font-weight: 800; }
+.topics-count { margin-left: 0.4rem; font-weight: 700; color: var(--ink-soft); }
+.topics { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem; margin-top: 0.9rem; }
+.topic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 128px;
+  padding: 0.7rem 0.5rem 0.6rem;
+  border: 3px solid var(--outline-variant);
+  border-radius: 22px;
+  background: var(--card);
+  opacity: 0.55;
+  filter: grayscale(0.7);
+  transition: opacity 0.12s, filter 0.12s, border-color 0.12s, transform 0.1s;
+}
+.topic:active { transform: scale(0.96); }
+.topic:focus-visible { outline: 4px solid var(--sun); outline-offset: 3px; }
+.topic[aria-pressed="true"] { opacity: 1; filter: none; border-color: var(--accent); background: var(--accent-soft); }
+.topic img { width: 72px; height: 72px; }
+.topic-name { font-size: 1.1rem; font-weight: 800; }
+.topic-n { font-size: 0.85rem; font-weight: 700; color: var(--ink-soft); }
+
+/* —— 카드 화면 —— */
+.card-screen {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* 한 화면에 다 들어가야 한다 — 칠판에서 스크롤은 없다. 남는 높이는 전부 그림이 갖는다. */
+  height: calc(100vh - 78px);
+  height: calc(100dvh - 78px);
+  min-height: 480px;
+  padding: 1.2rem 0 1.6rem;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: min(100%, 860px);
+  padding: 1rem 1.5rem 1.3rem;
+  border: 5px solid var(--outline-variant);
+  border-radius: 40px;
+  background: var(--card);
+  box-shadow: 0 12px 0 var(--outline-variant);
+}
+.card.is-pop { animation: card-pop 0.35s cubic-bezier(.2, 1.4, .4, 1); }
+@keyframes card-pop {
+  0% { transform: scale(0.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.card-topic {
+  align-self: flex-start;
+  padding: 0.15rem 0.9rem;
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--ink-soft);
+}
+/* 그림 — 카드 안에서 글자·힌트를 뺀 남은 높이를 전부 쓴다. 힌트를 펼치면 그만큼 저절로 줄어든다. */
+.card-art {
+  flex: 1 1 0;
+  min-height: 0;
+  width: 100%;
+  max-height: 560px;
+  object-fit: contain;
+  margin-top: -0.4rem;
+}
+.card-word, .card-ask {
+  font-size: clamp(3rem, 10vh, 6.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+.card-ask { color: color-mix(in srgb, var(--ink-soft) 70%, #fff); letter-spacing: 0; }
+.card-word.is-pop { animation: word-pop 0.45s cubic-bezier(.2, 1.6, .4, 1); color: var(--accent-deep); }
+@keyframes word-pop {
+  0% { transform: scale(0.4); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.card-hint {
+  margin-top: 0.8rem;
+  padding: 0.7rem 1.2rem;
+  border-radius: 20px;
+  background: #FFF4C2;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.card-actions { flex: 0 0 auto; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.9rem; margin-top: 1.4rem; }
+
+.card-corner {
+  position: absolute;
+  top: 1.2rem;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.card-count { font-size: 1rem; font-weight: 800; color: var(--ink-soft); }
+
+/* —— 좁은 화면(태블릿 세로·휴대폰) —— */
+@media (max-width: 1100px) {
+  .card-corner { position: static; flex-direction: row; align-items: center; align-self: stretch; justify-content: space-between; margin-bottom: 0.6rem; }
+}
+@media (max-width: 720px) {
+  :root { --gutter: 16px; }
+  .brand-sub { display: none; }
+  .modes { grid-template-columns: 1fr; gap: 1rem; }
+  .mode-art { width: 110px; height: 110px; }
+  .mode-name { font-size: 1.6rem; }
+  .topic { width: 100px; }
+  .topic img { width: 56px; height: 56px; }
+  .card-screen { height: auto; min-height: 0; }
+  .card { padding: 0.8rem 1rem 1rem; border-radius: 28px; }
+  .card-art { flex: none; height: min(78vw, 52vh); }
+  .card-word, .card-ask { font-size: clamp(2.2rem, 12vw, 3.4rem); }
+  .card-hint { font-size: 1.1rem; }
+  .btn-big { font-size: 1.25rem; padding: 0.8rem 1.6rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card.is-pop, .card-word.is-pop { animation: none; }
+}

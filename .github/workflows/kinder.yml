@@ -1,0 +1,24 @@
+name: 유치원 검증
+
+on:
+  pull_request:
+    paths: ['kinder/**', '.github/workflows/kinder.yml']
+  push:
+    branches: [main]
+    paths: ['kinder/**', '.github/workflows/kinder.yml']
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: kinder
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      # 카드 뽑기 규칙 + 카드·그림·오프라인 목록 + 폰트 커버리지 — 의존성이 없어 npm ci 가 필요 없다
+      - run: npm test

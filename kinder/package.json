@@ -1,0 +1,12 @@
+{
+  "name": "jjam-kinder",
+  "version": "1.0.0",
+  "private": true,
+  "description": "짬짬이 유치원 — 글자를 몰라도 그림만 보면 아는 몸으로 말해요",
+  "type": "module",
+  "scripts": {
+    "verify": "node --test && node scripts/validate-data.mjs && node scripts/check-font-coverage.mjs",
+    "test": "npm run verify",
+    "start": "npx http-server . -p 8380 -c-1"
+  }
+}

@@ -77,6 +77,12 @@ const SITES = [
     footer: '교사는 시작만 누르면 끝 · 설치 없음 · 로그인 없음',
   },
   {
+    dir: 'kinder', accent: '#3FA34D',
+    title: '짬짬이 유치원',
+    subtitle: '글자를 몰라도 그림만 보면 알아요',
+    footer: '그림 보고 몸으로 말해요 · 설치 없음 · 로그인 없음',
+  },
+  {
     dir: 'home', accent: '#FFB703',
     title: '짬짬이 교실',
     subtitle: '수업 전후 자투리 시간을 준비 없이 바로',
