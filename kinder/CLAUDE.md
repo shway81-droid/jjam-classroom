@@ -66,16 +66,16 @@ cd kinder && npm test   # 카드 뽑기 테스트 + validate-data + check-font-c
 루트 CLAUDE.md 의 "배포·발행에 닿는 변경" 규칙을 그대로 따른다. 순서:
 
 1. GitHub 에 빈 저장소 `shway81-droid/jjam-kinder` 를 만든다(선생님이 직접 — 세션에서 만들 수 없다).
-2. 다른 발행 저장소(예: `jjam-draw`)의 `publish.yml` 을 본떠 `jjam-kinder` 에 둔다 —
-   `repository_dispatch: classroom-published` 를 받아 `jjam-classroom` 의 `kinder/` 를 가져와
-   `actions/deploy-pages` 로 올리고, `sw.js` 의 `CACHE` 를 커밋 번호로 바꾼다.
-   배포 목록: `index.html`·`css/`·`js/`·`data/`·`assets/`·`shared/`·`favicon.svg`·`manifest.json`·`og-image.png`·`sw.js`
-   (`scripts/`·`docs/`·`*.md`·`package.json` 은 올리지 않는다).
-3. `jjam-kinder` Settings → Pages → Source 를 **GitHub Actions** 로(main 브랜치 발행 금지 — 2026-09-30 사고).
-4. `PUBLISH_TOKEN` 에 `jjam-kinder` 를 더한다.
-5. `jjam-kinder` 에서 Run workflow 로 한 번 발행하고
+2. `kinder/` 가 jjam-classroom **main 에 머지돼 있어야 한다** — 발행 워크플로가 main 의 `kinder/` 를 받아 간다.
+   (`kinder/` 머지는 어디에도 발행되지 않으니 먼저 해도 안전하다.)
+3. `docs/jjam-kinder-publish.yml` 을 `jjam-kinder` 의 `.github/workflows/publish.yml` 로 둔다(jjam-draw 의 것을 본떴다).
+   `repository_dispatch: classroom-published` 를 받아 `kinder/` 를 가져와 `actions/deploy-pages` 로 올리고,
+   `sw.js` 의 `CACHE` 를 `jjam-kinder-<커밋 번호>` 로 바꾼다. 배포 목록은 그 파일에 있다.
+4. `jjam-kinder` Settings → Pages → Source 를 **GitHub Actions** 로(main 브랜치 발행 금지 — 2026-09-30 사고).
+5. `PUBLISH_TOKEN` 에 `jjam-kinder` 를 더한다.
+6. `jjam-kinder` 에서 Run workflow 로 한 번 발행하고
    `https://shway81-droid.github.io/jjam-kinder/sw.js` 의 `CACHE` 가 커밋 번호인지, 화면이 뜨는지 확인한다.
-6. 확인한 뒤에야 `publish-dispatch.yml`(`paths`·`grep`·`repo_of`·손 실행 목록)·`publish-keepalive.yml`·
+7. 확인한 뒤에야 `publish-dispatch.yml`(`paths`·`grep`·`repo_of`·손 실행 목록)·`publish-keepalive.yml`·
    `token-expiry` 안내·루트 CLAUDE.md 확인 명령(아홉 줄)에 더한다.
-7. 헤더 바로가기(`game/shared/jjam-switcher.js` 의 `SITES`)와 모아보기(`home/`)에 거는 것은 **마지막에,
+8. 헤더 바로가기(`game/shared/jjam-switcher.js` 의 `SITES`)와 모아보기(`home/`)에 거는 것은 **마지막에,
    따로** 한다 — 바로가기를 바꾸면 일곱 사이트가 모두 다시 발행된다.
