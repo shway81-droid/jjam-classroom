@@ -5,14 +5,15 @@
      gesture  몸으로 말해요 — 그림과 낱말을 함께 띄운다. 한 친구가 화면을 등지고 서고,
               나머지가 몸으로 알려 준다. 흉내를 어떻게 낼지 모르는 아이를 위해 [몸짓 힌트].
      guess    무엇일까요?  — 그림만 띄운다. 다 같이 외친 뒤 [정답 보기]를 누르면
-              글자가 나타나고 소리로 읽어 준다.
+              글자가 나타난다.
+
+   낱말을 소리로 읽어 주지 않는다 — 효과음만 낸다(js/sound.js).
 
    유치원 아이들은 아직 글자를 못 읽는다 — 그래서 화면의 주인공은 언제나 그림이다.
    글자는 그림 밑에 붙어 "이 그림의 이름은 이렇게 생겼구나"를 보여 주는 정도로 둔다. */
 
 import { drawCard, emptyDeck } from './deck.js';
 import * as sound from './sound.js';
-import { initSpeech, say, stopSpeech } from './speak.js';
 
 // 주제 — data/cards.json 의 topic 과 같아야 한다(scripts/validate-data.mjs 가 맞춰 본다).
 // icon 은 주제 버튼에 붙는 그림 — 글자를 못 읽는 아이도 고를 수 있게.
@@ -37,7 +38,6 @@ const state = {
   item: null,
   revealed: false,
   count: 0,
-  canSpeak: false,
   muted: false,
 };
 
@@ -53,7 +53,6 @@ function show(name) {
   $('screen-home').hidden = name !== 'HOME';
   $('screen-card').hidden = name !== 'CARD';
   document.body.dataset.screen = name;
-  if (name === 'HOME') stopSpeech();
 }
 
 /* —— 첫 화면 —— */
@@ -105,7 +104,6 @@ function nextCard() {
   state.item = state.cards.find((c) => c.id === got.id);
   state.revealed = state.mode === 'gesture';
   state.count += 1;
-  stopSpeech();
   renderCard(true);
   show('CARD');
   sound.card();
@@ -115,8 +113,6 @@ function reveal() {
   state.revealed = true;
   renderCard(false);
   sound.reveal();
-  // 소리가 끝날 즈음 이름을 읽어 준다 — 효과음과 목소리가 겹치지 않게
-  if (!state.muted) setTimeout(() => { if (state.revealed) say(state.item.word); }, 450);
 }
 
 function renderCard(fresh) {
@@ -133,7 +129,6 @@ function renderCard(fresh) {
   $('card-hint').hidden = true;
   $('btn-hint').hidden = state.mode !== 'gesture';
   $('btn-hint').setAttribute('aria-pressed', 'false');
-  $('btn-speak').hidden = !(state.canSpeak && state.revealed);
   $('btn-next').innerHTML = state.revealed
     ? '다음 카드 → <kbd>Space</kbd>'
     : '정답 보기 <kbd>Space</kbd>';
@@ -175,7 +170,6 @@ function bindMute() {
   btn.addEventListener('click', () => {
     state.muted = !state.muted;
     sound.setMuted(state.muted);
-    if (state.muted) stopSpeech();
     save(STORE_MUTED, state.muted ? '1' : '0');
     paint();
   });
@@ -241,14 +235,8 @@ async function boot() {
   }
   $('btn-next').addEventListener('click', (e) => { e.currentTarget.blur(); advance(); });
   $('btn-hint').addEventListener('click', (e) => { e.currentTarget.blur(); toggleHint(); });
-  $('btn-speak').addEventListener('click', (e) => { e.currentTarget.blur(); if (!state.muted) say(state.item.word); });
   $('btn-quit').addEventListener('click', () => show('HOME'));
   $('brand-home').addEventListener('click', (e) => { e.preventDefault(); show('HOME'); });
-
-  initSpeech((ok) => {
-    state.canSpeak = ok;
-    if (state.item) $('btn-speak').hidden = !(ok && state.revealed);
-  });
 
   const res = await fetch('data/cards.json');
   const data = await res.json();

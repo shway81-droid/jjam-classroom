@@ -42,8 +42,6 @@
       <button id="btn-fs" class="icon-btn" type="button" aria-label="전체화면" aria-pressed="false" title="전체화면">
         <svg class="ic-line" viewBox="0 0 24 24" aria-hidden="true"><path class="fs-in" d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/><path class="fs-out" d="M9 4v5H4M20 9h-5V4M15 20v-5h5M4 15h5v5"/></svg>
       </button>
-      <!-- 자매 사이트 바로가기 — 내용·스타일은 shared/jjam-switcher.js 안에 있다(상류 game/). -->
-      <div class="jjam-switch" data-site="kinder"></div>
     </div>
   </header>
 
@@ -83,7 +81,6 @@
 
       <div class="card-actions">
         <button class="btn btn-soft" id="btn-hint" type="button">💡 몸짓 힌트</button>
-        <button class="btn btn-soft" id="btn-speak" type="button" hidden>🔊 이름 듣기</button>
         <button class="btn btn-primary btn-big" id="btn-next" type="button">다음 카드 → <kbd>Space</kbd></button>
       </div>
 
@@ -95,7 +92,6 @@
   </main>
 
   <script type="module" src="js/app.js"></script>
-  <script src="shared/jjam-switcher.js" defer></script>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () { navigator.serviceWorker.register('sw.js').catch(function () {}); });
