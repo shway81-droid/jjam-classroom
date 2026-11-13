@@ -3,6 +3,8 @@
 #   python gen.py samples.json [--out DIR] [--only 이름 ...]
 # samples.json: [{"name", "engine", "instruct"?, "ref"?, "ref_text"?, "seed"?, "speed"?}, ...]
 #   ref 에 "F5"·"M2" 를 쓰면 지금 그림책 MP3 의 1장면(3.02~12.54초)을 잘라 본뜰 목소리로 넘깁니다.
+#   (2026-11-13 그림책 목소리를 vox-f·omni-m 으로 바꾸며 audio/F5·M2 를 지웠습니다. 옛 MP3 는 커밋 54acb13 에 있습니다 —
+#    git show 54acb13:picturebook/audio/F5/golden-axe-8f60d7c841.mp3 > ... 로 꺼낸 뒤 ref 에 그 파일 경로를 적습니다.)
 #   ref_text 는 넣지 않으면 보내지 않습니다("scene1" 이면 1장면 글). 엔진에 따라 이어 읽기 방식이 바뀔 수 있습니다.
 # 결과(저장소 밖): DIR/raw/<name>.wav (앱이 준 그대로), DIR/out/<name>.mp3 (음량 맞춤), DIR/log.jsonl
 #   DIR 기본값은 %TEMP%\jjam-voicestudio 입니다. 견본은 커밋하지 않습니다.

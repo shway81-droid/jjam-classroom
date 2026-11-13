@@ -15,19 +15,42 @@
 - 위치 `picturebook/`, 브랜치 `feat/picturebook`. 리듬 브랜치와 따로 갑니다.
 - 30권 = 한국 옛이야기 15 + 이솝 10 + 그림 형제·안데르센 5.
 - 화면: 16:9, **그림이 화면 가득, 글은 아래 반투명 띠에 겹침**. 그림 아래쪽 약 1/4 은 가려져도 되는 배경으로 그립니다.
-- 낭독: Supertonic 3 MP3, 여자 `F5`·남자 `M2`(2026-11-04 비교 청취로 사용자 선택, 처음의 `F1`·`M1` 은 '마음에 들지 않음').
-  책마다 두 목소리를 다 만들고, 듣는 목소리는 화면에서 고릅니다(PRD F4).
+- 낭독: **여자 `vox-f`(VoxCPM2)·남자 `omni-m`(OmniVoice)** MP3 — 2026-11-13 같은 문단 비교 청취로 사용자가 바꿈
+  (견본 '여3'=VS5·'남2'=VS2 seed 23). 그전은 Supertonic 3 `F5`·`M2`(2026-11-04), 그 전의 `F1`·`M1` 은 '마음에 들지 않음'.
+  책마다 두 목소리를 다 만들고, 듣는 목소리는 화면에서 고릅니다(PRD F4). 목소리·엔진 설정은 `scripts/voice/engine.py` 한곳.
+  OmniVoice 모델은 **CC-BY-NC(비상업)** — 무료 교육용으로만 씁니다. 크레딧은 `voice.json` 의 `credit`(정보 창에 나옴).
 - 화풍: **굵은 선 크레용**(사용자 선택). 시안 3개는 `docs/style/`. 그림은 Canva 로 만듭니다.
 - '송화영 도서관' 이름은 화면에 넣지 않습니다.
 
 ## 어디까지 했나 (2026-11-05, 브랜치 `feat/picturebook` 에 올림 — 다른 컴퓨터에서 이어 함)
-- PRD 12장 1·2·4단계 끝: 한 권('금도끼 은도끼') 그림·F5/M2 음성·읽기 화면(읽기 방법 3가지·키·마지막 질문)·서가의 '읽었어요' 도장.
+- PRD 12장 1·2·4단계 끝: 한 권('금도끼 은도끼') 그림·음성·읽기 화면(읽기 방법 3가지·키·마지막 질문)·서가의 '읽었어요' 도장.
   `sw.js` 는 아직 없습니다(7단계).
+- 2026-11-13 (맥, 집 컴퓨터): 음성을 VoiceStudio 의 VoxCPM2·OmniVoice 로 바꾸고 '금도끼 은도끼'를 다시 만들었습니다(아래 '맥에서 음성 만들기').
 - 남은 것: 3단계(서가 필터·오늘의 그림책) · 5단계(`validate-data`·CI `picturebook.yml` 경로 필터 `picturebook/**`)
   · 6단계(29권) · 7 · 8 · 9단계.
-- 사용자가 "읽어 주는 음성이 문제"라고 했습니다. VoiceStudio 비교를 하다 멈췄습니다(아래 '이 컴퓨터의 제작 도구').
-- 다른 컴퓨터에는 이 컴퓨터의 `D:\VoiceStudio`·설치한 Python 패키지(supertonic·faster-whisper)·Codex 설정이 없습니다.
-  음성을 다시 만들거나 견본을 만들려면 거기서 먼저 설치합니다.
+- 사용자가 "읽어 주는 음성이 문제"라고 해서 VoiceStudio 견본을 비교했고(2026-11-13 맥에서 끝냄), 목소리를 바꿨습니다.
+- 컴퓨터가 둘입니다 — 학교 윈도우(아래 '학교 윈도우 컴퓨터의 제작 도구')와 집 맥('맥에서 음성 만들기').
+  서로 설치한 것이 없으니, 음성을 다시 만들려면 그 컴퓨터에 VoiceStudio·엔진·Python 패키지를 먼저 설치합니다.
+
+## 맥에서 음성 만들기 (2026-11-13, Apple M4 Pro·메모리 24GB)
+- VoiceStudio 0.5.8(`/Applications/VoiceStudio.app`, 실행 환경 `~/Library/Application Support/VoiceStudio/runtime`).
+  Apple GPU(MPS)로 돌아 학교 PC CPU 보다 훨씬 빠릅니다: OmniVoice 는 17초 문단을 8초, VoxCPM2 는 약 40초.
+- 엔진 설치: 앱 설정 → 모델 → TTS 에서 VoxCPM2 '설치'(OmniVoice 는 기본). 처음 만들 때 모델을 받습니다.
+- **라이선스 동의**(OmniVoice 는 동의 전에는 HTTP 403 `model_licence_required`): 설정 → 모델 → TTS → OmniVoice 행의
+  '비상업적' 배지 → 라이선스 창 **맨 아래까지 내려** 확인 체크박스 2개(OmniVoice·higgs-audio-v2-tokenizer)를 체크해야
+  [라이선스 동의] 버튼이 켜집니다. 체크박스가 창 아래에 숨어 있어 버튼만 누르면 아무 일도 없습니다.
+- Python: 시스템 python3 는 3.9 라 Homebrew `python3.12` 로 가상환경을 만들어 씁니다(저장소 밖).
+  `pip install soundfile imageio-ffmpeg faster-whisper "av<16" pyflakes` — **av 16 이상은 faster-whisper 1.2.1 과 안 맞습니다**
+  (`open() got an unexpected keyword argument 'metadata_errors'`). ffmpeg 는 imageio-ffmpeg 것을 씁니다.
+- 순서: VoiceStudio 켜기 → `python scripts/voice/build.py`(바뀐 책만, `--force <책 id>`) → `python scripts/voice/verify.py`
+  → 정말 틀린 것만 `python scripts/voice/retake.py <책 id> "vox-f:1=산골" "omni-m:19=금도끼"`.
+  '금도끼 은도끼' 한 권(두 목소리)에 약 19분 걸렸습니다(문장마다 최대 4번 만들어 받아쓰기로 고름).
+- 본뜰 목소리 `scripts/voice/refs/vox-f.wav`·`omni-m.wav` 는 사용자가 고른 견본 문단 그대로입니다. 문장마다 '말로 설계'를
+  다시 하면 목소리가 문장마다 달라질 수 있어, 모든 문장을 이 견본을 본떠 읽힙니다. **지우거나 바꾸면 목소리가 바뀝니다.**
+- OmniVoice 는 가끔 문장 중간에 1초 넘게 멈추는 실패작을 냅니다(견본 seed 7). `build.py` 가 문장 안 긴 멈춤(`LONG_PAUSE`)을
+  실패로 쳐서 다른 seed 로 다시 만듭니다.
+- VoiceStudio 결과물에는 들리지 않는 AudioSeal 워터마크가 들어갑니다(앱 설정 → 개인정보 보호, 기본 켜짐).
+- MOSS-TTS-Nano 는 앱 0.5.8 에서 `TypeError: unsupported operand type(s) for +: 'set'…` 로 생성이 안 됐습니다(2026-11-13).
 
 ## 화면 (2026-11-05 '금도끼 은도끼'로 끝까지 재생 확인)
 - 파일: `index.html` · `css/app.css` · `js/app.js` · `favicon.svg`. 빌드 단계 없음, 서비스 워커는 아직 없음(PRD 12장 7단계).
@@ -67,7 +90,9 @@
 - 학생 이름·답변·사진을 다루는 기능을 넣지 않습니다.
 - 원고는 공용 웹폰트 서브셋(`game/assets/fonts/coverage.txt`)에 있는 글자로만 씁니다.
 
-## 이 컴퓨터의 제작 도구 (2026-11-04 확인)
+## 학교 윈도우 컴퓨터의 제작 도구 (2026-11-04 확인)
+> 아래의 `F5`·`M2`·Supertonic 이야기는 목소리를 바꾸기 전(2026-11-13 이전) 기록입니다. 지금 목소리 id 는 `vox-f`·`omni-m` 이고,
+> `build.py` 는 Supertonic 을 더 쓰지 않습니다. 받아쓰기를 믿지 않는 요령은 그대로 맞습니다.
 - Python 3.14 하나뿐입니다. `supertonic` 1.3.1 이 설치돼 있고, `faster-whisper` 1.2.1 은 2026-11-04 에 설치했습니다.
 - 음성: `python scripts/voice/build.py`(바뀐 책만) → `python scripts/voice/verify.py`(받아쓰기 대조)
   → 늘 같게 틀리는 문장만 `python scripts/voice/retake.py <책 id> "M2:0=금도끼,은도끼" "F5:1=산골"`
@@ -93,8 +118,8 @@
   - 이 컴퓨터 Python 의 TLS 가 'EE certificate key too weak' 로 막힐 때가 있습니다. gradio_client 는 `ssl_verify=False` 로 열었습니다(공개 동화 문장만 보냄).
 - **VoiceStudio 비교 — 하다가 멈춤(2026-11-05).** 사용자가 "읽어 주는 음성이 문제"라고 해서, 무료 로컬 음성 앱
   VoiceStudio(debpalash/VoiceStudio v0.5.6, 앱은 AGPL-3.0)로 같은 문단 견본 8개를 만들기 시작했습니다.
-  **VS1(OmniVoice 여자) 하나만 만들었고, 사용자가 아직 듣지 않았습니다.** 나머지 VS2~VS8 은 남았습니다.
-  F5·M2 를 바꾸기로 정한 것은 아무것도 없습니다.
+  여기서는 VS1 하나만 만들었고, **2026-11-13 맥에서 나머지를 만들어 비교를 끝냈습니다** — 사용자가 VS5(VoxCPM2 설계 여자)·
+  VS2(OmniVoice 설계 남자, seed 23)를 골라 F5·M2 를 바꿨습니다(위 '맥에서 음성 만들기').
   - 견본 만들기: `scripts/voice/studio/` — `samples.json`(8개 설정) → `python gen.py samples.json`
     → `python check.py`(받아쓰기 대조). 결과는 저장소 밖 `%TEMP%\jjam-voicestudio` 에 생깁니다(`--out` 으로 바꿈).
     `ref: "F5"` 는 지금 그림책 MP3 의 1장면을 잘라 본뜰 목소리로 씁니다. `watch.py <엔진>` 은 앱의 엔진 설치가 끝날 때까지 지켜봅니다.

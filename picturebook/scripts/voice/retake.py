@@ -1,8 +1,8 @@
 # 낭독에서 고른 문장만 다시 만들어 끼워 넣습니다 — 나머지 문장은 그대로 둡니다.
 #
-#   python scripts/voice/retake.py golden-axe M2:0,2,24 F5:1              (문장 번호 = verify.py 의 #번호)
-#   python scripts/voice/retake.py golden-axe M2:0=금도끼,은도끼 F5:1=산골   (= 뒤 낱말이 모두 들리는 것을 먼저 고릅니다)
-#   python scripts/voice/retake.py golden-axe M2:0 --takes 16
+#   python scripts/voice/retake.py golden-axe omni-m:0,2,24 vox-f:1              (문장 번호 = verify.py 의 #번호)
+#   python scripts/voice/retake.py golden-axe omni-m:0=금도끼,은도끼 vox-f:1=산골   (= 뒤 낱말이 모두 들리는 것을 먼저 고릅니다)
+#   python scripts/voice/retake.py golden-axe omni-m:0 --takes 16
 #
 # 한 번 실행에서 목소리마다 MP3 를 한 번만 다시 굽습니다. MP3 는 다시 구울 때마다 조금씩 낡으니,
 # 고칠 문장은 한 번에 모아 넘깁니다(같은 목소리를 여러 인자로 나눠 써도 됩니다).
@@ -27,8 +27,9 @@ import numpy as np
 import soundfile as sf
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from build import (BITRATE, BOOKS, MANIFEST, MODEL, PEAK, ROOT, SPEED, STEPS, WHISPER,  # noqa: E402
-                   ffmpeg, norm, segments_of, spoken)
+from build import (BITRATE, BOOKS, MANIFEST, PEAK, ROOT, WHISPER,  # noqa: E402
+                   ffmpeg, norm, segments_of, spoken, trim)
+from engine import Speaker  # noqa: E402
 from verify import decode, spans  # noqa: E402
 
 SR = 24000                                                 # MP3 의 표본 주파수(build.py 와 같음)
@@ -85,7 +86,7 @@ def perfect(rank, must):
 
 
 def parse_jobs(args):
-    """'M2:0,24=금도끼' 같은 인자들 → {목소리: [(문장 번호, [낱말, ...]), ...]} (넘긴 차례 그대로)."""
+    """'omni-m:0,24=금도끼' 같은 인자들 → {목소리: [(문장 번호, [낱말, ...]), ...]} (넘긴 차례 그대로)."""
     jobs = {}
     for arg in args:
         voice, rest = arg.split(':', 1)
@@ -133,8 +134,7 @@ def main(argv):
     texts = [t for _, seg in segments_of(book) for t in seg]
     manifest = json.loads(MANIFEST.read_text('utf-8'))
 
-    from supertonic import TTS
-    tts = TTS(model=MODEL)
+    speaker = Speaker()
     judge = Judge()
     with tempfile.TemporaryDirectory() as tmp:
         trial = Path(tmp) / 'trial.mp3'
@@ -142,7 +142,6 @@ def main(argv):
             entry = manifest['books'][book_id][voice]
             path = ROOT / entry['file']
             x = decode(path, SR).copy()
-            style = tts.get_voice_style(voice)
             changed = 0
             for i, must in items:
                 s, d = spans(entry)[i]
@@ -157,11 +156,12 @@ def main(argv):
                 print(f'{voice} #{i} "{texts[i]}"' + (f'  (꼭 들려야 할 낱말: {", ".join(must)})' if must else ''))
                 print(f'    지금 {best_rank}  {" | ".join(best_heard)}', flush=True)
                 best = None
-                for _ in range(takes):
+                for k in range(takes):
                     if perfect(best_rank, must):
                         break
-                    wav, _ = tts.synthesize(spoken(texts[i]), style, total_steps=STEPS, speed=SPEED, lang='ko')
-                    new = resample(np.asarray(wav, dtype=np.float32).reshape(-1), tts.sample_rate, SR)
+                    # build.py 가 쓴 seed(take 0~3)와 겹치지 않게 뒤에서부터 씁니다
+                    wav, sr = speaker.say(voice, spoken(texts[i]), take=1000 + k)
+                    new = resample(trim(wav, sr), sr, SR)
                     new *= voiced_rms(old, SR) / voiced_rms(new, SR)
                     new *= min(1.0, PEAK / (np.max(np.abs(new)) + 1e-12))
                     y = np.concatenate([x[:a], new, x[b:]])
