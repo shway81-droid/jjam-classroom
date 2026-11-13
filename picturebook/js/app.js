@@ -174,9 +174,83 @@ function gradesText(g) {
 }
 
 /* ------------------------------------------------------------------ 서가 */
-// 필터·오늘의 그림책은 PRD 12장 3단계에서 붙입니다.
+// 필터 세 가지(시간·이야기·읽음)와 오늘의 그림책(PRD F1). 고른 필터는 이 기기에 기억합니다.
+const FILTERS = {
+  minutes: { host: 'fMinutes', opts: [['all', '전체'], [3, '3분'], [5, '5분']], test: (b, v) => b.minutes === v },
+  origin: {
+    host: 'fOrigin',
+    opts: [['all', '전체'], ['korean-folk', '옛이야기'], ['aesop', '우화'], ['classic', '명작']],
+    // 그림 형제·안데르센은 '명작' 하나로 묶습니다
+    test: (b, v) => (v === 'classic' ? ['grimm', 'andersen'].includes(b.origin?.type) : b.origin?.type === v),
+  },
+  read: { host: 'fRead', opts: [['all', '전체'], ['unread', '안 읽은 책']], test: (b) => !readIds.includes(b.id) },
+};
+let filter = { minutes: 'all', origin: 'all', read: 'all', ...store.get('filter', {}) };
+const RECENT = 5;   // 오늘의 그림책에서 뺄 최근 읽은 책 수
+
+const shown = () => books.filter((b) => Object.entries(FILTERS)
+  .every(([k, f]) => filter[k] === 'all' || f.test(b, filter[k])));
+
+function bookFacts(b) {
+  return [`약 ${b.minutes}분`, ORIGIN[b.origin?.type], gradesText(b.grades)].filter(Boolean).join(' · ');
+}
+
+// 오늘 날짜(이 기기 시각)로 고릅니다 — 같은 날에는 몇 번을 열어도 같은 책입니다.
+// 최근 읽은 5권은 빼고, 다 빠지면 전체에서 고릅니다.
+function todayBook() {
+  if (!books.length) return null;
+  const d = new Date();
+  const key = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+  let h = 2166136261;
+  for (const ch of key) h = Math.imul(h ^ ch.charCodeAt(0), 16777619) >>> 0;
+  const recent = readIds.slice(-RECENT);
+  const pool = books.filter((b) => !recent.includes(b.id));
+  const from = pool.length ? pool : books;
+  return from[h % from.length];
+}
+
+function paintFilters() {
+  for (const [k, f] of Object.entries(FILTERS)) {
+    segment($(f.host), f.opts, () => filter[k], (v) => {
+      filter = { ...filter, [k]: v };
+      store.set('filter', filter);
+      paintShelf();
+    });
+  }
+}
+
+function paintToday() {
+  const b = todayBook();
+  $('today').hidden = !b || books.length < 2;   // 책이 한 권뿐이면 고를 것이 없습니다
+  if (!b) return;
+  $('today').dataset.id = b.id;
+  $('todayImg').src = `books/${b.id}/cover.webp`;
+  $('todayTitle').textContent = b.title;
+  $('todayFacts').textContent = bookFacts(b);
+}
+
+function paintStamps() {
+  const n = readIds.filter((id) => books.some((b) => b.id === id)).length;
+  $('stampLine').hidden = n === 0;
+  $('stampCount').textContent = `우리 반이 다 읽은 책 ${n}권`;
+}
+
+function clearStamps() {
+  if (!readIds.length) return;
+  // 지우면 되돌릴 수 없으니 한 번 묻습니다.
+  if (!window.confirm('이 기기에 찍힌 \'읽었어요\' 도장을 모두 지울까요?')) return;
+  readIds = [];
+  store.set('read', readIds);
+  paintShelf();
+}
+
 function paintShelf() {
-  $('shelfGrid').replaceChildren(...books.map((b) => {
+  paintFilters();
+  paintToday();
+  paintStamps();
+  const list = shown();
+  $('shelfEmpty').hidden = list.length > 0;
+  $('shelfGrid').replaceChildren(...list.map((b) => {
     const li = document.createElement('li');
     const card = document.createElement('button');
     card.type = 'button';
@@ -190,7 +264,7 @@ function paintShelf() {
     name.textContent = b.title;
     const facts = document.createElement('div');
     facts.className = 'facts';
-    facts.textContent = [`약 ${b.minutes}분`, ORIGIN[b.origin?.type], gradesText(b.grades)].filter(Boolean).join(' · ');
+    facts.textContent = bookFacts(b);
     card.append(img, name, facts);
     if (readIds.includes(b.id)) {
       const stamp = document.createElement('span');
@@ -256,7 +330,70 @@ function openCover(id) {
   show('cover');
   preload(`books/${book.id}/${book.pages[0].image}`);
   loadVoice();   // [시작]을 누르면 바로 읽도록 미리 받아 둡니다
+  offline.check(book);
 }
+
+/* ------------------------------------------------------------------ 오프라인(PRD F7) */
+// 서비스 워커(sw.js)가 연 책의 그림·음성을 받아 둡니다. 받은 것이 몇 개인지 표지에 보여 줍니다.
+// 로컬 미리보기에서는 고친 것이 바로 보이도록 등록하지 않습니다(주소에 ?sw=1 이면 등록).
+const offline = {
+  on: false,
+  status: new Map(),   // 책 id → { done, total }
+
+  files(b) {
+    const dir = `books/${b.id}/`;
+    const audio = Object.values(voiceData?.books?.[b.id] || {})
+      .filter((v) => v && typeof v === 'object' && v.file).map((v) => v.file);
+    return [`${dir}cover.webp`, ...b.pages.map((p) => dir + p.image), ...audio];
+  },
+
+  send(b, check) {
+    if (!this.on || !b) return;
+    navigator.serviceWorker.ready.then((reg) => reg.active?.postMessage({
+      prefetch: { id: b.id, files: this.files(b), check },
+    }));
+  },
+
+  check(b) { this.paint(); this.send(b, true); },
+
+  get(b) {
+    const s = this.status.get(b.id);
+    if (s && s.done >= s.total) return;
+    this.status.set(b.id, { done: s?.done || 0, total: this.files(b).length, busy: true });
+    this.paint();
+    this.send(b, false);
+  },
+
+  paint() {
+    $('offline').hidden = !this.on || !book;
+    if (!this.on || !book) return;
+    const s = this.status.get(book.id);
+    const btn = $('prefetchBtn');
+    const all = s && s.done >= s.total;
+    btn.disabled = !!(all || s?.busy);
+    btn.textContent = all ? '✓ 미리 받았어요' : '이 책 미리 받기';
+    $('offlineNote').textContent = all
+      ? '— 인터넷이 끊겨도 이 책을 읽을 수 있어요.'
+      : s?.busy ? `— 받는 중 ${s.done}/${s.total}` : '— 인터넷이 끊겨도 읽을 수 있게 받아 둡니다.';
+  },
+
+  start() {
+    const local = ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname);
+    if (!('serviceWorker' in navigator) || (local && !new URLSearchParams(location.search).has('sw'))) return;
+    navigator.serviceWorker.register('sw.js').then(() => {
+      this.on = true;
+      navigator.serviceWorker.addEventListener('message', (e) => {
+        const p = e.data?.prefetch;
+        if (!p) return;
+        const prev = this.status.get(p.id);
+        const busy = !p.check && p.done < p.total && !!prev?.busy;
+        this.status.set(p.id, { done: p.done, total: p.total, busy });
+        if (book?.id === p.id) this.paint();
+      });
+      if (book && screen === 'cover') this.check(book);
+    }).catch(() => { /* 서비스 워커가 없어도 읽기는 됩니다 */ });
+  },
+};
 
 function openInfo() {
   if (!book) return;
@@ -314,6 +451,7 @@ function startReading() {
   show('read');
   enterScene(0);
   showControls();
+  offline.get(book);   // 연 책은 그림·음성을 뒤에서 모두 받아 둡니다 — 다음에는 인터넷 없이도(PRD F7)
 }
 
 function enterScene(i) {
@@ -434,9 +572,9 @@ function startThink(sec) {
   paintThink();
 }
 
+// 읽은 차례대로 둡니다(맨 뒤가 가장 최근) — 오늘의 그림책이 최근 읽은 책을 빼는 데 씁니다. 날짜는 적지 않습니다.
 function markRead() {
-  if (readIds.includes(book.id)) return;
-  readIds = [...readIds, book.id];
+  readIds = [...readIds.filter((id) => id !== book.id), book.id];
   store.set('read', readIds);
 }
 
@@ -727,6 +865,9 @@ document.addEventListener('click', (e) => {
     case 'retell': retell(); break;
     case 'again': run.held = false; enterScene(0); break;
     case 'think': startThink(Number(el.dataset.sec)); break;
+    case 'today': openCover($('today').dataset.id); break;
+    case 'clear-stamps': clearStamps(); break;
+    case 'prefetch': offline.get(book); break;
     default: break;
   }
 });
@@ -742,6 +883,7 @@ async function boot() {
   if (!ids.includes(voice)) voice = ids[0] || null;
   paintShelf();
   show('shelf');
+  offline.start();
 }
 
 boot().catch((err) => {

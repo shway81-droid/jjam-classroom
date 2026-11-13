@@ -16,7 +16,7 @@ const OUT = path.join(ROOT, 'data', 'books.json');
 const CHECK = process.argv.includes('--check');
 
 // 서가에 놓이는 차례입니다. 30권이 모이면 여기서 정합니다.
-const ORDER = ['golden-axe'];
+const ORDER = ['golden-axe', 'good-brothers', 'goblin-club', 'tortoise-hare', 'wind-and-sun', 'bremen-musicians'];
 
 const ids = fs.readdirSync(BOOKS, { withFileTypes: true })
   .filter((d) => d.isDirectory() && fs.existsSync(path.join(BOOKS, d.name, 'book.json')))

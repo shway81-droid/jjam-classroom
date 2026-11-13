@@ -1,0 +1,27 @@
+name: 그림책 검증
+
+# 짬짬이 그림책(picturebook/)은 아직 발행하지 않습니다(PRD D6) — 이 워크플로는 검증만 합니다.
+# 경로 필터를 지우지 마세요(루트 CLAUDE.md '검증'). 다른 사이트를 고친 커밋에서는 돌지 않습니다.
+# 작업 브랜치(feat/picturebook)는 PR 이 없어도 푸시마다 검증합니다.
+on:
+  pull_request:
+    paths: ['picturebook/**', '.github/workflows/picturebook.yml']
+  push:
+    branches: [main, feat/picturebook]
+    paths: ['picturebook/**', '.github/workflows/picturebook.yml']
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: picturebook
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      # books.json 대조 + 데이터 검증(책·그림·음성) + 폰트 커버리지 — 의존성이 없어 npm ci 가 필요 없습니다
+      - run: npm test

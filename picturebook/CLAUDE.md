@@ -24,10 +24,15 @@
 
 ## 어디까지 했나 (2026-11-05, 브랜치 `feat/picturebook` 에 올림 — 다른 컴퓨터에서 이어 함)
 - PRD 12장 1·2·4단계 끝: 한 권('금도끼 은도끼') 그림·음성·읽기 화면(읽기 방법 3가지·키·마지막 질문)·서가의 '읽었어요' 도장.
-  `sw.js` 는 아직 없습니다(7단계).
 - 2026-11-13 (맥, 집 컴퓨터): 음성을 VoiceStudio 의 VoxCPM2·OmniVoice 로 바꾸고 '금도끼 은도끼'를 다시 만들었습니다(아래 '맥에서 음성 만들기').
-- 남은 것: 3단계(서가 필터·오늘의 그림책) · 5단계(`validate-data`·CI `picturebook.yml` 경로 필터 `picturebook/**`)
-  · 6단계(29권) · 7 · 8 · 9단계.
+- 2026-11-13 같은 날 3·5·7단계 끝: 서가 필터(시간·이야기·읽음)·오늘의 그림책·도장 지우기, `scripts/validate-data.mjs`·
+  CI `.github/workflows/picturebook.yml`(경로 필터 `picturebook/**`), `sw.js`(연 책만 오프라인)·표지 [이 책 미리 받기].
+- 6단계 1차 5권(의좋은 형제·도깨비 방망이·토끼와 거북·북풍과 해님·브레멘 음악대) **완성**(2026-11-13): 원고 승인 →
+  Canva 그림(캐릭터 시트 + 표지·장면 51장, 디자인 `DAHaxO1MpLM` '1차 5권 (그림 원본)', 지우지 않음) → 음성 두 목소리 → 검증.
+  원고 원본 `docs/원고/1차_5권.json`. book.json 의 `art.characters`·`art.scenes` 에 다시 그릴 때 쓸 묘사를 남겼습니다.
+  음성 5권 157분(중간에 맥이 잠들어 늦어짐 — 덮개를 닫으면 caffeinate 로도 못 막습니다). 지금 서가 6권.
+- 남은 것: 6단계 나머지 24권(5권씩: 원고 검토 → 그림 → 음성) · 8단계(아이콘 색 확정) · 9단계(전자칠판 실측 → 발행 여부 묻기).
+  발행은 MVP 가 끝난 뒤 정합니다(사용자, 2026-11-13).
 - 사용자가 "읽어 주는 음성이 문제"라고 해서 VoiceStudio 견본을 비교했고(2026-11-13 맥에서 끝냄), 목소리를 바꿨습니다.
 - 컴퓨터가 둘입니다 — 학교 윈도우(아래 '학교 윈도우 컴퓨터의 제작 도구')와 집 맥('맥에서 음성 만들기').
   서로 설치한 것이 없으니, 음성을 다시 만들려면 그 컴퓨터에 VoiceStudio·엔진·Python 패키지를 먼저 설치합니다.
@@ -53,9 +58,15 @@
 - MOSS-TTS-Nano 는 앱 0.5.8 에서 `TypeError: unsupported operand type(s) for +: 'set'…` 로 생성이 안 됐습니다(2026-11-13).
 
 ## 화면 (2026-11-05 '금도끼 은도끼'로 끝까지 재생 확인)
-- 파일: `index.html` · `css/app.css` · `js/app.js` · `favicon.svg`. 빌드 단계 없음, 서비스 워커는 아직 없음(PRD 12장 7단계).
+- 파일: `index.html` · `css/app.css` · `js/app.js` · `favicon.svg` · `sw.js`. 빌드 단계 없음.
 - 화면은 `data/books.json` 하나만 받습니다. **생성물**이니 `book.json` 을 고친 뒤 `node scripts/gen-books.mjs` 를 돌립니다.
-  `npm test` = books.json 대조 + 폰트 커버리지(검증 스크립트·CI 는 PRD 12장 5단계에서 늘립니다).
+  `npm test` = books.json 대조 + `validate-data.mjs`(책·그림·음성 — 글 해시가 음성과 맞는지까지) + 폰트 커버리지. CI 도 이것을 돌립니다.
+- 서가: 필터 세 가지(시간 3·5분, 이야기 옛이야기·우화·명작(그림 형제+안데르센), 읽음)는 이 기기에 기억합니다(`jjam-picturebook:filter`).
+  오늘의 그림책은 날짜(이 기기 시각)로 고르고 최근 읽은 5권(`read` 의 맨 뒤 5개)을 뺍니다. 책이 한 권뿐이면 숨깁니다.
+- 서비스 워커(`sw.js`): 틀은 첫 방문에 캐시(`VERSION`, 발행 때 커밋 번호로 바꿀 것), 그림·음성은 `jjam-picturebook-books` 에
+  **연 책만**. [읽어 주기 시작]과 표지 [이 책 미리 받기]가 그 책의 그림 전부와 두 목소리를 받아 둡니다.
+  **localhost 에서는 등록하지 않습니다**(고친 것이 바로 보이게) — 시험할 때는 `?sw=1`. 2026-11-13 서버 폴더를 비운 채로
+  서가·표지·그림·음성이 캐시에서 열리는 것을 확인했습니다. 브라우저 창(Claude 앱)은 launch.json 이 아닌 포트에서는 등록이 안 됩니다.
 - 미리보기: `python -m http.server 8767 --directory picturebook` (저장소 루트에서). `.claude/launch.json` 의 `picturebook` 도 같습니다.
 - 웹폰트·`check-font-coverage.mjs` 는 루트 `scripts/sync-shared.mjs` 가 넣는 **생성물**입니다. `shared/jjam-switcher.js` 도 들어오지만
   화면에서 불러오지 않습니다(바로가기 연결은 D6 뒤).
@@ -160,6 +171,9 @@
   - 내보내기(`export-design`)는 1920×1080 PNG 를 잘 내줍니다. 원본을 받으려면 디자인 페이지에 그림을
     `edit-design` 의 `insert_fill` 로 직접 넣고 저장(commit, 사용자 승인 필요) 뒤 내보내야 합니다.
     → 책 한 권 = Canva 디자인 하나(장면마다 한 페이지)로 묶으면 승인이 권당 한 번입니다.
+- **여러 권을 한꺼번에(2026-11-13 1차 5권)**: 금도끼 디자인 1쪽을 `copy-design` 해 작업 디자인을 만들고 `add_page` 56개 →
+  `insert_fill` 56개를 한 번씩, 승인 한 번에 commit. `export-design` png(1920×1080, pages 지정)의 주소 56개는 너무 길어 다시 적지 않고
+  세션 기록(`~/.claude/projects/.../<세션>.jsonl`)에서 grep 으로 뽑아 받았습니다. 그림 ID 기록은 저장소 밖 scratchpad `media.json`·`plan.json`.
 - **한 권 만드는 순서 (2026-11-04 '금도끼 은도끼'로 끝까지 해 봄)**
   1. 캐릭터 시트를 먼저 `generate-image` 로 만듭니다(흰 바탕, 인물 전신 나란히).
   2. 장면마다 `generate-image` 에 **캐릭터 시트 미디어 ID 를 `imageReferences` 로 넣고**, 인물 묘사 문장도 같이 넣습니다.

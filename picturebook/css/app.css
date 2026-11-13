@@ -96,6 +96,27 @@ button { font: inherit; color: inherit; cursor: pointer; }
   border: 3px solid #C2410C; color: #C2410C; background: rgba(255, 255, 255, .85);
   font-weight: 900; font-size: 15px; padding: .1em .5em; border-radius: 8px;
 }
+/* 오늘의 그림책 */
+.today {
+  display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+  background: var(--card); border: 2px solid var(--brand); border-radius: 18px;
+  padding: 12px 18px 12px 12px; margin: 0 0 18px;
+}
+.today img { width: clamp(150px, 16vw, 260px); aspect-ratio: 16 / 9; object-fit: cover; border-radius: 10px; background: var(--brand-pale); }
+.today-text { flex: 1 1 220px; min-width: 0; }
+.today-text p { margin: 0; }
+.today-kicker { font-size: clamp(14px, 1.05vw, 19px); font-weight: 800; color: var(--brand-deep); }
+.today-title { font-size: clamp(22px, 1.9vw, 34px); font-weight: 900; letter-spacing: -.02em; }
+.today-facts { font-size: clamp(14px, 1.05vw, 19px); color: var(--dim); font-weight: 600; }
+
+/* 필터 */
+.filters { display: flex; flex-wrap: wrap; gap: 10px 26px; margin: 0 0 20px; }
+.filter { display: flex; align-items: center; gap: 10px; }
+.filter .opt-name { min-width: 0; }
+.filter .seg button { font-size: clamp(15px, 1.05vw, 19px); padding: .45em .8em; }
+.empty { font-size: 1.05rem; color: var(--dim); font-weight: 600; margin: 2vh 0; }
+.link-btn { border: 0; background: none; padding: 0 .3em; font: inherit; color: var(--brand-deep); text-decoration: underline; cursor: pointer; }
+
 .site-footer { margin-top: 6vh; padding-top: 2vh; border-top: 1px solid var(--line); color: var(--dim); font-size: 0.9rem; }
 .site-footer p { margin: 0.3em 0; }
 .site-footer .credit { font-size: 0.75rem; }
@@ -140,6 +161,9 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .btn-quiet { color: var(--dim); }
 .btn-big { padding: .75em 1.4em; font-size: clamp(20px, 1.6vw, 30px); }
 .credit { font-size: clamp(13px, .95vw, 16px); color: var(--dim); margin: .6vh 0 0; }
+.offline { font-size: clamp(14px, 1vw, 18px); color: var(--dim); font-weight: 600; margin: .4vh 0 0; }
+.offline .link-btn { font-weight: 700; }
+.offline .link-btn[disabled] { text-decoration: none; color: var(--dim); cursor: default; }
 kbd {
   font: inherit; font-size: .75em; font-weight: 700; opacity: .7;
   border: 1.5px solid currentColor; border-radius: 6px; padding: 0 .35em;

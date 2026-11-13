@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "gen": "node scripts/gen-books.mjs",
-    "test": "node scripts/gen-books.mjs --check && node scripts/check-font-coverage.mjs"
+    "test": "node scripts/gen-books.mjs --check && node scripts/validate-data.mjs && node scripts/check-font-coverage.mjs",
+    "validate": "node scripts/validate-data.mjs"
   }
 }

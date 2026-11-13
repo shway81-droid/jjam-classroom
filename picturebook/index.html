@@ -38,9 +38,29 @@
   <div class="cta-strip">
     <p class="cta-copy"><b>수업 자투리 시간,</b> 그림이 화면 가득, 목소리가 읽어 주고 저절로 넘어갑니다.</p>
   </div>
+  <!-- 오늘의 그림책 — 날짜로 고르므로 같은 날 다시 열어도 같은 책입니다. 최근 읽은 5권은 고르지 않습니다(PRD F1) -->
+  <div class="today" id="today" hidden>
+    <img id="todayImg" alt="">
+    <div class="today-text">
+      <p class="today-kicker">🎲 오늘의 그림책</p>
+      <p class="today-title" id="todayTitle"></p>
+      <p class="today-facts" id="todayFacts"></p>
+    </div>
+    <button class="btn btn-go" type="button" data-act="today">이 책 읽기</button>
+  </div>
+
+  <!-- 필터 — 시간 · 원전 · 읽음. 고른 것은 이 기기에 기억합니다 -->
+  <div class="filters" id="filters">
+    <div class="filter"><span class="opt-name">시간</span><div class="seg" id="fMinutes"></div></div>
+    <div class="filter"><span class="opt-name">이야기</span><div class="seg" id="fOrigin"></div></div>
+    <div class="filter"><span class="opt-name">읽음</span><div class="seg" id="fRead"></div></div>
+  </div>
   <ul class="grid" id="shelfGrid"></ul>
+  <p class="empty" id="shelfEmpty" hidden>고른 조건에 맞는 책이 없습니다. 위 필터를 '전체'로 바꿔 보세요.</p>
   <footer class="site-footer">
     <p>책을 고르고 [읽어 주기 시작]만 누르세요. 다 읽으면 마지막에 생각해 볼 질문이 나옵니다.</p>
+    <p class="stamps" id="stampLine" hidden><span id="stampCount"></span>
+      <button class="link-btn" type="button" data-act="clear-stamps">도장 지우기</button></p>
     <p class="credit">그림과 읽어 주는 목소리는 AI로 만들었습니다. 이야기는 저작권이 없는 옛이야기·우화를 새로 다시 썼습니다.</p>
   </footer>
 </section>
@@ -70,6 +90,11 @@
       <button class="btn" type="button" data-act="info">이 책 정보</button>
       <button class="btn btn-quiet" type="button" data-act="shelf">서가로</button>
     </div>
+    <!-- 이 책 미리 받기 — 그림 전부와 두 목소리를 이 기기에 받아 두면 인터넷이 끊겨도 읽습니다(PRD F7) -->
+    <p class="offline" id="offline" hidden>
+      <button class="link-btn" type="button" data-act="prefetch" id="prefetchBtn">이 책 미리 받기</button>
+      <span id="offlineNote"></span>
+    </p>
     <p class="credit">그림과 읽어 주는 목소리는 AI로 만들었습니다.</p>
   </div>
 </section>
