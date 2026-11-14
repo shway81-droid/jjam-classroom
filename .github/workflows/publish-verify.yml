@@ -1,0 +1,166 @@
+name: 발행 확인
+
+# 아홉 사이트(여덟 발행 저장소 + 모아보기)에 지금 main 내용이 실제로 올라가 있는지 본다.
+# 판정은 scripts/verify-publish.mjs 가 한다(루트 CLAUDE.md 5절 '아홉 줄' 확인을 기계가 하는 것).
+#
+# 왜 — 2026-11-14 퀴즈가 1분 사이에 두 번 발행됐고, 나중 배포가 '성공'인데도 사이트에는 앞 배포의
+# 옛 내용이 나왔다. 발행 워크플로는 배포하고 끝나서 아무도 몰랐다. 사람이 손으로 확인할 때만 드러났다.
+#
+# 하는 일
+#   1. 확인한다. main 에 사이트가 바뀌어 들어온 직후라면 발행이 끝날 때까지 최대 15분 기다린다.
+#   2. 최신이 아닌 곳이 있으면 **그곳에만** 발행 신호를 다시 보낸다(CLAUDE.md 4절 '먼저 되돌린다').
+#      다시 발행은 늘 main 내용을 올리므로, 잘못 판정해 신호를 보내도 해가 없다.
+#   3. 다시 확인한다. 그래도 안 맞으면 이슈를 열고(열려 있으면 갱신) 이 워크플로를 실패로 끝낸다.
+#   4. 다 맞으면 열려 있던 이슈를 닫는다.
+#
+# 이 워크플로는 아무 사이트도 직접 발행하지 않는다. 발행은 늘 각 저장소 publish.yml · home.yml 이 한다.
+# 이슈 본문 틀은 `.github/publish-verify-issue.md` (token-expiry 와 같은 방식).
+
+on:
+  push:
+    branches: [main]
+    # publish-dispatch.yml · home.yml 이 발행을 일으키는 경로와 같게 둔다. 그리고 자기 자신.
+    paths:
+      - 'game/**'
+      - 'quiz/**'
+      - 'video/**'
+      - 'story/**'
+      - 'word/**'
+      - '1min/**'
+      - 'draw/**'
+      - 'picturebook/**'
+      - 'home/**'
+      - '.github/workflows/home.yml'
+      - 'scripts/sync-counts.mjs'
+      - '.github/workflows/publish-verify.yml'
+      - 'scripts/verify-publish.mjs'
+  schedule:
+    - cron: '20 22 * * *'     # 매일 07:20 KST — 발행 저장소들의 새벽 크론(04~05시대)이 끝난 뒤, 수업 전
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  actions: write      # 모아보기는 이 저장소의 home.yml 을 다시 돌려 발행한다
+
+# 새 머지가 들어오면 앞의 확인은 그만둔다 — 새 확인이 더 최신 main 으로 다시 본다.
+concurrency:
+  group: publish-verify
+  cancel-in-progress: true
+
+env:
+  TITLE: '발행된 사이트가 최신이 아닙니다'
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0        # 사이트에 박힌 커밋 번호를 기록에서 찾아야 한다
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # 끝 코드로 판정한다(0 = 아홉 곳 모두 최신). 스크립트가 죽어도 '실패'로 잡혀야 한다 —
+      # 출력값(bad)이 비었다고 '정상'으로 읽으면 9/30 같은 '조용한 통과'가 된다.
+      - name: 확인
+        id: first
+        continue-on-error: true
+        run: |
+          # 머지 직후면 발행이 끝날 때까지 기다리고, 그 밖에는 잠깐만 다시 본다.
+          WAIT=120
+          [ "${{ github.event_name }}" = "push" ] && WAIT=900
+          node scripts/verify-publish.mjs --wait "$WAIT"
+
+      - name: 최신이 아닌 곳에 발행 신호 다시 보내기
+        if: steps.first.outcome == 'failure'
+        env:
+          TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+          OWNER: ${{ github.repository_owner }}
+        run: |
+          repo_of() {
+            case "$1" in
+              game)  echo "jjam" ;;
+              quiz)  echo "jjam-quiz" ;;
+              video) echo "jjam-video" ;;
+              story) echo "jjam-story" ;;
+              word)  echo "jjam-word" ;;
+              1min)  echo "jjam-1min" ;;
+              draw)  echo "jjam-draw" ;;
+              picturebook) echo "jjam-picturebook" ;;
+            esac
+          }
+          for f in ${{ steps.first.outputs.bad }}; do
+            if [ "$f" = "home" ]; then
+              gh workflow run home.yml --ref main -R "$GITHUB_REPOSITORY" \
+                && echo "✓ 모아보기 → home.yml 다시 실행" \
+                || echo "::warning::✗ 모아보기 home.yml 실행 실패"
+              continue
+            fi
+            REPO=$(repo_of "$f")
+            if [ -z "$TOKEN" ]; then
+              echo "::warning::PUBLISH_TOKEN 이 없어 $REPO 에 신호를 못 보냄"
+              continue
+            fi
+            CODE=$(curl -sS -o /tmp/resp.txt -w '%{http_code}' -X POST \
+              -H "Authorization: Bearer $TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "https://api.github.com/repos/$OWNER/$REPO/dispatches" \
+              -d '{"event_type":"classroom-published"}') || CODE=000
+            if [ "$CODE" = "204" ]; then
+              echo "✓ $f → $REPO 신호 보냄"
+            else
+              echo "::warning::✗ $f → $REPO 신호 실패 (HTTP $CODE) $(cat /tmp/resp.txt)"
+            fi
+          done
+
+      - name: 다시 확인
+        id: second
+        if: steps.first.outcome == 'failure'
+        continue-on-error: true
+        run: node scripts/verify-publish.mjs --wait 900
+
+      - name: 알림 이슈 열기 · 갱신
+        if: steps.first.outcome == 'failure' && steps.second.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          OWNER: ${{ github.repository_owner }}
+          REPORT: ${{ steps.second.outputs.report }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          {
+            printf '**%s 에 확인했더니 아직 최신이 아닌 사이트가 있습니다.** 발행 신호를 한 번 더 보냈는데도 맞지 않았습니다.\n\n' \
+              "$(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M KST')"
+            printf '```\n%s\n```\n\n' "${REPORT:-(표를 만들지 못했습니다 — 확인 스크립트가 중간에 멈췄습니다. 실행 기록을 보세요)}"
+            printf '실행 기록: %s\n\n' "$RUN_URL"
+            sed "s/__OWNER__/$OWNER/g" .github/publish-verify-issue.md
+          } > /tmp/body.md
+
+          NUM=$(gh issue list --state open --limit 100 --json number,title \
+                 -q ".[] | select(.title == \"$TITLE\") | .number" | head -1)
+          if [ -n "$NUM" ]; then
+            gh issue edit "$NUM" --body-file /tmp/body.md
+            echo "기존 이슈 #$NUM 갱신"
+          else
+            gh issue create --title "$TITLE" --body-file /tmp/body.md
+          fi
+          echo "::error::최신이 아닌 사이트가 남아 있습니다 — 이슈를 확인하세요"
+          exit 1
+
+      - name: 다 맞았으면 열린 알림 닫기
+        if: steps.first.outcome == 'success' || steps.second.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          NUM=$(gh issue list --state open --limit 100 --json number,title \
+                 -q ".[] | select(.title == \"$TITLE\") | .number" | head -1)
+          if [ -n "$NUM" ]; then
+            gh issue close "$NUM" --comment "$(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M KST') 확인 — 아홉 곳 모두 최신입니다."
+            echo "이슈 #$NUM 닫음"
+          else
+            echo "알릴 것 없음 — 아홉 곳 모두 최신"
+          fi
