@@ -11,10 +11,10 @@ home/   짬짬이 교실 모아보기 — 일곱 사이트를 모은 첫 화면 
 picturebook/ 짬짬이 그림책 — 옛이야기를 넘기며 읽어 주는 그림책 (작업 중)
 ```
 
-**`picturebook/` 은 아직 발행하지 않는다.** 발행 저장소가 없고, `publish-dispatch.yml`·
-`publish-keepalive.yml`·`gen-og.mjs`·바로가기(`jjam-switcher.js`)·모아보기(`home/`)
-어디에도 넣지 않는다(사용자 결정 D6, 2026-11-04). 연결은 MVP 가 끝난 뒤 사용자가 정한다 —
-먼저 손대지 마라. 폴더 안의 `picturebook/CLAUDE.md` 가 이 파일보다 우선한다.
+**`picturebook/` 은 발행을 연결하는 중이다(2026-11-14 사용자 결정, MVP 6권으로 먼저 공개).** 발행 저장소
+`shway81-droid/jjam-picturebook` 을 만들고 첫 발행을 확인한 뒤 `publish-dispatch.yml`·`publish-keepalive.yml`·
+바로가기(`jjam-switcher.js`)·모아보기(`home/`)를 차례로 건다(한 PR 에 한 가지씩, 루트 규칙 2).
+폴더 안의 `picturebook/CLAUDE.md` 가 이 파일보다 우선한다.
 
 ## ⛔ 배포·발행에 닿는 변경 — 반드시 지킨다 (2026-09-30 사고)
 

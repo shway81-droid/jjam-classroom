@@ -77,6 +77,12 @@ const SITES = [
     footer: '교사는 시작만 누르면 끝 · 설치 없음 · 로그인 없음',
   },
   {
+    dir: 'picturebook', accent: '#6A9A1F',
+    title: '짬짬이 그림책',
+    subtitle: '그림이 화면 가득, 목소리가 읽어 주는 옛이야기',
+    footer: '교사는 시작만 누르면 끝 · 설치 없음 · 로그인 없음',
+  },
+  {
     dir: 'home', accent: '#FFB703',
     title: '짬짬이 교실',
     subtitle: '수업 전후 자투리 시간을 준비 없이 바로',
