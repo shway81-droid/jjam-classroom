@@ -4,23 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>짬짬이 교실 — 수업 전후 자투리 시간을 준비 없이 바로</title>
-<meta name="description" content="짬짬이 게임·퀴즈·낱말·이야기·영상·수업영상·그리기를 한곳에 모았습니다. 수업 전후 자투리 시간을 준비 없이 바로 채워 드립니다. 설치·로그인 없음.">
+<meta name="description" content="짬짬이 게임·퀴즈·낱말·이야기·영상·수업영상·그리기·그림책을 한곳에 모았습니다. 수업 전후 자투리 시간을 준비 없이 바로 채워 드립니다. 설치·로그인 없음.">
 <meta name="theme-color" content="#152447">
 <!-- 공유 미리보기(카카오톡·슬랙) — 그림은 favicon.svg 에서 나온다(저장소 루트 scripts/gen-og.mjs). 그림을 바꾸면 ?v= 를 올린다. -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="짬짬이 교실">
 <meta property="og:locale" content="ko_KR">
-<meta property="og:title" content="짬짬이 교실 — 짬짬이 일곱 가지를 한곳에">
-<meta property="og:description" content="수업 전후 자투리 시간을 준비 없이 바로 채워 드립니다. 게임·퀴즈·낱말·이야기·영상·수업영상·그리기. 설치·로그인 없음.">
+<meta property="og:title" content="짬짬이 교실 — 짬짬이 여덟 가지를 한곳에">
+<meta property="og:description" content="수업 전후 자투리 시간을 준비 없이 바로 채워 드립니다. 게임·퀴즈·낱말·이야기·영상·수업영상·그리기·그림책. 설치·로그인 없음.">
 <meta property="og:url" content="https://shway81-droid.github.io/jjam-classroom/">
-<meta property="og:image" content="https://shway81-droid.github.io/jjam-classroom/og-image.png?v=2">
+<meta property="og:image" content="https://shway81-droid.github.io/jjam-classroom/og-image.png?v=3">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="짬짬이 교실 — 짬짬이 일곱 가지를 한곳에">
+<meta property="og:image:alt" content="짬짬이 교실 — 짬짬이 여덟 가지를 한곳에">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="짬짬이 교실 — 짬짬이 일곱 가지를 한곳에">
+<meta name="twitter:title" content="짬짬이 교실 — 짬짬이 여덟 가지를 한곳에">
 <meta name="twitter:description" content="수업 전후 자투리 시간을 준비 없이 바로 채워 드립니다.">
-<meta name="twitter:image" content="https://shway81-droid.github.io/jjam-classroom/og-image.png?v=2">
+<meta name="twitter:image" content="https://shway81-droid.github.io/jjam-classroom/og-image.png?v=3">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <!-- iOS 홈 화면은 SVG 를 쓰지 않는다 — PNG 로 준다(scripts/gen-icons.mjs 가 favicon.svg 에서 굽는다). -->
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
@@ -106,6 +106,9 @@ p { margin: 0; }
 
 /* 처음 오셨나요? */
 .tip { background: var(--tint); border-radius: 22px; padding: 22px; display: flex; flex-direction: column; justify-content: center; gap: 8px; }
+/* 카드가 여덟이 되어(2026-11-14 그림책) 넷씩 두 줄을 채우고, 안내는 아래 한 줄을 다 씁니다. */
+.tip { grid-column: 1 / -1; }
+@media (min-width: 1041px) { .tip-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; } .tip-list li { border-top: 0; padding-top: 2px; } }
 .tip h3 { font-size: 1.15rem; font-weight: 900; }
 .tip > p { font-size: 14px; color: var(--ink-soft); }
 .tip-list { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 5px; }
@@ -136,6 +139,7 @@ p { margin: 0; }
   <symbol id="i-video" viewBox="0 0 100 100"><rect width="100" height="100" rx="24" fill="#4FA8E8"/> <rect x="14" y="44" width="60" height="36" rx="7" fill="#FFFFFF"/> <path d="M21 44 H67 A7 7 0 0 1 74 51 V58 H14 V51 A7 7 0 0 1 21 44 Z" fill="#152447"/> <path d="M28 44 L22 58 M44 44 L38 58 M60 44 L54 58" fill="none" stroke="#FFFFFF" stroke-width="4.4" stroke-linecap="round"/> <circle cx="76" cy="24" r="14" fill="#FFFFFF"/> <path d="M76 15.5 V24.5 L82.5 28.5" fill="none" stroke="#152447" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-1min" viewBox="0 0 100 100"><rect width="100" height="100" rx="24" fill="#E8590C"/> <rect x="24" y="30" width="40" height="58" rx="8" fill="#FFFFFF"/> <rect x="30" y="38" width="28" height="42" rx="4" fill="#152447"/> <circle cx="44" cy="59" r="10.5" fill="none" stroke="#FFFFFF" stroke-width="3"/> <ellipse cx="44" cy="59" rx="4.6" ry="10.5" fill="none" stroke="#FFFFFF" stroke-width="2.6"/> <path d="M33.5 59 H54.5" fill="none" stroke="#FFFFFF" stroke-width="2.6"/> <circle cx="76" cy="24" r="14" fill="#FFFFFF"/> <path d="M76 15.5 V24.5 L82.5 28.5" fill="none" stroke="#152447" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-draw" viewBox="0 0 100 100"><rect width="100" height="100" rx="24" fill="#E4572E"/> <g> <polygon points="71.6,86.4 32.1,46.9 44.9,34.1 84.4,73.6" fill="#FFFFFF"/> <polygon points="32.1,46.9 24,26 44.9,34.1" fill="#1D3557"/> <polygon points="71.6,86.4 65.4,80.2 78.2,67.4 84.4,73.6" fill="#1D3557"/> <line x1="38.5" y1="40.5" x2="78" y2="80" stroke="#E4572E" stroke-width="2.4" opacity=".55"/> </g> <circle cx="76" cy="24" r="19" fill="#FFFFFF"/> <circle cx="76" cy="24" r="14.5" fill="none" stroke="#1D3557" stroke-width="3.5"/> <path d="M 76 24 L 76 15 M 76 24 L 83 24" stroke="#1D3557" stroke-width="3.5" stroke-linecap="round" fill="none"/></symbol>
+  <symbol id="i-picturebook" viewBox="0 0 100 100"><rect width="100" height="100" rx="24" fill="#6A9A1F"/> <path d="M48 45c-10-5.5-20-5.5-31 0v38c11-5.5 21-5.5 31 0z" fill="#FFFFFF"/> <path d="M52 45c10-5.5 20-5.5 31 0v38c-11-5.5-21-5.5-31 0z" fill="#FFFFFF"/> <circle cx="27" cy="55" r="5" fill="#FFB703"/> <path d="M20 77Q31 60 45 73V77Z" fill="#6A9A1F"/> <path d="M58 56H77M58 63H77M58 70H71" stroke="#B9C99E" stroke-width="3.2" stroke-linecap="round"/> <circle cx="76" cy="24" r="14" fill="#FFFFFF"/> <path d="M76 15.5 V24.5 L82.5 28.5" fill="none" stroke="#152447" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </svg>
 
 <header class="hero">
@@ -152,6 +156,7 @@ p { margin: 0; }
       <a href="https://shway81-droid.github.io/jjam-video/" aria-label="짬짬이 영상"><svg class="icon" width="44" height="44" aria-hidden="true"><use href="#i-video"/></svg></a>
       <a href="https://shway81-droid.github.io/jjam-1min/" aria-label="짬짬이 수업영상"><svg class="icon" width="44" height="44" aria-hidden="true"><use href="#i-1min"/></svg></a>
       <a href="https://shway81-droid.github.io/jjam-draw/" aria-label="짬짬이 그리기"><svg class="icon" width="44" height="44" aria-hidden="true"><use href="#i-draw"/></svg></a>
+      <a href="https://shway81-droid.github.io/jjam-picturebook/" aria-label="짬짬이 그림책"><svg class="icon" width="44" height="44" aria-hidden="true"><use href="#i-picturebook"/></svg></a>
     </nav>
   </div>
 </header>
@@ -206,6 +211,13 @@ p { margin: 0; }
       <p class="line">화면 따라 쓱쓱, 종이 위에 짠</p>
       <div class="time"><span class="min">5~10분</span><span class="amt" data-count="draw">그림 44</span></div>
       <span class="go" style="color:#E4572E">열기 →</span>
+    </a>
+    <a class="card" href="https://shway81-droid.github.io/jjam-picturebook/">
+      <svg class="icon" width="72" height="72" aria-hidden="true"><use href="#i-picturebook"/></svg>
+      <h3>짬짬이 그림책</h3>
+      <p class="line">넘기며 읽어 주는 옛이야기</p>
+      <div class="time"><span class="min">3~5분</span><span class="amt" data-count="picturebook">그림책 6</span></div>
+      <span class="go" style="color:#4E7614">열기 →</span>
     </a>
     <section class="tip" aria-labelledby="tip-title">
       <h3 id="tip-title">처음 오셨나요?</h3>
