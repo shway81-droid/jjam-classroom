@@ -6,8 +6,8 @@
 
 1. GitHub → Settings → Developer settings → **Personal access tokens (fine-grained)**
 2. Resource owner: `__OWNER__`
-3. Repository access: **Only select repositories** → 일곱 곳 모두
-   `jjam` · `jjam-quiz` · `jjam-video` · `jjam-story` · `jjam-word` · `jjam-1min` · `jjam-draw`
+3. Repository access: **Only select repositories** → 여덟 곳 모두
+   `jjam` · `jjam-quiz` · `jjam-video` · `jjam-story` · `jjam-word` · `jjam-1min` · `jjam-draw` · `jjam-picturebook`
    (하나라도 빠지면 그 사이트만 신호를 못 받아 하루씩 늦게 반영됩니다)
    (`jjam-classroom` 은 넣지 않습니다 — 여기서 나가 저기를 두드리는 용도입니다)
 4. Repository permissions → **Contents: Read and write** (나머지는 No access)

@@ -2,7 +2,7 @@
   "name": "jjam-picturebook",
   "version": "0.0.0",
   "private": true,
-  "description": "짬짬이 그림책 — 옛이야기를 넘기며 읽어 주는 그림책. 아직 발행하지 않습니다(PRD D6).",
+  "description": "짬짬이 그림책 — 옛이야기를 넘기며 읽어 주는 그림책. 2026-11-14 부터 jjam-picturebook 으로 발행합니다(PRD D6).",
   "type": "module",
   "scripts": {
     "gen": "node scripts/gen-books.mjs",
