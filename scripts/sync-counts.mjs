@@ -22,8 +22,8 @@
    부르지 않는다 — home.yml 이 데이터 폴더까지 보고 있다가 알아서 다시 발행한다.
 
    ── 키를 추측하지 않는 이유 ─────────────────────────────────────────
-   일곱 데이터가 최상위 구조가 전부 다르다. 배열인 것(video·1min), `items`
-   인 것(word), `stories`·`drawings` 인 것, 폴더를 세는 것(game·quiz).
+   여덟 데이터가 최상위 구조가 전부 다르다. 배열인 것(video·1min), `items`
+   인 것(word), `stories`·`drawings`·`books` 인 것, 폴더를 세는 것(game·quiz).
    "아무 키나 있으면 그걸 쓴다" 식으로 짜면 키를 잘못 짚었을 때 **0 을 돌려주고
    조용히 지나간다.** 그래서 사이트마다 키를 명시하고, 모양이 다르면 멈춘다.
    =================================================================== */
@@ -73,6 +73,8 @@ const SITES = [
   { key: 'video', label: '영상',      count: () => rows('video/data/videos.json', null) },
   { key: '1min',  label: '차시 영상', count: () => rows('1min/data/lessons.json', null) },
   { key: 'draw',  label: '그림',      count: () => rows('draw/data/drawings.json', 'drawings') },
+  // 그림책은 2026-11-14 발행. books.json 은 books/*/book.json 에서 나온 생성물이다(gen-books.mjs).
+  { key: 'picturebook', label: '그림책', count: () => rows('picturebook/data/books.json', 'books') },
 ];
 
 const fmt = (n) => n.toLocaleString('ko-KR'); // 1944 → 1,944

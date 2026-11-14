@@ -42,7 +42,7 @@ const SITES = [
       'home', '.github/workflows/home.yml', 'scripts/sync-counts.mjs',
       'game/games/**/game.json', 'quiz/games/**/game.json',
       'word/data/words.json', 'story/data/stories.json', 'video/data/videos.json',
-      '1min/data/lessons.json', 'draw/data/drawings.json',
+      '1min/data/lessons.json', 'draw/data/drawings.json', 'picturebook/data/books.json',
     ],
   },
 ];

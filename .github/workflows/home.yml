@@ -6,7 +6,7 @@ name: 모아보기 검증·발행
 #   CLAUDE.md 5절 확인 명령이 이 여덟 번째 사이트도 같이 판정한다.
 #
 # 카드의 개수("차시 영상 192")는 **발행 직전에 데이터에서 다시 뽑는다**
-# (scripts/sync-counts.mjs). 그래서 일곱 사이트의 데이터 파일도 아래 paths 에
+# (scripts/sync-counts.mjs). 그래서 여덟 사이트의 데이터 파일도 아래 paths 에
 # 들어 있다 — 1분사회에 차시를 더하면 모아보기가 알아서 다시 발행돼 숫자가 따라온다.
 # 손으로 적어 두었더니 1분사회는 열 시간 만에, 낱말은 처음부터 틀려 있었다.
 #   Pages Source = GitHub Actions (2026-10-01 설정). 저장소 전체가 아니라
@@ -30,6 +30,7 @@ on:
       - 'video/data/videos.json'
       - '1min/data/lessons.json'
       - 'draw/data/drawings.json'
+      - 'picturebook/data/books.json'
   push:
     branches: [main]
     paths:
@@ -44,6 +45,7 @@ on:
       - 'video/data/videos.json'
       - '1min/data/lessons.json'
       - 'draw/data/drawings.json'
+      - 'picturebook/data/books.json'
   workflow_dispatch:
 
 permissions:
