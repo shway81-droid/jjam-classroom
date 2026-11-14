@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="짬짬이 그림책">
+  <!-- 가족 공통 틀: 둥근 타일 + 우상단 흰 원 시계 배지.
+       바탕은 풀빛 #6A9A1F(색상각 약 85°) — 2026-11-14 가족 색과 나란히 보고 사용자가 확정했습니다.
+       심볼은 펼친 그림책: 왼쪽 쪽에 그림(해와 언덕), 오른쪽 쪽에 글 줄.
+       짬짬이 이야기도 펼친 책이라, 쪽 안에 그림을 넣어 서로 다르게 보이게 했습니다. -->
+  <rect width="100" height="100" rx="24" fill="#6A9A1F"/>
+  <path d="M48 45c-10-5.5-20-5.5-31 0v38c11-5.5 21-5.5 31 0z" fill="#FFFFFF"/>
+  <path d="M52 45c10-5.5 20-5.5 31 0v38c-11-5.5-21-5.5-31 0z" fill="#FFFFFF"/>
+  <circle cx="27" cy="55" r="5" fill="#FFB703"/>
+  <path d="M20 77Q31 60 45 73V77Z" fill="#6A9A1F"/>
+  <path d="M58 56H77M58 63H77M58 70H71" stroke="#B9C99E" stroke-width="3.2" stroke-linecap="round"/>
+  <circle cx="76" cy="24" r="14" fill="#FFFFFF"/>
+  <path d="M76 15.5 V24.5 L82.5 28.5" fill="none" stroke="#152447" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

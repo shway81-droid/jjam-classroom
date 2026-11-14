@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>짬짬이 그림책 — 화풍 시안 비교</title>
+<style>
+  @font-face {
+    font-family: 'Pretendard';
+    src: url('../../../game/assets/fonts/PretendardVariable.subset.woff2') format('woff2');
+    font-weight: 100 900;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 24px; background: #2b2b2b; color: #fff; font-family: 'Pretendard', sans-serif; }
+  h1 { font-size: 22px; margin: 0 0 6px; }
+  .note { font-size: 15px; opacity: .75; margin: 0 0 24px; line-height: 1.6; }
+  .sample { margin: 0 0 40px; }
+  .sample h2 { font-size: 20px; margin: 0 0 10px; }
+  .sample h2 small { font-weight: 400; opacity: .7; margin-left: 8px; }
+  /* 읽기 화면 = 16:9, 그림이 가득, 글 띠가 아래에 겹친다 (PRD D3) */
+  .screen { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #ddd; border-radius: 6px; }
+  .screen img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .band {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 1.4% 4% 1.8%;
+    background: rgba(255, 250, 240, .88);
+    color: #2a2418;
+    /* 1920px 화면에서 본문 40px 이상 → 화면 폭의 약 2.1% */
+    font-size: 2.15cqw; line-height: 1.45;
+  }
+  .screen { container-type: inline-size; }
+  .band p { margin: 0; font-weight: 500; }
+  .band p.now { font-weight: 800; }
+  .dots { position: absolute; right: 2.2%; bottom: 3%; display: flex; gap: .5cqw; }
+  .dots i { width: .7cqw; height: .7cqw; border-radius: 50%; background: rgba(42,36,24,.25); }
+  .dots i.on { background: #6A9A1F; }
+  .missing { position: absolute; inset: 0; display: grid; place-items: center; color: #555; font-size: 2cqw; }
+  .toggle { margin: 0 0 24px; }
+  .toggle button { font: inherit; font-size: 15px; padding: 8px 14px; border-radius: 8px; border: 0; cursor: pointer; }
+  body.noband .band, body.noband .dots { display: none; }
+</style>
+</head>
+<body>
+  <h1>짬짬이 그림책 — 화풍 시안 3가지</h1>
+  <p class="note">'금도끼 은도끼' 4장면을 같은 글로 놓았습니다. 그림은 화면 가득, 글은 아래 띠에 겹칩니다(결정 D3).
+    굵은 문장은 지금 읽고 있는 문장 표시입니다. 글 크기는 1920px 칠판에서 약 41px 입니다.</p>
+  <div class="toggle"><button type="button" onclick="document.body.classList.toggle('noband')">글 띠 숨기기 / 보이기 (T)</button></div>
+
+  <section class="sample">
+    <h2>① 수채 동화 <small>style-watercolor.png</small></h2>
+    <div class="screen" data-src="style-watercolor.png"></div>
+  </section>
+  <section class="sample">
+    <h2>② 민화풍 색판화 <small>style-minhwa.png</small></h2>
+    <div class="screen" data-src="style-minhwa.png"></div>
+  </section>
+  <section class="sample">
+    <h2>③ 굵은 선 크레용 <small>style-crayon.png</small></h2>
+    <div class="screen" data-src="style-crayon.png"></div>
+  </section>
+
+<script>
+  var LINES = ['산신령이 반짝반짝 금도끼를 들고 물었어요.', '"이 금도끼가 네 도끼냐?"', '"아니요, 제 도끼는 금도끼가 아니에요."'];
+  document.querySelectorAll('.screen').forEach(function (s) {
+    var img = new Image();
+    img.alt = '';
+    img.onerror = function () { s.innerHTML = '<div class="missing">그림이 아직 없습니다</div>'; };
+    img.src = s.dataset.src;
+    s.appendChild(img);
+    var band = document.createElement('div');
+    band.className = 'band';
+    band.innerHTML = LINES.map(function (t, i) { return '<p' + (i === 1 ? ' class="now"' : '') + '>' + t + '</p>'; }).join('');
+    s.appendChild(band);
+    var dots = document.createElement('div');
+    dots.className = 'dots';
+    for (var i = 1; i <= 10; i++) dots.innerHTML += '<i' + (i === 4 ? ' class="on"' : '') + '></i>';
+    s.appendChild(dots);
+  });
+  document.addEventListener('keydown', function (e) { if (e.code === 'KeyT') document.body.classList.toggle('noband'); });
+</script>
+</body>
+</html>

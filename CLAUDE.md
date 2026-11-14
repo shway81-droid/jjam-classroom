@@ -8,7 +8,13 @@ video/  짧은 교육 영상                story/  생각하고 말하기
 word/   입으로 외치는 말놀이          1min/   수업영상 — 차시 수업에 쓰는 영상 (옛 1분사회)
 draw/   한 획씩 따라 그리기 (2026-10-01 합류)
 home/   짬짬이 교실 모아보기 — 일곱 사이트를 모은 첫 화면 (2026-10-01)
+picturebook/ 짬짬이 그림책 — 옛이야기를 넘기며 읽어 주는 그림책 (작업 중)
 ```
+
+**`picturebook/` 은 발행을 연결하는 중이다(2026-11-14 사용자 결정, MVP 6권으로 먼저 공개).** 발행 저장소
+`shway81-droid/jjam-picturebook` 을 만들고 첫 발행을 확인한 뒤 `publish-dispatch.yml`·`publish-keepalive.yml`·
+바로가기(`jjam-switcher.js`)·모아보기(`home/`)를 차례로 건다(한 PR 에 한 가지씩, 루트 규칙 2).
+폴더 안의 `picturebook/CLAUDE.md` 가 이 파일보다 우선한다.
 
 ## ⛔ 배포·발행에 닿는 변경 — 반드시 지킨다 (2026-09-30 사고)
 
@@ -182,8 +188,10 @@ node scripts/sync-shared.mjs           # game/ 내용으로 맞춘다
 node scripts/sync-shared.mjs --check   # 어긋난 곳만 알려 준다 (CI 가 이걸 돌린다)
 ```
 
-`quiz/`·`video/`·`story/`·`word/`·`1min/`·`draw/`·`home/` 안의 이 다섯 파일은 **생성물이다. 손으로 고치지
+`quiz/`·`video/`·`story/`·`word/`·`1min/`·`draw/`·`home/`·`picturebook/` 안의 이 다섯 파일은 **생성물이다. 손으로 고치지
 마라.** 고쳐도 CI(`공통 파일 일치 확인`)가 막고, 다음 동기화 때 덮어써진다.
+`picturebook/` 은 발행 전이지만 같은 웹폰트를 써서 동기화 대상에 넣었다(2026-11-05, 리듬 브랜치와 같은 방식).
+자매 사이트 바로가기 파일도 같이 들어가지만 그림책 화면은 그것을 불러오지 않는다(D6).
 
 왜 한 벌로 줄이지 않았나 — 폰트와 스위처는 각 사이트가 **배포될 때 자기 루트에**
 갖고 있어야 한다. 저장소 루트에 한 벌만 두면 `game/index.html` 의
