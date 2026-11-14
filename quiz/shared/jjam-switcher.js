@@ -1,7 +1,7 @@
 /* ===================================================================
    짬짬이 사이트 전환 — 헤더에 자매 사이트를 바로 놓는다
    ===================================================================
-   짬짬이 게임·퀴즈·영상·이야기·낱말·수업영상·그리기는 발행 저장소가 일곱으로 갈라져 있지만
+   짬짬이 게임·퀴즈·영상·이야기·낱말·수업영상·그리기·그림책은 발행 저장소가 여덟으로 갈라져 있지만
    선생님에게는 "자투리 시간에 쓰는 짬짬이" 하나다. 지금은 한 곳에 들어오면 나머지가
    있다는 걸 알 방법이 없어서, 헤더에서 곧바로 건너갈 수 있게 한다.
 
@@ -14,7 +14,7 @@
      <div class="jjam-switch" data-site="game"></div>
      <script src="shared/jjam-switcher.js" defer></script>
 
-   data-site 는 "지금 있는 곳"이다(game | quiz | video | story | word | 1min | draw).
+   data-site 는 "지금 있는 곳"이다(game | quiz | video | story | word | 1min | draw | picturebook).
    그 항목은 빠지고 SITES 의 나머지가 그려진 뒤, 맨 끝에 '전체 보기'(모아보기)가 붙는다.
 
    이 파일은 여섯 저장소에서 글자 하나까지 같아야 한다.
@@ -30,8 +30,8 @@
   // label — 화면에 보이는 이름. 폭을 맞추려고 띄어쓰기를 넣지 않았다.
   // go    — 화면 낭독기가 읽는 문장. 조사(으로/로)가 이름마다 달라 통째로 적는다.
   //
-  // 헤더에 거는 것은 **완성된 일곱**뿐이다 — 게임·퀴즈·영상·이야기·낱말·수업영상(옛 1분사회)·그리기.
-  // (그리기는 2026-10-01 완성되어 더했다.) 쉼·스트레칭은 저장소는 있지만 아직 작업 중이라 넣지 않는다.
+  // 헤더에 거는 것은 **발행 중인 여덟**이다 — 게임·퀴즈·영상·이야기·낱말·수업영상(옛 1분사회)·그리기·그림책.
+  // (그리기는 2026-10-01, 그림책은 2026-11-14 에 더했다.) 쉼·스트레칭은 저장소는 있지만 아직 작업 중이라 넣지 않는다.
   // (완성되면 여기에 한 벌씩 더하면 된다.)
   //
   // 나중에 쉼을 걸 때는 아래 한 벌만 되살리면 된다(아이콘은 ART.rest 에 그대로 있다).
@@ -51,10 +51,12 @@
     { key: '1min',  label: '짬짬이수업영상', go: '짬짬이 수업영상으로 가기',
       url: 'https://shway81-droid.github.io/jjam-1min/' },
     { key: 'draw',  label: '짬짬이그리기', go: '짬짬이 그리기로 가기',
-      url: 'https://shway81-droid.github.io/jjam-draw/' }
+      url: 'https://shway81-droid.github.io/jjam-draw/' },
+    { key: 'picturebook', label: '짬짬이그림책', go: '짬짬이 그림책으로 가기',
+      url: 'https://shway81-droid.github.io/jjam-picturebook/' }
   ];
 
-  // 맨 끝의 '전체 보기' — 일곱 사이트를 모은 모아보기(짬짬이 교실, 2026-10-01).
+  // 맨 끝의 '전체 보기' — 짬짬이 사이트를 모두 모은 모아보기(짬짬이 교실, 2026-10-01).
   // 사이트가 더 늘어 헤더에 다 걸 수 없게 되어도 여기로 가면 전부 있다.
   var HOME = { key: 'home', label: '전체보기', go: '짬짬이 교실 전체 보기',
     url: 'https://shway81-droid.github.io/jjam-classroom/' };
@@ -106,6 +108,14 @@
       '<polygon points="32.1,46.9 24,26 44.9,34.1" fill="#152447"/>' +
       '<polygon points="71.6,86.4 65.4,80.2 78.2,67.4 84.4,73.6" fill="#152447"/>' +
       '<line x1="38.5" y1="40.5" x2="78" y2="80" stroke="#E4572E" stroke-width="2.4" stroke-opacity=".55"/>' + BADGE,
+    // jjam-picturebook 의 favicon.svg 와 같은 펼친 그림책(풀빛, 2026-11-14)
+    picturebook:
+      '<rect width="100" height="100" rx="24" fill="#6A9A1F"/>' +
+      '<path d="M48 45c-10-5.5-20-5.5-31 0v38c11-5.5 21-5.5 31 0z" fill="#FFFFFF"/>' +
+      '<path d="M52 45c10-5.5 20-5.5 31 0v38c-11-5.5-21-5.5-31 0z" fill="#FFFFFF"/>' +
+      '<circle cx="27" cy="55" r="5" fill="#FFB703"/>' +
+      '<path d="M20 77Q31 60 45 73V77Z" fill="#6A9A1F"/>' +
+      '<path d="M58 56H77M58 63H77M58 70H71" stroke="#B9C99E" stroke-width="3.2" stroke-linecap="round"/>' + BADGE,
     // 모아보기(짬짬이 교실) 로고 — home/favicon.svg 와 같은 그림. 흰 타일이라 네이비 헤더 위에서 구분된다.
     home:
       '<rect width="100" height="100" rx="24" fill="#FFFFFF"/>' +
