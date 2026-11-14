@@ -104,22 +104,6 @@ p { margin: 0; }
 .amt { font-size: 14px; font-weight: 600; color: var(--ink-soft); }
 .go { font-size: 14px; font-weight: 800; }
 
-/* 처음 오셨나요? */
-.tip { background: var(--tint); border-radius: 22px; padding: 22px; display: flex; flex-direction: column; justify-content: center; gap: 8px; }
-/* 카드가 여덟이 되어(2026-11-14 그림책) 넷씩 두 줄을 채우고, 안내는 아래 한 줄을 다 씁니다. */
-.tip { grid-column: 1 / -1; }
-@media (min-width: 1041px) { .tip-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; } .tip-list li { border-top: 0; padding-top: 2px; } }
-.tip h3 { font-size: 1.15rem; font-weight: 900; }
-.tip > p { font-size: 14px; color: var(--ink-soft); }
-.tip-list { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 5px; }
-.tip-list li { display: grid; gap: 4px; padding-top: 5px; border-top: 1px solid var(--line); }
-.tip-list li:first-child { border-top: 0; padding-top: 2px; }
-.when { font-size: 13px; font-weight: 800; color: var(--ink-soft); }
-.picks { display: flex; flex-wrap: wrap; gap: 6px; }
-.pick { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px 3px 3px; border-radius: 10px; background: var(--paper); text-decoration: none; font-size: 14px; font-weight: 800; transition: transform .15s ease; }
-.pick:hover { transform: translateY(-1px); }
-.pick .icon { border-radius: 8px; }
-
 /* 아래 줄 */
 .foot { padding-bottom: 56px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
 .promise { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -219,15 +203,6 @@ p { margin: 0; }
       <div class="time"><span class="min">3~5분</span><span class="amt" data-count="picturebook">그림책 6</span></div>
       <span class="go" style="color:#4E7614">열기 →</span>
     </a>
-    <section class="tip" aria-labelledby="tip-title">
-      <h3 id="tip-title">처음 오셨나요?</h3>
-      <p>남은 시간에 맞춰 먼저 열어 보세요.</p>
-      <ul class="tip-list">
-        <li><span class="when">3분 남았을 때</span><span class="picks"><a class="pick" href="https://shway81-droid.github.io/jjam-video/"><svg class="icon" width="26" height="26" aria-hidden="true"><use href="#i-video"/></svg><span>영상</span></a><a class="pick" href="https://shway81-droid.github.io/jjam-word/"><svg class="icon" width="26" height="26" aria-hidden="true"><use href="#i-word"/></svg><span>낱말</span></a></span></li>
-        <li><span class="when">5분 남았을 때</span><span class="picks"><a class="pick" href="https://shway81-droid.github.io/jjam/"><svg class="icon" width="26" height="26" aria-hidden="true"><use href="#i-game"/></svg><span>게임</span></a><a class="pick" href="https://shway81-droid.github.io/jjam-quiz/"><svg class="icon" width="26" height="26" aria-hidden="true"><use href="#i-quiz"/></svg><span>퀴즈</span></a></span></li>
-        <li><span class="when">10분 남았을 때</span><span class="picks"><a class="pick" href="https://shway81-droid.github.io/jjam-story/"><svg class="icon" width="26" height="26" aria-hidden="true"><use href="#i-story"/></svg><span>이야기</span></a><a class="pick" href="https://shway81-droid.github.io/jjam-draw/"><svg class="icon" width="26" height="26" aria-hidden="true"><use href="#i-draw"/></svg><span>그리기</span></a></span></li>
-      </ul>
-    </section>
   </div>
   <div class="foot">
     <div class="promise"><span>모두 무료</span><span>설치 없음</span><span>로그인 없음</span><span>전자칠판에 맞춘 큰 화면</span></div>
