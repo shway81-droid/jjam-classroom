@@ -1,5 +1,5 @@
 {
-  "note": "2차 5권 그림 진행 기록(2026-11-14). 캔바 AI 한도(quota_cooldown·월 사용량) 때문에 사용자 결정으로 멈췄습니다. 값은 캔바 미디어 ID 입니다. 이어 그릴 때는 같은 캐릭터 시트를 imageReferences 로 넣고, 장면 설명은 2차_5권.json 의 scene, 화풍 문구는 picturebook/CLAUDE.md '화풍 고정 문구'를 씁니다. 다 모이면 1차처럼 작업 디자인에 넣고 저장(승인) → 내보내기.",
+  "note": "2차 5권 그림 진행 기록. 값은 캔바 미디어 ID 입니다. 이어 그릴 때는 같은 캐릭터 시트를 imageReferences 로 넣고, 장면 설명은 2차_5권.json 의 scene, 화풍 문구는 picturebook/CLAUDE.md '화풍 고정 문구' 를 씁니다. 다 모이면 1차처럼 작업 디자인에 넣고 저장(승인) → 내보내기. 2026-11-17: 14장을 더 그려 30장(남은 27장). 까마귀와 물병 완성, 맷돌은 p07~p09 만 남았습니다. 캔바 쿨다운이 쓸수록 길어져(5분→7분→10분 이상) 그날은 여기서 멈췄습니다. 맷돌 p06 은 임금님이 같이 탄 그림이 나와 '사람은 도둑 한 명만' 을 넣어 다시 그렸습니다 — 배 장면 프롬프트에는 그 문장을 꼭 넣습니다. salt-millstone 의 alt.cover 는 인물 둘이 배에 탄 첫 표지안이고, done.cover 가 쓰기로 한 사람 없는 표지입니다.",
   "books": {
     "dog-cat-bead": {
       "characterSheet": "MAHa2G0XDbo",
@@ -22,19 +22,23 @@
     },
     "salt-millstone": {
       "characterSheet": "MAHa2LyEwhw",
-      "done": {},
+      "done": {
+        "cover": "MAHbJexnGsI",
+        "p01": "MAHbJUGpTC8",
+        "p02": "MAHbJYXP6nk",
+        "p03": "MAHbJWlJ-Yw",
+        "p04": "MAHbJSlafRY",
+        "p05": "MAHbJi8ev7s",
+        "p06": "MAHbJue-0tU"
+      },
       "todo": [
-        "cover",
-        "p01",
-        "p02",
-        "p03",
-        "p04",
-        "p05",
-        "p06",
         "p07",
         "p08",
         "p09"
-      ]
+      ],
+      "alt": {
+        "cover": "MAHbJb4K28c"
+      }
     },
     "lion-and-mouse": {
       "characterSheet": "MAHa2C3QSTE",
@@ -55,17 +59,16 @@
       "characterSheet": "MAHa2PmtveQ",
       "done": {
         "cover": "MAHa2C_OcdQ",
-        "p01": "MAHa2BxHGoQ"
+        "p01": "MAHa2BxHGoQ",
+        "p02": "MAHbJBMrsqw",
+        "p03": "MAHbJCXsZr0",
+        "p04": "MAHbJLdvT10",
+        "p05": "MAHbJcd2-VU",
+        "p06": "MAHbJTek3xM",
+        "p07": "MAHbJUdOdXI",
+        "p08": "MAHbJaxOq70"
       },
-      "todo": [
-        "p02",
-        "p03",
-        "p04",
-        "p05",
-        "p06",
-        "p07",
-        "p08"
-      ]
+      "todo": []
     },
     "elves-shoemaker": {
       "characterSheet": "MAHa2EB6ygw",
