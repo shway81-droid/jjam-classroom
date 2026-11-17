@@ -5,7 +5,8 @@
 //    표지의 [이 책 미리 받기]나 [읽어 주기 시작]이 그 책의 그림 전부와 두 목소리 음성을 받아 둡니다.
 //  - 책 캐시는 VERSION 과 따로 둡니다 — 화면을 고쳐도 받아 둔 책을 다시 받지 않게.
 //
-// VERSION 은 발행할 때 커밋 번호로 바꿉니다(다른 사이트처럼 — 발행은 아직 정하지 않음, PRD D6).
+// VERSION 은 발행 저장소 jjam-picturebook 의 publish.yml 이 커밋 번호로 바꿉니다(다른 사이트처럼).
+// 2026-11-14 부터 발행 중입니다(PRD D6) — 이 파일을 고쳐 main 에 머지하면 교실에서 쓰는 사이트가 곧 달라집니다.
 // 로컬 미리보기(localhost)에서는 고친 것이 바로 보이도록 등록하지 않습니다. 시험할 때는 주소에 ?sw=1.
 const VERSION = 'jjam-picturebook-v1';
 const BOOKS = 'jjam-picturebook-books';
