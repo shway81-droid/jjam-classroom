@@ -86,7 +86,7 @@ body {
   top: 0;
   z-index: 20;
 }
-.brand { display: flex; align-items: center; gap: 12px; }
+.brand { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
 .logo-mark { width: 46px; height: 46px; display: flex; align-items: center; justify-content: center; }
 .logo-mark svg, .logo-mark img { display: block; width: 46px; height: 46px; filter: drop-shadow(0 5px 9px rgba(0,0,0,0.35)); }
 .brand-text { display: flex; flex-direction: column; line-height: 1.2; }
@@ -96,10 +96,12 @@ body {
   color: #fff;
   letter-spacing: -0.01em;
 }
-.brand-sub { font-size: 0.8rem; color: #9DB0D8; font-weight: 600; }
+/* 부제·버튼 글씨가 두 줄로 꺾이지 않게 한 줄로 고정한다. 1200px 상자 안에 자매 바로가기(580px)까지
+   들어가야 해서, 버튼 글씨를 조금 줄이고 간격을 8px 로 좁혔다(2026-11-17). */
+.brand-sub { font-size: 0.8rem; color: #9DB0D8; font-weight: 600; white-space: nowrap; }
 /* align-items 를 명시한다 — 기본값 stretch 라, 옆에 키 큰 항목(자매 사이트
    바로가기)이 들어오면 기존 버튼까지 같이 늘어난다. */
-.topbar-actions { display: flex; align-items: center; gap: 10px; }
+.topbar-actions { display: flex; align-items: center; gap: 8px; }
 
 /* 헤더 토글 버튼 (광고 제거·저장함·전체화면) */
 .wood-btn {
@@ -107,10 +109,11 @@ body {
   align-items: center;
   gap: 6px;
   min-height: 44px;
-  padding: 0 14px;
+  padding: 0 11px;
   font-family: inherit;
-  font-size: 0.98rem;
+  font-size: 0.88rem;
   font-weight: 700;
+  white-space: nowrap;
   color: #fff;
   background: var(--navy-2);
   border: 1px solid rgba(255,255,255,0.16);
