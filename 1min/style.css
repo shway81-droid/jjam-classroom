@@ -104,7 +104,8 @@ body {
 .cta-copy b { color: var(--accent-dk); }
 
 /* ── 본문 ───────────────────────────────────────────────── */
-.board { max-width: 1180px; margin: 0 auto; padding: 18px 16px 56px; }
+/* 본문도 헤더와 같은 1200px 상자 — 좌우 끝선이 헤더·안내 띠와 맞게(짬짬이 영상과 같은 값) */
+.board { width: min(1200px, 100%); margin: 0 auto; padding: 18px 20px 56px; }
 
 /* 과목·검색 고르기 */
 .picker {
@@ -485,7 +486,6 @@ body.view-words .pick-units, body.view-words .pick-sep { display: none; }
 @media (min-width: 1280px) {
   body { font-size: 1.06rem; }
   .brand-text b { font-size: 1.7rem; }
-  .board { max-width: 1420px; }
   .grid { grid-template-columns: repeat(auto-fill, minmax(196px, 1fr)); gap: 18px; }
   .unit-title { font-size: 1.22rem; }
   .card-topic { font-size: 1.04rem; }
