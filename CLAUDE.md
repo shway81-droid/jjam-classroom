@@ -88,6 +88,11 @@ Pages Source = **GitHub Actions**, 워크플로 `.github/workflows/home.yml`. �
 `publish-dispatch.yml`·`publish-keepalive.yml` 과 무관하고 `PUBLISH_TOKEN` 도 쓰지 않는다. 서비스워커가 없어
 고치면 새로 고침 없이 바로 보인다. 확인: `curl -s https://xn--hu5b58ba.com/ | grep -o '<title>[^<]*'`.
 
+**구글 검색(2026-11-21).** Google Search Console 에 **도메인 속성 `짬짬이.com`** 을 만들었다(계정 shway81@gmail.com).
+인증은 호스팅케이알 DNS 의 **TXT `@` `google-site-verification=lvXp4s…`** 레코드다 — **지우면 인증이 풀린다.**
+`home/robots.txt`·`home/sitemap.xml` 을 `home.yml` 이 함께 올리고, `index.html` 에 canonical(`https://xn--hu5b58ba.com/`)과
+사이트 이름용 JSON-LD(WebSite, `짬짬이 교실`)를 넣었다. 사이트맵은 서치 콘솔에 제출해 두었다.
+
 주소가 저장소 이름에서 나오기 때문에(`github.io/<레포>/`) 여기서 발행하면
 선생님들의 즐겨찾기가 전부 깨진다. 그래서 배포는 아직 저쪽에 있다.
 
