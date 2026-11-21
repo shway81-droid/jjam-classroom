@@ -1,7 +1,8 @@
 name: 모아보기 검증·발행
 
 # 짬짬이 교실 모아보기(home/)는 다른 일곱 사이트와 달리 **이 저장소가 직접 발행한다.**
-#   주소: https://shway81-droid.github.io/jjam-classroom/
+#   주소: https://짬짬이.com/ (퓨니코드 https://xn--hu5b58ba.com/, 2026-11-21 연결)
+#         옛 https://shway81-droid.github.io/jjam-classroom/ 은 새 주소로 301 넘어간다.
 #   sw.js 도 함께 올리고 캐시 이름에 커밋 번호를 박는다(2026-10-02) — 그래야
 #   CLAUDE.md 5절 확인 명령이 이 여덟 번째 사이트도 같이 판정한다.
 #
