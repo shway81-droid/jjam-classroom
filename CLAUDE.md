@@ -39,7 +39,7 @@ picturebook/ 짬짬이 그림책 — 옛이야기를 넘기며 읽어 주는 그
    (jjam-classroom `발행 신호 보내기` 수동 실행, 또는 각 저장소 발행 워크플로 Run workflow),
    여덟 사이트 sw.js 의 커밋 번호가 jjam-classroom main 과 같은지 확인한 다음 원인을 고친다.
 5. 확인 명령(아홉 사이트의 발행 버전):
-   `for r in jjam jjam-quiz jjam-video jjam-story jjam-word jjam-1min jjam-draw jjam-picturebook jjam-classroom; do curl -s https://shway81-droid.github.io/$r/sw.js | grep -oE "(CACHE(_NAME)?|VERSION) = '[^']*'"; done`
+   `for r in jjam jjam-quiz jjam-video jjam-story jjam-word jjam-1min jjam-draw jjam-picturebook jjam-classroom; do curl -sL https://shway81-droid.github.io/$r/sw.js | grep -oE "(CACHE(_NAME)?|VERSION) = '[^']*'"; done`
    — 커밋 번호 없이 `jjamquiz-v3` 같은 이름이 나오면 옛 내용이 발행된 것이다.
    **줄 수를 세라. 아홉 줄이 나와야 한다.** 어느 사이트가 `sw.js` 를 안 돌려주면 그 자리는
    **빈 줄이 아니라 아예 빠진 채** 결과가 짧아진다. `grep` 은 못 찾아도 0 으로 끝나기 때문에
@@ -54,8 +54,8 @@ picturebook/ 짬짬이 그림책 — 옛이야기를 넘기며 읽어 주는 그
    고침 없이 바로 보이게"였기 때문이다(`home/sw.js` 머리말 참고). 그래서 캐시 이름이
    최신이어도 **화면이 실제로 뜨는지는 따로 본다.** 아래가 `200` 과 `8` 이면 정상이다(2026-11-14 그림책 카드가 더해져 여덟)
    (프록시 뒤에서는 `-I` 의 첫 줄이 프록시 응답이라 못 믿는다. `-w '%{http_code}'` 를 쓴다):
-   `curl -s -o /dev/null -w '%{http_code}\n' https://shway81-droid.github.io/jjam-classroom/`
-   `curl -s https://shway81-droid.github.io/jjam-classroom/ | grep -c 'class="card"'`
+   `curl -s -o /dev/null -w '%{http_code}\n' https://xn--hu5b58ba.com/`
+   `curl -s https://xn--hu5b58ba.com/ | grep -c 'class="card"'`
 
 ## 폴더 안의 규칙이 우선이다
 
@@ -79,11 +79,14 @@ picturebook/ 짬짬이 그림책 — 옛이야기를 넘기며 읽어 주는 그
 | `draw/` | `shway81-droid/jjam-draw` | Pages Source = **GitHub Actions** (`publish.yml` → `actions/deploy-pages`). 2026-10-01 합류 — 예전 `pages.yml`(자기 main 발행)은 지웠다. 배포 목록은 `publish.yml` 에 적혀 있다(`tools/`·`drawings/`·`refs/`·`scripts/` 는 배포하지 않는다), sw.js 의 `VERSION` 을 커밋 번호로 |
 | `picturebook/` | `shway81-droid/jjam-picturebook` | Pages Source = **GitHub Actions** (`publish.yml` → `actions/deploy-pages`). 2026-11-14 첫 발행. `docs/`·`scripts/`·`books/*/book.json` 은 배포하지 않는다, sw.js 의 `VERSION` 을 커밋 번호로 |
 
-**`home/` 만 예외다 — 이 저장소가 직접 발행한다.** 주소 `https://shway81-droid.github.io/jjam-classroom/`,
+**`home/` 만 예외다 — 이 저장소가 직접 발행한다.** 주소 **`https://짬짬이.com/`**(퓨니코드 `xn--hu5b58ba.com`,
+2026-11-21 연결 — 도메인은 호스팅케이알, DNS 는 A 4개 185.199.108~111.153 + `www` CNAME `shway81-droid.github.io`,
+Pages Custom domain 에 등록). 옛 `https://shway81-droid.github.io/jjam-classroom/` 은 **301 로 새 주소로 넘어간다** —
+`curl -s` 로 옛 주소를 보면 빈 결과가 나오니 새 주소를 보거나 `-L` 을 붙인다.
 Pages Source = **GitHub Actions**, 워크플로 `.github/workflows/home.yml`. 저장소 전체가 아니라 `home/` 의
 `index.html`·`favicon.svg`·`og-image.png`·`assets/` 만 올린다(다른 폴더가 이 주소 아래 한 벌 더 공개되지 않게).
 `publish-dispatch.yml`·`publish-keepalive.yml` 과 무관하고 `PUBLISH_TOKEN` 도 쓰지 않는다. 서비스워커가 없어
-고치면 새로 고침 없이 바로 보인다. 확인: `curl -s https://shway81-droid.github.io/jjam-classroom/ | grep -o '<title>[^<]*'`.
+고치면 새로 고침 없이 바로 보인다. 확인: `curl -s https://xn--hu5b58ba.com/ | grep -o '<title>[^<]*'`.
 
 주소가 저장소 이름에서 나오기 때문에(`github.io/<레포>/`) 여기서 발행하면
 선생님들의 즐겨찾기가 전부 깨진다. 그래서 배포는 아직 저쪽에 있다.
