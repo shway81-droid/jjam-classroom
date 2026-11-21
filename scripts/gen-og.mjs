@@ -185,7 +185,7 @@ if (CHECK) {
     console.log(`\n❌ 공유 카드 ${drift}건이 어긋났습니다 — \`node scripts/gen-og.mjs\` 를 돌리세요.`);
     process.exit(1);
   }
-  console.log('\n✅ 공유 카드 SVG 가 favicon·문구와 일치 (${SITES.length}건 확인)');
+  console.log(`\n✅ 공유 카드 SVG 가 favicon·문구와 일치 (${SITES.length}건 확인)`);
   process.exit(0);
 }
 
