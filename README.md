@@ -112,4 +112,6 @@ cd intro && npm install && npm run prep && npm run render
 ```
 
 화면은 그리지 않고 저장소를 띄워 **진짜 사이트를 찍고**, 이름·한 줄 소개·개수는
-모아보기와 `scripts/sync-counts.mjs` 에서 가져옵니다. 자세한 것은 `intro/README.md`.
+모아보기와 `scripts/sync-counts.mjs` 에서 가져옵니다.
+짧은 사용법은 `intro/README.md`, 만들어지는 과정 전체는
+`intro/docs/소개영상_만드는_법.md` 에 있습니다.

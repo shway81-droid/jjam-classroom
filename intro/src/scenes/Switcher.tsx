@@ -1,5 +1,6 @@
 // 5. 바로가기: 사이트끼리 머리 위 줄로 한 번에 건너간다
-import { AbsoluteFill, Img, interpolate, staticFile, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Img, interpolate, Sequence, staticFile, useCurrentFrame } from "remotion";
+import { Audio } from "@remotion/media";
 import { C, FONT, Icon, ICONS, enter, ratio } from "../theme";
 
 const BAR_W = 1520;
@@ -50,6 +51,11 @@ export const Switcher: React.FC = () => {
         <Icon paths={ICONS.home} size={48} color={C.accentText} stroke={2.4} />
         맨 끝 <b style={{ color: C.accentText, fontWeight: 900 }}>[전체 보기]</b> 를 누르면 모아보기로
       </div>
+
+      {/* 띠가 떠오를 때 한 번 '딸깍' */}
+      <Sequence from={22} layout="none">
+        <Audio src={staticFile("sfx/mouse-click.wav")} volume={0.5} />
+      </Sequence>
     </AbsoluteFill>
   );
 };

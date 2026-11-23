@@ -5,9 +5,12 @@
 
 완성본: [`jjam-classroom-intro.mp4`](jjam-classroom-intro.mp4) (약 12.4MB)
 
+**어떻게 만들어졌는지 자세히: [`docs/소개영상_만드는_법.md`](docs/소개영상_만드는_법.md)**
+
 - 1920×1080 · 30fps · 약 55초 · 배경음악 + 효과음(내레이션 없음), 음량 약 −16.5 LUFS(유튜브 권장)
 - 배경음악은 `scripts/make-bgm.mjs` 가 **코드로 직접 만든 곡**입니다(밝은 D장조 100 BPM, 패드·마림바·종소리·베이스·가벼운 드럼). 남의 곡을 쓰지 않아 유튜브 저작권(Content ID) 걱정이 없습니다.
 - 장면: 고민 → 제목 → 여덟 가지(모아보기) → 사이트 여덟 칸 → 바로가기 → 약속 네 가지 → 마무리
+- 효과음 셋: 칸이 바뀔 때 `whoosh`, 바로가기 띠에 `mouse-click`, 마무리에 `ding`
 
 ## ⛔ 이 폴더는 사이트가 아닙니다
 
@@ -71,6 +74,7 @@ cd intro && npm run render
 | `scripts/capture.mjs` | 진짜 사이트 화면·아이콘 찍기 → `public/shots/` |
 | `scripts/make-bgm.mjs` | 배경음악 만들기 → `public/bgm.wav` |
 | `scripts/prep.mjs` | 위를 순서대로 |
+| `docs/소개영상_만드는_법.md` | 만들어지는 과정 전체와 고칠 곳 안내 |
 
 ## 장면
 

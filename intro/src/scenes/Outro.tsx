@@ -1,5 +1,6 @@
 // 7. 마무리: 짬짬이 교실 — 짬짬이.com
-import { AbsoluteFill, Easing, interpolate, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Easing, interpolate, Sequence, staticFile, useCurrentFrame } from "remotion";
+import { Audio } from "@remotion/media";
 import { SITES } from "../sites";
 import { C, FONT, Logo, SiteIcon, enter } from "../theme";
 
@@ -40,6 +41,11 @@ export const Outro: React.FC = () => {
       <div style={{ position: "absolute", bottom: 78, fontSize: 32, fontWeight: 600, color: "rgba(255,255,255,0.6)", ...enter(frame, 54) }}>
         모두 무료 · 설치 없음 · 로그인 없음
       </div>
+
+      {/* 제목이 튀어오를 때 종소리 한 번 */}
+      <Sequence from={12} layout="none">
+        <Audio src={staticFile("sfx/ding.wav")} volume={0.45} />
+      </Sequence>
     </AbsoluteFill>
   );
 };
