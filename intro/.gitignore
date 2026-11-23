@@ -1,0 +1,17 @@
+node_modules
+dist
+.DS_Store
+.env
+
+# 렌더 중간물
+out
+
+# npm run prep 이 만드는 것(글꼴·효과음·배경음악·사이트 화면) — 저장소에는 넣지 않는다
+public/fonts
+public/sfx
+public/shots
+public/bgm.wav
+
+# 로고도 home/ 에서 복사해 온다
+public/logo.svg
+public/sites.json

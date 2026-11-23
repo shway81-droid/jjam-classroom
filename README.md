@@ -100,3 +100,16 @@ GitHub Pages 의 주소가 저장소 이름에서 나오기 때문입니다 —
 - `video/README.md`
 - `story/README.md` · `story/짬짬이_이야기_PRD.md`
 - `word/README.md` · `word/CLAUDE.md` · `word/짬짬이_낱말_PRD.md`
+
+## 1분 소개 영상
+
+여덟 사이트를 한 번에 보여 주는 소개 영상의 원본이 `intro/` 에 있습니다(Remotion).
+**이 폴더만 사이트가 아닙니다** — 발행 워크플로의 경로 필터에 없어서, 고쳐도 어떤
+사이트도 다시 발행되지 않습니다.
+
+```bash
+cd intro && npm install && npm run prep && npm run render
+```
+
+화면은 그리지 않고 저장소를 띄워 **진짜 사이트를 찍고**, 이름·한 줄 소개·개수는
+모아보기와 `scripts/sync-counts.mjs` 에서 가져옵니다. 자세한 것은 `intro/README.md`.
