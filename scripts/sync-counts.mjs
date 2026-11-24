@@ -71,7 +71,8 @@ const SITES = [
   { key: 'word',  label: '문항',      count: () => rows('word/data/words.json', 'items') },
   { key: 'story', label: '이야기',    count: () => rows('story/data/stories.json', 'stories') },
   { key: 'video', label: '영상',      count: () => rows('video/data/videos.json', null) },
-  { key: '1min',  label: '차시 영상', count: () => rows('1min/data/lessons.json', null) },
+  // 수업영상(1min)은 2026-11-24 모아보기 카드에서 뺐다(사이트 자체는 계속 발행). 카드를 되살리면 이 줄도 되살린다.
+  //   { key: '1min',  label: '차시 영상', count: () => rows('1min/data/lessons.json', null) },
   { key: 'draw',  label: '그림',      count: () => rows('draw/data/drawings.json', 'drawings') },
   // 그림책은 2026-11-14 발행. books.json 은 books/*/book.json 에서 나온 생성물이다(gen-books.mjs).
   { key: 'picturebook', label: '그림책', count: () => rows('picturebook/data/books.json', 'books') },

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>짬짬이 교실 — 수업 전후 자투리 시간을 준비 없이 바로</title>
-<meta name="description" content="짬짬이 게임·퀴즈·낱말·이야기·영상·수업영상·그리기·그림책을 한곳에 모았습니다. 수업 전후 자투리 시간을 준비 없이 바로 채워 드립니다. 설치·로그인 없음.">
+<meta name="description" content="짬짬이 게임·퀴즈·낱말·이야기·영상·그리기·그림책을 한곳에 모았습니다. 수업 전후 자투리 시간을 준비 없이 바로 채워 드립니다. 설치·로그인 없음.">
 <meta name="theme-color" content="#152447">
 <!-- 구글 검색(2026-11-21): 대표 주소를 짬짬이.com 하나로 알리고, 검색 결과의 사이트 이름을 '짬짬이 교실'로 잡는다.
      robots.txt·sitemap.xml 도 home/ 에 있다(home.yml 이 함께 올린다). Search Console 은 도메인 속성(DNS TXT)으로 인증. -->
@@ -12,21 +12,21 @@
 <!-- 네이버 서치어드바이저 소유확인(2026-11-21). 지우면 소유확인이 풀린다. -->
 <meta name="naver-site-verification" content="d50afca9056cabe6d5021279c7ee8857338c22f5">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","name":"짬짬이 교실","alternateName":["짬짬이교실","짬짬이"],"url":"https://xn--hu5b58ba.com/","inLanguage":"ko","description":"수업 전후 자투리 시간을 준비 없이 바로 채우는 무료 교실 활동 모음. 게임·퀴즈·낱말·이야기·영상·수업영상·그리기·그림책. 설치·로그인 없음."}
+{"@context":"https://schema.org","@type":"WebSite","name":"짬짬이 교실","alternateName":["짬짬이교실","짬짬이"],"url":"https://xn--hu5b58ba.com/","inLanguage":"ko","description":"수업 전후 자투리 시간을 준비 없이 바로 채우는 무료 교실 활동 모음. 게임·퀴즈·낱말·이야기·영상·그리기·그림책. 설치·로그인 없음."}
 </script>
 <!-- 공유 미리보기(카카오톡·슬랙) — 그림은 favicon.svg 에서 나온다(저장소 루트 scripts/gen-og.mjs). 그림을 바꾸면 ?v= 를 올린다. -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="짬짬이 교실">
 <meta property="og:locale" content="ko_KR">
-<meta property="og:title" content="짬짬이 교실 — 짬짬이 여덟 가지를 한곳에">
-<meta property="og:description" content="수업 전후 자투리 시간을 준비 없이 바로 채워 드립니다. 게임·퀴즈·낱말·이야기·영상·수업영상·그리기·그림책. 설치·로그인 없음.">
+<meta property="og:title" content="짬짬이 교실 — 짬짬이 일곱 가지를 한곳에">
+<meta property="og:description" content="수업 전후 자투리 시간을 준비 없이 바로 채워 드립니다. 게임·퀴즈·낱말·이야기·영상·그리기·그림책. 설치·로그인 없음.">
 <meta property="og:url" content="https://xn--hu5b58ba.com/">
 <meta property="og:image" content="https://xn--hu5b58ba.com/og-image.png?v=3">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="짬짬이 교실 — 짬짬이 여덟 가지를 한곳에">
+<meta property="og:image:alt" content="짬짬이 교실 — 짬짬이 일곱 가지를 한곳에">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="짬짬이 교실 — 짬짬이 여덟 가지를 한곳에">
+<meta name="twitter:title" content="짬짬이 교실 — 짬짬이 일곱 가지를 한곳에">
 <meta name="twitter:description" content="수업 전후 자투리 시간을 준비 없이 바로 채워 드립니다.">
 <meta name="twitter:image" content="https://xn--hu5b58ba.com/og-image.png?v=3">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -128,6 +128,19 @@ p { margin: 0; }
 .guide svg { display: block; margin-left: 2px; }
 .guide:hover { background: color-mix(in oklab, var(--c) 22%, var(--tint)); }
 
+/* 시간별 추천 — 카드 일곱 장 다음 여덟째 칸(2026-11-24 수업영상 카드를 빼고 되살림, 옛 '처음 오셨나요?'). */
+.tip { background: var(--tint); border-radius: 22px; padding: 22px; display: flex; flex-direction: column; justify-content: center; gap: 8px; }
+.tip h3 { font-size: 1.15rem; font-weight: 900; }
+.tip > p { font-size: 14px; color: var(--ink-soft); }
+.tip-list { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 5px; }
+.tip-list li { display: grid; gap: 4px; padding-top: 5px; border-top: 1px solid var(--line); }
+.tip-list li:first-child { border-top: 0; padding-top: 2px; }
+.when { font-size: 13px; font-weight: 800; color: var(--ink-soft); }
+.picks { display: flex; flex-wrap: wrap; gap: 6px; }
+.pick { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px 3px 3px; border-radius: 10px; background: var(--paper); text-decoration: none; font-size: 14px; font-weight: 800; transition: transform .15s ease; }
+.pick:hover { transform: translateY(-1px); }
+.pick .icon { border-radius: 8px; }
+
 /* 아래 줄 */
 .foot { padding-bottom: 56px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
 .promise { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -145,7 +158,6 @@ p { margin: 0; }
   <symbol id="i-word" viewBox="0 0 100 100"><rect width="100" height="100" rx="24" fill="#E4576E"/> <path d="M20 36h34a10 10 0 0 1 10 10v14a10 10 0 0 1-10 10H38L24 82V70h-4a10 10 0 0 1-10-10V46a10 10 0 0 1 10-10z" fill="#FFFFFF"/> <path d="M24 44h26v20h-7V51H24z" fill="#E4576E"/> <circle cx="76" cy="24" r="14" fill="#FFFFFF"/> <path d="M76 15.5 V24.5 L82.5 28.5" fill="none" stroke="#152447" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-story" viewBox="0 0 100 100"><rect width="100" height="100" rx="24" fill="#6145B5"/> <path d="M17 43c8.5-4.5 17-4.5 26 0v37c-9-4.5-17.5-4.5-26 0z" fill="#FFFFFF"/> <path d="M71 43c-8.5-4.5-17-4.5-26 0v37c9-4.5 17.5-4.5 26 0z" fill="#E8DEFF"/> <circle cx="76" cy="24" r="14" fill="#FFFFFF"/> <path d="M76 15.5 V24.5 L82.5 28.5" fill="none" stroke="#152447" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-video" viewBox="0 0 100 100"><rect width="100" height="100" rx="24" fill="#4FA8E8"/> <rect x="14" y="44" width="60" height="36" rx="7" fill="#FFFFFF"/> <path d="M21 44 H67 A7 7 0 0 1 74 51 V58 H14 V51 A7 7 0 0 1 21 44 Z" fill="#152447"/> <path d="M28 44 L22 58 M44 44 L38 58 M60 44 L54 58" fill="none" stroke="#FFFFFF" stroke-width="4.4" stroke-linecap="round"/> <circle cx="76" cy="24" r="14" fill="#FFFFFF"/> <path d="M76 15.5 V24.5 L82.5 28.5" fill="none" stroke="#152447" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  <symbol id="i-1min" viewBox="0 0 100 100"><rect width="100" height="100" rx="24" fill="#E8590C"/> <rect x="24" y="30" width="40" height="58" rx="8" fill="#FFFFFF"/> <rect x="30" y="38" width="28" height="42" rx="4" fill="#152447"/> <circle cx="44" cy="59" r="10.5" fill="none" stroke="#FFFFFF" stroke-width="3"/> <ellipse cx="44" cy="59" rx="4.6" ry="10.5" fill="none" stroke="#FFFFFF" stroke-width="2.6"/> <path d="M33.5 59 H54.5" fill="none" stroke="#FFFFFF" stroke-width="2.6"/> <circle cx="76" cy="24" r="14" fill="#FFFFFF"/> <path d="M76 15.5 V24.5 L82.5 28.5" fill="none" stroke="#152447" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-draw" viewBox="0 0 100 100"><rect width="100" height="100" rx="24" fill="#E4572E"/> <g> <polygon points="71.6,86.4 32.1,46.9 44.9,34.1 84.4,73.6" fill="#FFFFFF"/> <polygon points="32.1,46.9 24,26 44.9,34.1" fill="#1D3557"/> <polygon points="71.6,86.4 65.4,80.2 78.2,67.4 84.4,73.6" fill="#1D3557"/> <line x1="38.5" y1="40.5" x2="78" y2="80" stroke="#E4572E" stroke-width="2.4" opacity=".55"/> </g> <circle cx="76" cy="24" r="19" fill="#FFFFFF"/> <circle cx="76" cy="24" r="14.5" fill="none" stroke="#1D3557" stroke-width="3.5"/> <path d="M 76 24 L 76 15 M 76 24 L 83 24" stroke="#1D3557" stroke-width="3.5" stroke-linecap="round" fill="none"/></symbol>
   <symbol id="i-picturebook" viewBox="0 0 100 100"><rect width="100" height="100" rx="24" fill="#6A9A1F"/> <path d="M48 45c-10-5.5-20-5.5-31 0v38c11-5.5 21-5.5 31 0z" fill="#FFFFFF"/> <path d="M52 45c10-5.5 20-5.5 31 0v38c-11-5.5-21-5.5-31 0z" fill="#FFFFFF"/> <circle cx="27" cy="55" r="5" fill="#FFB703"/> <path d="M20 77Q31 60 45 73V77Z" fill="#6A9A1F"/> <path d="M58 56H77M58 63H77M58 70H71" stroke="#B9C99E" stroke-width="3.2" stroke-linecap="round"/> <circle cx="76" cy="24" r="14" fill="#FFFFFF"/> <path d="M76 15.5 V24.5 L82.5 28.5" fill="none" stroke="#152447" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-play" viewBox="0 0 9 10"><path d="M0 0v10l9-5z" fill="currentColor"/></symbol>
@@ -163,7 +175,6 @@ p { margin: 0; }
       <a href="https://shway81-droid.github.io/jjam-word/" aria-label="짬짬이 낱말"><svg class="icon" width="44" height="44" aria-hidden="true"><use href="#i-word"/></svg></a>
       <a href="https://shway81-droid.github.io/jjam-story/" aria-label="짬짬이 이야기"><svg class="icon" width="44" height="44" aria-hidden="true"><use href="#i-story"/></svg></a>
       <a href="https://shway81-droid.github.io/jjam-video/" aria-label="짬짬이 영상"><svg class="icon" width="44" height="44" aria-hidden="true"><use href="#i-video"/></svg></a>
-      <a href="https://shway81-droid.github.io/jjam-1min/" aria-label="짬짬이 수업영상"><svg class="icon" width="44" height="44" aria-hidden="true"><use href="#i-1min"/></svg></a>
       <a href="https://shway81-droid.github.io/jjam-draw/" aria-label="짬짬이 그리기"><svg class="icon" width="44" height="44" aria-hidden="true"><use href="#i-draw"/></svg></a>
       <a href="https://shway81-droid.github.io/jjam-picturebook/" aria-label="짬짬이 그림책"><svg class="icon" width="44" height="44" aria-hidden="true"><use href="#i-picturebook"/></svg></a>
     </nav>
@@ -228,17 +239,6 @@ p { margin: 0; }
       </div>
     </div>
     <div class="card">
-      <a class="card-link" href="https://shway81-droid.github.io/jjam-1min/" aria-label="짬짬이 수업영상 열기"></a>
-      <svg class="icon" width="72" height="72" aria-hidden="true"><use href="#i-1min"/></svg>
-      <h3>짬짬이 수업영상</h3>
-      <p class="line">차시마다, 수업에 바로 쓰는 영상</p>
-      <div class="time"><span class="min">1~10분</span><span class="amt" data-count="1min">차시 영상 192</span></div>
-      <div class="card-foot">
-        <span class="go" style="color:#E8590C">열기 →</span>
-        <a class="guide" href="https://youtu.be/ADlr6mcZdGE" target="_blank" rel="noopener" style="--c:#E8590C;--c-on:#FFFFFF" aria-label="짬짬이 수업영상 1분 사용법 영상 보기(유튜브, 새 창)"><i aria-hidden="true"><svg width="9" height="10"><use href="#i-play"/></svg></i>1분 사용법</a>
-      </div>
-    </div>
-    <div class="card">
       <a class="card-link" href="https://shway81-droid.github.io/jjam-draw/" aria-label="짬짬이 그리기 열기"></a>
       <svg class="icon" width="72" height="72" aria-hidden="true"><use href="#i-draw"/></svg>
       <h3>짬짬이 그리기</h3>
@@ -260,6 +260,15 @@ p { margin: 0; }
         <a class="guide" href="https://youtu.be/rzgJEgzTC8g" target="_blank" rel="noopener" style="--c:#6A9A1F;--c-on:#FFFFFF" aria-label="짬짬이 그림책 1분 사용법 영상 보기(유튜브, 새 창)"><i aria-hidden="true"><svg width="9" height="10"><use href="#i-play"/></svg></i>1분 사용법</a>
       </div>
     </div>
+    <section class="tip" aria-labelledby="tip-title">
+      <h3 id="tip-title">처음 오셨나요?</h3>
+      <p>남은 시간에 맞춰 먼저 열어 보세요.</p>
+      <ul class="tip-list">
+        <li><span class="when">3분 남았을 때</span><span class="picks"><a class="pick" href="https://shway81-droid.github.io/jjam-video/"><svg class="icon" width="26" height="26" aria-hidden="true"><use href="#i-video"/></svg><span>영상</span></a><a class="pick" href="https://shway81-droid.github.io/jjam-word/"><svg class="icon" width="26" height="26" aria-hidden="true"><use href="#i-word"/></svg><span>낱말</span></a></span></li>
+        <li><span class="when">5분 남았을 때</span><span class="picks"><a class="pick" href="https://shway81-droid.github.io/jjam/"><svg class="icon" width="26" height="26" aria-hidden="true"><use href="#i-game"/></svg><span>게임</span></a><a class="pick" href="https://shway81-droid.github.io/jjam-quiz/"><svg class="icon" width="26" height="26" aria-hidden="true"><use href="#i-quiz"/></svg><span>퀴즈</span></a><a class="pick" href="https://shway81-droid.github.io/jjam-picturebook/"><svg class="icon" width="26" height="26" aria-hidden="true"><use href="#i-picturebook"/></svg><span>그림책</span></a></span></li>
+        <li><span class="when">10분 남았을 때</span><span class="picks"><a class="pick" href="https://shway81-droid.github.io/jjam-story/"><svg class="icon" width="26" height="26" aria-hidden="true"><use href="#i-story"/></svg><span>이야기</span></a><a class="pick" href="https://shway81-droid.github.io/jjam-draw/"><svg class="icon" width="26" height="26" aria-hidden="true"><use href="#i-draw"/></svg><span>그리기</span></a></span></li>
+      </ul>
+    </section>
   </div>
   <div class="foot">
     <div class="promise"><span>모두 무료</span><span>설치 없음</span><span>로그인 없음</span><span>전자칠판에 맞춘 큰 화면</span></div>
