@@ -47,7 +47,8 @@
    2026-10-02: 서비스워커를 두되 **네트워크 우선**으로 둔다(sw.js 머리말 참고).
    원래 두지 않은 이유가 "고쳤을 때 새로 고침 없이 바로 보이게"였는데, 네트워크 우선이면
    그 성질은 그대로이고 인터넷이 끊겼을 때만 캐시가 일한다. 일곱 칸은 각자 캐시가 있는데
-   그리로 들어가는 이 문만 없어서 더했다. */
+   그리로 들어가는 이 문만 없어서 더했다.
+   2026-11-24: 카드마다 오른쪽 아래에 '1분 사용법' 영상 단추를 더했다(시안 B '알약 단추'). */
 :root {
   --ink: #152447;
   --ink-soft: #55607A;
@@ -100,6 +101,7 @@ p { margin: 0; }
 @media (max-width: 1040px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .grid { grid-template-columns: minmax(0, 1fr); } }
 .card {
+  position: relative;
   background: var(--paper); border-radius: 22px; padding: 22px; text-decoration: none;
   display: flex; flex-direction: column; gap: 12px; box-shadow: 0 10px 30px rgba(21, 36, 71, .10);
   transition: transform .15s ease;
@@ -111,6 +113,20 @@ p { margin: 0; }
 .min { font-size: 1.05rem; font-weight: 900; padding: 4px 12px; border-radius: 999px; background: var(--tint); color: var(--ink); font-variant-numeric: tabular-nums; }
 .amt { font-size: 14px; font-weight: 600; color: var(--ink-soft); }
 .go { font-size: 14px; font-weight: 800; }
+/* 카드 전체가 '열기' 링크다. 링크 안에 링크(사용법 영상)를 넣을 수 없어서(2026-11-24),
+   카드는 그냥 상자로 두고 투명한 .card-link 를 카드 전체에 덮는다. 사용법 단추만 그 위로 올린다. */
+.card-link { position: absolute; inset: 0; border-radius: 22px; z-index: 1; }
+.card-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+/* 사이트별 1분 사용법 영상(유튜브 '짬짬이 1분사회', 새 창). 위쪽 '3~10분' 알약과 같은 모양에
+   사이트 색 재생 동그라미를 붙였다 — 전자칠판에서 누르기 쉽고 '열기'와 헷갈리지 않게. */
+.guide {
+  position: relative; z-index: 2; display: inline-flex; align-items: center; gap: 7px;
+  font-size: 13px; font-weight: 800; color: var(--ink); text-decoration: none;
+  background: var(--tint); padding: 5px 12px 5px 5px; border-radius: 999px; transition: background .15s ease;
+}
+.guide i { width: 22px; height: 22px; border-radius: 50%; background: var(--c); color: var(--c-on); display: grid; place-items: center; }
+.guide svg { display: block; margin-left: 2px; }
+.guide:hover { background: color-mix(in oklab, var(--c) 22%, var(--tint)); }
 
 /* 아래 줄 */
 .foot { padding-bottom: 56px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
@@ -132,6 +148,7 @@ p { margin: 0; }
   <symbol id="i-1min" viewBox="0 0 100 100"><rect width="100" height="100" rx="24" fill="#E8590C"/> <rect x="24" y="30" width="40" height="58" rx="8" fill="#FFFFFF"/> <rect x="30" y="38" width="28" height="42" rx="4" fill="#152447"/> <circle cx="44" cy="59" r="10.5" fill="none" stroke="#FFFFFF" stroke-width="3"/> <ellipse cx="44" cy="59" rx="4.6" ry="10.5" fill="none" stroke="#FFFFFF" stroke-width="2.6"/> <path d="M33.5 59 H54.5" fill="none" stroke="#FFFFFF" stroke-width="2.6"/> <circle cx="76" cy="24" r="14" fill="#FFFFFF"/> <path d="M76 15.5 V24.5 L82.5 28.5" fill="none" stroke="#152447" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-draw" viewBox="0 0 100 100"><rect width="100" height="100" rx="24" fill="#E4572E"/> <g> <polygon points="71.6,86.4 32.1,46.9 44.9,34.1 84.4,73.6" fill="#FFFFFF"/> <polygon points="32.1,46.9 24,26 44.9,34.1" fill="#1D3557"/> <polygon points="71.6,86.4 65.4,80.2 78.2,67.4 84.4,73.6" fill="#1D3557"/> <line x1="38.5" y1="40.5" x2="78" y2="80" stroke="#E4572E" stroke-width="2.4" opacity=".55"/> </g> <circle cx="76" cy="24" r="19" fill="#FFFFFF"/> <circle cx="76" cy="24" r="14.5" fill="none" stroke="#1D3557" stroke-width="3.5"/> <path d="M 76 24 L 76 15 M 76 24 L 83 24" stroke="#1D3557" stroke-width="3.5" stroke-linecap="round" fill="none"/></symbol>
   <symbol id="i-picturebook" viewBox="0 0 100 100"><rect width="100" height="100" rx="24" fill="#6A9A1F"/> <path d="M48 45c-10-5.5-20-5.5-31 0v38c11-5.5 21-5.5 31 0z" fill="#FFFFFF"/> <path d="M52 45c10-5.5 20-5.5 31 0v38c-11-5.5-21-5.5-31 0z" fill="#FFFFFF"/> <circle cx="27" cy="55" r="5" fill="#FFB703"/> <path d="M20 77Q31 60 45 73V77Z" fill="#6A9A1F"/> <path d="M58 56H77M58 63H77M58 70H71" stroke="#B9C99E" stroke-width="3.2" stroke-linecap="round"/> <circle cx="76" cy="24" r="14" fill="#FFFFFF"/> <path d="M76 15.5 V24.5 L82.5 28.5" fill="none" stroke="#152447" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-play" viewBox="0 0 9 10"><path d="M0 0v10l9-5z" fill="currentColor"/></symbol>
 </svg>
 
 <header class="hero">
@@ -155,62 +172,94 @@ p { margin: 0; }
 
 <main class="wrap">
   <div class="grid">
-    <a class="card" href="https://shway81-droid.github.io/jjam/">
+    <div class="card">
+      <a class="card-link" href="https://shway81-droid.github.io/jjam/" aria-label="짬짬이 게임 열기"></a>
       <svg class="icon" width="72" height="72" aria-hidden="true"><use href="#i-game"/></svg>
       <h3>짬짬이 게임</h3>
       <p class="line">전자칠판으로 즐기는 미니게임</p>
       <div class="time"><span class="min">3~10분</span><span class="amt" data-count="game">미니게임 105</span></div>
-      <span class="go" style="color:var(--ink)">열기 →</span>
-    </a>
-    <a class="card" href="https://shway81-droid.github.io/jjam-quiz/">
+      <div class="card-foot">
+        <span class="go" style="color:var(--ink)">열기 →</span>
+        <a class="guide" href="https://youtu.be/6Cc38dfHg-8" target="_blank" rel="noopener" style="--c:#FFB703;--c-on:#152447" aria-label="짬짬이 게임 1분 사용법 영상 보기(유튜브, 새 창)"><i aria-hidden="true"><svg width="9" height="10"><use href="#i-play"/></svg></i>1분 사용법</a>
+      </div>
+    </div>
+    <div class="card">
+      <a class="card-link" href="https://shway81-droid.github.io/jjam-quiz/" aria-label="짬짬이 퀴즈 열기"></a>
       <svg class="icon" width="72" height="72" aria-hidden="true"><use href="#i-quiz"/></svg>
       <h3>짬짬이 퀴즈</h3>
       <p class="line">퀴즈도 풀고, 게임도 하고</p>
       <div class="time"><span class="min">3~10분</span><span class="amt" data-count="quiz">문답 게임 101</span></div>
-      <span class="go" style="color:#12A57C">열기 →</span>
-    </a>
-    <a class="card" href="https://shway81-droid.github.io/jjam-word/">
+      <div class="card-foot">
+        <span class="go" style="color:#12A57C">열기 →</span>
+        <a class="guide" href="https://youtu.be/eZVwsBZGYNs" target="_blank" rel="noopener" style="--c:#12A57C;--c-on:#FFFFFF" aria-label="짬짬이 퀴즈 1분 사용법 영상 보기(유튜브, 새 창)"><i aria-hidden="true"><svg width="9" height="10"><use href="#i-play"/></svg></i>1분 사용법</a>
+      </div>
+    </div>
+    <div class="card">
+      <a class="card-link" href="https://shway81-droid.github.io/jjam-word/" aria-label="짬짬이 낱말 열기"></a>
       <svg class="icon" width="72" height="72" aria-hidden="true"><use href="#i-word"/></svg>
       <h3>짬짬이 낱말</h3>
       <p class="line">맞히고 외치며, 낱말은 쑥쑥</p>
       <div class="time"><span class="min">3~7분</span><span class="amt" data-count="word">문항 1,944</span></div>
-      <span class="go" style="color:#E4576E">열기 →</span>
-    </a>
-    <a class="card" href="https://shway81-droid.github.io/jjam-story/">
+      <div class="card-foot">
+        <span class="go" style="color:#E4576E">열기 →</span>
+        <a class="guide" href="https://youtu.be/puWlmmyjHrw" target="_blank" rel="noopener" style="--c:#E4576E;--c-on:#FFFFFF" aria-label="짬짬이 낱말 1분 사용법 영상 보기(유튜브, 새 창)"><i aria-hidden="true"><svg width="9" height="10"><use href="#i-play"/></svg></i>1분 사용법</a>
+      </div>
+    </div>
+    <div class="card">
+      <a class="card-link" href="https://shway81-droid.github.io/jjam-story/" aria-label="짬짬이 이야기 열기"></a>
       <svg class="icon" width="72" height="72" aria-hidden="true"><use href="#i-story"/></svg>
       <h3>짬짬이 이야기</h3>
       <p class="line">이야기 한 편에 생각이 와글와글</p>
       <div class="time"><span class="min">5~10분</span><span class="amt" data-count="story">이야기 100</span></div>
-      <span class="go" style="color:#6145B5">열기 →</span>
-    </a>
-    <a class="card" href="https://shway81-droid.github.io/jjam-video/">
+      <div class="card-foot">
+        <span class="go" style="color:#6145B5">열기 →</span>
+        <a class="guide" href="https://youtu.be/hfhuCrdKMhY" target="_blank" rel="noopener" style="--c:#6145B5;--c-on:#FFFFFF" aria-label="짬짬이 이야기 1분 사용법 영상 보기(유튜브, 새 창)"><i aria-hidden="true"><svg width="9" height="10"><use href="#i-play"/></svg></i>1분 사용법</a>
+      </div>
+    </div>
+    <div class="card">
+      <a class="card-link" href="https://shway81-droid.github.io/jjam-video/" aria-label="짬짬이 영상 열기"></a>
       <svg class="icon" width="72" height="72" aria-hidden="true"><use href="#i-video"/></svg>
       <h3>짬짬이 영상</h3>
       <p class="line">준비 없이 바로 트는 교육 영상</p>
       <div class="time"><span class="min">1~10분</span><span class="amt" data-count="video">영상 504</span></div>
-      <span class="go" style="color:#4FA8E8">열기 →</span>
-    </a>
-    <a class="card" href="https://shway81-droid.github.io/jjam-1min/">
+      <div class="card-foot">
+        <span class="go" style="color:#4FA8E8">열기 →</span>
+        <a class="guide" href="https://youtu.be/uyK4XkpIi-k" target="_blank" rel="noopener" style="--c:#4FA8E8;--c-on:#FFFFFF" aria-label="짬짬이 영상 1분 사용법 영상 보기(유튜브, 새 창)"><i aria-hidden="true"><svg width="9" height="10"><use href="#i-play"/></svg></i>1분 사용법</a>
+      </div>
+    </div>
+    <div class="card">
+      <a class="card-link" href="https://shway81-droid.github.io/jjam-1min/" aria-label="짬짬이 수업영상 열기"></a>
       <svg class="icon" width="72" height="72" aria-hidden="true"><use href="#i-1min"/></svg>
       <h3>짬짬이 수업영상</h3>
       <p class="line">차시마다, 수업에 바로 쓰는 영상</p>
       <div class="time"><span class="min">1~10분</span><span class="amt" data-count="1min">차시 영상 192</span></div>
-      <span class="go" style="color:#E8590C">열기 →</span>
-    </a>
-    <a class="card" href="https://shway81-droid.github.io/jjam-draw/">
+      <div class="card-foot">
+        <span class="go" style="color:#E8590C">열기 →</span>
+        <a class="guide" href="https://youtu.be/ADlr6mcZdGE" target="_blank" rel="noopener" style="--c:#E8590C;--c-on:#FFFFFF" aria-label="짬짬이 수업영상 1분 사용법 영상 보기(유튜브, 새 창)"><i aria-hidden="true"><svg width="9" height="10"><use href="#i-play"/></svg></i>1분 사용법</a>
+      </div>
+    </div>
+    <div class="card">
+      <a class="card-link" href="https://shway81-droid.github.io/jjam-draw/" aria-label="짬짬이 그리기 열기"></a>
       <svg class="icon" width="72" height="72" aria-hidden="true"><use href="#i-draw"/></svg>
       <h3>짬짬이 그리기</h3>
       <p class="line">화면 따라 쓱쓱, 종이 위에 짠</p>
       <div class="time"><span class="min">5~10분</span><span class="amt" data-count="draw">그림 44</span></div>
-      <span class="go" style="color:#E4572E">열기 →</span>
-    </a>
-    <a class="card" href="https://shway81-droid.github.io/jjam-picturebook/">
+      <div class="card-foot">
+        <span class="go" style="color:#E4572E">열기 →</span>
+        <a class="guide" href="https://youtu.be/93mmde_tZT4" target="_blank" rel="noopener" style="--c:#E4572E;--c-on:#FFFFFF" aria-label="짬짬이 그리기 1분 사용법 영상 보기(유튜브, 새 창)"><i aria-hidden="true"><svg width="9" height="10"><use href="#i-play"/></svg></i>1분 사용법</a>
+      </div>
+    </div>
+    <div class="card">
+      <a class="card-link" href="https://shway81-droid.github.io/jjam-picturebook/" aria-label="짬짬이 그림책 열기"></a>
       <svg class="icon" width="72" height="72" aria-hidden="true"><use href="#i-picturebook"/></svg>
       <h3>짬짬이 그림책</h3>
       <p class="line">넘기며 읽어 주는 옛이야기</p>
       <div class="time"><span class="min">3~5분</span><span class="amt" data-count="picturebook">그림책 6</span></div>
-      <span class="go" style="color:#4E7614">열기 →</span>
-    </a>
+      <div class="card-foot">
+        <span class="go" style="color:#4E7614">열기 →</span>
+        <a class="guide" href="https://youtu.be/rzgJEgzTC8g" target="_blank" rel="noopener" style="--c:#6A9A1F;--c-on:#FFFFFF" aria-label="짬짬이 그림책 1분 사용법 영상 보기(유튜브, 새 창)"><i aria-hidden="true"><svg width="9" height="10"><use href="#i-play"/></svg></i>1분 사용법</a>
+      </div>
+    </div>
   </div>
   <div class="foot">
     <div class="promise"><span>모두 무료</span><span>설치 없음</span><span>로그인 없음</span><span>전자칠판에 맞춘 큰 화면</span></div>
