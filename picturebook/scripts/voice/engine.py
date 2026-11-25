@@ -33,12 +33,16 @@ REF_TEXT = ' '.join([
 # 화면에서 고르는 목소리 — 순서가 곧 화면의 단추 순서입니다(PRD D4·F4). 책마다 둘 다 만듭니다.
 # id 는 음성 파일 폴더 이름(audio/<id>/)이자 화면이 기억하는 값입니다.
 VOICES = {
-    'vox-f': {'label': '여자 목소리', 'engine': 'voxcpm2', 'ref': 'refs/vox-f.wav', 'seed': 7},
+    'vox-f': {'label': '여자 목소리', 'engine': 'voxcpm2', 'ref': 'refs/vox-f.wav', 'seed': 7, 'title_twice': True},
     'omni-m': {'label': '남자 목소리', 'engine': 'omnivoice', 'ref': 'refs/omni-m.wav', 'seed': 23},
 }
 CREDIT = ('AI 음성 — 여자 VoxCPM2(OpenBMB), 남자 OmniVoice(Han Zhu 외, CC-BY-NC). '
           'VoiceStudio 로 만들었습니다')
 SPEED = 1.0
+# title_twice: 제목을 두 번 이어 읽혀 첫 번째만 씁니다(build.py 의 say_title).
+#   VoxCPM2 는 제목처럼 짧은 글을 0.16초 덩어리로 내다가 마지막 음절 도중에 멈춥니다 — 소리가 파일 맨 끝까지 크게 이어지다
+#   끊깁니다(2026-11-25 '브레멘 음악대'·'토끼와 거북'·'도깨비 방망이'에서 확인). seed 를 바꿔도, 마침표를 붙여도,
+#   VoiceStudio 의 duration·denoise·postprocess_output 를 바꿔도 같았습니다. 두 번 읽히면 첫 번째는 쉼 앞에서 스스로 끝납니다.
 
 
 def settings():
