@@ -11,6 +11,15 @@ home/   짬짬이 교실 모아보기 — 사이트들을 모은 첫 화면 (202
 picturebook/ 짬짬이 그림책 — 옛이야기를 넘기며 읽어 주는 그림책 (2026-11-14 발행)
 ```
 
+**`intro/` 만 사이트가 아니다 (2026-11-23).** 여덟 사이트를 보여 주는 **1분 소개 영상**의
+원본이다(Remotion). 딸깍 보결의 `video/` 와 같은 방식이고, 완성본 `jjam-classroom-intro.mp4`
+한 벌이 함께 들어 있다. **발행 워크플로의 `paths` 에 없어서 여기를 고쳐도 어떤 사이트도
+다시 발행되지 않는다** — 그러라고 따로 둔 자리다. `home/` 안에 두면 커밋 하나가 곧 모아보기
+배포가 되므로 옮기지 마라. 영상에 쓰는 화면은 그리지 않고 **저장소를 띄워 진짜 사이트를 찍고**,
+이름·한 줄·개수는 모아보기와 `sync-counts.mjs` 에서 가져온다(손으로 적지 않는다).
+자세한 것은 `intro/README.md`, 만들어지는 과정 전체는 `intro/docs/소개영상_만드는_법.md` 에 있다.
+CI 는 걸지 않았다(크로미움과 캡처가 있어야 검사가 된다).
+
 **`picturebook/` 은 2026-11-14 부터 발행한다(사용자 결정, MVP 6권으로 먼저 공개).** 발행 저장소
 `shway81-droid/jjam-picturebook`(Pages = GitHub Actions) — 첫 발행·확인 끝. 발행 신호·깨워 두기·
 바로가기(`jjam-switcher.js`)·모아보기(`home/`)까지 모두 연결했다(2026-11-14).
@@ -39,7 +48,7 @@ picturebook/ 짬짬이 그림책 — 옛이야기를 넘기며 읽어 주는 그
    (jjam-classroom `발행 신호 보내기` 수동 실행, 또는 각 저장소 발행 워크플로 Run workflow),
    여덟 사이트 sw.js 의 커밋 번호가 jjam-classroom main 과 같은지 확인한 다음 원인을 고친다.
 5. 확인 명령(아홉 사이트의 발행 버전):
-   `for r in jjam jjam-quiz jjam-video jjam-story jjam-word jjam-1min jjam-draw jjam-picturebook jjam-classroom; do curl -s https://shway81-droid.github.io/$r/sw.js | grep -oE "(CACHE(_NAME)?|VERSION) = '[^']*'"; done`
+   `for r in jjam jjam-quiz jjam-video jjam-story jjam-word jjam-1min jjam-draw jjam-picturebook jjam-classroom; do curl -sL https://shway81-droid.github.io/$r/sw.js | grep -oE "(CACHE(_NAME)?|VERSION) = '[^']*'"; done`
    — 커밋 번호 없이 `jjamquiz-v3` 같은 이름이 나오면 옛 내용이 발행된 것이다.
    **줄 수를 세라. 아홉 줄이 나와야 한다.** 어느 사이트가 `sw.js` 를 안 돌려주면 그 자리는
    **빈 줄이 아니라 아예 빠진 채** 결과가 짧아진다. `grep` 은 못 찾아도 0 으로 끝나기 때문에
@@ -52,10 +61,10 @@ picturebook/ 짬짬이 그림책 — 옛이야기를 넘기며 읽어 주는 그
 6. **`home/`(모아보기)은 서비스워커의 성격이 다르다.** 여덟 발행 사이트는 캐시 우선인데
    `home/sw.js` 는 **네트워크 우선**이다 — 원래 서비스워커를 두지 않은 이유가 "고치면 새로
    고침 없이 바로 보이게"였기 때문이다(`home/sw.js` 머리말 참고). 그래서 캐시 이름이
-   최신이어도 **화면이 실제로 뜨는지는 따로 본다.** 아래가 `200` 과 `8` 이면 정상이다(2026-11-14 그림책 카드가 더해져 여덟)
+   최신이어도 **화면이 실제로 뜨는지는 따로 본다.** 아래가 `200` 과 `7` 이면 정상이다(2026-11-14 그림책이 더해져 여덟이었다가, 2026-11-24 수업영상 카드를 빼고 그 자리에 '처음 오셨나요?' 시간별 추천 칸을 되살려 일곱)
    (프록시 뒤에서는 `-I` 의 첫 줄이 프록시 응답이라 못 믿는다. `-w '%{http_code}'` 를 쓴다):
-   `curl -s -o /dev/null -w '%{http_code}\n' https://shway81-droid.github.io/jjam-classroom/`
-   `curl -s https://shway81-droid.github.io/jjam-classroom/ | grep -c 'class="card"'`
+   `curl -s -o /dev/null -w '%{http_code}\n' https://xn--hu5b58ba.com/`
+   `curl -s https://xn--hu5b58ba.com/ | grep -c 'class="card"'`
 
 ## 폴더 안의 규칙이 우선이다
 
@@ -79,11 +88,20 @@ picturebook/ 짬짬이 그림책 — 옛이야기를 넘기며 읽어 주는 그
 | `draw/` | `shway81-droid/jjam-draw` | Pages Source = **GitHub Actions** (`publish.yml` → `actions/deploy-pages`). 2026-10-01 합류 — 예전 `pages.yml`(자기 main 발행)은 지웠다. 배포 목록은 `publish.yml` 에 적혀 있다(`tools/`·`drawings/`·`refs/`·`scripts/` 는 배포하지 않는다), sw.js 의 `VERSION` 을 커밋 번호로 |
 | `picturebook/` | `shway81-droid/jjam-picturebook` | Pages Source = **GitHub Actions** (`publish.yml` → `actions/deploy-pages`). 2026-11-14 첫 발행. `docs/`·`scripts/`·`books/*/book.json` 은 배포하지 않는다, sw.js 의 `VERSION` 을 커밋 번호로 |
 
-**`home/` 만 예외다 — 이 저장소가 직접 발행한다.** 주소 `https://shway81-droid.github.io/jjam-classroom/`,
+**`home/` 만 예외다 — 이 저장소가 직접 발행한다.** 주소 **`https://짬짬이.com/`**(퓨니코드 `xn--hu5b58ba.com`,
+2026-11-21 연결 — 도메인은 호스팅케이알, DNS 는 A 4개 185.199.108~111.153 + `www` CNAME `shway81-droid.github.io`,
+Pages Custom domain 에 등록). 옛 `https://shway81-droid.github.io/jjam-classroom/` 은 **301 로 새 주소로 넘어간다** —
+`curl -s` 로 옛 주소를 보면 빈 결과가 나오니 새 주소를 보거나 `-L` 을 붙인다.
 Pages Source = **GitHub Actions**, 워크플로 `.github/workflows/home.yml`. 저장소 전체가 아니라 `home/` 의
 `index.html`·`favicon.svg`·`og-image.png`·`assets/` 만 올린다(다른 폴더가 이 주소 아래 한 벌 더 공개되지 않게).
 `publish-dispatch.yml`·`publish-keepalive.yml` 과 무관하고 `PUBLISH_TOKEN` 도 쓰지 않는다. 서비스워커가 없어
-고치면 새로 고침 없이 바로 보인다. 확인: `curl -s https://shway81-droid.github.io/jjam-classroom/ | grep -o '<title>[^<]*'`.
+고치면 새로 고침 없이 바로 보인다. 확인: `curl -s https://xn--hu5b58ba.com/ | grep -o '<title>[^<]*'`.
+
+**구글 검색(2026-11-21).** Google Search Console 에 **도메인 속성 `짬짬이.com`** 을 만들었다(계정 shway81@gmail.com).
+인증은 호스팅케이알 DNS 의 **TXT `@` `google-site-verification=lvXp4s…`** 레코드다 — **지우면 인증이 풀린다.**
+`home/robots.txt`·`home/sitemap.xml` 을 `home.yml` 이 함께 올리고, `index.html` 에 canonical(`https://xn--hu5b58ba.com/`)과
+사이트 이름용 JSON-LD(WebSite, `짬짬이 교실`)를 넣었다. 사이트맵은 서치 콘솔에 제출해 두었다.
+**네이버(2026-11-21)**: 서치어드바이저에 `https://짬짬이.com` 등록, 소유확인은 `index.html` 의 `naver-site-verification` 메타 태그 — **지우지 마라.** 사이트맵·robots.txt 도 제출했다.
 
 주소가 저장소 이름에서 나오기 때문에(`github.io/<레포>/`) 여기서 발행하면
 선생님들의 즐겨찾기가 전부 깨진다. 그래서 배포는 아직 저쪽에 있다.
@@ -216,7 +234,10 @@ node scripts/sync-shared.mjs --check   # 어긋난 곳만 알려 준다 (CI 가 
 `game/shared/style.css` 와 `game/shared/engine.js` 는 **공통이 아니다** — 게임 전용이고
 `SHARED` 목록에 없다.
 
-바로가기에 걸린 곳은 발행 중인 여덟이다 — 게임·퀴즈·영상·이야기·낱말·1분사회·그리기(2026-10-01)·그림책(2026-11-14).
+바로가기에 걸린 곳은 일곱이다 — 게임·퀴즈·영상·이야기·낱말·그리기(2026-10-01)·그림책(2026-11-14).
+**수업영상(`1min/`, 옛 1분사회)은 2026-11-24 바로가기와 모아보기 카드에서 뺐다(사용자 요청).** 사이트 발행(jjam-1min)·
+발행 확인·깨워 두기는 그대로다 — 화면에서 링크만 뺀 것이다. 되살릴 때는 `jjam-switcher.js` 의 주석 한 벌,
+`sync-counts.mjs` 의 주석 한 줄, `home.yml`·`verify-publish.mjs` 의 `1min/data/lessons.json` 을 함께 되살린다.
 맨 끝에는 모아보기로 가는 **'전체 보기'**(`HOME`)가 붙는다. 1100px 이하에서는 자매 사이트 아이콘을 접고
 '전체 보기' 하나만 남기고, 1280px 이하에서는 아이콘의 이름만 숨긴다 — 영상·1분사회 헤더가 눌리지 않게 잡은 폭이다.
 쉼·스트레칭은 작업 중이라 넣지 않는다. 사이트를 더 걸 때는

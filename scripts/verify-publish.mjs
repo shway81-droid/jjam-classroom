@@ -38,11 +38,14 @@ const SITES = [
   { folder: 'picturebook', name: '그림책', repo: 'jjam-picturebook' },
   {
     folder: 'home', name: '모아보기', repo: 'jjam-classroom',
+    // 2026-11-21 부터 자기 도메인 짬짬이.com(퓨니코드 xn--hu5b58ba.com)으로 발행한다.
+    // 옛 github.io 주소는 301 로 넘어가므로 처음부터 새 주소를 본다.
+    base: 'https://xn--hu5b58ba.com',
     paths: [
       'home', '.github/workflows/home.yml', 'scripts/sync-counts.mjs',
       'game/games/**/game.json', 'quiz/games/**/game.json',
       'word/data/words.json', 'story/data/stories.json', 'video/data/videos.json',
-      '1min/data/lessons.json', 'draw/data/drawings.json', 'picturebook/data/books.json',
+      'draw/data/drawings.json', 'picturebook/data/books.json',
     ],
   },
 ];
@@ -61,7 +64,8 @@ const git = (...a) => execFileSync('git', a, { encoding: 'utf-8', stdio: ['ignor
 const sleep = (s) => new Promise((r) => setTimeout(r, s * 1000));
 
 async function liveVersion(site) {
-  const url = `https://${OWNER}.github.io/${site.repo}/sw.js?verify=${Date.now()}`;
+  const base = site.base || `https://${OWNER}.github.io/${site.repo}`;
+  const url = `${base}/sw.js?verify=${Date.now()}`;
   try {
     const res = await fetch(url, { cache: 'no-store', signal: AbortSignal.timeout(20_000) });
     if (!res.ok) return { error: `sw.js 를 못 받음 (HTTP ${res.status})` };

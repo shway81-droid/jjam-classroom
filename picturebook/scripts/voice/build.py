@@ -142,6 +142,32 @@ def trim(x, sr, floor=-45, pad=0.05):
     return x[a:b]
 
 
+def first_part(x, sr, floor=-40, gap=0.15, tail=0.12):
+    """첫 말소리 뒤 처음 나오는 gap 초 넘는 쉼에서 자릅니다(쉼 안쪽 tail 초까지 — 작아지는 꼬리를 남김). 쉼이 없으면 None."""
+    f = int(sr * 0.01)
+    n = len(x) // f
+    db = 20 * np.log10(np.sqrt(np.mean(x[: n * f].reshape(n, f) ** 2, axis=1)) + 1e-9)
+    loud = db > floor
+    on = np.flatnonzero(loud)
+    if not len(on):
+        return None
+    run = 0
+    for i in range(on[0], n):
+        run = run + 1 if not loud[i] else 0
+        if run * f / sr >= gap:
+            return x[: (i - run + 1) * f + int(sr * tail)]
+    return None
+
+
+def say_title(speaker, voice, text, take):
+    """제목 읽히기. title_twice 목소리는 '제목. 제목.' 으로 읽혀 첫 번째만 씁니다(engine.py 의 title_twice 설명)."""
+    if not VOICES[voice].get('title_twice'):
+        return speaker.say(voice, text, take=take)
+    wav, sr = speaker.say(voice, f'{text}. {text}.', take=take)
+    first = first_part(wav, sr)
+    return (wav if first is None else first), sr
+
+
 def longest_pause(x, sr, floor=-45):
     """문장 안에서 가장 길게 소리가 끊긴 시간(초)."""
     db, frame = frames_db(x, sr)
@@ -158,11 +184,12 @@ def synthesize(speaker, judge, voice, book):
     entry = {'pages': []}
     scores = []
 
-    def take(text):
+    def take(text, title=False):
         nonlocal sr
         best, best_r = None, -1.0
         for k in range(TAKES if judge else 1):
-            wav, got = speaker.say(voice, spoken(text), take=k)
+            say = say_title if title else (lambda s, v, t, take: s.say(v, t, take=take))
+            wav, got = say(speaker, voice, spoken(text), k)
             if sr is None:
                 sr = got
             if got != sr:
@@ -193,7 +220,7 @@ def synthesize(speaker, judge, voice, book):
         for j, text in enumerate(texts):
             if j:
                 silence(GAP)
-            wav = take(text)
+            wav = take(text, title=name == 'title')
             parts.append([round(t, 3), round(len(wav) / sr, 3)])
             chunks.append(wav)
             t += len(wav) / sr

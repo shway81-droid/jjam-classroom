@@ -1,13 +1,15 @@
 name: 모아보기 검증·발행
 
 # 짬짬이 교실 모아보기(home/)는 다른 일곱 사이트와 달리 **이 저장소가 직접 발행한다.**
-#   주소: https://shway81-droid.github.io/jjam-classroom/
+#   주소: https://짬짬이.com/ (퓨니코드 https://xn--hu5b58ba.com/, 2026-11-21 연결)
+#         옛 https://shway81-droid.github.io/jjam-classroom/ 은 새 주소로 301 넘어간다.
 #   sw.js 도 함께 올리고 캐시 이름에 커밋 번호를 박는다(2026-10-02) — 그래야
 #   CLAUDE.md 5절 확인 명령이 이 여덟 번째 사이트도 같이 판정한다.
 #
 # 카드의 개수("차시 영상 192")는 **발행 직전에 데이터에서 다시 뽑는다**
 # (scripts/sync-counts.mjs). 그래서 여덟 사이트의 데이터 파일도 아래 paths 에
-# 들어 있다 — 1분사회에 차시를 더하면 모아보기가 알아서 다시 발행돼 숫자가 따라온다.
+# 들어 있다 — 낱말에 문항을 더하면 모아보기가 알아서 다시 발행돼 숫자가 따라온다.
+# (수업영상 1min 은 2026-11-24 모아보기 카드에서 빠져 그 데이터는 보지 않는다.)
 # 손으로 적어 두었더니 1분사회는 열 시간 만에, 낱말은 처음부터 틀려 있었다.
 #   Pages Source = GitHub Actions (2026-10-01 설정). 저장소 전체가 아니라
 #   home/ 에서 고른 파일만 올린다 — 나머지 폴더(게임·퀴즈 …)가 이 주소 아래에
@@ -28,7 +30,6 @@ on:
       - 'word/data/words.json'
       - 'story/data/stories.json'
       - 'video/data/videos.json'
-      - '1min/data/lessons.json'
       - 'draw/data/drawings.json'
       - 'picturebook/data/books.json'
   push:
@@ -43,7 +44,6 @@ on:
       - 'word/data/words.json'
       - 'story/data/stories.json'
       - 'video/data/videos.json'
-      - '1min/data/lessons.json'
       - 'draw/data/drawings.json'
       - 'picturebook/data/books.json'
   workflow_dispatch:
@@ -73,11 +73,14 @@ jobs:
         run: |
           mkdir -p site
           cp home/index.html home/favicon.svg home/og-image.png home/sw.js home/manifest.json site/
+          # 구글 검색용(2026-11-21) — 짬짬이.com 뿌리에 있어야 검색 로봇이 찾는다.
+          cp home/robots.txt home/sitemap.xml site/
           cp -r home/assets site/
           test -s site/index.html
           # 홈 화면에 추가가 되려면 manifest 와 아이콘이 둘 다 올라가야 한다.
           # (아이콘은 assets/ 에 들어 있어 위 cp -r 로 따라온다.)
           test -s site/manifest.json
+          test -s site/robots.txt && test -s site/sitemap.xml
           for f in icon-192 icon-512 icon-maskable-512 apple-touch-icon; do
             test -s "site/assets/icons/$f.png" || { echo "::error::아이콘 $f.png 이 빠졌습니다"; exit 1; }
           done
