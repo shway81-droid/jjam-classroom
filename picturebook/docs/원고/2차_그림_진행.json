@@ -1,40 +1,46 @@
 {
-  "note": "2차 5권 그림 진행 기록(2026-11-14). 캔바 AI 한도(quota_cooldown·월 사용량) 때문에 사용자 결정으로 멈췄습니다. 값은 캔바 미디어 ID 입니다. 이어 그릴 때는 같은 캐릭터 시트를 imageReferences 로 넣고, 장면 설명은 2차_5권.json 의 scene, 화풍 문구는 picturebook/CLAUDE.md '화풍 고정 문구'를 씁니다. 다 모이면 1차처럼 작업 디자인에 넣고 저장(승인) → 내보내기.",
+  "note": "2차 5권 그림 진행 기록. 값은 캔바 미디어 ID 입니다. 이어 그릴 때는 같은 캐릭터 시트를 imageReferences 로 넣고, 장면 설명은 2차_5권.json 의 scene, 화풍 문구는 picturebook/CLAUDE.md '화풍 고정 문구' 를 씁니다. 다 모이면 1차처럼 작업 디자인에 넣고 저장(승인) → 내보내기. 2026-11-17: 14장을 더 그려 30장(남은 27장). 까마귀와 물병 완성, 맷돌은 p07~p09 만 남았습니다. 캔바 쿨다운이 쓸수록 길어져(5분→7분→10분 이상) 그날은 여기서 멈췄습니다. 맷돌 p06 은 임금님이 같이 탄 그림이 나와 '사람은 도둑 한 명만' 을 넣어 다시 그렸습니다 — 배 장면 프롬프트에는 그 문장을 꼭 넣습니다. salt-millstone 의 alt.cover 는 인물 둘이 배에 탄 첫 표지안이고, done.cover 가 쓰기로 한 사람 없는 표지입니다. 2026-11-17: 그린 28장(사자와 생쥐 10·까마귀와 물병 10·맷돌 8)을 캔바 작업 디자인 DAHbJ5o4Eys 로 모아 1920×1080 PNG 로 내보내고 1600×900 webp 로 books/<id>/ 에 넣었습니다. book.json 은 음성이 없어 아직 만들지 않았습니다(만들면 소리 없는 책이 서가에 공개됩니다). 2026-11-25(맥): 맷돌 p07~p09·요정과 구두장이 12장(캐릭터 시트 포함)·개와 고양이와 구슬 캐릭터 시트와 새 표지를 새 작업 디자인 DAHb4meKq-I('짬짬이 그림책 — 2차 그림 받기 (2026-11-25)', 지우지 않음)에 모아 저장(사용자 승인)·내보내고 1600×900 webp 로 books/<id>/ 에 넣었습니다. 요정과 구두장이는 화질 78 이면 2.02MB 라 76 으로 낮춰 1.87MB 입니다. 그날은 시작부터 쿨다운이 걸려 있어 표지 한 장 뒤로 한동안 거부됐습니다. 같은 날 개와 고양이와 구슬 p01~p12 를 한 장씩 7분 간격으로 그려(첫 요청 몇 번은 쿨다운 거부) 2차 5권 그림 53장을 모두 마쳤습니다. p08 은 처음 그림의 고양이가 엎드려 쥐를 덮치는 듯 보여 '앞발을 모으고 얌전히 앉아 고마워함, 쥐를 쫓지 않음'으로, p12 는 누렁개가 웃고 있어 '마당에서 귀를 늘어뜨리고 고개 숙인 머쓱한 얼굴(웃지 않음)'으로 다시 그렸습니다(사용자 요청). 처음 그림은 alt 에 있습니다. 같은 작업 디자인 DAHb4meKq-I 18~29쪽에 넣어 저장(사용자 승인)·내보냈고, 이 권은 화질 78 이면 2.27MB 라 72 로 낮춰 14장 1.96MB 입니다. 다음 할 일: 음성(vox-f·omni-m) → book.json → gen-books. 2026-11-25 오후: book.json 5개와 음성(vox-f·omni-m)까지 만들어 브랜치 기준 서가 11권입니다.",
   "books": {
     "dog-cat-bead": {
       "characterSheet": "MAHa2G0XDbo",
-      "done": {},
-      "todo": [
-        "cover",
-        "p01",
-        "p02",
-        "p03",
-        "p04",
-        "p05",
-        "p06",
-        "p07",
-        "p08",
-        "p09",
-        "p10",
-        "p11",
-        "p12"
-      ]
+      "done": {
+        "cover": "MAHb4hWUf9s",
+        "p01": "MAHb4g4Huwk",
+        "p02": "MAHb4okn1AQ",
+        "p03": "MAHb4nmgKHg",
+        "p04": "MAHb4xzu4PQ",
+        "p05": "MAHb44-gHyk",
+        "p06": "MAHb4-ILjA8",
+        "p07": "MAHb44Y8Fnk",
+        "p08": "MAHb5G0_1Ls",
+        "p09": "MAHb4-N3lcE",
+        "p10": "MAHb4-uqra4",
+        "p11": "MAHb4_KJ6A0",
+        "p12": "MAHb5J7dp5U"
+      },
+      "todo": [],
+      "alt": {
+        "p08": "MAHb4zVooW0"
+      }
     },
     "salt-millstone": {
       "characterSheet": "MAHa2LyEwhw",
-      "done": {},
-      "todo": [
-        "cover",
-        "p01",
-        "p02",
-        "p03",
-        "p04",
-        "p05",
-        "p06",
-        "p07",
-        "p08",
-        "p09"
-      ]
+      "done": {
+        "cover": "MAHbJexnGsI",
+        "p01": "MAHbJUGpTC8",
+        "p02": "MAHbJYXP6nk",
+        "p03": "MAHbJWlJ-Yw",
+        "p04": "MAHbJSlafRY",
+        "p05": "MAHbJi8ev7s",
+        "p06": "MAHbJue-0tU",
+        "p07": "MAHbN-HroQM",
+        "p08": "MAHbOCklWxY",
+        "p09": "MAHbOMUEJjs"
+      },
+      "todo": [],
+      "alt": {
+        "cover": "MAHbJb4K28c"
+      }
     },
     "lion-and-mouse": {
       "characterSheet": "MAHa2C3QSTE",
@@ -55,34 +61,33 @@
       "characterSheet": "MAHa2PmtveQ",
       "done": {
         "cover": "MAHa2C_OcdQ",
-        "p01": "MAHa2BxHGoQ"
+        "p01": "MAHa2BxHGoQ",
+        "p02": "MAHbJBMrsqw",
+        "p03": "MAHbJCXsZr0",
+        "p04": "MAHbJLdvT10",
+        "p05": "MAHbJcd2-VU",
+        "p06": "MAHbJTek3xM",
+        "p07": "MAHbJUdOdXI",
+        "p08": "MAHbJaxOq70"
       },
-      "todo": [
-        "p02",
-        "p03",
-        "p04",
-        "p05",
-        "p06",
-        "p07",
-        "p08"
-      ]
+      "todo": []
     },
     "elves-shoemaker": {
       "characterSheet": "MAHa2EB6ygw",
-      "done": {},
-      "todo": [
-        "cover",
-        "p01",
-        "p02",
-        "p03",
-        "p04",
-        "p05",
-        "p06",
-        "p07",
-        "p08",
-        "p09",
-        "p10"
-      ]
+      "done": {
+        "cover": "MAHbON2_W10",
+        "p01": "MAHbOV0gUh4",
+        "p02": "MAHbOU6qcR8",
+        "p03": "MAHbOY1aukM",
+        "p04": "MAHbOiGs_uI",
+        "p05": "MAHbOkc-uaI",
+        "p06": "MAHbOmI_X8U",
+        "p07": "MAHbOrc16Vw",
+        "p08": "MAHbO-EgrNk",
+        "p09": "MAHbOxNh4ps",
+        "p10": "MAHbPLPBr-o"
+      },
+      "todo": []
     }
   }
 }

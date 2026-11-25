@@ -170,7 +170,7 @@ cd 1min  && node scripts/check-sources.mjs   # 출처 검증 — 인터넷 필�
 cd draw  && npm test && node scripts/check-font-coverage.mjs
 ```
 
-CI 는 `.github/workflows/{game,quiz,video,story,word,1min,draw}.yml` 일곱 벌이고 각각
+CI 는 `.github/workflows/{game,quiz,video,story,word,1min,draw,picturebook}.yml` 여덟 벌이고 각각
 **경로 필터**가 걸려 있다. 필터를 지우지 마라 — 지우면 낱말 문항 하나를 고쳐도
 게임 105종 검증이 따라 돌아 커밋 하나에 수십 분이 걸린다.
 
@@ -203,7 +203,7 @@ cd game && npm run verify:browser -- --all      # 십수 분
 
 ## 공통 파일 — `game/` 한 곳에서만 고친다
 
-일곱 폴더에서 글자 하나까지 같아야 하는 파일이 다섯 개 있다.
+아홉 폴더에서 글자 하나까지 같아야 하는 파일이 다섯 개 있다.
 
 ```
 shared/jjam-switcher.js          헤더의 자매 사이트 바로가기
@@ -213,7 +213,7 @@ assets/fonts/coverage.txt
 assets/fonts/LICENSE.txt
 ```
 
-**상류는 `game/` 이다.** 여기서 고치고 아래를 돌리면 나머지 여섯이 따라온다.
+**상류는 `game/` 이다.** 여기서 고치고 아래를 돌리면 나머지 여덟이 따라온다.
 
 ```bash
 node scripts/sync-shared.mjs           # game/ 내용으로 맞춘다
@@ -222,14 +222,14 @@ node scripts/sync-shared.mjs --check   # 어긋난 곳만 알려 준다 (CI 가 
 
 `quiz/`·`video/`·`story/`·`word/`·`1min/`·`draw/`·`home/`·`picturebook/` 안의 이 다섯 파일은 **생성물이다. 손으로 고치지
 마라.** 고쳐도 CI(`공통 파일 일치 확인`)가 막고, 다음 동기화 때 덮어써진다.
-`picturebook/` 은 발행 전이지만 같은 웹폰트를 써서 동기화 대상에 넣었다(2026-11-05, 리듬 브랜치와 같은 방식).
-자매 사이트 바로가기 파일도 같이 들어가지만 그림책 화면은 그것을 불러오지 않는다(D6).
+`picturebook/` 은 2026-11-05 에 같은 웹폰트를 써서 동기화 대상에 넣었고, 2026-11-14 발행과 함께
+자매 사이트 바로가기도 그림책 화면에서 불러온다(D6).
 
 왜 한 벌로 줄이지 않았나 — 폰트와 스위처는 각 사이트가 **배포될 때 자기 루트에**
 갖고 있어야 한다. 저장소 루트에 한 벌만 두면 `game/index.html` 의
 `shared/jjam-switcher.js` 경로가 안 맞고, `../shared/` 로 바꾸면 배포된 사이트에서
 사이트 루트를 벗어나 404 가 난다. 심링크나 빌드 단계를 쓰면 되지만 이 프로젝트는
-**빌드 단계 없음**이 원칙이다. 그래서 파일은 일곱 벌로 두되 손대는 곳을 하나로 줄였다.
+**빌드 단계 없음**이 원칙이다. 그래서 파일은 아홉 벌로 두되 손대는 곳을 하나로 줄였다.
 
 `game/shared/style.css` 와 `game/shared/engine.js` 는 **공통이 아니다** — 게임 전용이고
 `SHARED` 목록에 없다.
@@ -248,7 +248,7 @@ node scripts/sync-shared.mjs --check   # 어긋난 곳만 알려 준다 (CI 가 
 주소를 카카오톡·슬랙에 붙이면 뜨는 미리보기 그림(`<사이트>/og-image.png`)이다.
 
 ```bash
-node scripts/gen-og.mjs           # favicon.svg 에서 일곱 벌을 다시 만든다
+node scripts/gen-og.mjs           # favicon.svg 에서 아홉 벌을 다시 만든다
 node scripts/gen-og.mjs --check   # 어긋났는지만 본다 (CI 가 이걸 돌린다)
 ```
 

@@ -1,6 +1,7 @@
 name: 그림책 검증
 
-# 짬짬이 그림책(picturebook/)은 아직 발행하지 않습니다(PRD D6) — 이 워크플로는 검증만 합니다.
+# 짬짬이 그림책(picturebook/)은 2026-11-14 부터 발행 중입니다(PRD D6).
+# 발행은 publish-dispatch.yml 이 맡고, 이 워크플로는 검증만 합니다.
 # 경로 필터를 지우지 마세요(루트 CLAUDE.md '검증'). 다른 사이트를 고친 커밋에서는 돌지 않습니다.
 # 작업 브랜치(feat/picturebook)는 PR 이 없어도 푸시마다 검증합니다.
 on:
