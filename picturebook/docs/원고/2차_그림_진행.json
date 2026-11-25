@@ -29,13 +29,12 @@
         "p03": "MAHbJWlJ-Yw",
         "p04": "MAHbJSlafRY",
         "p05": "MAHbJi8ev7s",
-        "p06": "MAHbJue-0tU"
+        "p06": "MAHbJue-0tU",
+        "p07": "MAHbN-HroQM",
+        "p08": "MAHbOCklWxY",
+        "p09": "MAHbOMUEJjs"
       },
-      "todo": [
-        "p07",
-        "p08",
-        "p09"
-      ],
+      "todo": [],
       "alt": {
         "cover": "MAHbJb4K28c"
       }
@@ -72,20 +71,20 @@
     },
     "elves-shoemaker": {
       "characterSheet": "MAHa2EB6ygw",
-      "done": {},
-      "todo": [
-        "cover",
-        "p01",
-        "p02",
-        "p03",
-        "p04",
-        "p05",
-        "p06",
-        "p07",
-        "p08",
-        "p09",
-        "p10"
-      ]
+      "done": {
+        "cover": "MAHbON2_W10",
+        "p01": "MAHbOV0gUh4",
+        "p02": "MAHbOU6qcR8",
+        "p03": "MAHbOY1aukM",
+        "p04": "MAHbOiGs_uI",
+        "p05": "MAHbOkc-uaI",
+        "p06": "MAHbOmI_X8U",
+        "p07": "MAHbOrc16Vw",
+        "p08": "MAHbO-EgrNk",
+        "p09": "MAHbOxNh4ps",
+        "p10": "MAHbPLPBr-o"
+      },
+      "todo": []
     }
   }
 }
